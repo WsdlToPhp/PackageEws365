@@ -14,7 +14,7 @@ use Ews\EwsClassMap;
 /**
  * Your Office 365 login, like {id}@{id}.onmicrosoft.com
  */
-define('EWS_WS_LOGIN', 'wsdltophp@wsdltophp.onmicrosoft.com');
+define('EWS_WS_LOGIN', '');
 /**
  * Your Office 365 passowrd
  */
