@@ -1,0 +1,101 @@
+<?php
+
+namespace Ews\StructType;
+
+use \WsdlToPhp\PackageBase\AbstractStructBase;
+
+/**
+ * This class stands for GetSearchableMailboxesType StructType
+ * Meta informations extracted from the WSDL
+ * - documentation: Request type for the GetSearchableMailboxes web method.
+ * @package Ews
+ * @subpackage Structs
+ * @author WsdlToPhp <contact@wsdltophp.com>
+ * @release 1.0.0
+ */
+class EwsGetSearchableMailboxesType extends EwsBaseRequestType
+{
+    /**
+     * The SearchFilter
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var string
+     */
+    public $SearchFilter;
+    /**
+     * The ExpandGroupMembership
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var boolean
+     */
+    public $ExpandGroupMembership;
+    /**
+     * Constructor method for GetSearchableMailboxesType
+     * @uses EwsGetSearchableMailboxesType::setSearchFilter()
+     * @uses EwsGetSearchableMailboxesType::setExpandGroupMembership()
+     * @param string $searchFilter
+     * @param boolean $expandGroupMembership
+     */
+    public function __construct($searchFilter = null, $expandGroupMembership = null)
+    {
+        $this
+            ->setSearchFilter($searchFilter)
+            ->setExpandGroupMembership($expandGroupMembership);
+    }
+    /**
+     * Get SearchFilter value
+     * @return string|null
+     */
+    public function getSearchFilter()
+    {
+        return $this->SearchFilter;
+    }
+    /**
+     * Set SearchFilter value
+     * @param string $searchFilter
+     * @return \Ews\StructType\EwsGetSearchableMailboxesType
+     */
+    public function setSearchFilter($searchFilter = null)
+    {
+        $this->SearchFilter = $searchFilter;
+        return $this;
+    }
+    /**
+     * Get ExpandGroupMembership value
+     * @return boolean|null
+     */
+    public function getExpandGroupMembership()
+    {
+        return $this->ExpandGroupMembership;
+    }
+    /**
+     * Set ExpandGroupMembership value
+     * @param boolean $expandGroupMembership
+     * @return \Ews\StructType\EwsGetSearchableMailboxesType
+     */
+    public function setExpandGroupMembership($expandGroupMembership = null)
+    {
+        $this->ExpandGroupMembership = $expandGroupMembership;
+        return $this;
+    }
+    /**
+     * Method called when an object has been exported with var_export() functions
+     * It allows to return an object instantiated with the values
+     * @see AbstractStructBase::__set_state()
+     * @uses AbstractStructBase::__set_state()
+     * @param array $array the exported values
+     * @return \Ews\StructType\EwsGetSearchableMailboxesType
+     */
+    public static function __set_state(array $array)
+    {
+        return parent::__set_state($array);
+    }
+    /**
+     * Method returning the class name
+     * @return string __CLASS__
+     */
+    public function __toString()
+    {
+        return __CLASS__;
+    }
+}
