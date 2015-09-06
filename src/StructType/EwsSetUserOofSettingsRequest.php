@@ -14,7 +14,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
- * @release 1.0.0
  */
 class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
 {

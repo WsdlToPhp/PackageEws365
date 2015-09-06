@@ -9,7 +9,6 @@ use \SoapClient\SoapClientBase;
  * @package Ews
  * @subpackage Services
  * @author WsdlToPhp <contact@wsdltophp.com>
- * @release 1.0.0
  */
 class EwsMove extends SoapClientBase
 {

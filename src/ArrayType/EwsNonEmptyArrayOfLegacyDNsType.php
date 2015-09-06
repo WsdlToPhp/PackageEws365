@@ -9,7 +9,6 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
  * @package Ews
  * @subpackage Arrays
  * @author WsdlToPhp <contact@wsdltophp.com>
- * @release 1.0.0
  */
 class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
 {
