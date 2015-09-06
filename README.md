@@ -3,7 +3,7 @@ This package has been generated from the [Office 365 Exchange Web Services](wsdl
 
 # Summary
 - [Generating again the package](#generating-again-the-package)
-- [How to use the generated package?](#how-to-use-the-generated-package?)
+- [How to use the generated package?](#how-to-use-the-generated-package)
     - [Install the project](#install-the-project)
     - [Learn from the tutorial](#learn-from-the-tutorial)
     - [Start from the samples](#start-from-the-samples)

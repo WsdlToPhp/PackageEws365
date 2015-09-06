@@ -9,7 +9,6 @@ namespace Ews\EnumType;
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
- * @release 1.0.0
  */
 class EwsIdFormatType
 {

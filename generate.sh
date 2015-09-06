@@ -19,7 +19,6 @@ php wsdltophp.phar generate:package \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews" \
     --addcomments="author:WsdlToPhp <contact@wsdltophp.com>" \
-    --addcomments="release:1.0.0" \
     --soapclient="\SoapClient\SoapClientBase" \
     --prefix="Ews";
 
@@ -29,7 +28,6 @@ php wsdltophp.phar generate:package \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews" \
     --addcomments="author:WsdlToPhp <contact@wsdltophp.com>" \
-    --addcomments="release:1.0.0" \
     --soapclient="\SoapClient\SoapClientBase" \
     --prefix="Ews" \
     --force;
