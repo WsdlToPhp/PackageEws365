@@ -75,7 +75,7 @@ class EwsFlaggedForActionType
      */
     public static function valueIsValid($value)
     {
-        return in_array($value, self::getValidValues(), true);
+        return ($value === null) || in_array($value, self::getValidValues(), true);
     }
     /**
      * Return allowed values
