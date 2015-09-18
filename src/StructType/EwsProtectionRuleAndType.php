@@ -141,7 +141,7 @@ class EwsProtectionRuleAndType extends AbstractStructBase
      */
     public function getTrue()
     {
-        return $this->True;
+        return $this->true;
     }
     /**
      * Set True value
@@ -150,7 +150,7 @@ class EwsProtectionRuleAndType extends AbstractStructBase
      */
     public function setTrue($true = null)
     {
-        $this->True = $true;
+        $this->true = $true;
         return $this;
     }
     /**
