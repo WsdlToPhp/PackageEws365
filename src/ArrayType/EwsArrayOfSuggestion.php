@@ -17,13 +17,13 @@ class EwsArrayOfSuggestion extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsSuggestion[]
      */
     public $Suggestion;
     /**
      * Constructor method for ArrayOfSuggestion
      * @uses EwsArrayOfSuggestion::setSuggestion()
-     * @param array $suggestion
+     * @param \Ews\StructType\EwsSuggestion[] $suggestion
      */
     public function __construct(array $suggestion = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfSuggestion extends AbstractStructArrayBase
     }
     /**
      * Get Suggestion value
-     * @return array
+     * @return \Ews\StructType\EwsSuggestion[]|null
      */
     public function getSuggestion()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfSuggestion extends AbstractStructArrayBase
     }
     /**
      * Set Suggestion value
-     * @param array $suggestion
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSuggestion[] $suggestion
      * @return \Ews\ArrayType\EwsArrayOfSuggestion
      */
     public function setSuggestion(array $suggestion = array())
     {
+        foreach ($suggestion as $arrayOfSuggestionSuggestionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSuggestionSuggestionItem instanceof \Ews\StructType\EwsSuggestion) {
+                throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of \Ews\StructType\EwsSuggestion, "%s" given', is_object($arrayOfSuggestionSuggestionItem) ? get_class($arrayOfSuggestionSuggestionItem) : gettype($arrayOfSuggestionSuggestionItem)), __LINE__);
+            }
+        }
         $this->Suggestion = $suggestion;
+        return $this;
+    }
+    /**
+     * Add item to Suggestion value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSuggestion $item
+     * @return \Ews\ArrayType\EwsArrayOfSuggestion
+     */
+    public function addToSuggestion(\Ews\StructType\EwsSuggestion $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSuggestion) {
+            throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of \Ews\StructType\EwsSuggestion, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Suggestion[] = $item;
         return $this;
     }
     /**

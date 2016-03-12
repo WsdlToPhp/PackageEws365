@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
      * The GroupIdentifier
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsSidAndAttributesType[]
      */
     public $GroupIdentifier;
     /**
      * Constructor method for NonEmptyArrayOfGroupIdentifiersType
      * @uses EwsNonEmptyArrayOfGroupIdentifiersType::setGroupIdentifier()
-     * @param array $groupIdentifier
+     * @param \Ews\StructType\EwsSidAndAttributesType[] $groupIdentifier
      */
     public function __construct(array $groupIdentifier = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
     }
     /**
      * Get GroupIdentifier value
-     * @return array
+     * @return \Ews\StructType\EwsSidAndAttributesType[]|null
      */
     public function getGroupIdentifier()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
     }
     /**
      * Set GroupIdentifier value
-     * @param array $groupIdentifier
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSidAndAttributesType[] $groupIdentifier
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
      */
     public function setGroupIdentifier(array $groupIdentifier = array())
     {
+        foreach ($groupIdentifier as $nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
+                throw new \InvalidArgumentException(sprintf('The GroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) ? get_class($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) : gettype($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem)), __LINE__);
+            }
+        }
         $this->GroupIdentifier = $groupIdentifier;
+        return $this;
+    }
+    /**
+     * Add item to GroupIdentifier value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSidAndAttributesType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
+     */
+    public function addToGroupIdentifier(\Ews\StructType\EwsSidAndAttributesType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSidAndAttributesType) {
+            throw new \InvalidArgumentException(sprintf('The GroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->GroupIdentifier[] = $item;
         return $this;
     }
     /**

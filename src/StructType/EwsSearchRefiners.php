@@ -17,22 +17,22 @@ class EwsSearchRefiners extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSearchRefinerType
+     * @var \Ews\StructType\EwsSearchRefinerType[]
      */
     public $SearchRefiner;
     /**
      * Constructor method for SearchRefiners
      * @uses EwsSearchRefiners::setSearchRefiner()
-     * @param \Ews\StructType\EwsSearchRefinerType $searchRefiner
+     * @param \Ews\StructType\EwsSearchRefinerType[] $searchRefiner
      */
-    public function __construct(\Ews\StructType\EwsSearchRefinerType $searchRefiner = null)
+    public function __construct(array $searchRefiner = array())
     {
         $this
             ->setSearchRefiner($searchRefiner);
     }
     /**
      * Get SearchRefiner value
-     * @return \Ews\StructType\EwsSearchRefinerType
+     * @return \Ews\StructType\EwsSearchRefinerType[]
      */
     public function getSearchRefiner()
     {
@@ -40,12 +40,34 @@ class EwsSearchRefiners extends AbstractStructBase
     }
     /**
      * Set SearchRefiner value
-     * @param \Ews\StructType\EwsSearchRefinerType $searchRefiner
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSearchRefinerType[] $searchRefiner
      * @return \Ews\StructType\EwsSearchRefiners
      */
-    public function setSearchRefiner(\Ews\StructType\EwsSearchRefinerType $searchRefiner = null)
+    public function setSearchRefiner(array $searchRefiner = array())
     {
+        foreach ($searchRefiner as $searchRefinersSearchRefinerItem) {
+            // validation for constraint: itemType
+            if (!$searchRefinersSearchRefinerItem instanceof \Ews\StructType\EwsSearchRefinerType) {
+                throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of \Ews\StructType\EwsSearchRefinerType, "%s" given', is_object($searchRefinersSearchRefinerItem) ? get_class($searchRefinersSearchRefinerItem) : gettype($searchRefinersSearchRefinerItem)), __LINE__);
+            }
+        }
         $this->SearchRefiner = $searchRefiner;
+        return $this;
+    }
+    /**
+     * Add item to SearchRefiner value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSearchRefinerType $item
+     * @return \Ews\StructType\EwsSearchRefiners
+     */
+    public function addToSearchRefiner(\Ews\StructType\EwsSearchRefinerType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSearchRefinerType) {
+            throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of \Ews\StructType\EwsSearchRefinerType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->SearchRefiner[] = $item;
         return $this;
     }
     /**

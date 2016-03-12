@@ -17,13 +17,13 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsInsightContextItem[]
      */
     public $Context;
     /**
      * Constructor method for ArrayOfInsightContextItem
      * @uses EwsArrayOfInsightContextItem::setContext()
-     * @param array $context
+     * @param \Ews\StructType\EwsInsightContextItem[] $context
      */
     public function __construct(array $context = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
     }
     /**
      * Get Context value
-     * @return array
+     * @return \Ews\StructType\EwsInsightContextItem[]|null
      */
     public function getContext()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
     }
     /**
      * Set Context value
-     * @param array $context
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInsightContextItem[] $context
      * @return \Ews\ArrayType\EwsArrayOfInsightContextItem
      */
     public function setContext(array $context = array())
     {
+        foreach ($context as $arrayOfInsightContextItemContextItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfInsightContextItemContextItem instanceof \Ews\StructType\EwsInsightContextItem) {
+                throw new \InvalidArgumentException(sprintf('The Context property can only contain items of \Ews\StructType\EwsInsightContextItem, "%s" given', is_object($arrayOfInsightContextItemContextItem) ? get_class($arrayOfInsightContextItemContextItem) : gettype($arrayOfInsightContextItemContextItem)), __LINE__);
+            }
+        }
         $this->Context = $context;
+        return $this;
+    }
+    /**
+     * Add item to Context value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInsightContextItem $item
+     * @return \Ews\ArrayType\EwsArrayOfInsightContextItem
+     */
+    public function addToContext(\Ews\StructType\EwsInsightContextItem $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsInsightContextItem) {
+            throw new \InvalidArgumentException(sprintf('The Context property can only contain items of \Ews\StructType\EwsInsightContextItem, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Context[] = $item;
         return $this;
     }
     /**

@@ -44,70 +44,70 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      * The EditAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $EditAllowed;
     /**
      * The ReplyAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ReplyAllowed;
     /**
      * The ReplyAllAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ReplyAllAllowed;
     /**
      * The ForwardAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ForwardAllowed;
     /**
      * The ModifyRecipientsAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ModifyRecipientsAllowed;
     /**
      * The ExtractAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExtractAllowed;
     /**
      * The PrintAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $PrintAllowed;
     /**
      * The ExportAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExportAllowed;
     /**
      * The ProgrammaticAccessAllowed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ProgrammaticAccessAllowed;
     /**
      * The IsOwner
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOwner;
     /**
@@ -147,16 +147,16 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      * @param string $rmsTemplateId
      * @param string $templateName
      * @param string $templateDescription
-     * @param boolean $editAllowed
-     * @param boolean $replyAllowed
-     * @param boolean $replyAllAllowed
-     * @param boolean $forwardAllowed
-     * @param boolean $modifyRecipientsAllowed
-     * @param boolean $extractAllowed
-     * @param boolean $printAllowed
-     * @param boolean $exportAllowed
-     * @param boolean $programmaticAccessAllowed
-     * @param boolean $isOwner
+     * @param bool $editAllowed
+     * @param bool $replyAllowed
+     * @param bool $replyAllAllowed
+     * @param bool $forwardAllowed
+     * @param bool $modifyRecipientsAllowed
+     * @param bool $extractAllowed
+     * @param bool $printAllowed
+     * @param bool $exportAllowed
+     * @param bool $programmaticAccessAllowed
+     * @param bool $isOwner
      * @param string $contentOwner
      * @param string $contentExpiryDate
      */
@@ -195,6 +195,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setRightsManagedMessageDecryptionStatus($rightsManagedMessageDecryptionStatus = null)
     {
+        // validation for constraint: int
+        if (!is_null($rightsManagedMessageDecryptionStatus) && !is_int($rightsManagedMessageDecryptionStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($rightsManagedMessageDecryptionStatus)), __LINE__);
+        }
         $this->RightsManagedMessageDecryptionStatus = $rightsManagedMessageDecryptionStatus;
         return $this;
     }
@@ -213,6 +217,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setRmsTemplateId($rmsTemplateId = null)
     {
+        // validation for constraint: string
+        if (!is_null($rmsTemplateId) && !is_string($rmsTemplateId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rmsTemplateId)), __LINE__);
+        }
         $this->RmsTemplateId = $rmsTemplateId;
         return $this;
     }
@@ -231,6 +239,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setTemplateName($templateName = null)
     {
+        // validation for constraint: string
+        if (!is_null($templateName) && !is_string($templateName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($templateName)), __LINE__);
+        }
         $this->TemplateName = $templateName;
         return $this;
     }
@@ -249,12 +261,16 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setTemplateDescription($templateDescription = null)
     {
+        // validation for constraint: string
+        if (!is_null($templateDescription) && !is_string($templateDescription)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($templateDescription)), __LINE__);
+        }
         $this->TemplateDescription = $templateDescription;
         return $this;
     }
     /**
      * Get EditAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getEditAllowed()
     {
@@ -262,7 +278,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set EditAllowed value
-     * @param boolean $editAllowed
+     * @param bool $editAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setEditAllowed($editAllowed = null)
@@ -272,7 +288,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ReplyAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReplyAllowed()
     {
@@ -280,7 +296,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ReplyAllowed value
-     * @param boolean $replyAllowed
+     * @param bool $replyAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setReplyAllowed($replyAllowed = null)
@@ -290,7 +306,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ReplyAllAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReplyAllAllowed()
     {
@@ -298,7 +314,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ReplyAllAllowed value
-     * @param boolean $replyAllAllowed
+     * @param bool $replyAllAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setReplyAllAllowed($replyAllAllowed = null)
@@ -308,7 +324,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ForwardAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getForwardAllowed()
     {
@@ -316,7 +332,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ForwardAllowed value
-     * @param boolean $forwardAllowed
+     * @param bool $forwardAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setForwardAllowed($forwardAllowed = null)
@@ -326,7 +342,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ModifyRecipientsAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getModifyRecipientsAllowed()
     {
@@ -334,7 +350,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ModifyRecipientsAllowed value
-     * @param boolean $modifyRecipientsAllowed
+     * @param bool $modifyRecipientsAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setModifyRecipientsAllowed($modifyRecipientsAllowed = null)
@@ -344,7 +360,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ExtractAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExtractAllowed()
     {
@@ -352,7 +368,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ExtractAllowed value
-     * @param boolean $extractAllowed
+     * @param bool $extractAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setExtractAllowed($extractAllowed = null)
@@ -362,7 +378,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get PrintAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getPrintAllowed()
     {
@@ -370,7 +386,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set PrintAllowed value
-     * @param boolean $printAllowed
+     * @param bool $printAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setPrintAllowed($printAllowed = null)
@@ -380,7 +396,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ExportAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExportAllowed()
     {
@@ -388,7 +404,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ExportAllowed value
-     * @param boolean $exportAllowed
+     * @param bool $exportAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setExportAllowed($exportAllowed = null)
@@ -398,7 +414,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get ProgrammaticAccessAllowed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getProgrammaticAccessAllowed()
     {
@@ -406,7 +422,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set ProgrammaticAccessAllowed value
-     * @param boolean $programmaticAccessAllowed
+     * @param bool $programmaticAccessAllowed
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setProgrammaticAccessAllowed($programmaticAccessAllowed = null)
@@ -416,7 +432,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Get IsOwner value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOwner()
     {
@@ -424,7 +440,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     }
     /**
      * Set IsOwner value
-     * @param boolean $isOwner
+     * @param bool $isOwner
      * @return \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public function setIsOwner($isOwner = null)
@@ -447,6 +463,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setContentOwner($contentOwner = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentOwner) && !is_string($contentOwner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentOwner)), __LINE__);
+        }
         $this->ContentOwner = $contentOwner;
         return $this;
     }
@@ -465,6 +485,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setContentExpiryDate($contentExpiryDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentExpiryDate) && !is_string($contentExpiryDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentExpiryDate)), __LINE__);
+        }
         $this->ContentExpiryDate = $contentExpiryDate;
         return $this;
     }

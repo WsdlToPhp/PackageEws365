@@ -17,7 +17,7 @@ class EwsSearchResultsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $MoreResultsAvailable;
     /**
@@ -104,7 +104,7 @@ class EwsSearchResultsType extends AbstractStructBase
      * @uses EwsSearchResultsType::setSearchResultsCount()
      * @uses EwsSearchResultsType::setTotalResultsCount()
      * @uses EwsSearchResultsType::setSearchTerms()
-     * @param boolean $moreResultsAvailable
+     * @param bool $moreResultsAvailable
      * @param int $refinerTelemetryBatchId
      * @param \Ews\StructType\EwsItems $items
      * @param \Ews\StructType\EwsConversations $conversations
@@ -131,7 +131,7 @@ class EwsSearchResultsType extends AbstractStructBase
     }
     /**
      * Get MoreResultsAvailable value
-     * @return boolean
+     * @return bool
      */
     public function getMoreResultsAvailable()
     {
@@ -139,7 +139,7 @@ class EwsSearchResultsType extends AbstractStructBase
     }
     /**
      * Set MoreResultsAvailable value
-     * @param boolean $moreResultsAvailable
+     * @param bool $moreResultsAvailable
      * @return \Ews\StructType\EwsSearchResultsType
      */
     public function setMoreResultsAvailable($moreResultsAvailable = null)
@@ -162,6 +162,10 @@ class EwsSearchResultsType extends AbstractStructBase
      */
     public function setRefinerTelemetryBatchId($refinerTelemetryBatchId = null)
     {
+        // validation for constraint: int
+        if (!is_null($refinerTelemetryBatchId) && !is_int($refinerTelemetryBatchId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($refinerTelemetryBatchId)), __LINE__);
+        }
         $this->RefinerTelemetryBatchId = $refinerTelemetryBatchId;
         return $this;
     }
@@ -270,6 +274,10 @@ class EwsSearchResultsType extends AbstractStructBase
      */
     public function setSearchResultsCount($searchResultsCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($searchResultsCount) && !is_int($searchResultsCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchResultsCount)), __LINE__);
+        }
         $this->SearchResultsCount = $searchResultsCount;
         return $this;
     }
@@ -288,6 +296,10 @@ class EwsSearchResultsType extends AbstractStructBase
      */
     public function setTotalResultsCount($totalResultsCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalResultsCount) && !is_int($totalResultsCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalResultsCount)), __LINE__);
+        }
         $this->TotalResultsCount = $totalResultsCount;
         return $this;
     }

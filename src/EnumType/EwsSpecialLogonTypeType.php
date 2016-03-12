@@ -21,7 +21,7 @@ class EwsSpecialLogonTypeType
      * Constant for value 'SystemService'
      * @return string 'SystemService'
      */
-    const VALUE_SYSTEMSERVICE = 'SystemService';
+    const VALUE_SYSTEM_SERVICE = 'SystemService';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -35,14 +35,14 @@ class EwsSpecialLogonTypeType
     /**
      * Return allowed values
      * @uses self::VALUE_ADMIN
-     * @uses self::VALUE_SYSTEMSERVICE
+     * @uses self::VALUE_SYSTEM_SERVICE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_ADMIN,
-            self::VALUE_SYSTEMSERVICE,
+            self::VALUE_SYSTEM_SERVICE,
         );
     }
     /**

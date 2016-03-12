@@ -35,7 +35,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $ItemCount;
     /**
@@ -43,7 +43,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $Size;
     /**
@@ -54,8 +54,8 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * @uses EwsMailboxStatisticsItemType::setSize()
      * @param string $mailboxId
      * @param string $displayName
-     * @param long $itemCount
-     * @param long $size
+     * @param int $itemCount
+     * @param int $size
      */
     public function __construct($mailboxId = null, $displayName = null, $itemCount = null, $size = null)
     {
@@ -80,6 +80,10 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      */
     public function setMailboxId($mailboxId = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxId) && !is_string($mailboxId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxId)), __LINE__);
+        }
         $this->MailboxId = $mailboxId;
         return $this;
     }
@@ -98,12 +102,16 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
     /**
      * Get ItemCount value
-     * @return long
+     * @return int
      */
     public function getItemCount()
     {
@@ -111,17 +119,21 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
     }
     /**
      * Set ItemCount value
-     * @param long $itemCount
+     * @param int $itemCount
      * @return \Ews\StructType\EwsMailboxStatisticsItemType
      */
     public function setItemCount($itemCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($itemCount) && !is_int($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        }
         $this->ItemCount = $itemCount;
         return $this;
     }
     /**
      * Get Size value
-     * @return long
+     * @return int
      */
     public function getSize()
     {
@@ -129,11 +141,15 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
     }
     /**
      * Set Size value
-     * @param long $size
+     * @param int $size
      * @return \Ews\StructType\EwsMailboxStatisticsItemType
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }

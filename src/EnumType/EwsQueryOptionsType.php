@@ -34,22 +34,22 @@ class EwsQueryOptionsType
      * Constant for value 'SearchTerms'
      * @return string 'SearchTerms'
      */
-    const VALUE_SEARCHTERMS = 'SearchTerms';
+    const VALUE_SEARCH_TERMS = 'SearchTerms';
     /**
      * Constant for value 'ExplicitSearch'
      * @return string 'ExplicitSearch'
      */
-    const VALUE_EXPLICITSEARCH = 'ExplicitSearch';
+    const VALUE_EXPLICIT_SEARCH = 'ExplicitSearch';
     /**
      * Constant for value 'SuggestionsPrimer'
      * @return string 'SuggestionsPrimer'
      */
-    const VALUE_SUGGESTIONSPRIMER = 'SuggestionsPrimer';
+    const VALUE_SUGGESTIONS_PRIMER = 'SuggestionsPrimer';
     /**
      * Constant for value 'AllowFuzzing'
      * @return string 'AllowFuzzing'
      */
-    const VALUE_ALLOWFUZZING = 'AllowFuzzing';
+    const VALUE_ALLOW_FUZZING = 'AllowFuzzing';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -66,10 +66,10 @@ class EwsQueryOptionsType
      * @uses self::VALUE_SUGGESTIONS
      * @uses self::VALUE_RESULTS
      * @uses self::VALUE_REFINERS
-     * @uses self::VALUE_SEARCHTERMS
-     * @uses self::VALUE_EXPLICITSEARCH
-     * @uses self::VALUE_SUGGESTIONSPRIMER
-     * @uses self::VALUE_ALLOWFUZZING
+     * @uses self::VALUE_SEARCH_TERMS
+     * @uses self::VALUE_EXPLICIT_SEARCH
+     * @uses self::VALUE_SUGGESTIONS_PRIMER
+     * @uses self::VALUE_ALLOW_FUZZING
      * @return string[]
      */
     public static function getValidValues()
@@ -79,10 +79,10 @@ class EwsQueryOptionsType
             self::VALUE_SUGGESTIONS,
             self::VALUE_RESULTS,
             self::VALUE_REFINERS,
-            self::VALUE_SEARCHTERMS,
-            self::VALUE_EXPLICITSEARCH,
-            self::VALUE_SUGGESTIONSPRIMER,
-            self::VALUE_ALLOWFUZZING,
+            self::VALUE_SEARCH_TERMS,
+            self::VALUE_EXPLICIT_SEARCH,
+            self::VALUE_SUGGESTIONS_PRIMER,
+            self::VALUE_ALLOW_FUZZING,
         );
     }
     /**

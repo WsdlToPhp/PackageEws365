@@ -16,14 +16,14 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
      * The Start
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The End
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
@@ -62,8 +62,8 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
      * @uses EwsMeetingCancellationMessageType::setRecurrence()
      * @uses EwsMeetingCancellationMessageType::setCalendarItemType()
      * @uses EwsMeetingCancellationMessageType::setEnhancedLocation()
-     * @param dateTime $start
-     * @param dateTime $end
+     * @param string $start
+     * @param string $end
      * @param string $location
      * @param \Ews\StructType\EwsRecurrenceType $recurrence
      * @param string $calendarItemType
@@ -81,7 +81,7 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -89,17 +89,21 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsMeetingCancellationMessageType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -107,11 +111,15 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsMeetingCancellationMessageType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }
@@ -130,6 +138,10 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
@@ -166,6 +178,10 @@ class EwsMeetingCancellationMessageType extends EwsMeetingMessageType
      */
     public function setCalendarItemType($calendarItemType = null)
     {
+        // validation for constraint: string
+        if (!is_null($calendarItemType) && !is_string($calendarItemType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarItemType)), __LINE__);
+        }
         $this->CalendarItemType = $calendarItemType;
         return $this;
     }

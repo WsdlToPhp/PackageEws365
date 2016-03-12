@@ -18,7 +18,6 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The SearchQueries
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * - documentation: Array of query and mailboxes.
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
     public $SearchQueries;
@@ -33,14 +32,14 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The ItemCount
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $ItemCount;
     /**
      * The Size
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $Size;
     /**
@@ -54,14 +53,13 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The PageItemSize
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $PageItemSize;
     /**
      * The KeywordStats
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of keyword statistics result.
      * @var \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType
      */
     public $KeywordStats;
@@ -69,7 +67,6 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The Items
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of search preview item.
      * @var \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
      */
     public $Items;
@@ -77,7 +74,6 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The FailedMailboxes
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of failed mailbox and error message.
      * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
     public $FailedMailboxes;
@@ -85,7 +81,6 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The Refiners
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of search refiner item.
      * @var \Ews\ArrayType\EwsArrayOfSearchRefinerItemsType
      */
     public $Refiners;
@@ -93,7 +88,6 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * The MailboxStats
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of mailbox statistics item.
      * @var \Ews\ArrayType\EwsArrayOfMailboxStatisticsItemsType
      */
     public $MailboxStats;
@@ -112,10 +106,10 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * @uses EwsSearchMailboxesResultType::setMailboxStats()
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType $searchQueries
      * @param string $resultType
-     * @param long $itemCount
-     * @param long $size
+     * @param int $itemCount
+     * @param int $size
      * @param int $pageItemCount
-     * @param long $pageItemSize
+     * @param int $pageItemSize
      * @param \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType $keywordStats
      * @param \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType $items
      * @param \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
@@ -167,11 +161,13 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      * Set ResultType value
      * @uses \Ews\EnumType\EwsSearchResultType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchResultType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $resultType
      * @return \Ews\StructType\EwsSearchMailboxesResultType
      */
     public function setResultType($resultType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultType::valueIsValid($resultType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
         }
@@ -180,7 +176,7 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     }
     /**
      * Get ItemCount value
-     * @return long
+     * @return int
      */
     public function getItemCount()
     {
@@ -188,17 +184,21 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     }
     /**
      * Set ItemCount value
-     * @param long $itemCount
+     * @param int $itemCount
      * @return \Ews\StructType\EwsSearchMailboxesResultType
      */
     public function setItemCount($itemCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($itemCount) && !is_int($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        }
         $this->ItemCount = $itemCount;
         return $this;
     }
     /**
      * Get Size value
-     * @return long
+     * @return int
      */
     public function getSize()
     {
@@ -206,11 +206,15 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     }
     /**
      * Set Size value
-     * @param long $size
+     * @param int $size
      * @return \Ews\StructType\EwsSearchMailboxesResultType
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }
@@ -229,12 +233,16 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
      */
     public function setPageItemCount($pageItemCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($pageItemCount) && !is_int($pageItemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageItemCount)), __LINE__);
+        }
         $this->PageItemCount = $pageItemCount;
         return $this;
     }
     /**
      * Get PageItemSize value
-     * @return long
+     * @return int
      */
     public function getPageItemSize()
     {
@@ -242,11 +250,15 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     }
     /**
      * Set PageItemSize value
-     * @param long $pageItemSize
+     * @param int $pageItemSize
      * @return \Ews\StructType\EwsSearchMailboxesResultType
      */
     public function setPageItemSize($pageItemSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($pageItemSize) && !is_int($pageItemSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageItemSize)), __LINE__);
+        }
         $this->PageItemSize = $pageItemSize;
         return $this;
     }

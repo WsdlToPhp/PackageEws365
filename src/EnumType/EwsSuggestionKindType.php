@@ -34,12 +34,12 @@ class EwsSuggestionKindType
      * Constant for value 'QueryHistory'
      * @return string 'QueryHistory'
      */
-    const VALUE_QUERYHISTORY = 'QueryHistory';
+    const VALUE_QUERY_HISTORY = 'QueryHistory';
     /**
      * Constant for value 'OneDriveQueryHistory'
      * @return string 'OneDriveQueryHistory'
      */
-    const VALUE_ONEDRIVEQUERYHISTORY = 'OneDriveQueryHistory';
+    const VALUE_ONE_DRIVE_QUERY_HISTORY = 'OneDriveQueryHistory';
     /**
      * Constant for value 'All'
      * @return string 'All'
@@ -61,8 +61,8 @@ class EwsSuggestionKindType
      * @uses self::VALUE_KEYWORDS
      * @uses self::VALUE_PEOPLE
      * @uses self::VALUE_HASHTAGS
-     * @uses self::VALUE_QUERYHISTORY
-     * @uses self::VALUE_ONEDRIVEQUERYHISTORY
+     * @uses self::VALUE_QUERY_HISTORY
+     * @uses self::VALUE_ONE_DRIVE_QUERY_HISTORY
      * @uses self::VALUE_ALL
      * @return string[]
      */
@@ -73,8 +73,8 @@ class EwsSuggestionKindType
             self::VALUE_KEYWORDS,
             self::VALUE_PEOPLE,
             self::VALUE_HASHTAGS,
-            self::VALUE_QUERYHISTORY,
-            self::VALUE_ONEDRIVEQUERYHISTORY,
+            self::VALUE_QUERY_HISTORY,
+            self::VALUE_ONE_DRIVE_QUERY_HISTORY,
             self::VALUE_ALL,
         );
     }

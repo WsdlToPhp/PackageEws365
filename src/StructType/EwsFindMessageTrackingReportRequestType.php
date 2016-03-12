@@ -30,7 +30,6 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * The Sender
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Sender;
@@ -38,7 +37,6 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * The PurportedSender
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $PurportedSender;
@@ -46,7 +44,6 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * The Recipient
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Recipient;
@@ -61,14 +58,14 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * The StartDateTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartDateTime;
     /**
      * The EndDateTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndDateTime;
     /**
@@ -83,7 +80,6 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * The FederatedDeliveryMailbox
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $FederatedDeliveryMailbox;
@@ -129,8 +125,8 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * @param \Ews\StructType\EwsEmailAddressType $purportedSender
      * @param \Ews\StructType\EwsEmailAddressType $recipient
      * @param string $subject
-     * @param dateTime $startDateTime
-     * @param dateTime $endDateTime
+     * @param string $startDateTime
+     * @param string $endDateTime
      * @param string $messageId
      * @param \Ews\StructType\EwsEmailAddressType $federatedDeliveryMailbox
      * @param string $diagnosticsLevel
@@ -169,6 +165,14 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setScope($scope = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(scope) && strlen(scope) < 1) || (is_array(scope) && count(scope) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($scope) && !is_string($scope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scope)), __LINE__);
+        }
         $this->Scope = $scope;
         return $this;
     }
@@ -187,6 +191,14 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setDomain($domain = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(domain) && strlen(domain) < 1) || (is_array(domain) && count(domain) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($domain) && !is_string($domain)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($domain)), __LINE__);
+        }
         $this->Domain = $domain;
         return $this;
     }
@@ -259,12 +271,16 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
     /**
      * Get StartDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartDateTime()
     {
@@ -272,17 +288,21 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
     }
     /**
      * Set StartDateTime value
-     * @param dateTime $startDateTime
+     * @param string $startDateTime
      * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
      */
     public function setStartDateTime($startDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startDateTime) && !is_string($startDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDateTime)), __LINE__);
+        }
         $this->StartDateTime = $startDateTime;
         return $this;
     }
     /**
      * Get EndDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndDateTime()
     {
@@ -290,11 +310,15 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
     }
     /**
      * Set EndDateTime value
-     * @param dateTime $endDateTime
+     * @param string $endDateTime
      * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
      */
     public function setEndDateTime($endDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endDateTime) && !is_string($endDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDateTime)), __LINE__);
+        }
         $this->EndDateTime = $endDateTime;
         return $this;
     }
@@ -313,6 +337,14 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setMessageId($messageId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(messageId) && strlen(messageId) < 1) || (is_array(messageId) && count(messageId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($messageId) && !is_string($messageId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageId)), __LINE__);
+        }
         $this->MessageId = $messageId;
         return $this;
     }
@@ -349,6 +381,10 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setDiagnosticsLevel($diagnosticsLevel = null)
     {
+        // validation for constraint: string
+        if (!is_null($diagnosticsLevel) && !is_string($diagnosticsLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($diagnosticsLevel)), __LINE__);
+        }
         $this->DiagnosticsLevel = $diagnosticsLevel;
         return $this;
     }
@@ -367,6 +403,10 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setServerHint($serverHint = null)
     {
+        // validation for constraint: string
+        if (!is_null($serverHint) && !is_string($serverHint)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serverHint)), __LINE__);
+        }
         $this->ServerHint = $serverHint;
         return $this;
     }

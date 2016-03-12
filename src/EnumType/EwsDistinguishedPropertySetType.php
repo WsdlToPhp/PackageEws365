@@ -31,7 +31,7 @@ class EwsDistinguishedPropertySetType
      * Constant for value 'PublicStrings'
      * @return string 'PublicStrings'
      */
-    const VALUE_PUBLICSTRINGS = 'PublicStrings';
+    const VALUE_PUBLIC_STRINGS = 'PublicStrings';
     /**
      * Constant for value 'Address'
      * @return string 'Address'
@@ -41,17 +41,17 @@ class EwsDistinguishedPropertySetType
      * Constant for value 'InternetHeaders'
      * @return string 'InternetHeaders'
      */
-    const VALUE_INTERNETHEADERS = 'InternetHeaders';
+    const VALUE_INTERNET_HEADERS = 'InternetHeaders';
     /**
      * Constant for value 'CalendarAssistant'
      * @return string 'CalendarAssistant'
      */
-    const VALUE_CALENDARASSISTANT = 'CalendarAssistant';
+    const VALUE_CALENDAR_ASSISTANT = 'CalendarAssistant';
     /**
      * Constant for value 'UnifiedMessaging'
      * @return string 'UnifiedMessaging'
      */
-    const VALUE_UNIFIEDMESSAGING = 'UnifiedMessaging';
+    const VALUE_UNIFIED_MESSAGING = 'UnifiedMessaging';
     /**
      * Constant for value 'Task'
      * @return string 'Task'
@@ -77,11 +77,11 @@ class EwsDistinguishedPropertySetType
      * @uses self::VALUE_MEETING
      * @uses self::VALUE_APPOINTMENT
      * @uses self::VALUE_COMMON
-     * @uses self::VALUE_PUBLICSTRINGS
+     * @uses self::VALUE_PUBLIC_STRINGS
      * @uses self::VALUE_ADDRESS
-     * @uses self::VALUE_INTERNETHEADERS
-     * @uses self::VALUE_CALENDARASSISTANT
-     * @uses self::VALUE_UNIFIEDMESSAGING
+     * @uses self::VALUE_INTERNET_HEADERS
+     * @uses self::VALUE_CALENDAR_ASSISTANT
+     * @uses self::VALUE_UNIFIED_MESSAGING
      * @uses self::VALUE_TASK
      * @uses self::VALUE_SHARING
      * @return string[]
@@ -92,11 +92,11 @@ class EwsDistinguishedPropertySetType
             self::VALUE_MEETING,
             self::VALUE_APPOINTMENT,
             self::VALUE_COMMON,
-            self::VALUE_PUBLICSTRINGS,
+            self::VALUE_PUBLIC_STRINGS,
             self::VALUE_ADDRESS,
-            self::VALUE_INTERNETHEADERS,
-            self::VALUE_CALENDARASSISTANT,
-            self::VALUE_UNIFIEDMESSAGING,
+            self::VALUE_INTERNET_HEADERS,
+            self::VALUE_CALENDAR_ASSISTANT,
+            self::VALUE_UNIFIED_MESSAGING,
             self::VALUE_TASK,
             self::VALUE_SHARING,
         );

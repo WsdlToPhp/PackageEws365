@@ -33,7 +33,7 @@ class EwsDelegateUserType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ReceiveCopiesOfMeetingMessages;
     /**
@@ -41,7 +41,7 @@ class EwsDelegateUserType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ViewPrivateItems;
     /**
@@ -52,8 +52,8 @@ class EwsDelegateUserType extends AbstractStructBase
      * @uses EwsDelegateUserType::setViewPrivateItems()
      * @param \Ews\StructType\EwsUserIdType $userId
      * @param \Ews\StructType\EwsDelegatePermissionsType $delegatePermissions
-     * @param boolean $receiveCopiesOfMeetingMessages
-     * @param boolean $viewPrivateItems
+     * @param bool $receiveCopiesOfMeetingMessages
+     * @param bool $viewPrivateItems
      */
     public function __construct(\Ews\StructType\EwsUserIdType $userId = null, \Ews\StructType\EwsDelegatePermissionsType $delegatePermissions = null, $receiveCopiesOfMeetingMessages = null, $viewPrivateItems = null)
     {
@@ -101,7 +101,7 @@ class EwsDelegateUserType extends AbstractStructBase
     }
     /**
      * Get ReceiveCopiesOfMeetingMessages value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReceiveCopiesOfMeetingMessages()
     {
@@ -109,7 +109,7 @@ class EwsDelegateUserType extends AbstractStructBase
     }
     /**
      * Set ReceiveCopiesOfMeetingMessages value
-     * @param boolean $receiveCopiesOfMeetingMessages
+     * @param bool $receiveCopiesOfMeetingMessages
      * @return \Ews\StructType\EwsDelegateUserType
      */
     public function setReceiveCopiesOfMeetingMessages($receiveCopiesOfMeetingMessages = null)
@@ -119,7 +119,7 @@ class EwsDelegateUserType extends AbstractStructBase
     }
     /**
      * Get ViewPrivateItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getViewPrivateItems()
     {
@@ -127,7 +127,7 @@ class EwsDelegateUserType extends AbstractStructBase
     }
     /**
      * Set ViewPrivateItems value
-     * @param boolean $viewPrivateItems
+     * @param bool $viewPrivateItems
      * @return \Ews\StructType\EwsDelegateUserType
      */
     public function setViewPrivateItems($viewPrivateItems = null)

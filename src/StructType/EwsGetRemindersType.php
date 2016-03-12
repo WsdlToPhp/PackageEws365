@@ -17,7 +17,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $BeginTime;
     /**
@@ -25,7 +25,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
@@ -33,6 +33,8 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
+     * - maxInclusive: 200
+     * - minInclusive: 0
      * @var int
      */
     public $MaxItems;
@@ -50,8 +52,8 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * @uses EwsGetRemindersType::setEndTime()
      * @uses EwsGetRemindersType::setMaxItems()
      * @uses EwsGetRemindersType::setReminderType()
-     * @param dateTime $beginTime
-     * @param dateTime $endTime
+     * @param string $beginTime
+     * @param string $endTime
      * @param int $maxItems
      * @param string $reminderType
      */
@@ -65,7 +67,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
     }
     /**
      * Get BeginTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getBeginTime()
     {
@@ -73,17 +75,21 @@ class EwsGetRemindersType extends EwsBaseRequestType
     }
     /**
      * Set BeginTime value
-     * @param dateTime $beginTime
+     * @param string $beginTime
      * @return \Ews\StructType\EwsGetRemindersType
      */
     public function setBeginTime($beginTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($beginTime) && !is_string($beginTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($beginTime)), __LINE__);
+        }
         $this->BeginTime = $beginTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndTime()
     {
@@ -91,11 +97,15 @@ class EwsGetRemindersType extends EwsBaseRequestType
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsGetRemindersType
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }
@@ -114,6 +124,10 @@ class EwsGetRemindersType extends EwsBaseRequestType
      */
     public function setMaxItems($maxItems = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxItems) && !is_int($maxItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxItems)), __LINE__);
+        }
         $this->MaxItems = $maxItems;
         return $this;
     }
@@ -129,11 +143,13 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * Set ReminderType value
      * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
      * @uses \Ews\EnumType\EwsReminderType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $reminderType
      * @return \Ews\StructType\EwsGetRemindersType
      */
     public function setReminderType($reminderType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsReminderType::valueIsValid($reminderType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $reminderType, implode(', ', \Ews\EnumType\EwsReminderType::getValidValues())), __LINE__);
         }

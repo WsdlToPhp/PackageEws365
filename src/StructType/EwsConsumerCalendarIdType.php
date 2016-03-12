@@ -18,7 +18,7 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
      * The OwnerPuid
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var long
+     * @var int
      */
     public $OwnerPuid;
     /**
@@ -34,7 +34,7 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
      * The OwnerCid
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var long
+     * @var int
      */
     public $OwnerCid;
     /**
@@ -42,9 +42,9 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
      * @uses EwsConsumerCalendarIdType::setOwnerPuid()
      * @uses EwsConsumerCalendarIdType::setCalendarGuid()
      * @uses EwsConsumerCalendarIdType::setOwnerCid()
-     * @param long $ownerPuid
+     * @param int $ownerPuid
      * @param string $calendarGuid
-     * @param long $ownerCid
+     * @param int $ownerCid
      */
     public function __construct($ownerPuid = null, $calendarGuid = null, $ownerCid = null)
     {
@@ -55,7 +55,7 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     }
     /**
      * Get OwnerPuid value
-     * @return long
+     * @return int
      */
     public function getOwnerPuid()
     {
@@ -63,11 +63,15 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     }
     /**
      * Set OwnerPuid value
-     * @param long $ownerPuid
+     * @param int $ownerPuid
      * @return \Ews\StructType\EwsConsumerCalendarIdType
      */
     public function setOwnerPuid($ownerPuid = null)
     {
+        // validation for constraint: int
+        if (!is_null($ownerPuid) && !is_int($ownerPuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerPuid)), __LINE__);
+        }
         $this->OwnerPuid = $ownerPuid;
         return $this;
     }
@@ -86,12 +90,20 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
      */
     public function setCalendarGuid($calendarGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($calendarGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $calendarGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($calendarGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($calendarGuid) && !is_string($calendarGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarGuid)), __LINE__);
+        }
         $this->CalendarGuid = $calendarGuid;
         return $this;
     }
     /**
      * Get OwnerCid value
-     * @return long|null
+     * @return int|null
      */
     public function getOwnerCid()
     {
@@ -99,11 +111,15 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     }
     /**
      * Set OwnerCid value
-     * @param long $ownerCid
+     * @param int $ownerCid
      * @return \Ews\StructType\EwsConsumerCalendarIdType
      */
     public function setOwnerCid($ownerCid = null)
     {
+        // validation for constraint: int
+        if (!is_null($ownerCid) && !is_int($ownerCid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerCid)), __LINE__);
+        }
         $this->OwnerCid = $ownerCid;
         return $this;
     }

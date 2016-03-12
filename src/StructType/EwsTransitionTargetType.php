@@ -49,11 +49,13 @@ class EwsTransitionTargetType extends AbstractStructBase
      * Set Kind value
      * @uses \Ews\EnumType\EwsTransitionTargetKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsTransitionTargetKindType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $kind
      * @return \Ews\StructType\EwsTransitionTargetType
      */
     public function setKind($kind = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTransitionTargetKindType::valueIsValid($kind)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $kind, implode(', ', \Ews\EnumType\EwsTransitionTargetKindType::getValidValues())), __LINE__);
         }
@@ -75,6 +77,10 @@ class EwsTransitionTargetType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

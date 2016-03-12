@@ -42,11 +42,13 @@ class EwsIndividualAttendeeConflictData extends EwsAttendeeConflictData
      * Set BusyType value
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $busyType
      * @return \Ews\StructType\EwsIndividualAttendeeConflictData
      */
     public function setBusyType($busyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $busyType, implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }

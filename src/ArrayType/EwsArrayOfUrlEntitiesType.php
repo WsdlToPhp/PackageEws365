@@ -17,13 +17,13 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsUrlEntityType[]
      */
     public $UrlEntity;
     /**
      * Constructor method for ArrayOfUrlEntitiesType
      * @uses EwsArrayOfUrlEntitiesType::setUrlEntity()
-     * @param array $urlEntity
+     * @param \Ews\StructType\EwsUrlEntityType[] $urlEntity
      */
     public function __construct(array $urlEntity = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Get UrlEntity value
-     * @return array
+     * @return \Ews\StructType\EwsUrlEntityType[]|null
      */
     public function getUrlEntity()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Set UrlEntity value
-     * @param array $urlEntity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUrlEntityType[] $urlEntity
      * @return \Ews\ArrayType\EwsArrayOfUrlEntitiesType
      */
     public function setUrlEntity(array $urlEntity = array())
     {
+        foreach ($urlEntity as $arrayOfUrlEntitiesTypeUrlEntityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUrlEntitiesTypeUrlEntityItem instanceof \Ews\StructType\EwsUrlEntityType) {
+                throw new \InvalidArgumentException(sprintf('The UrlEntity property can only contain items of \Ews\StructType\EwsUrlEntityType, "%s" given', is_object($arrayOfUrlEntitiesTypeUrlEntityItem) ? get_class($arrayOfUrlEntitiesTypeUrlEntityItem) : gettype($arrayOfUrlEntitiesTypeUrlEntityItem)), __LINE__);
+            }
+        }
         $this->UrlEntity = $urlEntity;
+        return $this;
+    }
+    /**
+     * Add item to UrlEntity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUrlEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfUrlEntitiesType
+     */
+    public function addToUrlEntity(\Ews\StructType\EwsUrlEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUrlEntityType) {
+            throw new \InvalidArgumentException(sprintf('The UrlEntity property can only contain items of \Ews\StructType\EwsUrlEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UrlEntity[] = $item;
         return $this;
     }
     /**

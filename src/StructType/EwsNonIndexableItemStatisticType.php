@@ -27,7 +27,7 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $ItemCount;
     /**
@@ -44,7 +44,7 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * @uses EwsNonIndexableItemStatisticType::setItemCount()
      * @uses EwsNonIndexableItemStatisticType::setErrorMessage()
      * @param string $mailbox
-     * @param long $itemCount
+     * @param int $itemCount
      * @param string $errorMessage
      */
     public function __construct($mailbox = null, $itemCount = null, $errorMessage = null)
@@ -69,12 +69,16 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      */
     public function setMailbox($mailbox = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailbox) && !is_string($mailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+        }
         $this->Mailbox = $mailbox;
         return $this;
     }
     /**
      * Get ItemCount value
-     * @return long
+     * @return int
      */
     public function getItemCount()
     {
@@ -82,11 +86,15 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
     }
     /**
      * Set ItemCount value
-     * @param long $itemCount
+     * @param int $itemCount
      * @return \Ews\StructType\EwsNonIndexableItemStatisticType
      */
     public function setItemCount($itemCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($itemCount) && !is_int($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        }
         $this->ItemCount = $itemCount;
         return $this;
     }
@@ -105,6 +113,10 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      */
     public function setErrorMessage($errorMessage = null)
     {
+        // validation for constraint: string
+        if (!is_null($errorMessage) && !is_string($errorMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorMessage)), __LINE__);
+        }
         $this->ErrorMessage = $errorMessage;
         return $this;
     }

@@ -19,7 +19,7 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFavorite;
     /**
@@ -27,7 +27,7 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastVisitedTimeUtc;
     /**
@@ -43,8 +43,8 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
      * @uses EwsUnifiedGroupType::setIsFavorite()
      * @uses EwsUnifiedGroupType::setLastVisitedTimeUtc()
      * @uses EwsUnifiedGroupType::setExternalDirectoryObjectId()
-     * @param boolean $isFavorite
-     * @param dateTime $lastVisitedTimeUtc
+     * @param bool $isFavorite
+     * @param string $lastVisitedTimeUtc
      * @param string $externalDirectoryObjectId
      */
     public function __construct($isFavorite = null, $lastVisitedTimeUtc = null, $externalDirectoryObjectId = null)
@@ -56,7 +56,7 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
     }
     /**
      * Get IsFavorite value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFavorite()
     {
@@ -64,7 +64,7 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
     }
     /**
      * Set IsFavorite value
-     * @param boolean $isFavorite
+     * @param bool $isFavorite
      * @return \Ews\StructType\EwsUnifiedGroupType
      */
     public function setIsFavorite($isFavorite = null)
@@ -74,7 +74,7 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
     }
     /**
      * Get LastVisitedTimeUtc value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastVisitedTimeUtc()
     {
@@ -82,11 +82,15 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
     }
     /**
      * Set LastVisitedTimeUtc value
-     * @param dateTime $lastVisitedTimeUtc
+     * @param string $lastVisitedTimeUtc
      * @return \Ews\StructType\EwsUnifiedGroupType
      */
     public function setLastVisitedTimeUtc($lastVisitedTimeUtc = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastVisitedTimeUtc) && !is_string($lastVisitedTimeUtc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedTimeUtc)), __LINE__);
+        }
         $this->LastVisitedTimeUtc = $lastVisitedTimeUtc;
         return $this;
     }
@@ -105,6 +109,10 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
      */
     public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalDirectoryObjectId)), __LINE__);
+        }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
         return $this;
     }

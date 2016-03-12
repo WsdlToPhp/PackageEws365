@@ -14,22 +14,22 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
 {
     /**
      * The InvalidRecipient
-     * @var array
+     * @var \Ews\StructType\EwsInvalidRecipientType
      */
     public $InvalidRecipient;
     /**
      * Constructor method for ArrayOfInvalidRecipientsType
      * @uses EwsArrayOfInvalidRecipientsType::setInvalidRecipient()
-     * @param array $invalidRecipient
+     * @param \Ews\StructType\EwsInvalidRecipientType $invalidRecipient
      */
-    public function __construct(array $invalidRecipient = array())
+    public function __construct(\Ews\StructType\EwsInvalidRecipientType $invalidRecipient = null)
     {
         $this
             ->setInvalidRecipient($invalidRecipient);
     }
     /**
      * Get InvalidRecipient value
-     * @return array
+     * @return \Ews\StructType\EwsInvalidRecipientType|null
      */
     public function getInvalidRecipient()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
     }
     /**
      * Set InvalidRecipient value
-     * @param array $invalidRecipient
+     * @param \Ews\StructType\EwsInvalidRecipientType $invalidRecipient
      * @return \Ews\ArrayType\EwsArrayOfInvalidRecipientsType
      */
-    public function setInvalidRecipient(array $invalidRecipient = array())
+    public function setInvalidRecipient(\Ews\StructType\EwsInvalidRecipientType $invalidRecipient = null)
     {
         $this->InvalidRecipient = $invalidRecipient;
         return $this;

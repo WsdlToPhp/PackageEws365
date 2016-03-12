@@ -51,11 +51,13 @@ class EwsPathToIndexedFieldType extends EwsBasePathToElementType
      * Set FieldURI value
      * @uses \Ews\EnumType\EwsDictionaryURIType::valueIsValid()
      * @uses \Ews\EnumType\EwsDictionaryURIType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fieldURI
      * @return \Ews\StructType\EwsPathToIndexedFieldType
      */
     public function setFieldURI($fieldURI = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDictionaryURIType::valueIsValid($fieldURI)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsDictionaryURIType::getValidValues())), __LINE__);
         }
@@ -77,6 +79,10 @@ class EwsPathToIndexedFieldType extends EwsBasePathToElementType
      */
     public function setFieldIndex($fieldIndex = null)
     {
+        // validation for constraint: string
+        if (!is_null($fieldIndex) && !is_string($fieldIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fieldIndex)), __LINE__);
+        }
         $this->FieldIndex = $fieldIndex;
         return $this;
     }

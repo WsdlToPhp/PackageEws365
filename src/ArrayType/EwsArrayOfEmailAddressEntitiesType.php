@@ -17,13 +17,13 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsEmailAddressEntityType[]
      */
     public $EmailAddressEntity;
     /**
      * Constructor method for ArrayOfEmailAddressEntitiesType
      * @uses EwsArrayOfEmailAddressEntitiesType::setEmailAddressEntity()
-     * @param array $emailAddressEntity
+     * @param \Ews\StructType\EwsEmailAddressEntityType[] $emailAddressEntity
      */
     public function __construct(array $emailAddressEntity = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Get EmailAddressEntity value
-     * @return array
+     * @return \Ews\StructType\EwsEmailAddressEntityType[]|null
      */
     public function getEmailAddressEntity()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Set EmailAddressEntity value
-     * @param array $emailAddressEntity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressEntityType[] $emailAddressEntity
      * @return \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType
      */
     public function setEmailAddressEntity(array $emailAddressEntity = array())
     {
+        foreach ($emailAddressEntity as $arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem instanceof \Ews\StructType\EwsEmailAddressEntityType) {
+                throw new \InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of \Ews\StructType\EwsEmailAddressEntityType, "%s" given', is_object($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) ? get_class($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) : gettype($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem)), __LINE__);
+            }
+        }
         $this->EmailAddressEntity = $emailAddressEntity;
+        return $this;
+    }
+    /**
+     * Add item to EmailAddressEntity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType
+     */
+    public function addToEmailAddressEntity(\Ews\StructType\EwsEmailAddressEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailAddressEntityType) {
+            throw new \InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of \Ews\StructType\EwsEmailAddressEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->EmailAddressEntity[] = $item;
         return $this;
     }
     /**

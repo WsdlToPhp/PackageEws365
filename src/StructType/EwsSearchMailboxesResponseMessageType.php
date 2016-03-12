@@ -18,7 +18,6 @@ class EwsSearchMailboxesResponseMessageType extends EwsResponseMessageType
      * The SearchMailboxesResult
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Mailboxes search result.
      * @var \Ews\StructType\EwsSearchMailboxesResultType
      */
     public $SearchMailboxesResult;

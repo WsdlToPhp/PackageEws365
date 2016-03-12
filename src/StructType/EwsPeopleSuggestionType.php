@@ -56,6 +56,10 @@ class EwsPeopleSuggestionType extends EwsSuggestionType
      */
     public function setPrimarySmtpAddress($primarySmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+        }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsPeopleSuggestionType extends EwsSuggestionType
      */
     public function setPersonType($personType = null)
     {
+        // validation for constraint: string
+        if (!is_null($personType) && !is_string($personType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personType)), __LINE__);
+        }
         $this->PersonType = $personType;
         return $this;
     }

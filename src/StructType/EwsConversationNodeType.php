@@ -67,6 +67,10 @@ class EwsConversationNodeType extends AbstractStructBase
      */
     public function setInternetMessageId($internetMessageId = null)
     {
+        // validation for constraint: string
+        if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internetMessageId)), __LINE__);
+        }
         $this->InternetMessageId = $internetMessageId;
         return $this;
     }
@@ -85,6 +89,10 @@ class EwsConversationNodeType extends AbstractStructBase
      */
     public function setParentInternetMessageId($parentInternetMessageId = null)
     {
+        // validation for constraint: string
+        if (!is_null($parentInternetMessageId) && !is_string($parentInternetMessageId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parentInternetMessageId)), __LINE__);
+        }
         $this->ParentInternetMessageId = $parentInternetMessageId;
         return $this;
     }

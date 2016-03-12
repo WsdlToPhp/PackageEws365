@@ -24,14 +24,14 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
      * The IsJunk
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $IsJunk;
     /**
      * The MoveItem
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $MoveItem;
     /**
@@ -40,8 +40,8 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
      * @uses EwsMarkAsJunkType::setIsJunk()
      * @uses EwsMarkAsJunkType::setMoveItem()
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @param boolean $isJunk
-     * @param boolean $moveItem
+     * @param bool $isJunk
+     * @param bool $moveItem
      */
     public function __construct(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $isJunk = null, $moveItem = null)
     {
@@ -70,7 +70,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     }
     /**
      * Get IsJunk value
-     * @return boolean
+     * @return bool
      */
     public function getIsJunk()
     {
@@ -78,7 +78,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     }
     /**
      * Set IsJunk value
-     * @param boolean $isJunk
+     * @param bool $isJunk
      * @return \Ews\StructType\EwsMarkAsJunkType
      */
     public function setIsJunk($isJunk = null)
@@ -88,7 +88,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     }
     /**
      * Get MoveItem value
-     * @return boolean
+     * @return bool
      */
     public function getMoveItem()
     {
@@ -96,7 +96,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     }
     /**
      * Set MoveItem value
-     * @param boolean $moveItem
+     * @param bool $moveItem
      * @return \Ews\StructType\EwsMarkAsJunkType
      */
     public function setMoveItem($moveItem = null)

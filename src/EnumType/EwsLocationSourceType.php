@@ -19,12 +19,12 @@ class EwsLocationSourceType
      * Constant for value 'LocationServices'
      * @return string 'LocationServices'
      */
-    const VALUE_LOCATIONSERVICES = 'LocationServices';
+    const VALUE_LOCATION_SERVICES = 'LocationServices';
     /**
      * Constant for value 'PhonebookServices'
      * @return string 'PhonebookServices'
      */
-    const VALUE_PHONEBOOKSERVICES = 'PhonebookServices';
+    const VALUE_PHONEBOOK_SERVICES = 'PhonebookServices';
     /**
      * Constant for value 'Device'
      * @return string 'Device'
@@ -53,8 +53,8 @@ class EwsLocationSourceType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_LOCATIONSERVICES
-     * @uses self::VALUE_PHONEBOOKSERVICES
+     * @uses self::VALUE_LOCATION_SERVICES
+     * @uses self::VALUE_PHONEBOOK_SERVICES
      * @uses self::VALUE_DEVICE
      * @uses self::VALUE_CONTACT
      * @uses self::VALUE_RESOURCE
@@ -64,8 +64,8 @@ class EwsLocationSourceType
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_LOCATIONSERVICES,
-            self::VALUE_PHONEBOOKSERVICES,
+            self::VALUE_LOCATION_SERVICES,
+            self::VALUE_PHONEBOOK_SERVICES,
             self::VALUE_DEVICE,
             self::VALUE_CONTACT,
             self::VALUE_RESOURCE,

@@ -17,13 +17,13 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $WasSuccessful;
     /**
      * Constructor method for AddEventToMyCalanderResponseType
      * @uses EwsAddEventToMyCalanderResponseType::setWasSuccessful()
-     * @param boolean $wasSuccessful
+     * @param bool $wasSuccessful
      */
     public function __construct($wasSuccessful = null)
     {
@@ -32,7 +32,7 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
     }
     /**
      * Get WasSuccessful value
-     * @return boolean
+     * @return bool
      */
     public function getWasSuccessful()
     {
@@ -40,7 +40,7 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
     }
     /**
      * Set WasSuccessful value
-     * @param boolean $wasSuccessful
+     * @param bool $wasSuccessful
      * @return \Ews\StructType\EwsAddEventToMyCalanderResponseType
      */
     public function setWasSuccessful($wasSuccessful = null)

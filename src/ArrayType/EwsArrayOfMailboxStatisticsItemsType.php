@@ -19,14 +19,13 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Mailbox statistics item.
-     * @var array
+     * @var \Ews\StructType\EwsMailboxStatisticsItemType[]
      */
     public $MailboxStat;
     /**
      * Constructor method for ArrayOfMailboxStatisticsItemsType
      * @uses EwsArrayOfMailboxStatisticsItemsType::setMailboxStat()
-     * @param array $mailboxStat
+     * @param \Ews\StructType\EwsMailboxStatisticsItemType[] $mailboxStat
      */
     public function __construct(array $mailboxStat = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
     }
     /**
      * Get MailboxStat value
-     * @return array
+     * @return \Ews\StructType\EwsMailboxStatisticsItemType[]|null
      */
     public function getMailboxStat()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
     }
     /**
      * Set MailboxStat value
-     * @param array $mailboxStat
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxStatisticsItemType[] $mailboxStat
      * @return \Ews\ArrayType\EwsArrayOfMailboxStatisticsItemsType
      */
     public function setMailboxStat(array $mailboxStat = array())
     {
+        foreach ($mailboxStat as $arrayOfMailboxStatisticsItemsTypeMailboxStatItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMailboxStatisticsItemsTypeMailboxStatItem instanceof \Ews\StructType\EwsMailboxStatisticsItemType) {
+                throw new \InvalidArgumentException(sprintf('The MailboxStat property can only contain items of \Ews\StructType\EwsMailboxStatisticsItemType, "%s" given', is_object($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) ? get_class($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) : gettype($arrayOfMailboxStatisticsItemsTypeMailboxStatItem)), __LINE__);
+            }
+        }
         $this->MailboxStat = $mailboxStat;
+        return $this;
+    }
+    /**
+     * Add item to MailboxStat value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxStatisticsItemType $item
+     * @return \Ews\ArrayType\EwsArrayOfMailboxStatisticsItemsType
+     */
+    public function addToMailboxStat(\Ews\StructType\EwsMailboxStatisticsItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMailboxStatisticsItemType) {
+            throw new \InvalidArgumentException(sprintf('The MailboxStat property can only contain items of \Ews\StructType\EwsMailboxStatisticsItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MailboxStat[] = $item;
         return $this;
     }
     /**

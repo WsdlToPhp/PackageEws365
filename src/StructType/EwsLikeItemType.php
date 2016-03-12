@@ -17,13 +17,12 @@ class EwsLikeItemType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * The IsUnlike
-     * @var boolean
+     * @var bool
      */
     public $IsUnlike;
     /**
@@ -31,7 +30,7 @@ class EwsLikeItemType extends EwsBaseRequestType
      * @uses EwsLikeItemType::setItemId()
      * @uses EwsLikeItemType::setIsUnlike()
      * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param boolean $isUnlike
+     * @param bool $isUnlike
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $isUnlike = null)
     {
@@ -59,7 +58,7 @@ class EwsLikeItemType extends EwsBaseRequestType
     }
     /**
      * Get IsUnlike value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsUnlike()
     {
@@ -67,7 +66,7 @@ class EwsLikeItemType extends EwsBaseRequestType
     }
     /**
      * Set IsUnlike value
-     * @param boolean $isUnlike
+     * @param bool $isUnlike
      * @return \Ews\StructType\EwsLikeItemType
      */
     public function setIsUnlike($isUnlike = null)

@@ -17,13 +17,13 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 7
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsWorkHoursType[]
      */
     public $WorkHours;
     /**
      * Constructor method for ArrayOfWorkHours
      * @uses EwsArrayOfWorkHours::setWorkHours()
-     * @param array $workHours
+     * @param \Ews\StructType\EwsWorkHoursType[] $workHours
      */
     public function __construct(array $workHours = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
     }
     /**
      * Get WorkHours value
-     * @return array
+     * @return \Ews\StructType\EwsWorkHoursType[]|null
      */
     public function getWorkHours()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
     }
     /**
      * Set WorkHours value
-     * @param array $workHours
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkHoursType[] $workHours
      * @return \Ews\ArrayType\EwsArrayOfWorkHours
      */
     public function setWorkHours(array $workHours = array())
     {
+        foreach ($workHours as $arrayOfWorkHoursWorkHoursItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfWorkHoursWorkHoursItem instanceof \Ews\StructType\EwsWorkHoursType) {
+                throw new \InvalidArgumentException(sprintf('The WorkHours property can only contain items of \Ews\StructType\EwsWorkHoursType, "%s" given', is_object($arrayOfWorkHoursWorkHoursItem) ? get_class($arrayOfWorkHoursWorkHoursItem) : gettype($arrayOfWorkHoursWorkHoursItem)), __LINE__);
+            }
+        }
         $this->WorkHours = $workHours;
+        return $this;
+    }
+    /**
+     * Add item to WorkHours value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkHoursType $item
+     * @return \Ews\ArrayType\EwsArrayOfWorkHours
+     */
+    public function addToWorkHours(\Ews\StructType\EwsWorkHoursType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsWorkHoursType) {
+            throw new \InvalidArgumentException(sprintf('The WorkHours property can only contain items of \Ews\StructType\EwsWorkHoursType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->WorkHours[] = $item;
         return $this;
     }
     /**

@@ -19,14 +19,13 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * - documentation: Set of mailbox, search scope and its extended attributes.
-     * @var array
+     * @var \Ews\StructType\EwsMailboxSearchScopeType[]
      */
     public $MailboxSearchScope;
     /**
      * Constructor method for NonEmptyArrayOfMailboxSearchScopesType
      * @uses EwsNonEmptyArrayOfMailboxSearchScopesType::setMailboxSearchScope()
-     * @param array $mailboxSearchScope
+     * @param \Ews\StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
      */
     public function __construct(array $mailboxSearchScope = array())
     {
@@ -35,7 +34,7 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
     }
     /**
      * Get MailboxSearchScope value
-     * @return array
+     * @return \Ews\StructType\EwsMailboxSearchScopeType[]
      */
     public function getMailboxSearchScope()
     {
@@ -43,12 +42,34 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
     }
     /**
      * Set MailboxSearchScope value
-     * @param array $mailboxSearchScope
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
     public function setMailboxSearchScope(array $mailboxSearchScope = array())
     {
+        foreach ($mailboxSearchScope as $nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem instanceof \Ews\StructType\EwsMailboxSearchScopeType) {
+                throw new \InvalidArgumentException(sprintf('The MailboxSearchScope property can only contain items of \Ews\StructType\EwsMailboxSearchScopeType, "%s" given', is_object($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) ? get_class($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) : gettype($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem)), __LINE__);
+            }
+        }
         $this->MailboxSearchScope = $mailboxSearchScope;
+        return $this;
+    }
+    /**
+     * Add item to MailboxSearchScope value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxSearchScopeType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
+     */
+    public function addToMailboxSearchScope(\Ews\StructType\EwsMailboxSearchScopeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMailboxSearchScopeType) {
+            throw new \InvalidArgumentException(sprintf('The MailboxSearchScope property can only contain items of \Ews\StructType\EwsMailboxSearchScopeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MailboxSearchScope[] = $item;
         return $this;
     }
     /**

@@ -16,17 +16,17 @@ class EwsConflictResolutionType
      * Constant for value 'NeverOverwrite'
      * @return string 'NeverOverwrite'
      */
-    const VALUE_NEVEROVERWRITE = 'NeverOverwrite';
+    const VALUE_NEVER_OVERWRITE = 'NeverOverwrite';
     /**
      * Constant for value 'AutoResolve'
      * @return string 'AutoResolve'
      */
-    const VALUE_AUTORESOLVE = 'AutoResolve';
+    const VALUE_AUTO_RESOLVE = 'AutoResolve';
     /**
      * Constant for value 'AlwaysOverwrite'
      * @return string 'AlwaysOverwrite'
      */
-    const VALUE_ALWAYSOVERWRITE = 'AlwaysOverwrite';
+    const VALUE_ALWAYS_OVERWRITE = 'AlwaysOverwrite';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -39,17 +39,17 @@ class EwsConflictResolutionType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NEVEROVERWRITE
-     * @uses self::VALUE_AUTORESOLVE
-     * @uses self::VALUE_ALWAYSOVERWRITE
+     * @uses self::VALUE_NEVER_OVERWRITE
+     * @uses self::VALUE_AUTO_RESOLVE
+     * @uses self::VALUE_ALWAYS_OVERWRITE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NEVEROVERWRITE,
-            self::VALUE_AUTORESOLVE,
-            self::VALUE_ALWAYSOVERWRITE,
+            self::VALUE_NEVER_OVERWRITE,
+            self::VALUE_AUTO_RESOLVE,
+            self::VALUE_ALWAYS_OVERWRITE,
         );
     }
     /**

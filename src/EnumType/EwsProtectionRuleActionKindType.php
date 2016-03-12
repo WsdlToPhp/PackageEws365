@@ -14,7 +14,7 @@ class EwsProtectionRuleActionKindType
      * Constant for value 'RightsProtectMessage'
      * @return string 'RightsProtectMessage'
      */
-    const VALUE_RIGHTSPROTECTMESSAGE = 'RightsProtectMessage';
+    const VALUE_RIGHTS_PROTECT_MESSAGE = 'RightsProtectMessage';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -27,13 +27,13 @@ class EwsProtectionRuleActionKindType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_RIGHTSPROTECTMESSAGE
+     * @uses self::VALUE_RIGHTS_PROTECT_MESSAGE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_RIGHTSPROTECTMESSAGE,
+            self::VALUE_RIGHTS_PROTECT_MESSAGE,
         );
     }
     /**

@@ -14,22 +14,22 @@ class EwsAvailableCulturesArray extends AbstractStructArrayBase
 {
     /**
      * The AvailableCulture
-     * @var array
+     * @var \Ews\StructType\EwsCultureInfoDataType
      */
     public $AvailableCulture;
     /**
      * Constructor method for AvailableCulturesArray
      * @uses EwsAvailableCulturesArray::setAvailableCulture()
-     * @param array $availableCulture
+     * @param \Ews\StructType\EwsCultureInfoDataType $availableCulture
      */
-    public function __construct(array $availableCulture = array())
+    public function __construct(\Ews\StructType\EwsCultureInfoDataType $availableCulture = null)
     {
         $this
             ->setAvailableCulture($availableCulture);
     }
     /**
      * Get AvailableCulture value
-     * @return array
+     * @return \Ews\StructType\EwsCultureInfoDataType|null
      */
     public function getAvailableCulture()
     {
@@ -37,10 +37,10 @@ class EwsAvailableCulturesArray extends AbstractStructArrayBase
     }
     /**
      * Set AvailableCulture value
-     * @param array $availableCulture
+     * @param \Ews\StructType\EwsCultureInfoDataType $availableCulture
      * @return \Ews\ArrayType\EwsAvailableCulturesArray
      */
-    public function setAvailableCulture(array $availableCulture = array())
+    public function setAvailableCulture(\Ews\StructType\EwsCultureInfoDataType $availableCulture = null)
     {
         $this->AvailableCulture = $availableCulture;
         return $this;

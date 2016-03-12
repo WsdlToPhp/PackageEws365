@@ -16,14 +16,13 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
      * The ExtendedProperty
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * - documentation: Represents an extended property instance (both its path identifier along with its associated value).
-     * @var array
+     * @var \Ews\StructType\EwsExtendedPropertyType[]
      */
     public $ExtendedProperty;
     /**
      * Constructor method for NonEmptyArrayOfExtendedPropertyType
      * @uses EwsNonEmptyArrayOfExtendedPropertyType::setExtendedProperty()
-     * @param array $extendedProperty
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      */
     public function __construct(array $extendedProperty = array())
     {
@@ -32,7 +31,7 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
     }
     /**
      * Get ExtendedProperty value
-     * @return array
+     * @return \Ews\StructType\EwsExtendedPropertyType[]|null
      */
     public function getExtendedProperty()
     {
@@ -40,12 +39,34 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
     }
     /**
      * Set ExtendedProperty value
-     * @param array $extendedProperty
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
      */
     public function setExtendedProperty(array $extendedProperty = array())
     {
+        foreach ($extendedProperty as $nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) ? get_class($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) : gettype($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem)), __LINE__);
+            }
+        }
         $this->ExtendedProperty = $extendedProperty;
+        return $this;
+    }
+    /**
+     * Add item to ExtendedProperty value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
+     */
+    public function addToExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ExtendedProperty[] = $item;
         return $this;
     }
     /**

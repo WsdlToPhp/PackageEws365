@@ -26,12 +26,12 @@ class EwsFlaggedForActionType
      * Constant for value 'DoNotForward'
      * @return string 'DoNotForward'
      */
-    const VALUE_DONOTFORWARD = 'DoNotForward';
+    const VALUE_DO_NOT_FORWARD = 'DoNotForward';
     /**
      * Constant for value 'FollowUp'
      * @return string 'FollowUp'
      */
-    const VALUE_FOLLOWUP = 'FollowUp';
+    const VALUE_FOLLOW_UP = 'FollowUp';
     /**
      * Constant for value 'FYI'
      * @return string 'FYI'
@@ -46,7 +46,7 @@ class EwsFlaggedForActionType
      * Constant for value 'NoResponseNecessary'
      * @return string 'NoResponseNecessary'
      */
-    const VALUE_NORESPONSENECESSARY = 'NoResponseNecessary';
+    const VALUE_NO_RESPONSE_NECESSARY = 'NoResponseNecessary';
     /**
      * Constant for value 'Read'
      * @return string 'Read'
@@ -61,7 +61,7 @@ class EwsFlaggedForActionType
      * Constant for value 'ReplyToAll'
      * @return string 'ReplyToAll'
      */
-    const VALUE_REPLYTOALL = 'ReplyToAll';
+    const VALUE_REPLY_TO_ALL = 'ReplyToAll';
     /**
      * Constant for value 'Review'
      * @return string 'Review'
@@ -81,14 +81,14 @@ class EwsFlaggedForActionType
      * Return allowed values
      * @uses self::VALUE_ANY
      * @uses self::VALUE_CALL
-     * @uses self::VALUE_DONOTFORWARD
-     * @uses self::VALUE_FOLLOWUP
+     * @uses self::VALUE_DO_NOT_FORWARD
+     * @uses self::VALUE_FOLLOW_UP
      * @uses self::VALUE_FYI
      * @uses self::VALUE_FORWARD
-     * @uses self::VALUE_NORESPONSENECESSARY
+     * @uses self::VALUE_NO_RESPONSE_NECESSARY
      * @uses self::VALUE_READ
      * @uses self::VALUE_REPLY
-     * @uses self::VALUE_REPLYTOALL
+     * @uses self::VALUE_REPLY_TO_ALL
      * @uses self::VALUE_REVIEW
      * @return string[]
      */
@@ -97,14 +97,14 @@ class EwsFlaggedForActionType
         return array(
             self::VALUE_ANY,
             self::VALUE_CALL,
-            self::VALUE_DONOTFORWARD,
-            self::VALUE_FOLLOWUP,
+            self::VALUE_DO_NOT_FORWARD,
+            self::VALUE_FOLLOW_UP,
             self::VALUE_FYI,
             self::VALUE_FORWARD,
-            self::VALUE_NORESPONSENECESSARY,
+            self::VALUE_NO_RESPONSE_NECESSARY,
             self::VALUE_READ,
             self::VALUE_REPLY,
-            self::VALUE_REPLYTOALL,
+            self::VALUE_REPLY_TO_ALL,
             self::VALUE_REVIEW,
         );
     }

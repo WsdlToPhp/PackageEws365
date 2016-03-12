@@ -16,2527 +16,2527 @@ class EwsResponseCodeType
      * Constant for value 'NoError'
      * @return string 'NoError'
      */
-    const VALUE_NOERROR = 'NoError';
+    const VALUE_NO_ERROR = 'NoError';
     /**
      * Constant for value 'ErrorAccessDenied'
      * @return string 'ErrorAccessDenied'
      */
-    const VALUE_ERRORACCESSDENIED = 'ErrorAccessDenied';
+    const VALUE_ERROR_ACCESS_DENIED = 'ErrorAccessDenied';
     /**
      * Constant for value 'ErrorAccessModeSpecified'
      * @return string 'ErrorAccessModeSpecified'
      */
-    const VALUE_ERRORACCESSMODESPECIFIED = 'ErrorAccessModeSpecified';
+    const VALUE_ERROR_ACCESS_MODE_SPECIFIED = 'ErrorAccessModeSpecified';
     /**
      * Constant for value 'ErrorAccountDisabled'
      * @return string 'ErrorAccountDisabled'
      */
-    const VALUE_ERRORACCOUNTDISABLED = 'ErrorAccountDisabled';
+    const VALUE_ERROR_ACCOUNT_DISABLED = 'ErrorAccountDisabled';
     /**
      * Constant for value 'ErrorAddDelegatesFailed'
      * @return string 'ErrorAddDelegatesFailed'
      */
-    const VALUE_ERRORADDDELEGATESFAILED = 'ErrorAddDelegatesFailed';
+    const VALUE_ERROR_ADD_DELEGATES_FAILED = 'ErrorAddDelegatesFailed';
     /**
      * Constant for value 'ErrorAddressSpaceNotFound'
      * @return string 'ErrorAddressSpaceNotFound'
      */
-    const VALUE_ERRORADDRESSSPACENOTFOUND = 'ErrorAddressSpaceNotFound';
+    const VALUE_ERROR_ADDRESS_SPACE_NOT_FOUND = 'ErrorAddressSpaceNotFound';
     /**
      * Constant for value 'ErrorADOperation'
      * @return string 'ErrorADOperation'
      */
-    const VALUE_ERRORADOPERATION = 'ErrorADOperation';
+    const VALUE_ERROR_ADOPERATION = 'ErrorADOperation';
     /**
      * Constant for value 'ErrorADSessionFilter'
      * @return string 'ErrorADSessionFilter'
      */
-    const VALUE_ERRORADSESSIONFILTER = 'ErrorADSessionFilter';
+    const VALUE_ERROR_ADSESSION_FILTER = 'ErrorADSessionFilter';
     /**
      * Constant for value 'ErrorADUnavailable'
      * @return string 'ErrorADUnavailable'
      */
-    const VALUE_ERRORADUNAVAILABLE = 'ErrorADUnavailable';
+    const VALUE_ERROR_ADUNAVAILABLE = 'ErrorADUnavailable';
     /**
      * Constant for value 'ErrorAutoDiscoverFailed'
      * @return string 'ErrorAutoDiscoverFailed'
      */
-    const VALUE_ERRORAUTODISCOVERFAILED = 'ErrorAutoDiscoverFailed';
+    const VALUE_ERROR_AUTO_DISCOVER_FAILED = 'ErrorAutoDiscoverFailed';
     /**
      * Constant for value 'ErrorAffectedTaskOccurrencesRequired'
      * @return string 'ErrorAffectedTaskOccurrencesRequired'
      */
-    const VALUE_ERRORAFFECTEDTASKOCCURRENCESREQUIRED = 'ErrorAffectedTaskOccurrencesRequired';
+    const VALUE_ERROR_AFFECTED_TASK_OCCURRENCES_REQUIRED = 'ErrorAffectedTaskOccurrencesRequired';
     /**
      * Constant for value 'ErrorAttachmentNestLevelLimitExceeded'
      * @return string 'ErrorAttachmentNestLevelLimitExceeded'
      */
-    const VALUE_ERRORATTACHMENTNESTLEVELLIMITEXCEEDED = 'ErrorAttachmentNestLevelLimitExceeded';
+    const VALUE_ERROR_ATTACHMENT_NEST_LEVEL_LIMIT_EXCEEDED = 'ErrorAttachmentNestLevelLimitExceeded';
     /**
      * Constant for value 'ErrorAttachmentSizeLimitExceeded'
      * @return string 'ErrorAttachmentSizeLimitExceeded'
      */
-    const VALUE_ERRORATTACHMENTSIZELIMITEXCEEDED = 'ErrorAttachmentSizeLimitExceeded';
+    const VALUE_ERROR_ATTACHMENT_SIZE_LIMIT_EXCEEDED = 'ErrorAttachmentSizeLimitExceeded';
     /**
      * Constant for value 'ErrorArchiveFolderPathCreation'
      * @return string 'ErrorArchiveFolderPathCreation'
      */
-    const VALUE_ERRORARCHIVEFOLDERPATHCREATION = 'ErrorArchiveFolderPathCreation';
+    const VALUE_ERROR_ARCHIVE_FOLDER_PATH_CREATION = 'ErrorArchiveFolderPathCreation';
     /**
      * Constant for value 'ErrorArchiveMailboxNotEnabled'
      * @return string 'ErrorArchiveMailboxNotEnabled'
      */
-    const VALUE_ERRORARCHIVEMAILBOXNOTENABLED = 'ErrorArchiveMailboxNotEnabled';
+    const VALUE_ERROR_ARCHIVE_MAILBOX_NOT_ENABLED = 'ErrorArchiveMailboxNotEnabled';
     /**
      * Constant for value 'ErrorArchiveMailboxServiceDiscoveryFailed'
      * @return string 'ErrorArchiveMailboxServiceDiscoveryFailed'
      */
-    const VALUE_ERRORARCHIVEMAILBOXSERVICEDISCOVERYFAILED = 'ErrorArchiveMailboxServiceDiscoveryFailed';
+    const VALUE_ERROR_ARCHIVE_MAILBOX_SERVICE_DISCOVERY_FAILED = 'ErrorArchiveMailboxServiceDiscoveryFailed';
     /**
      * Constant for value 'ErrorAvailabilityConfigNotFound'
      * @return string 'ErrorAvailabilityConfigNotFound'
      */
-    const VALUE_ERRORAVAILABILITYCONFIGNOTFOUND = 'ErrorAvailabilityConfigNotFound';
+    const VALUE_ERROR_AVAILABILITY_CONFIG_NOT_FOUND = 'ErrorAvailabilityConfigNotFound';
     /**
      * Constant for value 'ErrorBatchProcessingStopped'
      * @return string 'ErrorBatchProcessingStopped'
      */
-    const VALUE_ERRORBATCHPROCESSINGSTOPPED = 'ErrorBatchProcessingStopped';
+    const VALUE_ERROR_BATCH_PROCESSING_STOPPED = 'ErrorBatchProcessingStopped';
     /**
      * Constant for value 'ErrorCalendarCannotMoveOrCopyOccurrence'
      * @return string 'ErrorCalendarCannotMoveOrCopyOccurrence'
      */
-    const VALUE_ERRORCALENDARCANNOTMOVEORCOPYOCCURRENCE = 'ErrorCalendarCannotMoveOrCopyOccurrence';
+    const VALUE_ERROR_CALENDAR_CANNOT_MOVE_OR_COPY_OCCURRENCE = 'ErrorCalendarCannotMoveOrCopyOccurrence';
     /**
      * Constant for value 'ErrorCalendarCannotUpdateDeletedItem'
      * @return string 'ErrorCalendarCannotUpdateDeletedItem'
      */
-    const VALUE_ERRORCALENDARCANNOTUPDATEDELETEDITEM = 'ErrorCalendarCannotUpdateDeletedItem';
+    const VALUE_ERROR_CALENDAR_CANNOT_UPDATE_DELETED_ITEM = 'ErrorCalendarCannotUpdateDeletedItem';
     /**
      * Constant for value 'ErrorCalendarCannotUseIdForOccurrenceId'
      * @return string 'ErrorCalendarCannotUseIdForOccurrenceId'
      */
-    const VALUE_ERRORCALENDARCANNOTUSEIDFOROCCURRENCEID = 'ErrorCalendarCannotUseIdForOccurrenceId';
+    const VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_OCCURRENCE_ID = 'ErrorCalendarCannotUseIdForOccurrenceId';
     /**
      * Constant for value 'ErrorCalendarCannotUseIdForRecurringMasterId'
      * @return string 'ErrorCalendarCannotUseIdForRecurringMasterId'
      */
-    const VALUE_ERRORCALENDARCANNOTUSEIDFORRECURRINGMASTERID = 'ErrorCalendarCannotUseIdForRecurringMasterId';
+    const VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_RECURRING_MASTER_ID = 'ErrorCalendarCannotUseIdForRecurringMasterId';
     /**
      * Constant for value 'ErrorCalendarDurationIsTooLong'
      * @return string 'ErrorCalendarDurationIsTooLong'
      */
-    const VALUE_ERRORCALENDARDURATIONISTOOLONG = 'ErrorCalendarDurationIsTooLong';
+    const VALUE_ERROR_CALENDAR_DURATION_IS_TOO_LONG = 'ErrorCalendarDurationIsTooLong';
     /**
      * Constant for value 'ErrorCalendarEndDateIsEarlierThanStartDate'
      * @return string 'ErrorCalendarEndDateIsEarlierThanStartDate'
      */
-    const VALUE_ERRORCALENDARENDDATEISEARLIERTHANSTARTDATE = 'ErrorCalendarEndDateIsEarlierThanStartDate';
+    const VALUE_ERROR_CALENDAR_END_DATE_IS_EARLIER_THAN_START_DATE = 'ErrorCalendarEndDateIsEarlierThanStartDate';
     /**
      * Constant for value 'ErrorCalendarFolderIsInvalidForCalendarView'
      * @return string 'ErrorCalendarFolderIsInvalidForCalendarView'
      */
-    const VALUE_ERRORCALENDARFOLDERISINVALIDFORCALENDARVIEW = 'ErrorCalendarFolderIsInvalidForCalendarView';
+    const VALUE_ERROR_CALENDAR_FOLDER_IS_INVALID_FOR_CALENDAR_VIEW = 'ErrorCalendarFolderIsInvalidForCalendarView';
     /**
      * Constant for value 'ErrorCalendarInvalidAttributeValue'
      * @return string 'ErrorCalendarInvalidAttributeValue'
      */
-    const VALUE_ERRORCALENDARINVALIDATTRIBUTEVALUE = 'ErrorCalendarInvalidAttributeValue';
+    const VALUE_ERROR_CALENDAR_INVALID_ATTRIBUTE_VALUE = 'ErrorCalendarInvalidAttributeValue';
     /**
      * Constant for value 'ErrorCalendarInvalidDayForTimeChangePattern'
      * @return string 'ErrorCalendarInvalidDayForTimeChangePattern'
      */
-    const VALUE_ERRORCALENDARINVALIDDAYFORTIMECHANGEPATTERN = 'ErrorCalendarInvalidDayForTimeChangePattern';
+    const VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_TIME_CHANGE_PATTERN = 'ErrorCalendarInvalidDayForTimeChangePattern';
     /**
      * Constant for value 'ErrorCalendarInvalidDayForWeeklyRecurrence'
      * @return string 'ErrorCalendarInvalidDayForWeeklyRecurrence'
      */
-    const VALUE_ERRORCALENDARINVALIDDAYFORWEEKLYRECURRENCE = 'ErrorCalendarInvalidDayForWeeklyRecurrence';
+    const VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_WEEKLY_RECURRENCE = 'ErrorCalendarInvalidDayForWeeklyRecurrence';
     /**
      * Constant for value 'ErrorCalendarInvalidPropertyState'
      * @return string 'ErrorCalendarInvalidPropertyState'
      */
-    const VALUE_ERRORCALENDARINVALIDPROPERTYSTATE = 'ErrorCalendarInvalidPropertyState';
+    const VALUE_ERROR_CALENDAR_INVALID_PROPERTY_STATE = 'ErrorCalendarInvalidPropertyState';
     /**
      * Constant for value 'ErrorCalendarInvalidPropertyValue'
      * @return string 'ErrorCalendarInvalidPropertyValue'
      */
-    const VALUE_ERRORCALENDARINVALIDPROPERTYVALUE = 'ErrorCalendarInvalidPropertyValue';
+    const VALUE_ERROR_CALENDAR_INVALID_PROPERTY_VALUE = 'ErrorCalendarInvalidPropertyValue';
     /**
      * Constant for value 'ErrorCalendarInvalidRecurrence'
      * @return string 'ErrorCalendarInvalidRecurrence'
      */
-    const VALUE_ERRORCALENDARINVALIDRECURRENCE = 'ErrorCalendarInvalidRecurrence';
+    const VALUE_ERROR_CALENDAR_INVALID_RECURRENCE = 'ErrorCalendarInvalidRecurrence';
     /**
      * Constant for value 'ErrorCalendarInvalidTimeZone'
      * @return string 'ErrorCalendarInvalidTimeZone'
      */
-    const VALUE_ERRORCALENDARINVALIDTIMEZONE = 'ErrorCalendarInvalidTimeZone';
+    const VALUE_ERROR_CALENDAR_INVALID_TIME_ZONE = 'ErrorCalendarInvalidTimeZone';
     /**
      * Constant for value 'ErrorCalendarIsCancelledForAccept'
      * @return string 'ErrorCalendarIsCancelledForAccept'
      */
-    const VALUE_ERRORCALENDARISCANCELLEDFORACCEPT = 'ErrorCalendarIsCancelledForAccept';
+    const VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_ACCEPT = 'ErrorCalendarIsCancelledForAccept';
     /**
      * Constant for value 'ErrorCalendarIsCancelledForDecline'
      * @return string 'ErrorCalendarIsCancelledForDecline'
      */
-    const VALUE_ERRORCALENDARISCANCELLEDFORDECLINE = 'ErrorCalendarIsCancelledForDecline';
+    const VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_DECLINE = 'ErrorCalendarIsCancelledForDecline';
     /**
      * Constant for value 'ErrorCalendarIsCancelledForRemove'
      * @return string 'ErrorCalendarIsCancelledForRemove'
      */
-    const VALUE_ERRORCALENDARISCANCELLEDFORREMOVE = 'ErrorCalendarIsCancelledForRemove';
+    const VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_REMOVE = 'ErrorCalendarIsCancelledForRemove';
     /**
      * Constant for value 'ErrorCalendarIsCancelledForTentative'
      * @return string 'ErrorCalendarIsCancelledForTentative'
      */
-    const VALUE_ERRORCALENDARISCANCELLEDFORTENTATIVE = 'ErrorCalendarIsCancelledForTentative';
+    const VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_TENTATIVE = 'ErrorCalendarIsCancelledForTentative';
     /**
      * Constant for value 'ErrorCalendarIsDelegatedForAccept'
      * @return string 'ErrorCalendarIsDelegatedForAccept'
      */
-    const VALUE_ERRORCALENDARISDELEGATEDFORACCEPT = 'ErrorCalendarIsDelegatedForAccept';
+    const VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_ACCEPT = 'ErrorCalendarIsDelegatedForAccept';
     /**
      * Constant for value 'ErrorCalendarIsDelegatedForDecline'
      * @return string 'ErrorCalendarIsDelegatedForDecline'
      */
-    const VALUE_ERRORCALENDARISDELEGATEDFORDECLINE = 'ErrorCalendarIsDelegatedForDecline';
+    const VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_DECLINE = 'ErrorCalendarIsDelegatedForDecline';
     /**
      * Constant for value 'ErrorCalendarIsDelegatedForRemove'
      * @return string 'ErrorCalendarIsDelegatedForRemove'
      */
-    const VALUE_ERRORCALENDARISDELEGATEDFORREMOVE = 'ErrorCalendarIsDelegatedForRemove';
+    const VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_REMOVE = 'ErrorCalendarIsDelegatedForRemove';
     /**
      * Constant for value 'ErrorCalendarIsDelegatedForTentative'
      * @return string 'ErrorCalendarIsDelegatedForTentative'
      */
-    const VALUE_ERRORCALENDARISDELEGATEDFORTENTATIVE = 'ErrorCalendarIsDelegatedForTentative';
+    const VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_TENTATIVE = 'ErrorCalendarIsDelegatedForTentative';
     /**
      * Constant for value 'ErrorCalendarIsNotOrganizer'
      * @return string 'ErrorCalendarIsNotOrganizer'
      */
-    const VALUE_ERRORCALENDARISNOTORGANIZER = 'ErrorCalendarIsNotOrganizer';
+    const VALUE_ERROR_CALENDAR_IS_NOT_ORGANIZER = 'ErrorCalendarIsNotOrganizer';
     /**
      * Constant for value 'ErrorCalendarIsOrganizerForAccept'
      * @return string 'ErrorCalendarIsOrganizerForAccept'
      */
-    const VALUE_ERRORCALENDARISORGANIZERFORACCEPT = 'ErrorCalendarIsOrganizerForAccept';
+    const VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_ACCEPT = 'ErrorCalendarIsOrganizerForAccept';
     /**
      * Constant for value 'ErrorCalendarIsOrganizerForDecline'
      * @return string 'ErrorCalendarIsOrganizerForDecline'
      */
-    const VALUE_ERRORCALENDARISORGANIZERFORDECLINE = 'ErrorCalendarIsOrganizerForDecline';
+    const VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_DECLINE = 'ErrorCalendarIsOrganizerForDecline';
     /**
      * Constant for value 'ErrorCalendarIsOrganizerForRemove'
      * @return string 'ErrorCalendarIsOrganizerForRemove'
      */
-    const VALUE_ERRORCALENDARISORGANIZERFORREMOVE = 'ErrorCalendarIsOrganizerForRemove';
+    const VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_REMOVE = 'ErrorCalendarIsOrganizerForRemove';
     /**
      * Constant for value 'ErrorCalendarIsOrganizerForTentative'
      * @return string 'ErrorCalendarIsOrganizerForTentative'
      */
-    const VALUE_ERRORCALENDARISORGANIZERFORTENTATIVE = 'ErrorCalendarIsOrganizerForTentative';
+    const VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_TENTATIVE = 'ErrorCalendarIsOrganizerForTentative';
     /**
      * Constant for value 'ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange'
      * @return string 'ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange'
      */
-    const VALUE_ERRORCALENDAROCCURRENCEINDEXISOUTOFRECURRENCERANGE = 'ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange';
+    const VALUE_ERROR_CALENDAR_OCCURRENCE_INDEX_IS_OUT_OF_RECURRENCE_RANGE = 'ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange';
     /**
      * Constant for value 'ErrorCalendarOccurrenceIsDeletedFromRecurrence'
      * @return string 'ErrorCalendarOccurrenceIsDeletedFromRecurrence'
      */
-    const VALUE_ERRORCALENDAROCCURRENCEISDELETEDFROMRECURRENCE = 'ErrorCalendarOccurrenceIsDeletedFromRecurrence';
+    const VALUE_ERROR_CALENDAR_OCCURRENCE_IS_DELETED_FROM_RECURRENCE = 'ErrorCalendarOccurrenceIsDeletedFromRecurrence';
     /**
      * Constant for value 'ErrorCalendarOutOfRange'
      * @return string 'ErrorCalendarOutOfRange'
      */
-    const VALUE_ERRORCALENDAROUTOFRANGE = 'ErrorCalendarOutOfRange';
+    const VALUE_ERROR_CALENDAR_OUT_OF_RANGE = 'ErrorCalendarOutOfRange';
     /**
      * Constant for value 'ErrorCalendarMeetingRequestIsOutOfDate'
      * @return string 'ErrorCalendarMeetingRequestIsOutOfDate'
      */
-    const VALUE_ERRORCALENDARMEETINGREQUESTISOUTOFDATE = 'ErrorCalendarMeetingRequestIsOutOfDate';
+    const VALUE_ERROR_CALENDAR_MEETING_REQUEST_IS_OUT_OF_DATE = 'ErrorCalendarMeetingRequestIsOutOfDate';
     /**
      * Constant for value 'ErrorCalendarViewRangeTooBig'
      * @return string 'ErrorCalendarViewRangeTooBig'
      */
-    const VALUE_ERRORCALENDARVIEWRANGETOOBIG = 'ErrorCalendarViewRangeTooBig';
+    const VALUE_ERROR_CALENDAR_VIEW_RANGE_TOO_BIG = 'ErrorCalendarViewRangeTooBig';
     /**
      * Constant for value 'ErrorCallerIsInvalidADAccount'
      * @return string 'ErrorCallerIsInvalidADAccount'
      */
-    const VALUE_ERRORCALLERISINVALIDADACCOUNT = 'ErrorCallerIsInvalidADAccount';
+    const VALUE_ERROR_CALLER_IS_INVALID_ADACCOUNT = 'ErrorCallerIsInvalidADAccount';
     /**
      * Constant for value 'ErrorCannotArchiveCalendarContactTaskFolderException'
      * @return string 'ErrorCannotArchiveCalendarContactTaskFolderException'
      */
-    const VALUE_ERRORCANNOTARCHIVECALENDARCONTACTTASKFOLDEREXCEPTION = 'ErrorCannotArchiveCalendarContactTaskFolderException';
+    const VALUE_ERROR_CANNOT_ARCHIVE_CALENDAR_CONTACT_TASK_FOLDER_EXCEPTION = 'ErrorCannotArchiveCalendarContactTaskFolderException';
     /**
      * Constant for value 'ErrorCannotArchiveItemsInPublicFolders'
      * @return string 'ErrorCannotArchiveItemsInPublicFolders'
      */
-    const VALUE_ERRORCANNOTARCHIVEITEMSINPUBLICFOLDERS = 'ErrorCannotArchiveItemsInPublicFolders';
+    const VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_PUBLIC_FOLDERS = 'ErrorCannotArchiveItemsInPublicFolders';
     /**
      * Constant for value 'ErrorCannotArchiveItemsInArchiveMailbox'
      * @return string 'ErrorCannotArchiveItemsInArchiveMailbox'
      */
-    const VALUE_ERRORCANNOTARCHIVEITEMSINARCHIVEMAILBOX = 'ErrorCannotArchiveItemsInArchiveMailbox';
+    const VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_ARCHIVE_MAILBOX = 'ErrorCannotArchiveItemsInArchiveMailbox';
     /**
      * Constant for value 'ErrorCannotCreateCalendarItemInNonCalendarFolder'
      * @return string 'ErrorCannotCreateCalendarItemInNonCalendarFolder'
      */
-    const VALUE_ERRORCANNOTCREATECALENDARITEMINNONCALENDARFOLDER = 'ErrorCannotCreateCalendarItemInNonCalendarFolder';
+    const VALUE_ERROR_CANNOT_CREATE_CALENDAR_ITEM_IN_NON_CALENDAR_FOLDER = 'ErrorCannotCreateCalendarItemInNonCalendarFolder';
     /**
      * Constant for value 'ErrorCannotCreateContactInNonContactFolder'
      * @return string 'ErrorCannotCreateContactInNonContactFolder'
      */
-    const VALUE_ERRORCANNOTCREATECONTACTINNONCONTACTFOLDER = 'ErrorCannotCreateContactInNonContactFolder';
+    const VALUE_ERROR_CANNOT_CREATE_CONTACT_IN_NON_CONTACT_FOLDER = 'ErrorCannotCreateContactInNonContactFolder';
     /**
      * Constant for value 'ErrorCannotCreatePostItemInNonMailFolder'
      * @return string 'ErrorCannotCreatePostItemInNonMailFolder'
      */
-    const VALUE_ERRORCANNOTCREATEPOSTITEMINNONMAILFOLDER = 'ErrorCannotCreatePostItemInNonMailFolder';
+    const VALUE_ERROR_CANNOT_CREATE_POST_ITEM_IN_NON_MAIL_FOLDER = 'ErrorCannotCreatePostItemInNonMailFolder';
     /**
      * Constant for value 'ErrorCannotCreateTaskInNonTaskFolder'
      * @return string 'ErrorCannotCreateTaskInNonTaskFolder'
      */
-    const VALUE_ERRORCANNOTCREATETASKINNONTASKFOLDER = 'ErrorCannotCreateTaskInNonTaskFolder';
+    const VALUE_ERROR_CANNOT_CREATE_TASK_IN_NON_TASK_FOLDER = 'ErrorCannotCreateTaskInNonTaskFolder';
     /**
      * Constant for value 'ErrorCannotDeleteObject'
      * @return string 'ErrorCannotDeleteObject'
      */
-    const VALUE_ERRORCANNOTDELETEOBJECT = 'ErrorCannotDeleteObject';
+    const VALUE_ERROR_CANNOT_DELETE_OBJECT = 'ErrorCannotDeleteObject';
     /**
      * Constant for value 'ErrorCannotDisableMandatoryExtension'
      * @return string 'ErrorCannotDisableMandatoryExtension'
      */
-    const VALUE_ERRORCANNOTDISABLEMANDATORYEXTENSION = 'ErrorCannotDisableMandatoryExtension';
+    const VALUE_ERROR_CANNOT_DISABLE_MANDATORY_EXTENSION = 'ErrorCannotDisableMandatoryExtension';
     /**
      * Constant for value 'ErrorCannotFindUser'
      * @return string 'ErrorCannotFindUser'
      */
-    const VALUE_ERRORCANNOTFINDUSER = 'ErrorCannotFindUser';
+    const VALUE_ERROR_CANNOT_FIND_USER = 'ErrorCannotFindUser';
     /**
      * Constant for value 'ErrorCannotGetSourceFolderPath'
      * @return string 'ErrorCannotGetSourceFolderPath'
      */
-    const VALUE_ERRORCANNOTGETSOURCEFOLDERPATH = 'ErrorCannotGetSourceFolderPath';
+    const VALUE_ERROR_CANNOT_GET_SOURCE_FOLDER_PATH = 'ErrorCannotGetSourceFolderPath';
     /**
      * Constant for value 'ErrorCannotGetExternalEcpUrl'
      * @return string 'ErrorCannotGetExternalEcpUrl'
      */
-    const VALUE_ERRORCANNOTGETEXTERNALECPURL = 'ErrorCannotGetExternalEcpUrl';
+    const VALUE_ERROR_CANNOT_GET_EXTERNAL_ECP_URL = 'ErrorCannotGetExternalEcpUrl';
     /**
      * Constant for value 'ErrorCannotOpenFileAttachment'
      * @return string 'ErrorCannotOpenFileAttachment'
      */
-    const VALUE_ERRORCANNOTOPENFILEATTACHMENT = 'ErrorCannotOpenFileAttachment';
+    const VALUE_ERROR_CANNOT_OPEN_FILE_ATTACHMENT = 'ErrorCannotOpenFileAttachment';
     /**
      * Constant for value 'ErrorCannotDeleteTaskOccurrence'
      * @return string 'ErrorCannotDeleteTaskOccurrence'
      */
-    const VALUE_ERRORCANNOTDELETETASKOCCURRENCE = 'ErrorCannotDeleteTaskOccurrence';
+    const VALUE_ERROR_CANNOT_DELETE_TASK_OCCURRENCE = 'ErrorCannotDeleteTaskOccurrence';
     /**
      * Constant for value 'ErrorCannotEmptyFolder'
      * @return string 'ErrorCannotEmptyFolder'
      */
-    const VALUE_ERRORCANNOTEMPTYFOLDER = 'ErrorCannotEmptyFolder';
+    const VALUE_ERROR_CANNOT_EMPTY_FOLDER = 'ErrorCannotEmptyFolder';
     /**
      * Constant for value 'ErrorCannotSetCalendarPermissionOnNonCalendarFolder'
      * @return string 'ErrorCannotSetCalendarPermissionOnNonCalendarFolder'
      */
-    const VALUE_ERRORCANNOTSETCALENDARPERMISSIONONNONCALENDARFOLDER = 'ErrorCannotSetCalendarPermissionOnNonCalendarFolder';
+    const VALUE_ERROR_CANNOT_SET_CALENDAR_PERMISSION_ON_NON_CALENDAR_FOLDER = 'ErrorCannotSetCalendarPermissionOnNonCalendarFolder';
     /**
      * Constant for value 'ErrorCannotSetNonCalendarPermissionOnCalendarFolder'
      * @return string 'ErrorCannotSetNonCalendarPermissionOnCalendarFolder'
      */
-    const VALUE_ERRORCANNOTSETNONCALENDARPERMISSIONONCALENDARFOLDER = 'ErrorCannotSetNonCalendarPermissionOnCalendarFolder';
+    const VALUE_ERROR_CANNOT_SET_NON_CALENDAR_PERMISSION_ON_CALENDAR_FOLDER = 'ErrorCannotSetNonCalendarPermissionOnCalendarFolder';
     /**
      * Constant for value 'ErrorCannotSetPermissionUnknownEntries'
      * @return string 'ErrorCannotSetPermissionUnknownEntries'
      */
-    const VALUE_ERRORCANNOTSETPERMISSIONUNKNOWNENTRIES = 'ErrorCannotSetPermissionUnknownEntries';
+    const VALUE_ERROR_CANNOT_SET_PERMISSION_UNKNOWN_ENTRIES = 'ErrorCannotSetPermissionUnknownEntries';
     /**
      * Constant for value 'ErrorCannotSpecifySearchFolderAsSourceFolder'
      * @return string 'ErrorCannotSpecifySearchFolderAsSourceFolder'
      */
-    const VALUE_ERRORCANNOTSPECIFYSEARCHFOLDERASSOURCEFOLDER = 'ErrorCannotSpecifySearchFolderAsSourceFolder';
+    const VALUE_ERROR_CANNOT_SPECIFY_SEARCH_FOLDER_AS_SOURCE_FOLDER = 'ErrorCannotSpecifySearchFolderAsSourceFolder';
     /**
      * Constant for value 'ErrorCannotUseFolderIdForItemId'
      * @return string 'ErrorCannotUseFolderIdForItemId'
      */
-    const VALUE_ERRORCANNOTUSEFOLDERIDFORITEMID = 'ErrorCannotUseFolderIdForItemId';
+    const VALUE_ERROR_CANNOT_USE_FOLDER_ID_FOR_ITEM_ID = 'ErrorCannotUseFolderIdForItemId';
     /**
      * Constant for value 'ErrorCannotUseItemIdForFolderId'
      * @return string 'ErrorCannotUseItemIdForFolderId'
      */
-    const VALUE_ERRORCANNOTUSEITEMIDFORFOLDERID = 'ErrorCannotUseItemIdForFolderId';
+    const VALUE_ERROR_CANNOT_USE_ITEM_ID_FOR_FOLDER_ID = 'ErrorCannotUseItemIdForFolderId';
     /**
      * Constant for value 'ErrorChangeKeyRequired'
      * @return string 'ErrorChangeKeyRequired'
      */
-    const VALUE_ERRORCHANGEKEYREQUIRED = 'ErrorChangeKeyRequired';
+    const VALUE_ERROR_CHANGE_KEY_REQUIRED = 'ErrorChangeKeyRequired';
     /**
      * Constant for value 'ErrorChangeKeyRequiredForWriteOperations'
      * @return string 'ErrorChangeKeyRequiredForWriteOperations'
      */
-    const VALUE_ERRORCHANGEKEYREQUIREDFORWRITEOPERATIONS = 'ErrorChangeKeyRequiredForWriteOperations';
+    const VALUE_ERROR_CHANGE_KEY_REQUIRED_FOR_WRITE_OPERATIONS = 'ErrorChangeKeyRequiredForWriteOperations';
     /**
      * Constant for value 'ErrorChannelSubscriptionAlreadyExists'
      * @return string 'ErrorChannelSubscriptionAlreadyExists'
      */
-    const VALUE_ERRORCHANNELSUBSCRIPTIONALREADYEXISTS = 'ErrorChannelSubscriptionAlreadyExists';
+    const VALUE_ERROR_CHANNEL_SUBSCRIPTION_ALREADY_EXISTS = 'ErrorChannelSubscriptionAlreadyExists';
     /**
      * Constant for value 'ErrorChannelSubscriptionNotFound'
      * @return string 'ErrorChannelSubscriptionNotFound'
      */
-    const VALUE_ERRORCHANNELSUBSCRIPTIONNOTFOUND = 'ErrorChannelSubscriptionNotFound';
+    const VALUE_ERROR_CHANNEL_SUBSCRIPTION_NOT_FOUND = 'ErrorChannelSubscriptionNotFound';
     /**
      * Constant for value 'ErrorClientDisconnected'
      * @return string 'ErrorClientDisconnected'
      */
-    const VALUE_ERRORCLIENTDISCONNECTED = 'ErrorClientDisconnected';
+    const VALUE_ERROR_CLIENT_DISCONNECTED = 'ErrorClientDisconnected';
     /**
      * Constant for value 'ErrorClientIntentInvalidStateDefinition'
      * @return string 'ErrorClientIntentInvalidStateDefinition'
      */
-    const VALUE_ERRORCLIENTINTENTINVALIDSTATEDEFINITION = 'ErrorClientIntentInvalidStateDefinition';
+    const VALUE_ERROR_CLIENT_INTENT_INVALID_STATE_DEFINITION = 'ErrorClientIntentInvalidStateDefinition';
     /**
      * Constant for value 'ErrorClientIntentNotFound'
      * @return string 'ErrorClientIntentNotFound'
      */
-    const VALUE_ERRORCLIENTINTENTNOTFOUND = 'ErrorClientIntentNotFound';
+    const VALUE_ERROR_CLIENT_INTENT_NOT_FOUND = 'ErrorClientIntentNotFound';
     /**
      * Constant for value 'ErrorConnectionFailed'
      * @return string 'ErrorConnectionFailed'
      */
-    const VALUE_ERRORCONNECTIONFAILED = 'ErrorConnectionFailed';
+    const VALUE_ERROR_CONNECTION_FAILED = 'ErrorConnectionFailed';
     /**
      * Constant for value 'ErrorContainsFilterWrongType'
      * @return string 'ErrorContainsFilterWrongType'
      */
-    const VALUE_ERRORCONTAINSFILTERWRONGTYPE = 'ErrorContainsFilterWrongType';
+    const VALUE_ERROR_CONTAINS_FILTER_WRONG_TYPE = 'ErrorContainsFilterWrongType';
     /**
      * Constant for value 'ErrorContentConversionFailed'
      * @return string 'ErrorContentConversionFailed'
      */
-    const VALUE_ERRORCONTENTCONVERSIONFAILED = 'ErrorContentConversionFailed';
+    const VALUE_ERROR_CONTENT_CONVERSION_FAILED = 'ErrorContentConversionFailed';
     /**
      * Constant for value 'ErrorContentIndexingNotEnabled'
      * @return string 'ErrorContentIndexingNotEnabled'
      */
-    const VALUE_ERRORCONTENTINDEXINGNOTENABLED = 'ErrorContentIndexingNotEnabled';
+    const VALUE_ERROR_CONTENT_INDEXING_NOT_ENABLED = 'ErrorContentIndexingNotEnabled';
     /**
      * Constant for value 'ErrorCorruptData'
      * @return string 'ErrorCorruptData'
      */
-    const VALUE_ERRORCORRUPTDATA = 'ErrorCorruptData';
+    const VALUE_ERROR_CORRUPT_DATA = 'ErrorCorruptData';
     /**
      * Constant for value 'ErrorCreateItemAccessDenied'
      * @return string 'ErrorCreateItemAccessDenied'
      */
-    const VALUE_ERRORCREATEITEMACCESSDENIED = 'ErrorCreateItemAccessDenied';
+    const VALUE_ERROR_CREATE_ITEM_ACCESS_DENIED = 'ErrorCreateItemAccessDenied';
     /**
      * Constant for value 'ErrorCreateManagedFolderPartialCompletion'
      * @return string 'ErrorCreateManagedFolderPartialCompletion'
      */
-    const VALUE_ERRORCREATEMANAGEDFOLDERPARTIALCOMPLETION = 'ErrorCreateManagedFolderPartialCompletion';
+    const VALUE_ERROR_CREATE_MANAGED_FOLDER_PARTIAL_COMPLETION = 'ErrorCreateManagedFolderPartialCompletion';
     /**
      * Constant for value 'ErrorCreateSubfolderAccessDenied'
      * @return string 'ErrorCreateSubfolderAccessDenied'
      */
-    const VALUE_ERRORCREATESUBFOLDERACCESSDENIED = 'ErrorCreateSubfolderAccessDenied';
+    const VALUE_ERROR_CREATE_SUBFOLDER_ACCESS_DENIED = 'ErrorCreateSubfolderAccessDenied';
     /**
      * Constant for value 'ErrorCrossMailboxMoveCopy'
      * @return string 'ErrorCrossMailboxMoveCopy'
      */
-    const VALUE_ERRORCROSSMAILBOXMOVECOPY = 'ErrorCrossMailboxMoveCopy';
+    const VALUE_ERROR_CROSS_MAILBOX_MOVE_COPY = 'ErrorCrossMailboxMoveCopy';
     /**
      * Constant for value 'ErrorCrossSiteRequest'
      * @return string 'ErrorCrossSiteRequest'
      */
-    const VALUE_ERRORCROSSSITEREQUEST = 'ErrorCrossSiteRequest';
+    const VALUE_ERROR_CROSS_SITE_REQUEST = 'ErrorCrossSiteRequest';
     /**
      * Constant for value 'ErrorDataSizeLimitExceeded'
      * @return string 'ErrorDataSizeLimitExceeded'
      */
-    const VALUE_ERRORDATASIZELIMITEXCEEDED = 'ErrorDataSizeLimitExceeded';
+    const VALUE_ERROR_DATA_SIZE_LIMIT_EXCEEDED = 'ErrorDataSizeLimitExceeded';
     /**
      * Constant for value 'ErrorDataSourceOperation'
      * @return string 'ErrorDataSourceOperation'
      */
-    const VALUE_ERRORDATASOURCEOPERATION = 'ErrorDataSourceOperation';
+    const VALUE_ERROR_DATA_SOURCE_OPERATION = 'ErrorDataSourceOperation';
     /**
      * Constant for value 'ErrorDelegateAlreadyExists'
      * @return string 'ErrorDelegateAlreadyExists'
      */
-    const VALUE_ERRORDELEGATEALREADYEXISTS = 'ErrorDelegateAlreadyExists';
+    const VALUE_ERROR_DELEGATE_ALREADY_EXISTS = 'ErrorDelegateAlreadyExists';
     /**
      * Constant for value 'ErrorDelegateCannotAddOwner'
      * @return string 'ErrorDelegateCannotAddOwner'
      */
-    const VALUE_ERRORDELEGATECANNOTADDOWNER = 'ErrorDelegateCannotAddOwner';
+    const VALUE_ERROR_DELEGATE_CANNOT_ADD_OWNER = 'ErrorDelegateCannotAddOwner';
     /**
      * Constant for value 'ErrorDelegateMissingConfiguration'
      * @return string 'ErrorDelegateMissingConfiguration'
      */
-    const VALUE_ERRORDELEGATEMISSINGCONFIGURATION = 'ErrorDelegateMissingConfiguration';
+    const VALUE_ERROR_DELEGATE_MISSING_CONFIGURATION = 'ErrorDelegateMissingConfiguration';
     /**
      * Constant for value 'ErrorDelegateNoUser'
      * @return string 'ErrorDelegateNoUser'
      */
-    const VALUE_ERRORDELEGATENOUSER = 'ErrorDelegateNoUser';
+    const VALUE_ERROR_DELEGATE_NO_USER = 'ErrorDelegateNoUser';
     /**
      * Constant for value 'ErrorDelegateValidationFailed'
      * @return string 'ErrorDelegateValidationFailed'
      */
-    const VALUE_ERRORDELEGATEVALIDATIONFAILED = 'ErrorDelegateValidationFailed';
+    const VALUE_ERROR_DELEGATE_VALIDATION_FAILED = 'ErrorDelegateValidationFailed';
     /**
      * Constant for value 'ErrorDeleteDistinguishedFolder'
      * @return string 'ErrorDeleteDistinguishedFolder'
      */
-    const VALUE_ERRORDELETEDISTINGUISHEDFOLDER = 'ErrorDeleteDistinguishedFolder';
+    const VALUE_ERROR_DELETE_DISTINGUISHED_FOLDER = 'ErrorDeleteDistinguishedFolder';
     /**
      * Constant for value 'ErrorDeleteItemsFailed'
      * @return string 'ErrorDeleteItemsFailed'
      */
-    const VALUE_ERRORDELETEITEMSFAILED = 'ErrorDeleteItemsFailed';
+    const VALUE_ERROR_DELETE_ITEMS_FAILED = 'ErrorDeleteItemsFailed';
     /**
      * Constant for value 'ErrorDeleteUnifiedMessagingPromptFailed'
      * @return string 'ErrorDeleteUnifiedMessagingPromptFailed'
      */
-    const VALUE_ERRORDELETEUNIFIEDMESSAGINGPROMPTFAILED = 'ErrorDeleteUnifiedMessagingPromptFailed';
+    const VALUE_ERROR_DELETE_UNIFIED_MESSAGING_PROMPT_FAILED = 'ErrorDeleteUnifiedMessagingPromptFailed';
     /**
      * Constant for value 'ErrorDistinguishedUserNotSupported'
      * @return string 'ErrorDistinguishedUserNotSupported'
      */
-    const VALUE_ERRORDISTINGUISHEDUSERNOTSUPPORTED = 'ErrorDistinguishedUserNotSupported';
+    const VALUE_ERROR_DISTINGUISHED_USER_NOT_SUPPORTED = 'ErrorDistinguishedUserNotSupported';
     /**
      * Constant for value 'ErrorDistributionListMemberNotExist'
      * @return string 'ErrorDistributionListMemberNotExist'
      */
-    const VALUE_ERRORDISTRIBUTIONLISTMEMBERNOTEXIST = 'ErrorDistributionListMemberNotExist';
+    const VALUE_ERROR_DISTRIBUTION_LIST_MEMBER_NOT_EXIST = 'ErrorDistributionListMemberNotExist';
     /**
      * Constant for value 'ErrorDuplicateInputFolderNames'
      * @return string 'ErrorDuplicateInputFolderNames'
      */
-    const VALUE_ERRORDUPLICATEINPUTFOLDERNAMES = 'ErrorDuplicateInputFolderNames';
+    const VALUE_ERROR_DUPLICATE_INPUT_FOLDER_NAMES = 'ErrorDuplicateInputFolderNames';
     /**
      * Constant for value 'ErrorDuplicateUserIdsSpecified'
      * @return string 'ErrorDuplicateUserIdsSpecified'
      */
-    const VALUE_ERRORDUPLICATEUSERIDSSPECIFIED = 'ErrorDuplicateUserIdsSpecified';
+    const VALUE_ERROR_DUPLICATE_USER_IDS_SPECIFIED = 'ErrorDuplicateUserIdsSpecified';
     /**
      * Constant for value 'ErrorEmailAddressMismatch'
      * @return string 'ErrorEmailAddressMismatch'
      */
-    const VALUE_ERROREMAILADDRESSMISMATCH = 'ErrorEmailAddressMismatch';
+    const VALUE_ERROR_EMAIL_ADDRESS_MISMATCH = 'ErrorEmailAddressMismatch';
     /**
      * Constant for value 'ErrorEventNotFound'
      * @return string 'ErrorEventNotFound'
      */
-    const VALUE_ERROREVENTNOTFOUND = 'ErrorEventNotFound';
+    const VALUE_ERROR_EVENT_NOT_FOUND = 'ErrorEventNotFound';
     /**
      * Constant for value 'ErrorExceededChannelSubscriptionCount'
      * @return string 'ErrorExceededChannelSubscriptionCount'
      */
-    const VALUE_ERROREXCEEDEDCHANNELSUBSCRIPTIONCOUNT = 'ErrorExceededChannelSubscriptionCount';
+    const VALUE_ERROR_EXCEEDED_CHANNEL_SUBSCRIPTION_COUNT = 'ErrorExceededChannelSubscriptionCount';
     /**
      * Constant for value 'ErrorExceededConnectionCount'
      * @return string 'ErrorExceededConnectionCount'
      */
-    const VALUE_ERROREXCEEDEDCONNECTIONCOUNT = 'ErrorExceededConnectionCount';
+    const VALUE_ERROR_EXCEEDED_CONNECTION_COUNT = 'ErrorExceededConnectionCount';
     /**
      * Constant for value 'ErrorExceededSubscriptionCount'
      * @return string 'ErrorExceededSubscriptionCount'
      */
-    const VALUE_ERROREXCEEDEDSUBSCRIPTIONCOUNT = 'ErrorExceededSubscriptionCount';
+    const VALUE_ERROR_EXCEEDED_SUBSCRIPTION_COUNT = 'ErrorExceededSubscriptionCount';
     /**
      * Constant for value 'ErrorExceededFindCountLimit'
      * @return string 'ErrorExceededFindCountLimit'
      */
-    const VALUE_ERROREXCEEDEDFINDCOUNTLIMIT = 'ErrorExceededFindCountLimit';
+    const VALUE_ERROR_EXCEEDED_FIND_COUNT_LIMIT = 'ErrorExceededFindCountLimit';
     /**
      * Constant for value 'ErrorExpiredSubscription'
      * @return string 'ErrorExpiredSubscription'
      */
-    const VALUE_ERROREXPIREDSUBSCRIPTION = 'ErrorExpiredSubscription';
+    const VALUE_ERROR_EXPIRED_SUBSCRIPTION = 'ErrorExpiredSubscription';
     /**
      * Constant for value 'ErrorExtensionNotFound'
      * @return string 'ErrorExtensionNotFound'
      */
-    const VALUE_ERROREXTENSIONNOTFOUND = 'ErrorExtensionNotFound';
+    const VALUE_ERROR_EXTENSION_NOT_FOUND = 'ErrorExtensionNotFound';
     /**
      * Constant for value 'ErrorFolderCorrupt'
      * @return string 'ErrorFolderCorrupt'
      */
-    const VALUE_ERRORFOLDERCORRUPT = 'ErrorFolderCorrupt';
+    const VALUE_ERROR_FOLDER_CORRUPT = 'ErrorFolderCorrupt';
     /**
      * Constant for value 'ErrorFolderNotFound'
      * @return string 'ErrorFolderNotFound'
      */
-    const VALUE_ERRORFOLDERNOTFOUND = 'ErrorFolderNotFound';
+    const VALUE_ERROR_FOLDER_NOT_FOUND = 'ErrorFolderNotFound';
     /**
      * Constant for value 'ErrorFolderPropertRequestFailed'
      * @return string 'ErrorFolderPropertRequestFailed'
      */
-    const VALUE_ERRORFOLDERPROPERTREQUESTFAILED = 'ErrorFolderPropertRequestFailed';
+    const VALUE_ERROR_FOLDER_PROPERT_REQUEST_FAILED = 'ErrorFolderPropertRequestFailed';
     /**
      * Constant for value 'ErrorFolderSave'
      * @return string 'ErrorFolderSave'
      */
-    const VALUE_ERRORFOLDERSAVE = 'ErrorFolderSave';
+    const VALUE_ERROR_FOLDER_SAVE = 'ErrorFolderSave';
     /**
      * Constant for value 'ErrorFolderSaveFailed'
      * @return string 'ErrorFolderSaveFailed'
      */
-    const VALUE_ERRORFOLDERSAVEFAILED = 'ErrorFolderSaveFailed';
+    const VALUE_ERROR_FOLDER_SAVE_FAILED = 'ErrorFolderSaveFailed';
     /**
      * Constant for value 'ErrorFolderSavePropertyError'
      * @return string 'ErrorFolderSavePropertyError'
      */
-    const VALUE_ERRORFOLDERSAVEPROPERTYERROR = 'ErrorFolderSavePropertyError';
+    const VALUE_ERROR_FOLDER_SAVE_PROPERTY_ERROR = 'ErrorFolderSavePropertyError';
     /**
      * Constant for value 'ErrorFolderExists'
      * @return string 'ErrorFolderExists'
      */
-    const VALUE_ERRORFOLDEREXISTS = 'ErrorFolderExists';
+    const VALUE_ERROR_FOLDER_EXISTS = 'ErrorFolderExists';
     /**
      * Constant for value 'ErrorFreeBusyGenerationFailed'
      * @return string 'ErrorFreeBusyGenerationFailed'
      */
-    const VALUE_ERRORFREEBUSYGENERATIONFAILED = 'ErrorFreeBusyGenerationFailed';
+    const VALUE_ERROR_FREE_BUSY_GENERATION_FAILED = 'ErrorFreeBusyGenerationFailed';
     /**
      * Constant for value 'ErrorGetServerSecurityDescriptorFailed'
      * @return string 'ErrorGetServerSecurityDescriptorFailed'
      */
-    const VALUE_ERRORGETSERVERSECURITYDESCRIPTORFAILED = 'ErrorGetServerSecurityDescriptorFailed';
+    const VALUE_ERROR_GET_SERVER_SECURITY_DESCRIPTOR_FAILED = 'ErrorGetServerSecurityDescriptorFailed';
     /**
      * Constant for value 'ErrorImContactLimitReached'
      * @return string 'ErrorImContactLimitReached'
      */
-    const VALUE_ERRORIMCONTACTLIMITREACHED = 'ErrorImContactLimitReached';
+    const VALUE_ERROR_IM_CONTACT_LIMIT_REACHED = 'ErrorImContactLimitReached';
     /**
      * Constant for value 'ErrorImGroupDisplayNameAlreadyExists'
      * @return string 'ErrorImGroupDisplayNameAlreadyExists'
      */
-    const VALUE_ERRORIMGROUPDISPLAYNAMEALREADYEXISTS = 'ErrorImGroupDisplayNameAlreadyExists';
+    const VALUE_ERROR_IM_GROUP_DISPLAY_NAME_ALREADY_EXISTS = 'ErrorImGroupDisplayNameAlreadyExists';
     /**
      * Constant for value 'ErrorImGroupLimitReached'
      * @return string 'ErrorImGroupLimitReached'
      */
-    const VALUE_ERRORIMGROUPLIMITREACHED = 'ErrorImGroupLimitReached';
+    const VALUE_ERROR_IM_GROUP_LIMIT_REACHED = 'ErrorImGroupLimitReached';
     /**
      * Constant for value 'ErrorImpersonateUserDenied'
      * @return string 'ErrorImpersonateUserDenied'
      */
-    const VALUE_ERRORIMPERSONATEUSERDENIED = 'ErrorImpersonateUserDenied';
+    const VALUE_ERROR_IMPERSONATE_USER_DENIED = 'ErrorImpersonateUserDenied';
     /**
      * Constant for value 'ErrorImpersonationDenied'
      * @return string 'ErrorImpersonationDenied'
      */
-    const VALUE_ERRORIMPERSONATIONDENIED = 'ErrorImpersonationDenied';
+    const VALUE_ERROR_IMPERSONATION_DENIED = 'ErrorImpersonationDenied';
     /**
      * Constant for value 'ErrorImpersonationFailed'
      * @return string 'ErrorImpersonationFailed'
      */
-    const VALUE_ERRORIMPERSONATIONFAILED = 'ErrorImpersonationFailed';
+    const VALUE_ERROR_IMPERSONATION_FAILED = 'ErrorImpersonationFailed';
     /**
      * Constant for value 'ErrorIncorrectSchemaVersion'
      * @return string 'ErrorIncorrectSchemaVersion'
      */
-    const VALUE_ERRORINCORRECTSCHEMAVERSION = 'ErrorIncorrectSchemaVersion';
+    const VALUE_ERROR_INCORRECT_SCHEMA_VERSION = 'ErrorIncorrectSchemaVersion';
     /**
      * Constant for value 'ErrorIncorrectUpdatePropertyCount'
      * @return string 'ErrorIncorrectUpdatePropertyCount'
      */
-    const VALUE_ERRORINCORRECTUPDATEPROPERTYCOUNT = 'ErrorIncorrectUpdatePropertyCount';
+    const VALUE_ERROR_INCORRECT_UPDATE_PROPERTY_COUNT = 'ErrorIncorrectUpdatePropertyCount';
     /**
      * Constant for value 'ErrorIndividualMailboxLimitReached'
      * @return string 'ErrorIndividualMailboxLimitReached'
      */
-    const VALUE_ERRORINDIVIDUALMAILBOXLIMITREACHED = 'ErrorIndividualMailboxLimitReached';
+    const VALUE_ERROR_INDIVIDUAL_MAILBOX_LIMIT_REACHED = 'ErrorIndividualMailboxLimitReached';
     /**
      * Constant for value 'ErrorInsufficientResources'
      * @return string 'ErrorInsufficientResources'
      */
-    const VALUE_ERRORINSUFFICIENTRESOURCES = 'ErrorInsufficientResources';
+    const VALUE_ERROR_INSUFFICIENT_RESOURCES = 'ErrorInsufficientResources';
     /**
      * Constant for value 'ErrorInternalServerError'
      * @return string 'ErrorInternalServerError'
      */
-    const VALUE_ERRORINTERNALSERVERERROR = 'ErrorInternalServerError';
+    const VALUE_ERROR_INTERNAL_SERVER_ERROR = 'ErrorInternalServerError';
     /**
      * Constant for value 'ErrorInternalServerTransientError'
      * @return string 'ErrorInternalServerTransientError'
      */
-    const VALUE_ERRORINTERNALSERVERTRANSIENTERROR = 'ErrorInternalServerTransientError';
+    const VALUE_ERROR_INTERNAL_SERVER_TRANSIENT_ERROR = 'ErrorInternalServerTransientError';
     /**
      * Constant for value 'ErrorInvalidAccessLevel'
      * @return string 'ErrorInvalidAccessLevel'
      */
-    const VALUE_ERRORINVALIDACCESSLEVEL = 'ErrorInvalidAccessLevel';
+    const VALUE_ERROR_INVALID_ACCESS_LEVEL = 'ErrorInvalidAccessLevel';
     /**
      * Constant for value 'ErrorInvalidArgument'
      * @return string 'ErrorInvalidArgument'
      */
-    const VALUE_ERRORINVALIDARGUMENT = 'ErrorInvalidArgument';
+    const VALUE_ERROR_INVALID_ARGUMENT = 'ErrorInvalidArgument';
     /**
      * Constant for value 'ErrorInvalidAttachmentId'
      * @return string 'ErrorInvalidAttachmentId'
      */
-    const VALUE_ERRORINVALIDATTACHMENTID = 'ErrorInvalidAttachmentId';
+    const VALUE_ERROR_INVALID_ATTACHMENT_ID = 'ErrorInvalidAttachmentId';
     /**
      * Constant for value 'ErrorInvalidAttachmentSubfilter'
      * @return string 'ErrorInvalidAttachmentSubfilter'
      */
-    const VALUE_ERRORINVALIDATTACHMENTSUBFILTER = 'ErrorInvalidAttachmentSubfilter';
+    const VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER = 'ErrorInvalidAttachmentSubfilter';
     /**
      * Constant for value 'ErrorInvalidAttachmentSubfilterTextFilter'
      * @return string 'ErrorInvalidAttachmentSubfilterTextFilter'
      */
-    const VALUE_ERRORINVALIDATTACHMENTSUBFILTERTEXTFILTER = 'ErrorInvalidAttachmentSubfilterTextFilter';
+    const VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER_TEXT_FILTER = 'ErrorInvalidAttachmentSubfilterTextFilter';
     /**
      * Constant for value 'ErrorInvalidAuthorizationContext'
      * @return string 'ErrorInvalidAuthorizationContext'
      */
-    const VALUE_ERRORINVALIDAUTHORIZATIONCONTEXT = 'ErrorInvalidAuthorizationContext';
+    const VALUE_ERROR_INVALID_AUTHORIZATION_CONTEXT = 'ErrorInvalidAuthorizationContext';
     /**
      * Constant for value 'ErrorInvalidChangeKey'
      * @return string 'ErrorInvalidChangeKey'
      */
-    const VALUE_ERRORINVALIDCHANGEKEY = 'ErrorInvalidChangeKey';
+    const VALUE_ERROR_INVALID_CHANGE_KEY = 'ErrorInvalidChangeKey';
     /**
      * Constant for value 'ErrorInvalidChannelId'
      * @return string 'ErrorInvalidChannelId'
      */
-    const VALUE_ERRORINVALIDCHANNELID = 'ErrorInvalidChannelId';
+    const VALUE_ERROR_INVALID_CHANNEL_ID = 'ErrorInvalidChannelId';
     /**
      * Constant for value 'ErrorInvalidChannelSubscriptionId'
      * @return string 'ErrorInvalidChannelSubscriptionId'
      */
-    const VALUE_ERRORINVALIDCHANNELSUBSCRIPTIONID = 'ErrorInvalidChannelSubscriptionId';
+    const VALUE_ERROR_INVALID_CHANNEL_SUBSCRIPTION_ID = 'ErrorInvalidChannelSubscriptionId';
     /**
      * Constant for value 'ErrorInvalidClientSecurityContext'
      * @return string 'ErrorInvalidClientSecurityContext'
      */
-    const VALUE_ERRORINVALIDCLIENTSECURITYCONTEXT = 'ErrorInvalidClientSecurityContext';
+    const VALUE_ERROR_INVALID_CLIENT_SECURITY_CONTEXT = 'ErrorInvalidClientSecurityContext';
     /**
      * Constant for value 'ErrorInvalidCompleteDate'
      * @return string 'ErrorInvalidCompleteDate'
      */
-    const VALUE_ERRORINVALIDCOMPLETEDATE = 'ErrorInvalidCompleteDate';
+    const VALUE_ERROR_INVALID_COMPLETE_DATE = 'ErrorInvalidCompleteDate';
     /**
      * Constant for value 'ErrorInvalidContactEmailAddress'
      * @return string 'ErrorInvalidContactEmailAddress'
      */
-    const VALUE_ERRORINVALIDCONTACTEMAILADDRESS = 'ErrorInvalidContactEmailAddress';
+    const VALUE_ERROR_INVALID_CONTACT_EMAIL_ADDRESS = 'ErrorInvalidContactEmailAddress';
     /**
      * Constant for value 'ErrorInvalidContactEmailIndex'
      * @return string 'ErrorInvalidContactEmailIndex'
      */
-    const VALUE_ERRORINVALIDCONTACTEMAILINDEX = 'ErrorInvalidContactEmailIndex';
+    const VALUE_ERROR_INVALID_CONTACT_EMAIL_INDEX = 'ErrorInvalidContactEmailIndex';
     /**
      * Constant for value 'ErrorInvalidCrossForestCredentials'
      * @return string 'ErrorInvalidCrossForestCredentials'
      */
-    const VALUE_ERRORINVALIDCROSSFORESTCREDENTIALS = 'ErrorInvalidCrossForestCredentials';
+    const VALUE_ERROR_INVALID_CROSS_FOREST_CREDENTIALS = 'ErrorInvalidCrossForestCredentials';
     /**
      * Constant for value 'ErrorInvalidDelegatePermission'
      * @return string 'ErrorInvalidDelegatePermission'
      */
-    const VALUE_ERRORINVALIDDELEGATEPERMISSION = 'ErrorInvalidDelegatePermission';
+    const VALUE_ERROR_INVALID_DELEGATE_PERMISSION = 'ErrorInvalidDelegatePermission';
     /**
      * Constant for value 'ErrorInvalidDelegateUserId'
      * @return string 'ErrorInvalidDelegateUserId'
      */
-    const VALUE_ERRORINVALIDDELEGATEUSERID = 'ErrorInvalidDelegateUserId';
+    const VALUE_ERROR_INVALID_DELEGATE_USER_ID = 'ErrorInvalidDelegateUserId';
     /**
      * Constant for value 'ErrorInvalidExcludesRestriction'
      * @return string 'ErrorInvalidExcludesRestriction'
      */
-    const VALUE_ERRORINVALIDEXCLUDESRESTRICTION = 'ErrorInvalidExcludesRestriction';
+    const VALUE_ERROR_INVALID_EXCLUDES_RESTRICTION = 'ErrorInvalidExcludesRestriction';
     /**
      * Constant for value 'ErrorInvalidExpressionTypeForSubFilter'
      * @return string 'ErrorInvalidExpressionTypeForSubFilter'
      */
-    const VALUE_ERRORINVALIDEXPRESSIONTYPEFORSUBFILTER = 'ErrorInvalidExpressionTypeForSubFilter';
+    const VALUE_ERROR_INVALID_EXPRESSION_TYPE_FOR_SUB_FILTER = 'ErrorInvalidExpressionTypeForSubFilter';
     /**
      * Constant for value 'ErrorInvalidExtendedProperty'
      * @return string 'ErrorInvalidExtendedProperty'
      */
-    const VALUE_ERRORINVALIDEXTENDEDPROPERTY = 'ErrorInvalidExtendedProperty';
+    const VALUE_ERROR_INVALID_EXTENDED_PROPERTY = 'ErrorInvalidExtendedProperty';
     /**
      * Constant for value 'ErrorInvalidExtendedPropertyValue'
      * @return string 'ErrorInvalidExtendedPropertyValue'
      */
-    const VALUE_ERRORINVALIDEXTENDEDPROPERTYVALUE = 'ErrorInvalidExtendedPropertyValue';
+    const VALUE_ERROR_INVALID_EXTENDED_PROPERTY_VALUE = 'ErrorInvalidExtendedPropertyValue';
     /**
      * Constant for value 'ErrorInvalidFolderId'
      * @return string 'ErrorInvalidFolderId'
      */
-    const VALUE_ERRORINVALIDFOLDERID = 'ErrorInvalidFolderId';
+    const VALUE_ERROR_INVALID_FOLDER_ID = 'ErrorInvalidFolderId';
     /**
      * Constant for value 'ErrorInvalidFolderTypeForOperation'
      * @return string 'ErrorInvalidFolderTypeForOperation'
      */
-    const VALUE_ERRORINVALIDFOLDERTYPEFOROPERATION = 'ErrorInvalidFolderTypeForOperation';
+    const VALUE_ERROR_INVALID_FOLDER_TYPE_FOR_OPERATION = 'ErrorInvalidFolderTypeForOperation';
     /**
      * Constant for value 'ErrorInvalidFractionalPagingParameters'
      * @return string 'ErrorInvalidFractionalPagingParameters'
      */
-    const VALUE_ERRORINVALIDFRACTIONALPAGINGPARAMETERS = 'ErrorInvalidFractionalPagingParameters';
+    const VALUE_ERROR_INVALID_FRACTIONAL_PAGING_PARAMETERS = 'ErrorInvalidFractionalPagingParameters';
     /**
      * Constant for value 'ErrorInvalidFreeBusyViewType'
      * @return string 'ErrorInvalidFreeBusyViewType'
      */
-    const VALUE_ERRORINVALIDFREEBUSYVIEWTYPE = 'ErrorInvalidFreeBusyViewType';
+    const VALUE_ERROR_INVALID_FREE_BUSY_VIEW_TYPE = 'ErrorInvalidFreeBusyViewType';
     /**
      * Constant for value 'ErrorInvalidId'
      * @return string 'ErrorInvalidId'
      */
-    const VALUE_ERRORINVALIDID = 'ErrorInvalidId';
+    const VALUE_ERROR_INVALID_ID = 'ErrorInvalidId';
     /**
      * Constant for value 'ErrorInvalidIdEmpty'
      * @return string 'ErrorInvalidIdEmpty'
      */
-    const VALUE_ERRORINVALIDIDEMPTY = 'ErrorInvalidIdEmpty';
+    const VALUE_ERROR_INVALID_ID_EMPTY = 'ErrorInvalidIdEmpty';
     /**
      * Constant for value 'ErrorInvalidIdMalformed'
      * @return string 'ErrorInvalidIdMalformed'
      */
-    const VALUE_ERRORINVALIDIDMALFORMED = 'ErrorInvalidIdMalformed';
+    const VALUE_ERROR_INVALID_ID_MALFORMED = 'ErrorInvalidIdMalformed';
     /**
      * Constant for value 'ErrorInvalidIdMalformedEwsLegacyIdFormat'
      * @return string 'ErrorInvalidIdMalformedEwsLegacyIdFormat'
      */
-    const VALUE_ERRORINVALIDIDMALFORMEDEWSLEGACYIDFORMAT = 'ErrorInvalidIdMalformedEwsLegacyIdFormat';
+    const VALUE_ERROR_INVALID_ID_MALFORMED_EWS_LEGACY_ID_FORMAT = 'ErrorInvalidIdMalformedEwsLegacyIdFormat';
     /**
      * Constant for value 'ErrorInvalidIdMonikerTooLong'
      * @return string 'ErrorInvalidIdMonikerTooLong'
      */
-    const VALUE_ERRORINVALIDIDMONIKERTOOLONG = 'ErrorInvalidIdMonikerTooLong';
+    const VALUE_ERROR_INVALID_ID_MONIKER_TOO_LONG = 'ErrorInvalidIdMonikerTooLong';
     /**
      * Constant for value 'ErrorInvalidIdNotAnItemAttachmentId'
      * @return string 'ErrorInvalidIdNotAnItemAttachmentId'
      */
-    const VALUE_ERRORINVALIDIDNOTANITEMATTACHMENTID = 'ErrorInvalidIdNotAnItemAttachmentId';
+    const VALUE_ERROR_INVALID_ID_NOT_AN_ITEM_ATTACHMENT_ID = 'ErrorInvalidIdNotAnItemAttachmentId';
     /**
      * Constant for value 'ErrorInvalidIdReturnedByResolveNames'
      * @return string 'ErrorInvalidIdReturnedByResolveNames'
      */
-    const VALUE_ERRORINVALIDIDRETURNEDBYRESOLVENAMES = 'ErrorInvalidIdReturnedByResolveNames';
+    const VALUE_ERROR_INVALID_ID_RETURNED_BY_RESOLVE_NAMES = 'ErrorInvalidIdReturnedByResolveNames';
     /**
      * Constant for value 'ErrorInvalidIdStoreObjectIdTooLong'
      * @return string 'ErrorInvalidIdStoreObjectIdTooLong'
      */
-    const VALUE_ERRORINVALIDIDSTOREOBJECTIDTOOLONG = 'ErrorInvalidIdStoreObjectIdTooLong';
+    const VALUE_ERROR_INVALID_ID_STORE_OBJECT_ID_TOO_LONG = 'ErrorInvalidIdStoreObjectIdTooLong';
     /**
      * Constant for value 'ErrorInvalidIdTooManyAttachmentLevels'
      * @return string 'ErrorInvalidIdTooManyAttachmentLevels'
      */
-    const VALUE_ERRORINVALIDIDTOOMANYATTACHMENTLEVELS = 'ErrorInvalidIdTooManyAttachmentLevels';
+    const VALUE_ERROR_INVALID_ID_TOO_MANY_ATTACHMENT_LEVELS = 'ErrorInvalidIdTooManyAttachmentLevels';
     /**
      * Constant for value 'ErrorInvalidIdXml'
      * @return string 'ErrorInvalidIdXml'
      */
-    const VALUE_ERRORINVALIDIDXML = 'ErrorInvalidIdXml';
+    const VALUE_ERROR_INVALID_ID_XML = 'ErrorInvalidIdXml';
     /**
      * Constant for value 'ErrorInvalidImContactId'
      * @return string 'ErrorInvalidImContactId'
      */
-    const VALUE_ERRORINVALIDIMCONTACTID = 'ErrorInvalidImContactId';
+    const VALUE_ERROR_INVALID_IM_CONTACT_ID = 'ErrorInvalidImContactId';
     /**
      * Constant for value 'ErrorInvalidImDistributionGroupSmtpAddress'
      * @return string 'ErrorInvalidImDistributionGroupSmtpAddress'
      */
-    const VALUE_ERRORINVALIDIMDISTRIBUTIONGROUPSMTPADDRESS = 'ErrorInvalidImDistributionGroupSmtpAddress';
+    const VALUE_ERROR_INVALID_IM_DISTRIBUTION_GROUP_SMTP_ADDRESS = 'ErrorInvalidImDistributionGroupSmtpAddress';
     /**
      * Constant for value 'ErrorInvalidImGroupId'
      * @return string 'ErrorInvalidImGroupId'
      */
-    const VALUE_ERRORINVALIDIMGROUPID = 'ErrorInvalidImGroupId';
+    const VALUE_ERROR_INVALID_IM_GROUP_ID = 'ErrorInvalidImGroupId';
     /**
      * Constant for value 'ErrorInvalidIndexedPagingParameters'
      * @return string 'ErrorInvalidIndexedPagingParameters'
      */
-    const VALUE_ERRORINVALIDINDEXEDPAGINGPARAMETERS = 'ErrorInvalidIndexedPagingParameters';
+    const VALUE_ERROR_INVALID_INDEXED_PAGING_PARAMETERS = 'ErrorInvalidIndexedPagingParameters';
     /**
      * Constant for value 'ErrorInvalidInternetHeaderChildNodes'
      * @return string 'ErrorInvalidInternetHeaderChildNodes'
      */
-    const VALUE_ERRORINVALIDINTERNETHEADERCHILDNODES = 'ErrorInvalidInternetHeaderChildNodes';
+    const VALUE_ERROR_INVALID_INTERNET_HEADER_CHILD_NODES = 'ErrorInvalidInternetHeaderChildNodes';
     /**
      * Constant for value 'ErrorInvalidItemForOperationArchiveItem'
      * @return string 'ErrorInvalidItemForOperationArchiveItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONARCHIVEITEM = 'ErrorInvalidItemForOperationArchiveItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ARCHIVE_ITEM = 'ErrorInvalidItemForOperationArchiveItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationCreateItemAttachment'
      * @return string 'ErrorInvalidItemForOperationCreateItemAttachment'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEMATTACHMENT = 'ErrorInvalidItemForOperationCreateItemAttachment';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM_ATTACHMENT = 'ErrorInvalidItemForOperationCreateItemAttachment';
     /**
      * Constant for value 'ErrorInvalidItemForOperationCreateItem'
      * @return string 'ErrorInvalidItemForOperationCreateItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEM = 'ErrorInvalidItemForOperationCreateItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM = 'ErrorInvalidItemForOperationCreateItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationAcceptItem'
      * @return string 'ErrorInvalidItemForOperationAcceptItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONACCEPTITEM = 'ErrorInvalidItemForOperationAcceptItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ACCEPT_ITEM = 'ErrorInvalidItemForOperationAcceptItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationDeclineItem'
      * @return string 'ErrorInvalidItemForOperationDeclineItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONDECLINEITEM = 'ErrorInvalidItemForOperationDeclineItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_DECLINE_ITEM = 'ErrorInvalidItemForOperationDeclineItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationCancelItem'
      * @return string 'ErrorInvalidItemForOperationCancelItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONCANCELITEM = 'ErrorInvalidItemForOperationCancelItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CANCEL_ITEM = 'ErrorInvalidItemForOperationCancelItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationExpandDL'
      * @return string 'ErrorInvalidItemForOperationExpandDL'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONEXPANDDL = 'ErrorInvalidItemForOperationExpandDL';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_EXPAND_DL = 'ErrorInvalidItemForOperationExpandDL';
     /**
      * Constant for value 'ErrorInvalidItemForOperationRemoveItem'
      * @return string 'ErrorInvalidItemForOperationRemoveItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONREMOVEITEM = 'ErrorInvalidItemForOperationRemoveItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_REMOVE_ITEM = 'ErrorInvalidItemForOperationRemoveItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationSendItem'
      * @return string 'ErrorInvalidItemForOperationSendItem'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONSENDITEM = 'ErrorInvalidItemForOperationSendItem';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_SEND_ITEM = 'ErrorInvalidItemForOperationSendItem';
     /**
      * Constant for value 'ErrorInvalidItemForOperationTentative'
      * @return string 'ErrorInvalidItemForOperationTentative'
      */
-    const VALUE_ERRORINVALIDITEMFOROPERATIONTENTATIVE = 'ErrorInvalidItemForOperationTentative';
+    const VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_TENTATIVE = 'ErrorInvalidItemForOperationTentative';
     /**
      * Constant for value 'ErrorInvalidLogonType'
      * @return string 'ErrorInvalidLogonType'
      */
-    const VALUE_ERRORINVALIDLOGONTYPE = 'ErrorInvalidLogonType';
+    const VALUE_ERROR_INVALID_LOGON_TYPE = 'ErrorInvalidLogonType';
     /**
      * Constant for value 'ErrorInvalidLikeRequest'
      * @return string 'ErrorInvalidLikeRequest'
      */
-    const VALUE_ERRORINVALIDLIKEREQUEST = 'ErrorInvalidLikeRequest';
+    const VALUE_ERROR_INVALID_LIKE_REQUEST = 'ErrorInvalidLikeRequest';
     /**
      * Constant for value 'ErrorInvalidMailbox'
      * @return string 'ErrorInvalidMailbox'
      */
-    const VALUE_ERRORINVALIDMAILBOX = 'ErrorInvalidMailbox';
+    const VALUE_ERROR_INVALID_MAILBOX = 'ErrorInvalidMailbox';
     /**
      * Constant for value 'ErrorInvalidManagedFolderProperty'
      * @return string 'ErrorInvalidManagedFolderProperty'
      */
-    const VALUE_ERRORINVALIDMANAGEDFOLDERPROPERTY = 'ErrorInvalidManagedFolderProperty';
+    const VALUE_ERROR_INVALID_MANAGED_FOLDER_PROPERTY = 'ErrorInvalidManagedFolderProperty';
     /**
      * Constant for value 'ErrorInvalidManagedFolderQuota'
      * @return string 'ErrorInvalidManagedFolderQuota'
      */
-    const VALUE_ERRORINVALIDMANAGEDFOLDERQUOTA = 'ErrorInvalidManagedFolderQuota';
+    const VALUE_ERROR_INVALID_MANAGED_FOLDER_QUOTA = 'ErrorInvalidManagedFolderQuota';
     /**
      * Constant for value 'ErrorInvalidManagedFolderSize'
      * @return string 'ErrorInvalidManagedFolderSize'
      */
-    const VALUE_ERRORINVALIDMANAGEDFOLDERSIZE = 'ErrorInvalidManagedFolderSize';
+    const VALUE_ERROR_INVALID_MANAGED_FOLDER_SIZE = 'ErrorInvalidManagedFolderSize';
     /**
      * Constant for value 'ErrorInvalidMergedFreeBusyInterval'
      * @return string 'ErrorInvalidMergedFreeBusyInterval'
      */
-    const VALUE_ERRORINVALIDMERGEDFREEBUSYINTERVAL = 'ErrorInvalidMergedFreeBusyInterval';
+    const VALUE_ERROR_INVALID_MERGED_FREE_BUSY_INTERVAL = 'ErrorInvalidMergedFreeBusyInterval';
     /**
      * Constant for value 'ErrorInvalidNameForNameResolution'
      * @return string 'ErrorInvalidNameForNameResolution'
      */
-    const VALUE_ERRORINVALIDNAMEFORNAMERESOLUTION = 'ErrorInvalidNameForNameResolution';
+    const VALUE_ERROR_INVALID_NAME_FOR_NAME_RESOLUTION = 'ErrorInvalidNameForNameResolution';
     /**
      * Constant for value 'ErrorInvalidOperation'
      * @return string 'ErrorInvalidOperation'
      */
-    const VALUE_ERRORINVALIDOPERATION = 'ErrorInvalidOperation';
+    const VALUE_ERROR_INVALID_OPERATION = 'ErrorInvalidOperation';
     /**
      * Constant for value 'ErrorInvalidNetworkServiceContext'
      * @return string 'ErrorInvalidNetworkServiceContext'
      */
-    const VALUE_ERRORINVALIDNETWORKSERVICECONTEXT = 'ErrorInvalidNetworkServiceContext';
+    const VALUE_ERROR_INVALID_NETWORK_SERVICE_CONTEXT = 'ErrorInvalidNetworkServiceContext';
     /**
      * Constant for value 'ErrorInvalidOofParameter'
      * @return string 'ErrorInvalidOofParameter'
      */
-    const VALUE_ERRORINVALIDOOFPARAMETER = 'ErrorInvalidOofParameter';
+    const VALUE_ERROR_INVALID_OOF_PARAMETER = 'ErrorInvalidOofParameter';
     /**
      * Constant for value 'ErrorInvalidPagingMaxRows'
      * @return string 'ErrorInvalidPagingMaxRows'
      */
-    const VALUE_ERRORINVALIDPAGINGMAXROWS = 'ErrorInvalidPagingMaxRows';
+    const VALUE_ERROR_INVALID_PAGING_MAX_ROWS = 'ErrorInvalidPagingMaxRows';
     /**
      * Constant for value 'ErrorInvalidParentFolder'
      * @return string 'ErrorInvalidParentFolder'
      */
-    const VALUE_ERRORINVALIDPARENTFOLDER = 'ErrorInvalidParentFolder';
+    const VALUE_ERROR_INVALID_PARENT_FOLDER = 'ErrorInvalidParentFolder';
     /**
      * Constant for value 'ErrorInvalidPercentCompleteValue'
      * @return string 'ErrorInvalidPercentCompleteValue'
      */
-    const VALUE_ERRORINVALIDPERCENTCOMPLETEVALUE = 'ErrorInvalidPercentCompleteValue';
+    const VALUE_ERROR_INVALID_PERCENT_COMPLETE_VALUE = 'ErrorInvalidPercentCompleteValue';
     /**
      * Constant for value 'ErrorInvalidPermissionSettings'
      * @return string 'ErrorInvalidPermissionSettings'
      */
-    const VALUE_ERRORINVALIDPERMISSIONSETTINGS = 'ErrorInvalidPermissionSettings';
+    const VALUE_ERROR_INVALID_PERMISSION_SETTINGS = 'ErrorInvalidPermissionSettings';
     /**
      * Constant for value 'ErrorInvalidPhoneCallId'
      * @return string 'ErrorInvalidPhoneCallId'
      */
-    const VALUE_ERRORINVALIDPHONECALLID = 'ErrorInvalidPhoneCallId';
+    const VALUE_ERROR_INVALID_PHONE_CALL_ID = 'ErrorInvalidPhoneCallId';
     /**
      * Constant for value 'ErrorInvalidPhoneNumber'
      * @return string 'ErrorInvalidPhoneNumber'
      */
-    const VALUE_ERRORINVALIDPHONENUMBER = 'ErrorInvalidPhoneNumber';
+    const VALUE_ERROR_INVALID_PHONE_NUMBER = 'ErrorInvalidPhoneNumber';
     /**
      * Constant for value 'ErrorInvalidUserInfo'
      * @return string 'ErrorInvalidUserInfo'
      */
-    const VALUE_ERRORINVALIDUSERINFO = 'ErrorInvalidUserInfo';
+    const VALUE_ERROR_INVALID_USER_INFO = 'ErrorInvalidUserInfo';
     /**
      * Constant for value 'ErrorInvalidPropertyAppend'
      * @return string 'ErrorInvalidPropertyAppend'
      */
-    const VALUE_ERRORINVALIDPROPERTYAPPEND = 'ErrorInvalidPropertyAppend';
+    const VALUE_ERROR_INVALID_PROPERTY_APPEND = 'ErrorInvalidPropertyAppend';
     /**
      * Constant for value 'ErrorInvalidPropertyDelete'
      * @return string 'ErrorInvalidPropertyDelete'
      */
-    const VALUE_ERRORINVALIDPROPERTYDELETE = 'ErrorInvalidPropertyDelete';
+    const VALUE_ERROR_INVALID_PROPERTY_DELETE = 'ErrorInvalidPropertyDelete';
     /**
      * Constant for value 'ErrorInvalidPropertyForExists'
      * @return string 'ErrorInvalidPropertyForExists'
      */
-    const VALUE_ERRORINVALIDPROPERTYFOREXISTS = 'ErrorInvalidPropertyForExists';
+    const VALUE_ERROR_INVALID_PROPERTY_FOR_EXISTS = 'ErrorInvalidPropertyForExists';
     /**
      * Constant for value 'ErrorInvalidPropertyForOperation'
      * @return string 'ErrorInvalidPropertyForOperation'
      */
-    const VALUE_ERRORINVALIDPROPERTYFOROPERATION = 'ErrorInvalidPropertyForOperation';
+    const VALUE_ERROR_INVALID_PROPERTY_FOR_OPERATION = 'ErrorInvalidPropertyForOperation';
     /**
      * Constant for value 'ErrorInvalidPropertyRequest'
      * @return string 'ErrorInvalidPropertyRequest'
      */
-    const VALUE_ERRORINVALIDPROPERTYREQUEST = 'ErrorInvalidPropertyRequest';
+    const VALUE_ERROR_INVALID_PROPERTY_REQUEST = 'ErrorInvalidPropertyRequest';
     /**
      * Constant for value 'ErrorInvalidPropertySet'
      * @return string 'ErrorInvalidPropertySet'
      */
-    const VALUE_ERRORINVALIDPROPERTYSET = 'ErrorInvalidPropertySet';
+    const VALUE_ERROR_INVALID_PROPERTY_SET = 'ErrorInvalidPropertySet';
     /**
      * Constant for value 'ErrorInvalidPropertyUpdateSentMessage'
      * @return string 'ErrorInvalidPropertyUpdateSentMessage'
      */
-    const VALUE_ERRORINVALIDPROPERTYUPDATESENTMESSAGE = 'ErrorInvalidPropertyUpdateSentMessage';
+    const VALUE_ERROR_INVALID_PROPERTY_UPDATE_SENT_MESSAGE = 'ErrorInvalidPropertyUpdateSentMessage';
     /**
      * Constant for value 'ErrorInvalidProxySecurityContext'
      * @return string 'ErrorInvalidProxySecurityContext'
      */
-    const VALUE_ERRORINVALIDPROXYSECURITYCONTEXT = 'ErrorInvalidProxySecurityContext';
+    const VALUE_ERROR_INVALID_PROXY_SECURITY_CONTEXT = 'ErrorInvalidProxySecurityContext';
     /**
      * Constant for value 'ErrorInvalidPullSubscriptionId'
      * @return string 'ErrorInvalidPullSubscriptionId'
      */
-    const VALUE_ERRORINVALIDPULLSUBSCRIPTIONID = 'ErrorInvalidPullSubscriptionId';
+    const VALUE_ERROR_INVALID_PULL_SUBSCRIPTION_ID = 'ErrorInvalidPullSubscriptionId';
     /**
      * Constant for value 'ErrorInvalidPushSubscriptionUrl'
      * @return string 'ErrorInvalidPushSubscriptionUrl'
      */
-    const VALUE_ERRORINVALIDPUSHSUBSCRIPTIONURL = 'ErrorInvalidPushSubscriptionUrl';
+    const VALUE_ERROR_INVALID_PUSH_SUBSCRIPTION_URL = 'ErrorInvalidPushSubscriptionUrl';
     /**
      * Constant for value 'ErrorInvalidRecipients'
      * @return string 'ErrorInvalidRecipients'
      */
-    const VALUE_ERRORINVALIDRECIPIENTS = 'ErrorInvalidRecipients';
+    const VALUE_ERROR_INVALID_RECIPIENTS = 'ErrorInvalidRecipients';
     /**
      * Constant for value 'ErrorInvalidRecipientSubfilter'
      * @return string 'ErrorInvalidRecipientSubfilter'
      */
-    const VALUE_ERRORINVALIDRECIPIENTSUBFILTER = 'ErrorInvalidRecipientSubfilter';
+    const VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER = 'ErrorInvalidRecipientSubfilter';
     /**
      * Constant for value 'ErrorInvalidRecipientSubfilterComparison'
      * @return string 'ErrorInvalidRecipientSubfilterComparison'
      */
-    const VALUE_ERRORINVALIDRECIPIENTSUBFILTERCOMPARISON = 'ErrorInvalidRecipientSubfilterComparison';
+    const VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_COMPARISON = 'ErrorInvalidRecipientSubfilterComparison';
     /**
      * Constant for value 'ErrorInvalidRecipientSubfilterOrder'
      * @return string 'ErrorInvalidRecipientSubfilterOrder'
      */
-    const VALUE_ERRORINVALIDRECIPIENTSUBFILTERORDER = 'ErrorInvalidRecipientSubfilterOrder';
+    const VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_ORDER = 'ErrorInvalidRecipientSubfilterOrder';
     /**
      * Constant for value 'ErrorInvalidRecipientSubfilterTextFilter'
      * @return string 'ErrorInvalidRecipientSubfilterTextFilter'
      */
-    const VALUE_ERRORINVALIDRECIPIENTSUBFILTERTEXTFILTER = 'ErrorInvalidRecipientSubfilterTextFilter';
+    const VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_TEXT_FILTER = 'ErrorInvalidRecipientSubfilterTextFilter';
     /**
      * Constant for value 'ErrorInvalidReferenceItem'
      * @return string 'ErrorInvalidReferenceItem'
      */
-    const VALUE_ERRORINVALIDREFERENCEITEM = 'ErrorInvalidReferenceItem';
+    const VALUE_ERROR_INVALID_REFERENCE_ITEM = 'ErrorInvalidReferenceItem';
     /**
      * Constant for value 'ErrorInvalidRequest'
      * @return string 'ErrorInvalidRequest'
      */
-    const VALUE_ERRORINVALIDREQUEST = 'ErrorInvalidRequest';
+    const VALUE_ERROR_INVALID_REQUEST = 'ErrorInvalidRequest';
     /**
      * Constant for value 'ErrorInvalidRestriction'
      * @return string 'ErrorInvalidRestriction'
      */
-    const VALUE_ERRORINVALIDRESTRICTION = 'ErrorInvalidRestriction';
+    const VALUE_ERROR_INVALID_RESTRICTION = 'ErrorInvalidRestriction';
     /**
      * Constant for value 'ErrorInvalidRetentionTagTypeMismatch'
      * @return string 'ErrorInvalidRetentionTagTypeMismatch'
      */
-    const VALUE_ERRORINVALIDRETENTIONTAGTYPEMISMATCH = 'ErrorInvalidRetentionTagTypeMismatch';
+    const VALUE_ERROR_INVALID_RETENTION_TAG_TYPE_MISMATCH = 'ErrorInvalidRetentionTagTypeMismatch';
     /**
      * Constant for value 'ErrorInvalidRetentionTagInvisible'
      * @return string 'ErrorInvalidRetentionTagInvisible'
      */
-    const VALUE_ERRORINVALIDRETENTIONTAGINVISIBLE = 'ErrorInvalidRetentionTagInvisible';
+    const VALUE_ERROR_INVALID_RETENTION_TAG_INVISIBLE = 'ErrorInvalidRetentionTagInvisible';
     /**
      * Constant for value 'ErrorInvalidRetentionTagInheritance'
      * @return string 'ErrorInvalidRetentionTagInheritance'
      */
-    const VALUE_ERRORINVALIDRETENTIONTAGINHERITANCE = 'ErrorInvalidRetentionTagInheritance';
+    const VALUE_ERROR_INVALID_RETENTION_TAG_INHERITANCE = 'ErrorInvalidRetentionTagInheritance';
     /**
      * Constant for value 'ErrorInvalidRetentionTagIdGuid'
      * @return string 'ErrorInvalidRetentionTagIdGuid'
      */
-    const VALUE_ERRORINVALIDRETENTIONTAGIDGUID = 'ErrorInvalidRetentionTagIdGuid';
+    const VALUE_ERROR_INVALID_RETENTION_TAG_ID_GUID = 'ErrorInvalidRetentionTagIdGuid';
     /**
      * Constant for value 'ErrorInvalidRoutingType'
      * @return string 'ErrorInvalidRoutingType'
      */
-    const VALUE_ERRORINVALIDROUTINGTYPE = 'ErrorInvalidRoutingType';
+    const VALUE_ERROR_INVALID_ROUTING_TYPE = 'ErrorInvalidRoutingType';
     /**
      * Constant for value 'ErrorInvalidScheduledOofDuration'
      * @return string 'ErrorInvalidScheduledOofDuration'
      */
-    const VALUE_ERRORINVALIDSCHEDULEDOOFDURATION = 'ErrorInvalidScheduledOofDuration';
+    const VALUE_ERROR_INVALID_SCHEDULED_OOF_DURATION = 'ErrorInvalidScheduledOofDuration';
     /**
      * Constant for value 'ErrorInvalidSchemaVersionForMailboxVersion'
      * @return string 'ErrorInvalidSchemaVersionForMailboxVersion'
      */
-    const VALUE_ERRORINVALIDSCHEMAVERSIONFORMAILBOXVERSION = 'ErrorInvalidSchemaVersionForMailboxVersion';
+    const VALUE_ERROR_INVALID_SCHEMA_VERSION_FOR_MAILBOX_VERSION = 'ErrorInvalidSchemaVersionForMailboxVersion';
     /**
      * Constant for value 'ErrorInvalidSecurityDescriptor'
      * @return string 'ErrorInvalidSecurityDescriptor'
      */
-    const VALUE_ERRORINVALIDSECURITYDESCRIPTOR = 'ErrorInvalidSecurityDescriptor';
+    const VALUE_ERROR_INVALID_SECURITY_DESCRIPTOR = 'ErrorInvalidSecurityDescriptor';
     /**
      * Constant for value 'ErrorInvalidSendItemSaveSettings'
      * @return string 'ErrorInvalidSendItemSaveSettings'
      */
-    const VALUE_ERRORINVALIDSENDITEMSAVESETTINGS = 'ErrorInvalidSendItemSaveSettings';
+    const VALUE_ERROR_INVALID_SEND_ITEM_SAVE_SETTINGS = 'ErrorInvalidSendItemSaveSettings';
     /**
      * Constant for value 'ErrorInvalidSerializedAccessToken'
      * @return string 'ErrorInvalidSerializedAccessToken'
      */
-    const VALUE_ERRORINVALIDSERIALIZEDACCESSTOKEN = 'ErrorInvalidSerializedAccessToken';
+    const VALUE_ERROR_INVALID_SERIALIZED_ACCESS_TOKEN = 'ErrorInvalidSerializedAccessToken';
     /**
      * Constant for value 'ErrorInvalidServerVersion'
      * @return string 'ErrorInvalidServerVersion'
      */
-    const VALUE_ERRORINVALIDSERVERVERSION = 'ErrorInvalidServerVersion';
+    const VALUE_ERROR_INVALID_SERVER_VERSION = 'ErrorInvalidServerVersion';
     /**
      * Constant for value 'ErrorInvalidSid'
      * @return string 'ErrorInvalidSid'
      */
-    const VALUE_ERRORINVALIDSID = 'ErrorInvalidSid';
+    const VALUE_ERROR_INVALID_SID = 'ErrorInvalidSid';
     /**
      * Constant for value 'ErrorInvalidSIPUri'
      * @return string 'ErrorInvalidSIPUri'
      */
-    const VALUE_ERRORINVALIDSIPURI = 'ErrorInvalidSIPUri';
+    const VALUE_ERROR_INVALID_SIPURI = 'ErrorInvalidSIPUri';
     /**
      * Constant for value 'ErrorInvalidSmtpAddress'
      * @return string 'ErrorInvalidSmtpAddress'
      */
-    const VALUE_ERRORINVALIDSMTPADDRESS = 'ErrorInvalidSmtpAddress';
+    const VALUE_ERROR_INVALID_SMTP_ADDRESS = 'ErrorInvalidSmtpAddress';
     /**
      * Constant for value 'ErrorInvalidSubfilterType'
      * @return string 'ErrorInvalidSubfilterType'
      */
-    const VALUE_ERRORINVALIDSUBFILTERTYPE = 'ErrorInvalidSubfilterType';
+    const VALUE_ERROR_INVALID_SUBFILTER_TYPE = 'ErrorInvalidSubfilterType';
     /**
      * Constant for value 'ErrorInvalidSubfilterTypeNotAttendeeType'
      * @return string 'ErrorInvalidSubfilterTypeNotAttendeeType'
      */
-    const VALUE_ERRORINVALIDSUBFILTERTYPENOTATTENDEETYPE = 'ErrorInvalidSubfilterTypeNotAttendeeType';
+    const VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_ATTENDEE_TYPE = 'ErrorInvalidSubfilterTypeNotAttendeeType';
     /**
      * Constant for value 'ErrorInvalidSubfilterTypeNotRecipientType'
      * @return string 'ErrorInvalidSubfilterTypeNotRecipientType'
      */
-    const VALUE_ERRORINVALIDSUBFILTERTYPENOTRECIPIENTTYPE = 'ErrorInvalidSubfilterTypeNotRecipientType';
+    const VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_RECIPIENT_TYPE = 'ErrorInvalidSubfilterTypeNotRecipientType';
     /**
      * Constant for value 'ErrorInvalidSubscription'
      * @return string 'ErrorInvalidSubscription'
      */
-    const VALUE_ERRORINVALIDSUBSCRIPTION = 'ErrorInvalidSubscription';
+    const VALUE_ERROR_INVALID_SUBSCRIPTION = 'ErrorInvalidSubscription';
     /**
      * Constant for value 'ErrorInvalidSubscriptionRequest'
      * @return string 'ErrorInvalidSubscriptionRequest'
      */
-    const VALUE_ERRORINVALIDSUBSCRIPTIONREQUEST = 'ErrorInvalidSubscriptionRequest';
+    const VALUE_ERROR_INVALID_SUBSCRIPTION_REQUEST = 'ErrorInvalidSubscriptionRequest';
     /**
      * Constant for value 'ErrorInvalidSyncStateData'
      * @return string 'ErrorInvalidSyncStateData'
      */
-    const VALUE_ERRORINVALIDSYNCSTATEDATA = 'ErrorInvalidSyncStateData';
+    const VALUE_ERROR_INVALID_SYNC_STATE_DATA = 'ErrorInvalidSyncStateData';
     /**
      * Constant for value 'ErrorInvalidTimeInterval'
      * @return string 'ErrorInvalidTimeInterval'
      */
-    const VALUE_ERRORINVALIDTIMEINTERVAL = 'ErrorInvalidTimeInterval';
+    const VALUE_ERROR_INVALID_TIME_INTERVAL = 'ErrorInvalidTimeInterval';
     /**
      * Constant for value 'ErrorInvalidUserOofSettings'
      * @return string 'ErrorInvalidUserOofSettings'
      */
-    const VALUE_ERRORINVALIDUSEROOFSETTINGS = 'ErrorInvalidUserOofSettings';
+    const VALUE_ERROR_INVALID_USER_OOF_SETTINGS = 'ErrorInvalidUserOofSettings';
     /**
      * Constant for value 'ErrorInvalidUserPrincipalName'
      * @return string 'ErrorInvalidUserPrincipalName'
      */
-    const VALUE_ERRORINVALIDUSERPRINCIPALNAME = 'ErrorInvalidUserPrincipalName';
+    const VALUE_ERROR_INVALID_USER_PRINCIPAL_NAME = 'ErrorInvalidUserPrincipalName';
     /**
      * Constant for value 'ErrorInvalidUserSid'
      * @return string 'ErrorInvalidUserSid'
      */
-    const VALUE_ERRORINVALIDUSERSID = 'ErrorInvalidUserSid';
+    const VALUE_ERROR_INVALID_USER_SID = 'ErrorInvalidUserSid';
     /**
      * Constant for value 'ErrorInvalidUserSidMissingUPN'
      * @return string 'ErrorInvalidUserSidMissingUPN'
      */
-    const VALUE_ERRORINVALIDUSERSIDMISSINGUPN = 'ErrorInvalidUserSidMissingUPN';
+    const VALUE_ERROR_INVALID_USER_SID_MISSING_UPN = 'ErrorInvalidUserSidMissingUPN';
     /**
      * Constant for value 'ErrorInvalidValueForProperty'
      * @return string 'ErrorInvalidValueForProperty'
      */
-    const VALUE_ERRORINVALIDVALUEFORPROPERTY = 'ErrorInvalidValueForProperty';
+    const VALUE_ERROR_INVALID_VALUE_FOR_PROPERTY = 'ErrorInvalidValueForProperty';
     /**
      * Constant for value 'ErrorInvalidWatermark'
      * @return string 'ErrorInvalidWatermark'
      */
-    const VALUE_ERRORINVALIDWATERMARK = 'ErrorInvalidWatermark';
+    const VALUE_ERROR_INVALID_WATERMARK = 'ErrorInvalidWatermark';
     /**
      * Constant for value 'ErrorIPGatewayNotFound'
      * @return string 'ErrorIPGatewayNotFound'
      */
-    const VALUE_ERRORIPGATEWAYNOTFOUND = 'ErrorIPGatewayNotFound';
+    const VALUE_ERROR_IPGATEWAY_NOT_FOUND = 'ErrorIPGatewayNotFound';
     /**
      * Constant for value 'ErrorIrresolvableConflict'
      * @return string 'ErrorIrresolvableConflict'
      */
-    const VALUE_ERRORIRRESOLVABLECONFLICT = 'ErrorIrresolvableConflict';
+    const VALUE_ERROR_IRRESOLVABLE_CONFLICT = 'ErrorIrresolvableConflict';
     /**
      * Constant for value 'ErrorItemCorrupt'
      * @return string 'ErrorItemCorrupt'
      */
-    const VALUE_ERRORITEMCORRUPT = 'ErrorItemCorrupt';
+    const VALUE_ERROR_ITEM_CORRUPT = 'ErrorItemCorrupt';
     /**
      * Constant for value 'ErrorItemNotFound'
      * @return string 'ErrorItemNotFound'
      */
-    const VALUE_ERRORITEMNOTFOUND = 'ErrorItemNotFound';
+    const VALUE_ERROR_ITEM_NOT_FOUND = 'ErrorItemNotFound';
     /**
      * Constant for value 'ErrorItemPropertyRequestFailed'
      * @return string 'ErrorItemPropertyRequestFailed'
      */
-    const VALUE_ERRORITEMPROPERTYREQUESTFAILED = 'ErrorItemPropertyRequestFailed';
+    const VALUE_ERROR_ITEM_PROPERTY_REQUEST_FAILED = 'ErrorItemPropertyRequestFailed';
     /**
      * Constant for value 'ErrorItemSave'
      * @return string 'ErrorItemSave'
      */
-    const VALUE_ERRORITEMSAVE = 'ErrorItemSave';
+    const VALUE_ERROR_ITEM_SAVE = 'ErrorItemSave';
     /**
      * Constant for value 'ErrorItemSavePropertyError'
      * @return string 'ErrorItemSavePropertyError'
      */
-    const VALUE_ERRORITEMSAVEPROPERTYERROR = 'ErrorItemSavePropertyError';
+    const VALUE_ERROR_ITEM_SAVE_PROPERTY_ERROR = 'ErrorItemSavePropertyError';
     /**
      * Constant for value 'ErrorLegacyMailboxFreeBusyViewTypeNotMerged'
      * @return string 'ErrorLegacyMailboxFreeBusyViewTypeNotMerged'
      */
-    const VALUE_ERRORLEGACYMAILBOXFREEBUSYVIEWTYPENOTMERGED = 'ErrorLegacyMailboxFreeBusyViewTypeNotMerged';
+    const VALUE_ERROR_LEGACY_MAILBOX_FREE_BUSY_VIEW_TYPE_NOT_MERGED = 'ErrorLegacyMailboxFreeBusyViewTypeNotMerged';
     /**
      * Constant for value 'ErrorLocalServerObjectNotFound'
      * @return string 'ErrorLocalServerObjectNotFound'
      */
-    const VALUE_ERRORLOCALSERVEROBJECTNOTFOUND = 'ErrorLocalServerObjectNotFound';
+    const VALUE_ERROR_LOCAL_SERVER_OBJECT_NOT_FOUND = 'ErrorLocalServerObjectNotFound';
     /**
      * Constant for value 'ErrorLogonAsNetworkServiceFailed'
      * @return string 'ErrorLogonAsNetworkServiceFailed'
      */
-    const VALUE_ERRORLOGONASNETWORKSERVICEFAILED = 'ErrorLogonAsNetworkServiceFailed';
+    const VALUE_ERROR_LOGON_AS_NETWORK_SERVICE_FAILED = 'ErrorLogonAsNetworkServiceFailed';
     /**
      * Constant for value 'ErrorMailboxConfiguration'
      * @return string 'ErrorMailboxConfiguration'
      */
-    const VALUE_ERRORMAILBOXCONFIGURATION = 'ErrorMailboxConfiguration';
+    const VALUE_ERROR_MAILBOX_CONFIGURATION = 'ErrorMailboxConfiguration';
     /**
      * Constant for value 'ErrorMailboxDataArrayEmpty'
      * @return string 'ErrorMailboxDataArrayEmpty'
      */
-    const VALUE_ERRORMAILBOXDATAARRAYEMPTY = 'ErrorMailboxDataArrayEmpty';
+    const VALUE_ERROR_MAILBOX_DATA_ARRAY_EMPTY = 'ErrorMailboxDataArrayEmpty';
     /**
      * Constant for value 'ErrorMailboxDataArrayTooBig'
      * @return string 'ErrorMailboxDataArrayTooBig'
      */
-    const VALUE_ERRORMAILBOXDATAARRAYTOOBIG = 'ErrorMailboxDataArrayTooBig';
+    const VALUE_ERROR_MAILBOX_DATA_ARRAY_TOO_BIG = 'ErrorMailboxDataArrayTooBig';
     /**
      * Constant for value 'ErrorMailboxHoldNotFound'
      * @return string 'ErrorMailboxHoldNotFound'
      */
-    const VALUE_ERRORMAILBOXHOLDNOTFOUND = 'ErrorMailboxHoldNotFound';
+    const VALUE_ERROR_MAILBOX_HOLD_NOT_FOUND = 'ErrorMailboxHoldNotFound';
     /**
      * Constant for value 'ErrorMailboxLogonFailed'
      * @return string 'ErrorMailboxLogonFailed'
      */
-    const VALUE_ERRORMAILBOXLOGONFAILED = 'ErrorMailboxLogonFailed';
+    const VALUE_ERROR_MAILBOX_LOGON_FAILED = 'ErrorMailboxLogonFailed';
     /**
      * Constant for value 'ErrorMailboxMoveInProgress'
      * @return string 'ErrorMailboxMoveInProgress'
      */
-    const VALUE_ERRORMAILBOXMOVEINPROGRESS = 'ErrorMailboxMoveInProgress';
+    const VALUE_ERROR_MAILBOX_MOVE_IN_PROGRESS = 'ErrorMailboxMoveInProgress';
     /**
      * Constant for value 'ErrorMailboxStoreUnavailable'
      * @return string 'ErrorMailboxStoreUnavailable'
      */
-    const VALUE_ERRORMAILBOXSTOREUNAVAILABLE = 'ErrorMailboxStoreUnavailable';
+    const VALUE_ERROR_MAILBOX_STORE_UNAVAILABLE = 'ErrorMailboxStoreUnavailable';
     /**
      * Constant for value 'ErrorMailRecipientNotFound'
      * @return string 'ErrorMailRecipientNotFound'
      */
-    const VALUE_ERRORMAILRECIPIENTNOTFOUND = 'ErrorMailRecipientNotFound';
+    const VALUE_ERROR_MAIL_RECIPIENT_NOT_FOUND = 'ErrorMailRecipientNotFound';
     /**
      * Constant for value 'ErrorMailTipsDisabled'
      * @return string 'ErrorMailTipsDisabled'
      */
-    const VALUE_ERRORMAILTIPSDISABLED = 'ErrorMailTipsDisabled';
+    const VALUE_ERROR_MAIL_TIPS_DISABLED = 'ErrorMailTipsDisabled';
     /**
      * Constant for value 'ErrorManagedFolderAlreadyExists'
      * @return string 'ErrorManagedFolderAlreadyExists'
      */
-    const VALUE_ERRORMANAGEDFOLDERALREADYEXISTS = 'ErrorManagedFolderAlreadyExists';
+    const VALUE_ERROR_MANAGED_FOLDER_ALREADY_EXISTS = 'ErrorManagedFolderAlreadyExists';
     /**
      * Constant for value 'ErrorManagedFolderNotFound'
      * @return string 'ErrorManagedFolderNotFound'
      */
-    const VALUE_ERRORMANAGEDFOLDERNOTFOUND = 'ErrorManagedFolderNotFound';
+    const VALUE_ERROR_MANAGED_FOLDER_NOT_FOUND = 'ErrorManagedFolderNotFound';
     /**
      * Constant for value 'ErrorManagedFoldersRootFailure'
      * @return string 'ErrorManagedFoldersRootFailure'
      */
-    const VALUE_ERRORMANAGEDFOLDERSROOTFAILURE = 'ErrorManagedFoldersRootFailure';
+    const VALUE_ERROR_MANAGED_FOLDERS_ROOT_FAILURE = 'ErrorManagedFoldersRootFailure';
     /**
      * Constant for value 'ErrorMeetingSuggestionGenerationFailed'
      * @return string 'ErrorMeetingSuggestionGenerationFailed'
      */
-    const VALUE_ERRORMEETINGSUGGESTIONGENERATIONFAILED = 'ErrorMeetingSuggestionGenerationFailed';
+    const VALUE_ERROR_MEETING_SUGGESTION_GENERATION_FAILED = 'ErrorMeetingSuggestionGenerationFailed';
     /**
      * Constant for value 'ErrorMessageDispositionRequired'
      * @return string 'ErrorMessageDispositionRequired'
      */
-    const VALUE_ERRORMESSAGEDISPOSITIONREQUIRED = 'ErrorMessageDispositionRequired';
+    const VALUE_ERROR_MESSAGE_DISPOSITION_REQUIRED = 'ErrorMessageDispositionRequired';
     /**
      * Constant for value 'ErrorMessageSizeExceeded'
      * @return string 'ErrorMessageSizeExceeded'
      */
-    const VALUE_ERRORMESSAGESIZEEXCEEDED = 'ErrorMessageSizeExceeded';
+    const VALUE_ERROR_MESSAGE_SIZE_EXCEEDED = 'ErrorMessageSizeExceeded';
     /**
      * Constant for value 'ErrorMimeContentConversionFailed'
      * @return string 'ErrorMimeContentConversionFailed'
      */
-    const VALUE_ERRORMIMECONTENTCONVERSIONFAILED = 'ErrorMimeContentConversionFailed';
+    const VALUE_ERROR_MIME_CONTENT_CONVERSION_FAILED = 'ErrorMimeContentConversionFailed';
     /**
      * Constant for value 'ErrorMimeContentInvalid'
      * @return string 'ErrorMimeContentInvalid'
      */
-    const VALUE_ERRORMIMECONTENTINVALID = 'ErrorMimeContentInvalid';
+    const VALUE_ERROR_MIME_CONTENT_INVALID = 'ErrorMimeContentInvalid';
     /**
      * Constant for value 'ErrorMimeContentInvalidBase64String'
      * @return string 'ErrorMimeContentInvalidBase64String'
      */
-    const VALUE_ERRORMIMECONTENTINVALIDBASE64STRING = 'ErrorMimeContentInvalidBase64String';
+    const VALUE_ERROR_MIME_CONTENT_INVALID_BASE_64_STRING = 'ErrorMimeContentInvalidBase64String';
     /**
      * Constant for value 'ErrorMissingArgument'
      * @return string 'ErrorMissingArgument'
      */
-    const VALUE_ERRORMISSINGARGUMENT = 'ErrorMissingArgument';
+    const VALUE_ERROR_MISSING_ARGUMENT = 'ErrorMissingArgument';
     /**
      * Constant for value 'ErrorMissingEmailAddress'
      * @return string 'ErrorMissingEmailAddress'
      */
-    const VALUE_ERRORMISSINGEMAILADDRESS = 'ErrorMissingEmailAddress';
+    const VALUE_ERROR_MISSING_EMAIL_ADDRESS = 'ErrorMissingEmailAddress';
     /**
      * Constant for value 'ErrorMissingEmailAddressForManagedFolder'
      * @return string 'ErrorMissingEmailAddressForManagedFolder'
      */
-    const VALUE_ERRORMISSINGEMAILADDRESSFORMANAGEDFOLDER = 'ErrorMissingEmailAddressForManagedFolder';
+    const VALUE_ERROR_MISSING_EMAIL_ADDRESS_FOR_MANAGED_FOLDER = 'ErrorMissingEmailAddressForManagedFolder';
     /**
      * Constant for value 'ErrorMissingInformationEmailAddress'
      * @return string 'ErrorMissingInformationEmailAddress'
      */
-    const VALUE_ERRORMISSINGINFORMATIONEMAILADDRESS = 'ErrorMissingInformationEmailAddress';
+    const VALUE_ERROR_MISSING_INFORMATION_EMAIL_ADDRESS = 'ErrorMissingInformationEmailAddress';
     /**
      * Constant for value 'ErrorMissingInformationReferenceItemId'
      * @return string 'ErrorMissingInformationReferenceItemId'
      */
-    const VALUE_ERRORMISSINGINFORMATIONREFERENCEITEMID = 'ErrorMissingInformationReferenceItemId';
+    const VALUE_ERROR_MISSING_INFORMATION_REFERENCE_ITEM_ID = 'ErrorMissingInformationReferenceItemId';
     /**
      * Constant for value 'ErrorMissingItemForCreateItemAttachment'
      * @return string 'ErrorMissingItemForCreateItemAttachment'
      */
-    const VALUE_ERRORMISSINGITEMFORCREATEITEMATTACHMENT = 'ErrorMissingItemForCreateItemAttachment';
+    const VALUE_ERROR_MISSING_ITEM_FOR_CREATE_ITEM_ATTACHMENT = 'ErrorMissingItemForCreateItemAttachment';
     /**
      * Constant for value 'ErrorMissingManagedFolderId'
      * @return string 'ErrorMissingManagedFolderId'
      */
-    const VALUE_ERRORMISSINGMANAGEDFOLDERID = 'ErrorMissingManagedFolderId';
+    const VALUE_ERROR_MISSING_MANAGED_FOLDER_ID = 'ErrorMissingManagedFolderId';
     /**
      * Constant for value 'ErrorMissingRecipients'
      * @return string 'ErrorMissingRecipients'
      */
-    const VALUE_ERRORMISSINGRECIPIENTS = 'ErrorMissingRecipients';
+    const VALUE_ERROR_MISSING_RECIPIENTS = 'ErrorMissingRecipients';
     /**
      * Constant for value 'ErrorMissingUserIdInformation'
      * @return string 'ErrorMissingUserIdInformation'
      */
-    const VALUE_ERRORMISSINGUSERIDINFORMATION = 'ErrorMissingUserIdInformation';
+    const VALUE_ERROR_MISSING_USER_ID_INFORMATION = 'ErrorMissingUserIdInformation';
     /**
      * Constant for value 'ErrorMoreThanOneAccessModeSpecified'
      * @return string 'ErrorMoreThanOneAccessModeSpecified'
      */
-    const VALUE_ERRORMORETHANONEACCESSMODESPECIFIED = 'ErrorMoreThanOneAccessModeSpecified';
+    const VALUE_ERROR_MORE_THAN_ONE_ACCESS_MODE_SPECIFIED = 'ErrorMoreThanOneAccessModeSpecified';
     /**
      * Constant for value 'ErrorMoveCopyFailed'
      * @return string 'ErrorMoveCopyFailed'
      */
-    const VALUE_ERRORMOVECOPYFAILED = 'ErrorMoveCopyFailed';
+    const VALUE_ERROR_MOVE_COPY_FAILED = 'ErrorMoveCopyFailed';
     /**
      * Constant for value 'ErrorMoveDistinguishedFolder'
      * @return string 'ErrorMoveDistinguishedFolder'
      */
-    const VALUE_ERRORMOVEDISTINGUISHEDFOLDER = 'ErrorMoveDistinguishedFolder';
+    const VALUE_ERROR_MOVE_DISTINGUISHED_FOLDER = 'ErrorMoveDistinguishedFolder';
     /**
      * Constant for value 'ErrorMultiLegacyMailboxAccess'
      * @return string 'ErrorMultiLegacyMailboxAccess'
      */
-    const VALUE_ERRORMULTILEGACYMAILBOXACCESS = 'ErrorMultiLegacyMailboxAccess';
+    const VALUE_ERROR_MULTI_LEGACY_MAILBOX_ACCESS = 'ErrorMultiLegacyMailboxAccess';
     /**
      * Constant for value 'ErrorNameResolutionMultipleResults'
      * @return string 'ErrorNameResolutionMultipleResults'
      */
-    const VALUE_ERRORNAMERESOLUTIONMULTIPLERESULTS = 'ErrorNameResolutionMultipleResults';
+    const VALUE_ERROR_NAME_RESOLUTION_MULTIPLE_RESULTS = 'ErrorNameResolutionMultipleResults';
     /**
      * Constant for value 'ErrorNameResolutionNoMailbox'
      * @return string 'ErrorNameResolutionNoMailbox'
      */
-    const VALUE_ERRORNAMERESOLUTIONNOMAILBOX = 'ErrorNameResolutionNoMailbox';
+    const VALUE_ERROR_NAME_RESOLUTION_NO_MAILBOX = 'ErrorNameResolutionNoMailbox';
     /**
      * Constant for value 'ErrorNameResolutionNoResults'
      * @return string 'ErrorNameResolutionNoResults'
      */
-    const VALUE_ERRORNAMERESOLUTIONNORESULTS = 'ErrorNameResolutionNoResults';
+    const VALUE_ERROR_NAME_RESOLUTION_NO_RESULTS = 'ErrorNameResolutionNoResults';
     /**
      * Constant for value 'ErrorNewChannelConnectionOpened'
      * @return string 'ErrorNewChannelConnectionOpened'
      */
-    const VALUE_ERRORNEWCHANNELCONNECTIONOPENED = 'ErrorNewChannelConnectionOpened';
+    const VALUE_ERROR_NEW_CHANNEL_CONNECTION_OPENED = 'ErrorNewChannelConnectionOpened';
     /**
      * Constant for value 'ErrorNoApplicableProxyCASServersAvailable'
      * @return string 'ErrorNoApplicableProxyCASServersAvailable'
      */
-    const VALUE_ERRORNOAPPLICABLEPROXYCASSERVERSAVAILABLE = 'ErrorNoApplicableProxyCASServersAvailable';
+    const VALUE_ERROR_NO_APPLICABLE_PROXY_CASSERVERS_AVAILABLE = 'ErrorNoApplicableProxyCASServersAvailable';
     /**
      * Constant for value 'ErrorNoCalendar'
      * @return string 'ErrorNoCalendar'
      */
-    const VALUE_ERRORNOCALENDAR = 'ErrorNoCalendar';
+    const VALUE_ERROR_NO_CALENDAR = 'ErrorNoCalendar';
     /**
      * Constant for value 'ErrorNoDestinationCASDueToKerberosRequirements'
      * @return string 'ErrorNoDestinationCASDueToKerberosRequirements'
      */
-    const VALUE_ERRORNODESTINATIONCASDUETOKERBEROSREQUIREMENTS = 'ErrorNoDestinationCASDueToKerberosRequirements';
+    const VALUE_ERROR_NO_DESTINATION_CASDUE_TO_KERBEROS_REQUIREMENTS = 'ErrorNoDestinationCASDueToKerberosRequirements';
     /**
      * Constant for value 'ErrorNoDestinationCASDueToSSLRequirements'
      * @return string 'ErrorNoDestinationCASDueToSSLRequirements'
      */
-    const VALUE_ERRORNODESTINATIONCASDUETOSSLREQUIREMENTS = 'ErrorNoDestinationCASDueToSSLRequirements';
+    const VALUE_ERROR_NO_DESTINATION_CASDUE_TO_SSLREQUIREMENTS = 'ErrorNoDestinationCASDueToSSLRequirements';
     /**
      * Constant for value 'ErrorNoDestinationCASDueToVersionMismatch'
      * @return string 'ErrorNoDestinationCASDueToVersionMismatch'
      */
-    const VALUE_ERRORNODESTINATIONCASDUETOVERSIONMISMATCH = 'ErrorNoDestinationCASDueToVersionMismatch';
+    const VALUE_ERROR_NO_DESTINATION_CASDUE_TO_VERSION_MISMATCH = 'ErrorNoDestinationCASDueToVersionMismatch';
     /**
      * Constant for value 'ErrorNoFolderClassOverride'
      * @return string 'ErrorNoFolderClassOverride'
      */
-    const VALUE_ERRORNOFOLDERCLASSOVERRIDE = 'ErrorNoFolderClassOverride';
+    const VALUE_ERROR_NO_FOLDER_CLASS_OVERRIDE = 'ErrorNoFolderClassOverride';
     /**
      * Constant for value 'ErrorNoFreeBusyAccess'
      * @return string 'ErrorNoFreeBusyAccess'
      */
-    const VALUE_ERRORNOFREEBUSYACCESS = 'ErrorNoFreeBusyAccess';
+    const VALUE_ERROR_NO_FREE_BUSY_ACCESS = 'ErrorNoFreeBusyAccess';
     /**
      * Constant for value 'ErrorNonExistentMailbox'
      * @return string 'ErrorNonExistentMailbox'
      */
-    const VALUE_ERRORNONEXISTENTMAILBOX = 'ErrorNonExistentMailbox';
+    const VALUE_ERROR_NON_EXISTENT_MAILBOX = 'ErrorNonExistentMailbox';
     /**
      * Constant for value 'ErrorNonPrimarySmtpAddress'
      * @return string 'ErrorNonPrimarySmtpAddress'
      */
-    const VALUE_ERRORNONPRIMARYSMTPADDRESS = 'ErrorNonPrimarySmtpAddress';
+    const VALUE_ERROR_NON_PRIMARY_SMTP_ADDRESS = 'ErrorNonPrimarySmtpAddress';
     /**
      * Constant for value 'ErrorNoPropertyTagForCustomProperties'
      * @return string 'ErrorNoPropertyTagForCustomProperties'
      */
-    const VALUE_ERRORNOPROPERTYTAGFORCUSTOMPROPERTIES = 'ErrorNoPropertyTagForCustomProperties';
+    const VALUE_ERROR_NO_PROPERTY_TAG_FOR_CUSTOM_PROPERTIES = 'ErrorNoPropertyTagForCustomProperties';
     /**
      * Constant for value 'ErrorNoPublicFolderReplicaAvailable'
      * @return string 'ErrorNoPublicFolderReplicaAvailable'
      */
-    const VALUE_ERRORNOPUBLICFOLDERREPLICAAVAILABLE = 'ErrorNoPublicFolderReplicaAvailable';
+    const VALUE_ERROR_NO_PUBLIC_FOLDER_REPLICA_AVAILABLE = 'ErrorNoPublicFolderReplicaAvailable';
     /**
      * Constant for value 'ErrorNoPublicFolderServerAvailable'
      * @return string 'ErrorNoPublicFolderServerAvailable'
      */
-    const VALUE_ERRORNOPUBLICFOLDERSERVERAVAILABLE = 'ErrorNoPublicFolderServerAvailable';
+    const VALUE_ERROR_NO_PUBLIC_FOLDER_SERVER_AVAILABLE = 'ErrorNoPublicFolderServerAvailable';
     /**
      * Constant for value 'ErrorNoRespondingCASInDestinationSite'
      * @return string 'ErrorNoRespondingCASInDestinationSite'
      */
-    const VALUE_ERRORNORESPONDINGCASINDESTINATIONSITE = 'ErrorNoRespondingCASInDestinationSite';
+    const VALUE_ERROR_NO_RESPONDING_CASIN_DESTINATION_SITE = 'ErrorNoRespondingCASInDestinationSite';
     /**
      * Constant for value 'ErrorNotDelegate'
      * @return string 'ErrorNotDelegate'
      */
-    const VALUE_ERRORNOTDELEGATE = 'ErrorNotDelegate';
+    const VALUE_ERROR_NOT_DELEGATE = 'ErrorNotDelegate';
     /**
      * Constant for value 'ErrorNotEnoughMemory'
      * @return string 'ErrorNotEnoughMemory'
      */
-    const VALUE_ERRORNOTENOUGHMEMORY = 'ErrorNotEnoughMemory';
+    const VALUE_ERROR_NOT_ENOUGH_MEMORY = 'ErrorNotEnoughMemory';
     /**
      * Constant for value 'ErrorObjectTypeChanged'
      * @return string 'ErrorObjectTypeChanged'
      */
-    const VALUE_ERROROBJECTTYPECHANGED = 'ErrorObjectTypeChanged';
+    const VALUE_ERROR_OBJECT_TYPE_CHANGED = 'ErrorObjectTypeChanged';
     /**
      * Constant for value 'ErrorOccurrenceCrossingBoundary'
      * @return string 'ErrorOccurrenceCrossingBoundary'
      */
-    const VALUE_ERROROCCURRENCECROSSINGBOUNDARY = 'ErrorOccurrenceCrossingBoundary';
+    const VALUE_ERROR_OCCURRENCE_CROSSING_BOUNDARY = 'ErrorOccurrenceCrossingBoundary';
     /**
      * Constant for value 'ErrorOccurrenceTimeSpanTooBig'
      * @return string 'ErrorOccurrenceTimeSpanTooBig'
      */
-    const VALUE_ERROROCCURRENCETIMESPANTOOBIG = 'ErrorOccurrenceTimeSpanTooBig';
+    const VALUE_ERROR_OCCURRENCE_TIME_SPAN_TOO_BIG = 'ErrorOccurrenceTimeSpanTooBig';
     /**
      * Constant for value 'ErrorOperationNotAllowedWithPublicFolderRoot'
      * @return string 'ErrorOperationNotAllowedWithPublicFolderRoot'
      */
-    const VALUE_ERROROPERATIONNOTALLOWEDWITHPUBLICFOLDERROOT = 'ErrorOperationNotAllowedWithPublicFolderRoot';
+    const VALUE_ERROR_OPERATION_NOT_ALLOWED_WITH_PUBLIC_FOLDER_ROOT = 'ErrorOperationNotAllowedWithPublicFolderRoot';
     /**
      * Constant for value 'ErrorParentFolderIdRequired'
      * @return string 'ErrorParentFolderIdRequired'
      */
-    const VALUE_ERRORPARENTFOLDERIDREQUIRED = 'ErrorParentFolderIdRequired';
+    const VALUE_ERROR_PARENT_FOLDER_ID_REQUIRED = 'ErrorParentFolderIdRequired';
     /**
      * Constant for value 'ErrorParentFolderNotFound'
      * @return string 'ErrorParentFolderNotFound'
      */
-    const VALUE_ERRORPARENTFOLDERNOTFOUND = 'ErrorParentFolderNotFound';
+    const VALUE_ERROR_PARENT_FOLDER_NOT_FOUND = 'ErrorParentFolderNotFound';
     /**
      * Constant for value 'ErrorPasswordChangeRequired'
      * @return string 'ErrorPasswordChangeRequired'
      */
-    const VALUE_ERRORPASSWORDCHANGEREQUIRED = 'ErrorPasswordChangeRequired';
+    const VALUE_ERROR_PASSWORD_CHANGE_REQUIRED = 'ErrorPasswordChangeRequired';
     /**
      * Constant for value 'ErrorPasswordExpired'
      * @return string 'ErrorPasswordExpired'
      */
-    const VALUE_ERRORPASSWORDEXPIRED = 'ErrorPasswordExpired';
+    const VALUE_ERROR_PASSWORD_EXPIRED = 'ErrorPasswordExpired';
     /**
      * Constant for value 'ErrorPhoneNumberNotDialable'
      * @return string 'ErrorPhoneNumberNotDialable'
      */
-    const VALUE_ERRORPHONENUMBERNOTDIALABLE = 'ErrorPhoneNumberNotDialable';
+    const VALUE_ERROR_PHONE_NUMBER_NOT_DIALABLE = 'ErrorPhoneNumberNotDialable';
     /**
      * Constant for value 'ErrorPropertyUpdate'
      * @return string 'ErrorPropertyUpdate'
      */
-    const VALUE_ERRORPROPERTYUPDATE = 'ErrorPropertyUpdate';
+    const VALUE_ERROR_PROPERTY_UPDATE = 'ErrorPropertyUpdate';
     /**
      * Constant for value 'ErrorPromptPublishingOperationFailed'
      * @return string 'ErrorPromptPublishingOperationFailed'
      */
-    const VALUE_ERRORPROMPTPUBLISHINGOPERATIONFAILED = 'ErrorPromptPublishingOperationFailed';
+    const VALUE_ERROR_PROMPT_PUBLISHING_OPERATION_FAILED = 'ErrorPromptPublishingOperationFailed';
     /**
      * Constant for value 'ErrorPropertyValidationFailure'
      * @return string 'ErrorPropertyValidationFailure'
      */
-    const VALUE_ERRORPROPERTYVALIDATIONFAILURE = 'ErrorPropertyValidationFailure';
+    const VALUE_ERROR_PROPERTY_VALIDATION_FAILURE = 'ErrorPropertyValidationFailure';
     /**
      * Constant for value 'ErrorProxiedSubscriptionCallFailure'
      * @return string 'ErrorProxiedSubscriptionCallFailure'
      */
-    const VALUE_ERRORPROXIEDSUBSCRIPTIONCALLFAILURE = 'ErrorProxiedSubscriptionCallFailure';
+    const VALUE_ERROR_PROXIED_SUBSCRIPTION_CALL_FAILURE = 'ErrorProxiedSubscriptionCallFailure';
     /**
      * Constant for value 'ErrorProxyCallFailed'
      * @return string 'ErrorProxyCallFailed'
      */
-    const VALUE_ERRORPROXYCALLFAILED = 'ErrorProxyCallFailed';
+    const VALUE_ERROR_PROXY_CALL_FAILED = 'ErrorProxyCallFailed';
     /**
      * Constant for value 'ErrorProxyGroupSidLimitExceeded'
      * @return string 'ErrorProxyGroupSidLimitExceeded'
      */
-    const VALUE_ERRORPROXYGROUPSIDLIMITEXCEEDED = 'ErrorProxyGroupSidLimitExceeded';
+    const VALUE_ERROR_PROXY_GROUP_SID_LIMIT_EXCEEDED = 'ErrorProxyGroupSidLimitExceeded';
     /**
      * Constant for value 'ErrorProxyRequestNotAllowed'
      * @return string 'ErrorProxyRequestNotAllowed'
      */
-    const VALUE_ERRORPROXYREQUESTNOTALLOWED = 'ErrorProxyRequestNotAllowed';
+    const VALUE_ERROR_PROXY_REQUEST_NOT_ALLOWED = 'ErrorProxyRequestNotAllowed';
     /**
      * Constant for value 'ErrorProxyRequestProcessingFailed'
      * @return string 'ErrorProxyRequestProcessingFailed'
      */
-    const VALUE_ERRORPROXYREQUESTPROCESSINGFAILED = 'ErrorProxyRequestProcessingFailed';
+    const VALUE_ERROR_PROXY_REQUEST_PROCESSING_FAILED = 'ErrorProxyRequestProcessingFailed';
     /**
      * Constant for value 'ErrorProxyServiceDiscoveryFailed'
      * @return string 'ErrorProxyServiceDiscoveryFailed'
      */
-    const VALUE_ERRORPROXYSERVICEDISCOVERYFAILED = 'ErrorProxyServiceDiscoveryFailed';
+    const VALUE_ERROR_PROXY_SERVICE_DISCOVERY_FAILED = 'ErrorProxyServiceDiscoveryFailed';
     /**
      * Constant for value 'ErrorProxyTokenExpired'
      * @return string 'ErrorProxyTokenExpired'
      */
-    const VALUE_ERRORPROXYTOKENEXPIRED = 'ErrorProxyTokenExpired';
+    const VALUE_ERROR_PROXY_TOKEN_EXPIRED = 'ErrorProxyTokenExpired';
     /**
      * Constant for value 'ErrorPublicFolderMailboxDiscoveryFailed'
      * @return string 'ErrorPublicFolderMailboxDiscoveryFailed'
      */
-    const VALUE_ERRORPUBLICFOLDERMAILBOXDISCOVERYFAILED = 'ErrorPublicFolderMailboxDiscoveryFailed';
+    const VALUE_ERROR_PUBLIC_FOLDER_MAILBOX_DISCOVERY_FAILED = 'ErrorPublicFolderMailboxDiscoveryFailed';
     /**
      * Constant for value 'ErrorPublicFolderOperationFailed'
      * @return string 'ErrorPublicFolderOperationFailed'
      */
-    const VALUE_ERRORPUBLICFOLDEROPERATIONFAILED = 'ErrorPublicFolderOperationFailed';
+    const VALUE_ERROR_PUBLIC_FOLDER_OPERATION_FAILED = 'ErrorPublicFolderOperationFailed';
     /**
      * Constant for value 'ErrorPublicFolderRequestProcessingFailed'
      * @return string 'ErrorPublicFolderRequestProcessingFailed'
      */
-    const VALUE_ERRORPUBLICFOLDERREQUESTPROCESSINGFAILED = 'ErrorPublicFolderRequestProcessingFailed';
+    const VALUE_ERROR_PUBLIC_FOLDER_REQUEST_PROCESSING_FAILED = 'ErrorPublicFolderRequestProcessingFailed';
     /**
      * Constant for value 'ErrorPublicFolderServerNotFound'
      * @return string 'ErrorPublicFolderServerNotFound'
      */
-    const VALUE_ERRORPUBLICFOLDERSERVERNOTFOUND = 'ErrorPublicFolderServerNotFound';
+    const VALUE_ERROR_PUBLIC_FOLDER_SERVER_NOT_FOUND = 'ErrorPublicFolderServerNotFound';
     /**
      * Constant for value 'ErrorPublicFolderSyncException'
      * @return string 'ErrorPublicFolderSyncException'
      */
-    const VALUE_ERRORPUBLICFOLDERSYNCEXCEPTION = 'ErrorPublicFolderSyncException';
+    const VALUE_ERROR_PUBLIC_FOLDER_SYNC_EXCEPTION = 'ErrorPublicFolderSyncException';
     /**
      * Constant for value 'ErrorQueryFilterTooLong'
      * @return string 'ErrorQueryFilterTooLong'
      */
-    const VALUE_ERRORQUERYFILTERTOOLONG = 'ErrorQueryFilterTooLong';
+    const VALUE_ERROR_QUERY_FILTER_TOO_LONG = 'ErrorQueryFilterTooLong';
     /**
      * Constant for value 'ErrorQuotaExceeded'
      * @return string 'ErrorQuotaExceeded'
      */
-    const VALUE_ERRORQUOTAEXCEEDED = 'ErrorQuotaExceeded';
+    const VALUE_ERROR_QUOTA_EXCEEDED = 'ErrorQuotaExceeded';
     /**
      * Constant for value 'ErrorReadEventsFailed'
      * @return string 'ErrorReadEventsFailed'
      */
-    const VALUE_ERRORREADEVENTSFAILED = 'ErrorReadEventsFailed';
+    const VALUE_ERROR_READ_EVENTS_FAILED = 'ErrorReadEventsFailed';
     /**
      * Constant for value 'ErrorReadReceiptNotPending'
      * @return string 'ErrorReadReceiptNotPending'
      */
-    const VALUE_ERRORREADRECEIPTNOTPENDING = 'ErrorReadReceiptNotPending';
+    const VALUE_ERROR_READ_RECEIPT_NOT_PENDING = 'ErrorReadReceiptNotPending';
     /**
      * Constant for value 'ErrorRecurrenceEndDateTooBig'
      * @return string 'ErrorRecurrenceEndDateTooBig'
      */
-    const VALUE_ERRORRECURRENCEENDDATETOOBIG = 'ErrorRecurrenceEndDateTooBig';
+    const VALUE_ERROR_RECURRENCE_END_DATE_TOO_BIG = 'ErrorRecurrenceEndDateTooBig';
     /**
      * Constant for value 'ErrorRecurrenceHasNoOccurrence'
      * @return string 'ErrorRecurrenceHasNoOccurrence'
      */
-    const VALUE_ERRORRECURRENCEHASNOOCCURRENCE = 'ErrorRecurrenceHasNoOccurrence';
+    const VALUE_ERROR_RECURRENCE_HAS_NO_OCCURRENCE = 'ErrorRecurrenceHasNoOccurrence';
     /**
      * Constant for value 'ErrorRemoveDelegatesFailed'
      * @return string 'ErrorRemoveDelegatesFailed'
      */
-    const VALUE_ERRORREMOVEDELEGATESFAILED = 'ErrorRemoveDelegatesFailed';
+    const VALUE_ERROR_REMOVE_DELEGATES_FAILED = 'ErrorRemoveDelegatesFailed';
     /**
      * Constant for value 'ErrorRequestAborted'
      * @return string 'ErrorRequestAborted'
      */
-    const VALUE_ERRORREQUESTABORTED = 'ErrorRequestAborted';
+    const VALUE_ERROR_REQUEST_ABORTED = 'ErrorRequestAborted';
     /**
      * Constant for value 'ErrorRequestStreamTooBig'
      * @return string 'ErrorRequestStreamTooBig'
      */
-    const VALUE_ERRORREQUESTSTREAMTOOBIG = 'ErrorRequestStreamTooBig';
+    const VALUE_ERROR_REQUEST_STREAM_TOO_BIG = 'ErrorRequestStreamTooBig';
     /**
      * Constant for value 'ErrorRequiredPropertyMissing'
      * @return string 'ErrorRequiredPropertyMissing'
      */
-    const VALUE_ERRORREQUIREDPROPERTYMISSING = 'ErrorRequiredPropertyMissing';
+    const VALUE_ERROR_REQUIRED_PROPERTY_MISSING = 'ErrorRequiredPropertyMissing';
     /**
      * Constant for value 'ErrorResolveNamesInvalidFolderType'
      * @return string 'ErrorResolveNamesInvalidFolderType'
      */
-    const VALUE_ERRORRESOLVENAMESINVALIDFOLDERTYPE = 'ErrorResolveNamesInvalidFolderType';
+    const VALUE_ERROR_RESOLVE_NAMES_INVALID_FOLDER_TYPE = 'ErrorResolveNamesInvalidFolderType';
     /**
      * Constant for value 'ErrorResolveNamesOnlyOneContactsFolderAllowed'
      * @return string 'ErrorResolveNamesOnlyOneContactsFolderAllowed'
      */
-    const VALUE_ERRORRESOLVENAMESONLYONECONTACTSFOLDERALLOWED = 'ErrorResolveNamesOnlyOneContactsFolderAllowed';
+    const VALUE_ERROR_RESOLVE_NAMES_ONLY_ONE_CONTACTS_FOLDER_ALLOWED = 'ErrorResolveNamesOnlyOneContactsFolderAllowed';
     /**
      * Constant for value 'ErrorResponseSchemaValidation'
      * @return string 'ErrorResponseSchemaValidation'
      */
-    const VALUE_ERRORRESPONSESCHEMAVALIDATION = 'ErrorResponseSchemaValidation';
+    const VALUE_ERROR_RESPONSE_SCHEMA_VALIDATION = 'ErrorResponseSchemaValidation';
     /**
      * Constant for value 'ErrorRestrictionTooLong'
      * @return string 'ErrorRestrictionTooLong'
      */
-    const VALUE_ERRORRESTRICTIONTOOLONG = 'ErrorRestrictionTooLong';
+    const VALUE_ERROR_RESTRICTION_TOO_LONG = 'ErrorRestrictionTooLong';
     /**
      * Constant for value 'ErrorRestrictionTooComplex'
      * @return string 'ErrorRestrictionTooComplex'
      */
-    const VALUE_ERRORRESTRICTIONTOOCOMPLEX = 'ErrorRestrictionTooComplex';
+    const VALUE_ERROR_RESTRICTION_TOO_COMPLEX = 'ErrorRestrictionTooComplex';
     /**
      * Constant for value 'ErrorResultSetTooBig'
      * @return string 'ErrorResultSetTooBig'
      */
-    const VALUE_ERRORRESULTSETTOOBIG = 'ErrorResultSetTooBig';
+    const VALUE_ERROR_RESULT_SET_TOO_BIG = 'ErrorResultSetTooBig';
     /**
      * Constant for value 'ErrorInvalidExchangeImpersonationHeaderData'
      * @return string 'ErrorInvalidExchangeImpersonationHeaderData'
      */
-    const VALUE_ERRORINVALIDEXCHANGEIMPERSONATIONHEADERDATA = 'ErrorInvalidExchangeImpersonationHeaderData';
+    const VALUE_ERROR_INVALID_EXCHANGE_IMPERSONATION_HEADER_DATA = 'ErrorInvalidExchangeImpersonationHeaderData';
     /**
      * Constant for value 'ErrorSavedItemFolderNotFound'
      * @return string 'ErrorSavedItemFolderNotFound'
      */
-    const VALUE_ERRORSAVEDITEMFOLDERNOTFOUND = 'ErrorSavedItemFolderNotFound';
+    const VALUE_ERROR_SAVED_ITEM_FOLDER_NOT_FOUND = 'ErrorSavedItemFolderNotFound';
     /**
      * Constant for value 'ErrorSchemaValidation'
      * @return string 'ErrorSchemaValidation'
      */
-    const VALUE_ERRORSCHEMAVALIDATION = 'ErrorSchemaValidation';
+    const VALUE_ERROR_SCHEMA_VALIDATION = 'ErrorSchemaValidation';
     /**
      * Constant for value 'ErrorSearchFolderNotInitialized'
      * @return string 'ErrorSearchFolderNotInitialized'
      */
-    const VALUE_ERRORSEARCHFOLDERNOTINITIALIZED = 'ErrorSearchFolderNotInitialized';
+    const VALUE_ERROR_SEARCH_FOLDER_NOT_INITIALIZED = 'ErrorSearchFolderNotInitialized';
     /**
      * Constant for value 'ErrorSendAsDenied'
      * @return string 'ErrorSendAsDenied'
      */
-    const VALUE_ERRORSENDASDENIED = 'ErrorSendAsDenied';
+    const VALUE_ERROR_SEND_AS_DENIED = 'ErrorSendAsDenied';
     /**
      * Constant for value 'ErrorSendMeetingCancellationsRequired'
      * @return string 'ErrorSendMeetingCancellationsRequired'
      */
-    const VALUE_ERRORSENDMEETINGCANCELLATIONSREQUIRED = 'ErrorSendMeetingCancellationsRequired';
+    const VALUE_ERROR_SEND_MEETING_CANCELLATIONS_REQUIRED = 'ErrorSendMeetingCancellationsRequired';
     /**
      * Constant for value 'ErrorSendMeetingInvitationsOrCancellationsRequired'
      * @return string 'ErrorSendMeetingInvitationsOrCancellationsRequired'
      */
-    const VALUE_ERRORSENDMEETINGINVITATIONSORCANCELLATIONSREQUIRED = 'ErrorSendMeetingInvitationsOrCancellationsRequired';
+    const VALUE_ERROR_SEND_MEETING_INVITATIONS_OR_CANCELLATIONS_REQUIRED = 'ErrorSendMeetingInvitationsOrCancellationsRequired';
     /**
      * Constant for value 'ErrorSendMeetingInvitationsRequired'
      * @return string 'ErrorSendMeetingInvitationsRequired'
      */
-    const VALUE_ERRORSENDMEETINGINVITATIONSREQUIRED = 'ErrorSendMeetingInvitationsRequired';
+    const VALUE_ERROR_SEND_MEETING_INVITATIONS_REQUIRED = 'ErrorSendMeetingInvitationsRequired';
     /**
      * Constant for value 'ErrorSentMeetingRequestUpdate'
      * @return string 'ErrorSentMeetingRequestUpdate'
      */
-    const VALUE_ERRORSENTMEETINGREQUESTUPDATE = 'ErrorSentMeetingRequestUpdate';
+    const VALUE_ERROR_SENT_MEETING_REQUEST_UPDATE = 'ErrorSentMeetingRequestUpdate';
     /**
      * Constant for value 'ErrorSentTaskRequestUpdate'
      * @return string 'ErrorSentTaskRequestUpdate'
      */
-    const VALUE_ERRORSENTTASKREQUESTUPDATE = 'ErrorSentTaskRequestUpdate';
+    const VALUE_ERROR_SENT_TASK_REQUEST_UPDATE = 'ErrorSentTaskRequestUpdate';
     /**
      * Constant for value 'ErrorServerBusy'
      * @return string 'ErrorServerBusy'
      */
-    const VALUE_ERRORSERVERBUSY = 'ErrorServerBusy';
+    const VALUE_ERROR_SERVER_BUSY = 'ErrorServerBusy';
     /**
      * Constant for value 'ErrorServiceDiscoveryFailed'
      * @return string 'ErrorServiceDiscoveryFailed'
      */
-    const VALUE_ERRORSERVICEDISCOVERYFAILED = 'ErrorServiceDiscoveryFailed';
+    const VALUE_ERROR_SERVICE_DISCOVERY_FAILED = 'ErrorServiceDiscoveryFailed';
     /**
      * Constant for value 'ErrorStaleObject'
      * @return string 'ErrorStaleObject'
      */
-    const VALUE_ERRORSTALEOBJECT = 'ErrorStaleObject';
+    const VALUE_ERROR_STALE_OBJECT = 'ErrorStaleObject';
     /**
      * Constant for value 'ErrorSubmissionQuotaExceeded'
      * @return string 'ErrorSubmissionQuotaExceeded'
      */
-    const VALUE_ERRORSUBMISSIONQUOTAEXCEEDED = 'ErrorSubmissionQuotaExceeded';
+    const VALUE_ERROR_SUBMISSION_QUOTA_EXCEEDED = 'ErrorSubmissionQuotaExceeded';
     /**
      * Constant for value 'ErrorSubscriptionAccessDenied'
      * @return string 'ErrorSubscriptionAccessDenied'
      */
-    const VALUE_ERRORSUBSCRIPTIONACCESSDENIED = 'ErrorSubscriptionAccessDenied';
+    const VALUE_ERROR_SUBSCRIPTION_ACCESS_DENIED = 'ErrorSubscriptionAccessDenied';
     /**
      * Constant for value 'ErrorSubscriptionDelegateAccessNotSupported'
      * @return string 'ErrorSubscriptionDelegateAccessNotSupported'
      */
-    const VALUE_ERRORSUBSCRIPTIONDELEGATEACCESSNOTSUPPORTED = 'ErrorSubscriptionDelegateAccessNotSupported';
+    const VALUE_ERROR_SUBSCRIPTION_DELEGATE_ACCESS_NOT_SUPPORTED = 'ErrorSubscriptionDelegateAccessNotSupported';
     /**
      * Constant for value 'ErrorSubscriptionNotFound'
      * @return string 'ErrorSubscriptionNotFound'
      */
-    const VALUE_ERRORSUBSCRIPTIONNOTFOUND = 'ErrorSubscriptionNotFound';
+    const VALUE_ERROR_SUBSCRIPTION_NOT_FOUND = 'ErrorSubscriptionNotFound';
     /**
      * Constant for value 'ErrorSubscriptionUnsubscribed'
      * @return string 'ErrorSubscriptionUnsubscribed'
      */
-    const VALUE_ERRORSUBSCRIPTIONUNSUBSCRIBED = 'ErrorSubscriptionUnsubscribed';
+    const VALUE_ERROR_SUBSCRIPTION_UNSUBSCRIBED = 'ErrorSubscriptionUnsubscribed';
     /**
      * Constant for value 'ErrorSyncFolderNotFound'
      * @return string 'ErrorSyncFolderNotFound'
      */
-    const VALUE_ERRORSYNCFOLDERNOTFOUND = 'ErrorSyncFolderNotFound';
+    const VALUE_ERROR_SYNC_FOLDER_NOT_FOUND = 'ErrorSyncFolderNotFound';
     /**
      * Constant for value 'ErrorTeamMailboxNotFound'
      * @return string 'ErrorTeamMailboxNotFound'
      */
-    const VALUE_ERRORTEAMMAILBOXNOTFOUND = 'ErrorTeamMailboxNotFound';
+    const VALUE_ERROR_TEAM_MAILBOX_NOT_FOUND = 'ErrorTeamMailboxNotFound';
     /**
      * Constant for value 'ErrorTeamMailboxNotLinkedToSharePoint'
      * @return string 'ErrorTeamMailboxNotLinkedToSharePoint'
      */
-    const VALUE_ERRORTEAMMAILBOXNOTLINKEDTOSHAREPOINT = 'ErrorTeamMailboxNotLinkedToSharePoint';
+    const VALUE_ERROR_TEAM_MAILBOX_NOT_LINKED_TO_SHARE_POINT = 'ErrorTeamMailboxNotLinkedToSharePoint';
     /**
      * Constant for value 'ErrorTeamMailboxUrlValidationFailed'
      * @return string 'ErrorTeamMailboxUrlValidationFailed'
      */
-    const VALUE_ERRORTEAMMAILBOXURLVALIDATIONFAILED = 'ErrorTeamMailboxUrlValidationFailed';
+    const VALUE_ERROR_TEAM_MAILBOX_URL_VALIDATION_FAILED = 'ErrorTeamMailboxUrlValidationFailed';
     /**
      * Constant for value 'ErrorTeamMailboxNotAuthorizedOwner'
      * @return string 'ErrorTeamMailboxNotAuthorizedOwner'
      */
-    const VALUE_ERRORTEAMMAILBOXNOTAUTHORIZEDOWNER = 'ErrorTeamMailboxNotAuthorizedOwner';
+    const VALUE_ERROR_TEAM_MAILBOX_NOT_AUTHORIZED_OWNER = 'ErrorTeamMailboxNotAuthorizedOwner';
     /**
      * Constant for value 'ErrorTeamMailboxActiveToPendingDelete'
      * @return string 'ErrorTeamMailboxActiveToPendingDelete'
      */
-    const VALUE_ERRORTEAMMAILBOXACTIVETOPENDINGDELETE = 'ErrorTeamMailboxActiveToPendingDelete';
+    const VALUE_ERROR_TEAM_MAILBOX_ACTIVE_TO_PENDING_DELETE = 'ErrorTeamMailboxActiveToPendingDelete';
     /**
      * Constant for value 'ErrorTeamMailboxFailedSendingNotifications'
      * @return string 'ErrorTeamMailboxFailedSendingNotifications'
      */
-    const VALUE_ERRORTEAMMAILBOXFAILEDSENDINGNOTIFICATIONS = 'ErrorTeamMailboxFailedSendingNotifications';
+    const VALUE_ERROR_TEAM_MAILBOX_FAILED_SENDING_NOTIFICATIONS = 'ErrorTeamMailboxFailedSendingNotifications';
     /**
      * Constant for value 'ErrorTeamMailboxErrorUnknown'
      * @return string 'ErrorTeamMailboxErrorUnknown'
      */
-    const VALUE_ERRORTEAMMAILBOXERRORUNKNOWN = 'ErrorTeamMailboxErrorUnknown';
+    const VALUE_ERROR_TEAM_MAILBOX_ERROR_UNKNOWN = 'ErrorTeamMailboxErrorUnknown';
     /**
      * Constant for value 'ErrorTimeIntervalTooBig'
      * @return string 'ErrorTimeIntervalTooBig'
      */
-    const VALUE_ERRORTIMEINTERVALTOOBIG = 'ErrorTimeIntervalTooBig';
+    const VALUE_ERROR_TIME_INTERVAL_TOO_BIG = 'ErrorTimeIntervalTooBig';
     /**
      * Constant for value 'ErrorTimeoutExpired'
      * @return string 'ErrorTimeoutExpired'
      */
-    const VALUE_ERRORTIMEOUTEXPIRED = 'ErrorTimeoutExpired';
+    const VALUE_ERROR_TIMEOUT_EXPIRED = 'ErrorTimeoutExpired';
     /**
      * Constant for value 'ErrorTimeZone'
      * @return string 'ErrorTimeZone'
      */
-    const VALUE_ERRORTIMEZONE = 'ErrorTimeZone';
+    const VALUE_ERROR_TIME_ZONE = 'ErrorTimeZone';
     /**
      * Constant for value 'ErrorToFolderNotFound'
      * @return string 'ErrorToFolderNotFound'
      */
-    const VALUE_ERRORTOFOLDERNOTFOUND = 'ErrorToFolderNotFound';
+    const VALUE_ERROR_TO_FOLDER_NOT_FOUND = 'ErrorToFolderNotFound';
     /**
      * Constant for value 'ErrorTokenSerializationDenied'
      * @return string 'ErrorTokenSerializationDenied'
      */
-    const VALUE_ERRORTOKENSERIALIZATIONDENIED = 'ErrorTokenSerializationDenied';
+    const VALUE_ERROR_TOKEN_SERIALIZATION_DENIED = 'ErrorTokenSerializationDenied';
     /**
      * Constant for value 'ErrorTooManyObjectsOpened'
      * @return string 'ErrorTooManyObjectsOpened'
      */
-    const VALUE_ERRORTOOMANYOBJECTSOPENED = 'ErrorTooManyObjectsOpened';
+    const VALUE_ERROR_TOO_MANY_OBJECTS_OPENED = 'ErrorTooManyObjectsOpened';
     /**
      * Constant for value 'ErrorUpdatePropertyMismatch'
      * @return string 'ErrorUpdatePropertyMismatch'
      */
-    const VALUE_ERRORUPDATEPROPERTYMISMATCH = 'ErrorUpdatePropertyMismatch';
+    const VALUE_ERROR_UPDATE_PROPERTY_MISMATCH = 'ErrorUpdatePropertyMismatch';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxAADCreationFailed'
      * @return string 'ErrorUnifiedGroupMailboxAADCreationFailed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXAADCREATIONFAILED = 'ErrorUnifiedGroupMailboxAADCreationFailed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADCREATION_FAILED = 'ErrorUnifiedGroupMailboxAADCreationFailed';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxAADDeleteFailed'
      * @return string 'ErrorUnifiedGroupMailboxAADDeleteFailed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXAADDELETEFAILED = 'ErrorUnifiedGroupMailboxAADDeleteFailed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADDELETE_FAILED = 'ErrorUnifiedGroupMailboxAADDeleteFailed';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxNamingPolicy'
      * @return string 'ErrorUnifiedGroupMailboxNamingPolicy'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXNAMINGPOLICY = 'ErrorUnifiedGroupMailboxNamingPolicy';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NAMING_POLICY = 'ErrorUnifiedGroupMailboxNamingPolicy';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxDeleteFailed'
      * @return string 'ErrorUnifiedGroupMailboxDeleteFailed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXDELETEFAILED = 'ErrorUnifiedGroupMailboxDeleteFailed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_DELETE_FAILED = 'ErrorUnifiedGroupMailboxDeleteFailed';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxNotFound'
      * @return string 'ErrorUnifiedGroupMailboxNotFound'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXNOTFOUND = 'ErrorUnifiedGroupMailboxNotFound';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NOT_FOUND = 'ErrorUnifiedGroupMailboxNotFound';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxUpdateDelayed'
      * @return string 'ErrorUnifiedGroupMailboxUpdateDelayed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDELAYED = 'ErrorUnifiedGroupMailboxUpdateDelayed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_DELAYED = 'ErrorUnifiedGroupMailboxUpdateDelayed';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxUpdatedPartialProperties'
      * @return string 'ErrorUnifiedGroupMailboxUpdatedPartialProperties'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDPARTIALPROPERTIES = 'ErrorUnifiedGroupMailboxUpdatedPartialProperties';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATED_PARTIAL_PROPERTIES = 'ErrorUnifiedGroupMailboxUpdatedPartialProperties';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxUpdateFailed'
      * @return string 'ErrorUnifiedGroupMailboxUpdateFailed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEFAILED = 'ErrorUnifiedGroupMailboxUpdateFailed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_FAILED = 'ErrorUnifiedGroupMailboxUpdateFailed';
     /**
      * Constant for value 'ErrorUnifiedGroupMailboxProvisionFailed'
      * @return string 'ErrorUnifiedGroupMailboxProvisionFailed'
      */
-    const VALUE_ERRORUNIFIEDGROUPMAILBOXPROVISIONFAILED = 'ErrorUnifiedGroupMailboxProvisionFailed';
+    const VALUE_ERROR_UNIFIED_GROUP_MAILBOX_PROVISION_FAILED = 'ErrorUnifiedGroupMailboxProvisionFailed';
     /**
      * Constant for value 'ErrorUnifiedMessagingDialPlanNotFound'
      * @return string 'ErrorUnifiedMessagingDialPlanNotFound'
      */
-    const VALUE_ERRORUNIFIEDMESSAGINGDIALPLANNOTFOUND = 'ErrorUnifiedMessagingDialPlanNotFound';
+    const VALUE_ERROR_UNIFIED_MESSAGING_DIAL_PLAN_NOT_FOUND = 'ErrorUnifiedMessagingDialPlanNotFound';
     /**
      * Constant for value 'ErrorUnifiedMessagingReportDataNotFound'
      * @return string 'ErrorUnifiedMessagingReportDataNotFound'
      */
-    const VALUE_ERRORUNIFIEDMESSAGINGREPORTDATANOTFOUND = 'ErrorUnifiedMessagingReportDataNotFound';
+    const VALUE_ERROR_UNIFIED_MESSAGING_REPORT_DATA_NOT_FOUND = 'ErrorUnifiedMessagingReportDataNotFound';
     /**
      * Constant for value 'ErrorUnifiedMessagingPromptNotFound'
      * @return string 'ErrorUnifiedMessagingPromptNotFound'
      */
-    const VALUE_ERRORUNIFIEDMESSAGINGPROMPTNOTFOUND = 'ErrorUnifiedMessagingPromptNotFound';
+    const VALUE_ERROR_UNIFIED_MESSAGING_PROMPT_NOT_FOUND = 'ErrorUnifiedMessagingPromptNotFound';
     /**
      * Constant for value 'ErrorUnifiedMessagingRequestFailed'
      * @return string 'ErrorUnifiedMessagingRequestFailed'
      */
-    const VALUE_ERRORUNIFIEDMESSAGINGREQUESTFAILED = 'ErrorUnifiedMessagingRequestFailed';
+    const VALUE_ERROR_UNIFIED_MESSAGING_REQUEST_FAILED = 'ErrorUnifiedMessagingRequestFailed';
     /**
      * Constant for value 'ErrorUnifiedMessagingServerNotFound'
      * @return string 'ErrorUnifiedMessagingServerNotFound'
      */
-    const VALUE_ERRORUNIFIEDMESSAGINGSERVERNOTFOUND = 'ErrorUnifiedMessagingServerNotFound';
+    const VALUE_ERROR_UNIFIED_MESSAGING_SERVER_NOT_FOUND = 'ErrorUnifiedMessagingServerNotFound';
     /**
      * Constant for value 'ErrorUnableToGetUserOofSettings'
      * @return string 'ErrorUnableToGetUserOofSettings'
      */
-    const VALUE_ERRORUNABLETOGETUSEROOFSETTINGS = 'ErrorUnableToGetUserOofSettings';
+    const VALUE_ERROR_UNABLE_TO_GET_USER_OOF_SETTINGS = 'ErrorUnableToGetUserOofSettings';
     /**
      * Constant for value 'ErrorUnableToRemoveImContactFromGroup'
      * @return string 'ErrorUnableToRemoveImContactFromGroup'
      */
-    const VALUE_ERRORUNABLETOREMOVEIMCONTACTFROMGROUP = 'ErrorUnableToRemoveImContactFromGroup';
+    const VALUE_ERROR_UNABLE_TO_REMOVE_IM_CONTACT_FROM_GROUP = 'ErrorUnableToRemoveImContactFromGroup';
     /**
      * Constant for value 'ErrorUnsupportedSubFilter'
      * @return string 'ErrorUnsupportedSubFilter'
      */
-    const VALUE_ERRORUNSUPPORTEDSUBFILTER = 'ErrorUnsupportedSubFilter';
+    const VALUE_ERROR_UNSUPPORTED_SUB_FILTER = 'ErrorUnsupportedSubFilter';
     /**
      * Constant for value 'ErrorUnsupportedCulture'
      * @return string 'ErrorUnsupportedCulture'
      */
-    const VALUE_ERRORUNSUPPORTEDCULTURE = 'ErrorUnsupportedCulture';
+    const VALUE_ERROR_UNSUPPORTED_CULTURE = 'ErrorUnsupportedCulture';
     /**
      * Constant for value 'ErrorUnsupportedMapiPropertyType'
      * @return string 'ErrorUnsupportedMapiPropertyType'
      */
-    const VALUE_ERRORUNSUPPORTEDMAPIPROPERTYTYPE = 'ErrorUnsupportedMapiPropertyType';
+    const VALUE_ERROR_UNSUPPORTED_MAPI_PROPERTY_TYPE = 'ErrorUnsupportedMapiPropertyType';
     /**
      * Constant for value 'ErrorUnsupportedMimeConversion'
      * @return string 'ErrorUnsupportedMimeConversion'
      */
-    const VALUE_ERRORUNSUPPORTEDMIMECONVERSION = 'ErrorUnsupportedMimeConversion';
+    const VALUE_ERROR_UNSUPPORTED_MIME_CONVERSION = 'ErrorUnsupportedMimeConversion';
     /**
      * Constant for value 'ErrorUnsupportedPathForQuery'
      * @return string 'ErrorUnsupportedPathForQuery'
      */
-    const VALUE_ERRORUNSUPPORTEDPATHFORQUERY = 'ErrorUnsupportedPathForQuery';
+    const VALUE_ERROR_UNSUPPORTED_PATH_FOR_QUERY = 'ErrorUnsupportedPathForQuery';
     /**
      * Constant for value 'ErrorUnsupportedPathForSortGroup'
      * @return string 'ErrorUnsupportedPathForSortGroup'
      */
-    const VALUE_ERRORUNSUPPORTEDPATHFORSORTGROUP = 'ErrorUnsupportedPathForSortGroup';
+    const VALUE_ERROR_UNSUPPORTED_PATH_FOR_SORT_GROUP = 'ErrorUnsupportedPathForSortGroup';
     /**
      * Constant for value 'ErrorUnsupportedPropertyDefinition'
      * @return string 'ErrorUnsupportedPropertyDefinition'
      */
-    const VALUE_ERRORUNSUPPORTEDPROPERTYDEFINITION = 'ErrorUnsupportedPropertyDefinition';
+    const VALUE_ERROR_UNSUPPORTED_PROPERTY_DEFINITION = 'ErrorUnsupportedPropertyDefinition';
     /**
      * Constant for value 'ErrorUnsupportedQueryFilter'
      * @return string 'ErrorUnsupportedQueryFilter'
      */
-    const VALUE_ERRORUNSUPPORTEDQUERYFILTER = 'ErrorUnsupportedQueryFilter';
+    const VALUE_ERROR_UNSUPPORTED_QUERY_FILTER = 'ErrorUnsupportedQueryFilter';
     /**
      * Constant for value 'ErrorUnsupportedRecurrence'
      * @return string 'ErrorUnsupportedRecurrence'
      */
-    const VALUE_ERRORUNSUPPORTEDRECURRENCE = 'ErrorUnsupportedRecurrence';
+    const VALUE_ERROR_UNSUPPORTED_RECURRENCE = 'ErrorUnsupportedRecurrence';
     /**
      * Constant for value 'ErrorUnsupportedTypeForConversion'
      * @return string 'ErrorUnsupportedTypeForConversion'
      */
-    const VALUE_ERRORUNSUPPORTEDTYPEFORCONVERSION = 'ErrorUnsupportedTypeForConversion';
+    const VALUE_ERROR_UNSUPPORTED_TYPE_FOR_CONVERSION = 'ErrorUnsupportedTypeForConversion';
     /**
      * Constant for value 'ErrorUpdateDelegatesFailed'
      * @return string 'ErrorUpdateDelegatesFailed'
      */
-    const VALUE_ERRORUPDATEDELEGATESFAILED = 'ErrorUpdateDelegatesFailed';
+    const VALUE_ERROR_UPDATE_DELEGATES_FAILED = 'ErrorUpdateDelegatesFailed';
     /**
      * Constant for value 'ErrorUserNotUnifiedMessagingEnabled'
      * @return string 'ErrorUserNotUnifiedMessagingEnabled'
      */
-    const VALUE_ERRORUSERNOTUNIFIEDMESSAGINGENABLED = 'ErrorUserNotUnifiedMessagingEnabled';
+    const VALUE_ERROR_USER_NOT_UNIFIED_MESSAGING_ENABLED = 'ErrorUserNotUnifiedMessagingEnabled';
     /**
      * Constant for value 'ErrorVoiceMailNotImplemented'
      * @return string 'ErrorVoiceMailNotImplemented'
      */
-    const VALUE_ERRORVOICEMAILNOTIMPLEMENTED = 'ErrorVoiceMailNotImplemented';
+    const VALUE_ERROR_VOICE_MAIL_NOT_IMPLEMENTED = 'ErrorVoiceMailNotImplemented';
     /**
      * Constant for value 'ErrorValueOutOfRange'
      * @return string 'ErrorValueOutOfRange'
      */
-    const VALUE_ERRORVALUEOUTOFRANGE = 'ErrorValueOutOfRange';
+    const VALUE_ERROR_VALUE_OUT_OF_RANGE = 'ErrorValueOutOfRange';
     /**
      * Constant for value 'ErrorVirusDetected'
      * @return string 'ErrorVirusDetected'
      */
-    const VALUE_ERRORVIRUSDETECTED = 'ErrorVirusDetected';
+    const VALUE_ERROR_VIRUS_DETECTED = 'ErrorVirusDetected';
     /**
      * Constant for value 'ErrorVirusMessageDeleted'
      * @return string 'ErrorVirusMessageDeleted'
      */
-    const VALUE_ERRORVIRUSMESSAGEDELETED = 'ErrorVirusMessageDeleted';
+    const VALUE_ERROR_VIRUS_MESSAGE_DELETED = 'ErrorVirusMessageDeleted';
     /**
      * Constant for value 'ErrorWebRequestInInvalidState'
      * @return string 'ErrorWebRequestInInvalidState'
      */
-    const VALUE_ERRORWEBREQUESTININVALIDSTATE = 'ErrorWebRequestInInvalidState';
+    const VALUE_ERROR_WEB_REQUEST_IN_INVALID_STATE = 'ErrorWebRequestInInvalidState';
     /**
      * Constant for value 'ErrorWin32InteropError'
      * @return string 'ErrorWin32InteropError'
      */
-    const VALUE_ERRORWIN32INTEROPERROR = 'ErrorWin32InteropError';
+    const VALUE_ERROR_WIN_32_INTEROP_ERROR = 'ErrorWin32InteropError';
     /**
      * Constant for value 'ErrorWorkingHoursSaveFailed'
      * @return string 'ErrorWorkingHoursSaveFailed'
      */
-    const VALUE_ERRORWORKINGHOURSSAVEFAILED = 'ErrorWorkingHoursSaveFailed';
+    const VALUE_ERROR_WORKING_HOURS_SAVE_FAILED = 'ErrorWorkingHoursSaveFailed';
     /**
      * Constant for value 'ErrorWorkingHoursXmlMalformed'
      * @return string 'ErrorWorkingHoursXmlMalformed'
      */
-    const VALUE_ERRORWORKINGHOURSXMLMALFORMED = 'ErrorWorkingHoursXmlMalformed';
+    const VALUE_ERROR_WORKING_HOURS_XML_MALFORMED = 'ErrorWorkingHoursXmlMalformed';
     /**
      * Constant for value 'ErrorWrongServerVersion'
      * @return string 'ErrorWrongServerVersion'
      */
-    const VALUE_ERRORWRONGSERVERVERSION = 'ErrorWrongServerVersion';
+    const VALUE_ERROR_WRONG_SERVER_VERSION = 'ErrorWrongServerVersion';
     /**
      * Constant for value 'ErrorWrongServerVersionDelegate'
      * @return string 'ErrorWrongServerVersionDelegate'
      */
-    const VALUE_ERRORWRONGSERVERVERSIONDELEGATE = 'ErrorWrongServerVersionDelegate';
+    const VALUE_ERROR_WRONG_SERVER_VERSION_DELEGATE = 'ErrorWrongServerVersionDelegate';
     /**
      * Constant for value 'ErrorMissingInformationSharingFolderId'
      * @return string 'ErrorMissingInformationSharingFolderId'
      */
-    const VALUE_ERRORMISSINGINFORMATIONSHARINGFOLDERID = 'ErrorMissingInformationSharingFolderId';
+    const VALUE_ERROR_MISSING_INFORMATION_SHARING_FOLDER_ID = 'ErrorMissingInformationSharingFolderId';
     /**
      * Constant for value 'ErrorDuplicateSOAPHeader'
      * @return string 'ErrorDuplicateSOAPHeader'
      */
-    const VALUE_ERRORDUPLICATESOAPHEADER = 'ErrorDuplicateSOAPHeader';
+    const VALUE_ERROR_DUPLICATE_SOAPHEADER = 'ErrorDuplicateSOAPHeader';
     /**
      * Constant for value 'ErrorSharingSynchronizationFailed'
      * @return string 'ErrorSharingSynchronizationFailed'
      */
-    const VALUE_ERRORSHARINGSYNCHRONIZATIONFAILED = 'ErrorSharingSynchronizationFailed';
+    const VALUE_ERROR_SHARING_SYNCHRONIZATION_FAILED = 'ErrorSharingSynchronizationFailed';
     /**
      * Constant for value 'ErrorSharingNoExternalEwsAvailable'
      * @return string 'ErrorSharingNoExternalEwsAvailable'
      */
-    const VALUE_ERRORSHARINGNOEXTERNALEWSAVAILABLE = 'ErrorSharingNoExternalEwsAvailable';
+    const VALUE_ERROR_SHARING_NO_EXTERNAL_EWS_AVAILABLE = 'ErrorSharingNoExternalEwsAvailable';
     /**
      * Constant for value 'ErrorFreeBusyDLLimitReached'
      * @return string 'ErrorFreeBusyDLLimitReached'
      */
-    const VALUE_ERRORFREEBUSYDLLIMITREACHED = 'ErrorFreeBusyDLLimitReached';
+    const VALUE_ERROR_FREE_BUSY_DLLIMIT_REACHED = 'ErrorFreeBusyDLLimitReached';
     /**
      * Constant for value 'ErrorInvalidGetSharingFolderRequest'
      * @return string 'ErrorInvalidGetSharingFolderRequest'
      */
-    const VALUE_ERRORINVALIDGETSHARINGFOLDERREQUEST = 'ErrorInvalidGetSharingFolderRequest';
+    const VALUE_ERROR_INVALID_GET_SHARING_FOLDER_REQUEST = 'ErrorInvalidGetSharingFolderRequest';
     /**
      * Constant for value 'ErrorNotAllowedExternalSharingByPolicy'
      * @return string 'ErrorNotAllowedExternalSharingByPolicy'
      */
-    const VALUE_ERRORNOTALLOWEDEXTERNALSHARINGBYPOLICY = 'ErrorNotAllowedExternalSharingByPolicy';
+    const VALUE_ERROR_NOT_ALLOWED_EXTERNAL_SHARING_BY_POLICY = 'ErrorNotAllowedExternalSharingByPolicy';
     /**
      * Constant for value 'ErrorUserNotAllowedByPolicy'
      * @return string 'ErrorUserNotAllowedByPolicy'
      */
-    const VALUE_ERRORUSERNOTALLOWEDBYPOLICY = 'ErrorUserNotAllowedByPolicy';
+    const VALUE_ERROR_USER_NOT_ALLOWED_BY_POLICY = 'ErrorUserNotAllowedByPolicy';
     /**
      * Constant for value 'ErrorPermissionNotAllowedByPolicy'
      * @return string 'ErrorPermissionNotAllowedByPolicy'
      */
-    const VALUE_ERRORPERMISSIONNOTALLOWEDBYPOLICY = 'ErrorPermissionNotAllowedByPolicy';
+    const VALUE_ERROR_PERMISSION_NOT_ALLOWED_BY_POLICY = 'ErrorPermissionNotAllowedByPolicy';
     /**
      * Constant for value 'ErrorOrganizationNotFederated'
      * @return string 'ErrorOrganizationNotFederated'
      */
-    const VALUE_ERRORORGANIZATIONNOTFEDERATED = 'ErrorOrganizationNotFederated';
+    const VALUE_ERROR_ORGANIZATION_NOT_FEDERATED = 'ErrorOrganizationNotFederated';
     /**
      * Constant for value 'ErrorMailboxFailover'
      * @return string 'ErrorMailboxFailover'
      */
-    const VALUE_ERRORMAILBOXFAILOVER = 'ErrorMailboxFailover';
+    const VALUE_ERROR_MAILBOX_FAILOVER = 'ErrorMailboxFailover';
     /**
      * Constant for value 'ErrorInvalidExternalSharingInitiator'
      * @return string 'ErrorInvalidExternalSharingInitiator'
      */
-    const VALUE_ERRORINVALIDEXTERNALSHARINGINITIATOR = 'ErrorInvalidExternalSharingInitiator';
+    const VALUE_ERROR_INVALID_EXTERNAL_SHARING_INITIATOR = 'ErrorInvalidExternalSharingInitiator';
     /**
      * Constant for value 'ErrorMessageTrackingPermanentError'
      * @return string 'ErrorMessageTrackingPermanentError'
      */
-    const VALUE_ERRORMESSAGETRACKINGPERMANENTERROR = 'ErrorMessageTrackingPermanentError';
+    const VALUE_ERROR_MESSAGE_TRACKING_PERMANENT_ERROR = 'ErrorMessageTrackingPermanentError';
     /**
      * Constant for value 'ErrorMessageTrackingTransientError'
      * @return string 'ErrorMessageTrackingTransientError'
      */
-    const VALUE_ERRORMESSAGETRACKINGTRANSIENTERROR = 'ErrorMessageTrackingTransientError';
+    const VALUE_ERROR_MESSAGE_TRACKING_TRANSIENT_ERROR = 'ErrorMessageTrackingTransientError';
     /**
      * Constant for value 'ErrorMessageTrackingNoSuchDomain'
      * @return string 'ErrorMessageTrackingNoSuchDomain'
      */
-    const VALUE_ERRORMESSAGETRACKINGNOSUCHDOMAIN = 'ErrorMessageTrackingNoSuchDomain';
+    const VALUE_ERROR_MESSAGE_TRACKING_NO_SUCH_DOMAIN = 'ErrorMessageTrackingNoSuchDomain';
     /**
      * Constant for value 'ErrorUserWithoutFederatedProxyAddress'
      * @return string 'ErrorUserWithoutFederatedProxyAddress'
      */
-    const VALUE_ERRORUSERWITHOUTFEDERATEDPROXYADDRESS = 'ErrorUserWithoutFederatedProxyAddress';
+    const VALUE_ERROR_USER_WITHOUT_FEDERATED_PROXY_ADDRESS = 'ErrorUserWithoutFederatedProxyAddress';
     /**
      * Constant for value 'ErrorInvalidOrganizationRelationshipForFreeBusy'
      * @return string 'ErrorInvalidOrganizationRelationshipForFreeBusy'
      */
-    const VALUE_ERRORINVALIDORGANIZATIONRELATIONSHIPFORFREEBUSY = 'ErrorInvalidOrganizationRelationshipForFreeBusy';
+    const VALUE_ERROR_INVALID_ORGANIZATION_RELATIONSHIP_FOR_FREE_BUSY = 'ErrorInvalidOrganizationRelationshipForFreeBusy';
     /**
      * Constant for value 'ErrorInvalidFederatedOrganizationId'
      * @return string 'ErrorInvalidFederatedOrganizationId'
      */
-    const VALUE_ERRORINVALIDFEDERATEDORGANIZATIONID = 'ErrorInvalidFederatedOrganizationId';
+    const VALUE_ERROR_INVALID_FEDERATED_ORGANIZATION_ID = 'ErrorInvalidFederatedOrganizationId';
     /**
      * Constant for value 'ErrorInvalidExternalSharingSubscriber'
      * @return string 'ErrorInvalidExternalSharingSubscriber'
      */
-    const VALUE_ERRORINVALIDEXTERNALSHARINGSUBSCRIBER = 'ErrorInvalidExternalSharingSubscriber';
+    const VALUE_ERROR_INVALID_EXTERNAL_SHARING_SUBSCRIBER = 'ErrorInvalidExternalSharingSubscriber';
     /**
      * Constant for value 'ErrorInvalidSharingData'
      * @return string 'ErrorInvalidSharingData'
      */
-    const VALUE_ERRORINVALIDSHARINGDATA = 'ErrorInvalidSharingData';
+    const VALUE_ERROR_INVALID_SHARING_DATA = 'ErrorInvalidSharingData';
     /**
      * Constant for value 'ErrorInvalidSharingMessage'
      * @return string 'ErrorInvalidSharingMessage'
      */
-    const VALUE_ERRORINVALIDSHARINGMESSAGE = 'ErrorInvalidSharingMessage';
+    const VALUE_ERROR_INVALID_SHARING_MESSAGE = 'ErrorInvalidSharingMessage';
     /**
      * Constant for value 'ErrorNotSupportedSharingMessage'
      * @return string 'ErrorNotSupportedSharingMessage'
      */
-    const VALUE_ERRORNOTSUPPORTEDSHARINGMESSAGE = 'ErrorNotSupportedSharingMessage';
+    const VALUE_ERROR_NOT_SUPPORTED_SHARING_MESSAGE = 'ErrorNotSupportedSharingMessage';
     /**
      * Constant for value 'ErrorApplyConversationActionFailed'
      * @return string 'ErrorApplyConversationActionFailed'
      */
-    const VALUE_ERRORAPPLYCONVERSATIONACTIONFAILED = 'ErrorApplyConversationActionFailed';
+    const VALUE_ERROR_APPLY_CONVERSATION_ACTION_FAILED = 'ErrorApplyConversationActionFailed';
     /**
      * Constant for value 'ErrorInboxRulesValidationError'
      * @return string 'ErrorInboxRulesValidationError'
      */
-    const VALUE_ERRORINBOXRULESVALIDATIONERROR = 'ErrorInboxRulesValidationError';
+    const VALUE_ERROR_INBOX_RULES_VALIDATION_ERROR = 'ErrorInboxRulesValidationError';
     /**
      * Constant for value 'ErrorOutlookRuleBlobExists'
      * @return string 'ErrorOutlookRuleBlobExists'
      */
-    const VALUE_ERROROUTLOOKRULEBLOBEXISTS = 'ErrorOutlookRuleBlobExists';
+    const VALUE_ERROR_OUTLOOK_RULE_BLOB_EXISTS = 'ErrorOutlookRuleBlobExists';
     /**
      * Constant for value 'ErrorRulesOverQuota'
      * @return string 'ErrorRulesOverQuota'
      */
-    const VALUE_ERRORRULESOVERQUOTA = 'ErrorRulesOverQuota';
+    const VALUE_ERROR_RULES_OVER_QUOTA = 'ErrorRulesOverQuota';
     /**
      * Constant for value 'ErrorNewEventStreamConnectionOpened'
      * @return string 'ErrorNewEventStreamConnectionOpened'
      */
-    const VALUE_ERRORNEWEVENTSTREAMCONNECTIONOPENED = 'ErrorNewEventStreamConnectionOpened';
+    const VALUE_ERROR_NEW_EVENT_STREAM_CONNECTION_OPENED = 'ErrorNewEventStreamConnectionOpened';
     /**
      * Constant for value 'ErrorMissedNotificationEvents'
      * @return string 'ErrorMissedNotificationEvents'
      */
-    const VALUE_ERRORMISSEDNOTIFICATIONEVENTS = 'ErrorMissedNotificationEvents';
+    const VALUE_ERROR_MISSED_NOTIFICATION_EVENTS = 'ErrorMissedNotificationEvents';
     /**
      * Constant for value 'ErrorDuplicateLegacyDistinguishedName'
      * @return string 'ErrorDuplicateLegacyDistinguishedName'
      */
-    const VALUE_ERRORDUPLICATELEGACYDISTINGUISHEDNAME = 'ErrorDuplicateLegacyDistinguishedName';
+    const VALUE_ERROR_DUPLICATE_LEGACY_DISTINGUISHED_NAME = 'ErrorDuplicateLegacyDistinguishedName';
     /**
      * Constant for value 'ErrorInvalidClientAccessTokenRequest'
      * @return string 'ErrorInvalidClientAccessTokenRequest'
      */
-    const VALUE_ERRORINVALIDCLIENTACCESSTOKENREQUEST = 'ErrorInvalidClientAccessTokenRequest';
+    const VALUE_ERROR_INVALID_CLIENT_ACCESS_TOKEN_REQUEST = 'ErrorInvalidClientAccessTokenRequest';
     /**
      * Constant for value 'ErrorNoSpeechDetected'
      * @return string 'ErrorNoSpeechDetected'
      */
-    const VALUE_ERRORNOSPEECHDETECTED = 'ErrorNoSpeechDetected';
+    const VALUE_ERROR_NO_SPEECH_DETECTED = 'ErrorNoSpeechDetected';
     /**
      * Constant for value 'ErrorUMServerUnavailable'
      * @return string 'ErrorUMServerUnavailable'
      */
-    const VALUE_ERRORUMSERVERUNAVAILABLE = 'ErrorUMServerUnavailable';
+    const VALUE_ERROR_UMSERVER_UNAVAILABLE = 'ErrorUMServerUnavailable';
     /**
      * Constant for value 'ErrorRecipientNotFound'
      * @return string 'ErrorRecipientNotFound'
      */
-    const VALUE_ERRORRECIPIENTNOTFOUND = 'ErrorRecipientNotFound';
+    const VALUE_ERROR_RECIPIENT_NOT_FOUND = 'ErrorRecipientNotFound';
     /**
      * Constant for value 'ErrorRecognizerNotInstalled'
      * @return string 'ErrorRecognizerNotInstalled'
      */
-    const VALUE_ERRORRECOGNIZERNOTINSTALLED = 'ErrorRecognizerNotInstalled';
+    const VALUE_ERROR_RECOGNIZER_NOT_INSTALLED = 'ErrorRecognizerNotInstalled';
     /**
      * Constant for value 'ErrorSpeechGrammarError'
      * @return string 'ErrorSpeechGrammarError'
      */
-    const VALUE_ERRORSPEECHGRAMMARERROR = 'ErrorSpeechGrammarError';
+    const VALUE_ERROR_SPEECH_GRAMMAR_ERROR = 'ErrorSpeechGrammarError';
     /**
      * Constant for value 'ErrorInvalidManagementRoleHeader'
      * @return string 'ErrorInvalidManagementRoleHeader'
      */
-    const VALUE_ERRORINVALIDMANAGEMENTROLEHEADER = 'ErrorInvalidManagementRoleHeader';
+    const VALUE_ERROR_INVALID_MANAGEMENT_ROLE_HEADER = 'ErrorInvalidManagementRoleHeader';
     /**
      * Constant for value 'ErrorLocationServicesDisabled'
      * @return string 'ErrorLocationServicesDisabled'
      */
-    const VALUE_ERRORLOCATIONSERVICESDISABLED = 'ErrorLocationServicesDisabled';
+    const VALUE_ERROR_LOCATION_SERVICES_DISABLED = 'ErrorLocationServicesDisabled';
     /**
      * Constant for value 'ErrorLocationServicesRequestTimedOut'
      * @return string 'ErrorLocationServicesRequestTimedOut'
      */
-    const VALUE_ERRORLOCATIONSERVICESREQUESTTIMEDOUT = 'ErrorLocationServicesRequestTimedOut';
+    const VALUE_ERROR_LOCATION_SERVICES_REQUEST_TIMED_OUT = 'ErrorLocationServicesRequestTimedOut';
     /**
      * Constant for value 'ErrorLocationServicesRequestFailed'
      * @return string 'ErrorLocationServicesRequestFailed'
      */
-    const VALUE_ERRORLOCATIONSERVICESREQUESTFAILED = 'ErrorLocationServicesRequestFailed';
+    const VALUE_ERROR_LOCATION_SERVICES_REQUEST_FAILED = 'ErrorLocationServicesRequestFailed';
     /**
      * Constant for value 'ErrorLocationServicesInvalidRequest'
      * @return string 'ErrorLocationServicesInvalidRequest'
      */
-    const VALUE_ERRORLOCATIONSERVICESINVALIDREQUEST = 'ErrorLocationServicesInvalidRequest';
+    const VALUE_ERROR_LOCATION_SERVICES_INVALID_REQUEST = 'ErrorLocationServicesInvalidRequest';
     /**
      * Constant for value 'ErrorWeatherServiceDisabled'
      * @return string 'ErrorWeatherServiceDisabled'
      */
-    const VALUE_ERRORWEATHERSERVICEDISABLED = 'ErrorWeatherServiceDisabled';
+    const VALUE_ERROR_WEATHER_SERVICE_DISABLED = 'ErrorWeatherServiceDisabled';
     /**
      * Constant for value 'ErrorMailboxScopeNotAllowedWithoutQueryString'
      * @return string 'ErrorMailboxScopeNotAllowedWithoutQueryString'
      */
-    const VALUE_ERRORMAILBOXSCOPENOTALLOWEDWITHOUTQUERYSTRING = 'ErrorMailboxScopeNotAllowedWithoutQueryString';
+    const VALUE_ERROR_MAILBOX_SCOPE_NOT_ALLOWED_WITHOUT_QUERY_STRING = 'ErrorMailboxScopeNotAllowedWithoutQueryString';
     /**
      * Constant for value 'ErrorArchiveMailboxSearchFailed'
      * @return string 'ErrorArchiveMailboxSearchFailed'
      */
-    const VALUE_ERRORARCHIVEMAILBOXSEARCHFAILED = 'ErrorArchiveMailboxSearchFailed';
+    const VALUE_ERROR_ARCHIVE_MAILBOX_SEARCH_FAILED = 'ErrorArchiveMailboxSearchFailed';
     /**
      * Constant for value 'ErrorGetRemoteArchiveFolderFailed'
      * @return string 'ErrorGetRemoteArchiveFolderFailed'
      */
-    const VALUE_ERRORGETREMOTEARCHIVEFOLDERFAILED = 'ErrorGetRemoteArchiveFolderFailed';
+    const VALUE_ERROR_GET_REMOTE_ARCHIVE_FOLDER_FAILED = 'ErrorGetRemoteArchiveFolderFailed';
     /**
      * Constant for value 'ErrorFindRemoteArchiveFolderFailed'
      * @return string 'ErrorFindRemoteArchiveFolderFailed'
      */
-    const VALUE_ERRORFINDREMOTEARCHIVEFOLDERFAILED = 'ErrorFindRemoteArchiveFolderFailed';
+    const VALUE_ERROR_FIND_REMOTE_ARCHIVE_FOLDER_FAILED = 'ErrorFindRemoteArchiveFolderFailed';
     /**
      * Constant for value 'ErrorGetRemoteArchiveItemFailed'
      * @return string 'ErrorGetRemoteArchiveItemFailed'
      */
-    const VALUE_ERRORGETREMOTEARCHIVEITEMFAILED = 'ErrorGetRemoteArchiveItemFailed';
+    const VALUE_ERROR_GET_REMOTE_ARCHIVE_ITEM_FAILED = 'ErrorGetRemoteArchiveItemFailed';
     /**
      * Constant for value 'ErrorExportRemoteArchiveItemsFailed'
      * @return string 'ErrorExportRemoteArchiveItemsFailed'
      */
-    const VALUE_ERROREXPORTREMOTEARCHIVEITEMSFAILED = 'ErrorExportRemoteArchiveItemsFailed';
+    const VALUE_ERROR_EXPORT_REMOTE_ARCHIVE_ITEMS_FAILED = 'ErrorExportRemoteArchiveItemsFailed';
     /**
      * Constant for value 'ErrorInvalidPhotoSize'
      * @return string 'ErrorInvalidPhotoSize'
      */
-    const VALUE_ERRORINVALIDPHOTOSIZE = 'ErrorInvalidPhotoSize';
+    const VALUE_ERROR_INVALID_PHOTO_SIZE = 'ErrorInvalidPhotoSize';
     /**
      * Constant for value 'ErrorSearchQueryHasTooManyKeywords'
      * @return string 'ErrorSearchQueryHasTooManyKeywords'
      */
-    const VALUE_ERRORSEARCHQUERYHASTOOMANYKEYWORDS = 'ErrorSearchQueryHasTooManyKeywords';
+    const VALUE_ERROR_SEARCH_QUERY_HAS_TOO_MANY_KEYWORDS = 'ErrorSearchQueryHasTooManyKeywords';
     /**
      * Constant for value 'ErrorSearchTooManyMailboxes'
      * @return string 'ErrorSearchTooManyMailboxes'
      */
-    const VALUE_ERRORSEARCHTOOMANYMAILBOXES = 'ErrorSearchTooManyMailboxes';
+    const VALUE_ERROR_SEARCH_TOO_MANY_MAILBOXES = 'ErrorSearchTooManyMailboxes';
     /**
      * Constant for value 'ErrorInvalidRetentionTagNone'
      * @return string 'ErrorInvalidRetentionTagNone'
      */
-    const VALUE_ERRORINVALIDRETENTIONTAGNONE = 'ErrorInvalidRetentionTagNone';
+    const VALUE_ERROR_INVALID_RETENTION_TAG_NONE = 'ErrorInvalidRetentionTagNone';
     /**
      * Constant for value 'ErrorDiscoverySearchesDisabled'
      * @return string 'ErrorDiscoverySearchesDisabled'
      */
-    const VALUE_ERRORDISCOVERYSEARCHESDISABLED = 'ErrorDiscoverySearchesDisabled';
+    const VALUE_ERROR_DISCOVERY_SEARCHES_DISABLED = 'ErrorDiscoverySearchesDisabled';
     /**
      * Constant for value 'ErrorCalendarSeekToConditionNotSupported'
      * @return string 'ErrorCalendarSeekToConditionNotSupported'
      */
-    const VALUE_ERRORCALENDARSEEKTOCONDITIONNOTSUPPORTED = 'ErrorCalendarSeekToConditionNotSupported';
+    const VALUE_ERROR_CALENDAR_SEEK_TO_CONDITION_NOT_SUPPORTED = 'ErrorCalendarSeekToConditionNotSupported';
     /**
      * Constant for value 'ErrorCalendarIsGroupMailboxForAccept'
      * @return string 'ErrorCalendarIsGroupMailboxForAccept'
      */
-    const VALUE_ERRORCALENDARISGROUPMAILBOXFORACCEPT = 'ErrorCalendarIsGroupMailboxForAccept';
+    const VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_ACCEPT = 'ErrorCalendarIsGroupMailboxForAccept';
     /**
      * Constant for value 'ErrorCalendarIsGroupMailboxForDecline'
      * @return string 'ErrorCalendarIsGroupMailboxForDecline'
      */
-    const VALUE_ERRORCALENDARISGROUPMAILBOXFORDECLINE = 'ErrorCalendarIsGroupMailboxForDecline';
+    const VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_DECLINE = 'ErrorCalendarIsGroupMailboxForDecline';
     /**
      * Constant for value 'ErrorCalendarIsGroupMailboxForTentative'
      * @return string 'ErrorCalendarIsGroupMailboxForTentative'
      */
-    const VALUE_ERRORCALENDARISGROUPMAILBOXFORTENTATIVE = 'ErrorCalendarIsGroupMailboxForTentative';
+    const VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_TENTATIVE = 'ErrorCalendarIsGroupMailboxForTentative';
     /**
      * Constant for value 'ErrorCalendarIsGroupMailboxForSuppressReadReceipt'
      * @return string 'ErrorCalendarIsGroupMailboxForSuppressReadReceipt'
      */
-    const VALUE_ERRORCALENDARISGROUPMAILBOXFORSUPPRESSREADRECEIPT = 'ErrorCalendarIsGroupMailboxForSuppressReadReceipt';
+    const VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_SUPPRESS_READ_RECEIPT = 'ErrorCalendarIsGroupMailboxForSuppressReadReceipt';
     /**
      * Constant for value 'ErrorOrganizationAccessBlocked'
      * @return string 'ErrorOrganizationAccessBlocked'
      */
-    const VALUE_ERRORORGANIZATIONACCESSBLOCKED = 'ErrorOrganizationAccessBlocked';
+    const VALUE_ERROR_ORGANIZATION_ACCESS_BLOCKED = 'ErrorOrganizationAccessBlocked';
     /**
      * Constant for value 'ErrorInvalidLicense'
      * @return string 'ErrorInvalidLicense'
      */
-    const VALUE_ERRORINVALIDLICENSE = 'ErrorInvalidLicense';
+    const VALUE_ERROR_INVALID_LICENSE = 'ErrorInvalidLicense';
     /**
      * Constant for value 'ErrorMessagePerFolderCountReceiveQuotaExceeded'
      * @return string 'ErrorMessagePerFolderCountReceiveQuotaExceeded'
      */
-    const VALUE_ERRORMESSAGEPERFOLDERCOUNTRECEIVEQUOTAEXCEEDED = 'ErrorMessagePerFolderCountReceiveQuotaExceeded';
+    const VALUE_ERROR_MESSAGE_PER_FOLDER_COUNT_RECEIVE_QUOTA_EXCEEDED = 'ErrorMessagePerFolderCountReceiveQuotaExceeded';
     /**
      * Constant for value 'ErrorInvalidBulkActionType'
      * @return string 'ErrorInvalidBulkActionType'
      */
-    const VALUE_ERRORINVALIDBULKACTIONTYPE = 'ErrorInvalidBulkActionType';
+    const VALUE_ERROR_INVALID_BULK_ACTION_TYPE = 'ErrorInvalidBulkActionType';
     /**
      * Constant for value 'ErrorInvalidKeepNCount'
      * @return string 'ErrorInvalidKeepNCount'
      */
-    const VALUE_ERRORINVALIDKEEPNCOUNT = 'ErrorInvalidKeepNCount';
+    const VALUE_ERROR_INVALID_KEEP_NCOUNT = 'ErrorInvalidKeepNCount';
     /**
      * Constant for value 'ErrorInvalidKeepNType'
      * @return string 'ErrorInvalidKeepNType'
      */
-    const VALUE_ERRORINVALIDKEEPNTYPE = 'ErrorInvalidKeepNType';
+    const VALUE_ERROR_INVALID_KEEP_NTYPE = 'ErrorInvalidKeepNType';
     /**
      * Constant for value 'ErrorNoOAuthServerAvailableForRequest'
      * @return string 'ErrorNoOAuthServerAvailableForRequest'
      */
-    const VALUE_ERRORNOOAUTHSERVERAVAILABLEFORREQUEST = 'ErrorNoOAuthServerAvailableForRequest';
+    const VALUE_ERROR_NO_OAUTH_SERVER_AVAILABLE_FOR_REQUEST = 'ErrorNoOAuthServerAvailableForRequest';
     /**
      * Constant for value 'ErrorInstantSearchSessionExpired'
      * @return string 'ErrorInstantSearchSessionExpired'
      */
-    const VALUE_ERRORINSTANTSEARCHSESSIONEXPIRED = 'ErrorInstantSearchSessionExpired';
+    const VALUE_ERROR_INSTANT_SEARCH_SESSION_EXPIRED = 'ErrorInstantSearchSessionExpired';
     /**
      * Constant for value 'ErrorInstantSearchTimeout'
      * @return string 'ErrorInstantSearchTimeout'
      */
-    const VALUE_ERRORINSTANTSEARCHTIMEOUT = 'ErrorInstantSearchTimeout';
+    const VALUE_ERROR_INSTANT_SEARCH_TIMEOUT = 'ErrorInstantSearchTimeout';
     /**
      * Constant for value 'ErrorInstantSearchFailed'
      * @return string 'ErrorInstantSearchFailed'
      */
-    const VALUE_ERRORINSTANTSEARCHFAILED = 'ErrorInstantSearchFailed';
+    const VALUE_ERROR_INSTANT_SEARCH_FAILED = 'ErrorInstantSearchFailed';
     /**
      * Constant for value 'ErrorUnsupportedUserForExecuteSearch'
      * @return string 'ErrorUnsupportedUserForExecuteSearch'
      */
-    const VALUE_ERRORUNSUPPORTEDUSERFOREXECUTESEARCH = 'ErrorUnsupportedUserForExecuteSearch';
+    const VALUE_ERROR_UNSUPPORTED_USER_FOR_EXECUTE_SEARCH = 'ErrorUnsupportedUserForExecuteSearch';
     /**
      * Constant for value 'ErrorMissingExchangePrincipal'
      * @return string 'ErrorMissingExchangePrincipal'
      */
-    const VALUE_ERRORMISSINGEXCHANGEPRINCIPAL = 'ErrorMissingExchangePrincipal';
+    const VALUE_ERROR_MISSING_EXCHANGE_PRINCIPAL = 'ErrorMissingExchangePrincipal';
     /**
      * Constant for value 'ErrorUnexpectedUnifiedGroupsCount'
      * @return string 'ErrorUnexpectedUnifiedGroupsCount'
      */
-    const VALUE_ERRORUNEXPECTEDUNIFIEDGROUPSCOUNT = 'ErrorUnexpectedUnifiedGroupsCount';
+    const VALUE_ERROR_UNEXPECTED_UNIFIED_GROUPS_COUNT = 'ErrorUnexpectedUnifiedGroupsCount';
     /**
      * Constant for value 'ErrorParsingXMLResponse'
      * @return string 'ErrorParsingXMLResponse'
      */
-    const VALUE_ERRORPARSINGXMLRESPONSE = 'ErrorParsingXMLResponse';
+    const VALUE_ERROR_PARSING_XMLRESPONSE = 'ErrorParsingXMLResponse';
     /**
      * Constant for value 'ErrorInvalidFederationOrganizationIdentifier'
      * @return string 'ErrorInvalidFederationOrganizationIdentifier'
      */
-    const VALUE_ERRORINVALIDFEDERATIONORGANIZATIONIDENTIFIER = 'ErrorInvalidFederationOrganizationIdentifier';
+    const VALUE_ERROR_INVALID_FEDERATION_ORGANIZATION_IDENTIFIER = 'ErrorInvalidFederationOrganizationIdentifier';
     /**
      * Constant for value 'ErrorInvalidSweepRule'
      * @return string 'ErrorInvalidSweepRule'
      */
-    const VALUE_ERRORINVALIDSWEEPRULE = 'ErrorInvalidSweepRule';
+    const VALUE_ERROR_INVALID_SWEEP_RULE = 'ErrorInvalidSweepRule';
     /**
      * Constant for value 'ErrorInvalidSweepRuleOperationType'
      * @return string 'ErrorInvalidSweepRuleOperationType'
      */
-    const VALUE_ERRORINVALIDSWEEPRULEOPERATIONTYPE = 'ErrorInvalidSweepRuleOperationType';
+    const VALUE_ERROR_INVALID_SWEEP_RULE_OPERATION_TYPE = 'ErrorInvalidSweepRuleOperationType';
     /**
      * Constant for value 'ErrorTargetDomainNotSupported'
      * @return string 'ErrorTargetDomainNotSupported'
      */
-    const VALUE_ERRORTARGETDOMAINNOTSUPPORTED = 'ErrorTargetDomainNotSupported';
+    const VALUE_ERROR_TARGET_DOMAIN_NOT_SUPPORTED = 'ErrorTargetDomainNotSupported';
     /**
      * Constant for value 'ErrorInvalidInternetWebProxyOnLocalServer'
      * @return string 'ErrorInvalidInternetWebProxyOnLocalServer'
      */
-    const VALUE_ERRORINVALIDINTERNETWEBPROXYONLOCALSERVER = 'ErrorInvalidInternetWebProxyOnLocalServer';
+    const VALUE_ERROR_INVALID_INTERNET_WEB_PROXY_ON_LOCAL_SERVER = 'ErrorInvalidInternetWebProxyOnLocalServer';
     /**
      * Constant for value 'ErrorNoSenderRestrictionsSettingsFoundInRequest'
      * @return string 'ErrorNoSenderRestrictionsSettingsFoundInRequest'
      */
-    const VALUE_ERRORNOSENDERRESTRICTIONSSETTINGSFOUNDINREQUEST = 'ErrorNoSenderRestrictionsSettingsFoundInRequest';
+    const VALUE_ERROR_NO_SENDER_RESTRICTIONS_SETTINGS_FOUND_IN_REQUEST = 'ErrorNoSenderRestrictionsSettingsFoundInRequest';
     /**
      * Constant for value 'ErrorDuplicateSenderRestrictionsInputFound'
      * @return string 'ErrorDuplicateSenderRestrictionsInputFound'
      */
-    const VALUE_ERRORDUPLICATESENDERRESTRICTIONSINPUTFOUND = 'ErrorDuplicateSenderRestrictionsInputFound';
+    const VALUE_ERROR_DUPLICATE_SENDER_RESTRICTIONS_INPUT_FOUND = 'ErrorDuplicateSenderRestrictionsInputFound';
     /**
      * Constant for value 'ErrorSenderRestrictionsUpdateFailed'
      * @return string 'ErrorSenderRestrictionsUpdateFailed'
      */
-    const VALUE_ERRORSENDERRESTRICTIONSUPDATEFAILED = 'ErrorSenderRestrictionsUpdateFailed';
+    const VALUE_ERROR_SENDER_RESTRICTIONS_UPDATE_FAILED = 'ErrorSenderRestrictionsUpdateFailed';
     /**
      * Constant for value 'ErrorMessageSubmissionBlocked'
      * @return string 'ErrorMessageSubmissionBlocked'
      */
-    const VALUE_ERRORMESSAGESUBMISSIONBLOCKED = 'ErrorMessageSubmissionBlocked';
+    const VALUE_ERROR_MESSAGE_SUBMISSION_BLOCKED = 'ErrorMessageSubmissionBlocked';
     /**
      * Constant for value 'ErrorExceededMessageLimit'
      * @return string 'ErrorExceededMessageLimit'
      */
-    const VALUE_ERROREXCEEDEDMESSAGELIMIT = 'ErrorExceededMessageLimit';
+    const VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT = 'ErrorExceededMessageLimit';
     /**
      * Constant for value 'ErrorExceededMaxRecipientLimitBlock'
      * @return string 'ErrorExceededMaxRecipientLimitBlock'
      */
-    const VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITBLOCK = 'ErrorExceededMaxRecipientLimitBlock';
+    const VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_BLOCK = 'ErrorExceededMaxRecipientLimitBlock';
     /**
      * Constant for value 'ErrorAccountSuspend'
      * @return string 'ErrorAccountSuspend'
      */
-    const VALUE_ERRORACCOUNTSUSPEND = 'ErrorAccountSuspend';
+    const VALUE_ERROR_ACCOUNT_SUSPEND = 'ErrorAccountSuspend';
     /**
      * Constant for value 'ErrorExceededMaxRecipientLimit'
      * @return string 'ErrorExceededMaxRecipientLimit'
      */
-    const VALUE_ERROREXCEEDEDMAXRECIPIENTLIMIT = 'ErrorExceededMaxRecipientLimit';
+    const VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT = 'ErrorExceededMaxRecipientLimit';
     /**
      * Constant for value 'ErrorMessageBlocked'
      * @return string 'ErrorMessageBlocked'
      */
-    const VALUE_ERRORMESSAGEBLOCKED = 'ErrorMessageBlocked';
+    const VALUE_ERROR_MESSAGE_BLOCKED = 'ErrorMessageBlocked';
     /**
      * Constant for value 'ErrorAccountSuspendShowTierUpgrade'
      * @return string 'ErrorAccountSuspendShowTierUpgrade'
      */
-    const VALUE_ERRORACCOUNTSUSPENDSHOWTIERUPGRADE = 'ErrorAccountSuspendShowTierUpgrade';
+    const VALUE_ERROR_ACCOUNT_SUSPEND_SHOW_TIER_UPGRADE = 'ErrorAccountSuspendShowTierUpgrade';
     /**
      * Constant for value 'ErrorExceededMessageLimitShowTierUpgrade'
      * @return string 'ErrorExceededMessageLimitShowTierUpgrade'
      */
-    const VALUE_ERROREXCEEDEDMESSAGELIMITSHOWTIERUPGRADE = 'ErrorExceededMessageLimitShowTierUpgrade';
+    const VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT_SHOW_TIER_UPGRADE = 'ErrorExceededMessageLimitShowTierUpgrade';
     /**
      * Constant for value 'ErrorExceededMaxRecipientLimitShowTierUpgrade'
      * @return string 'ErrorExceededMaxRecipientLimitShowTierUpgrade'
      */
-    const VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITSHOWTIERUPGRADE = 'ErrorExceededMaxRecipientLimitShowTierUpgrade';
+    const VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_SHOW_TIER_UPGRADE = 'ErrorExceededMaxRecipientLimitShowTierUpgrade';
     /**
      * Constant for value 'ErrorInvalidLongitude'
      * @return string 'ErrorInvalidLongitude'
      */
-    const VALUE_ERRORINVALIDLONGITUDE = 'ErrorInvalidLongitude';
+    const VALUE_ERROR_INVALID_LONGITUDE = 'ErrorInvalidLongitude';
     /**
      * Constant for value 'ErrorInvalidLatitude'
      * @return string 'ErrorInvalidLatitude'
      */
-    const VALUE_ERRORINVALIDLATITUDE = 'ErrorInvalidLatitude';
+    const VALUE_ERROR_INVALID_LATITUDE = 'ErrorInvalidLatitude';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -2549,1021 +2549,1021 @@ class EwsResponseCodeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOERROR
-     * @uses self::VALUE_ERRORACCESSDENIED
-     * @uses self::VALUE_ERRORACCESSMODESPECIFIED
-     * @uses self::VALUE_ERRORACCOUNTDISABLED
-     * @uses self::VALUE_ERRORADDDELEGATESFAILED
-     * @uses self::VALUE_ERRORADDRESSSPACENOTFOUND
-     * @uses self::VALUE_ERRORADOPERATION
-     * @uses self::VALUE_ERRORADSESSIONFILTER
-     * @uses self::VALUE_ERRORADUNAVAILABLE
-     * @uses self::VALUE_ERRORAUTODISCOVERFAILED
-     * @uses self::VALUE_ERRORAFFECTEDTASKOCCURRENCESREQUIRED
-     * @uses self::VALUE_ERRORATTACHMENTNESTLEVELLIMITEXCEEDED
-     * @uses self::VALUE_ERRORATTACHMENTSIZELIMITEXCEEDED
-     * @uses self::VALUE_ERRORARCHIVEFOLDERPATHCREATION
-     * @uses self::VALUE_ERRORARCHIVEMAILBOXNOTENABLED
-     * @uses self::VALUE_ERRORARCHIVEMAILBOXSERVICEDISCOVERYFAILED
-     * @uses self::VALUE_ERRORAVAILABILITYCONFIGNOTFOUND
-     * @uses self::VALUE_ERRORBATCHPROCESSINGSTOPPED
-     * @uses self::VALUE_ERRORCALENDARCANNOTMOVEORCOPYOCCURRENCE
-     * @uses self::VALUE_ERRORCALENDARCANNOTUPDATEDELETEDITEM
-     * @uses self::VALUE_ERRORCALENDARCANNOTUSEIDFOROCCURRENCEID
-     * @uses self::VALUE_ERRORCALENDARCANNOTUSEIDFORRECURRINGMASTERID
-     * @uses self::VALUE_ERRORCALENDARDURATIONISTOOLONG
-     * @uses self::VALUE_ERRORCALENDARENDDATEISEARLIERTHANSTARTDATE
-     * @uses self::VALUE_ERRORCALENDARFOLDERISINVALIDFORCALENDARVIEW
-     * @uses self::VALUE_ERRORCALENDARINVALIDATTRIBUTEVALUE
-     * @uses self::VALUE_ERRORCALENDARINVALIDDAYFORTIMECHANGEPATTERN
-     * @uses self::VALUE_ERRORCALENDARINVALIDDAYFORWEEKLYRECURRENCE
-     * @uses self::VALUE_ERRORCALENDARINVALIDPROPERTYSTATE
-     * @uses self::VALUE_ERRORCALENDARINVALIDPROPERTYVALUE
-     * @uses self::VALUE_ERRORCALENDARINVALIDRECURRENCE
-     * @uses self::VALUE_ERRORCALENDARINVALIDTIMEZONE
-     * @uses self::VALUE_ERRORCALENDARISCANCELLEDFORACCEPT
-     * @uses self::VALUE_ERRORCALENDARISCANCELLEDFORDECLINE
-     * @uses self::VALUE_ERRORCALENDARISCANCELLEDFORREMOVE
-     * @uses self::VALUE_ERRORCALENDARISCANCELLEDFORTENTATIVE
-     * @uses self::VALUE_ERRORCALENDARISDELEGATEDFORACCEPT
-     * @uses self::VALUE_ERRORCALENDARISDELEGATEDFORDECLINE
-     * @uses self::VALUE_ERRORCALENDARISDELEGATEDFORREMOVE
-     * @uses self::VALUE_ERRORCALENDARISDELEGATEDFORTENTATIVE
-     * @uses self::VALUE_ERRORCALENDARISNOTORGANIZER
-     * @uses self::VALUE_ERRORCALENDARISORGANIZERFORACCEPT
-     * @uses self::VALUE_ERRORCALENDARISORGANIZERFORDECLINE
-     * @uses self::VALUE_ERRORCALENDARISORGANIZERFORREMOVE
-     * @uses self::VALUE_ERRORCALENDARISORGANIZERFORTENTATIVE
-     * @uses self::VALUE_ERRORCALENDAROCCURRENCEINDEXISOUTOFRECURRENCERANGE
-     * @uses self::VALUE_ERRORCALENDAROCCURRENCEISDELETEDFROMRECURRENCE
-     * @uses self::VALUE_ERRORCALENDAROUTOFRANGE
-     * @uses self::VALUE_ERRORCALENDARMEETINGREQUESTISOUTOFDATE
-     * @uses self::VALUE_ERRORCALENDARVIEWRANGETOOBIG
-     * @uses self::VALUE_ERRORCALLERISINVALIDADACCOUNT
-     * @uses self::VALUE_ERRORCANNOTARCHIVECALENDARCONTACTTASKFOLDEREXCEPTION
-     * @uses self::VALUE_ERRORCANNOTARCHIVEITEMSINPUBLICFOLDERS
-     * @uses self::VALUE_ERRORCANNOTARCHIVEITEMSINARCHIVEMAILBOX
-     * @uses self::VALUE_ERRORCANNOTCREATECALENDARITEMINNONCALENDARFOLDER
-     * @uses self::VALUE_ERRORCANNOTCREATECONTACTINNONCONTACTFOLDER
-     * @uses self::VALUE_ERRORCANNOTCREATEPOSTITEMINNONMAILFOLDER
-     * @uses self::VALUE_ERRORCANNOTCREATETASKINNONTASKFOLDER
-     * @uses self::VALUE_ERRORCANNOTDELETEOBJECT
-     * @uses self::VALUE_ERRORCANNOTDISABLEMANDATORYEXTENSION
-     * @uses self::VALUE_ERRORCANNOTFINDUSER
-     * @uses self::VALUE_ERRORCANNOTGETSOURCEFOLDERPATH
-     * @uses self::VALUE_ERRORCANNOTGETEXTERNALECPURL
-     * @uses self::VALUE_ERRORCANNOTOPENFILEATTACHMENT
-     * @uses self::VALUE_ERRORCANNOTDELETETASKOCCURRENCE
-     * @uses self::VALUE_ERRORCANNOTEMPTYFOLDER
-     * @uses self::VALUE_ERRORCANNOTSETCALENDARPERMISSIONONNONCALENDARFOLDER
-     * @uses self::VALUE_ERRORCANNOTSETNONCALENDARPERMISSIONONCALENDARFOLDER
-     * @uses self::VALUE_ERRORCANNOTSETPERMISSIONUNKNOWNENTRIES
-     * @uses self::VALUE_ERRORCANNOTSPECIFYSEARCHFOLDERASSOURCEFOLDER
-     * @uses self::VALUE_ERRORCANNOTUSEFOLDERIDFORITEMID
-     * @uses self::VALUE_ERRORCANNOTUSEITEMIDFORFOLDERID
-     * @uses self::VALUE_ERRORCHANGEKEYREQUIRED
-     * @uses self::VALUE_ERRORCHANGEKEYREQUIREDFORWRITEOPERATIONS
-     * @uses self::VALUE_ERRORCHANNELSUBSCRIPTIONALREADYEXISTS
-     * @uses self::VALUE_ERRORCHANNELSUBSCRIPTIONNOTFOUND
-     * @uses self::VALUE_ERRORCLIENTDISCONNECTED
-     * @uses self::VALUE_ERRORCLIENTINTENTINVALIDSTATEDEFINITION
-     * @uses self::VALUE_ERRORCLIENTINTENTNOTFOUND
-     * @uses self::VALUE_ERRORCONNECTIONFAILED
-     * @uses self::VALUE_ERRORCONTAINSFILTERWRONGTYPE
-     * @uses self::VALUE_ERRORCONTENTCONVERSIONFAILED
-     * @uses self::VALUE_ERRORCONTENTINDEXINGNOTENABLED
-     * @uses self::VALUE_ERRORCORRUPTDATA
-     * @uses self::VALUE_ERRORCREATEITEMACCESSDENIED
-     * @uses self::VALUE_ERRORCREATEMANAGEDFOLDERPARTIALCOMPLETION
-     * @uses self::VALUE_ERRORCREATESUBFOLDERACCESSDENIED
-     * @uses self::VALUE_ERRORCROSSMAILBOXMOVECOPY
-     * @uses self::VALUE_ERRORCROSSSITEREQUEST
-     * @uses self::VALUE_ERRORDATASIZELIMITEXCEEDED
-     * @uses self::VALUE_ERRORDATASOURCEOPERATION
-     * @uses self::VALUE_ERRORDELEGATEALREADYEXISTS
-     * @uses self::VALUE_ERRORDELEGATECANNOTADDOWNER
-     * @uses self::VALUE_ERRORDELEGATEMISSINGCONFIGURATION
-     * @uses self::VALUE_ERRORDELEGATENOUSER
-     * @uses self::VALUE_ERRORDELEGATEVALIDATIONFAILED
-     * @uses self::VALUE_ERRORDELETEDISTINGUISHEDFOLDER
-     * @uses self::VALUE_ERRORDELETEITEMSFAILED
-     * @uses self::VALUE_ERRORDELETEUNIFIEDMESSAGINGPROMPTFAILED
-     * @uses self::VALUE_ERRORDISTINGUISHEDUSERNOTSUPPORTED
-     * @uses self::VALUE_ERRORDISTRIBUTIONLISTMEMBERNOTEXIST
-     * @uses self::VALUE_ERRORDUPLICATEINPUTFOLDERNAMES
-     * @uses self::VALUE_ERRORDUPLICATEUSERIDSSPECIFIED
-     * @uses self::VALUE_ERROREMAILADDRESSMISMATCH
-     * @uses self::VALUE_ERROREVENTNOTFOUND
-     * @uses self::VALUE_ERROREXCEEDEDCHANNELSUBSCRIPTIONCOUNT
-     * @uses self::VALUE_ERROREXCEEDEDCONNECTIONCOUNT
-     * @uses self::VALUE_ERROREXCEEDEDSUBSCRIPTIONCOUNT
-     * @uses self::VALUE_ERROREXCEEDEDFINDCOUNTLIMIT
-     * @uses self::VALUE_ERROREXPIREDSUBSCRIPTION
-     * @uses self::VALUE_ERROREXTENSIONNOTFOUND
-     * @uses self::VALUE_ERRORFOLDERCORRUPT
-     * @uses self::VALUE_ERRORFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORFOLDERPROPERTREQUESTFAILED
-     * @uses self::VALUE_ERRORFOLDERSAVE
-     * @uses self::VALUE_ERRORFOLDERSAVEFAILED
-     * @uses self::VALUE_ERRORFOLDERSAVEPROPERTYERROR
-     * @uses self::VALUE_ERRORFOLDEREXISTS
-     * @uses self::VALUE_ERRORFREEBUSYGENERATIONFAILED
-     * @uses self::VALUE_ERRORGETSERVERSECURITYDESCRIPTORFAILED
-     * @uses self::VALUE_ERRORIMCONTACTLIMITREACHED
-     * @uses self::VALUE_ERRORIMGROUPDISPLAYNAMEALREADYEXISTS
-     * @uses self::VALUE_ERRORIMGROUPLIMITREACHED
-     * @uses self::VALUE_ERRORIMPERSONATEUSERDENIED
-     * @uses self::VALUE_ERRORIMPERSONATIONDENIED
-     * @uses self::VALUE_ERRORIMPERSONATIONFAILED
-     * @uses self::VALUE_ERRORINCORRECTSCHEMAVERSION
-     * @uses self::VALUE_ERRORINCORRECTUPDATEPROPERTYCOUNT
-     * @uses self::VALUE_ERRORINDIVIDUALMAILBOXLIMITREACHED
-     * @uses self::VALUE_ERRORINSUFFICIENTRESOURCES
-     * @uses self::VALUE_ERRORINTERNALSERVERERROR
-     * @uses self::VALUE_ERRORINTERNALSERVERTRANSIENTERROR
-     * @uses self::VALUE_ERRORINVALIDACCESSLEVEL
-     * @uses self::VALUE_ERRORINVALIDARGUMENT
-     * @uses self::VALUE_ERRORINVALIDATTACHMENTID
-     * @uses self::VALUE_ERRORINVALIDATTACHMENTSUBFILTER
-     * @uses self::VALUE_ERRORINVALIDATTACHMENTSUBFILTERTEXTFILTER
-     * @uses self::VALUE_ERRORINVALIDAUTHORIZATIONCONTEXT
-     * @uses self::VALUE_ERRORINVALIDCHANGEKEY
-     * @uses self::VALUE_ERRORINVALIDCHANNELID
-     * @uses self::VALUE_ERRORINVALIDCHANNELSUBSCRIPTIONID
-     * @uses self::VALUE_ERRORINVALIDCLIENTSECURITYCONTEXT
-     * @uses self::VALUE_ERRORINVALIDCOMPLETEDATE
-     * @uses self::VALUE_ERRORINVALIDCONTACTEMAILADDRESS
-     * @uses self::VALUE_ERRORINVALIDCONTACTEMAILINDEX
-     * @uses self::VALUE_ERRORINVALIDCROSSFORESTCREDENTIALS
-     * @uses self::VALUE_ERRORINVALIDDELEGATEPERMISSION
-     * @uses self::VALUE_ERRORINVALIDDELEGATEUSERID
-     * @uses self::VALUE_ERRORINVALIDEXCLUDESRESTRICTION
-     * @uses self::VALUE_ERRORINVALIDEXPRESSIONTYPEFORSUBFILTER
-     * @uses self::VALUE_ERRORINVALIDEXTENDEDPROPERTY
-     * @uses self::VALUE_ERRORINVALIDEXTENDEDPROPERTYVALUE
-     * @uses self::VALUE_ERRORINVALIDFOLDERID
-     * @uses self::VALUE_ERRORINVALIDFOLDERTYPEFOROPERATION
-     * @uses self::VALUE_ERRORINVALIDFRACTIONALPAGINGPARAMETERS
-     * @uses self::VALUE_ERRORINVALIDFREEBUSYVIEWTYPE
-     * @uses self::VALUE_ERRORINVALIDID
-     * @uses self::VALUE_ERRORINVALIDIDEMPTY
-     * @uses self::VALUE_ERRORINVALIDIDMALFORMED
-     * @uses self::VALUE_ERRORINVALIDIDMALFORMEDEWSLEGACYIDFORMAT
-     * @uses self::VALUE_ERRORINVALIDIDMONIKERTOOLONG
-     * @uses self::VALUE_ERRORINVALIDIDNOTANITEMATTACHMENTID
-     * @uses self::VALUE_ERRORINVALIDIDRETURNEDBYRESOLVENAMES
-     * @uses self::VALUE_ERRORINVALIDIDSTOREOBJECTIDTOOLONG
-     * @uses self::VALUE_ERRORINVALIDIDTOOMANYATTACHMENTLEVELS
-     * @uses self::VALUE_ERRORINVALIDIDXML
-     * @uses self::VALUE_ERRORINVALIDIMCONTACTID
-     * @uses self::VALUE_ERRORINVALIDIMDISTRIBUTIONGROUPSMTPADDRESS
-     * @uses self::VALUE_ERRORINVALIDIMGROUPID
-     * @uses self::VALUE_ERRORINVALIDINDEXEDPAGINGPARAMETERS
-     * @uses self::VALUE_ERRORINVALIDINTERNETHEADERCHILDNODES
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONARCHIVEITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEMATTACHMENT
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONACCEPTITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONDECLINEITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONCANCELITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONEXPANDDL
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONREMOVEITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONSENDITEM
-     * @uses self::VALUE_ERRORINVALIDITEMFOROPERATIONTENTATIVE
-     * @uses self::VALUE_ERRORINVALIDLOGONTYPE
-     * @uses self::VALUE_ERRORINVALIDLIKEREQUEST
-     * @uses self::VALUE_ERRORINVALIDMAILBOX
-     * @uses self::VALUE_ERRORINVALIDMANAGEDFOLDERPROPERTY
-     * @uses self::VALUE_ERRORINVALIDMANAGEDFOLDERQUOTA
-     * @uses self::VALUE_ERRORINVALIDMANAGEDFOLDERSIZE
-     * @uses self::VALUE_ERRORINVALIDMERGEDFREEBUSYINTERVAL
-     * @uses self::VALUE_ERRORINVALIDNAMEFORNAMERESOLUTION
-     * @uses self::VALUE_ERRORINVALIDOPERATION
-     * @uses self::VALUE_ERRORINVALIDNETWORKSERVICECONTEXT
-     * @uses self::VALUE_ERRORINVALIDOOFPARAMETER
-     * @uses self::VALUE_ERRORINVALIDPAGINGMAXROWS
-     * @uses self::VALUE_ERRORINVALIDPARENTFOLDER
-     * @uses self::VALUE_ERRORINVALIDPERCENTCOMPLETEVALUE
-     * @uses self::VALUE_ERRORINVALIDPERMISSIONSETTINGS
-     * @uses self::VALUE_ERRORINVALIDPHONECALLID
-     * @uses self::VALUE_ERRORINVALIDPHONENUMBER
-     * @uses self::VALUE_ERRORINVALIDUSERINFO
-     * @uses self::VALUE_ERRORINVALIDPROPERTYAPPEND
-     * @uses self::VALUE_ERRORINVALIDPROPERTYDELETE
-     * @uses self::VALUE_ERRORINVALIDPROPERTYFOREXISTS
-     * @uses self::VALUE_ERRORINVALIDPROPERTYFOROPERATION
-     * @uses self::VALUE_ERRORINVALIDPROPERTYREQUEST
-     * @uses self::VALUE_ERRORINVALIDPROPERTYSET
-     * @uses self::VALUE_ERRORINVALIDPROPERTYUPDATESENTMESSAGE
-     * @uses self::VALUE_ERRORINVALIDPROXYSECURITYCONTEXT
-     * @uses self::VALUE_ERRORINVALIDPULLSUBSCRIPTIONID
-     * @uses self::VALUE_ERRORINVALIDPUSHSUBSCRIPTIONURL
-     * @uses self::VALUE_ERRORINVALIDRECIPIENTS
-     * @uses self::VALUE_ERRORINVALIDRECIPIENTSUBFILTER
-     * @uses self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERCOMPARISON
-     * @uses self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERORDER
-     * @uses self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERTEXTFILTER
-     * @uses self::VALUE_ERRORINVALIDREFERENCEITEM
-     * @uses self::VALUE_ERRORINVALIDREQUEST
-     * @uses self::VALUE_ERRORINVALIDRESTRICTION
-     * @uses self::VALUE_ERRORINVALIDRETENTIONTAGTYPEMISMATCH
-     * @uses self::VALUE_ERRORINVALIDRETENTIONTAGINVISIBLE
-     * @uses self::VALUE_ERRORINVALIDRETENTIONTAGINHERITANCE
-     * @uses self::VALUE_ERRORINVALIDRETENTIONTAGIDGUID
-     * @uses self::VALUE_ERRORINVALIDROUTINGTYPE
-     * @uses self::VALUE_ERRORINVALIDSCHEDULEDOOFDURATION
-     * @uses self::VALUE_ERRORINVALIDSCHEMAVERSIONFORMAILBOXVERSION
-     * @uses self::VALUE_ERRORINVALIDSECURITYDESCRIPTOR
-     * @uses self::VALUE_ERRORINVALIDSENDITEMSAVESETTINGS
-     * @uses self::VALUE_ERRORINVALIDSERIALIZEDACCESSTOKEN
-     * @uses self::VALUE_ERRORINVALIDSERVERVERSION
-     * @uses self::VALUE_ERRORINVALIDSID
-     * @uses self::VALUE_ERRORINVALIDSIPURI
-     * @uses self::VALUE_ERRORINVALIDSMTPADDRESS
-     * @uses self::VALUE_ERRORINVALIDSUBFILTERTYPE
-     * @uses self::VALUE_ERRORINVALIDSUBFILTERTYPENOTATTENDEETYPE
-     * @uses self::VALUE_ERRORINVALIDSUBFILTERTYPENOTRECIPIENTTYPE
-     * @uses self::VALUE_ERRORINVALIDSUBSCRIPTION
-     * @uses self::VALUE_ERRORINVALIDSUBSCRIPTIONREQUEST
-     * @uses self::VALUE_ERRORINVALIDSYNCSTATEDATA
-     * @uses self::VALUE_ERRORINVALIDTIMEINTERVAL
-     * @uses self::VALUE_ERRORINVALIDUSEROOFSETTINGS
-     * @uses self::VALUE_ERRORINVALIDUSERPRINCIPALNAME
-     * @uses self::VALUE_ERRORINVALIDUSERSID
-     * @uses self::VALUE_ERRORINVALIDUSERSIDMISSINGUPN
-     * @uses self::VALUE_ERRORINVALIDVALUEFORPROPERTY
-     * @uses self::VALUE_ERRORINVALIDWATERMARK
-     * @uses self::VALUE_ERRORIPGATEWAYNOTFOUND
-     * @uses self::VALUE_ERRORIRRESOLVABLECONFLICT
-     * @uses self::VALUE_ERRORITEMCORRUPT
-     * @uses self::VALUE_ERRORITEMNOTFOUND
-     * @uses self::VALUE_ERRORITEMPROPERTYREQUESTFAILED
-     * @uses self::VALUE_ERRORITEMSAVE
-     * @uses self::VALUE_ERRORITEMSAVEPROPERTYERROR
-     * @uses self::VALUE_ERRORLEGACYMAILBOXFREEBUSYVIEWTYPENOTMERGED
-     * @uses self::VALUE_ERRORLOCALSERVEROBJECTNOTFOUND
-     * @uses self::VALUE_ERRORLOGONASNETWORKSERVICEFAILED
-     * @uses self::VALUE_ERRORMAILBOXCONFIGURATION
-     * @uses self::VALUE_ERRORMAILBOXDATAARRAYEMPTY
-     * @uses self::VALUE_ERRORMAILBOXDATAARRAYTOOBIG
-     * @uses self::VALUE_ERRORMAILBOXHOLDNOTFOUND
-     * @uses self::VALUE_ERRORMAILBOXLOGONFAILED
-     * @uses self::VALUE_ERRORMAILBOXMOVEINPROGRESS
-     * @uses self::VALUE_ERRORMAILBOXSTOREUNAVAILABLE
-     * @uses self::VALUE_ERRORMAILRECIPIENTNOTFOUND
-     * @uses self::VALUE_ERRORMAILTIPSDISABLED
-     * @uses self::VALUE_ERRORMANAGEDFOLDERALREADYEXISTS
-     * @uses self::VALUE_ERRORMANAGEDFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORMANAGEDFOLDERSROOTFAILURE
-     * @uses self::VALUE_ERRORMEETINGSUGGESTIONGENERATIONFAILED
-     * @uses self::VALUE_ERRORMESSAGEDISPOSITIONREQUIRED
-     * @uses self::VALUE_ERRORMESSAGESIZEEXCEEDED
-     * @uses self::VALUE_ERRORMIMECONTENTCONVERSIONFAILED
-     * @uses self::VALUE_ERRORMIMECONTENTINVALID
-     * @uses self::VALUE_ERRORMIMECONTENTINVALIDBASE64STRING
-     * @uses self::VALUE_ERRORMISSINGARGUMENT
-     * @uses self::VALUE_ERRORMISSINGEMAILADDRESS
-     * @uses self::VALUE_ERRORMISSINGEMAILADDRESSFORMANAGEDFOLDER
-     * @uses self::VALUE_ERRORMISSINGINFORMATIONEMAILADDRESS
-     * @uses self::VALUE_ERRORMISSINGINFORMATIONREFERENCEITEMID
-     * @uses self::VALUE_ERRORMISSINGITEMFORCREATEITEMATTACHMENT
-     * @uses self::VALUE_ERRORMISSINGMANAGEDFOLDERID
-     * @uses self::VALUE_ERRORMISSINGRECIPIENTS
-     * @uses self::VALUE_ERRORMISSINGUSERIDINFORMATION
-     * @uses self::VALUE_ERRORMORETHANONEACCESSMODESPECIFIED
-     * @uses self::VALUE_ERRORMOVECOPYFAILED
-     * @uses self::VALUE_ERRORMOVEDISTINGUISHEDFOLDER
-     * @uses self::VALUE_ERRORMULTILEGACYMAILBOXACCESS
-     * @uses self::VALUE_ERRORNAMERESOLUTIONMULTIPLERESULTS
-     * @uses self::VALUE_ERRORNAMERESOLUTIONNOMAILBOX
-     * @uses self::VALUE_ERRORNAMERESOLUTIONNORESULTS
-     * @uses self::VALUE_ERRORNEWCHANNELCONNECTIONOPENED
-     * @uses self::VALUE_ERRORNOAPPLICABLEPROXYCASSERVERSAVAILABLE
-     * @uses self::VALUE_ERRORNOCALENDAR
-     * @uses self::VALUE_ERRORNODESTINATIONCASDUETOKERBEROSREQUIREMENTS
-     * @uses self::VALUE_ERRORNODESTINATIONCASDUETOSSLREQUIREMENTS
-     * @uses self::VALUE_ERRORNODESTINATIONCASDUETOVERSIONMISMATCH
-     * @uses self::VALUE_ERRORNOFOLDERCLASSOVERRIDE
-     * @uses self::VALUE_ERRORNOFREEBUSYACCESS
-     * @uses self::VALUE_ERRORNONEXISTENTMAILBOX
-     * @uses self::VALUE_ERRORNONPRIMARYSMTPADDRESS
-     * @uses self::VALUE_ERRORNOPROPERTYTAGFORCUSTOMPROPERTIES
-     * @uses self::VALUE_ERRORNOPUBLICFOLDERREPLICAAVAILABLE
-     * @uses self::VALUE_ERRORNOPUBLICFOLDERSERVERAVAILABLE
-     * @uses self::VALUE_ERRORNORESPONDINGCASINDESTINATIONSITE
-     * @uses self::VALUE_ERRORNOTDELEGATE
-     * @uses self::VALUE_ERRORNOTENOUGHMEMORY
-     * @uses self::VALUE_ERROROBJECTTYPECHANGED
-     * @uses self::VALUE_ERROROCCURRENCECROSSINGBOUNDARY
-     * @uses self::VALUE_ERROROCCURRENCETIMESPANTOOBIG
-     * @uses self::VALUE_ERROROPERATIONNOTALLOWEDWITHPUBLICFOLDERROOT
-     * @uses self::VALUE_ERRORPARENTFOLDERIDREQUIRED
-     * @uses self::VALUE_ERRORPARENTFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORPASSWORDCHANGEREQUIRED
-     * @uses self::VALUE_ERRORPASSWORDEXPIRED
-     * @uses self::VALUE_ERRORPHONENUMBERNOTDIALABLE
-     * @uses self::VALUE_ERRORPROPERTYUPDATE
-     * @uses self::VALUE_ERRORPROMPTPUBLISHINGOPERATIONFAILED
-     * @uses self::VALUE_ERRORPROPERTYVALIDATIONFAILURE
-     * @uses self::VALUE_ERRORPROXIEDSUBSCRIPTIONCALLFAILURE
-     * @uses self::VALUE_ERRORPROXYCALLFAILED
-     * @uses self::VALUE_ERRORPROXYGROUPSIDLIMITEXCEEDED
-     * @uses self::VALUE_ERRORPROXYREQUESTNOTALLOWED
-     * @uses self::VALUE_ERRORPROXYREQUESTPROCESSINGFAILED
-     * @uses self::VALUE_ERRORPROXYSERVICEDISCOVERYFAILED
-     * @uses self::VALUE_ERRORPROXYTOKENEXPIRED
-     * @uses self::VALUE_ERRORPUBLICFOLDERMAILBOXDISCOVERYFAILED
-     * @uses self::VALUE_ERRORPUBLICFOLDEROPERATIONFAILED
-     * @uses self::VALUE_ERRORPUBLICFOLDERREQUESTPROCESSINGFAILED
-     * @uses self::VALUE_ERRORPUBLICFOLDERSERVERNOTFOUND
-     * @uses self::VALUE_ERRORPUBLICFOLDERSYNCEXCEPTION
-     * @uses self::VALUE_ERRORQUERYFILTERTOOLONG
-     * @uses self::VALUE_ERRORQUOTAEXCEEDED
-     * @uses self::VALUE_ERRORREADEVENTSFAILED
-     * @uses self::VALUE_ERRORREADRECEIPTNOTPENDING
-     * @uses self::VALUE_ERRORRECURRENCEENDDATETOOBIG
-     * @uses self::VALUE_ERRORRECURRENCEHASNOOCCURRENCE
-     * @uses self::VALUE_ERRORREMOVEDELEGATESFAILED
-     * @uses self::VALUE_ERRORREQUESTABORTED
-     * @uses self::VALUE_ERRORREQUESTSTREAMTOOBIG
-     * @uses self::VALUE_ERRORREQUIREDPROPERTYMISSING
-     * @uses self::VALUE_ERRORRESOLVENAMESINVALIDFOLDERTYPE
-     * @uses self::VALUE_ERRORRESOLVENAMESONLYONECONTACTSFOLDERALLOWED
-     * @uses self::VALUE_ERRORRESPONSESCHEMAVALIDATION
-     * @uses self::VALUE_ERRORRESTRICTIONTOOLONG
-     * @uses self::VALUE_ERRORRESTRICTIONTOOCOMPLEX
-     * @uses self::VALUE_ERRORRESULTSETTOOBIG
-     * @uses self::VALUE_ERRORINVALIDEXCHANGEIMPERSONATIONHEADERDATA
-     * @uses self::VALUE_ERRORSAVEDITEMFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORSCHEMAVALIDATION
-     * @uses self::VALUE_ERRORSEARCHFOLDERNOTINITIALIZED
-     * @uses self::VALUE_ERRORSENDASDENIED
-     * @uses self::VALUE_ERRORSENDMEETINGCANCELLATIONSREQUIRED
-     * @uses self::VALUE_ERRORSENDMEETINGINVITATIONSORCANCELLATIONSREQUIRED
-     * @uses self::VALUE_ERRORSENDMEETINGINVITATIONSREQUIRED
-     * @uses self::VALUE_ERRORSENTMEETINGREQUESTUPDATE
-     * @uses self::VALUE_ERRORSENTTASKREQUESTUPDATE
-     * @uses self::VALUE_ERRORSERVERBUSY
-     * @uses self::VALUE_ERRORSERVICEDISCOVERYFAILED
-     * @uses self::VALUE_ERRORSTALEOBJECT
-     * @uses self::VALUE_ERRORSUBMISSIONQUOTAEXCEEDED
-     * @uses self::VALUE_ERRORSUBSCRIPTIONACCESSDENIED
-     * @uses self::VALUE_ERRORSUBSCRIPTIONDELEGATEACCESSNOTSUPPORTED
-     * @uses self::VALUE_ERRORSUBSCRIPTIONNOTFOUND
-     * @uses self::VALUE_ERRORSUBSCRIPTIONUNSUBSCRIBED
-     * @uses self::VALUE_ERRORSYNCFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORTEAMMAILBOXNOTFOUND
-     * @uses self::VALUE_ERRORTEAMMAILBOXNOTLINKEDTOSHAREPOINT
-     * @uses self::VALUE_ERRORTEAMMAILBOXURLVALIDATIONFAILED
-     * @uses self::VALUE_ERRORTEAMMAILBOXNOTAUTHORIZEDOWNER
-     * @uses self::VALUE_ERRORTEAMMAILBOXACTIVETOPENDINGDELETE
-     * @uses self::VALUE_ERRORTEAMMAILBOXFAILEDSENDINGNOTIFICATIONS
-     * @uses self::VALUE_ERRORTEAMMAILBOXERRORUNKNOWN
-     * @uses self::VALUE_ERRORTIMEINTERVALTOOBIG
-     * @uses self::VALUE_ERRORTIMEOUTEXPIRED
-     * @uses self::VALUE_ERRORTIMEZONE
-     * @uses self::VALUE_ERRORTOFOLDERNOTFOUND
-     * @uses self::VALUE_ERRORTOKENSERIALIZATIONDENIED
-     * @uses self::VALUE_ERRORTOOMANYOBJECTSOPENED
-     * @uses self::VALUE_ERRORUPDATEPROPERTYMISMATCH
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXAADCREATIONFAILED
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXAADDELETEFAILED
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXNAMINGPOLICY
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXDELETEFAILED
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXNOTFOUND
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDELAYED
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDPARTIALPROPERTIES
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEFAILED
-     * @uses self::VALUE_ERRORUNIFIEDGROUPMAILBOXPROVISIONFAILED
-     * @uses self::VALUE_ERRORUNIFIEDMESSAGINGDIALPLANNOTFOUND
-     * @uses self::VALUE_ERRORUNIFIEDMESSAGINGREPORTDATANOTFOUND
-     * @uses self::VALUE_ERRORUNIFIEDMESSAGINGPROMPTNOTFOUND
-     * @uses self::VALUE_ERRORUNIFIEDMESSAGINGREQUESTFAILED
-     * @uses self::VALUE_ERRORUNIFIEDMESSAGINGSERVERNOTFOUND
-     * @uses self::VALUE_ERRORUNABLETOGETUSEROOFSETTINGS
-     * @uses self::VALUE_ERRORUNABLETOREMOVEIMCONTACTFROMGROUP
-     * @uses self::VALUE_ERRORUNSUPPORTEDSUBFILTER
-     * @uses self::VALUE_ERRORUNSUPPORTEDCULTURE
-     * @uses self::VALUE_ERRORUNSUPPORTEDMAPIPROPERTYTYPE
-     * @uses self::VALUE_ERRORUNSUPPORTEDMIMECONVERSION
-     * @uses self::VALUE_ERRORUNSUPPORTEDPATHFORQUERY
-     * @uses self::VALUE_ERRORUNSUPPORTEDPATHFORSORTGROUP
-     * @uses self::VALUE_ERRORUNSUPPORTEDPROPERTYDEFINITION
-     * @uses self::VALUE_ERRORUNSUPPORTEDQUERYFILTER
-     * @uses self::VALUE_ERRORUNSUPPORTEDRECURRENCE
-     * @uses self::VALUE_ERRORUNSUPPORTEDTYPEFORCONVERSION
-     * @uses self::VALUE_ERRORUPDATEDELEGATESFAILED
-     * @uses self::VALUE_ERRORUSERNOTUNIFIEDMESSAGINGENABLED
-     * @uses self::VALUE_ERRORVOICEMAILNOTIMPLEMENTED
-     * @uses self::VALUE_ERRORVALUEOUTOFRANGE
-     * @uses self::VALUE_ERRORVIRUSDETECTED
-     * @uses self::VALUE_ERRORVIRUSMESSAGEDELETED
-     * @uses self::VALUE_ERRORWEBREQUESTININVALIDSTATE
-     * @uses self::VALUE_ERRORWIN32INTEROPERROR
-     * @uses self::VALUE_ERRORWORKINGHOURSSAVEFAILED
-     * @uses self::VALUE_ERRORWORKINGHOURSXMLMALFORMED
-     * @uses self::VALUE_ERRORWRONGSERVERVERSION
-     * @uses self::VALUE_ERRORWRONGSERVERVERSIONDELEGATE
-     * @uses self::VALUE_ERRORMISSINGINFORMATIONSHARINGFOLDERID
-     * @uses self::VALUE_ERRORDUPLICATESOAPHEADER
-     * @uses self::VALUE_ERRORSHARINGSYNCHRONIZATIONFAILED
-     * @uses self::VALUE_ERRORSHARINGNOEXTERNALEWSAVAILABLE
-     * @uses self::VALUE_ERRORFREEBUSYDLLIMITREACHED
-     * @uses self::VALUE_ERRORINVALIDGETSHARINGFOLDERREQUEST
-     * @uses self::VALUE_ERRORNOTALLOWEDEXTERNALSHARINGBYPOLICY
-     * @uses self::VALUE_ERRORUSERNOTALLOWEDBYPOLICY
-     * @uses self::VALUE_ERRORPERMISSIONNOTALLOWEDBYPOLICY
-     * @uses self::VALUE_ERRORORGANIZATIONNOTFEDERATED
-     * @uses self::VALUE_ERRORMAILBOXFAILOVER
-     * @uses self::VALUE_ERRORINVALIDEXTERNALSHARINGINITIATOR
-     * @uses self::VALUE_ERRORMESSAGETRACKINGPERMANENTERROR
-     * @uses self::VALUE_ERRORMESSAGETRACKINGTRANSIENTERROR
-     * @uses self::VALUE_ERRORMESSAGETRACKINGNOSUCHDOMAIN
-     * @uses self::VALUE_ERRORUSERWITHOUTFEDERATEDPROXYADDRESS
-     * @uses self::VALUE_ERRORINVALIDORGANIZATIONRELATIONSHIPFORFREEBUSY
-     * @uses self::VALUE_ERRORINVALIDFEDERATEDORGANIZATIONID
-     * @uses self::VALUE_ERRORINVALIDEXTERNALSHARINGSUBSCRIBER
-     * @uses self::VALUE_ERRORINVALIDSHARINGDATA
-     * @uses self::VALUE_ERRORINVALIDSHARINGMESSAGE
-     * @uses self::VALUE_ERRORNOTSUPPORTEDSHARINGMESSAGE
-     * @uses self::VALUE_ERRORAPPLYCONVERSATIONACTIONFAILED
-     * @uses self::VALUE_ERRORINBOXRULESVALIDATIONERROR
-     * @uses self::VALUE_ERROROUTLOOKRULEBLOBEXISTS
-     * @uses self::VALUE_ERRORRULESOVERQUOTA
-     * @uses self::VALUE_ERRORNEWEVENTSTREAMCONNECTIONOPENED
-     * @uses self::VALUE_ERRORMISSEDNOTIFICATIONEVENTS
-     * @uses self::VALUE_ERRORDUPLICATELEGACYDISTINGUISHEDNAME
-     * @uses self::VALUE_ERRORINVALIDCLIENTACCESSTOKENREQUEST
-     * @uses self::VALUE_ERRORNOSPEECHDETECTED
-     * @uses self::VALUE_ERRORUMSERVERUNAVAILABLE
-     * @uses self::VALUE_ERRORRECIPIENTNOTFOUND
-     * @uses self::VALUE_ERRORRECOGNIZERNOTINSTALLED
-     * @uses self::VALUE_ERRORSPEECHGRAMMARERROR
-     * @uses self::VALUE_ERRORINVALIDMANAGEMENTROLEHEADER
-     * @uses self::VALUE_ERRORLOCATIONSERVICESDISABLED
-     * @uses self::VALUE_ERRORLOCATIONSERVICESREQUESTTIMEDOUT
-     * @uses self::VALUE_ERRORLOCATIONSERVICESREQUESTFAILED
-     * @uses self::VALUE_ERRORLOCATIONSERVICESINVALIDREQUEST
-     * @uses self::VALUE_ERRORWEATHERSERVICEDISABLED
-     * @uses self::VALUE_ERRORMAILBOXSCOPENOTALLOWEDWITHOUTQUERYSTRING
-     * @uses self::VALUE_ERRORARCHIVEMAILBOXSEARCHFAILED
-     * @uses self::VALUE_ERRORGETREMOTEARCHIVEFOLDERFAILED
-     * @uses self::VALUE_ERRORFINDREMOTEARCHIVEFOLDERFAILED
-     * @uses self::VALUE_ERRORGETREMOTEARCHIVEITEMFAILED
-     * @uses self::VALUE_ERROREXPORTREMOTEARCHIVEITEMSFAILED
-     * @uses self::VALUE_ERRORINVALIDPHOTOSIZE
-     * @uses self::VALUE_ERRORSEARCHQUERYHASTOOMANYKEYWORDS
-     * @uses self::VALUE_ERRORSEARCHTOOMANYMAILBOXES
-     * @uses self::VALUE_ERRORINVALIDRETENTIONTAGNONE
-     * @uses self::VALUE_ERRORDISCOVERYSEARCHESDISABLED
-     * @uses self::VALUE_ERRORCALENDARSEEKTOCONDITIONNOTSUPPORTED
-     * @uses self::VALUE_ERRORCALENDARISGROUPMAILBOXFORACCEPT
-     * @uses self::VALUE_ERRORCALENDARISGROUPMAILBOXFORDECLINE
-     * @uses self::VALUE_ERRORCALENDARISGROUPMAILBOXFORTENTATIVE
-     * @uses self::VALUE_ERRORCALENDARISGROUPMAILBOXFORSUPPRESSREADRECEIPT
-     * @uses self::VALUE_ERRORORGANIZATIONACCESSBLOCKED
-     * @uses self::VALUE_ERRORINVALIDLICENSE
-     * @uses self::VALUE_ERRORMESSAGEPERFOLDERCOUNTRECEIVEQUOTAEXCEEDED
-     * @uses self::VALUE_ERRORINVALIDBULKACTIONTYPE
-     * @uses self::VALUE_ERRORINVALIDKEEPNCOUNT
-     * @uses self::VALUE_ERRORINVALIDKEEPNTYPE
-     * @uses self::VALUE_ERRORNOOAUTHSERVERAVAILABLEFORREQUEST
-     * @uses self::VALUE_ERRORINSTANTSEARCHSESSIONEXPIRED
-     * @uses self::VALUE_ERRORINSTANTSEARCHTIMEOUT
-     * @uses self::VALUE_ERRORINSTANTSEARCHFAILED
-     * @uses self::VALUE_ERRORUNSUPPORTEDUSERFOREXECUTESEARCH
-     * @uses self::VALUE_ERRORMISSINGEXCHANGEPRINCIPAL
-     * @uses self::VALUE_ERRORUNEXPECTEDUNIFIEDGROUPSCOUNT
-     * @uses self::VALUE_ERRORPARSINGXMLRESPONSE
-     * @uses self::VALUE_ERRORINVALIDFEDERATIONORGANIZATIONIDENTIFIER
-     * @uses self::VALUE_ERRORINVALIDSWEEPRULE
-     * @uses self::VALUE_ERRORINVALIDSWEEPRULEOPERATIONTYPE
-     * @uses self::VALUE_ERRORTARGETDOMAINNOTSUPPORTED
-     * @uses self::VALUE_ERRORINVALIDINTERNETWEBPROXYONLOCALSERVER
-     * @uses self::VALUE_ERRORNOSENDERRESTRICTIONSSETTINGSFOUNDINREQUEST
-     * @uses self::VALUE_ERRORDUPLICATESENDERRESTRICTIONSINPUTFOUND
-     * @uses self::VALUE_ERRORSENDERRESTRICTIONSUPDATEFAILED
-     * @uses self::VALUE_ERRORMESSAGESUBMISSIONBLOCKED
-     * @uses self::VALUE_ERROREXCEEDEDMESSAGELIMIT
-     * @uses self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITBLOCK
-     * @uses self::VALUE_ERRORACCOUNTSUSPEND
-     * @uses self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMIT
-     * @uses self::VALUE_ERRORMESSAGEBLOCKED
-     * @uses self::VALUE_ERRORACCOUNTSUSPENDSHOWTIERUPGRADE
-     * @uses self::VALUE_ERROREXCEEDEDMESSAGELIMITSHOWTIERUPGRADE
-     * @uses self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITSHOWTIERUPGRADE
-     * @uses self::VALUE_ERRORINVALIDLONGITUDE
-     * @uses self::VALUE_ERRORINVALIDLATITUDE
+     * @uses self::VALUE_NO_ERROR
+     * @uses self::VALUE_ERROR_ACCESS_DENIED
+     * @uses self::VALUE_ERROR_ACCESS_MODE_SPECIFIED
+     * @uses self::VALUE_ERROR_ACCOUNT_DISABLED
+     * @uses self::VALUE_ERROR_ADD_DELEGATES_FAILED
+     * @uses self::VALUE_ERROR_ADDRESS_SPACE_NOT_FOUND
+     * @uses self::VALUE_ERROR_ADOPERATION
+     * @uses self::VALUE_ERROR_ADSESSION_FILTER
+     * @uses self::VALUE_ERROR_ADUNAVAILABLE
+     * @uses self::VALUE_ERROR_AUTO_DISCOVER_FAILED
+     * @uses self::VALUE_ERROR_AFFECTED_TASK_OCCURRENCES_REQUIRED
+     * @uses self::VALUE_ERROR_ATTACHMENT_NEST_LEVEL_LIMIT_EXCEEDED
+     * @uses self::VALUE_ERROR_ATTACHMENT_SIZE_LIMIT_EXCEEDED
+     * @uses self::VALUE_ERROR_ARCHIVE_FOLDER_PATH_CREATION
+     * @uses self::VALUE_ERROR_ARCHIVE_MAILBOX_NOT_ENABLED
+     * @uses self::VALUE_ERROR_ARCHIVE_MAILBOX_SERVICE_DISCOVERY_FAILED
+     * @uses self::VALUE_ERROR_AVAILABILITY_CONFIG_NOT_FOUND
+     * @uses self::VALUE_ERROR_BATCH_PROCESSING_STOPPED
+     * @uses self::VALUE_ERROR_CALENDAR_CANNOT_MOVE_OR_COPY_OCCURRENCE
+     * @uses self::VALUE_ERROR_CALENDAR_CANNOT_UPDATE_DELETED_ITEM
+     * @uses self::VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_OCCURRENCE_ID
+     * @uses self::VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_RECURRING_MASTER_ID
+     * @uses self::VALUE_ERROR_CALENDAR_DURATION_IS_TOO_LONG
+     * @uses self::VALUE_ERROR_CALENDAR_END_DATE_IS_EARLIER_THAN_START_DATE
+     * @uses self::VALUE_ERROR_CALENDAR_FOLDER_IS_INVALID_FOR_CALENDAR_VIEW
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_ATTRIBUTE_VALUE
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_TIME_CHANGE_PATTERN
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_WEEKLY_RECURRENCE
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_PROPERTY_STATE
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_PROPERTY_VALUE
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_RECURRENCE
+     * @uses self::VALUE_ERROR_CALENDAR_INVALID_TIME_ZONE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_ACCEPT
+     * @uses self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_DECLINE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_REMOVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_TENTATIVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_ACCEPT
+     * @uses self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_DECLINE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_REMOVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_TENTATIVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_NOT_ORGANIZER
+     * @uses self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_ACCEPT
+     * @uses self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_DECLINE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_REMOVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_TENTATIVE
+     * @uses self::VALUE_ERROR_CALENDAR_OCCURRENCE_INDEX_IS_OUT_OF_RECURRENCE_RANGE
+     * @uses self::VALUE_ERROR_CALENDAR_OCCURRENCE_IS_DELETED_FROM_RECURRENCE
+     * @uses self::VALUE_ERROR_CALENDAR_OUT_OF_RANGE
+     * @uses self::VALUE_ERROR_CALENDAR_MEETING_REQUEST_IS_OUT_OF_DATE
+     * @uses self::VALUE_ERROR_CALENDAR_VIEW_RANGE_TOO_BIG
+     * @uses self::VALUE_ERROR_CALLER_IS_INVALID_ADACCOUNT
+     * @uses self::VALUE_ERROR_CANNOT_ARCHIVE_CALENDAR_CONTACT_TASK_FOLDER_EXCEPTION
+     * @uses self::VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_PUBLIC_FOLDERS
+     * @uses self::VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_ARCHIVE_MAILBOX
+     * @uses self::VALUE_ERROR_CANNOT_CREATE_CALENDAR_ITEM_IN_NON_CALENDAR_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_CREATE_CONTACT_IN_NON_CONTACT_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_CREATE_POST_ITEM_IN_NON_MAIL_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_CREATE_TASK_IN_NON_TASK_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_DELETE_OBJECT
+     * @uses self::VALUE_ERROR_CANNOT_DISABLE_MANDATORY_EXTENSION
+     * @uses self::VALUE_ERROR_CANNOT_FIND_USER
+     * @uses self::VALUE_ERROR_CANNOT_GET_SOURCE_FOLDER_PATH
+     * @uses self::VALUE_ERROR_CANNOT_GET_EXTERNAL_ECP_URL
+     * @uses self::VALUE_ERROR_CANNOT_OPEN_FILE_ATTACHMENT
+     * @uses self::VALUE_ERROR_CANNOT_DELETE_TASK_OCCURRENCE
+     * @uses self::VALUE_ERROR_CANNOT_EMPTY_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_SET_CALENDAR_PERMISSION_ON_NON_CALENDAR_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_SET_NON_CALENDAR_PERMISSION_ON_CALENDAR_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_SET_PERMISSION_UNKNOWN_ENTRIES
+     * @uses self::VALUE_ERROR_CANNOT_SPECIFY_SEARCH_FOLDER_AS_SOURCE_FOLDER
+     * @uses self::VALUE_ERROR_CANNOT_USE_FOLDER_ID_FOR_ITEM_ID
+     * @uses self::VALUE_ERROR_CANNOT_USE_ITEM_ID_FOR_FOLDER_ID
+     * @uses self::VALUE_ERROR_CHANGE_KEY_REQUIRED
+     * @uses self::VALUE_ERROR_CHANGE_KEY_REQUIRED_FOR_WRITE_OPERATIONS
+     * @uses self::VALUE_ERROR_CHANNEL_SUBSCRIPTION_ALREADY_EXISTS
+     * @uses self::VALUE_ERROR_CHANNEL_SUBSCRIPTION_NOT_FOUND
+     * @uses self::VALUE_ERROR_CLIENT_DISCONNECTED
+     * @uses self::VALUE_ERROR_CLIENT_INTENT_INVALID_STATE_DEFINITION
+     * @uses self::VALUE_ERROR_CLIENT_INTENT_NOT_FOUND
+     * @uses self::VALUE_ERROR_CONNECTION_FAILED
+     * @uses self::VALUE_ERROR_CONTAINS_FILTER_WRONG_TYPE
+     * @uses self::VALUE_ERROR_CONTENT_CONVERSION_FAILED
+     * @uses self::VALUE_ERROR_CONTENT_INDEXING_NOT_ENABLED
+     * @uses self::VALUE_ERROR_CORRUPT_DATA
+     * @uses self::VALUE_ERROR_CREATE_ITEM_ACCESS_DENIED
+     * @uses self::VALUE_ERROR_CREATE_MANAGED_FOLDER_PARTIAL_COMPLETION
+     * @uses self::VALUE_ERROR_CREATE_SUBFOLDER_ACCESS_DENIED
+     * @uses self::VALUE_ERROR_CROSS_MAILBOX_MOVE_COPY
+     * @uses self::VALUE_ERROR_CROSS_SITE_REQUEST
+     * @uses self::VALUE_ERROR_DATA_SIZE_LIMIT_EXCEEDED
+     * @uses self::VALUE_ERROR_DATA_SOURCE_OPERATION
+     * @uses self::VALUE_ERROR_DELEGATE_ALREADY_EXISTS
+     * @uses self::VALUE_ERROR_DELEGATE_CANNOT_ADD_OWNER
+     * @uses self::VALUE_ERROR_DELEGATE_MISSING_CONFIGURATION
+     * @uses self::VALUE_ERROR_DELEGATE_NO_USER
+     * @uses self::VALUE_ERROR_DELEGATE_VALIDATION_FAILED
+     * @uses self::VALUE_ERROR_DELETE_DISTINGUISHED_FOLDER
+     * @uses self::VALUE_ERROR_DELETE_ITEMS_FAILED
+     * @uses self::VALUE_ERROR_DELETE_UNIFIED_MESSAGING_PROMPT_FAILED
+     * @uses self::VALUE_ERROR_DISTINGUISHED_USER_NOT_SUPPORTED
+     * @uses self::VALUE_ERROR_DISTRIBUTION_LIST_MEMBER_NOT_EXIST
+     * @uses self::VALUE_ERROR_DUPLICATE_INPUT_FOLDER_NAMES
+     * @uses self::VALUE_ERROR_DUPLICATE_USER_IDS_SPECIFIED
+     * @uses self::VALUE_ERROR_EMAIL_ADDRESS_MISMATCH
+     * @uses self::VALUE_ERROR_EVENT_NOT_FOUND
+     * @uses self::VALUE_ERROR_EXCEEDED_CHANNEL_SUBSCRIPTION_COUNT
+     * @uses self::VALUE_ERROR_EXCEEDED_CONNECTION_COUNT
+     * @uses self::VALUE_ERROR_EXCEEDED_SUBSCRIPTION_COUNT
+     * @uses self::VALUE_ERROR_EXCEEDED_FIND_COUNT_LIMIT
+     * @uses self::VALUE_ERROR_EXPIRED_SUBSCRIPTION
+     * @uses self::VALUE_ERROR_EXTENSION_NOT_FOUND
+     * @uses self::VALUE_ERROR_FOLDER_CORRUPT
+     * @uses self::VALUE_ERROR_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_FOLDER_PROPERT_REQUEST_FAILED
+     * @uses self::VALUE_ERROR_FOLDER_SAVE
+     * @uses self::VALUE_ERROR_FOLDER_SAVE_FAILED
+     * @uses self::VALUE_ERROR_FOLDER_SAVE_PROPERTY_ERROR
+     * @uses self::VALUE_ERROR_FOLDER_EXISTS
+     * @uses self::VALUE_ERROR_FREE_BUSY_GENERATION_FAILED
+     * @uses self::VALUE_ERROR_GET_SERVER_SECURITY_DESCRIPTOR_FAILED
+     * @uses self::VALUE_ERROR_IM_CONTACT_LIMIT_REACHED
+     * @uses self::VALUE_ERROR_IM_GROUP_DISPLAY_NAME_ALREADY_EXISTS
+     * @uses self::VALUE_ERROR_IM_GROUP_LIMIT_REACHED
+     * @uses self::VALUE_ERROR_IMPERSONATE_USER_DENIED
+     * @uses self::VALUE_ERROR_IMPERSONATION_DENIED
+     * @uses self::VALUE_ERROR_IMPERSONATION_FAILED
+     * @uses self::VALUE_ERROR_INCORRECT_SCHEMA_VERSION
+     * @uses self::VALUE_ERROR_INCORRECT_UPDATE_PROPERTY_COUNT
+     * @uses self::VALUE_ERROR_INDIVIDUAL_MAILBOX_LIMIT_REACHED
+     * @uses self::VALUE_ERROR_INSUFFICIENT_RESOURCES
+     * @uses self::VALUE_ERROR_INTERNAL_SERVER_ERROR
+     * @uses self::VALUE_ERROR_INTERNAL_SERVER_TRANSIENT_ERROR
+     * @uses self::VALUE_ERROR_INVALID_ACCESS_LEVEL
+     * @uses self::VALUE_ERROR_INVALID_ARGUMENT
+     * @uses self::VALUE_ERROR_INVALID_ATTACHMENT_ID
+     * @uses self::VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER
+     * @uses self::VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER_TEXT_FILTER
+     * @uses self::VALUE_ERROR_INVALID_AUTHORIZATION_CONTEXT
+     * @uses self::VALUE_ERROR_INVALID_CHANGE_KEY
+     * @uses self::VALUE_ERROR_INVALID_CHANNEL_ID
+     * @uses self::VALUE_ERROR_INVALID_CHANNEL_SUBSCRIPTION_ID
+     * @uses self::VALUE_ERROR_INVALID_CLIENT_SECURITY_CONTEXT
+     * @uses self::VALUE_ERROR_INVALID_COMPLETE_DATE
+     * @uses self::VALUE_ERROR_INVALID_CONTACT_EMAIL_ADDRESS
+     * @uses self::VALUE_ERROR_INVALID_CONTACT_EMAIL_INDEX
+     * @uses self::VALUE_ERROR_INVALID_CROSS_FOREST_CREDENTIALS
+     * @uses self::VALUE_ERROR_INVALID_DELEGATE_PERMISSION
+     * @uses self::VALUE_ERROR_INVALID_DELEGATE_USER_ID
+     * @uses self::VALUE_ERROR_INVALID_EXCLUDES_RESTRICTION
+     * @uses self::VALUE_ERROR_INVALID_EXPRESSION_TYPE_FOR_SUB_FILTER
+     * @uses self::VALUE_ERROR_INVALID_EXTENDED_PROPERTY
+     * @uses self::VALUE_ERROR_INVALID_EXTENDED_PROPERTY_VALUE
+     * @uses self::VALUE_ERROR_INVALID_FOLDER_ID
+     * @uses self::VALUE_ERROR_INVALID_FOLDER_TYPE_FOR_OPERATION
+     * @uses self::VALUE_ERROR_INVALID_FRACTIONAL_PAGING_PARAMETERS
+     * @uses self::VALUE_ERROR_INVALID_FREE_BUSY_VIEW_TYPE
+     * @uses self::VALUE_ERROR_INVALID_ID
+     * @uses self::VALUE_ERROR_INVALID_ID_EMPTY
+     * @uses self::VALUE_ERROR_INVALID_ID_MALFORMED
+     * @uses self::VALUE_ERROR_INVALID_ID_MALFORMED_EWS_LEGACY_ID_FORMAT
+     * @uses self::VALUE_ERROR_INVALID_ID_MONIKER_TOO_LONG
+     * @uses self::VALUE_ERROR_INVALID_ID_NOT_AN_ITEM_ATTACHMENT_ID
+     * @uses self::VALUE_ERROR_INVALID_ID_RETURNED_BY_RESOLVE_NAMES
+     * @uses self::VALUE_ERROR_INVALID_ID_STORE_OBJECT_ID_TOO_LONG
+     * @uses self::VALUE_ERROR_INVALID_ID_TOO_MANY_ATTACHMENT_LEVELS
+     * @uses self::VALUE_ERROR_INVALID_ID_XML
+     * @uses self::VALUE_ERROR_INVALID_IM_CONTACT_ID
+     * @uses self::VALUE_ERROR_INVALID_IM_DISTRIBUTION_GROUP_SMTP_ADDRESS
+     * @uses self::VALUE_ERROR_INVALID_IM_GROUP_ID
+     * @uses self::VALUE_ERROR_INVALID_INDEXED_PAGING_PARAMETERS
+     * @uses self::VALUE_ERROR_INVALID_INTERNET_HEADER_CHILD_NODES
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ARCHIVE_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM_ATTACHMENT
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ACCEPT_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_DECLINE_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CANCEL_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_EXPAND_DL
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_REMOVE_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_SEND_ITEM
+     * @uses self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_TENTATIVE
+     * @uses self::VALUE_ERROR_INVALID_LOGON_TYPE
+     * @uses self::VALUE_ERROR_INVALID_LIKE_REQUEST
+     * @uses self::VALUE_ERROR_INVALID_MAILBOX
+     * @uses self::VALUE_ERROR_INVALID_MANAGED_FOLDER_PROPERTY
+     * @uses self::VALUE_ERROR_INVALID_MANAGED_FOLDER_QUOTA
+     * @uses self::VALUE_ERROR_INVALID_MANAGED_FOLDER_SIZE
+     * @uses self::VALUE_ERROR_INVALID_MERGED_FREE_BUSY_INTERVAL
+     * @uses self::VALUE_ERROR_INVALID_NAME_FOR_NAME_RESOLUTION
+     * @uses self::VALUE_ERROR_INVALID_OPERATION
+     * @uses self::VALUE_ERROR_INVALID_NETWORK_SERVICE_CONTEXT
+     * @uses self::VALUE_ERROR_INVALID_OOF_PARAMETER
+     * @uses self::VALUE_ERROR_INVALID_PAGING_MAX_ROWS
+     * @uses self::VALUE_ERROR_INVALID_PARENT_FOLDER
+     * @uses self::VALUE_ERROR_INVALID_PERCENT_COMPLETE_VALUE
+     * @uses self::VALUE_ERROR_INVALID_PERMISSION_SETTINGS
+     * @uses self::VALUE_ERROR_INVALID_PHONE_CALL_ID
+     * @uses self::VALUE_ERROR_INVALID_PHONE_NUMBER
+     * @uses self::VALUE_ERROR_INVALID_USER_INFO
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_APPEND
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_DELETE
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_FOR_EXISTS
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_FOR_OPERATION
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_REQUEST
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_SET
+     * @uses self::VALUE_ERROR_INVALID_PROPERTY_UPDATE_SENT_MESSAGE
+     * @uses self::VALUE_ERROR_INVALID_PROXY_SECURITY_CONTEXT
+     * @uses self::VALUE_ERROR_INVALID_PULL_SUBSCRIPTION_ID
+     * @uses self::VALUE_ERROR_INVALID_PUSH_SUBSCRIPTION_URL
+     * @uses self::VALUE_ERROR_INVALID_RECIPIENTS
+     * @uses self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER
+     * @uses self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_COMPARISON
+     * @uses self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_ORDER
+     * @uses self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_TEXT_FILTER
+     * @uses self::VALUE_ERROR_INVALID_REFERENCE_ITEM
+     * @uses self::VALUE_ERROR_INVALID_REQUEST
+     * @uses self::VALUE_ERROR_INVALID_RESTRICTION
+     * @uses self::VALUE_ERROR_INVALID_RETENTION_TAG_TYPE_MISMATCH
+     * @uses self::VALUE_ERROR_INVALID_RETENTION_TAG_INVISIBLE
+     * @uses self::VALUE_ERROR_INVALID_RETENTION_TAG_INHERITANCE
+     * @uses self::VALUE_ERROR_INVALID_RETENTION_TAG_ID_GUID
+     * @uses self::VALUE_ERROR_INVALID_ROUTING_TYPE
+     * @uses self::VALUE_ERROR_INVALID_SCHEDULED_OOF_DURATION
+     * @uses self::VALUE_ERROR_INVALID_SCHEMA_VERSION_FOR_MAILBOX_VERSION
+     * @uses self::VALUE_ERROR_INVALID_SECURITY_DESCRIPTOR
+     * @uses self::VALUE_ERROR_INVALID_SEND_ITEM_SAVE_SETTINGS
+     * @uses self::VALUE_ERROR_INVALID_SERIALIZED_ACCESS_TOKEN
+     * @uses self::VALUE_ERROR_INVALID_SERVER_VERSION
+     * @uses self::VALUE_ERROR_INVALID_SID
+     * @uses self::VALUE_ERROR_INVALID_SIPURI
+     * @uses self::VALUE_ERROR_INVALID_SMTP_ADDRESS
+     * @uses self::VALUE_ERROR_INVALID_SUBFILTER_TYPE
+     * @uses self::VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_ATTENDEE_TYPE
+     * @uses self::VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_RECIPIENT_TYPE
+     * @uses self::VALUE_ERROR_INVALID_SUBSCRIPTION
+     * @uses self::VALUE_ERROR_INVALID_SUBSCRIPTION_REQUEST
+     * @uses self::VALUE_ERROR_INVALID_SYNC_STATE_DATA
+     * @uses self::VALUE_ERROR_INVALID_TIME_INTERVAL
+     * @uses self::VALUE_ERROR_INVALID_USER_OOF_SETTINGS
+     * @uses self::VALUE_ERROR_INVALID_USER_PRINCIPAL_NAME
+     * @uses self::VALUE_ERROR_INVALID_USER_SID
+     * @uses self::VALUE_ERROR_INVALID_USER_SID_MISSING_UPN
+     * @uses self::VALUE_ERROR_INVALID_VALUE_FOR_PROPERTY
+     * @uses self::VALUE_ERROR_INVALID_WATERMARK
+     * @uses self::VALUE_ERROR_IPGATEWAY_NOT_FOUND
+     * @uses self::VALUE_ERROR_IRRESOLVABLE_CONFLICT
+     * @uses self::VALUE_ERROR_ITEM_CORRUPT
+     * @uses self::VALUE_ERROR_ITEM_NOT_FOUND
+     * @uses self::VALUE_ERROR_ITEM_PROPERTY_REQUEST_FAILED
+     * @uses self::VALUE_ERROR_ITEM_SAVE
+     * @uses self::VALUE_ERROR_ITEM_SAVE_PROPERTY_ERROR
+     * @uses self::VALUE_ERROR_LEGACY_MAILBOX_FREE_BUSY_VIEW_TYPE_NOT_MERGED
+     * @uses self::VALUE_ERROR_LOCAL_SERVER_OBJECT_NOT_FOUND
+     * @uses self::VALUE_ERROR_LOGON_AS_NETWORK_SERVICE_FAILED
+     * @uses self::VALUE_ERROR_MAILBOX_CONFIGURATION
+     * @uses self::VALUE_ERROR_MAILBOX_DATA_ARRAY_EMPTY
+     * @uses self::VALUE_ERROR_MAILBOX_DATA_ARRAY_TOO_BIG
+     * @uses self::VALUE_ERROR_MAILBOX_HOLD_NOT_FOUND
+     * @uses self::VALUE_ERROR_MAILBOX_LOGON_FAILED
+     * @uses self::VALUE_ERROR_MAILBOX_MOVE_IN_PROGRESS
+     * @uses self::VALUE_ERROR_MAILBOX_STORE_UNAVAILABLE
+     * @uses self::VALUE_ERROR_MAIL_RECIPIENT_NOT_FOUND
+     * @uses self::VALUE_ERROR_MAIL_TIPS_DISABLED
+     * @uses self::VALUE_ERROR_MANAGED_FOLDER_ALREADY_EXISTS
+     * @uses self::VALUE_ERROR_MANAGED_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_MANAGED_FOLDERS_ROOT_FAILURE
+     * @uses self::VALUE_ERROR_MEETING_SUGGESTION_GENERATION_FAILED
+     * @uses self::VALUE_ERROR_MESSAGE_DISPOSITION_REQUIRED
+     * @uses self::VALUE_ERROR_MESSAGE_SIZE_EXCEEDED
+     * @uses self::VALUE_ERROR_MIME_CONTENT_CONVERSION_FAILED
+     * @uses self::VALUE_ERROR_MIME_CONTENT_INVALID
+     * @uses self::VALUE_ERROR_MIME_CONTENT_INVALID_BASE_64_STRING
+     * @uses self::VALUE_ERROR_MISSING_ARGUMENT
+     * @uses self::VALUE_ERROR_MISSING_EMAIL_ADDRESS
+     * @uses self::VALUE_ERROR_MISSING_EMAIL_ADDRESS_FOR_MANAGED_FOLDER
+     * @uses self::VALUE_ERROR_MISSING_INFORMATION_EMAIL_ADDRESS
+     * @uses self::VALUE_ERROR_MISSING_INFORMATION_REFERENCE_ITEM_ID
+     * @uses self::VALUE_ERROR_MISSING_ITEM_FOR_CREATE_ITEM_ATTACHMENT
+     * @uses self::VALUE_ERROR_MISSING_MANAGED_FOLDER_ID
+     * @uses self::VALUE_ERROR_MISSING_RECIPIENTS
+     * @uses self::VALUE_ERROR_MISSING_USER_ID_INFORMATION
+     * @uses self::VALUE_ERROR_MORE_THAN_ONE_ACCESS_MODE_SPECIFIED
+     * @uses self::VALUE_ERROR_MOVE_COPY_FAILED
+     * @uses self::VALUE_ERROR_MOVE_DISTINGUISHED_FOLDER
+     * @uses self::VALUE_ERROR_MULTI_LEGACY_MAILBOX_ACCESS
+     * @uses self::VALUE_ERROR_NAME_RESOLUTION_MULTIPLE_RESULTS
+     * @uses self::VALUE_ERROR_NAME_RESOLUTION_NO_MAILBOX
+     * @uses self::VALUE_ERROR_NAME_RESOLUTION_NO_RESULTS
+     * @uses self::VALUE_ERROR_NEW_CHANNEL_CONNECTION_OPENED
+     * @uses self::VALUE_ERROR_NO_APPLICABLE_PROXY_CASSERVERS_AVAILABLE
+     * @uses self::VALUE_ERROR_NO_CALENDAR
+     * @uses self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_KERBEROS_REQUIREMENTS
+     * @uses self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_SSLREQUIREMENTS
+     * @uses self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_VERSION_MISMATCH
+     * @uses self::VALUE_ERROR_NO_FOLDER_CLASS_OVERRIDE
+     * @uses self::VALUE_ERROR_NO_FREE_BUSY_ACCESS
+     * @uses self::VALUE_ERROR_NON_EXISTENT_MAILBOX
+     * @uses self::VALUE_ERROR_NON_PRIMARY_SMTP_ADDRESS
+     * @uses self::VALUE_ERROR_NO_PROPERTY_TAG_FOR_CUSTOM_PROPERTIES
+     * @uses self::VALUE_ERROR_NO_PUBLIC_FOLDER_REPLICA_AVAILABLE
+     * @uses self::VALUE_ERROR_NO_PUBLIC_FOLDER_SERVER_AVAILABLE
+     * @uses self::VALUE_ERROR_NO_RESPONDING_CASIN_DESTINATION_SITE
+     * @uses self::VALUE_ERROR_NOT_DELEGATE
+     * @uses self::VALUE_ERROR_NOT_ENOUGH_MEMORY
+     * @uses self::VALUE_ERROR_OBJECT_TYPE_CHANGED
+     * @uses self::VALUE_ERROR_OCCURRENCE_CROSSING_BOUNDARY
+     * @uses self::VALUE_ERROR_OCCURRENCE_TIME_SPAN_TOO_BIG
+     * @uses self::VALUE_ERROR_OPERATION_NOT_ALLOWED_WITH_PUBLIC_FOLDER_ROOT
+     * @uses self::VALUE_ERROR_PARENT_FOLDER_ID_REQUIRED
+     * @uses self::VALUE_ERROR_PARENT_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_PASSWORD_CHANGE_REQUIRED
+     * @uses self::VALUE_ERROR_PASSWORD_EXPIRED
+     * @uses self::VALUE_ERROR_PHONE_NUMBER_NOT_DIALABLE
+     * @uses self::VALUE_ERROR_PROPERTY_UPDATE
+     * @uses self::VALUE_ERROR_PROMPT_PUBLISHING_OPERATION_FAILED
+     * @uses self::VALUE_ERROR_PROPERTY_VALIDATION_FAILURE
+     * @uses self::VALUE_ERROR_PROXIED_SUBSCRIPTION_CALL_FAILURE
+     * @uses self::VALUE_ERROR_PROXY_CALL_FAILED
+     * @uses self::VALUE_ERROR_PROXY_GROUP_SID_LIMIT_EXCEEDED
+     * @uses self::VALUE_ERROR_PROXY_REQUEST_NOT_ALLOWED
+     * @uses self::VALUE_ERROR_PROXY_REQUEST_PROCESSING_FAILED
+     * @uses self::VALUE_ERROR_PROXY_SERVICE_DISCOVERY_FAILED
+     * @uses self::VALUE_ERROR_PROXY_TOKEN_EXPIRED
+     * @uses self::VALUE_ERROR_PUBLIC_FOLDER_MAILBOX_DISCOVERY_FAILED
+     * @uses self::VALUE_ERROR_PUBLIC_FOLDER_OPERATION_FAILED
+     * @uses self::VALUE_ERROR_PUBLIC_FOLDER_REQUEST_PROCESSING_FAILED
+     * @uses self::VALUE_ERROR_PUBLIC_FOLDER_SERVER_NOT_FOUND
+     * @uses self::VALUE_ERROR_PUBLIC_FOLDER_SYNC_EXCEPTION
+     * @uses self::VALUE_ERROR_QUERY_FILTER_TOO_LONG
+     * @uses self::VALUE_ERROR_QUOTA_EXCEEDED
+     * @uses self::VALUE_ERROR_READ_EVENTS_FAILED
+     * @uses self::VALUE_ERROR_READ_RECEIPT_NOT_PENDING
+     * @uses self::VALUE_ERROR_RECURRENCE_END_DATE_TOO_BIG
+     * @uses self::VALUE_ERROR_RECURRENCE_HAS_NO_OCCURRENCE
+     * @uses self::VALUE_ERROR_REMOVE_DELEGATES_FAILED
+     * @uses self::VALUE_ERROR_REQUEST_ABORTED
+     * @uses self::VALUE_ERROR_REQUEST_STREAM_TOO_BIG
+     * @uses self::VALUE_ERROR_REQUIRED_PROPERTY_MISSING
+     * @uses self::VALUE_ERROR_RESOLVE_NAMES_INVALID_FOLDER_TYPE
+     * @uses self::VALUE_ERROR_RESOLVE_NAMES_ONLY_ONE_CONTACTS_FOLDER_ALLOWED
+     * @uses self::VALUE_ERROR_RESPONSE_SCHEMA_VALIDATION
+     * @uses self::VALUE_ERROR_RESTRICTION_TOO_LONG
+     * @uses self::VALUE_ERROR_RESTRICTION_TOO_COMPLEX
+     * @uses self::VALUE_ERROR_RESULT_SET_TOO_BIG
+     * @uses self::VALUE_ERROR_INVALID_EXCHANGE_IMPERSONATION_HEADER_DATA
+     * @uses self::VALUE_ERROR_SAVED_ITEM_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_SCHEMA_VALIDATION
+     * @uses self::VALUE_ERROR_SEARCH_FOLDER_NOT_INITIALIZED
+     * @uses self::VALUE_ERROR_SEND_AS_DENIED
+     * @uses self::VALUE_ERROR_SEND_MEETING_CANCELLATIONS_REQUIRED
+     * @uses self::VALUE_ERROR_SEND_MEETING_INVITATIONS_OR_CANCELLATIONS_REQUIRED
+     * @uses self::VALUE_ERROR_SEND_MEETING_INVITATIONS_REQUIRED
+     * @uses self::VALUE_ERROR_SENT_MEETING_REQUEST_UPDATE
+     * @uses self::VALUE_ERROR_SENT_TASK_REQUEST_UPDATE
+     * @uses self::VALUE_ERROR_SERVER_BUSY
+     * @uses self::VALUE_ERROR_SERVICE_DISCOVERY_FAILED
+     * @uses self::VALUE_ERROR_STALE_OBJECT
+     * @uses self::VALUE_ERROR_SUBMISSION_QUOTA_EXCEEDED
+     * @uses self::VALUE_ERROR_SUBSCRIPTION_ACCESS_DENIED
+     * @uses self::VALUE_ERROR_SUBSCRIPTION_DELEGATE_ACCESS_NOT_SUPPORTED
+     * @uses self::VALUE_ERROR_SUBSCRIPTION_NOT_FOUND
+     * @uses self::VALUE_ERROR_SUBSCRIPTION_UNSUBSCRIBED
+     * @uses self::VALUE_ERROR_SYNC_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_NOT_FOUND
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_NOT_LINKED_TO_SHARE_POINT
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_URL_VALIDATION_FAILED
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_NOT_AUTHORIZED_OWNER
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_ACTIVE_TO_PENDING_DELETE
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_FAILED_SENDING_NOTIFICATIONS
+     * @uses self::VALUE_ERROR_TEAM_MAILBOX_ERROR_UNKNOWN
+     * @uses self::VALUE_ERROR_TIME_INTERVAL_TOO_BIG
+     * @uses self::VALUE_ERROR_TIMEOUT_EXPIRED
+     * @uses self::VALUE_ERROR_TIME_ZONE
+     * @uses self::VALUE_ERROR_TO_FOLDER_NOT_FOUND
+     * @uses self::VALUE_ERROR_TOKEN_SERIALIZATION_DENIED
+     * @uses self::VALUE_ERROR_TOO_MANY_OBJECTS_OPENED
+     * @uses self::VALUE_ERROR_UPDATE_PROPERTY_MISMATCH
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADCREATION_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADDELETE_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NAMING_POLICY
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_DELETE_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NOT_FOUND
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_DELAYED
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATED_PARTIAL_PROPERTIES
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_PROVISION_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_MESSAGING_DIAL_PLAN_NOT_FOUND
+     * @uses self::VALUE_ERROR_UNIFIED_MESSAGING_REPORT_DATA_NOT_FOUND
+     * @uses self::VALUE_ERROR_UNIFIED_MESSAGING_PROMPT_NOT_FOUND
+     * @uses self::VALUE_ERROR_UNIFIED_MESSAGING_REQUEST_FAILED
+     * @uses self::VALUE_ERROR_UNIFIED_MESSAGING_SERVER_NOT_FOUND
+     * @uses self::VALUE_ERROR_UNABLE_TO_GET_USER_OOF_SETTINGS
+     * @uses self::VALUE_ERROR_UNABLE_TO_REMOVE_IM_CONTACT_FROM_GROUP
+     * @uses self::VALUE_ERROR_UNSUPPORTED_SUB_FILTER
+     * @uses self::VALUE_ERROR_UNSUPPORTED_CULTURE
+     * @uses self::VALUE_ERROR_UNSUPPORTED_MAPI_PROPERTY_TYPE
+     * @uses self::VALUE_ERROR_UNSUPPORTED_MIME_CONVERSION
+     * @uses self::VALUE_ERROR_UNSUPPORTED_PATH_FOR_QUERY
+     * @uses self::VALUE_ERROR_UNSUPPORTED_PATH_FOR_SORT_GROUP
+     * @uses self::VALUE_ERROR_UNSUPPORTED_PROPERTY_DEFINITION
+     * @uses self::VALUE_ERROR_UNSUPPORTED_QUERY_FILTER
+     * @uses self::VALUE_ERROR_UNSUPPORTED_RECURRENCE
+     * @uses self::VALUE_ERROR_UNSUPPORTED_TYPE_FOR_CONVERSION
+     * @uses self::VALUE_ERROR_UPDATE_DELEGATES_FAILED
+     * @uses self::VALUE_ERROR_USER_NOT_UNIFIED_MESSAGING_ENABLED
+     * @uses self::VALUE_ERROR_VOICE_MAIL_NOT_IMPLEMENTED
+     * @uses self::VALUE_ERROR_VALUE_OUT_OF_RANGE
+     * @uses self::VALUE_ERROR_VIRUS_DETECTED
+     * @uses self::VALUE_ERROR_VIRUS_MESSAGE_DELETED
+     * @uses self::VALUE_ERROR_WEB_REQUEST_IN_INVALID_STATE
+     * @uses self::VALUE_ERROR_WIN_32_INTEROP_ERROR
+     * @uses self::VALUE_ERROR_WORKING_HOURS_SAVE_FAILED
+     * @uses self::VALUE_ERROR_WORKING_HOURS_XML_MALFORMED
+     * @uses self::VALUE_ERROR_WRONG_SERVER_VERSION
+     * @uses self::VALUE_ERROR_WRONG_SERVER_VERSION_DELEGATE
+     * @uses self::VALUE_ERROR_MISSING_INFORMATION_SHARING_FOLDER_ID
+     * @uses self::VALUE_ERROR_DUPLICATE_SOAPHEADER
+     * @uses self::VALUE_ERROR_SHARING_SYNCHRONIZATION_FAILED
+     * @uses self::VALUE_ERROR_SHARING_NO_EXTERNAL_EWS_AVAILABLE
+     * @uses self::VALUE_ERROR_FREE_BUSY_DLLIMIT_REACHED
+     * @uses self::VALUE_ERROR_INVALID_GET_SHARING_FOLDER_REQUEST
+     * @uses self::VALUE_ERROR_NOT_ALLOWED_EXTERNAL_SHARING_BY_POLICY
+     * @uses self::VALUE_ERROR_USER_NOT_ALLOWED_BY_POLICY
+     * @uses self::VALUE_ERROR_PERMISSION_NOT_ALLOWED_BY_POLICY
+     * @uses self::VALUE_ERROR_ORGANIZATION_NOT_FEDERATED
+     * @uses self::VALUE_ERROR_MAILBOX_FAILOVER
+     * @uses self::VALUE_ERROR_INVALID_EXTERNAL_SHARING_INITIATOR
+     * @uses self::VALUE_ERROR_MESSAGE_TRACKING_PERMANENT_ERROR
+     * @uses self::VALUE_ERROR_MESSAGE_TRACKING_TRANSIENT_ERROR
+     * @uses self::VALUE_ERROR_MESSAGE_TRACKING_NO_SUCH_DOMAIN
+     * @uses self::VALUE_ERROR_USER_WITHOUT_FEDERATED_PROXY_ADDRESS
+     * @uses self::VALUE_ERROR_INVALID_ORGANIZATION_RELATIONSHIP_FOR_FREE_BUSY
+     * @uses self::VALUE_ERROR_INVALID_FEDERATED_ORGANIZATION_ID
+     * @uses self::VALUE_ERROR_INVALID_EXTERNAL_SHARING_SUBSCRIBER
+     * @uses self::VALUE_ERROR_INVALID_SHARING_DATA
+     * @uses self::VALUE_ERROR_INVALID_SHARING_MESSAGE
+     * @uses self::VALUE_ERROR_NOT_SUPPORTED_SHARING_MESSAGE
+     * @uses self::VALUE_ERROR_APPLY_CONVERSATION_ACTION_FAILED
+     * @uses self::VALUE_ERROR_INBOX_RULES_VALIDATION_ERROR
+     * @uses self::VALUE_ERROR_OUTLOOK_RULE_BLOB_EXISTS
+     * @uses self::VALUE_ERROR_RULES_OVER_QUOTA
+     * @uses self::VALUE_ERROR_NEW_EVENT_STREAM_CONNECTION_OPENED
+     * @uses self::VALUE_ERROR_MISSED_NOTIFICATION_EVENTS
+     * @uses self::VALUE_ERROR_DUPLICATE_LEGACY_DISTINGUISHED_NAME
+     * @uses self::VALUE_ERROR_INVALID_CLIENT_ACCESS_TOKEN_REQUEST
+     * @uses self::VALUE_ERROR_NO_SPEECH_DETECTED
+     * @uses self::VALUE_ERROR_UMSERVER_UNAVAILABLE
+     * @uses self::VALUE_ERROR_RECIPIENT_NOT_FOUND
+     * @uses self::VALUE_ERROR_RECOGNIZER_NOT_INSTALLED
+     * @uses self::VALUE_ERROR_SPEECH_GRAMMAR_ERROR
+     * @uses self::VALUE_ERROR_INVALID_MANAGEMENT_ROLE_HEADER
+     * @uses self::VALUE_ERROR_LOCATION_SERVICES_DISABLED
+     * @uses self::VALUE_ERROR_LOCATION_SERVICES_REQUEST_TIMED_OUT
+     * @uses self::VALUE_ERROR_LOCATION_SERVICES_REQUEST_FAILED
+     * @uses self::VALUE_ERROR_LOCATION_SERVICES_INVALID_REQUEST
+     * @uses self::VALUE_ERROR_WEATHER_SERVICE_DISABLED
+     * @uses self::VALUE_ERROR_MAILBOX_SCOPE_NOT_ALLOWED_WITHOUT_QUERY_STRING
+     * @uses self::VALUE_ERROR_ARCHIVE_MAILBOX_SEARCH_FAILED
+     * @uses self::VALUE_ERROR_GET_REMOTE_ARCHIVE_FOLDER_FAILED
+     * @uses self::VALUE_ERROR_FIND_REMOTE_ARCHIVE_FOLDER_FAILED
+     * @uses self::VALUE_ERROR_GET_REMOTE_ARCHIVE_ITEM_FAILED
+     * @uses self::VALUE_ERROR_EXPORT_REMOTE_ARCHIVE_ITEMS_FAILED
+     * @uses self::VALUE_ERROR_INVALID_PHOTO_SIZE
+     * @uses self::VALUE_ERROR_SEARCH_QUERY_HAS_TOO_MANY_KEYWORDS
+     * @uses self::VALUE_ERROR_SEARCH_TOO_MANY_MAILBOXES
+     * @uses self::VALUE_ERROR_INVALID_RETENTION_TAG_NONE
+     * @uses self::VALUE_ERROR_DISCOVERY_SEARCHES_DISABLED
+     * @uses self::VALUE_ERROR_CALENDAR_SEEK_TO_CONDITION_NOT_SUPPORTED
+     * @uses self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_ACCEPT
+     * @uses self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_DECLINE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_TENTATIVE
+     * @uses self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_SUPPRESS_READ_RECEIPT
+     * @uses self::VALUE_ERROR_ORGANIZATION_ACCESS_BLOCKED
+     * @uses self::VALUE_ERROR_INVALID_LICENSE
+     * @uses self::VALUE_ERROR_MESSAGE_PER_FOLDER_COUNT_RECEIVE_QUOTA_EXCEEDED
+     * @uses self::VALUE_ERROR_INVALID_BULK_ACTION_TYPE
+     * @uses self::VALUE_ERROR_INVALID_KEEP_NCOUNT
+     * @uses self::VALUE_ERROR_INVALID_KEEP_NTYPE
+     * @uses self::VALUE_ERROR_NO_OAUTH_SERVER_AVAILABLE_FOR_REQUEST
+     * @uses self::VALUE_ERROR_INSTANT_SEARCH_SESSION_EXPIRED
+     * @uses self::VALUE_ERROR_INSTANT_SEARCH_TIMEOUT
+     * @uses self::VALUE_ERROR_INSTANT_SEARCH_FAILED
+     * @uses self::VALUE_ERROR_UNSUPPORTED_USER_FOR_EXECUTE_SEARCH
+     * @uses self::VALUE_ERROR_MISSING_EXCHANGE_PRINCIPAL
+     * @uses self::VALUE_ERROR_UNEXPECTED_UNIFIED_GROUPS_COUNT
+     * @uses self::VALUE_ERROR_PARSING_XMLRESPONSE
+     * @uses self::VALUE_ERROR_INVALID_FEDERATION_ORGANIZATION_IDENTIFIER
+     * @uses self::VALUE_ERROR_INVALID_SWEEP_RULE
+     * @uses self::VALUE_ERROR_INVALID_SWEEP_RULE_OPERATION_TYPE
+     * @uses self::VALUE_ERROR_TARGET_DOMAIN_NOT_SUPPORTED
+     * @uses self::VALUE_ERROR_INVALID_INTERNET_WEB_PROXY_ON_LOCAL_SERVER
+     * @uses self::VALUE_ERROR_NO_SENDER_RESTRICTIONS_SETTINGS_FOUND_IN_REQUEST
+     * @uses self::VALUE_ERROR_DUPLICATE_SENDER_RESTRICTIONS_INPUT_FOUND
+     * @uses self::VALUE_ERROR_SENDER_RESTRICTIONS_UPDATE_FAILED
+     * @uses self::VALUE_ERROR_MESSAGE_SUBMISSION_BLOCKED
+     * @uses self::VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT
+     * @uses self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_BLOCK
+     * @uses self::VALUE_ERROR_ACCOUNT_SUSPEND
+     * @uses self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT
+     * @uses self::VALUE_ERROR_MESSAGE_BLOCKED
+     * @uses self::VALUE_ERROR_ACCOUNT_SUSPEND_SHOW_TIER_UPGRADE
+     * @uses self::VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT_SHOW_TIER_UPGRADE
+     * @uses self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_SHOW_TIER_UPGRADE
+     * @uses self::VALUE_ERROR_INVALID_LONGITUDE
+     * @uses self::VALUE_ERROR_INVALID_LATITUDE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOERROR,
-            self::VALUE_ERRORACCESSDENIED,
-            self::VALUE_ERRORACCESSMODESPECIFIED,
-            self::VALUE_ERRORACCOUNTDISABLED,
-            self::VALUE_ERRORADDDELEGATESFAILED,
-            self::VALUE_ERRORADDRESSSPACENOTFOUND,
-            self::VALUE_ERRORADOPERATION,
-            self::VALUE_ERRORADSESSIONFILTER,
-            self::VALUE_ERRORADUNAVAILABLE,
-            self::VALUE_ERRORAUTODISCOVERFAILED,
-            self::VALUE_ERRORAFFECTEDTASKOCCURRENCESREQUIRED,
-            self::VALUE_ERRORATTACHMENTNESTLEVELLIMITEXCEEDED,
-            self::VALUE_ERRORATTACHMENTSIZELIMITEXCEEDED,
-            self::VALUE_ERRORARCHIVEFOLDERPATHCREATION,
-            self::VALUE_ERRORARCHIVEMAILBOXNOTENABLED,
-            self::VALUE_ERRORARCHIVEMAILBOXSERVICEDISCOVERYFAILED,
-            self::VALUE_ERRORAVAILABILITYCONFIGNOTFOUND,
-            self::VALUE_ERRORBATCHPROCESSINGSTOPPED,
-            self::VALUE_ERRORCALENDARCANNOTMOVEORCOPYOCCURRENCE,
-            self::VALUE_ERRORCALENDARCANNOTUPDATEDELETEDITEM,
-            self::VALUE_ERRORCALENDARCANNOTUSEIDFOROCCURRENCEID,
-            self::VALUE_ERRORCALENDARCANNOTUSEIDFORRECURRINGMASTERID,
-            self::VALUE_ERRORCALENDARDURATIONISTOOLONG,
-            self::VALUE_ERRORCALENDARENDDATEISEARLIERTHANSTARTDATE,
-            self::VALUE_ERRORCALENDARFOLDERISINVALIDFORCALENDARVIEW,
-            self::VALUE_ERRORCALENDARINVALIDATTRIBUTEVALUE,
-            self::VALUE_ERRORCALENDARINVALIDDAYFORTIMECHANGEPATTERN,
-            self::VALUE_ERRORCALENDARINVALIDDAYFORWEEKLYRECURRENCE,
-            self::VALUE_ERRORCALENDARINVALIDPROPERTYSTATE,
-            self::VALUE_ERRORCALENDARINVALIDPROPERTYVALUE,
-            self::VALUE_ERRORCALENDARINVALIDRECURRENCE,
-            self::VALUE_ERRORCALENDARINVALIDTIMEZONE,
-            self::VALUE_ERRORCALENDARISCANCELLEDFORACCEPT,
-            self::VALUE_ERRORCALENDARISCANCELLEDFORDECLINE,
-            self::VALUE_ERRORCALENDARISCANCELLEDFORREMOVE,
-            self::VALUE_ERRORCALENDARISCANCELLEDFORTENTATIVE,
-            self::VALUE_ERRORCALENDARISDELEGATEDFORACCEPT,
-            self::VALUE_ERRORCALENDARISDELEGATEDFORDECLINE,
-            self::VALUE_ERRORCALENDARISDELEGATEDFORREMOVE,
-            self::VALUE_ERRORCALENDARISDELEGATEDFORTENTATIVE,
-            self::VALUE_ERRORCALENDARISNOTORGANIZER,
-            self::VALUE_ERRORCALENDARISORGANIZERFORACCEPT,
-            self::VALUE_ERRORCALENDARISORGANIZERFORDECLINE,
-            self::VALUE_ERRORCALENDARISORGANIZERFORREMOVE,
-            self::VALUE_ERRORCALENDARISORGANIZERFORTENTATIVE,
-            self::VALUE_ERRORCALENDAROCCURRENCEINDEXISOUTOFRECURRENCERANGE,
-            self::VALUE_ERRORCALENDAROCCURRENCEISDELETEDFROMRECURRENCE,
-            self::VALUE_ERRORCALENDAROUTOFRANGE,
-            self::VALUE_ERRORCALENDARMEETINGREQUESTISOUTOFDATE,
-            self::VALUE_ERRORCALENDARVIEWRANGETOOBIG,
-            self::VALUE_ERRORCALLERISINVALIDADACCOUNT,
-            self::VALUE_ERRORCANNOTARCHIVECALENDARCONTACTTASKFOLDEREXCEPTION,
-            self::VALUE_ERRORCANNOTARCHIVEITEMSINPUBLICFOLDERS,
-            self::VALUE_ERRORCANNOTARCHIVEITEMSINARCHIVEMAILBOX,
-            self::VALUE_ERRORCANNOTCREATECALENDARITEMINNONCALENDARFOLDER,
-            self::VALUE_ERRORCANNOTCREATECONTACTINNONCONTACTFOLDER,
-            self::VALUE_ERRORCANNOTCREATEPOSTITEMINNONMAILFOLDER,
-            self::VALUE_ERRORCANNOTCREATETASKINNONTASKFOLDER,
-            self::VALUE_ERRORCANNOTDELETEOBJECT,
-            self::VALUE_ERRORCANNOTDISABLEMANDATORYEXTENSION,
-            self::VALUE_ERRORCANNOTFINDUSER,
-            self::VALUE_ERRORCANNOTGETSOURCEFOLDERPATH,
-            self::VALUE_ERRORCANNOTGETEXTERNALECPURL,
-            self::VALUE_ERRORCANNOTOPENFILEATTACHMENT,
-            self::VALUE_ERRORCANNOTDELETETASKOCCURRENCE,
-            self::VALUE_ERRORCANNOTEMPTYFOLDER,
-            self::VALUE_ERRORCANNOTSETCALENDARPERMISSIONONNONCALENDARFOLDER,
-            self::VALUE_ERRORCANNOTSETNONCALENDARPERMISSIONONCALENDARFOLDER,
-            self::VALUE_ERRORCANNOTSETPERMISSIONUNKNOWNENTRIES,
-            self::VALUE_ERRORCANNOTSPECIFYSEARCHFOLDERASSOURCEFOLDER,
-            self::VALUE_ERRORCANNOTUSEFOLDERIDFORITEMID,
-            self::VALUE_ERRORCANNOTUSEITEMIDFORFOLDERID,
-            self::VALUE_ERRORCHANGEKEYREQUIRED,
-            self::VALUE_ERRORCHANGEKEYREQUIREDFORWRITEOPERATIONS,
-            self::VALUE_ERRORCHANNELSUBSCRIPTIONALREADYEXISTS,
-            self::VALUE_ERRORCHANNELSUBSCRIPTIONNOTFOUND,
-            self::VALUE_ERRORCLIENTDISCONNECTED,
-            self::VALUE_ERRORCLIENTINTENTINVALIDSTATEDEFINITION,
-            self::VALUE_ERRORCLIENTINTENTNOTFOUND,
-            self::VALUE_ERRORCONNECTIONFAILED,
-            self::VALUE_ERRORCONTAINSFILTERWRONGTYPE,
-            self::VALUE_ERRORCONTENTCONVERSIONFAILED,
-            self::VALUE_ERRORCONTENTINDEXINGNOTENABLED,
-            self::VALUE_ERRORCORRUPTDATA,
-            self::VALUE_ERRORCREATEITEMACCESSDENIED,
-            self::VALUE_ERRORCREATEMANAGEDFOLDERPARTIALCOMPLETION,
-            self::VALUE_ERRORCREATESUBFOLDERACCESSDENIED,
-            self::VALUE_ERRORCROSSMAILBOXMOVECOPY,
-            self::VALUE_ERRORCROSSSITEREQUEST,
-            self::VALUE_ERRORDATASIZELIMITEXCEEDED,
-            self::VALUE_ERRORDATASOURCEOPERATION,
-            self::VALUE_ERRORDELEGATEALREADYEXISTS,
-            self::VALUE_ERRORDELEGATECANNOTADDOWNER,
-            self::VALUE_ERRORDELEGATEMISSINGCONFIGURATION,
-            self::VALUE_ERRORDELEGATENOUSER,
-            self::VALUE_ERRORDELEGATEVALIDATIONFAILED,
-            self::VALUE_ERRORDELETEDISTINGUISHEDFOLDER,
-            self::VALUE_ERRORDELETEITEMSFAILED,
-            self::VALUE_ERRORDELETEUNIFIEDMESSAGINGPROMPTFAILED,
-            self::VALUE_ERRORDISTINGUISHEDUSERNOTSUPPORTED,
-            self::VALUE_ERRORDISTRIBUTIONLISTMEMBERNOTEXIST,
-            self::VALUE_ERRORDUPLICATEINPUTFOLDERNAMES,
-            self::VALUE_ERRORDUPLICATEUSERIDSSPECIFIED,
-            self::VALUE_ERROREMAILADDRESSMISMATCH,
-            self::VALUE_ERROREVENTNOTFOUND,
-            self::VALUE_ERROREXCEEDEDCHANNELSUBSCRIPTIONCOUNT,
-            self::VALUE_ERROREXCEEDEDCONNECTIONCOUNT,
-            self::VALUE_ERROREXCEEDEDSUBSCRIPTIONCOUNT,
-            self::VALUE_ERROREXCEEDEDFINDCOUNTLIMIT,
-            self::VALUE_ERROREXPIREDSUBSCRIPTION,
-            self::VALUE_ERROREXTENSIONNOTFOUND,
-            self::VALUE_ERRORFOLDERCORRUPT,
-            self::VALUE_ERRORFOLDERNOTFOUND,
-            self::VALUE_ERRORFOLDERPROPERTREQUESTFAILED,
-            self::VALUE_ERRORFOLDERSAVE,
-            self::VALUE_ERRORFOLDERSAVEFAILED,
-            self::VALUE_ERRORFOLDERSAVEPROPERTYERROR,
-            self::VALUE_ERRORFOLDEREXISTS,
-            self::VALUE_ERRORFREEBUSYGENERATIONFAILED,
-            self::VALUE_ERRORGETSERVERSECURITYDESCRIPTORFAILED,
-            self::VALUE_ERRORIMCONTACTLIMITREACHED,
-            self::VALUE_ERRORIMGROUPDISPLAYNAMEALREADYEXISTS,
-            self::VALUE_ERRORIMGROUPLIMITREACHED,
-            self::VALUE_ERRORIMPERSONATEUSERDENIED,
-            self::VALUE_ERRORIMPERSONATIONDENIED,
-            self::VALUE_ERRORIMPERSONATIONFAILED,
-            self::VALUE_ERRORINCORRECTSCHEMAVERSION,
-            self::VALUE_ERRORINCORRECTUPDATEPROPERTYCOUNT,
-            self::VALUE_ERRORINDIVIDUALMAILBOXLIMITREACHED,
-            self::VALUE_ERRORINSUFFICIENTRESOURCES,
-            self::VALUE_ERRORINTERNALSERVERERROR,
-            self::VALUE_ERRORINTERNALSERVERTRANSIENTERROR,
-            self::VALUE_ERRORINVALIDACCESSLEVEL,
-            self::VALUE_ERRORINVALIDARGUMENT,
-            self::VALUE_ERRORINVALIDATTACHMENTID,
-            self::VALUE_ERRORINVALIDATTACHMENTSUBFILTER,
-            self::VALUE_ERRORINVALIDATTACHMENTSUBFILTERTEXTFILTER,
-            self::VALUE_ERRORINVALIDAUTHORIZATIONCONTEXT,
-            self::VALUE_ERRORINVALIDCHANGEKEY,
-            self::VALUE_ERRORINVALIDCHANNELID,
-            self::VALUE_ERRORINVALIDCHANNELSUBSCRIPTIONID,
-            self::VALUE_ERRORINVALIDCLIENTSECURITYCONTEXT,
-            self::VALUE_ERRORINVALIDCOMPLETEDATE,
-            self::VALUE_ERRORINVALIDCONTACTEMAILADDRESS,
-            self::VALUE_ERRORINVALIDCONTACTEMAILINDEX,
-            self::VALUE_ERRORINVALIDCROSSFORESTCREDENTIALS,
-            self::VALUE_ERRORINVALIDDELEGATEPERMISSION,
-            self::VALUE_ERRORINVALIDDELEGATEUSERID,
-            self::VALUE_ERRORINVALIDEXCLUDESRESTRICTION,
-            self::VALUE_ERRORINVALIDEXPRESSIONTYPEFORSUBFILTER,
-            self::VALUE_ERRORINVALIDEXTENDEDPROPERTY,
-            self::VALUE_ERRORINVALIDEXTENDEDPROPERTYVALUE,
-            self::VALUE_ERRORINVALIDFOLDERID,
-            self::VALUE_ERRORINVALIDFOLDERTYPEFOROPERATION,
-            self::VALUE_ERRORINVALIDFRACTIONALPAGINGPARAMETERS,
-            self::VALUE_ERRORINVALIDFREEBUSYVIEWTYPE,
-            self::VALUE_ERRORINVALIDID,
-            self::VALUE_ERRORINVALIDIDEMPTY,
-            self::VALUE_ERRORINVALIDIDMALFORMED,
-            self::VALUE_ERRORINVALIDIDMALFORMEDEWSLEGACYIDFORMAT,
-            self::VALUE_ERRORINVALIDIDMONIKERTOOLONG,
-            self::VALUE_ERRORINVALIDIDNOTANITEMATTACHMENTID,
-            self::VALUE_ERRORINVALIDIDRETURNEDBYRESOLVENAMES,
-            self::VALUE_ERRORINVALIDIDSTOREOBJECTIDTOOLONG,
-            self::VALUE_ERRORINVALIDIDTOOMANYATTACHMENTLEVELS,
-            self::VALUE_ERRORINVALIDIDXML,
-            self::VALUE_ERRORINVALIDIMCONTACTID,
-            self::VALUE_ERRORINVALIDIMDISTRIBUTIONGROUPSMTPADDRESS,
-            self::VALUE_ERRORINVALIDIMGROUPID,
-            self::VALUE_ERRORINVALIDINDEXEDPAGINGPARAMETERS,
-            self::VALUE_ERRORINVALIDINTERNETHEADERCHILDNODES,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONARCHIVEITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEMATTACHMENT,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONCREATEITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONACCEPTITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONDECLINEITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONCANCELITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONEXPANDDL,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONREMOVEITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONSENDITEM,
-            self::VALUE_ERRORINVALIDITEMFOROPERATIONTENTATIVE,
-            self::VALUE_ERRORINVALIDLOGONTYPE,
-            self::VALUE_ERRORINVALIDLIKEREQUEST,
-            self::VALUE_ERRORINVALIDMAILBOX,
-            self::VALUE_ERRORINVALIDMANAGEDFOLDERPROPERTY,
-            self::VALUE_ERRORINVALIDMANAGEDFOLDERQUOTA,
-            self::VALUE_ERRORINVALIDMANAGEDFOLDERSIZE,
-            self::VALUE_ERRORINVALIDMERGEDFREEBUSYINTERVAL,
-            self::VALUE_ERRORINVALIDNAMEFORNAMERESOLUTION,
-            self::VALUE_ERRORINVALIDOPERATION,
-            self::VALUE_ERRORINVALIDNETWORKSERVICECONTEXT,
-            self::VALUE_ERRORINVALIDOOFPARAMETER,
-            self::VALUE_ERRORINVALIDPAGINGMAXROWS,
-            self::VALUE_ERRORINVALIDPARENTFOLDER,
-            self::VALUE_ERRORINVALIDPERCENTCOMPLETEVALUE,
-            self::VALUE_ERRORINVALIDPERMISSIONSETTINGS,
-            self::VALUE_ERRORINVALIDPHONECALLID,
-            self::VALUE_ERRORINVALIDPHONENUMBER,
-            self::VALUE_ERRORINVALIDUSERINFO,
-            self::VALUE_ERRORINVALIDPROPERTYAPPEND,
-            self::VALUE_ERRORINVALIDPROPERTYDELETE,
-            self::VALUE_ERRORINVALIDPROPERTYFOREXISTS,
-            self::VALUE_ERRORINVALIDPROPERTYFOROPERATION,
-            self::VALUE_ERRORINVALIDPROPERTYREQUEST,
-            self::VALUE_ERRORINVALIDPROPERTYSET,
-            self::VALUE_ERRORINVALIDPROPERTYUPDATESENTMESSAGE,
-            self::VALUE_ERRORINVALIDPROXYSECURITYCONTEXT,
-            self::VALUE_ERRORINVALIDPULLSUBSCRIPTIONID,
-            self::VALUE_ERRORINVALIDPUSHSUBSCRIPTIONURL,
-            self::VALUE_ERRORINVALIDRECIPIENTS,
-            self::VALUE_ERRORINVALIDRECIPIENTSUBFILTER,
-            self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERCOMPARISON,
-            self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERORDER,
-            self::VALUE_ERRORINVALIDRECIPIENTSUBFILTERTEXTFILTER,
-            self::VALUE_ERRORINVALIDREFERENCEITEM,
-            self::VALUE_ERRORINVALIDREQUEST,
-            self::VALUE_ERRORINVALIDRESTRICTION,
-            self::VALUE_ERRORINVALIDRETENTIONTAGTYPEMISMATCH,
-            self::VALUE_ERRORINVALIDRETENTIONTAGINVISIBLE,
-            self::VALUE_ERRORINVALIDRETENTIONTAGINHERITANCE,
-            self::VALUE_ERRORINVALIDRETENTIONTAGIDGUID,
-            self::VALUE_ERRORINVALIDROUTINGTYPE,
-            self::VALUE_ERRORINVALIDSCHEDULEDOOFDURATION,
-            self::VALUE_ERRORINVALIDSCHEMAVERSIONFORMAILBOXVERSION,
-            self::VALUE_ERRORINVALIDSECURITYDESCRIPTOR,
-            self::VALUE_ERRORINVALIDSENDITEMSAVESETTINGS,
-            self::VALUE_ERRORINVALIDSERIALIZEDACCESSTOKEN,
-            self::VALUE_ERRORINVALIDSERVERVERSION,
-            self::VALUE_ERRORINVALIDSID,
-            self::VALUE_ERRORINVALIDSIPURI,
-            self::VALUE_ERRORINVALIDSMTPADDRESS,
-            self::VALUE_ERRORINVALIDSUBFILTERTYPE,
-            self::VALUE_ERRORINVALIDSUBFILTERTYPENOTATTENDEETYPE,
-            self::VALUE_ERRORINVALIDSUBFILTERTYPENOTRECIPIENTTYPE,
-            self::VALUE_ERRORINVALIDSUBSCRIPTION,
-            self::VALUE_ERRORINVALIDSUBSCRIPTIONREQUEST,
-            self::VALUE_ERRORINVALIDSYNCSTATEDATA,
-            self::VALUE_ERRORINVALIDTIMEINTERVAL,
-            self::VALUE_ERRORINVALIDUSEROOFSETTINGS,
-            self::VALUE_ERRORINVALIDUSERPRINCIPALNAME,
-            self::VALUE_ERRORINVALIDUSERSID,
-            self::VALUE_ERRORINVALIDUSERSIDMISSINGUPN,
-            self::VALUE_ERRORINVALIDVALUEFORPROPERTY,
-            self::VALUE_ERRORINVALIDWATERMARK,
-            self::VALUE_ERRORIPGATEWAYNOTFOUND,
-            self::VALUE_ERRORIRRESOLVABLECONFLICT,
-            self::VALUE_ERRORITEMCORRUPT,
-            self::VALUE_ERRORITEMNOTFOUND,
-            self::VALUE_ERRORITEMPROPERTYREQUESTFAILED,
-            self::VALUE_ERRORITEMSAVE,
-            self::VALUE_ERRORITEMSAVEPROPERTYERROR,
-            self::VALUE_ERRORLEGACYMAILBOXFREEBUSYVIEWTYPENOTMERGED,
-            self::VALUE_ERRORLOCALSERVEROBJECTNOTFOUND,
-            self::VALUE_ERRORLOGONASNETWORKSERVICEFAILED,
-            self::VALUE_ERRORMAILBOXCONFIGURATION,
-            self::VALUE_ERRORMAILBOXDATAARRAYEMPTY,
-            self::VALUE_ERRORMAILBOXDATAARRAYTOOBIG,
-            self::VALUE_ERRORMAILBOXHOLDNOTFOUND,
-            self::VALUE_ERRORMAILBOXLOGONFAILED,
-            self::VALUE_ERRORMAILBOXMOVEINPROGRESS,
-            self::VALUE_ERRORMAILBOXSTOREUNAVAILABLE,
-            self::VALUE_ERRORMAILRECIPIENTNOTFOUND,
-            self::VALUE_ERRORMAILTIPSDISABLED,
-            self::VALUE_ERRORMANAGEDFOLDERALREADYEXISTS,
-            self::VALUE_ERRORMANAGEDFOLDERNOTFOUND,
-            self::VALUE_ERRORMANAGEDFOLDERSROOTFAILURE,
-            self::VALUE_ERRORMEETINGSUGGESTIONGENERATIONFAILED,
-            self::VALUE_ERRORMESSAGEDISPOSITIONREQUIRED,
-            self::VALUE_ERRORMESSAGESIZEEXCEEDED,
-            self::VALUE_ERRORMIMECONTENTCONVERSIONFAILED,
-            self::VALUE_ERRORMIMECONTENTINVALID,
-            self::VALUE_ERRORMIMECONTENTINVALIDBASE64STRING,
-            self::VALUE_ERRORMISSINGARGUMENT,
-            self::VALUE_ERRORMISSINGEMAILADDRESS,
-            self::VALUE_ERRORMISSINGEMAILADDRESSFORMANAGEDFOLDER,
-            self::VALUE_ERRORMISSINGINFORMATIONEMAILADDRESS,
-            self::VALUE_ERRORMISSINGINFORMATIONREFERENCEITEMID,
-            self::VALUE_ERRORMISSINGITEMFORCREATEITEMATTACHMENT,
-            self::VALUE_ERRORMISSINGMANAGEDFOLDERID,
-            self::VALUE_ERRORMISSINGRECIPIENTS,
-            self::VALUE_ERRORMISSINGUSERIDINFORMATION,
-            self::VALUE_ERRORMORETHANONEACCESSMODESPECIFIED,
-            self::VALUE_ERRORMOVECOPYFAILED,
-            self::VALUE_ERRORMOVEDISTINGUISHEDFOLDER,
-            self::VALUE_ERRORMULTILEGACYMAILBOXACCESS,
-            self::VALUE_ERRORNAMERESOLUTIONMULTIPLERESULTS,
-            self::VALUE_ERRORNAMERESOLUTIONNOMAILBOX,
-            self::VALUE_ERRORNAMERESOLUTIONNORESULTS,
-            self::VALUE_ERRORNEWCHANNELCONNECTIONOPENED,
-            self::VALUE_ERRORNOAPPLICABLEPROXYCASSERVERSAVAILABLE,
-            self::VALUE_ERRORNOCALENDAR,
-            self::VALUE_ERRORNODESTINATIONCASDUETOKERBEROSREQUIREMENTS,
-            self::VALUE_ERRORNODESTINATIONCASDUETOSSLREQUIREMENTS,
-            self::VALUE_ERRORNODESTINATIONCASDUETOVERSIONMISMATCH,
-            self::VALUE_ERRORNOFOLDERCLASSOVERRIDE,
-            self::VALUE_ERRORNOFREEBUSYACCESS,
-            self::VALUE_ERRORNONEXISTENTMAILBOX,
-            self::VALUE_ERRORNONPRIMARYSMTPADDRESS,
-            self::VALUE_ERRORNOPROPERTYTAGFORCUSTOMPROPERTIES,
-            self::VALUE_ERRORNOPUBLICFOLDERREPLICAAVAILABLE,
-            self::VALUE_ERRORNOPUBLICFOLDERSERVERAVAILABLE,
-            self::VALUE_ERRORNORESPONDINGCASINDESTINATIONSITE,
-            self::VALUE_ERRORNOTDELEGATE,
-            self::VALUE_ERRORNOTENOUGHMEMORY,
-            self::VALUE_ERROROBJECTTYPECHANGED,
-            self::VALUE_ERROROCCURRENCECROSSINGBOUNDARY,
-            self::VALUE_ERROROCCURRENCETIMESPANTOOBIG,
-            self::VALUE_ERROROPERATIONNOTALLOWEDWITHPUBLICFOLDERROOT,
-            self::VALUE_ERRORPARENTFOLDERIDREQUIRED,
-            self::VALUE_ERRORPARENTFOLDERNOTFOUND,
-            self::VALUE_ERRORPASSWORDCHANGEREQUIRED,
-            self::VALUE_ERRORPASSWORDEXPIRED,
-            self::VALUE_ERRORPHONENUMBERNOTDIALABLE,
-            self::VALUE_ERRORPROPERTYUPDATE,
-            self::VALUE_ERRORPROMPTPUBLISHINGOPERATIONFAILED,
-            self::VALUE_ERRORPROPERTYVALIDATIONFAILURE,
-            self::VALUE_ERRORPROXIEDSUBSCRIPTIONCALLFAILURE,
-            self::VALUE_ERRORPROXYCALLFAILED,
-            self::VALUE_ERRORPROXYGROUPSIDLIMITEXCEEDED,
-            self::VALUE_ERRORPROXYREQUESTNOTALLOWED,
-            self::VALUE_ERRORPROXYREQUESTPROCESSINGFAILED,
-            self::VALUE_ERRORPROXYSERVICEDISCOVERYFAILED,
-            self::VALUE_ERRORPROXYTOKENEXPIRED,
-            self::VALUE_ERRORPUBLICFOLDERMAILBOXDISCOVERYFAILED,
-            self::VALUE_ERRORPUBLICFOLDEROPERATIONFAILED,
-            self::VALUE_ERRORPUBLICFOLDERREQUESTPROCESSINGFAILED,
-            self::VALUE_ERRORPUBLICFOLDERSERVERNOTFOUND,
-            self::VALUE_ERRORPUBLICFOLDERSYNCEXCEPTION,
-            self::VALUE_ERRORQUERYFILTERTOOLONG,
-            self::VALUE_ERRORQUOTAEXCEEDED,
-            self::VALUE_ERRORREADEVENTSFAILED,
-            self::VALUE_ERRORREADRECEIPTNOTPENDING,
-            self::VALUE_ERRORRECURRENCEENDDATETOOBIG,
-            self::VALUE_ERRORRECURRENCEHASNOOCCURRENCE,
-            self::VALUE_ERRORREMOVEDELEGATESFAILED,
-            self::VALUE_ERRORREQUESTABORTED,
-            self::VALUE_ERRORREQUESTSTREAMTOOBIG,
-            self::VALUE_ERRORREQUIREDPROPERTYMISSING,
-            self::VALUE_ERRORRESOLVENAMESINVALIDFOLDERTYPE,
-            self::VALUE_ERRORRESOLVENAMESONLYONECONTACTSFOLDERALLOWED,
-            self::VALUE_ERRORRESPONSESCHEMAVALIDATION,
-            self::VALUE_ERRORRESTRICTIONTOOLONG,
-            self::VALUE_ERRORRESTRICTIONTOOCOMPLEX,
-            self::VALUE_ERRORRESULTSETTOOBIG,
-            self::VALUE_ERRORINVALIDEXCHANGEIMPERSONATIONHEADERDATA,
-            self::VALUE_ERRORSAVEDITEMFOLDERNOTFOUND,
-            self::VALUE_ERRORSCHEMAVALIDATION,
-            self::VALUE_ERRORSEARCHFOLDERNOTINITIALIZED,
-            self::VALUE_ERRORSENDASDENIED,
-            self::VALUE_ERRORSENDMEETINGCANCELLATIONSREQUIRED,
-            self::VALUE_ERRORSENDMEETINGINVITATIONSORCANCELLATIONSREQUIRED,
-            self::VALUE_ERRORSENDMEETINGINVITATIONSREQUIRED,
-            self::VALUE_ERRORSENTMEETINGREQUESTUPDATE,
-            self::VALUE_ERRORSENTTASKREQUESTUPDATE,
-            self::VALUE_ERRORSERVERBUSY,
-            self::VALUE_ERRORSERVICEDISCOVERYFAILED,
-            self::VALUE_ERRORSTALEOBJECT,
-            self::VALUE_ERRORSUBMISSIONQUOTAEXCEEDED,
-            self::VALUE_ERRORSUBSCRIPTIONACCESSDENIED,
-            self::VALUE_ERRORSUBSCRIPTIONDELEGATEACCESSNOTSUPPORTED,
-            self::VALUE_ERRORSUBSCRIPTIONNOTFOUND,
-            self::VALUE_ERRORSUBSCRIPTIONUNSUBSCRIBED,
-            self::VALUE_ERRORSYNCFOLDERNOTFOUND,
-            self::VALUE_ERRORTEAMMAILBOXNOTFOUND,
-            self::VALUE_ERRORTEAMMAILBOXNOTLINKEDTOSHAREPOINT,
-            self::VALUE_ERRORTEAMMAILBOXURLVALIDATIONFAILED,
-            self::VALUE_ERRORTEAMMAILBOXNOTAUTHORIZEDOWNER,
-            self::VALUE_ERRORTEAMMAILBOXACTIVETOPENDINGDELETE,
-            self::VALUE_ERRORTEAMMAILBOXFAILEDSENDINGNOTIFICATIONS,
-            self::VALUE_ERRORTEAMMAILBOXERRORUNKNOWN,
-            self::VALUE_ERRORTIMEINTERVALTOOBIG,
-            self::VALUE_ERRORTIMEOUTEXPIRED,
-            self::VALUE_ERRORTIMEZONE,
-            self::VALUE_ERRORTOFOLDERNOTFOUND,
-            self::VALUE_ERRORTOKENSERIALIZATIONDENIED,
-            self::VALUE_ERRORTOOMANYOBJECTSOPENED,
-            self::VALUE_ERRORUPDATEPROPERTYMISMATCH,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXAADCREATIONFAILED,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXAADDELETEFAILED,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXNAMINGPOLICY,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXDELETEFAILED,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXNOTFOUND,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDELAYED,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEDPARTIALPROPERTIES,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXUPDATEFAILED,
-            self::VALUE_ERRORUNIFIEDGROUPMAILBOXPROVISIONFAILED,
-            self::VALUE_ERRORUNIFIEDMESSAGINGDIALPLANNOTFOUND,
-            self::VALUE_ERRORUNIFIEDMESSAGINGREPORTDATANOTFOUND,
-            self::VALUE_ERRORUNIFIEDMESSAGINGPROMPTNOTFOUND,
-            self::VALUE_ERRORUNIFIEDMESSAGINGREQUESTFAILED,
-            self::VALUE_ERRORUNIFIEDMESSAGINGSERVERNOTFOUND,
-            self::VALUE_ERRORUNABLETOGETUSEROOFSETTINGS,
-            self::VALUE_ERRORUNABLETOREMOVEIMCONTACTFROMGROUP,
-            self::VALUE_ERRORUNSUPPORTEDSUBFILTER,
-            self::VALUE_ERRORUNSUPPORTEDCULTURE,
-            self::VALUE_ERRORUNSUPPORTEDMAPIPROPERTYTYPE,
-            self::VALUE_ERRORUNSUPPORTEDMIMECONVERSION,
-            self::VALUE_ERRORUNSUPPORTEDPATHFORQUERY,
-            self::VALUE_ERRORUNSUPPORTEDPATHFORSORTGROUP,
-            self::VALUE_ERRORUNSUPPORTEDPROPERTYDEFINITION,
-            self::VALUE_ERRORUNSUPPORTEDQUERYFILTER,
-            self::VALUE_ERRORUNSUPPORTEDRECURRENCE,
-            self::VALUE_ERRORUNSUPPORTEDTYPEFORCONVERSION,
-            self::VALUE_ERRORUPDATEDELEGATESFAILED,
-            self::VALUE_ERRORUSERNOTUNIFIEDMESSAGINGENABLED,
-            self::VALUE_ERRORVOICEMAILNOTIMPLEMENTED,
-            self::VALUE_ERRORVALUEOUTOFRANGE,
-            self::VALUE_ERRORVIRUSDETECTED,
-            self::VALUE_ERRORVIRUSMESSAGEDELETED,
-            self::VALUE_ERRORWEBREQUESTININVALIDSTATE,
-            self::VALUE_ERRORWIN32INTEROPERROR,
-            self::VALUE_ERRORWORKINGHOURSSAVEFAILED,
-            self::VALUE_ERRORWORKINGHOURSXMLMALFORMED,
-            self::VALUE_ERRORWRONGSERVERVERSION,
-            self::VALUE_ERRORWRONGSERVERVERSIONDELEGATE,
-            self::VALUE_ERRORMISSINGINFORMATIONSHARINGFOLDERID,
-            self::VALUE_ERRORDUPLICATESOAPHEADER,
-            self::VALUE_ERRORSHARINGSYNCHRONIZATIONFAILED,
-            self::VALUE_ERRORSHARINGNOEXTERNALEWSAVAILABLE,
-            self::VALUE_ERRORFREEBUSYDLLIMITREACHED,
-            self::VALUE_ERRORINVALIDGETSHARINGFOLDERREQUEST,
-            self::VALUE_ERRORNOTALLOWEDEXTERNALSHARINGBYPOLICY,
-            self::VALUE_ERRORUSERNOTALLOWEDBYPOLICY,
-            self::VALUE_ERRORPERMISSIONNOTALLOWEDBYPOLICY,
-            self::VALUE_ERRORORGANIZATIONNOTFEDERATED,
-            self::VALUE_ERRORMAILBOXFAILOVER,
-            self::VALUE_ERRORINVALIDEXTERNALSHARINGINITIATOR,
-            self::VALUE_ERRORMESSAGETRACKINGPERMANENTERROR,
-            self::VALUE_ERRORMESSAGETRACKINGTRANSIENTERROR,
-            self::VALUE_ERRORMESSAGETRACKINGNOSUCHDOMAIN,
-            self::VALUE_ERRORUSERWITHOUTFEDERATEDPROXYADDRESS,
-            self::VALUE_ERRORINVALIDORGANIZATIONRELATIONSHIPFORFREEBUSY,
-            self::VALUE_ERRORINVALIDFEDERATEDORGANIZATIONID,
-            self::VALUE_ERRORINVALIDEXTERNALSHARINGSUBSCRIBER,
-            self::VALUE_ERRORINVALIDSHARINGDATA,
-            self::VALUE_ERRORINVALIDSHARINGMESSAGE,
-            self::VALUE_ERRORNOTSUPPORTEDSHARINGMESSAGE,
-            self::VALUE_ERRORAPPLYCONVERSATIONACTIONFAILED,
-            self::VALUE_ERRORINBOXRULESVALIDATIONERROR,
-            self::VALUE_ERROROUTLOOKRULEBLOBEXISTS,
-            self::VALUE_ERRORRULESOVERQUOTA,
-            self::VALUE_ERRORNEWEVENTSTREAMCONNECTIONOPENED,
-            self::VALUE_ERRORMISSEDNOTIFICATIONEVENTS,
-            self::VALUE_ERRORDUPLICATELEGACYDISTINGUISHEDNAME,
-            self::VALUE_ERRORINVALIDCLIENTACCESSTOKENREQUEST,
-            self::VALUE_ERRORNOSPEECHDETECTED,
-            self::VALUE_ERRORUMSERVERUNAVAILABLE,
-            self::VALUE_ERRORRECIPIENTNOTFOUND,
-            self::VALUE_ERRORRECOGNIZERNOTINSTALLED,
-            self::VALUE_ERRORSPEECHGRAMMARERROR,
-            self::VALUE_ERRORINVALIDMANAGEMENTROLEHEADER,
-            self::VALUE_ERRORLOCATIONSERVICESDISABLED,
-            self::VALUE_ERRORLOCATIONSERVICESREQUESTTIMEDOUT,
-            self::VALUE_ERRORLOCATIONSERVICESREQUESTFAILED,
-            self::VALUE_ERRORLOCATIONSERVICESINVALIDREQUEST,
-            self::VALUE_ERRORWEATHERSERVICEDISABLED,
-            self::VALUE_ERRORMAILBOXSCOPENOTALLOWEDWITHOUTQUERYSTRING,
-            self::VALUE_ERRORARCHIVEMAILBOXSEARCHFAILED,
-            self::VALUE_ERRORGETREMOTEARCHIVEFOLDERFAILED,
-            self::VALUE_ERRORFINDREMOTEARCHIVEFOLDERFAILED,
-            self::VALUE_ERRORGETREMOTEARCHIVEITEMFAILED,
-            self::VALUE_ERROREXPORTREMOTEARCHIVEITEMSFAILED,
-            self::VALUE_ERRORINVALIDPHOTOSIZE,
-            self::VALUE_ERRORSEARCHQUERYHASTOOMANYKEYWORDS,
-            self::VALUE_ERRORSEARCHTOOMANYMAILBOXES,
-            self::VALUE_ERRORINVALIDRETENTIONTAGNONE,
-            self::VALUE_ERRORDISCOVERYSEARCHESDISABLED,
-            self::VALUE_ERRORCALENDARSEEKTOCONDITIONNOTSUPPORTED,
-            self::VALUE_ERRORCALENDARISGROUPMAILBOXFORACCEPT,
-            self::VALUE_ERRORCALENDARISGROUPMAILBOXFORDECLINE,
-            self::VALUE_ERRORCALENDARISGROUPMAILBOXFORTENTATIVE,
-            self::VALUE_ERRORCALENDARISGROUPMAILBOXFORSUPPRESSREADRECEIPT,
-            self::VALUE_ERRORORGANIZATIONACCESSBLOCKED,
-            self::VALUE_ERRORINVALIDLICENSE,
-            self::VALUE_ERRORMESSAGEPERFOLDERCOUNTRECEIVEQUOTAEXCEEDED,
-            self::VALUE_ERRORINVALIDBULKACTIONTYPE,
-            self::VALUE_ERRORINVALIDKEEPNCOUNT,
-            self::VALUE_ERRORINVALIDKEEPNTYPE,
-            self::VALUE_ERRORNOOAUTHSERVERAVAILABLEFORREQUEST,
-            self::VALUE_ERRORINSTANTSEARCHSESSIONEXPIRED,
-            self::VALUE_ERRORINSTANTSEARCHTIMEOUT,
-            self::VALUE_ERRORINSTANTSEARCHFAILED,
-            self::VALUE_ERRORUNSUPPORTEDUSERFOREXECUTESEARCH,
-            self::VALUE_ERRORMISSINGEXCHANGEPRINCIPAL,
-            self::VALUE_ERRORUNEXPECTEDUNIFIEDGROUPSCOUNT,
-            self::VALUE_ERRORPARSINGXMLRESPONSE,
-            self::VALUE_ERRORINVALIDFEDERATIONORGANIZATIONIDENTIFIER,
-            self::VALUE_ERRORINVALIDSWEEPRULE,
-            self::VALUE_ERRORINVALIDSWEEPRULEOPERATIONTYPE,
-            self::VALUE_ERRORTARGETDOMAINNOTSUPPORTED,
-            self::VALUE_ERRORINVALIDINTERNETWEBPROXYONLOCALSERVER,
-            self::VALUE_ERRORNOSENDERRESTRICTIONSSETTINGSFOUNDINREQUEST,
-            self::VALUE_ERRORDUPLICATESENDERRESTRICTIONSINPUTFOUND,
-            self::VALUE_ERRORSENDERRESTRICTIONSUPDATEFAILED,
-            self::VALUE_ERRORMESSAGESUBMISSIONBLOCKED,
-            self::VALUE_ERROREXCEEDEDMESSAGELIMIT,
-            self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITBLOCK,
-            self::VALUE_ERRORACCOUNTSUSPEND,
-            self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMIT,
-            self::VALUE_ERRORMESSAGEBLOCKED,
-            self::VALUE_ERRORACCOUNTSUSPENDSHOWTIERUPGRADE,
-            self::VALUE_ERROREXCEEDEDMESSAGELIMITSHOWTIERUPGRADE,
-            self::VALUE_ERROREXCEEDEDMAXRECIPIENTLIMITSHOWTIERUPGRADE,
-            self::VALUE_ERRORINVALIDLONGITUDE,
-            self::VALUE_ERRORINVALIDLATITUDE,
+            self::VALUE_NO_ERROR,
+            self::VALUE_ERROR_ACCESS_DENIED,
+            self::VALUE_ERROR_ACCESS_MODE_SPECIFIED,
+            self::VALUE_ERROR_ACCOUNT_DISABLED,
+            self::VALUE_ERROR_ADD_DELEGATES_FAILED,
+            self::VALUE_ERROR_ADDRESS_SPACE_NOT_FOUND,
+            self::VALUE_ERROR_ADOPERATION,
+            self::VALUE_ERROR_ADSESSION_FILTER,
+            self::VALUE_ERROR_ADUNAVAILABLE,
+            self::VALUE_ERROR_AUTO_DISCOVER_FAILED,
+            self::VALUE_ERROR_AFFECTED_TASK_OCCURRENCES_REQUIRED,
+            self::VALUE_ERROR_ATTACHMENT_NEST_LEVEL_LIMIT_EXCEEDED,
+            self::VALUE_ERROR_ATTACHMENT_SIZE_LIMIT_EXCEEDED,
+            self::VALUE_ERROR_ARCHIVE_FOLDER_PATH_CREATION,
+            self::VALUE_ERROR_ARCHIVE_MAILBOX_NOT_ENABLED,
+            self::VALUE_ERROR_ARCHIVE_MAILBOX_SERVICE_DISCOVERY_FAILED,
+            self::VALUE_ERROR_AVAILABILITY_CONFIG_NOT_FOUND,
+            self::VALUE_ERROR_BATCH_PROCESSING_STOPPED,
+            self::VALUE_ERROR_CALENDAR_CANNOT_MOVE_OR_COPY_OCCURRENCE,
+            self::VALUE_ERROR_CALENDAR_CANNOT_UPDATE_DELETED_ITEM,
+            self::VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_OCCURRENCE_ID,
+            self::VALUE_ERROR_CALENDAR_CANNOT_USE_ID_FOR_RECURRING_MASTER_ID,
+            self::VALUE_ERROR_CALENDAR_DURATION_IS_TOO_LONG,
+            self::VALUE_ERROR_CALENDAR_END_DATE_IS_EARLIER_THAN_START_DATE,
+            self::VALUE_ERROR_CALENDAR_FOLDER_IS_INVALID_FOR_CALENDAR_VIEW,
+            self::VALUE_ERROR_CALENDAR_INVALID_ATTRIBUTE_VALUE,
+            self::VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_TIME_CHANGE_PATTERN,
+            self::VALUE_ERROR_CALENDAR_INVALID_DAY_FOR_WEEKLY_RECURRENCE,
+            self::VALUE_ERROR_CALENDAR_INVALID_PROPERTY_STATE,
+            self::VALUE_ERROR_CALENDAR_INVALID_PROPERTY_VALUE,
+            self::VALUE_ERROR_CALENDAR_INVALID_RECURRENCE,
+            self::VALUE_ERROR_CALENDAR_INVALID_TIME_ZONE,
+            self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_ACCEPT,
+            self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_DECLINE,
+            self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_REMOVE,
+            self::VALUE_ERROR_CALENDAR_IS_CANCELLED_FOR_TENTATIVE,
+            self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_ACCEPT,
+            self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_DECLINE,
+            self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_REMOVE,
+            self::VALUE_ERROR_CALENDAR_IS_DELEGATED_FOR_TENTATIVE,
+            self::VALUE_ERROR_CALENDAR_IS_NOT_ORGANIZER,
+            self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_ACCEPT,
+            self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_DECLINE,
+            self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_REMOVE,
+            self::VALUE_ERROR_CALENDAR_IS_ORGANIZER_FOR_TENTATIVE,
+            self::VALUE_ERROR_CALENDAR_OCCURRENCE_INDEX_IS_OUT_OF_RECURRENCE_RANGE,
+            self::VALUE_ERROR_CALENDAR_OCCURRENCE_IS_DELETED_FROM_RECURRENCE,
+            self::VALUE_ERROR_CALENDAR_OUT_OF_RANGE,
+            self::VALUE_ERROR_CALENDAR_MEETING_REQUEST_IS_OUT_OF_DATE,
+            self::VALUE_ERROR_CALENDAR_VIEW_RANGE_TOO_BIG,
+            self::VALUE_ERROR_CALLER_IS_INVALID_ADACCOUNT,
+            self::VALUE_ERROR_CANNOT_ARCHIVE_CALENDAR_CONTACT_TASK_FOLDER_EXCEPTION,
+            self::VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_PUBLIC_FOLDERS,
+            self::VALUE_ERROR_CANNOT_ARCHIVE_ITEMS_IN_ARCHIVE_MAILBOX,
+            self::VALUE_ERROR_CANNOT_CREATE_CALENDAR_ITEM_IN_NON_CALENDAR_FOLDER,
+            self::VALUE_ERROR_CANNOT_CREATE_CONTACT_IN_NON_CONTACT_FOLDER,
+            self::VALUE_ERROR_CANNOT_CREATE_POST_ITEM_IN_NON_MAIL_FOLDER,
+            self::VALUE_ERROR_CANNOT_CREATE_TASK_IN_NON_TASK_FOLDER,
+            self::VALUE_ERROR_CANNOT_DELETE_OBJECT,
+            self::VALUE_ERROR_CANNOT_DISABLE_MANDATORY_EXTENSION,
+            self::VALUE_ERROR_CANNOT_FIND_USER,
+            self::VALUE_ERROR_CANNOT_GET_SOURCE_FOLDER_PATH,
+            self::VALUE_ERROR_CANNOT_GET_EXTERNAL_ECP_URL,
+            self::VALUE_ERROR_CANNOT_OPEN_FILE_ATTACHMENT,
+            self::VALUE_ERROR_CANNOT_DELETE_TASK_OCCURRENCE,
+            self::VALUE_ERROR_CANNOT_EMPTY_FOLDER,
+            self::VALUE_ERROR_CANNOT_SET_CALENDAR_PERMISSION_ON_NON_CALENDAR_FOLDER,
+            self::VALUE_ERROR_CANNOT_SET_NON_CALENDAR_PERMISSION_ON_CALENDAR_FOLDER,
+            self::VALUE_ERROR_CANNOT_SET_PERMISSION_UNKNOWN_ENTRIES,
+            self::VALUE_ERROR_CANNOT_SPECIFY_SEARCH_FOLDER_AS_SOURCE_FOLDER,
+            self::VALUE_ERROR_CANNOT_USE_FOLDER_ID_FOR_ITEM_ID,
+            self::VALUE_ERROR_CANNOT_USE_ITEM_ID_FOR_FOLDER_ID,
+            self::VALUE_ERROR_CHANGE_KEY_REQUIRED,
+            self::VALUE_ERROR_CHANGE_KEY_REQUIRED_FOR_WRITE_OPERATIONS,
+            self::VALUE_ERROR_CHANNEL_SUBSCRIPTION_ALREADY_EXISTS,
+            self::VALUE_ERROR_CHANNEL_SUBSCRIPTION_NOT_FOUND,
+            self::VALUE_ERROR_CLIENT_DISCONNECTED,
+            self::VALUE_ERROR_CLIENT_INTENT_INVALID_STATE_DEFINITION,
+            self::VALUE_ERROR_CLIENT_INTENT_NOT_FOUND,
+            self::VALUE_ERROR_CONNECTION_FAILED,
+            self::VALUE_ERROR_CONTAINS_FILTER_WRONG_TYPE,
+            self::VALUE_ERROR_CONTENT_CONVERSION_FAILED,
+            self::VALUE_ERROR_CONTENT_INDEXING_NOT_ENABLED,
+            self::VALUE_ERROR_CORRUPT_DATA,
+            self::VALUE_ERROR_CREATE_ITEM_ACCESS_DENIED,
+            self::VALUE_ERROR_CREATE_MANAGED_FOLDER_PARTIAL_COMPLETION,
+            self::VALUE_ERROR_CREATE_SUBFOLDER_ACCESS_DENIED,
+            self::VALUE_ERROR_CROSS_MAILBOX_MOVE_COPY,
+            self::VALUE_ERROR_CROSS_SITE_REQUEST,
+            self::VALUE_ERROR_DATA_SIZE_LIMIT_EXCEEDED,
+            self::VALUE_ERROR_DATA_SOURCE_OPERATION,
+            self::VALUE_ERROR_DELEGATE_ALREADY_EXISTS,
+            self::VALUE_ERROR_DELEGATE_CANNOT_ADD_OWNER,
+            self::VALUE_ERROR_DELEGATE_MISSING_CONFIGURATION,
+            self::VALUE_ERROR_DELEGATE_NO_USER,
+            self::VALUE_ERROR_DELEGATE_VALIDATION_FAILED,
+            self::VALUE_ERROR_DELETE_DISTINGUISHED_FOLDER,
+            self::VALUE_ERROR_DELETE_ITEMS_FAILED,
+            self::VALUE_ERROR_DELETE_UNIFIED_MESSAGING_PROMPT_FAILED,
+            self::VALUE_ERROR_DISTINGUISHED_USER_NOT_SUPPORTED,
+            self::VALUE_ERROR_DISTRIBUTION_LIST_MEMBER_NOT_EXIST,
+            self::VALUE_ERROR_DUPLICATE_INPUT_FOLDER_NAMES,
+            self::VALUE_ERROR_DUPLICATE_USER_IDS_SPECIFIED,
+            self::VALUE_ERROR_EMAIL_ADDRESS_MISMATCH,
+            self::VALUE_ERROR_EVENT_NOT_FOUND,
+            self::VALUE_ERROR_EXCEEDED_CHANNEL_SUBSCRIPTION_COUNT,
+            self::VALUE_ERROR_EXCEEDED_CONNECTION_COUNT,
+            self::VALUE_ERROR_EXCEEDED_SUBSCRIPTION_COUNT,
+            self::VALUE_ERROR_EXCEEDED_FIND_COUNT_LIMIT,
+            self::VALUE_ERROR_EXPIRED_SUBSCRIPTION,
+            self::VALUE_ERROR_EXTENSION_NOT_FOUND,
+            self::VALUE_ERROR_FOLDER_CORRUPT,
+            self::VALUE_ERROR_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_FOLDER_PROPERT_REQUEST_FAILED,
+            self::VALUE_ERROR_FOLDER_SAVE,
+            self::VALUE_ERROR_FOLDER_SAVE_FAILED,
+            self::VALUE_ERROR_FOLDER_SAVE_PROPERTY_ERROR,
+            self::VALUE_ERROR_FOLDER_EXISTS,
+            self::VALUE_ERROR_FREE_BUSY_GENERATION_FAILED,
+            self::VALUE_ERROR_GET_SERVER_SECURITY_DESCRIPTOR_FAILED,
+            self::VALUE_ERROR_IM_CONTACT_LIMIT_REACHED,
+            self::VALUE_ERROR_IM_GROUP_DISPLAY_NAME_ALREADY_EXISTS,
+            self::VALUE_ERROR_IM_GROUP_LIMIT_REACHED,
+            self::VALUE_ERROR_IMPERSONATE_USER_DENIED,
+            self::VALUE_ERROR_IMPERSONATION_DENIED,
+            self::VALUE_ERROR_IMPERSONATION_FAILED,
+            self::VALUE_ERROR_INCORRECT_SCHEMA_VERSION,
+            self::VALUE_ERROR_INCORRECT_UPDATE_PROPERTY_COUNT,
+            self::VALUE_ERROR_INDIVIDUAL_MAILBOX_LIMIT_REACHED,
+            self::VALUE_ERROR_INSUFFICIENT_RESOURCES,
+            self::VALUE_ERROR_INTERNAL_SERVER_ERROR,
+            self::VALUE_ERROR_INTERNAL_SERVER_TRANSIENT_ERROR,
+            self::VALUE_ERROR_INVALID_ACCESS_LEVEL,
+            self::VALUE_ERROR_INVALID_ARGUMENT,
+            self::VALUE_ERROR_INVALID_ATTACHMENT_ID,
+            self::VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER,
+            self::VALUE_ERROR_INVALID_ATTACHMENT_SUBFILTER_TEXT_FILTER,
+            self::VALUE_ERROR_INVALID_AUTHORIZATION_CONTEXT,
+            self::VALUE_ERROR_INVALID_CHANGE_KEY,
+            self::VALUE_ERROR_INVALID_CHANNEL_ID,
+            self::VALUE_ERROR_INVALID_CHANNEL_SUBSCRIPTION_ID,
+            self::VALUE_ERROR_INVALID_CLIENT_SECURITY_CONTEXT,
+            self::VALUE_ERROR_INVALID_COMPLETE_DATE,
+            self::VALUE_ERROR_INVALID_CONTACT_EMAIL_ADDRESS,
+            self::VALUE_ERROR_INVALID_CONTACT_EMAIL_INDEX,
+            self::VALUE_ERROR_INVALID_CROSS_FOREST_CREDENTIALS,
+            self::VALUE_ERROR_INVALID_DELEGATE_PERMISSION,
+            self::VALUE_ERROR_INVALID_DELEGATE_USER_ID,
+            self::VALUE_ERROR_INVALID_EXCLUDES_RESTRICTION,
+            self::VALUE_ERROR_INVALID_EXPRESSION_TYPE_FOR_SUB_FILTER,
+            self::VALUE_ERROR_INVALID_EXTENDED_PROPERTY,
+            self::VALUE_ERROR_INVALID_EXTENDED_PROPERTY_VALUE,
+            self::VALUE_ERROR_INVALID_FOLDER_ID,
+            self::VALUE_ERROR_INVALID_FOLDER_TYPE_FOR_OPERATION,
+            self::VALUE_ERROR_INVALID_FRACTIONAL_PAGING_PARAMETERS,
+            self::VALUE_ERROR_INVALID_FREE_BUSY_VIEW_TYPE,
+            self::VALUE_ERROR_INVALID_ID,
+            self::VALUE_ERROR_INVALID_ID_EMPTY,
+            self::VALUE_ERROR_INVALID_ID_MALFORMED,
+            self::VALUE_ERROR_INVALID_ID_MALFORMED_EWS_LEGACY_ID_FORMAT,
+            self::VALUE_ERROR_INVALID_ID_MONIKER_TOO_LONG,
+            self::VALUE_ERROR_INVALID_ID_NOT_AN_ITEM_ATTACHMENT_ID,
+            self::VALUE_ERROR_INVALID_ID_RETURNED_BY_RESOLVE_NAMES,
+            self::VALUE_ERROR_INVALID_ID_STORE_OBJECT_ID_TOO_LONG,
+            self::VALUE_ERROR_INVALID_ID_TOO_MANY_ATTACHMENT_LEVELS,
+            self::VALUE_ERROR_INVALID_ID_XML,
+            self::VALUE_ERROR_INVALID_IM_CONTACT_ID,
+            self::VALUE_ERROR_INVALID_IM_DISTRIBUTION_GROUP_SMTP_ADDRESS,
+            self::VALUE_ERROR_INVALID_IM_GROUP_ID,
+            self::VALUE_ERROR_INVALID_INDEXED_PAGING_PARAMETERS,
+            self::VALUE_ERROR_INVALID_INTERNET_HEADER_CHILD_NODES,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ARCHIVE_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM_ATTACHMENT,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CREATE_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_ACCEPT_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_DECLINE_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_CANCEL_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_EXPAND_DL,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_REMOVE_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_SEND_ITEM,
+            self::VALUE_ERROR_INVALID_ITEM_FOR_OPERATION_TENTATIVE,
+            self::VALUE_ERROR_INVALID_LOGON_TYPE,
+            self::VALUE_ERROR_INVALID_LIKE_REQUEST,
+            self::VALUE_ERROR_INVALID_MAILBOX,
+            self::VALUE_ERROR_INVALID_MANAGED_FOLDER_PROPERTY,
+            self::VALUE_ERROR_INVALID_MANAGED_FOLDER_QUOTA,
+            self::VALUE_ERROR_INVALID_MANAGED_FOLDER_SIZE,
+            self::VALUE_ERROR_INVALID_MERGED_FREE_BUSY_INTERVAL,
+            self::VALUE_ERROR_INVALID_NAME_FOR_NAME_RESOLUTION,
+            self::VALUE_ERROR_INVALID_OPERATION,
+            self::VALUE_ERROR_INVALID_NETWORK_SERVICE_CONTEXT,
+            self::VALUE_ERROR_INVALID_OOF_PARAMETER,
+            self::VALUE_ERROR_INVALID_PAGING_MAX_ROWS,
+            self::VALUE_ERROR_INVALID_PARENT_FOLDER,
+            self::VALUE_ERROR_INVALID_PERCENT_COMPLETE_VALUE,
+            self::VALUE_ERROR_INVALID_PERMISSION_SETTINGS,
+            self::VALUE_ERROR_INVALID_PHONE_CALL_ID,
+            self::VALUE_ERROR_INVALID_PHONE_NUMBER,
+            self::VALUE_ERROR_INVALID_USER_INFO,
+            self::VALUE_ERROR_INVALID_PROPERTY_APPEND,
+            self::VALUE_ERROR_INVALID_PROPERTY_DELETE,
+            self::VALUE_ERROR_INVALID_PROPERTY_FOR_EXISTS,
+            self::VALUE_ERROR_INVALID_PROPERTY_FOR_OPERATION,
+            self::VALUE_ERROR_INVALID_PROPERTY_REQUEST,
+            self::VALUE_ERROR_INVALID_PROPERTY_SET,
+            self::VALUE_ERROR_INVALID_PROPERTY_UPDATE_SENT_MESSAGE,
+            self::VALUE_ERROR_INVALID_PROXY_SECURITY_CONTEXT,
+            self::VALUE_ERROR_INVALID_PULL_SUBSCRIPTION_ID,
+            self::VALUE_ERROR_INVALID_PUSH_SUBSCRIPTION_URL,
+            self::VALUE_ERROR_INVALID_RECIPIENTS,
+            self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER,
+            self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_COMPARISON,
+            self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_ORDER,
+            self::VALUE_ERROR_INVALID_RECIPIENT_SUBFILTER_TEXT_FILTER,
+            self::VALUE_ERROR_INVALID_REFERENCE_ITEM,
+            self::VALUE_ERROR_INVALID_REQUEST,
+            self::VALUE_ERROR_INVALID_RESTRICTION,
+            self::VALUE_ERROR_INVALID_RETENTION_TAG_TYPE_MISMATCH,
+            self::VALUE_ERROR_INVALID_RETENTION_TAG_INVISIBLE,
+            self::VALUE_ERROR_INVALID_RETENTION_TAG_INHERITANCE,
+            self::VALUE_ERROR_INVALID_RETENTION_TAG_ID_GUID,
+            self::VALUE_ERROR_INVALID_ROUTING_TYPE,
+            self::VALUE_ERROR_INVALID_SCHEDULED_OOF_DURATION,
+            self::VALUE_ERROR_INVALID_SCHEMA_VERSION_FOR_MAILBOX_VERSION,
+            self::VALUE_ERROR_INVALID_SECURITY_DESCRIPTOR,
+            self::VALUE_ERROR_INVALID_SEND_ITEM_SAVE_SETTINGS,
+            self::VALUE_ERROR_INVALID_SERIALIZED_ACCESS_TOKEN,
+            self::VALUE_ERROR_INVALID_SERVER_VERSION,
+            self::VALUE_ERROR_INVALID_SID,
+            self::VALUE_ERROR_INVALID_SIPURI,
+            self::VALUE_ERROR_INVALID_SMTP_ADDRESS,
+            self::VALUE_ERROR_INVALID_SUBFILTER_TYPE,
+            self::VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_ATTENDEE_TYPE,
+            self::VALUE_ERROR_INVALID_SUBFILTER_TYPE_NOT_RECIPIENT_TYPE,
+            self::VALUE_ERROR_INVALID_SUBSCRIPTION,
+            self::VALUE_ERROR_INVALID_SUBSCRIPTION_REQUEST,
+            self::VALUE_ERROR_INVALID_SYNC_STATE_DATA,
+            self::VALUE_ERROR_INVALID_TIME_INTERVAL,
+            self::VALUE_ERROR_INVALID_USER_OOF_SETTINGS,
+            self::VALUE_ERROR_INVALID_USER_PRINCIPAL_NAME,
+            self::VALUE_ERROR_INVALID_USER_SID,
+            self::VALUE_ERROR_INVALID_USER_SID_MISSING_UPN,
+            self::VALUE_ERROR_INVALID_VALUE_FOR_PROPERTY,
+            self::VALUE_ERROR_INVALID_WATERMARK,
+            self::VALUE_ERROR_IPGATEWAY_NOT_FOUND,
+            self::VALUE_ERROR_IRRESOLVABLE_CONFLICT,
+            self::VALUE_ERROR_ITEM_CORRUPT,
+            self::VALUE_ERROR_ITEM_NOT_FOUND,
+            self::VALUE_ERROR_ITEM_PROPERTY_REQUEST_FAILED,
+            self::VALUE_ERROR_ITEM_SAVE,
+            self::VALUE_ERROR_ITEM_SAVE_PROPERTY_ERROR,
+            self::VALUE_ERROR_LEGACY_MAILBOX_FREE_BUSY_VIEW_TYPE_NOT_MERGED,
+            self::VALUE_ERROR_LOCAL_SERVER_OBJECT_NOT_FOUND,
+            self::VALUE_ERROR_LOGON_AS_NETWORK_SERVICE_FAILED,
+            self::VALUE_ERROR_MAILBOX_CONFIGURATION,
+            self::VALUE_ERROR_MAILBOX_DATA_ARRAY_EMPTY,
+            self::VALUE_ERROR_MAILBOX_DATA_ARRAY_TOO_BIG,
+            self::VALUE_ERROR_MAILBOX_HOLD_NOT_FOUND,
+            self::VALUE_ERROR_MAILBOX_LOGON_FAILED,
+            self::VALUE_ERROR_MAILBOX_MOVE_IN_PROGRESS,
+            self::VALUE_ERROR_MAILBOX_STORE_UNAVAILABLE,
+            self::VALUE_ERROR_MAIL_RECIPIENT_NOT_FOUND,
+            self::VALUE_ERROR_MAIL_TIPS_DISABLED,
+            self::VALUE_ERROR_MANAGED_FOLDER_ALREADY_EXISTS,
+            self::VALUE_ERROR_MANAGED_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_MANAGED_FOLDERS_ROOT_FAILURE,
+            self::VALUE_ERROR_MEETING_SUGGESTION_GENERATION_FAILED,
+            self::VALUE_ERROR_MESSAGE_DISPOSITION_REQUIRED,
+            self::VALUE_ERROR_MESSAGE_SIZE_EXCEEDED,
+            self::VALUE_ERROR_MIME_CONTENT_CONVERSION_FAILED,
+            self::VALUE_ERROR_MIME_CONTENT_INVALID,
+            self::VALUE_ERROR_MIME_CONTENT_INVALID_BASE_64_STRING,
+            self::VALUE_ERROR_MISSING_ARGUMENT,
+            self::VALUE_ERROR_MISSING_EMAIL_ADDRESS,
+            self::VALUE_ERROR_MISSING_EMAIL_ADDRESS_FOR_MANAGED_FOLDER,
+            self::VALUE_ERROR_MISSING_INFORMATION_EMAIL_ADDRESS,
+            self::VALUE_ERROR_MISSING_INFORMATION_REFERENCE_ITEM_ID,
+            self::VALUE_ERROR_MISSING_ITEM_FOR_CREATE_ITEM_ATTACHMENT,
+            self::VALUE_ERROR_MISSING_MANAGED_FOLDER_ID,
+            self::VALUE_ERROR_MISSING_RECIPIENTS,
+            self::VALUE_ERROR_MISSING_USER_ID_INFORMATION,
+            self::VALUE_ERROR_MORE_THAN_ONE_ACCESS_MODE_SPECIFIED,
+            self::VALUE_ERROR_MOVE_COPY_FAILED,
+            self::VALUE_ERROR_MOVE_DISTINGUISHED_FOLDER,
+            self::VALUE_ERROR_MULTI_LEGACY_MAILBOX_ACCESS,
+            self::VALUE_ERROR_NAME_RESOLUTION_MULTIPLE_RESULTS,
+            self::VALUE_ERROR_NAME_RESOLUTION_NO_MAILBOX,
+            self::VALUE_ERROR_NAME_RESOLUTION_NO_RESULTS,
+            self::VALUE_ERROR_NEW_CHANNEL_CONNECTION_OPENED,
+            self::VALUE_ERROR_NO_APPLICABLE_PROXY_CASSERVERS_AVAILABLE,
+            self::VALUE_ERROR_NO_CALENDAR,
+            self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_KERBEROS_REQUIREMENTS,
+            self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_SSLREQUIREMENTS,
+            self::VALUE_ERROR_NO_DESTINATION_CASDUE_TO_VERSION_MISMATCH,
+            self::VALUE_ERROR_NO_FOLDER_CLASS_OVERRIDE,
+            self::VALUE_ERROR_NO_FREE_BUSY_ACCESS,
+            self::VALUE_ERROR_NON_EXISTENT_MAILBOX,
+            self::VALUE_ERROR_NON_PRIMARY_SMTP_ADDRESS,
+            self::VALUE_ERROR_NO_PROPERTY_TAG_FOR_CUSTOM_PROPERTIES,
+            self::VALUE_ERROR_NO_PUBLIC_FOLDER_REPLICA_AVAILABLE,
+            self::VALUE_ERROR_NO_PUBLIC_FOLDER_SERVER_AVAILABLE,
+            self::VALUE_ERROR_NO_RESPONDING_CASIN_DESTINATION_SITE,
+            self::VALUE_ERROR_NOT_DELEGATE,
+            self::VALUE_ERROR_NOT_ENOUGH_MEMORY,
+            self::VALUE_ERROR_OBJECT_TYPE_CHANGED,
+            self::VALUE_ERROR_OCCURRENCE_CROSSING_BOUNDARY,
+            self::VALUE_ERROR_OCCURRENCE_TIME_SPAN_TOO_BIG,
+            self::VALUE_ERROR_OPERATION_NOT_ALLOWED_WITH_PUBLIC_FOLDER_ROOT,
+            self::VALUE_ERROR_PARENT_FOLDER_ID_REQUIRED,
+            self::VALUE_ERROR_PARENT_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_PASSWORD_CHANGE_REQUIRED,
+            self::VALUE_ERROR_PASSWORD_EXPIRED,
+            self::VALUE_ERROR_PHONE_NUMBER_NOT_DIALABLE,
+            self::VALUE_ERROR_PROPERTY_UPDATE,
+            self::VALUE_ERROR_PROMPT_PUBLISHING_OPERATION_FAILED,
+            self::VALUE_ERROR_PROPERTY_VALIDATION_FAILURE,
+            self::VALUE_ERROR_PROXIED_SUBSCRIPTION_CALL_FAILURE,
+            self::VALUE_ERROR_PROXY_CALL_FAILED,
+            self::VALUE_ERROR_PROXY_GROUP_SID_LIMIT_EXCEEDED,
+            self::VALUE_ERROR_PROXY_REQUEST_NOT_ALLOWED,
+            self::VALUE_ERROR_PROXY_REQUEST_PROCESSING_FAILED,
+            self::VALUE_ERROR_PROXY_SERVICE_DISCOVERY_FAILED,
+            self::VALUE_ERROR_PROXY_TOKEN_EXPIRED,
+            self::VALUE_ERROR_PUBLIC_FOLDER_MAILBOX_DISCOVERY_FAILED,
+            self::VALUE_ERROR_PUBLIC_FOLDER_OPERATION_FAILED,
+            self::VALUE_ERROR_PUBLIC_FOLDER_REQUEST_PROCESSING_FAILED,
+            self::VALUE_ERROR_PUBLIC_FOLDER_SERVER_NOT_FOUND,
+            self::VALUE_ERROR_PUBLIC_FOLDER_SYNC_EXCEPTION,
+            self::VALUE_ERROR_QUERY_FILTER_TOO_LONG,
+            self::VALUE_ERROR_QUOTA_EXCEEDED,
+            self::VALUE_ERROR_READ_EVENTS_FAILED,
+            self::VALUE_ERROR_READ_RECEIPT_NOT_PENDING,
+            self::VALUE_ERROR_RECURRENCE_END_DATE_TOO_BIG,
+            self::VALUE_ERROR_RECURRENCE_HAS_NO_OCCURRENCE,
+            self::VALUE_ERROR_REMOVE_DELEGATES_FAILED,
+            self::VALUE_ERROR_REQUEST_ABORTED,
+            self::VALUE_ERROR_REQUEST_STREAM_TOO_BIG,
+            self::VALUE_ERROR_REQUIRED_PROPERTY_MISSING,
+            self::VALUE_ERROR_RESOLVE_NAMES_INVALID_FOLDER_TYPE,
+            self::VALUE_ERROR_RESOLVE_NAMES_ONLY_ONE_CONTACTS_FOLDER_ALLOWED,
+            self::VALUE_ERROR_RESPONSE_SCHEMA_VALIDATION,
+            self::VALUE_ERROR_RESTRICTION_TOO_LONG,
+            self::VALUE_ERROR_RESTRICTION_TOO_COMPLEX,
+            self::VALUE_ERROR_RESULT_SET_TOO_BIG,
+            self::VALUE_ERROR_INVALID_EXCHANGE_IMPERSONATION_HEADER_DATA,
+            self::VALUE_ERROR_SAVED_ITEM_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_SCHEMA_VALIDATION,
+            self::VALUE_ERROR_SEARCH_FOLDER_NOT_INITIALIZED,
+            self::VALUE_ERROR_SEND_AS_DENIED,
+            self::VALUE_ERROR_SEND_MEETING_CANCELLATIONS_REQUIRED,
+            self::VALUE_ERROR_SEND_MEETING_INVITATIONS_OR_CANCELLATIONS_REQUIRED,
+            self::VALUE_ERROR_SEND_MEETING_INVITATIONS_REQUIRED,
+            self::VALUE_ERROR_SENT_MEETING_REQUEST_UPDATE,
+            self::VALUE_ERROR_SENT_TASK_REQUEST_UPDATE,
+            self::VALUE_ERROR_SERVER_BUSY,
+            self::VALUE_ERROR_SERVICE_DISCOVERY_FAILED,
+            self::VALUE_ERROR_STALE_OBJECT,
+            self::VALUE_ERROR_SUBMISSION_QUOTA_EXCEEDED,
+            self::VALUE_ERROR_SUBSCRIPTION_ACCESS_DENIED,
+            self::VALUE_ERROR_SUBSCRIPTION_DELEGATE_ACCESS_NOT_SUPPORTED,
+            self::VALUE_ERROR_SUBSCRIPTION_NOT_FOUND,
+            self::VALUE_ERROR_SUBSCRIPTION_UNSUBSCRIBED,
+            self::VALUE_ERROR_SYNC_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_TEAM_MAILBOX_NOT_FOUND,
+            self::VALUE_ERROR_TEAM_MAILBOX_NOT_LINKED_TO_SHARE_POINT,
+            self::VALUE_ERROR_TEAM_MAILBOX_URL_VALIDATION_FAILED,
+            self::VALUE_ERROR_TEAM_MAILBOX_NOT_AUTHORIZED_OWNER,
+            self::VALUE_ERROR_TEAM_MAILBOX_ACTIVE_TO_PENDING_DELETE,
+            self::VALUE_ERROR_TEAM_MAILBOX_FAILED_SENDING_NOTIFICATIONS,
+            self::VALUE_ERROR_TEAM_MAILBOX_ERROR_UNKNOWN,
+            self::VALUE_ERROR_TIME_INTERVAL_TOO_BIG,
+            self::VALUE_ERROR_TIMEOUT_EXPIRED,
+            self::VALUE_ERROR_TIME_ZONE,
+            self::VALUE_ERROR_TO_FOLDER_NOT_FOUND,
+            self::VALUE_ERROR_TOKEN_SERIALIZATION_DENIED,
+            self::VALUE_ERROR_TOO_MANY_OBJECTS_OPENED,
+            self::VALUE_ERROR_UPDATE_PROPERTY_MISMATCH,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADCREATION_FAILED,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_AADDELETE_FAILED,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NAMING_POLICY,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_DELETE_FAILED,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_NOT_FOUND,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_DELAYED,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATED_PARTIAL_PROPERTIES,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_UPDATE_FAILED,
+            self::VALUE_ERROR_UNIFIED_GROUP_MAILBOX_PROVISION_FAILED,
+            self::VALUE_ERROR_UNIFIED_MESSAGING_DIAL_PLAN_NOT_FOUND,
+            self::VALUE_ERROR_UNIFIED_MESSAGING_REPORT_DATA_NOT_FOUND,
+            self::VALUE_ERROR_UNIFIED_MESSAGING_PROMPT_NOT_FOUND,
+            self::VALUE_ERROR_UNIFIED_MESSAGING_REQUEST_FAILED,
+            self::VALUE_ERROR_UNIFIED_MESSAGING_SERVER_NOT_FOUND,
+            self::VALUE_ERROR_UNABLE_TO_GET_USER_OOF_SETTINGS,
+            self::VALUE_ERROR_UNABLE_TO_REMOVE_IM_CONTACT_FROM_GROUP,
+            self::VALUE_ERROR_UNSUPPORTED_SUB_FILTER,
+            self::VALUE_ERROR_UNSUPPORTED_CULTURE,
+            self::VALUE_ERROR_UNSUPPORTED_MAPI_PROPERTY_TYPE,
+            self::VALUE_ERROR_UNSUPPORTED_MIME_CONVERSION,
+            self::VALUE_ERROR_UNSUPPORTED_PATH_FOR_QUERY,
+            self::VALUE_ERROR_UNSUPPORTED_PATH_FOR_SORT_GROUP,
+            self::VALUE_ERROR_UNSUPPORTED_PROPERTY_DEFINITION,
+            self::VALUE_ERROR_UNSUPPORTED_QUERY_FILTER,
+            self::VALUE_ERROR_UNSUPPORTED_RECURRENCE,
+            self::VALUE_ERROR_UNSUPPORTED_TYPE_FOR_CONVERSION,
+            self::VALUE_ERROR_UPDATE_DELEGATES_FAILED,
+            self::VALUE_ERROR_USER_NOT_UNIFIED_MESSAGING_ENABLED,
+            self::VALUE_ERROR_VOICE_MAIL_NOT_IMPLEMENTED,
+            self::VALUE_ERROR_VALUE_OUT_OF_RANGE,
+            self::VALUE_ERROR_VIRUS_DETECTED,
+            self::VALUE_ERROR_VIRUS_MESSAGE_DELETED,
+            self::VALUE_ERROR_WEB_REQUEST_IN_INVALID_STATE,
+            self::VALUE_ERROR_WIN_32_INTEROP_ERROR,
+            self::VALUE_ERROR_WORKING_HOURS_SAVE_FAILED,
+            self::VALUE_ERROR_WORKING_HOURS_XML_MALFORMED,
+            self::VALUE_ERROR_WRONG_SERVER_VERSION,
+            self::VALUE_ERROR_WRONG_SERVER_VERSION_DELEGATE,
+            self::VALUE_ERROR_MISSING_INFORMATION_SHARING_FOLDER_ID,
+            self::VALUE_ERROR_DUPLICATE_SOAPHEADER,
+            self::VALUE_ERROR_SHARING_SYNCHRONIZATION_FAILED,
+            self::VALUE_ERROR_SHARING_NO_EXTERNAL_EWS_AVAILABLE,
+            self::VALUE_ERROR_FREE_BUSY_DLLIMIT_REACHED,
+            self::VALUE_ERROR_INVALID_GET_SHARING_FOLDER_REQUEST,
+            self::VALUE_ERROR_NOT_ALLOWED_EXTERNAL_SHARING_BY_POLICY,
+            self::VALUE_ERROR_USER_NOT_ALLOWED_BY_POLICY,
+            self::VALUE_ERROR_PERMISSION_NOT_ALLOWED_BY_POLICY,
+            self::VALUE_ERROR_ORGANIZATION_NOT_FEDERATED,
+            self::VALUE_ERROR_MAILBOX_FAILOVER,
+            self::VALUE_ERROR_INVALID_EXTERNAL_SHARING_INITIATOR,
+            self::VALUE_ERROR_MESSAGE_TRACKING_PERMANENT_ERROR,
+            self::VALUE_ERROR_MESSAGE_TRACKING_TRANSIENT_ERROR,
+            self::VALUE_ERROR_MESSAGE_TRACKING_NO_SUCH_DOMAIN,
+            self::VALUE_ERROR_USER_WITHOUT_FEDERATED_PROXY_ADDRESS,
+            self::VALUE_ERROR_INVALID_ORGANIZATION_RELATIONSHIP_FOR_FREE_BUSY,
+            self::VALUE_ERROR_INVALID_FEDERATED_ORGANIZATION_ID,
+            self::VALUE_ERROR_INVALID_EXTERNAL_SHARING_SUBSCRIBER,
+            self::VALUE_ERROR_INVALID_SHARING_DATA,
+            self::VALUE_ERROR_INVALID_SHARING_MESSAGE,
+            self::VALUE_ERROR_NOT_SUPPORTED_SHARING_MESSAGE,
+            self::VALUE_ERROR_APPLY_CONVERSATION_ACTION_FAILED,
+            self::VALUE_ERROR_INBOX_RULES_VALIDATION_ERROR,
+            self::VALUE_ERROR_OUTLOOK_RULE_BLOB_EXISTS,
+            self::VALUE_ERROR_RULES_OVER_QUOTA,
+            self::VALUE_ERROR_NEW_EVENT_STREAM_CONNECTION_OPENED,
+            self::VALUE_ERROR_MISSED_NOTIFICATION_EVENTS,
+            self::VALUE_ERROR_DUPLICATE_LEGACY_DISTINGUISHED_NAME,
+            self::VALUE_ERROR_INVALID_CLIENT_ACCESS_TOKEN_REQUEST,
+            self::VALUE_ERROR_NO_SPEECH_DETECTED,
+            self::VALUE_ERROR_UMSERVER_UNAVAILABLE,
+            self::VALUE_ERROR_RECIPIENT_NOT_FOUND,
+            self::VALUE_ERROR_RECOGNIZER_NOT_INSTALLED,
+            self::VALUE_ERROR_SPEECH_GRAMMAR_ERROR,
+            self::VALUE_ERROR_INVALID_MANAGEMENT_ROLE_HEADER,
+            self::VALUE_ERROR_LOCATION_SERVICES_DISABLED,
+            self::VALUE_ERROR_LOCATION_SERVICES_REQUEST_TIMED_OUT,
+            self::VALUE_ERROR_LOCATION_SERVICES_REQUEST_FAILED,
+            self::VALUE_ERROR_LOCATION_SERVICES_INVALID_REQUEST,
+            self::VALUE_ERROR_WEATHER_SERVICE_DISABLED,
+            self::VALUE_ERROR_MAILBOX_SCOPE_NOT_ALLOWED_WITHOUT_QUERY_STRING,
+            self::VALUE_ERROR_ARCHIVE_MAILBOX_SEARCH_FAILED,
+            self::VALUE_ERROR_GET_REMOTE_ARCHIVE_FOLDER_FAILED,
+            self::VALUE_ERROR_FIND_REMOTE_ARCHIVE_FOLDER_FAILED,
+            self::VALUE_ERROR_GET_REMOTE_ARCHIVE_ITEM_FAILED,
+            self::VALUE_ERROR_EXPORT_REMOTE_ARCHIVE_ITEMS_FAILED,
+            self::VALUE_ERROR_INVALID_PHOTO_SIZE,
+            self::VALUE_ERROR_SEARCH_QUERY_HAS_TOO_MANY_KEYWORDS,
+            self::VALUE_ERROR_SEARCH_TOO_MANY_MAILBOXES,
+            self::VALUE_ERROR_INVALID_RETENTION_TAG_NONE,
+            self::VALUE_ERROR_DISCOVERY_SEARCHES_DISABLED,
+            self::VALUE_ERROR_CALENDAR_SEEK_TO_CONDITION_NOT_SUPPORTED,
+            self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_ACCEPT,
+            self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_DECLINE,
+            self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_TENTATIVE,
+            self::VALUE_ERROR_CALENDAR_IS_GROUP_MAILBOX_FOR_SUPPRESS_READ_RECEIPT,
+            self::VALUE_ERROR_ORGANIZATION_ACCESS_BLOCKED,
+            self::VALUE_ERROR_INVALID_LICENSE,
+            self::VALUE_ERROR_MESSAGE_PER_FOLDER_COUNT_RECEIVE_QUOTA_EXCEEDED,
+            self::VALUE_ERROR_INVALID_BULK_ACTION_TYPE,
+            self::VALUE_ERROR_INVALID_KEEP_NCOUNT,
+            self::VALUE_ERROR_INVALID_KEEP_NTYPE,
+            self::VALUE_ERROR_NO_OAUTH_SERVER_AVAILABLE_FOR_REQUEST,
+            self::VALUE_ERROR_INSTANT_SEARCH_SESSION_EXPIRED,
+            self::VALUE_ERROR_INSTANT_SEARCH_TIMEOUT,
+            self::VALUE_ERROR_INSTANT_SEARCH_FAILED,
+            self::VALUE_ERROR_UNSUPPORTED_USER_FOR_EXECUTE_SEARCH,
+            self::VALUE_ERROR_MISSING_EXCHANGE_PRINCIPAL,
+            self::VALUE_ERROR_UNEXPECTED_UNIFIED_GROUPS_COUNT,
+            self::VALUE_ERROR_PARSING_XMLRESPONSE,
+            self::VALUE_ERROR_INVALID_FEDERATION_ORGANIZATION_IDENTIFIER,
+            self::VALUE_ERROR_INVALID_SWEEP_RULE,
+            self::VALUE_ERROR_INVALID_SWEEP_RULE_OPERATION_TYPE,
+            self::VALUE_ERROR_TARGET_DOMAIN_NOT_SUPPORTED,
+            self::VALUE_ERROR_INVALID_INTERNET_WEB_PROXY_ON_LOCAL_SERVER,
+            self::VALUE_ERROR_NO_SENDER_RESTRICTIONS_SETTINGS_FOUND_IN_REQUEST,
+            self::VALUE_ERROR_DUPLICATE_SENDER_RESTRICTIONS_INPUT_FOUND,
+            self::VALUE_ERROR_SENDER_RESTRICTIONS_UPDATE_FAILED,
+            self::VALUE_ERROR_MESSAGE_SUBMISSION_BLOCKED,
+            self::VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT,
+            self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_BLOCK,
+            self::VALUE_ERROR_ACCOUNT_SUSPEND,
+            self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT,
+            self::VALUE_ERROR_MESSAGE_BLOCKED,
+            self::VALUE_ERROR_ACCOUNT_SUSPEND_SHOW_TIER_UPGRADE,
+            self::VALUE_ERROR_EXCEEDED_MESSAGE_LIMIT_SHOW_TIER_UPGRADE,
+            self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_SHOW_TIER_UPGRADE,
+            self::VALUE_ERROR_INVALID_LONGITUDE,
+            self::VALUE_ERROR_INVALID_LATITUDE,
         );
     }
     /**

@@ -18,7 +18,6 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * The SearchQueries
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * - documentation: Array of query and mailboxes.
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
     public $SearchQueries;
@@ -40,7 +39,6 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * The SortBy
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:Path
      * @var \Ews\StructType\EwsFieldOrderType
      */
     public $SortBy;
@@ -55,7 +53,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * The Deduplication
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $Deduplication;
     /**
@@ -95,7 +93,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * @param \Ews\StructType\EwsPreviewItemResponseShapeType $previewItemResponseShape
      * @param \Ews\StructType\EwsFieldOrderType $sortBy
      * @param string $language
-     * @param boolean $deduplication
+     * @param bool $deduplication
      * @param int $pageSize
      * @param string $pageItemReference
      * @param string $pageDirection
@@ -143,11 +141,13 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * Set ResultType value
      * @uses \Ews\EnumType\EwsSearchResultType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchResultType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $resultType
      * @return \Ews\StructType\EwsSearchMailboxesType
      */
     public function setResultType($resultType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultType::valueIsValid($resultType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
         }
@@ -205,12 +205,16 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      */
     public function setLanguage($language = null)
     {
+        // validation for constraint: string
+        if (!is_null($language) && !is_string($language)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+        }
         $this->Language = $language;
         return $this;
     }
     /**
      * Get Deduplication value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getDeduplication()
     {
@@ -218,7 +222,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     }
     /**
      * Set Deduplication value
-     * @param boolean $deduplication
+     * @param bool $deduplication
      * @return \Ews\StructType\EwsSearchMailboxesType
      */
     public function setDeduplication($deduplication = null)
@@ -241,6 +245,10 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      */
     public function setPageSize($pageSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($pageSize) && !is_int($pageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageSize)), __LINE__);
+        }
         $this->PageSize = $pageSize;
         return $this;
     }
@@ -259,6 +267,10 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      */
     public function setPageItemReference($pageItemReference = null)
     {
+        // validation for constraint: string
+        if (!is_null($pageItemReference) && !is_string($pageItemReference)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pageItemReference)), __LINE__);
+        }
         $this->PageItemReference = $pageItemReference;
         return $this;
     }
@@ -274,11 +286,13 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      * Set PageDirection value
      * @uses \Ews\EnumType\EwsSearchPageDirectionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchPageDirectionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $pageDirection
      * @return \Ews\StructType\EwsSearchMailboxesType
      */
     public function setPageDirection($pageDirection = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $pageDirection, implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
         }

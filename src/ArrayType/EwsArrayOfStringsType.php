@@ -17,13 +17,13 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var string[]
      */
     public $String;
     /**
      * Constructor method for ArrayOfStringsType
      * @uses EwsArrayOfStringsType::setString()
-     * @param array $string
+     * @param string[] $string
      */
     public function __construct(array $string = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
     }
     /**
      * Get String value
-     * @return array
+     * @return string[]|null
      */
     public function getString()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
     }
     /**
      * Set String value
-     * @param array $string
+     * @throws \InvalidArgumentException
+     * @param string[] $string
      * @return \Ews\ArrayType\EwsArrayOfStringsType
      */
     public function setString(array $string = array())
     {
+        foreach ($string as $arrayOfStringsTypeStringItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfStringsTypeStringItem)) {
+                throw new \InvalidArgumentException(sprintf('The String property can only contain items of string, "%s" given', is_object($arrayOfStringsTypeStringItem) ? get_class($arrayOfStringsTypeStringItem) : gettype($arrayOfStringsTypeStringItem)), __LINE__);
+            }
+        }
         $this->String = $string;
+        return $this;
+    }
+    /**
+     * Add item to String value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfStringsType
+     */
+    public function addToString($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The String property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->String[] = $item;
         return $this;
     }
     /**

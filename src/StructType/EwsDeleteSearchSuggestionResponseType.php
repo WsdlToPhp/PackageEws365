@@ -17,7 +17,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $Success;
     /**
@@ -41,7 +41,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      * @uses EwsDeleteSearchSuggestionResponseType::setSuccess()
      * @uses EwsDeleteSearchSuggestionResponseType::setStatusMessage()
      * @uses EwsDeleteSearchSuggestionResponseType::setDiagnosticsData()
-     * @param boolean $success
+     * @param bool $success
      * @param string $statusMessage
      * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
      */
@@ -54,7 +54,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     }
     /**
      * Get Success value
-     * @return boolean
+     * @return bool
      */
     public function getSuccess()
     {
@@ -62,7 +62,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     }
     /**
      * Set Success value
-     * @param boolean $success
+     * @param bool $success
      * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType
      */
     public function setSuccess($success = null)
@@ -85,6 +85,10 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      */
     public function setStatusMessage($statusMessage = null)
     {
+        // validation for constraint: string
+        if (!is_null($statusMessage) && !is_string($statusMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($statusMessage)), __LINE__);
+        }
         $this->StatusMessage = $statusMessage;
         return $this;
     }

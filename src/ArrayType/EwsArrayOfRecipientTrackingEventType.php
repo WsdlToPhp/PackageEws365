@@ -14,22 +14,22 @@ class EwsArrayOfRecipientTrackingEventType extends AbstractStructArrayBase
 {
     /**
      * The RecipientTrackingEvent
-     * @var array
+     * @var \Ews\StructType\EwsRecipientTrackingEventType
      */
     public $RecipientTrackingEvent;
     /**
      * Constructor method for ArrayOfRecipientTrackingEventType
      * @uses EwsArrayOfRecipientTrackingEventType::setRecipientTrackingEvent()
-     * @param array $recipientTrackingEvent
+     * @param \Ews\StructType\EwsRecipientTrackingEventType $recipientTrackingEvent
      */
-    public function __construct(array $recipientTrackingEvent = array())
+    public function __construct(\Ews\StructType\EwsRecipientTrackingEventType $recipientTrackingEvent = null)
     {
         $this
             ->setRecipientTrackingEvent($recipientTrackingEvent);
     }
     /**
      * Get RecipientTrackingEvent value
-     * @return array
+     * @return \Ews\StructType\EwsRecipientTrackingEventType|null
      */
     public function getRecipientTrackingEvent()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfRecipientTrackingEventType extends AbstractStructArrayBase
     }
     /**
      * Set RecipientTrackingEvent value
-     * @param array $recipientTrackingEvent
+     * @param \Ews\StructType\EwsRecipientTrackingEventType $recipientTrackingEvent
      * @return \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType
      */
-    public function setRecipientTrackingEvent(array $recipientTrackingEvent = array())
+    public function setRecipientTrackingEvent(\Ews\StructType\EwsRecipientTrackingEventType $recipientTrackingEvent = null)
     {
         $this->RecipientTrackingEvent = $recipientTrackingEvent;
         return $this;

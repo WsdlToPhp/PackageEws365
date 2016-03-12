@@ -17,13 +17,13 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsXrmOrganizationItemType[]
      */
     public $XrmOrganization;
     /**
      * Constructor method for ArrayOfXrmOrganizationItemType
      * @uses EwsArrayOfXrmOrganizationItemType::setXrmOrganization()
-     * @param array $xrmOrganization
+     * @param \Ews\StructType\EwsXrmOrganizationItemType[] $xrmOrganization
      */
     public function __construct(array $xrmOrganization = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
     }
     /**
      * Get XrmOrganization value
-     * @return array
+     * @return \Ews\StructType\EwsXrmOrganizationItemType[]|null
      */
     public function getXrmOrganization()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
     }
     /**
      * Set XrmOrganization value
-     * @param array $xrmOrganization
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmOrganizationItemType[] $xrmOrganization
      * @return \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType
      */
     public function setXrmOrganization(array $xrmOrganization = array())
     {
+        foreach ($xrmOrganization as $arrayOfXrmOrganizationItemTypeXrmOrganizationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmOrganizationItemTypeXrmOrganizationItem instanceof \Ews\StructType\EwsXrmOrganizationItemType) {
+                throw new \InvalidArgumentException(sprintf('The XrmOrganization property can only contain items of \Ews\StructType\EwsXrmOrganizationItemType, "%s" given', is_object($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) ? get_class($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) : gettype($arrayOfXrmOrganizationItemTypeXrmOrganizationItem)), __LINE__);
+            }
+        }
         $this->XrmOrganization = $xrmOrganization;
+        return $this;
+    }
+    /**
+     * Add item to XrmOrganization value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmOrganizationItemType $item
+     * @return \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType
+     */
+    public function addToXrmOrganization(\Ews\StructType\EwsXrmOrganizationItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsXrmOrganizationItemType) {
+            throw new \InvalidArgumentException(sprintf('The XrmOrganization property can only contain items of \Ews\StructType\EwsXrmOrganizationItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->XrmOrganization[] = $item;
         return $this;
     }
     /**

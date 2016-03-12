@@ -56,6 +56,10 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
      */
     public function setRefinerQuery($refinerQuery = null)
     {
+        // validation for constraint: string
+        if (!is_null($refinerQuery) && !is_string($refinerQuery)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refinerQuery)), __LINE__);
+        }
         $this->RefinerQuery = $refinerQuery;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
      */
     public function setTDRefinerId($tDRefinerId = null)
     {
+        // validation for constraint: int
+        if (!is_null($tDRefinerId) && !is_int($tDRefinerId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDRefinerId)), __LINE__);
+        }
         $this->TDRefinerId = $tDRefinerId;
         return $this;
     }

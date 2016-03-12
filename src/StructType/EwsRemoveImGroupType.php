@@ -14,8 +14,6 @@ class EwsRemoveImGroupType extends EwsBaseRequestType
 {
     /**
      * The GroupId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $GroupId;

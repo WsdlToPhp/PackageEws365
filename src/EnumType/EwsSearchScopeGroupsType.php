@@ -14,7 +14,7 @@ class EwsSearchScopeGroupsType
      * Constant for value 'MyGroups'
      * @return string 'MyGroups'
      */
-    const VALUE_MYGROUPS = 'MyGroups';
+    const VALUE_MY_GROUPS = 'MyGroups';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -27,13 +27,13 @@ class EwsSearchScopeGroupsType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_MYGROUPS
+     * @uses self::VALUE_MY_GROUPS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_MYGROUPS,
+            self::VALUE_MY_GROUPS,
         );
     }
     /**

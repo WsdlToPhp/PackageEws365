@@ -19,17 +19,17 @@ class EwsUnifiedGroupsSortType
      * Constant for value 'DisplayName'
      * @return string 'DisplayName'
      */
-    const VALUE_DISPLAYNAME = 'DisplayName';
+    const VALUE_DISPLAY_NAME = 'DisplayName';
     /**
      * Constant for value 'JoinDate'
      * @return string 'JoinDate'
      */
-    const VALUE_JOINDATE = 'JoinDate';
+    const VALUE_JOIN_DATE = 'JoinDate';
     /**
      * Constant for value 'FavoriteDate'
      * @return string 'FavoriteDate'
      */
-    const VALUE_FAVORITEDATE = 'FavoriteDate';
+    const VALUE_FAVORITE_DATE = 'FavoriteDate';
     /**
      * Constant for value 'Relevance'
      * @return string 'Relevance'
@@ -48,9 +48,9 @@ class EwsUnifiedGroupsSortType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_DISPLAYNAME
-     * @uses self::VALUE_JOINDATE
-     * @uses self::VALUE_FAVORITEDATE
+     * @uses self::VALUE_DISPLAY_NAME
+     * @uses self::VALUE_JOIN_DATE
+     * @uses self::VALUE_FAVORITE_DATE
      * @uses self::VALUE_RELEVANCE
      * @return string[]
      */
@@ -58,9 +58,9 @@ class EwsUnifiedGroupsSortType
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_DISPLAYNAME,
-            self::VALUE_JOINDATE,
-            self::VALUE_FAVORITEDATE,
+            self::VALUE_DISPLAY_NAME,
+            self::VALUE_JOIN_DATE,
+            self::VALUE_FAVORITE_DATE,
             self::VALUE_RELEVANCE,
         );
     }

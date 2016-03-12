@@ -46,6 +46,10 @@ class EwsGetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setHoldId($holdId = null)
     {
+        // validation for constraint: string
+        if (!is_null($holdId) && !is_string($holdId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdId)), __LINE__);
+        }
         $this->HoldId = $holdId;
         return $this;
     }

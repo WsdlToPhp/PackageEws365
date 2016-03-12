@@ -44,6 +44,10 @@ class EwsUrlEntityType extends EwsEntityType
      */
     public function setUrl($url = null)
     {
+        // validation for constraint: string
+        if (!is_null($url) && !is_string($url)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($url)), __LINE__);
+        }
         $this->Url = $url;
         return $this;
     }

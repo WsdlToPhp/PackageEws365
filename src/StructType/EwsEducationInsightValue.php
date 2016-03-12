@@ -33,7 +33,7 @@ class EwsEducationInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $StartUtcTicks;
     /**
@@ -41,7 +41,7 @@ class EwsEducationInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $EndUtcTicks;
     /**
@@ -52,8 +52,8 @@ class EwsEducationInsightValue extends EwsInsightValue
      * @uses EwsEducationInsightValue::setEndUtcTicks()
      * @param string $institute
      * @param string $degree
-     * @param long $startUtcTicks
-     * @param long $endUtcTicks
+     * @param int $startUtcTicks
+     * @param int $endUtcTicks
      */
     public function __construct($institute = null, $degree = null, $startUtcTicks = null, $endUtcTicks = null)
     {
@@ -78,6 +78,10 @@ class EwsEducationInsightValue extends EwsInsightValue
      */
     public function setInstitute($institute = null)
     {
+        // validation for constraint: string
+        if (!is_null($institute) && !is_string($institute)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($institute)), __LINE__);
+        }
         $this->Institute = $institute;
         return $this;
     }
@@ -96,12 +100,16 @@ class EwsEducationInsightValue extends EwsInsightValue
      */
     public function setDegree($degree = null)
     {
+        // validation for constraint: string
+        if (!is_null($degree) && !is_string($degree)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($degree)), __LINE__);
+        }
         $this->Degree = $degree;
         return $this;
     }
     /**
      * Get StartUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getStartUtcTicks()
     {
@@ -109,17 +117,21 @@ class EwsEducationInsightValue extends EwsInsightValue
     }
     /**
      * Set StartUtcTicks value
-     * @param long $startUtcTicks
+     * @param int $startUtcTicks
      * @return \Ews\StructType\EwsEducationInsightValue
      */
     public function setStartUtcTicks($startUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($startUtcTicks) && !is_int($startUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($startUtcTicks)), __LINE__);
+        }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
     }
     /**
      * Get EndUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getEndUtcTicks()
     {
@@ -127,11 +139,15 @@ class EwsEducationInsightValue extends EwsInsightValue
     }
     /**
      * Set EndUtcTicks value
-     * @param long $endUtcTicks
+     * @param int $endUtcTicks
      * @return \Ews\StructType\EwsEducationInsightValue
      */
     public function setEndUtcTicks($endUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($endUtcTicks) && !is_int($endUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($endUtcTicks)), __LINE__);
+        }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
     }

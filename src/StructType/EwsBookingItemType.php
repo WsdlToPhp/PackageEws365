@@ -86,6 +86,14 @@ class EwsBookingItemType extends EwsCalendarItemType
      */
     public function setServiceId($serviceId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($serviceId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $serviceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($serviceId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($serviceId) && !is_string($serviceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceId)), __LINE__);
+        }
         $this->ServiceId = $serviceId;
         return $this;
     }
@@ -122,6 +130,10 @@ class EwsBookingItemType extends EwsCalendarItemType
      */
     public function setCustomerName($customerName = null)
     {
+        // validation for constraint: string
+        if (!is_null($customerName) && !is_string($customerName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($customerName)), __LINE__);
+        }
         $this->CustomerName = $customerName;
         return $this;
     }
@@ -140,6 +152,10 @@ class EwsBookingItemType extends EwsCalendarItemType
      */
     public function setCustomerEmail($customerEmail = null)
     {
+        // validation for constraint: string
+        if (!is_null($customerEmail) && !is_string($customerEmail)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($customerEmail)), __LINE__);
+        }
         $this->CustomerEmail = $customerEmail;
         return $this;
     }
@@ -158,6 +174,10 @@ class EwsBookingItemType extends EwsCalendarItemType
      */
     public function setCustomerPhone($customerPhone = null)
     {
+        // validation for constraint: string
+        if (!is_null($customerPhone) && !is_string($customerPhone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($customerPhone)), __LINE__);
+        }
         $this->CustomerPhone = $customerPhone;
         return $this;
     }

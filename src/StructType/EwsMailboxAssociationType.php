@@ -33,7 +33,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMember;
     /**
@@ -41,7 +41,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $JoinDate;
     /**
@@ -49,7 +49,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsPin;
     /**
@@ -65,7 +65,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastVisitedDate;
     /**
@@ -79,11 +79,11 @@ class EwsMailboxAssociationType extends AbstractStructBase
      * @uses EwsMailboxAssociationType::setLastVisitedDate()
      * @param \Ews\StructType\EwsGroupLocatorType $group
      * @param \Ews\StructType\EwsUserLocatorType $user
-     * @param boolean $isMember
-     * @param dateTime $joinDate
-     * @param boolean $isPin
+     * @param bool $isMember
+     * @param string $joinDate
+     * @param bool $isPin
      * @param string $joinedBy
-     * @param dateTime $lastVisitedDate
+     * @param string $lastVisitedDate
      */
     public function __construct(\Ews\StructType\EwsGroupLocatorType $group = null, \Ews\StructType\EwsUserLocatorType $user = null, $isMember = null, $joinDate = null, $isPin = null, $joinedBy = null, $lastVisitedDate = null)
     {
@@ -134,7 +134,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Get IsMember value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMember()
     {
@@ -142,7 +142,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Set IsMember value
-     * @param boolean $isMember
+     * @param bool $isMember
      * @return \Ews\StructType\EwsMailboxAssociationType
      */
     public function setIsMember($isMember = null)
@@ -152,7 +152,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Get JoinDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getJoinDate()
     {
@@ -160,17 +160,21 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Set JoinDate value
-     * @param dateTime $joinDate
+     * @param string $joinDate
      * @return \Ews\StructType\EwsMailboxAssociationType
      */
     public function setJoinDate($joinDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($joinDate) && !is_string($joinDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinDate)), __LINE__);
+        }
         $this->JoinDate = $joinDate;
         return $this;
     }
     /**
      * Get IsPin value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsPin()
     {
@@ -178,7 +182,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Set IsPin value
-     * @param boolean $isPin
+     * @param bool $isPin
      * @return \Ews\StructType\EwsMailboxAssociationType
      */
     public function setIsPin($isPin = null)
@@ -201,12 +205,16 @@ class EwsMailboxAssociationType extends AbstractStructBase
      */
     public function setJoinedBy($joinedBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($joinedBy) && !is_string($joinedBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinedBy)), __LINE__);
+        }
         $this->JoinedBy = $joinedBy;
         return $this;
     }
     /**
      * Get LastVisitedDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastVisitedDate()
     {
@@ -214,11 +222,15 @@ class EwsMailboxAssociationType extends AbstractStructBase
     }
     /**
      * Set LastVisitedDate value
-     * @param dateTime $lastVisitedDate
+     * @param string $lastVisitedDate
      * @return \Ews\StructType\EwsMailboxAssociationType
      */
     public function setLastVisitedDate($lastVisitedDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastVisitedDate) && !is_string($lastVisitedDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedDate)), __LINE__);
+        }
         $this->LastVisitedDate = $lastVisitedDate;
         return $this;
     }

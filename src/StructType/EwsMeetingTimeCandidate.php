@@ -19,7 +19,7 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     public $MeetingTimeslot;
     /**
      * The Confidence
-     * @var double
+     * @var float
      */
     public $Confidence;
     /**
@@ -51,7 +51,7 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
      * @uses EwsMeetingTimeCandidate::setAttendeeAvailabilities()
      * @uses EwsMeetingTimeCandidate::setLocations()
      * @param \Ews\StructType\EwsTimeSlot $meetingTimeslot
-     * @param double $confidence
+     * @param float $confidence
      * @param int $score
      * @param string $organizerAvailability
      * @param \Ews\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities
@@ -87,7 +87,7 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     }
     /**
      * Get Confidence value
-     * @return double|null
+     * @return float|null
      */
     public function getConfidence()
     {
@@ -95,7 +95,7 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     }
     /**
      * Set Confidence value
-     * @param double $confidence
+     * @param float $confidence
      * @return \Ews\StructType\EwsMeetingTimeCandidate
      */
     public function setConfidence($confidence = null)
@@ -118,6 +118,10 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
      */
     public function setScore($score = null)
     {
+        // validation for constraint: int
+        if (!is_null($score) && !is_int($score)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($score)), __LINE__);
+        }
         $this->Score = $score;
         return $this;
     }
@@ -133,11 +137,13 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
      * Set OrganizerAvailability value
      * @uses \Ews\EnumType\EwsAvailabilityStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsAvailabilityStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $organizerAvailability
      * @return \Ews\StructType\EwsMeetingTimeCandidate
      */
     public function setOrganizerAvailability($organizerAvailability = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAvailabilityStatusType::valueIsValid($organizerAvailability)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $organizerAvailability, implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
         }

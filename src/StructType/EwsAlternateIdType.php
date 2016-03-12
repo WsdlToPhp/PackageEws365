@@ -33,7 +33,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * The IsArchive
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsArchive;
     /**
@@ -43,7 +43,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * @uses EwsAlternateIdType::setIsArchive()
      * @param string $id
      * @param string $mailbox
-     * @param boolean $isArchive
+     * @param bool $isArchive
      */
     public function __construct($id = null, $mailbox = null, $isArchive = null)
     {
@@ -67,6 +67,10 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -85,12 +89,20 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      */
     public function setMailbox($mailbox = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(mailbox) && strlen(mailbox) < 1) || (is_array(mailbox) && count(mailbox) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($mailbox) && !is_string($mailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+        }
         $this->Mailbox = $mailbox;
         return $this;
     }
     /**
      * Get IsArchive value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsArchive()
     {
@@ -98,7 +110,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
     }
     /**
      * Set IsArchive value
-     * @param boolean $isArchive
+     * @param bool $isArchive
      * @return \Ews\StructType\EwsAlternateIdType
      */
     public function setIsArchive($isArchive = null)

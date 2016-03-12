@@ -16,14 +16,13 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
      * The FieldOrder
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * - ref: t:Path
-     * @var array
+     * @var \Ews\StructType\EwsFieldOrderType[]
      */
     public $FieldOrder;
     /**
      * Constructor method for NonEmptyArrayOfFieldOrdersType
      * @uses EwsNonEmptyArrayOfFieldOrdersType::setFieldOrder()
-     * @param array $fieldOrder
+     * @param \Ews\StructType\EwsFieldOrderType[] $fieldOrder
      */
     public function __construct(array $fieldOrder = array())
     {
@@ -32,7 +31,7 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
     }
     /**
      * Get FieldOrder value
-     * @return array
+     * @return \Ews\StructType\EwsFieldOrderType[]|null
      */
     public function getFieldOrder()
     {
@@ -40,12 +39,34 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
     }
     /**
      * Set FieldOrder value
-     * @param array $fieldOrder
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFieldOrderType[] $fieldOrder
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
      */
     public function setFieldOrder(array $fieldOrder = array())
     {
+        foreach ($fieldOrder as $nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfFieldOrdersTypeFieldOrderItem instanceof \Ews\StructType\EwsFieldOrderType) {
+                throw new \InvalidArgumentException(sprintf('The FieldOrder property can only contain items of \Ews\StructType\EwsFieldOrderType, "%s" given', is_object($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) ? get_class($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) : gettype($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem)), __LINE__);
+            }
+        }
         $this->FieldOrder = $fieldOrder;
+        return $this;
+    }
+    /**
+     * Add item to FieldOrder value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFieldOrderType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
+     */
+    public function addToFieldOrder(\Ews\StructType\EwsFieldOrderType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFieldOrderType) {
+            throw new \InvalidArgumentException(sprintf('The FieldOrder property can only contain items of \Ews\StructType\EwsFieldOrderType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FieldOrder[] = $item;
         return $this;
     }
     /**

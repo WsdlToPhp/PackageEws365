@@ -20,14 +20,13 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: false
-     * - documentation: Extended attributes of a target mailbox.
-     * @var array
+     * @var \Ews\StructType\EwsExtendedAttributeType[]
      */
     public $ExtendedAttribute;
     /**
      * Constructor method for ArrayOfExtendedAttributesType
      * @uses EwsArrayOfExtendedAttributesType::setExtendedAttribute()
-     * @param array $extendedAttribute
+     * @param \Ews\StructType\EwsExtendedAttributeType[] $extendedAttribute
      */
     public function __construct(array $extendedAttribute = array())
     {
@@ -36,7 +35,7 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
     }
     /**
      * Get ExtendedAttribute value
-     * @return array
+     * @return \Ews\StructType\EwsExtendedAttributeType[]|null
      */
     public function getExtendedAttribute()
     {
@@ -44,12 +43,34 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
     }
     /**
      * Set ExtendedAttribute value
-     * @param array $extendedAttribute
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedAttributeType[] $extendedAttribute
      * @return \Ews\ArrayType\EwsArrayOfExtendedAttributesType
      */
     public function setExtendedAttribute(array $extendedAttribute = array())
     {
+        foreach ($extendedAttribute as $arrayOfExtendedAttributesTypeExtendedAttributeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfExtendedAttributesTypeExtendedAttributeItem instanceof \Ews\StructType\EwsExtendedAttributeType) {
+                throw new \InvalidArgumentException(sprintf('The ExtendedAttribute property can only contain items of \Ews\StructType\EwsExtendedAttributeType, "%s" given', is_object($arrayOfExtendedAttributesTypeExtendedAttributeItem) ? get_class($arrayOfExtendedAttributesTypeExtendedAttributeItem) : gettype($arrayOfExtendedAttributesTypeExtendedAttributeItem)), __LINE__);
+            }
+        }
         $this->ExtendedAttribute = $extendedAttribute;
+        return $this;
+    }
+    /**
+     * Add item to ExtendedAttribute value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedAttributeType $item
+     * @return \Ews\ArrayType\EwsArrayOfExtendedAttributesType
+     */
+    public function addToExtendedAttribute(\Ews\StructType\EwsExtendedAttributeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsExtendedAttributeType) {
+            throw new \InvalidArgumentException(sprintf('The ExtendedAttribute property can only contain items of \Ews\StructType\EwsExtendedAttributeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ExtendedAttribute[] = $item;
         return $this;
     }
     /**

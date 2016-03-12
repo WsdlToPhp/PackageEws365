@@ -17,7 +17,6 @@ class EwsFindInsightsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;

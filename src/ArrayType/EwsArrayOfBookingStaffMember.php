@@ -17,13 +17,13 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsBookingStaffMemberType[]
      */
     public $StaffMember;
     /**
      * Constructor method for ArrayOfBookingStaffMember
      * @uses EwsArrayOfBookingStaffMember::setStaffMember()
-     * @param array $staffMember
+     * @param \Ews\StructType\EwsBookingStaffMemberType[] $staffMember
      */
     public function __construct(array $staffMember = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
     }
     /**
      * Get StaffMember value
-     * @return array
+     * @return \Ews\StructType\EwsBookingStaffMemberType[]|null
      */
     public function getStaffMember()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
     }
     /**
      * Set StaffMember value
-     * @param array $staffMember
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingStaffMemberType[] $staffMember
      * @return \Ews\ArrayType\EwsArrayOfBookingStaffMember
      */
     public function setStaffMember(array $staffMember = array())
     {
+        foreach ($staffMember as $arrayOfBookingStaffMemberStaffMemberItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBookingStaffMemberStaffMemberItem instanceof \Ews\StructType\EwsBookingStaffMemberType) {
+                throw new \InvalidArgumentException(sprintf('The StaffMember property can only contain items of \Ews\StructType\EwsBookingStaffMemberType, "%s" given', is_object($arrayOfBookingStaffMemberStaffMemberItem) ? get_class($arrayOfBookingStaffMemberStaffMemberItem) : gettype($arrayOfBookingStaffMemberStaffMemberItem)), __LINE__);
+            }
+        }
         $this->StaffMember = $staffMember;
+        return $this;
+    }
+    /**
+     * Add item to StaffMember value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingStaffMemberType $item
+     * @return \Ews\ArrayType\EwsArrayOfBookingStaffMember
+     */
+    public function addToStaffMember(\Ews\StructType\EwsBookingStaffMemberType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsBookingStaffMemberType) {
+            throw new \InvalidArgumentException(sprintf('The StaffMember property can only contain items of \Ews\StructType\EwsBookingStaffMemberType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->StaffMember[] = $item;
         return $this;
     }
     /**

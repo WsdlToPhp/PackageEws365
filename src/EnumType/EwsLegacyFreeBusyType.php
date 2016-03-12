@@ -34,12 +34,12 @@ class EwsLegacyFreeBusyType
      * Constant for value 'WorkingElsewhere'
      * @return string 'WorkingElsewhere'
      */
-    const VALUE_WORKINGELSEWHERE = 'WorkingElsewhere';
+    const VALUE_WORKING_ELSEWHERE = 'WorkingElsewhere';
     /**
      * Constant for value 'NoData'
      * @return string 'NoData'
      */
-    const VALUE_NODATA = 'NoData';
+    const VALUE_NO_DATA = 'NoData';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -56,8 +56,8 @@ class EwsLegacyFreeBusyType
      * @uses self::VALUE_TENTATIVE
      * @uses self::VALUE_BUSY
      * @uses self::VALUE_OOF
-     * @uses self::VALUE_WORKINGELSEWHERE
-     * @uses self::VALUE_NODATA
+     * @uses self::VALUE_WORKING_ELSEWHERE
+     * @uses self::VALUE_NO_DATA
      * @return string[]
      */
     public static function getValidValues()
@@ -67,8 +67,8 @@ class EwsLegacyFreeBusyType
             self::VALUE_TENTATIVE,
             self::VALUE_BUSY,
             self::VALUE_OOF,
-            self::VALUE_WORKINGELSEWHERE,
-            self::VALUE_NODATA,
+            self::VALUE_WORKING_ELSEWHERE,
+            self::VALUE_NO_DATA,
         );
     }
     /**

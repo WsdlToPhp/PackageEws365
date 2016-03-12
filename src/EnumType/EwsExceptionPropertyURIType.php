@@ -19,7 +19,7 @@ class EwsExceptionPropertyURIType
      * Constant for value 'attachment:ContentType'
      * @return string 'attachment:ContentType'
      */
-    const VALUE_ATTACHMENT_CONTENTTYPE = 'attachment:ContentType';
+    const VALUE_ATTACHMENT_CONTENT_TYPE = 'attachment:ContentType';
     /**
      * Constant for value 'attachment:Content'
      * @return string 'attachment:Content'
@@ -34,17 +34,17 @@ class EwsExceptionPropertyURIType
      * Constant for value 'recurrence:DayOfWeekIndex'
      * @return string 'recurrence:DayOfWeekIndex'
      */
-    const VALUE_RECURRENCE_DAYOFWEEKINDEX = 'recurrence:DayOfWeekIndex';
+    const VALUE_RECURRENCE_DAY_OF_WEEK_INDEX = 'recurrence:DayOfWeekIndex';
     /**
      * Constant for value 'recurrence:DaysOfWeek'
      * @return string 'recurrence:DaysOfWeek'
      */
-    const VALUE_RECURRENCE_DAYSOFWEEK = 'recurrence:DaysOfWeek';
+    const VALUE_RECURRENCE_DAYS_OF_WEEK = 'recurrence:DaysOfWeek';
     /**
      * Constant for value 'recurrence:DayOfMonth'
      * @return string 'recurrence:DayOfMonth'
      */
-    const VALUE_RECURRENCE_DAYOFMONTH = 'recurrence:DayOfMonth';
+    const VALUE_RECURRENCE_DAY_OF_MONTH = 'recurrence:DayOfMonth';
     /**
      * Constant for value 'recurrence:Interval'
      * @return string 'recurrence:Interval'
@@ -54,7 +54,7 @@ class EwsExceptionPropertyURIType
      * Constant for value 'recurrence:NumberOfOccurrences'
      * @return string 'recurrence:NumberOfOccurrences'
      */
-    const VALUE_RECURRENCE_NUMBEROFOCCURRENCES = 'recurrence:NumberOfOccurrences';
+    const VALUE_RECURRENCE_NUMBER_OF_OCCURRENCES = 'recurrence:NumberOfOccurrences';
     /**
      * Constant for value 'timezone:Offset'
      * @return string 'timezone:Offset'
@@ -73,14 +73,14 @@ class EwsExceptionPropertyURIType
     /**
      * Return allowed values
      * @uses self::VALUE_ATTACHMENT_NAME
-     * @uses self::VALUE_ATTACHMENT_CONTENTTYPE
+     * @uses self::VALUE_ATTACHMENT_CONTENT_TYPE
      * @uses self::VALUE_ATTACHMENT_CONTENT
      * @uses self::VALUE_RECURRENCE_MONTH
-     * @uses self::VALUE_RECURRENCE_DAYOFWEEKINDEX
-     * @uses self::VALUE_RECURRENCE_DAYSOFWEEK
-     * @uses self::VALUE_RECURRENCE_DAYOFMONTH
+     * @uses self::VALUE_RECURRENCE_DAY_OF_WEEK_INDEX
+     * @uses self::VALUE_RECURRENCE_DAYS_OF_WEEK
+     * @uses self::VALUE_RECURRENCE_DAY_OF_MONTH
      * @uses self::VALUE_RECURRENCE_INTERVAL
-     * @uses self::VALUE_RECURRENCE_NUMBEROFOCCURRENCES
+     * @uses self::VALUE_RECURRENCE_NUMBER_OF_OCCURRENCES
      * @uses self::VALUE_TIMEZONE_OFFSET
      * @return string[]
      */
@@ -88,14 +88,14 @@ class EwsExceptionPropertyURIType
     {
         return array(
             self::VALUE_ATTACHMENT_NAME,
-            self::VALUE_ATTACHMENT_CONTENTTYPE,
+            self::VALUE_ATTACHMENT_CONTENT_TYPE,
             self::VALUE_ATTACHMENT_CONTENT,
             self::VALUE_RECURRENCE_MONTH,
-            self::VALUE_RECURRENCE_DAYOFWEEKINDEX,
-            self::VALUE_RECURRENCE_DAYSOFWEEK,
-            self::VALUE_RECURRENCE_DAYOFMONTH,
+            self::VALUE_RECURRENCE_DAY_OF_WEEK_INDEX,
+            self::VALUE_RECURRENCE_DAYS_OF_WEEK,
+            self::VALUE_RECURRENCE_DAY_OF_MONTH,
             self::VALUE_RECURRENCE_INTERVAL,
-            self::VALUE_RECURRENCE_NUMBEROFOCCURRENCES,
+            self::VALUE_RECURRENCE_NUMBER_OF_OCCURRENCES,
             self::VALUE_TIMEZONE_OFFSET,
         );
     }

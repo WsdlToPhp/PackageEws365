@@ -43,7 +43,7 @@ class EwsInboxReminderType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOrganizerReminder;
     /**
@@ -73,7 +73,7 @@ class EwsInboxReminderType extends AbstractStructBase
      * @param string $id
      * @param int $reminderOffset
      * @param string $message
-     * @param boolean $isOrganizerReminder
+     * @param bool $isOrganizerReminder
      * @param string $occurrenceChange
      * @param string $sendOption
      */
@@ -102,6 +102,14 @@ class EwsInboxReminderType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($id)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -120,6 +128,10 @@ class EwsInboxReminderType extends AbstractStructBase
      */
     public function setReminderOffset($reminderOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($reminderOffset) && !is_int($reminderOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($reminderOffset)), __LINE__);
+        }
         $this->ReminderOffset = $reminderOffset;
         return $this;
     }
@@ -138,12 +150,16 @@ class EwsInboxReminderType extends AbstractStructBase
      */
     public function setMessage($message = null)
     {
+        // validation for constraint: string
+        if (!is_null($message) && !is_string($message)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($message)), __LINE__);
+        }
         $this->Message = $message;
         return $this;
     }
     /**
      * Get IsOrganizerReminder value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOrganizerReminder()
     {
@@ -151,7 +167,7 @@ class EwsInboxReminderType extends AbstractStructBase
     }
     /**
      * Set IsOrganizerReminder value
-     * @param boolean $isOrganizerReminder
+     * @param bool $isOrganizerReminder
      * @return \Ews\StructType\EwsInboxReminderType
      */
     public function setIsOrganizerReminder($isOrganizerReminder = null)
@@ -171,11 +187,13 @@ class EwsInboxReminderType extends AbstractStructBase
      * Set OccurrenceChange value
      * @uses \Ews\EnumType\EwsEmailReminderChangeType::valueIsValid()
      * @uses \Ews\EnumType\EwsEmailReminderChangeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $occurrenceChange
      * @return \Ews\StructType\EwsInboxReminderType
      */
     public function setOccurrenceChange($occurrenceChange = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEmailReminderChangeType::valueIsValid($occurrenceChange)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $occurrenceChange, implode(', ', \Ews\EnumType\EwsEmailReminderChangeType::getValidValues())), __LINE__);
         }
@@ -194,11 +212,13 @@ class EwsInboxReminderType extends AbstractStructBase
      * Set SendOption value
      * @uses \Ews\EnumType\EwsEmailReminderSendOption::valueIsValid()
      * @uses \Ews\EnumType\EwsEmailReminderSendOption::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sendOption
      * @return \Ews\StructType\EwsInboxReminderType
      */
     public function setSendOption($sendOption = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEmailReminderSendOption::valueIsValid($sendOption)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendOption, implode(', ', \Ews\EnumType\EwsEmailReminderSendOption::getValidValues())), __LINE__);
         }

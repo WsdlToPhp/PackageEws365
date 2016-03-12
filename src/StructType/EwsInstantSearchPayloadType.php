@@ -25,7 +25,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $SearchRequestId;
     /**
@@ -33,7 +33,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $ResultType;
     /**
@@ -69,8 +69,8 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * @uses EwsInstantSearchPayloadType::setConversations()
      * @uses EwsInstantSearchPayloadType::setCalendarItems()
      * @param string $searchSessionId
-     * @param long $searchRequestId
-     * @param string[] $resultType
+     * @param int $searchRequestId
+     * @param string $resultType
      * @param \Ews\ArrayType\EwsArrayOfItemsType $items
      * @param \Ews\ArrayType\EwsArrayOfConversationsType $conversations
      * @param \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems
@@ -100,12 +100,16 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
     /**
      * Get SearchRequestId value
-     * @return long
+     * @return int
      */
     public function getSearchRequestId()
     {
@@ -113,17 +117,21 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     }
     /**
      * Set SearchRequestId value
-     * @param long $searchRequestId
+     * @param int $searchRequestId
      * @return \Ews\StructType\EwsInstantSearchPayloadType
      */
     public function setSearchRequestId($searchRequestId = null)
     {
+        // validation for constraint: int
+        if (!is_null($searchRequestId) && !is_int($searchRequestId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchRequestId)), __LINE__);
+        }
         $this->SearchRequestId = $searchRequestId;
         return $this;
     }
     /**
      * Get ResultType value
-     * @return string[]
+     * @return string
      */
     public function getResultType()
     {
@@ -133,11 +141,13 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * Set ResultType value
      * @uses \Ews\EnumType\EwsInstantSearchResultType::valueIsValid()
      * @uses \Ews\EnumType\EwsInstantSearchResultType::getValidValues()
-     * @param string[] $resultType
+     * @throws \InvalidArgumentException
+     * @param string $resultType
      * @return \Ews\StructType\EwsInstantSearchPayloadType
      */
     public function setResultType($resultType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsInstantSearchResultType::valueIsValid($resultType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsInstantSearchResultType::getValidValues())), __LINE__);
         }

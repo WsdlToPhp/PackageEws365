@@ -45,6 +45,10 @@ class EwsCreateXrmGraphRelationshipResponseMessageType extends EwsResponseMessag
      */
     public function setLinkId($linkId = null)
     {
+        // validation for constraint: string
+        if (!is_null($linkId) && !is_string($linkId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($linkId)), __LINE__);
+        }
         $this->LinkId = $linkId;
         return $this;
     }

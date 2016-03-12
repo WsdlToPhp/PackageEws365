@@ -69,6 +69,14 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      */
     public function setConfigurationObject($configurationObject = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($configurationObject) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $configurationObject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($configurationObject)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($configurationObject) && !is_string($configurationObject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($configurationObject)), __LINE__);
+        }
         $this->ConfigurationObject = $configurationObject;
         return $this;
     }
@@ -87,6 +95,10 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      */
     public function setPromptName($promptName = null)
     {
+        // validation for constraint: string
+        if (!is_null($promptName) && !is_string($promptName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($promptName)), __LINE__);
+        }
         $this->PromptName = $promptName;
         return $this;
     }

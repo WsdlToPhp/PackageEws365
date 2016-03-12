@@ -84,6 +84,14 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      */
     public function setCulture($culture = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(culture) && strlen(culture) < 1) || (is_array(culture) && count(culture) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($culture) && !is_string($culture)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+        }
         $this->Culture = $culture;
         return $this;
     }
@@ -102,6 +110,14 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      */
     public function setTimeZone($timeZone = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(timeZone) && strlen(timeZone) < 1) || (is_array(timeZone) && count(timeZone) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($timeZone) && !is_string($timeZone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZone)), __LINE__);
+        }
         $this->TimeZone = $timeZone;
         return $this;
     }
@@ -120,6 +136,14 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      */
     public function setUserObjectGuid($userObjectGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($userObjectGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userObjectGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($userObjectGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($userObjectGuid) && !is_string($userObjectGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userObjectGuid)), __LINE__);
+        }
         $this->UserObjectGuid = $userObjectGuid;
         return $this;
     }
@@ -138,6 +162,14 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      */
     public function setTenantGuid($tenantGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($tenantGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tenantGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($tenantGuid) && !is_string($tenantGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tenantGuid)), __LINE__);
+        }
         $this->TenantGuid = $tenantGuid;
         return $this;
     }

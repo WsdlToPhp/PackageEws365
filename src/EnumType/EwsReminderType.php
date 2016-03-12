@@ -38,7 +38,7 @@ class EwsReminderType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $ReminderTime;
     /**
@@ -46,7 +46,7 @@ class EwsReminderType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $StartDate;
     /**
@@ -54,7 +54,7 @@ class EwsReminderType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $EndDate;
     /**
@@ -62,7 +62,6 @@ class EwsReminderType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -87,7 +86,6 @@ class EwsReminderType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $RecurringMasterItemId;

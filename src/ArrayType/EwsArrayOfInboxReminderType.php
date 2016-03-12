@@ -17,13 +17,13 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsInboxReminderType[]
      */
     public $InboxReminder;
     /**
      * Constructor method for ArrayOfInboxReminderType
      * @uses EwsArrayOfInboxReminderType::setInboxReminder()
-     * @param array $inboxReminder
+     * @param \Ews\StructType\EwsInboxReminderType[] $inboxReminder
      */
     public function __construct(array $inboxReminder = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
     }
     /**
      * Get InboxReminder value
-     * @return array
+     * @return \Ews\StructType\EwsInboxReminderType[]|null
      */
     public function getInboxReminder()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
     }
     /**
      * Set InboxReminder value
-     * @param array $inboxReminder
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInboxReminderType[] $inboxReminder
      * @return \Ews\ArrayType\EwsArrayOfInboxReminderType
      */
     public function setInboxReminder(array $inboxReminder = array())
     {
+        foreach ($inboxReminder as $arrayOfInboxReminderTypeInboxReminderItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfInboxReminderTypeInboxReminderItem instanceof \Ews\StructType\EwsInboxReminderType) {
+                throw new \InvalidArgumentException(sprintf('The InboxReminder property can only contain items of \Ews\StructType\EwsInboxReminderType, "%s" given', is_object($arrayOfInboxReminderTypeInboxReminderItem) ? get_class($arrayOfInboxReminderTypeInboxReminderItem) : gettype($arrayOfInboxReminderTypeInboxReminderItem)), __LINE__);
+            }
+        }
         $this->InboxReminder = $inboxReminder;
+        return $this;
+    }
+    /**
+     * Add item to InboxReminder value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInboxReminderType $item
+     * @return \Ews\ArrayType\EwsArrayOfInboxReminderType
+     */
+    public function addToInboxReminder(\Ews\StructType\EwsInboxReminderType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsInboxReminderType) {
+            throw new \InvalidArgumentException(sprintf('The InboxReminder property can only contain items of \Ews\StructType\EwsInboxReminderType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->InboxReminder[] = $item;
         return $this;
     }
     /**

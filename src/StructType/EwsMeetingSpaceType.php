@@ -144,6 +144,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -162,6 +166,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setChangeKey($changeKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($changeKey) && !is_string($changeKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+        }
         $this->ChangeKey = $changeKey;
         return $this;
     }
@@ -177,11 +185,13 @@ class EwsMeetingSpaceType extends AbstractStructBase
      * Set Type value
      * @uses \Ews\EnumType\EwsMeetingSpaceTypeEnum::valueIsValid()
      * @uses \Ews\EnumType\EwsMeetingSpaceTypeEnum::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsMeetingSpaceType
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMeetingSpaceTypeEnum::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsMeetingSpaceTypeEnum::getValidValues())), __LINE__);
         }
@@ -203,6 +213,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setVersion($version = null)
     {
+        // validation for constraint: string
+        if (!is_null($version) && !is_string($version)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($version)), __LINE__);
+        }
         $this->Version = $version;
         return $this;
     }
@@ -221,6 +235,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setJoinUrl($joinUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($joinUrl) && !is_string($joinUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinUrl)), __LINE__);
+        }
         $this->JoinUrl = $joinUrl;
         return $this;
     }
@@ -239,6 +257,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setDateTimeCreated($dateTimeCreated = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeCreated) && !is_string($dateTimeCreated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeCreated)), __LINE__);
+        }
         $this->DateTimeCreated = $dateTimeCreated;
         return $this;
     }
@@ -257,6 +279,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setDateTimeModified($dateTimeModified = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeModified) && !is_string($dateTimeModified)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeModified)), __LINE__);
+        }
         $this->DateTimeModified = $dateTimeModified;
         return $this;
     }
@@ -275,6 +301,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setExpiryTime($expiryTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($expiryTime) && !is_string($expiryTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expiryTime)), __LINE__);
+        }
         $this->ExpiryTime = $expiryTime;
         return $this;
     }
@@ -293,6 +323,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setMeadata($meadata = null)
     {
+        // validation for constraint: string
+        if (!is_null($meadata) && !is_string($meadata)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meadata)), __LINE__);
+        }
         $this->Meadata = $meadata;
         return $this;
     }
@@ -311,6 +345,10 @@ class EwsMeetingSpaceType extends AbstractStructBase
      */
     public function setTag($tag = null)
     {
+        // validation for constraint: string
+        if (!is_null($tag) && !is_string($tag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tag)), __LINE__);
+        }
         $this->Tag = $tag;
         return $this;
     }

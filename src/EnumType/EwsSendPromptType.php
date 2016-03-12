@@ -24,7 +24,7 @@ class EwsSendPromptType
      * Constant for value 'VotingOption'
      * @return string 'VotingOption'
      */
-    const VALUE_VOTINGOPTION = 'VotingOption';
+    const VALUE_VOTING_OPTION = 'VotingOption';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -39,7 +39,7 @@ class EwsSendPromptType
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_SEND
-     * @uses self::VALUE_VOTINGOPTION
+     * @uses self::VALUE_VOTING_OPTION
      * @return string[]
      */
     public static function getValidValues()
@@ -47,7 +47,7 @@ class EwsSendPromptType
         return array(
             self::VALUE_NONE,
             self::VALUE_SEND,
-            self::VALUE_VOTINGOPTION,
+            self::VALUE_VOTING_OPTION,
         );
     }
     /**

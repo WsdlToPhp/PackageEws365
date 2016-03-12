@@ -24,12 +24,12 @@ class EwsInstantSearchResultType
      * Constant for value 'ItemResults'
      * @return string 'ItemResults'
      */
-    const VALUE_ITEMRESULTS = 'ItemResults';
+    const VALUE_ITEM_RESULTS = 'ItemResults';
     /**
      * Constant for value 'ConversationResults'
      * @return string 'ConversationResults'
      */
-    const VALUE_CONVERSATIONRESULTS = 'ConversationResults';
+    const VALUE_CONVERSATION_RESULTS = 'ConversationResults';
     /**
      * Constant for value 'Refiners'
      * @return string 'Refiners'
@@ -39,7 +39,7 @@ class EwsInstantSearchResultType
      * Constant for value 'SearchTerms'
      * @return string 'SearchTerms'
      */
-    const VALUE_SEARCHTERMS = 'SearchTerms';
+    const VALUE_SEARCH_TERMS = 'SearchTerms';
     /**
      * Constant for value 'Errors'
      * @return string 'Errors'
@@ -49,22 +49,22 @@ class EwsInstantSearchResultType
      * Constant for value 'QueryStatistics'
      * @return string 'QueryStatistics'
      */
-    const VALUE_QUERYSTATISTICS = 'QueryStatistics';
+    const VALUE_QUERY_STATISTICS = 'QueryStatistics';
     /**
      * Constant for value 'CalendarItemResults'
      * @return string 'CalendarItemResults'
      */
-    const VALUE_CALENDARITEMRESULTS = 'CalendarItemResults';
+    const VALUE_CALENDAR_ITEM_RESULTS = 'CalendarItemResults';
     /**
      * Constant for value 'PersonaResults'
      * @return string 'PersonaResults'
      */
-    const VALUE_PERSONARESULTS = 'PersonaResults';
+    const VALUE_PERSONA_RESULTS = 'PersonaResults';
     /**
      * Constant for value 'SuggestionsPrimer'
      * @return string 'SuggestionsPrimer'
      */
-    const VALUE_SUGGESTIONSPRIMER = 'SuggestionsPrimer';
+    const VALUE_SUGGESTIONS_PRIMER = 'SuggestionsPrimer';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -79,15 +79,15 @@ class EwsInstantSearchResultType
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_SUGGESTIONS
-     * @uses self::VALUE_ITEMRESULTS
-     * @uses self::VALUE_CONVERSATIONRESULTS
+     * @uses self::VALUE_ITEM_RESULTS
+     * @uses self::VALUE_CONVERSATION_RESULTS
      * @uses self::VALUE_REFINERS
-     * @uses self::VALUE_SEARCHTERMS
+     * @uses self::VALUE_SEARCH_TERMS
      * @uses self::VALUE_ERRORS
-     * @uses self::VALUE_QUERYSTATISTICS
-     * @uses self::VALUE_CALENDARITEMRESULTS
-     * @uses self::VALUE_PERSONARESULTS
-     * @uses self::VALUE_SUGGESTIONSPRIMER
+     * @uses self::VALUE_QUERY_STATISTICS
+     * @uses self::VALUE_CALENDAR_ITEM_RESULTS
+     * @uses self::VALUE_PERSONA_RESULTS
+     * @uses self::VALUE_SUGGESTIONS_PRIMER
      * @return string[]
      */
     public static function getValidValues()
@@ -95,15 +95,15 @@ class EwsInstantSearchResultType
         return array(
             self::VALUE_NONE,
             self::VALUE_SUGGESTIONS,
-            self::VALUE_ITEMRESULTS,
-            self::VALUE_CONVERSATIONRESULTS,
+            self::VALUE_ITEM_RESULTS,
+            self::VALUE_CONVERSATION_RESULTS,
             self::VALUE_REFINERS,
-            self::VALUE_SEARCHTERMS,
+            self::VALUE_SEARCH_TERMS,
             self::VALUE_ERRORS,
-            self::VALUE_QUERYSTATISTICS,
-            self::VALUE_CALENDARITEMRESULTS,
-            self::VALUE_PERSONARESULTS,
-            self::VALUE_SUGGESTIONSPRIMER,
+            self::VALUE_QUERY_STATISTICS,
+            self::VALUE_CALENDAR_ITEM_RESULTS,
+            self::VALUE_PERSONA_RESULTS,
+            self::VALUE_SUGGESTIONS_PRIMER,
         );
     }
     /**

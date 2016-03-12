@@ -17,13 +17,13 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var base64Binary[]
      */
     public $Manifest;
     /**
      * Constructor method for ArrayOfAppManifestsType
      * @uses EwsArrayOfAppManifestsType::setManifest()
-     * @param array $manifest
+     * @param base64Binary[] $manifest
      */
     public function __construct(array $manifest = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     }
     /**
      * Get Manifest value
-     * @return array
+     * @return base64Binary[]|null
      */
     public function getManifest()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     }
     /**
      * Set Manifest value
-     * @param array $manifest
+     * @throws \InvalidArgumentException
+     * @param base64Binary[] $manifest
      * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
      */
     public function setManifest(array $manifest = array())
     {
+        foreach ($manifest as $arrayOfAppManifestsTypeManifestItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfAppManifestsTypeManifestItem)) {
+                throw new \InvalidArgumentException(sprintf('The Manifest property can only contain items of base64Binary, "%s" given', is_object($arrayOfAppManifestsTypeManifestItem) ? get_class($arrayOfAppManifestsTypeManifestItem) : gettype($arrayOfAppManifestsTypeManifestItem)), __LINE__);
+            }
+        }
         $this->Manifest = $manifest;
+        return $this;
+    }
+    /**
+     * Add item to Manifest value
+     * @throws \InvalidArgumentException
+     * @param base64Binary $item
+     * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
+     */
+    public function addToManifest(base64Binary $item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Manifest property can only contain items of base64Binary, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Manifest[] = $item;
         return $this;
     }
     /**

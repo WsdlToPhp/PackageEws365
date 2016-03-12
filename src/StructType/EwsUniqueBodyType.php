@@ -28,7 +28,7 @@ class EwsUniqueBodyType extends AbstractStructBase
      * The IsTruncated
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsTruncated;
     /**
@@ -38,7 +38,7 @@ class EwsUniqueBodyType extends AbstractStructBase
      * @uses EwsUniqueBodyType::setIsTruncated()
      * @param string $uniqueBodyType
      * @param string $_
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      */
     public function __construct($uniqueBodyType = null, $_ = null, $isTruncated = null)
     {
@@ -59,11 +59,13 @@ class EwsUniqueBodyType extends AbstractStructBase
      * Set UniqueBodyType value
      * @uses \Ews\EnumType\EwsBodyTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $uniqueBodyType
      * @return \Ews\StructType\EwsUniqueBodyType
      */
     public function setUniqueBodyType($uniqueBodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeType::valueIsValid($uniqueBodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $uniqueBodyType, implode(', ', \Ews\EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
         }
@@ -85,12 +87,16 @@ class EwsUniqueBodyType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
     /**
      * Get IsTruncated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsTruncated()
     {
@@ -98,7 +104,7 @@ class EwsUniqueBodyType extends AbstractStructBase
     }
     /**
      * Set IsTruncated value
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      * @return \Ews\StructType\EwsUniqueBodyType
      */
     public function setIsTruncated($isTruncated = null)

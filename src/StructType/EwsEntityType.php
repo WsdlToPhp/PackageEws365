@@ -17,22 +17,22 @@ class EwsEntityType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var string
+     * @var string[]
      */
     public $Position;
     /**
      * Constructor method for EntityType
      * @uses EwsEntityType::setPosition()
-     * @param string $position
+     * @param string[] $position
      */
-    public function __construct($position = null)
+    public function __construct(array $position = array())
     {
         $this
             ->setPosition($position);
     }
     /**
      * Get Position value
-     * @return string|null
+     * @return string[]|null
      */
     public function getPosition()
     {
@@ -42,15 +42,39 @@ class EwsEntityType extends AbstractStructBase
      * Set Position value
      * @uses \Ews\EnumType\EwsEmailPositionType::valueIsValid()
      * @uses \Ews\EnumType\EwsEmailPositionType::getValidValues()
-     * @param string $position
+     * @throws \InvalidArgumentException
+     * @param string[] $position
      * @return \Ews\StructType\EwsEntityType
      */
-    public function setPosition($position = null)
+    public function setPosition(array $position = array())
     {
-        if (!\Ews\EnumType\EwsEmailPositionType::valueIsValid($position)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $position, implode(', ', \Ews\EnumType\EwsEmailPositionType::getValidValues())), __LINE__);
+        $invalidValues = array();
+        foreach ($position as $entityTypePositionItem) {
+            if (!\Ews\EnumType\EwsEmailPositionType::valueIsValid($entityTypePositionItem)) {
+                $invalidValues[] = var_export($entityTypePositionItem);
+            }
+        }
+        if (!empty($invalidValues)) {
+            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Ews\EnumType\EwsEmailPositionType::getValidValues())), __LINE__);
         }
         $this->Position = $position;
+        return $this;
+    }
+    /**
+     * Add item to Position value
+     * @uses \Ews\EnumType\EwsEmailPositionType::valueIsValid()
+     * @uses \Ews\EnumType\EwsEmailPositionType::getValidValues()
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\StructType\EwsEntityType
+     */
+    public function addToPosition($item)
+    {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsEmailPositionType::valueIsValid($item)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsEmailPositionType::getValidValues())), __LINE__);
+        }
+        $this->Position[] = $item;
         return $this;
     }
     /**

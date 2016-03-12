@@ -17,8 +17,6 @@ class EwsFindMailboxStatisticsByKeywordsResponseMessageType extends EwsResponseM
 {
     /**
      * The MailboxStatisticsSearchResult
-     * Meta informations extracted from the WSDL
-     * - documentation: Mailbox statistics search result.
      * @var \Ews\StructType\EwsMailboxStatisticsSearchResultType
      */
     public $MailboxStatisticsSearchResult;

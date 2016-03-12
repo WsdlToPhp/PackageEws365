@@ -19,7 +19,7 @@ class EwsClientExtensionProvidedToType
      * Constant for value 'SpecificUsers'
      * @return string 'SpecificUsers'
      */
-    const VALUE_SPECIFICUSERS = 'SpecificUsers';
+    const VALUE_SPECIFIC_USERS = 'SpecificUsers';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsClientExtensionProvidedToType
     /**
      * Return allowed values
      * @uses self::VALUE_EVERYONE
-     * @uses self::VALUE_SPECIFICUSERS
+     * @uses self::VALUE_SPECIFIC_USERS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_EVERYONE,
-            self::VALUE_SPECIFICUSERS,
+            self::VALUE_SPECIFIC_USERS,
         );
     }
     /**

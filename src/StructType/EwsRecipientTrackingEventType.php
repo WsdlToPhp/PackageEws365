@@ -14,13 +14,11 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
 {
     /**
      * The Date
-     * @var dateTime
+     * @var string
      */
     public $Date;
     /**
      * The Recipient
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Recipient;
@@ -50,21 +48,21 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public $Server;
     /**
      * The InternalId
-     * @var nonNegativeInteger
+     * @var int
      */
     public $InternalId;
     /**
      * The BccRecipient
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $BccRecipient;
     /**
      * The HiddenRecipient
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HiddenRecipient;
     /**
@@ -104,15 +102,15 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      * @uses EwsRecipientTrackingEventType::setUniquePathId()
      * @uses EwsRecipientTrackingEventType::setRootAddress()
      * @uses EwsRecipientTrackingEventType::setProperties()
-     * @param dateTime $date
+     * @param string $date
      * @param \Ews\StructType\EwsEmailAddressType $recipient
      * @param string $deliveryStatus
      * @param string $eventDescription
      * @param \Ews\ArrayType\EwsArrayOfStringsType $eventData
      * @param string $server
-     * @param nonNegativeInteger $internalId
-     * @param boolean $bccRecipient
-     * @param boolean $hiddenRecipient
+     * @param int $internalId
+     * @param bool $bccRecipient
+     * @param bool $hiddenRecipient
      * @param string $uniquePathId
      * @param string $rootAddress
      * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
@@ -135,7 +133,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Get Date value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDate()
     {
@@ -143,11 +141,15 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Set Date value
-     * @param dateTime $date
+     * @param string $date
      * @return \Ews\StructType\EwsRecipientTrackingEventType
      */
     public function setDate($date = null)
     {
+        // validation for constraint: string
+        if (!is_null($date) && !is_string($date)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($date)), __LINE__);
+        }
         $this->Date = $date;
         return $this;
     }
@@ -184,6 +186,10 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setDeliveryStatus($deliveryStatus = null)
     {
+        // validation for constraint: string
+        if (!is_null($deliveryStatus) && !is_string($deliveryStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($deliveryStatus)), __LINE__);
+        }
         $this->DeliveryStatus = $deliveryStatus;
         return $this;
     }
@@ -202,6 +208,10 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setEventDescription($eventDescription = null)
     {
+        // validation for constraint: string
+        if (!is_null($eventDescription) && !is_string($eventDescription)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventDescription)), __LINE__);
+        }
         $this->EventDescription = $eventDescription;
         return $this;
     }
@@ -238,12 +248,20 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setServer($server = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(server) && strlen(server) < 1) || (is_array(server) && count(server) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($server) && !is_string($server)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($server)), __LINE__);
+        }
         $this->Server = $server;
         return $this;
     }
     /**
      * Get InternalId value
-     * @return nonNegativeInteger|null
+     * @return int|null
      */
     public function getInternalId()
     {
@@ -251,17 +269,21 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Set InternalId value
-     * @param nonNegativeInteger $internalId
+     * @param int $internalId
      * @return \Ews\StructType\EwsRecipientTrackingEventType
      */
     public function setInternalId($internalId = null)
     {
+        // validation for constraint: int
+        if (!is_null($internalId) && !is_int($internalId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($internalId)), __LINE__);
+        }
         $this->InternalId = $internalId;
         return $this;
     }
     /**
      * Get BccRecipient value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getBccRecipient()
     {
@@ -269,7 +291,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Set BccRecipient value
-     * @param boolean $bccRecipient
+     * @param bool $bccRecipient
      * @return \Ews\StructType\EwsRecipientTrackingEventType
      */
     public function setBccRecipient($bccRecipient = null)
@@ -279,7 +301,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Get HiddenRecipient value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHiddenRecipient()
     {
@@ -287,7 +309,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     }
     /**
      * Set HiddenRecipient value
-     * @param boolean $hiddenRecipient
+     * @param bool $hiddenRecipient
      * @return \Ews\StructType\EwsRecipientTrackingEventType
      */
     public function setHiddenRecipient($hiddenRecipient = null)
@@ -310,6 +332,14 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setUniquePathId($uniquePathId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(uniquePathId) && strlen(uniquePathId) < 1) || (is_array(uniquePathId) && count(uniquePathId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($uniquePathId) && !is_string($uniquePathId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uniquePathId)), __LINE__);
+        }
         $this->UniquePathId = $uniquePathId;
         return $this;
     }
@@ -328,6 +358,14 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setRootAddress($rootAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(rootAddress) && strlen(rootAddress) < 1) || (is_array(rootAddress) && count(rootAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($rootAddress) && !is_string($rootAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rootAddress)), __LINE__);
+        }
         $this->RootAddress = $rootAddress;
         return $this;
     }

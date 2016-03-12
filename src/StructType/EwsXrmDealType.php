@@ -51,7 +51,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var double
+     * @var float
      */
     public $Amount;
     /**
@@ -75,7 +75,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $CloseTimeUtc;
     /**
@@ -99,7 +99,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $CreationTime;
     /**
@@ -123,7 +123,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsReminderSet;
     /**
@@ -131,7 +131,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReminderDueBy;
     /**
@@ -147,7 +147,7 @@ class EwsXrmDealType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReminderNextTime;
     /**
@@ -173,19 +173,19 @@ class EwsXrmDealType extends AbstractStructBase
      * @param string $id
      * @param string $xrmId
      * @param string $stage
-     * @param double $amount
+     * @param float $amount
      * @param string $currencyCode
      * @param int $probability
-     * @param dateTime $closeTimeUtc
+     * @param string $closeTimeUtc
      * @param string $owner
      * @param string $createdBy
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @param string $lastModifiedBy
      * @param string $notes
-     * @param boolean $isReminderSet
-     * @param dateTime $reminderDueBy
+     * @param bool $isReminderSet
+     * @param string $reminderDueBy
      * @param string $reminderCustomMessage
-     * @param dateTime $reminderNextTime
+     * @param string $reminderNextTime
      */
     public function __construct($name = null, $id = null, $xrmId = null, $stage = null, $amount = null, $currencyCode = null, $probability = null, $closeTimeUtc = null, $owner = null, $createdBy = null, $creationTime = null, $lastModifiedBy = null, $notes = null, $isReminderSet = null, $reminderDueBy = null, $reminderCustomMessage = null, $reminderNextTime = null)
     {
@@ -223,6 +223,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -241,6 +245,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -259,6 +267,14 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setXrmId($xrmId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($xrmId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($xrmId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($xrmId) && !is_string($xrmId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xrmId)), __LINE__);
+        }
         $this->XrmId = $xrmId;
         return $this;
     }
@@ -277,12 +293,16 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setStage($stage = null)
     {
+        // validation for constraint: string
+        if (!is_null($stage) && !is_string($stage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($stage)), __LINE__);
+        }
         $this->Stage = $stage;
         return $this;
     }
     /**
      * Get Amount value
-     * @return double|null
+     * @return float|null
      */
     public function getAmount()
     {
@@ -290,7 +310,7 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set Amount value
-     * @param double $amount
+     * @param float $amount
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setAmount($amount = null)
@@ -313,6 +333,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setCurrencyCode($currencyCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($currencyCode) && !is_string($currencyCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currencyCode)), __LINE__);
+        }
         $this->CurrencyCode = $currencyCode;
         return $this;
     }
@@ -331,12 +355,16 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setProbability($probability = null)
     {
+        // validation for constraint: int
+        if (!is_null($probability) && !is_int($probability)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($probability)), __LINE__);
+        }
         $this->Probability = $probability;
         return $this;
     }
     /**
      * Get CloseTimeUtc value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getCloseTimeUtc()
     {
@@ -344,11 +372,15 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set CloseTimeUtc value
-     * @param dateTime $closeTimeUtc
+     * @param string $closeTimeUtc
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setCloseTimeUtc($closeTimeUtc = null)
     {
+        // validation for constraint: string
+        if (!is_null($closeTimeUtc) && !is_string($closeTimeUtc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($closeTimeUtc)), __LINE__);
+        }
         $this->CloseTimeUtc = $closeTimeUtc;
         return $this;
     }
@@ -367,6 +399,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setOwner($owner = null)
     {
+        // validation for constraint: string
+        if (!is_null($owner) && !is_string($owner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($owner)), __LINE__);
+        }
         $this->Owner = $owner;
         return $this;
     }
@@ -385,12 +421,16 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setCreatedBy($createdBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($createdBy) && !is_string($createdBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdBy)), __LINE__);
+        }
         $this->CreatedBy = $createdBy;
         return $this;
     }
     /**
      * Get CreationTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getCreationTime()
     {
@@ -398,11 +438,15 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set CreationTime value
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setCreationTime($creationTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($creationTime) && !is_string($creationTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationTime)), __LINE__);
+        }
         $this->CreationTime = $creationTime;
         return $this;
     }
@@ -421,6 +465,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setLastModifiedBy($lastModifiedBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedBy) && !is_string($lastModifiedBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedBy)), __LINE__);
+        }
         $this->LastModifiedBy = $lastModifiedBy;
         return $this;
     }
@@ -439,12 +487,16 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setNotes($notes = null)
     {
+        // validation for constraint: string
+        if (!is_null($notes) && !is_string($notes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($notes)), __LINE__);
+        }
         $this->Notes = $notes;
         return $this;
     }
     /**
      * Get IsReminderSet value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsReminderSet()
     {
@@ -452,7 +504,7 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set IsReminderSet value
-     * @param boolean $isReminderSet
+     * @param bool $isReminderSet
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setIsReminderSet($isReminderSet = null)
@@ -462,7 +514,7 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Get ReminderDueBy value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReminderDueBy()
     {
@@ -470,11 +522,15 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set ReminderDueBy value
-     * @param dateTime $reminderDueBy
+     * @param string $reminderDueBy
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setReminderDueBy($reminderDueBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderDueBy) && !is_string($reminderDueBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderDueBy)), __LINE__);
+        }
         $this->ReminderDueBy = $reminderDueBy;
         return $this;
     }
@@ -493,12 +549,16 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setReminderCustomMessage($reminderCustomMessage = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderCustomMessage) && !is_string($reminderCustomMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderCustomMessage)), __LINE__);
+        }
         $this->ReminderCustomMessage = $reminderCustomMessage;
         return $this;
     }
     /**
      * Get ReminderNextTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReminderNextTime()
     {
@@ -506,11 +566,15 @@ class EwsXrmDealType extends AbstractStructBase
     }
     /**
      * Set ReminderNextTime value
-     * @param dateTime $reminderNextTime
+     * @param string $reminderNextTime
      * @return \Ews\StructType\EwsXrmDealType
      */
     public function setReminderNextTime($reminderNextTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderNextTime) && !is_string($reminderNextTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderNextTime)), __LINE__);
+        }
         $this->ReminderNextTime = $reminderNextTime;
         return $this;
     }

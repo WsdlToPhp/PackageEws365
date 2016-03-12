@@ -14,22 +14,22 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
 {
     /**
      * The CalendarPermission
-     * @var array
+     * @var \Ews\StructType\EwsCalendarPermissionType
      */
     public $CalendarPermission;
     /**
      * Constructor method for ArrayOfCalendarPermissionsType
      * @uses EwsArrayOfCalendarPermissionsType::setCalendarPermission()
-     * @param array $calendarPermission
+     * @param \Ews\StructType\EwsCalendarPermissionType $calendarPermission
      */
-    public function __construct(array $calendarPermission = array())
+    public function __construct(\Ews\StructType\EwsCalendarPermissionType $calendarPermission = null)
     {
         $this
             ->setCalendarPermission($calendarPermission);
     }
     /**
      * Get CalendarPermission value
-     * @return array
+     * @return \Ews\StructType\EwsCalendarPermissionType|null
      */
     public function getCalendarPermission()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
     }
     /**
      * Set CalendarPermission value
-     * @param array $calendarPermission
+     * @param \Ews\StructType\EwsCalendarPermissionType $calendarPermission
      * @return \Ews\ArrayType\EwsArrayOfCalendarPermissionsType
      */
-    public function setCalendarPermission(array $calendarPermission = array())
+    public function setCalendarPermission(\Ews\StructType\EwsCalendarPermissionType $calendarPermission = null)
     {
         $this->CalendarPermission = $calendarPermission;
         return $this;

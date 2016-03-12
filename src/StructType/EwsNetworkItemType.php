@@ -51,7 +51,7 @@ class EwsNetworkItemType extends EwsItemType
      * The IsDefault
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDefault;
     /**
@@ -149,7 +149,7 @@ class EwsNetworkItemType extends EwsItemType
      * The PsaLastChanged
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $PsaLastChanged;
     /**
@@ -184,21 +184,21 @@ class EwsNetworkItemType extends EwsItemType
      * The SyncEnabled
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SyncEnabled;
     /**
      * The TokenRefreshLastAttempted
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $TokenRefreshLastAttempted;
     /**
      * The TokenRefreshLastCompleted
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $TokenRefreshLastCompleted;
     /**
@@ -226,7 +226,7 @@ class EwsNetworkItemType extends EwsItemType
      * The LastSync
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastSync;
     /**
@@ -267,7 +267,7 @@ class EwsNetworkItemType extends EwsItemType
      * @param string $userTileUrl
      * @param string $profileUrl
      * @param int $settings
-     * @param boolean $isDefault
+     * @param bool $isDefault
      * @param string $autoLinkError
      * @param string $autoLinkSuccess
      * @param string $userEmail
@@ -281,18 +281,18 @@ class EwsNetworkItemType extends EwsItemType
      * @param int $lastVersionSaved
      * @param string $lastWelcomeContact
      * @param int $offers
-     * @param dateTime $psaLastChanged
+     * @param string $psaLastChanged
      * @param string $refreshToken2
      * @param string $refreshTokenExpiry2
      * @param string $sessionHandle
      * @param int $rejectedOffers
-     * @param boolean $syncEnabled
-     * @param dateTime $tokenRefreshLastAttempted
-     * @param dateTime $tokenRefreshLastCompleted
+     * @param bool $syncEnabled
+     * @param string $tokenRefreshLastAttempted
+     * @param string $tokenRefreshLastCompleted
      * @param string $psaState
      * @param base64Binary $sourceEntryID
      * @param string $accountName
-     * @param dateTime $lastSync
+     * @param string $lastSync
      */
     public function __construct($domainId = null, $domainTag = null, $userTileUrl = null, $profileUrl = null, $settings = null, $isDefault = null, $autoLinkError = null, $autoLinkSuccess = null, $userEmail = null, $clientPublishSecret = null, $clientToken = null, $clientToken2 = null, $contactSyncError = null, $contactSyncSuccess = null, $errorOffers = null, $firstAuthErrorDates = null, $lastVersionSaved = null, $lastWelcomeContact = null, $offers = null, $psaLastChanged = null, $refreshToken2 = null, $refreshTokenExpiry2 = null, $sessionHandle = null, $rejectedOffers = null, $syncEnabled = null, $tokenRefreshLastAttempted = null, $tokenRefreshLastCompleted = null, $psaState = null, base64Binary $sourceEntryID = null, $accountName = null, $lastSync = null)
     {
@@ -344,6 +344,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setDomainId($domainId = null)
     {
+        // validation for constraint: int
+        if (!is_null($domainId) && !is_int($domainId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($domainId)), __LINE__);
+        }
         $this->DomainId = $domainId;
         return $this;
     }
@@ -362,6 +366,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setDomainTag($domainTag = null)
     {
+        // validation for constraint: string
+        if (!is_null($domainTag) && !is_string($domainTag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($domainTag)), __LINE__);
+        }
         $this->DomainTag = $domainTag;
         return $this;
     }
@@ -380,6 +388,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setUserTileUrl($userTileUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($userTileUrl) && !is_string($userTileUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userTileUrl)), __LINE__);
+        }
         $this->UserTileUrl = $userTileUrl;
         return $this;
     }
@@ -398,6 +410,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setProfileUrl($profileUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($profileUrl) && !is_string($profileUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($profileUrl)), __LINE__);
+        }
         $this->ProfileUrl = $profileUrl;
         return $this;
     }
@@ -416,12 +432,16 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setSettings($settings = null)
     {
+        // validation for constraint: int
+        if (!is_null($settings) && !is_int($settings)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($settings)), __LINE__);
+        }
         $this->Settings = $settings;
         return $this;
     }
     /**
      * Get IsDefault value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDefault()
     {
@@ -429,7 +449,7 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set IsDefault value
-     * @param boolean $isDefault
+     * @param bool $isDefault
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setIsDefault($isDefault = null)
@@ -452,6 +472,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setAutoLinkError($autoLinkError = null)
     {
+        // validation for constraint: string
+        if (!is_null($autoLinkError) && !is_string($autoLinkError)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($autoLinkError)), __LINE__);
+        }
         $this->AutoLinkError = $autoLinkError;
         return $this;
     }
@@ -470,6 +494,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setAutoLinkSuccess($autoLinkSuccess = null)
     {
+        // validation for constraint: string
+        if (!is_null($autoLinkSuccess) && !is_string($autoLinkSuccess)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($autoLinkSuccess)), __LINE__);
+        }
         $this->AutoLinkSuccess = $autoLinkSuccess;
         return $this;
     }
@@ -488,6 +516,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setUserEmail($userEmail = null)
     {
+        // validation for constraint: string
+        if (!is_null($userEmail) && !is_string($userEmail)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userEmail)), __LINE__);
+        }
         $this->UserEmail = $userEmail;
         return $this;
     }
@@ -506,6 +538,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setClientPublishSecret($clientPublishSecret = null)
     {
+        // validation for constraint: string
+        if (!is_null($clientPublishSecret) && !is_string($clientPublishSecret)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientPublishSecret)), __LINE__);
+        }
         $this->ClientPublishSecret = $clientPublishSecret;
         return $this;
     }
@@ -524,6 +560,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setClientToken($clientToken = null)
     {
+        // validation for constraint: string
+        if (!is_null($clientToken) && !is_string($clientToken)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientToken)), __LINE__);
+        }
         $this->ClientToken = $clientToken;
         return $this;
     }
@@ -542,6 +582,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setClientToken2($clientToken2 = null)
     {
+        // validation for constraint: string
+        if (!is_null($clientToken2) && !is_string($clientToken2)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientToken2)), __LINE__);
+        }
         $this->ClientToken2 = $clientToken2;
         return $this;
     }
@@ -560,6 +604,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setContactSyncError($contactSyncError = null)
     {
+        // validation for constraint: string
+        if (!is_null($contactSyncError) && !is_string($contactSyncError)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contactSyncError)), __LINE__);
+        }
         $this->ContactSyncError = $contactSyncError;
         return $this;
     }
@@ -578,6 +626,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setContactSyncSuccess($contactSyncSuccess = null)
     {
+        // validation for constraint: string
+        if (!is_null($contactSyncSuccess) && !is_string($contactSyncSuccess)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contactSyncSuccess)), __LINE__);
+        }
         $this->ContactSyncSuccess = $contactSyncSuccess;
         return $this;
     }
@@ -596,6 +648,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setErrorOffers($errorOffers = null)
     {
+        // validation for constraint: int
+        if (!is_null($errorOffers) && !is_int($errorOffers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($errorOffers)), __LINE__);
+        }
         $this->ErrorOffers = $errorOffers;
         return $this;
     }
@@ -614,6 +670,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setFirstAuthErrorDates($firstAuthErrorDates = null)
     {
+        // validation for constraint: string
+        if (!is_null($firstAuthErrorDates) && !is_string($firstAuthErrorDates)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstAuthErrorDates)), __LINE__);
+        }
         $this->FirstAuthErrorDates = $firstAuthErrorDates;
         return $this;
     }
@@ -632,6 +692,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setLastVersionSaved($lastVersionSaved = null)
     {
+        // validation for constraint: int
+        if (!is_null($lastVersionSaved) && !is_int($lastVersionSaved)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lastVersionSaved)), __LINE__);
+        }
         $this->LastVersionSaved = $lastVersionSaved;
         return $this;
     }
@@ -650,6 +714,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setLastWelcomeContact($lastWelcomeContact = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastWelcomeContact) && !is_string($lastWelcomeContact)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastWelcomeContact)), __LINE__);
+        }
         $this->LastWelcomeContact = $lastWelcomeContact;
         return $this;
     }
@@ -668,12 +736,16 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setOffers($offers = null)
     {
+        // validation for constraint: int
+        if (!is_null($offers) && !is_int($offers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offers)), __LINE__);
+        }
         $this->Offers = $offers;
         return $this;
     }
     /**
      * Get PsaLastChanged value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getPsaLastChanged()
     {
@@ -681,11 +753,15 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set PsaLastChanged value
-     * @param dateTime $psaLastChanged
+     * @param string $psaLastChanged
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setPsaLastChanged($psaLastChanged = null)
     {
+        // validation for constraint: string
+        if (!is_null($psaLastChanged) && !is_string($psaLastChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($psaLastChanged)), __LINE__);
+        }
         $this->PsaLastChanged = $psaLastChanged;
         return $this;
     }
@@ -704,6 +780,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setRefreshToken2($refreshToken2 = null)
     {
+        // validation for constraint: string
+        if (!is_null($refreshToken2) && !is_string($refreshToken2)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refreshToken2)), __LINE__);
+        }
         $this->RefreshToken2 = $refreshToken2;
         return $this;
     }
@@ -722,6 +802,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setRefreshTokenExpiry2($refreshTokenExpiry2 = null)
     {
+        // validation for constraint: string
+        if (!is_null($refreshTokenExpiry2) && !is_string($refreshTokenExpiry2)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refreshTokenExpiry2)), __LINE__);
+        }
         $this->RefreshTokenExpiry2 = $refreshTokenExpiry2;
         return $this;
     }
@@ -740,6 +824,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setSessionHandle($sessionHandle = null)
     {
+        // validation for constraint: string
+        if (!is_null($sessionHandle) && !is_string($sessionHandle)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sessionHandle)), __LINE__);
+        }
         $this->SessionHandle = $sessionHandle;
         return $this;
     }
@@ -758,12 +846,16 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setRejectedOffers($rejectedOffers = null)
     {
+        // validation for constraint: int
+        if (!is_null($rejectedOffers) && !is_int($rejectedOffers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($rejectedOffers)), __LINE__);
+        }
         $this->RejectedOffers = $rejectedOffers;
         return $this;
     }
     /**
      * Get SyncEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSyncEnabled()
     {
@@ -771,7 +863,7 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set SyncEnabled value
-     * @param boolean $syncEnabled
+     * @param bool $syncEnabled
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setSyncEnabled($syncEnabled = null)
@@ -781,7 +873,7 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Get TokenRefreshLastAttempted value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getTokenRefreshLastAttempted()
     {
@@ -789,17 +881,21 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set TokenRefreshLastAttempted value
-     * @param dateTime $tokenRefreshLastAttempted
+     * @param string $tokenRefreshLastAttempted
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setTokenRefreshLastAttempted($tokenRefreshLastAttempted = null)
     {
+        // validation for constraint: string
+        if (!is_null($tokenRefreshLastAttempted) && !is_string($tokenRefreshLastAttempted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tokenRefreshLastAttempted)), __LINE__);
+        }
         $this->TokenRefreshLastAttempted = $tokenRefreshLastAttempted;
         return $this;
     }
     /**
      * Get TokenRefreshLastCompleted value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getTokenRefreshLastCompleted()
     {
@@ -807,11 +903,15 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set TokenRefreshLastCompleted value
-     * @param dateTime $tokenRefreshLastCompleted
+     * @param string $tokenRefreshLastCompleted
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setTokenRefreshLastCompleted($tokenRefreshLastCompleted = null)
     {
+        // validation for constraint: string
+        if (!is_null($tokenRefreshLastCompleted) && !is_string($tokenRefreshLastCompleted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tokenRefreshLastCompleted)), __LINE__);
+        }
         $this->TokenRefreshLastCompleted = $tokenRefreshLastCompleted;
         return $this;
     }
@@ -830,6 +930,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setPsaState($psaState = null)
     {
+        // validation for constraint: string
+        if (!is_null($psaState) && !is_string($psaState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($psaState)), __LINE__);
+        }
         $this->PsaState = $psaState;
         return $this;
     }
@@ -866,12 +970,16 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setAccountName($accountName = null)
     {
+        // validation for constraint: string
+        if (!is_null($accountName) && !is_string($accountName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+        }
         $this->AccountName = $accountName;
         return $this;
     }
     /**
      * Get LastSync value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastSync()
     {
@@ -879,11 +987,15 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set LastSync value
-     * @param dateTime $lastSync
+     * @param string $lastSync
      * @return \Ews\StructType\EwsNetworkItemType
      */
     public function setLastSync($lastSync = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastSync) && !is_string($lastSync)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastSync)), __LINE__);
+        }
         $this->LastSync = $lastSync;
         return $this;
     }

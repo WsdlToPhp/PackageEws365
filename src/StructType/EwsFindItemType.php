@@ -16,7 +16,6 @@ class EwsFindItemType extends EwsBaseRequestType
      * The Traversal
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Types of sub-tree traversal for deletion and enumeration
      * @var string
      */
     public $Traversal;
@@ -52,15 +51,11 @@ class EwsFindItemType extends EwsBaseRequestType
     public $ContactsView;
     /**
      * The GroupBy
-     * Meta informations extracted from the WSDL
-     * - documentation: Allows consumers to specify arbitrary groupings for FindItem queries.
      * @var \Ews\StructType\EwsGroupByType
      */
     public $GroupBy;
     /**
      * The DistinguishedGroupBy
-     * Meta informations extracted from the WSDL
-     * - documentation: Allows consumers to access standard groupings for FindItem queries. This is in contrast to the arbitrary (custom) groupings available via the t:GroupByType
      * @var \Ews\StructType\EwsDistinguishedGroupByType
      */
     public $DistinguishedGroupBy;
@@ -68,7 +63,6 @@ class EwsFindItemType extends EwsBaseRequestType
      * The Restriction
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;
@@ -151,11 +145,13 @@ class EwsFindItemType extends EwsBaseRequestType
      * Set Traversal value
      * @uses \Ews\EnumType\EwsItemQueryTraversalType::valueIsValid()
      * @uses \Ews\EnumType\EwsItemQueryTraversalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $traversal
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setTraversal($traversal = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsItemQueryTraversalType::valueIsValid($traversal)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsItemQueryTraversalType::getValidValues())), __LINE__);
         }

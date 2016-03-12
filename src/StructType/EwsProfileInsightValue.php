@@ -57,7 +57,7 @@ class EwsProfileInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $JoinedUtcTicks;
     /**
@@ -91,7 +91,7 @@ class EwsProfileInsightValue extends EwsInsightValue
      * @param string $lastName
      * @param string $emailAddress
      * @param string $avatar
-     * @param long $joinedUtcTicks
+     * @param int $joinedUtcTicks
      * @param \Ews\StructType\EwsUserProfilePicture $profilePicture
      * @param string $title
      */
@@ -122,6 +122,10 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setFullName($fullName = null)
     {
+        // validation for constraint: string
+        if (!is_null($fullName) && !is_string($fullName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+        }
         $this->FullName = $fullName;
         return $this;
     }
@@ -140,6 +144,10 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setFirstName($firstName = null)
     {
+        // validation for constraint: string
+        if (!is_null($firstName) && !is_string($firstName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstName)), __LINE__);
+        }
         $this->FirstName = $firstName;
         return $this;
     }
@@ -158,6 +166,10 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setLastName($lastName = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastName) && !is_string($lastName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastName)), __LINE__);
+        }
         $this->LastName = $lastName;
         return $this;
     }
@@ -176,6 +188,10 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }
@@ -194,12 +210,16 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setAvatar($avatar = null)
     {
+        // validation for constraint: string
+        if (!is_null($avatar) && !is_string($avatar)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($avatar)), __LINE__);
+        }
         $this->Avatar = $avatar;
         return $this;
     }
     /**
      * Get JoinedUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getJoinedUtcTicks()
     {
@@ -207,11 +227,15 @@ class EwsProfileInsightValue extends EwsInsightValue
     }
     /**
      * Set JoinedUtcTicks value
-     * @param long $joinedUtcTicks
+     * @param int $joinedUtcTicks
      * @return \Ews\StructType\EwsProfileInsightValue
      */
     public function setJoinedUtcTicks($joinedUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($joinedUtcTicks) && !is_int($joinedUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($joinedUtcTicks)), __LINE__);
+        }
         $this->JoinedUtcTicks = $joinedUtcTicks;
         return $this;
     }
@@ -248,6 +272,10 @@ class EwsProfileInsightValue extends EwsInsightValue
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }

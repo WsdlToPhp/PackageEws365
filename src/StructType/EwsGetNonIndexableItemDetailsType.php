@@ -46,7 +46,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      * The SearchArchiveOnly
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SearchArchiveOnly;
     /**
@@ -60,7 +60,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      * @param int $pageSize
      * @param string $pageItemReference
      * @param string $pageDirection
-     * @param boolean $searchArchiveOnly
+     * @param bool $searchArchiveOnly
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null, $pageSize = null, $pageItemReference = null, $pageDirection = null, $searchArchiveOnly = null)
     {
@@ -104,6 +104,10 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      */
     public function setPageSize($pageSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($pageSize) && !is_int($pageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageSize)), __LINE__);
+        }
         $this->PageSize = $pageSize;
         return $this;
     }
@@ -122,6 +126,10 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      */
     public function setPageItemReference($pageItemReference = null)
     {
+        // validation for constraint: string
+        if (!is_null($pageItemReference) && !is_string($pageItemReference)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pageItemReference)), __LINE__);
+        }
         $this->PageItemReference = $pageItemReference;
         return $this;
     }
@@ -137,11 +145,13 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      * Set PageDirection value
      * @uses \Ews\EnumType\EwsSearchPageDirectionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchPageDirectionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $pageDirection
      * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
      */
     public function setPageDirection($pageDirection = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $pageDirection, implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
         }
@@ -150,7 +160,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     }
     /**
      * Get SearchArchiveOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSearchArchiveOnly()
     {
@@ -158,7 +168,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     }
     /**
      * Set SearchArchiveOnly value
-     * @param boolean $searchArchiveOnly
+     * @param bool $searchArchiveOnly
      * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
      */
     public function setSearchArchiveOnly($searchArchiveOnly = null)

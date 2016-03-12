@@ -19,14 +19,14 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Non indexable item statistic.
-     * @var array
+     * @var \Ews\StructType\EwsNonIndexableItemStatisticType[]
      */
     public $NonIndexableItemStatistic;
     /**
      * Constructor method for ArrayOfNonIndexableItemStatisticsType
      * @uses EwsArrayOfNonIndexableItemStatisticsType::setNonIndexableItemStatistic()
-     * @param array $nonIndexableItemStatistic
+     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[]
+     * $nonIndexableItemStatistic
      */
     public function __construct(array $nonIndexableItemStatistic = array())
     {
@@ -35,7 +35,7 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     }
     /**
      * Get NonIndexableItemStatistic value
-     * @return array
+     * @return \Ews\StructType\EwsNonIndexableItemStatisticType[]|null
      */
     public function getNonIndexableItemStatistic()
     {
@@ -43,12 +43,35 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     }
     /**
      * Set NonIndexableItemStatistic value
-     * @param array $nonIndexableItemStatistic
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[]
+     * $nonIndexableItemStatistic
      * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
      */
     public function setNonIndexableItemStatistic(array $nonIndexableItemStatistic = array())
     {
+        foreach ($nonIndexableItemStatistic as $arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem instanceof \Ews\StructType\EwsNonIndexableItemStatisticType) {
+                throw new \InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of \Ews\StructType\EwsNonIndexableItemStatisticType, "%s" given', is_object($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) ? get_class($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) : gettype($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem)), __LINE__);
+            }
+        }
         $this->NonIndexableItemStatistic = $nonIndexableItemStatistic;
+        return $this;
+    }
+    /**
+     * Add item to NonIndexableItemStatistic value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNonIndexableItemStatisticType $item
+     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
+     */
+    public function addToNonIndexableItemStatistic(\Ews\StructType\EwsNonIndexableItemStatisticType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsNonIndexableItemStatisticType) {
+            throw new \InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of \Ews\StructType\EwsNonIndexableItemStatisticType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->NonIndexableItemStatistic[] = $item;
         return $this;
     }
     /**

@@ -14,19 +14,21 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
 {
     /**
      * The SubscriptionId
-     * @var NonEmptyStringType
+     * Meta informations extracted from the WSDL
+     * - minLength: 1
+     * @var string
      */
     public $SubscriptionId;
     /**
      * The SequenceNumber
-     * @var long
+     * @var int
      */
     public $SequenceNumber;
     /**
      * The ActionDelay
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var duration
+     * @var int
      */
     public $ActionDelay;
     /**
@@ -34,11 +36,11 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
      * @uses EwsSubscriptionLevelChannelEventType::setSubscriptionId()
      * @uses EwsSubscriptionLevelChannelEventType::setSequenceNumber()
      * @uses EwsSubscriptionLevelChannelEventType::setActionDelay()
-     * @param NonEmptyStringType $subscriptionId
-     * @param long $sequenceNumber
-     * @param duration $actionDelay
+     * @param string $subscriptionId
+     * @param int $sequenceNumber
+     * @param int $actionDelay
      */
-    public function __construct(NonEmptyStringType $subscriptionId = null, $sequenceNumber = null, $actionDelay = null)
+    public function __construct($subscriptionId = null, $sequenceNumber = null, $actionDelay = null)
     {
         $this
             ->setSubscriptionId($subscriptionId)
@@ -47,7 +49,7 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Get SubscriptionId value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getSubscriptionId()
     {
@@ -55,17 +57,25 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Set SubscriptionId value
-     * @param NonEmptyStringType $subscriptionId
+     * @param string $subscriptionId
      * @return \Ews\StructType\EwsSubscriptionLevelChannelEventType
      */
-    public function setSubscriptionId(NonEmptyStringType $subscriptionId = null)
+    public function setSubscriptionId($subscriptionId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subscriptionId)), __LINE__);
+        }
         $this->SubscriptionId = $subscriptionId;
         return $this;
     }
     /**
      * Get SequenceNumber value
-     * @return long|null
+     * @return int|null
      */
     public function getSequenceNumber()
     {
@@ -73,17 +83,21 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Set SequenceNumber value
-     * @param long $sequenceNumber
+     * @param int $sequenceNumber
      * @return \Ews\StructType\EwsSubscriptionLevelChannelEventType
      */
     public function setSequenceNumber($sequenceNumber = null)
     {
+        // validation for constraint: int
+        if (!is_null($sequenceNumber) && !is_int($sequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sequenceNumber)), __LINE__);
+        }
         $this->SequenceNumber = $sequenceNumber;
         return $this;
     }
     /**
      * Get ActionDelay value
-     * @return duration|null
+     * @return int|null
      */
     public function getActionDelay()
     {
@@ -91,11 +105,15 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Set ActionDelay value
-     * @param duration $actionDelay
+     * @param int $actionDelay
      * @return \Ews\StructType\EwsSubscriptionLevelChannelEventType
      */
     public function setActionDelay($actionDelay = null)
     {
+        // validation for constraint: int
+        if (!is_null($actionDelay) && !is_int($actionDelay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($actionDelay)), __LINE__);
+        }
         $this->ActionDelay = $actionDelay;
         return $this;
     }

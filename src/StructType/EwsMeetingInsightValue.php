@@ -33,7 +33,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $StartUtcTicks;
     /**
@@ -41,7 +41,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $EndUtcTicks;
     /**
@@ -79,8 +79,8 @@ class EwsMeetingInsightValue extends EwsInsightValue
      * @uses EwsMeetingInsightValue::setAttendees()
      * @param string $id
      * @param string $subject
-     * @param long $startUtcTicks
-     * @param long $endUtcTicks
+     * @param int $startUtcTicks
+     * @param int $endUtcTicks
      * @param string $location
      * @param \Ews\StructType\EwsProfileInsightValue $organizer
      * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $attendees
@@ -111,6 +111,10 @@ class EwsMeetingInsightValue extends EwsInsightValue
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -129,12 +133,16 @@ class EwsMeetingInsightValue extends EwsInsightValue
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
     /**
      * Get StartUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getStartUtcTicks()
     {
@@ -142,17 +150,21 @@ class EwsMeetingInsightValue extends EwsInsightValue
     }
     /**
      * Set StartUtcTicks value
-     * @param long $startUtcTicks
+     * @param int $startUtcTicks
      * @return \Ews\StructType\EwsMeetingInsightValue
      */
     public function setStartUtcTicks($startUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($startUtcTicks) && !is_int($startUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($startUtcTicks)), __LINE__);
+        }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
     }
     /**
      * Get EndUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getEndUtcTicks()
     {
@@ -160,11 +172,15 @@ class EwsMeetingInsightValue extends EwsInsightValue
     }
     /**
      * Set EndUtcTicks value
-     * @param long $endUtcTicks
+     * @param int $endUtcTicks
      * @return \Ews\StructType\EwsMeetingInsightValue
      */
     public function setEndUtcTicks($endUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($endUtcTicks) && !is_int($endUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($endUtcTicks)), __LINE__);
+        }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
     }
@@ -183,6 +199,10 @@ class EwsMeetingInsightValue extends EwsInsightValue
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }

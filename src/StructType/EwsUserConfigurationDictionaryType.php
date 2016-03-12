@@ -17,22 +17,23 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUserConfigurationDictionaryEntryType
+     * @var \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
      */
     public $DictionaryEntry;
     /**
      * Constructor method for UserConfigurationDictionaryType
      * @uses EwsUserConfigurationDictionaryType::setDictionaryEntry()
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType $dictionaryEntry
+     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
+     * $dictionaryEntry
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationDictionaryEntryType $dictionaryEntry = null)
+    public function __construct(array $dictionaryEntry = array())
     {
         $this
             ->setDictionaryEntry($dictionaryEntry);
     }
     /**
      * Get DictionaryEntry value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryEntryType|null
+     * @return \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]|null
      */
     public function getDictionaryEntry()
     {
@@ -40,12 +41,35 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
     }
     /**
      * Set DictionaryEntry value
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType $dictionaryEntry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
+     * $dictionaryEntry
      * @return \Ews\StructType\EwsUserConfigurationDictionaryType
      */
-    public function setDictionaryEntry(\Ews\StructType\EwsUserConfigurationDictionaryEntryType $dictionaryEntry = null)
+    public function setDictionaryEntry(array $dictionaryEntry = array())
     {
+        foreach ($dictionaryEntry as $userConfigurationDictionaryTypeDictionaryEntryItem) {
+            // validation for constraint: itemType
+            if (!$userConfigurationDictionaryTypeDictionaryEntryItem instanceof \Ews\StructType\EwsUserConfigurationDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The DictionaryEntry property can only contain items of \Ews\StructType\EwsUserConfigurationDictionaryEntryType, "%s" given', is_object($userConfigurationDictionaryTypeDictionaryEntryItem) ? get_class($userConfigurationDictionaryTypeDictionaryEntryItem) : gettype($userConfigurationDictionaryTypeDictionaryEntryItem)), __LINE__);
+            }
+        }
         $this->DictionaryEntry = $dictionaryEntry;
+        return $this;
+    }
+    /**
+     * Add item to DictionaryEntry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType $item
+     * @return \Ews\StructType\EwsUserConfigurationDictionaryType
+     */
+    public function addToDictionaryEntry(\Ews\StructType\EwsUserConfigurationDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUserConfigurationDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The DictionaryEntry property can only contain items of \Ews\StructType\EwsUserConfigurationDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->DictionaryEntry[] = $item;
         return $this;
     }
     /**

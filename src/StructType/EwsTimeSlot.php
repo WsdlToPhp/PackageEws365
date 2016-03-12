@@ -14,20 +14,20 @@ class EwsTimeSlot extends AbstractStructBase
 {
     /**
      * The StartTime
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
      * The DurationInMinutes
-     * @var double
+     * @var float
      */
     public $DurationInMinutes;
     /**
      * Constructor method for TimeSlot
      * @uses EwsTimeSlot::setStartTime()
      * @uses EwsTimeSlot::setDurationInMinutes()
-     * @param dateTime $startTime
-     * @param double $durationInMinutes
+     * @param string $startTime
+     * @param float $durationInMinutes
      */
     public function __construct($startTime = null, $durationInMinutes = null)
     {
@@ -37,7 +37,7 @@ class EwsTimeSlot extends AbstractStructBase
     }
     /**
      * Get StartTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartTime()
     {
@@ -45,17 +45,21 @@ class EwsTimeSlot extends AbstractStructBase
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsTimeSlot
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get DurationInMinutes value
-     * @return double|null
+     * @return float|null
      */
     public function getDurationInMinutes()
     {
@@ -63,7 +67,7 @@ class EwsTimeSlot extends AbstractStructBase
     }
     /**
      * Set DurationInMinutes value
-     * @param double $durationInMinutes
+     * @param float $durationInMinutes
      * @return \Ews\StructType\EwsTimeSlot
      */
     public function setDurationInMinutes($durationInMinutes = null)

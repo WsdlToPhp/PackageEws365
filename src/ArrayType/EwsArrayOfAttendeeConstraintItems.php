@@ -17,13 +17,13 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsAttendeeConstraintItem[]
      */
     public $AttendeeItem;
     /**
      * Constructor method for ArrayOfAttendeeConstraintItems
      * @uses EwsArrayOfAttendeeConstraintItems::setAttendeeItem()
-     * @param array $attendeeItem
+     * @param \Ews\StructType\EwsAttendeeConstraintItem[] $attendeeItem
      */
     public function __construct(array $attendeeItem = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
     }
     /**
      * Get AttendeeItem value
-     * @return array
+     * @return \Ews\StructType\EwsAttendeeConstraintItem[]|null
      */
     public function getAttendeeItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
     }
     /**
      * Set AttendeeItem value
-     * @param array $attendeeItem
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAttendeeConstraintItem[] $attendeeItem
      * @return \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems
      */
     public function setAttendeeItem(array $attendeeItem = array())
     {
+        foreach ($attendeeItem as $arrayOfAttendeeConstraintItemsAttendeeItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAttendeeConstraintItemsAttendeeItemItem instanceof \Ews\StructType\EwsAttendeeConstraintItem) {
+                throw new \InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of \Ews\StructType\EwsAttendeeConstraintItem, "%s" given', is_object($arrayOfAttendeeConstraintItemsAttendeeItemItem) ? get_class($arrayOfAttendeeConstraintItemsAttendeeItemItem) : gettype($arrayOfAttendeeConstraintItemsAttendeeItemItem)), __LINE__);
+            }
+        }
         $this->AttendeeItem = $attendeeItem;
+        return $this;
+    }
+    /**
+     * Add item to AttendeeItem value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAttendeeConstraintItem $item
+     * @return \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems
+     */
+    public function addToAttendeeItem(\Ews\StructType\EwsAttendeeConstraintItem $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsAttendeeConstraintItem) {
+            throw new \InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of \Ews\StructType\EwsAttendeeConstraintItem, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AttendeeItem[] = $item;
         return $this;
     }
     /**

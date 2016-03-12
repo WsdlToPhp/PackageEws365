@@ -24,12 +24,12 @@ class EwsUserConfigurationPropertyType
      * Constant for value 'XmlData'
      * @return string 'XmlData'
      */
-    const VALUE_XMLDATA = 'XmlData';
+    const VALUE_XML_DATA = 'XmlData';
     /**
      * Constant for value 'BinaryData'
      * @return string 'BinaryData'
      */
-    const VALUE_BINARYDATA = 'BinaryData';
+    const VALUE_BINARY_DATA = 'BinaryData';
     /**
      * Constant for value 'All'
      * @return string 'All'
@@ -49,8 +49,8 @@ class EwsUserConfigurationPropertyType
      * Return allowed values
      * @uses self::VALUE_ID
      * @uses self::VALUE_DICTIONARY
-     * @uses self::VALUE_XMLDATA
-     * @uses self::VALUE_BINARYDATA
+     * @uses self::VALUE_XML_DATA
+     * @uses self::VALUE_BINARY_DATA
      * @uses self::VALUE_ALL
      * @return string[]
      */
@@ -59,8 +59,8 @@ class EwsUserConfigurationPropertyType
         return array(
             self::VALUE_ID,
             self::VALUE_DICTIONARY,
-            self::VALUE_XMLDATA,
-            self::VALUE_BINARYDATA,
+            self::VALUE_XML_DATA,
+            self::VALUE_BINARY_DATA,
             self::VALUE_ALL,
         );
     }

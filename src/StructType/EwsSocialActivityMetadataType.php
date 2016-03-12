@@ -50,6 +50,10 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
      */
     public function setTargetGroupName($targetGroupName = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetGroupName)), __LINE__);
+        }
         $this->TargetGroupName = $targetGroupName;
         return $this;
     }
@@ -68,6 +72,10 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
      */
     public function setMessagePreview($messagePreview = null)
     {
+        // validation for constraint: string
+        if (!is_null($messagePreview) && !is_string($messagePreview)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messagePreview)), __LINE__);
+        }
         $this->MessagePreview = $messagePreview;
         return $this;
     }

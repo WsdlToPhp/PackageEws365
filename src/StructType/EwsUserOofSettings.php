@@ -43,8 +43,6 @@ class EwsUserOofSettings extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: xml:lang
-     * - use: optional
      * @var \Ews\StructType\EwsReplyBody
      */
     public $InternalReply;
@@ -53,8 +51,6 @@ class EwsUserOofSettings extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: xml:lang
-     * - use: optional
      * @var \Ews\StructType\EwsReplyBody
      */
     public $ExternalReply;
@@ -92,11 +88,13 @@ class EwsUserOofSettings extends AbstractStructBase
      * Set OofState value
      * @uses \Ews\EnumType\EwsOofState::valueIsValid()
      * @uses \Ews\EnumType\EwsOofState::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $oofState
      * @return \Ews\StructType\EwsUserOofSettings
      */
     public function setOofState($oofState = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsOofState::valueIsValid($oofState)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $oofState, implode(', ', \Ews\EnumType\EwsOofState::getValidValues())), __LINE__);
         }
@@ -115,11 +113,13 @@ class EwsUserOofSettings extends AbstractStructBase
      * Set ExternalAudience value
      * @uses \Ews\EnumType\EwsExternalAudience::valueIsValid()
      * @uses \Ews\EnumType\EwsExternalAudience::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $externalAudience
      * @return \Ews\StructType\EwsUserOofSettings
      */
     public function setExternalAudience($externalAudience = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($externalAudience)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $externalAudience, implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }

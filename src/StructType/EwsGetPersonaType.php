@@ -17,7 +17,6 @@ class EwsGetPersonaType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $PersonaId;
@@ -26,7 +25,6 @@ class EwsGetPersonaType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $EmailAddress;

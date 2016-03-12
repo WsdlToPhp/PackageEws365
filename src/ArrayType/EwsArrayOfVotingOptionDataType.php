@@ -17,13 +17,13 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsVotingOptionDataType[]
      */
     public $VotingOptionData;
     /**
      * Constructor method for ArrayOfVotingOptionDataType
      * @uses EwsArrayOfVotingOptionDataType::setVotingOptionData()
-     * @param array $votingOptionData
+     * @param \Ews\StructType\EwsVotingOptionDataType[] $votingOptionData
      */
     public function __construct(array $votingOptionData = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
     }
     /**
      * Get VotingOptionData value
-     * @return array
+     * @return \Ews\StructType\EwsVotingOptionDataType[]|null
      */
     public function getVotingOptionData()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
     }
     /**
      * Set VotingOptionData value
-     * @param array $votingOptionData
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsVotingOptionDataType[] $votingOptionData
      * @return \Ews\ArrayType\EwsArrayOfVotingOptionDataType
      */
     public function setVotingOptionData(array $votingOptionData = array())
     {
+        foreach ($votingOptionData as $arrayOfVotingOptionDataTypeVotingOptionDataItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfVotingOptionDataTypeVotingOptionDataItem instanceof \Ews\StructType\EwsVotingOptionDataType) {
+                throw new \InvalidArgumentException(sprintf('The VotingOptionData property can only contain items of \Ews\StructType\EwsVotingOptionDataType, "%s" given', is_object($arrayOfVotingOptionDataTypeVotingOptionDataItem) ? get_class($arrayOfVotingOptionDataTypeVotingOptionDataItem) : gettype($arrayOfVotingOptionDataTypeVotingOptionDataItem)), __LINE__);
+            }
+        }
         $this->VotingOptionData = $votingOptionData;
+        return $this;
+    }
+    /**
+     * Add item to VotingOptionData value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsVotingOptionDataType $item
+     * @return \Ews\ArrayType\EwsArrayOfVotingOptionDataType
+     */
+    public function addToVotingOptionData(\Ews\StructType\EwsVotingOptionDataType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsVotingOptionDataType) {
+            throw new \InvalidArgumentException(sprintf('The VotingOptionData property can only contain items of \Ews\StructType\EwsVotingOptionDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->VotingOptionData[] = $item;
         return $this;
     }
     /**

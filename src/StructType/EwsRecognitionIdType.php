@@ -46,6 +46,14 @@ class EwsRecognitionIdType extends AbstractStructBase
      */
     public function setRequestId($requestId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($requestId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $requestId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($requestId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($requestId) && !is_string($requestId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($requestId)), __LINE__);
+        }
         $this->RequestId = $requestId;
         return $this;
     }

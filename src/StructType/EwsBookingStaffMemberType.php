@@ -65,7 +65,6 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -74,7 +73,6 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $PersonId;
@@ -83,7 +81,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $UseBusinessHours;
     /**
@@ -114,7 +112,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      * @param string $initials
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsItemIdType $personId
-     * @param boolean $useBusinessHours
+     * @param bool $useBusinessHours
      * @param \Ews\ArrayType\EwsArrayOfWorkHours $workingHours
      */
     public function __construct($categoryName = null, $categoryColor = null, $displayName = null, $smtpAddress = null, $phone = null, $initials = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsItemIdType $personId = null, $useBusinessHours = null, \Ews\ArrayType\EwsArrayOfWorkHours $workingHours = null)
@@ -146,6 +144,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setCategoryName($categoryName = null)
     {
+        // validation for constraint: string
+        if (!is_null($categoryName) && !is_string($categoryName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($categoryName)), __LINE__);
+        }
         $this->CategoryName = $categoryName;
         return $this;
     }
@@ -164,6 +166,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setCategoryColor($categoryColor = null)
     {
+        // validation for constraint: int
+        if (!is_null($categoryColor) && !is_int($categoryColor)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($categoryColor)), __LINE__);
+        }
         $this->CategoryColor = $categoryColor;
         return $this;
     }
@@ -182,6 +188,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -200,6 +210,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }
@@ -218,6 +232,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setPhone($phone = null)
     {
+        // validation for constraint: string
+        if (!is_null($phone) && !is_string($phone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phone)), __LINE__);
+        }
         $this->Phone = $phone;
         return $this;
     }
@@ -236,6 +254,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setInitials($initials = null)
     {
+        // validation for constraint: string
+        if (!is_null($initials) && !is_string($initials)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initials)), __LINE__);
+        }
         $this->Initials = $initials;
         return $this;
     }
@@ -277,7 +299,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     }
     /**
      * Get UseBusinessHours value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getUseBusinessHours()
     {
@@ -285,7 +307,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     }
     /**
      * Set UseBusinessHours value
-     * @param boolean $useBusinessHours
+     * @param bool $useBusinessHours
      * @return \Ews\StructType\EwsBookingStaffMemberType
      */
     public function setUseBusinessHours($useBusinessHours = null)

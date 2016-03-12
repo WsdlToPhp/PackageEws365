@@ -16,7 +16,6 @@ class EwsGetImItemListResponseMessageType extends EwsResponseMessageType
      * The ImItemList
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: IM Contact List
      * @var \Ews\StructType\EwsImItemListType
      */
     public $ImItemList;

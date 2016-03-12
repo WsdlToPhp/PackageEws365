@@ -14,14 +14,14 @@ class EwsGetPasswordExpirationDateResponseMessageType extends EwsResponseMessage
 {
     /**
      * The PasswordExpirationDate
-     * @var dateTime
+     * @var string
      */
     public $PasswordExpirationDate;
     /**
      * Constructor method for GetPasswordExpirationDateResponseMessageType
      * @uses
      * EwsGetPasswordExpirationDateResponseMessageType::setPasswordExpirationDate()
-     * @param dateTime $passwordExpirationDate
+     * @param string $passwordExpirationDate
      */
     public function __construct($passwordExpirationDate = null)
     {
@@ -30,7 +30,7 @@ class EwsGetPasswordExpirationDateResponseMessageType extends EwsResponseMessage
     }
     /**
      * Get PasswordExpirationDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getPasswordExpirationDate()
     {
@@ -38,11 +38,15 @@ class EwsGetPasswordExpirationDateResponseMessageType extends EwsResponseMessage
     }
     /**
      * Set PasswordExpirationDate value
-     * @param dateTime $passwordExpirationDate
+     * @param string $passwordExpirationDate
      * @return \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType
      */
     public function setPasswordExpirationDate($passwordExpirationDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($passwordExpirationDate) && !is_string($passwordExpirationDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($passwordExpirationDate)), __LINE__);
+        }
         $this->PasswordExpirationDate = $passwordExpirationDate;
         return $this;
     }

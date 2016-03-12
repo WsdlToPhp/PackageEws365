@@ -54,6 +54,14 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }
@@ -72,6 +80,14 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(displayName) && strlen(displayName) < 1) || (is_array(displayName) && count(displayName) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }

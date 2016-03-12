@@ -14,17 +14,17 @@ class EwsMessageDispositionType
      * Constant for value 'SaveOnly'
      * @return string 'SaveOnly'
      */
-    const VALUE_SAVEONLY = 'SaveOnly';
+    const VALUE_SAVE_ONLY = 'SaveOnly';
     /**
      * Constant for value 'SendOnly'
      * @return string 'SendOnly'
      */
-    const VALUE_SENDONLY = 'SendOnly';
+    const VALUE_SEND_ONLY = 'SendOnly';
     /**
      * Constant for value 'SendAndSaveCopy'
      * @return string 'SendAndSaveCopy'
      */
-    const VALUE_SENDANDSAVECOPY = 'SendAndSaveCopy';
+    const VALUE_SEND_AND_SAVE_COPY = 'SendAndSaveCopy';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsMessageDispositionType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_SAVEONLY
-     * @uses self::VALUE_SENDONLY
-     * @uses self::VALUE_SENDANDSAVECOPY
+     * @uses self::VALUE_SAVE_ONLY
+     * @uses self::VALUE_SEND_ONLY
+     * @uses self::VALUE_SEND_AND_SAVE_COPY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_SAVEONLY,
-            self::VALUE_SENDONLY,
-            self::VALUE_SENDANDSAVECOPY,
+            self::VALUE_SAVE_ONLY,
+            self::VALUE_SEND_ONLY,
+            self::VALUE_SEND_AND_SAVE_COPY,
         );
     }
     /**

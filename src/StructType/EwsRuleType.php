@@ -35,7 +35,7 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsEnabled;
     /**
@@ -51,7 +51,7 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsNotSupported;
     /**
@@ -59,7 +59,7 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsInError;
     /**
@@ -67,7 +67,6 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Rule predicates, used as rule conditions or exceptions
      * @var \Ews\StructType\EwsRulePredicatesType
      */
     public $Conditions;
@@ -76,7 +75,6 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Rule predicates, used as rule conditions or exceptions
      * @var \Ews\StructType\EwsRulePredicatesType
      */
     public $Exceptions;
@@ -85,7 +83,6 @@ class EwsRuleType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Rule actions
      * @var \Ews\StructType\EwsRuleActionsType
      */
     public $Actions;
@@ -102,10 +99,10 @@ class EwsRuleType extends AbstractStructBase
      * @uses EwsRuleType::setActions()
      * @param string $displayName
      * @param int $priority
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      * @param string $ruleId
-     * @param boolean $isNotSupported
-     * @param boolean $isInError
+     * @param bool $isNotSupported
+     * @param bool $isInError
      * @param \Ews\StructType\EwsRulePredicatesType $conditions
      * @param \Ews\StructType\EwsRulePredicatesType $exceptions
      * @param \Ews\StructType\EwsRuleActionsType $actions
@@ -138,6 +135,10 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -156,12 +157,16 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setPriority($priority = null)
     {
+        // validation for constraint: int
+        if (!is_null($priority) && !is_int($priority)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($priority)), __LINE__);
+        }
         $this->Priority = $priority;
         return $this;
     }
     /**
      * Get IsEnabled value
-     * @return boolean
+     * @return bool
      */
     public function getIsEnabled()
     {
@@ -169,7 +174,7 @@ class EwsRuleType extends AbstractStructBase
     }
     /**
      * Set IsEnabled value
-     * @param boolean $isEnabled
+     * @param bool $isEnabled
      * @return \Ews\StructType\EwsRuleType
      */
     public function setIsEnabled($isEnabled = null)
@@ -192,12 +197,16 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setRuleId($ruleId = null)
     {
+        // validation for constraint: string
+        if (!is_null($ruleId) && !is_string($ruleId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ruleId)), __LINE__);
+        }
         $this->RuleId = $ruleId;
         return $this;
     }
     /**
      * Get IsNotSupported value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsNotSupported()
     {
@@ -205,7 +214,7 @@ class EwsRuleType extends AbstractStructBase
     }
     /**
      * Set IsNotSupported value
-     * @param boolean $isNotSupported
+     * @param bool $isNotSupported
      * @return \Ews\StructType\EwsRuleType
      */
     public function setIsNotSupported($isNotSupported = null)
@@ -215,7 +224,7 @@ class EwsRuleType extends AbstractStructBase
     }
     /**
      * Get IsInError value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsInError()
     {
@@ -223,7 +232,7 @@ class EwsRuleType extends AbstractStructBase
     }
     /**
      * Set IsInError value
-     * @param boolean $isInError
+     * @param bool $isInError
      * @return \Ews\StructType\EwsRuleType
      */
     public function setIsInError($isInError = null)

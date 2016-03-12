@@ -19,12 +19,12 @@ class EwsSearchResultsPropertySetNameType
      * Constant for value 'Owa16'
      * @return string 'Owa16'
      */
-    const VALUE_OWA16 = 'Owa16';
+    const VALUE_OWA_16 = 'Owa16';
     /**
      * Constant for value 'Outlook16'
      * @return string 'Outlook16'
      */
-    const VALUE_OUTLOOK16 = 'Outlook16';
+    const VALUE_OUTLOOK_16 = 'Outlook16';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -38,16 +38,16 @@ class EwsSearchResultsPropertySetNameType
     /**
      * Return allowed values
      * @uses self::VALUE_DEFAULT
-     * @uses self::VALUE_OWA16
-     * @uses self::VALUE_OUTLOOK16
+     * @uses self::VALUE_OWA_16
+     * @uses self::VALUE_OUTLOOK_16
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_DEFAULT,
-            self::VALUE_OWA16,
-            self::VALUE_OUTLOOK16,
+            self::VALUE_OWA_16,
+            self::VALUE_OUTLOOK_16,
         );
     }
     /**

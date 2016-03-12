@@ -17,13 +17,13 @@ class EwsArrayOfEmailUsersType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsEmailUserType[]
      */
     public $EmailUser;
     /**
      * Constructor method for ArrayOfEmailUsersType
      * @uses EwsArrayOfEmailUsersType::setEmailUser()
-     * @param array $emailUser
+     * @param \Ews\StructType\EwsEmailUserType[] $emailUser
      */
     public function __construct(array $emailUser = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfEmailUsersType extends AbstractStructArrayBase
     }
     /**
      * Get EmailUser value
-     * @return array
+     * @return \Ews\StructType\EwsEmailUserType[]|null
      */
     public function getEmailUser()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfEmailUsersType extends AbstractStructArrayBase
     }
     /**
      * Set EmailUser value
-     * @param array $emailUser
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailUserType[] $emailUser
      * @return \Ews\ArrayType\EwsArrayOfEmailUsersType
      */
     public function setEmailUser(array $emailUser = array())
     {
+        foreach ($emailUser as $arrayOfEmailUsersTypeEmailUserItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEmailUsersTypeEmailUserItem instanceof \Ews\StructType\EwsEmailUserType) {
+                throw new \InvalidArgumentException(sprintf('The EmailUser property can only contain items of \Ews\StructType\EwsEmailUserType, "%s" given', is_object($arrayOfEmailUsersTypeEmailUserItem) ? get_class($arrayOfEmailUsersTypeEmailUserItem) : gettype($arrayOfEmailUsersTypeEmailUserItem)), __LINE__);
+            }
+        }
         $this->EmailUser = $emailUser;
+        return $this;
+    }
+    /**
+     * Add item to EmailUser value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailUserType $item
+     * @return \Ews\ArrayType\EwsArrayOfEmailUsersType
+     */
+    public function addToEmailUser(\Ews\StructType\EwsEmailUserType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailUserType) {
+            throw new \InvalidArgumentException(sprintf('The EmailUser property can only contain items of \Ews\StructType\EwsEmailUserType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->EmailUser[] = $item;
         return $this;
     }
     /**

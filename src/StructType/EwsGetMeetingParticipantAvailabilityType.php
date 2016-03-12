@@ -17,7 +17,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $SearchWindowStart;
     /**
@@ -25,7 +25,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var duration
+     * @var int
      */
     public $SearchWindowDuration;
     /**
@@ -50,8 +50,8 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * @uses EwsGetMeetingParticipantAvailabilityType::setSearchWindowDuration()
      * @uses EwsGetMeetingParticipantAvailabilityType::setMeetingDurationInMinutes()
      * @uses EwsGetMeetingParticipantAvailabilityType::setActivityDomain()
-     * @param dateTime $searchWindowStart
-     * @param duration $searchWindowDuration
+     * @param string $searchWindowStart
+     * @param int $searchWindowDuration
      * @param int $meetingDurationInMinutes
      * @param string $activityDomain
      */
@@ -65,7 +65,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     }
     /**
      * Get SearchWindowStart value
-     * @return dateTime
+     * @return string
      */
     public function getSearchWindowStart()
     {
@@ -73,17 +73,21 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     }
     /**
      * Set SearchWindowStart value
-     * @param dateTime $searchWindowStart
+     * @param string $searchWindowStart
      * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityType
      */
     public function setSearchWindowStart($searchWindowStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchWindowStart) && !is_string($searchWindowStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchWindowStart)), __LINE__);
+        }
         $this->SearchWindowStart = $searchWindowStart;
         return $this;
     }
     /**
      * Get SearchWindowDuration value
-     * @return duration
+     * @return int
      */
     public function getSearchWindowDuration()
     {
@@ -91,11 +95,15 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     }
     /**
      * Set SearchWindowDuration value
-     * @param duration $searchWindowDuration
+     * @param int $searchWindowDuration
      * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityType
      */
     public function setSearchWindowDuration($searchWindowDuration = null)
     {
+        // validation for constraint: int
+        if (!is_null($searchWindowDuration) && !is_int($searchWindowDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchWindowDuration)), __LINE__);
+        }
         $this->SearchWindowDuration = $searchWindowDuration;
         return $this;
     }
@@ -114,6 +122,10 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      */
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
     }
@@ -129,11 +141,13 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * Set ActivityDomain value
      * @uses \Ews\EnumType\EwsActivityDomainType::valueIsValid()
      * @uses \Ews\EnumType\EwsActivityDomainType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $activityDomain
      * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityType
      */
     public function setActivityDomain($activityDomain = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $activityDomain, implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
         }

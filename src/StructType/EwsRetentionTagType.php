@@ -6,10 +6,9 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RetentionTagType StructType
- * - documentation: The regular expression captures the standard representation of
- * a GUID
- * - pattern:
- * [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
+ * Meta informations extracted from the WSDL
+ * - documentation: The regular expression captures the standard representation of a GUID
+ * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -20,7 +19,7 @@ class EwsRetentionTagType extends AbstractStructBase
      * The IsExplicit
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $IsExplicit;
     /**
@@ -35,7 +34,7 @@ class EwsRetentionTagType extends AbstractStructBase
      * Constructor method for RetentionTagType
      * @uses EwsRetentionTagType::setIsExplicit()
      * @uses EwsRetentionTagType::set_()
-     * @param boolean $isExplicit
+     * @param bool $isExplicit
      * @param string $_
      */
     public function __construct($isExplicit = null, $_ = null)
@@ -46,7 +45,7 @@ class EwsRetentionTagType extends AbstractStructBase
     }
     /**
      * Get IsExplicit value
-     * @return boolean
+     * @return bool
      */
     public function getIsExplicit()
     {
@@ -54,7 +53,7 @@ class EwsRetentionTagType extends AbstractStructBase
     }
     /**
      * Set IsExplicit value
-     * @param boolean $isExplicit
+     * @param bool $isExplicit
      * @return \Ews\StructType\EwsRetentionTagType
      */
     public function setIsExplicit($isExplicit = null)
@@ -77,6 +76,14 @@ class EwsRetentionTagType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($_) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($_)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

@@ -73,7 +73,7 @@ class EwsJobInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $StartUtcTicks;
     /**
@@ -81,7 +81,7 @@ class EwsJobInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $EndUtcTicks;
     /**
@@ -102,8 +102,8 @@ class EwsJobInsightValue extends EwsInsightValue
      * @param string $companyWebsiteUrl
      * @param string $companyLinkedInUrl
      * @param string $title
-     * @param long $startUtcTicks
-     * @param long $endUtcTicks
+     * @param int $startUtcTicks
+     * @param int $endUtcTicks
      */
     public function __construct($company = null, $companyDescription = null, $companyTicker = null, $companyLogoUrl = null, $companyWebsiteUrl = null, $companyLinkedInUrl = null, $title = null, $startUtcTicks = null, $endUtcTicks = null)
     {
@@ -133,6 +133,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompany($company = null)
     {
+        // validation for constraint: string
+        if (!is_null($company) && !is_string($company)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($company)), __LINE__);
+        }
         $this->Company = $company;
         return $this;
     }
@@ -151,6 +155,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompanyDescription($companyDescription = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyDescription) && !is_string($companyDescription)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyDescription)), __LINE__);
+        }
         $this->CompanyDescription = $companyDescription;
         return $this;
     }
@@ -169,6 +177,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompanyTicker($companyTicker = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyTicker) && !is_string($companyTicker)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyTicker)), __LINE__);
+        }
         $this->CompanyTicker = $companyTicker;
         return $this;
     }
@@ -187,6 +199,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompanyLogoUrl($companyLogoUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyLogoUrl) && !is_string($companyLogoUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyLogoUrl)), __LINE__);
+        }
         $this->CompanyLogoUrl = $companyLogoUrl;
         return $this;
     }
@@ -205,6 +221,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompanyWebsiteUrl($companyWebsiteUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyWebsiteUrl) && !is_string($companyWebsiteUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyWebsiteUrl)), __LINE__);
+        }
         $this->CompanyWebsiteUrl = $companyWebsiteUrl;
         return $this;
     }
@@ -223,6 +243,10 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setCompanyLinkedInUrl($companyLinkedInUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyLinkedInUrl) && !is_string($companyLinkedInUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyLinkedInUrl)), __LINE__);
+        }
         $this->CompanyLinkedInUrl = $companyLinkedInUrl;
         return $this;
     }
@@ -241,12 +265,16 @@ class EwsJobInsightValue extends EwsInsightValue
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }
     /**
      * Get StartUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getStartUtcTicks()
     {
@@ -254,17 +282,21 @@ class EwsJobInsightValue extends EwsInsightValue
     }
     /**
      * Set StartUtcTicks value
-     * @param long $startUtcTicks
+     * @param int $startUtcTicks
      * @return \Ews\StructType\EwsJobInsightValue
      */
     public function setStartUtcTicks($startUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($startUtcTicks) && !is_int($startUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($startUtcTicks)), __LINE__);
+        }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
     }
     /**
      * Get EndUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getEndUtcTicks()
     {
@@ -272,11 +304,15 @@ class EwsJobInsightValue extends EwsInsightValue
     }
     /**
      * Set EndUtcTicks value
-     * @param long $endUtcTicks
+     * @param int $endUtcTicks
      * @return \Ews\StructType\EwsJobInsightValue
      */
     public function setEndUtcTicks($endUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($endUtcTicks) && !is_int($endUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($endUtcTicks)), __LINE__);
+        }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
     }

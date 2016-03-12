@@ -19,14 +19,13 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Retention policy tag.
-     * @var array
+     * @var \Ews\StructType\EwsRetentionPolicyTagType[]
      */
     public $RetentionPolicyTag;
     /**
      * Constructor method for ArrayOfRetentionPolicyTagsType
      * @uses EwsArrayOfRetentionPolicyTagsType::setRetentionPolicyTag()
-     * @param array $retentionPolicyTag
+     * @param \Ews\StructType\EwsRetentionPolicyTagType[] $retentionPolicyTag
      */
     public function __construct(array $retentionPolicyTag = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
     }
     /**
      * Get RetentionPolicyTag value
-     * @return array
+     * @return \Ews\StructType\EwsRetentionPolicyTagType[]|null
      */
     public function getRetentionPolicyTag()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
     }
     /**
      * Set RetentionPolicyTag value
-     * @param array $retentionPolicyTag
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRetentionPolicyTagType[] $retentionPolicyTag
      * @return \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType
      */
     public function setRetentionPolicyTag(array $retentionPolicyTag = array())
     {
+        foreach ($retentionPolicyTag as $arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem instanceof \Ews\StructType\EwsRetentionPolicyTagType) {
+                throw new \InvalidArgumentException(sprintf('The RetentionPolicyTag property can only contain items of \Ews\StructType\EwsRetentionPolicyTagType, "%s" given', is_object($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) ? get_class($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) : gettype($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem)), __LINE__);
+            }
+        }
         $this->RetentionPolicyTag = $retentionPolicyTag;
+        return $this;
+    }
+    /**
+     * Add item to RetentionPolicyTag value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRetentionPolicyTagType $item
+     * @return \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType
+     */
+    public function addToRetentionPolicyTag(\Ews\StructType\EwsRetentionPolicyTagType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRetentionPolicyTagType) {
+            throw new \InvalidArgumentException(sprintf('The RetentionPolicyTag property can only contain items of \Ews\StructType\EwsRetentionPolicyTagType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RetentionPolicyTag[] = $item;
         return $this;
     }
     /**

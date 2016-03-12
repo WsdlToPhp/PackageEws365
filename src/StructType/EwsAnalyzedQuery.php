@@ -25,7 +25,6 @@ class EwsAnalyzedQuery extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $SearchRestrictions;
@@ -57,6 +56,10 @@ class EwsAnalyzedQuery extends AbstractStructBase
      */
     public function setQueryLanguage($queryLanguage = null)
     {
+        // validation for constraint: string
+        if (!is_null($queryLanguage) && !is_string($queryLanguage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($queryLanguage)), __LINE__);
+        }
         $this->QueryLanguage = $queryLanguage;
         return $this;
     }

@@ -17,13 +17,13 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var string[]
      */
     public $Value;
     /**
      * Constructor method for ArrayOfStringValueType
      * @uses EwsArrayOfStringValueType::setValue()
-     * @param array $value
+     * @param string[] $value
      */
     public function __construct(array $value = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
     }
     /**
      * Get Value value
-     * @return array
+     * @return string[]
      */
     public function getValue()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
     }
     /**
      * Set Value value
-     * @param array $value
+     * @throws \InvalidArgumentException
+     * @param string[] $value
      * @return \Ews\ArrayType\EwsArrayOfStringValueType
      */
     public function setValue(array $value = array())
     {
+        foreach ($value as $arrayOfStringValueTypeValueItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfStringValueTypeValueItem)) {
+                throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($arrayOfStringValueTypeValueItem) ? get_class($arrayOfStringValueTypeValueItem) : gettype($arrayOfStringValueTypeValueItem)), __LINE__);
+            }
+        }
         $this->Value = $value;
+        return $this;
+    }
+    /**
+     * Add item to Value value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfStringValueType
+     */
+    public function addToValue($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Value[] = $item;
         return $this;
     }
     /**

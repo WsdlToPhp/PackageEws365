@@ -16,14 +16,14 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * The RestrictedGroupIdentifier
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsSidAndAttributesType[]
      */
     public $RestrictedGroupIdentifier;
     /**
      * Constructor method for NonEmptyArrayOfRestrictedGroupIdentifiersType
      * @uses
      * EwsNonEmptyArrayOfRestrictedGroupIdentifiersType::setRestrictedGroupIdentifier()
-     * @param array $restrictedGroupIdentifier
+     * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
      */
     public function __construct(array $restrictedGroupIdentifier = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
     }
     /**
      * Get RestrictedGroupIdentifier value
-     * @return array
+     * @return \Ews\StructType\EwsSidAndAttributesType[]|null
      */
     public function getRestrictedGroupIdentifier()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
     }
     /**
      * Set RestrictedGroupIdentifier value
-     * @param array $restrictedGroupIdentifier
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
      */
     public function setRestrictedGroupIdentifier(array $restrictedGroupIdentifier = array())
     {
+        foreach ($restrictedGroupIdentifier as $nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
+                throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) ? get_class($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) : gettype($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem)), __LINE__);
+            }
+        }
         $this->RestrictedGroupIdentifier = $restrictedGroupIdentifier;
+        return $this;
+    }
+    /**
+     * Add item to RestrictedGroupIdentifier value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSidAndAttributesType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
+     */
+    public function addToRestrictedGroupIdentifier(\Ews\StructType\EwsSidAndAttributesType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSidAndAttributesType) {
+            throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RestrictedGroupIdentifier[] = $item;
         return $this;
     }
     /**

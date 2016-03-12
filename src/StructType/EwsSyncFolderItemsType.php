@@ -132,6 +132,10 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
      */
     public function setMaxChangesReturned($maxChangesReturned = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxChangesReturned) && !is_int($maxChangesReturned)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxChangesReturned)), __LINE__);
+        }
         $this->MaxChangesReturned = $maxChangesReturned;
         return $this;
     }
@@ -150,6 +154,10 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
      */
     public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }
@@ -183,11 +191,13 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
      * Set SyncScope value
      * @uses \Ews\EnumType\EwsSyncFolderItemsScopeType::valueIsValid()
      * @uses \Ews\EnumType\EwsSyncFolderItemsScopeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $syncScope
      * @return \Ews\StructType\EwsSyncFolderItemsType
      */
     public function setSyncScope($syncScope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSyncFolderItemsScopeType::valueIsValid($syncScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $syncScope, implode(', ', \Ews\EnumType\EwsSyncFolderItemsScopeType::getValidValues())), __LINE__);
         }

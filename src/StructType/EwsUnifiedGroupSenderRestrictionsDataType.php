@@ -74,6 +74,10 @@ class EwsUnifiedGroupSenderRestrictionsDataType extends AbstractStructBase
      */
     public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalDirectoryObjectId)), __LINE__);
+        }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
         return $this;
     }

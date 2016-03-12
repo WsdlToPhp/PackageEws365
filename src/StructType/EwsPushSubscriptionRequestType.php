@@ -64,6 +64,10 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setStatusFrequency($statusFrequency = null)
     {
+        // validation for constraint: int
+        if (!is_null($statusFrequency) && !is_int($statusFrequency)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($statusFrequency)), __LINE__);
+        }
         $this->StatusFrequency = $statusFrequency;
         return $this;
     }
@@ -82,6 +86,10 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setURL($uRL = null)
     {
+        // validation for constraint: string
+        if (!is_null($uRL) && !is_string($uRL)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uRL)), __LINE__);
+        }
         $this->URL = $uRL;
         return $this;
     }
@@ -100,6 +108,10 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setCallerData($callerData = null)
     {
+        // validation for constraint: string
+        if (!is_null($callerData) && !is_string($callerData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callerData)), __LINE__);
+        }
         $this->CallerData = $callerData;
         return $this;
     }

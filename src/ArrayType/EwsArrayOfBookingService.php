@@ -17,13 +17,13 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsBookingServiceType[]
      */
     public $Service;
     /**
      * Constructor method for ArrayOfBookingService
      * @uses EwsArrayOfBookingService::setService()
-     * @param array $service
+     * @param \Ews\StructType\EwsBookingServiceType[] $service
      */
     public function __construct(array $service = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
     }
     /**
      * Get Service value
-     * @return array
+     * @return \Ews\StructType\EwsBookingServiceType[]|null
      */
     public function getService()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
     }
     /**
      * Set Service value
-     * @param array $service
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingServiceType[] $service
      * @return \Ews\ArrayType\EwsArrayOfBookingService
      */
     public function setService(array $service = array())
     {
+        foreach ($service as $arrayOfBookingServiceServiceItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBookingServiceServiceItem instanceof \Ews\StructType\EwsBookingServiceType) {
+                throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Ews\StructType\EwsBookingServiceType, "%s" given', is_object($arrayOfBookingServiceServiceItem) ? get_class($arrayOfBookingServiceServiceItem) : gettype($arrayOfBookingServiceServiceItem)), __LINE__);
+            }
+        }
         $this->Service = $service;
+        return $this;
+    }
+    /**
+     * Add item to Service value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingServiceType $item
+     * @return \Ews\ArrayType\EwsArrayOfBookingService
+     */
+    public function addToService(\Ews\StructType\EwsBookingServiceType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsBookingServiceType) {
+            throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Ews\StructType\EwsBookingServiceType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Service[] = $item;
         return $this;
     }
     /**

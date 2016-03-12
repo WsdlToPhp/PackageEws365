@@ -27,7 +27,7 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ReturnNewItemIds;
     /**
@@ -37,7 +37,7 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
      * @uses EwsBaseMoveCopyItemType::setReturnNewItemIds()
      * @param \Ews\StructType\EwsTargetFolderIdType $toFolderId
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @param boolean $returnNewItemIds
+     * @param bool $returnNewItemIds
      */
     public function __construct(\Ews\StructType\EwsTargetFolderIdType $toFolderId = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $returnNewItemIds = null)
     {
@@ -84,7 +84,7 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
     }
     /**
      * Get ReturnNewItemIds value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReturnNewItemIds()
     {
@@ -92,7 +92,7 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
     }
     /**
      * Set ReturnNewItemIds value
-     * @param boolean $returnNewItemIds
+     * @param bool $returnNewItemIds
      * @return \Ews\StructType\EwsBaseMoveCopyItemType
      */
     public function setReturnNewItemIds($returnNewItemIds = null)

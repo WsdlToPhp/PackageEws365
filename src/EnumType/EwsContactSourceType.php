@@ -14,7 +14,7 @@ class EwsContactSourceType
      * Constant for value 'ActiveDirectory'
      * @return string 'ActiveDirectory'
      */
-    const VALUE_ACTIVEDIRECTORY = 'ActiveDirectory';
+    const VALUE_ACTIVE_DIRECTORY = 'ActiveDirectory';
     /**
      * Constant for value 'Store'
      * @return string 'Store'
@@ -32,14 +32,14 @@ class EwsContactSourceType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_ACTIVEDIRECTORY
+     * @uses self::VALUE_ACTIVE_DIRECTORY
      * @uses self::VALUE_STORE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_ACTIVEDIRECTORY,
+            self::VALUE_ACTIVE_DIRECTORY,
             self::VALUE_STORE,
         );
     }

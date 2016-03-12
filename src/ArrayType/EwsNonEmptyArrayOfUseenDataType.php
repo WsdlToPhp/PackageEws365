@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsUnseenDataType[]
      */
     public $Unseen;
     /**
      * Constructor method for NonEmptyArrayOfUseenDataType
      * @uses EwsNonEmptyArrayOfUseenDataType::setUnseen()
-     * @param array $unseen
+     * @param \Ews\StructType\EwsUnseenDataType[] $unseen
      */
     public function __construct(array $unseen = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
     }
     /**
      * Get Unseen value
-     * @return array
+     * @return \Ews\StructType\EwsUnseenDataType[]
      */
     public function getUnseen()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
     }
     /**
      * Set Unseen value
-     * @param array $unseen
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnseenDataType[] $unseen
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfUseenDataType
      */
     public function setUnseen(array $unseen = array())
     {
+        foreach ($unseen as $nonEmptyArrayOfUseenDataTypeUnseenItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfUseenDataTypeUnseenItem instanceof \Ews\StructType\EwsUnseenDataType) {
+                throw new \InvalidArgumentException(sprintf('The Unseen property can only contain items of \Ews\StructType\EwsUnseenDataType, "%s" given', is_object($nonEmptyArrayOfUseenDataTypeUnseenItem) ? get_class($nonEmptyArrayOfUseenDataTypeUnseenItem) : gettype($nonEmptyArrayOfUseenDataTypeUnseenItem)), __LINE__);
+            }
+        }
         $this->Unseen = $unseen;
+        return $this;
+    }
+    /**
+     * Add item to Unseen value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnseenDataType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUseenDataType
+     */
+    public function addToUnseen(\Ews\StructType\EwsUnseenDataType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnseenDataType) {
+            throw new \InvalidArgumentException(sprintf('The Unseen property can only contain items of \Ews\StructType\EwsUnseenDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Unseen[] = $item;
         return $this;
     }
     /**

@@ -44,11 +44,13 @@ class EwsRequestServerVersion extends AbstractStructBase
      * Set Version value
      * @uses \Ews\EnumType\EwsExchangeVersionType::valueIsValid()
      * @uses \Ews\EnumType\EwsExchangeVersionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $version
      * @return \Ews\StructType\EwsRequestServerVersion
      */
     public function setVersion($version = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExchangeVersionType::valueIsValid($version)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $version, implode(', ', \Ews\EnumType\EwsExchangeVersionType::getValidValues())), __LINE__);
         }

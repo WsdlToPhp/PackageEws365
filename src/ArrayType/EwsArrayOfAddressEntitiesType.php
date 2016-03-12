@@ -17,13 +17,13 @@ class EwsArrayOfAddressEntitiesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsAddressEntityType[]
      */
     public $AddressEntity;
     /**
      * Constructor method for ArrayOfAddressEntitiesType
      * @uses EwsArrayOfAddressEntitiesType::setAddressEntity()
-     * @param array $addressEntity
+     * @param \Ews\StructType\EwsAddressEntityType[] $addressEntity
      */
     public function __construct(array $addressEntity = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAddressEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Get AddressEntity value
-     * @return array
+     * @return \Ews\StructType\EwsAddressEntityType[]|null
      */
     public function getAddressEntity()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAddressEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Set AddressEntity value
-     * @param array $addressEntity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAddressEntityType[] $addressEntity
      * @return \Ews\ArrayType\EwsArrayOfAddressEntitiesType
      */
     public function setAddressEntity(array $addressEntity = array())
     {
+        foreach ($addressEntity as $arrayOfAddressEntitiesTypeAddressEntityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAddressEntitiesTypeAddressEntityItem instanceof \Ews\StructType\EwsAddressEntityType) {
+                throw new \InvalidArgumentException(sprintf('The AddressEntity property can only contain items of \Ews\StructType\EwsAddressEntityType, "%s" given', is_object($arrayOfAddressEntitiesTypeAddressEntityItem) ? get_class($arrayOfAddressEntitiesTypeAddressEntityItem) : gettype($arrayOfAddressEntitiesTypeAddressEntityItem)), __LINE__);
+            }
+        }
         $this->AddressEntity = $addressEntity;
+        return $this;
+    }
+    /**
+     * Add item to AddressEntity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAddressEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfAddressEntitiesType
+     */
+    public function addToAddressEntity(\Ews\StructType\EwsAddressEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsAddressEntityType) {
+            throw new \InvalidArgumentException(sprintf('The AddressEntity property can only contain items of \Ews\StructType\EwsAddressEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AddressEntity[] = $item;
         return $this;
     }
     /**

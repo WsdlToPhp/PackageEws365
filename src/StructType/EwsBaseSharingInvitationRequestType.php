@@ -45,6 +45,14 @@ abstract class EwsBaseSharingInvitationRequestType extends EwsBaseCalendarReques
      */
     public function setSharingInvitationId($sharingInvitationId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(sharingInvitationId) && strlen(sharingInvitationId) < 1) || (is_array(sharingInvitationId) && count(sharingInvitationId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($sharingInvitationId) && !is_string($sharingInvitationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharingInvitationId)), __LINE__);
+        }
         $this->SharingInvitationId = $sharingInvitationId;
         return $this;
     }

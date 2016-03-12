@@ -17,13 +17,13 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsContactType[]
      */
     public $Contact;
     /**
      * Constructor method for ArrayOfContactsType
      * @uses EwsArrayOfContactsType::setContact()
-     * @param array $contact
+     * @param \Ews\StructType\EwsContactType[] $contact
      */
     public function __construct(array $contact = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
     }
     /**
      * Get Contact value
-     * @return array
+     * @return \Ews\StructType\EwsContactType[]|null
      */
     public function getContact()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
     }
     /**
      * Set Contact value
-     * @param array $contact
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContactType[] $contact
      * @return \Ews\ArrayType\EwsArrayOfContactsType
      */
     public function setContact(array $contact = array())
     {
+        foreach ($contact as $arrayOfContactsTypeContactItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfContactsTypeContactItem instanceof \Ews\StructType\EwsContactType) {
+                throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of \Ews\StructType\EwsContactType, "%s" given', is_object($arrayOfContactsTypeContactItem) ? get_class($arrayOfContactsTypeContactItem) : gettype($arrayOfContactsTypeContactItem)), __LINE__);
+            }
+        }
         $this->Contact = $contact;
+        return $this;
+    }
+    /**
+     * Add item to Contact value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContactType $item
+     * @return \Ews\ArrayType\EwsArrayOfContactsType
+     */
+    public function addToContact(\Ews\StructType\EwsContactType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsContactType) {
+            throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of \Ews\StructType\EwsContactType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Contact[] = $item;
         return $this;
     }
     /**

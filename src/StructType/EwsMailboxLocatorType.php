@@ -56,6 +56,10 @@ class EwsMailboxLocatorType extends AbstractStructBase
      */
     public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalDirectoryObjectId)), __LINE__);
+        }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsMailboxLocatorType extends AbstractStructBase
      */
     public function setLegacyDn($legacyDn = null)
     {
+        // validation for constraint: string
+        if (!is_null($legacyDn) && !is_string($legacyDn)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($legacyDn)), __LINE__);
+        }
         $this->LegacyDn = $legacyDn;
         return $this;
     }

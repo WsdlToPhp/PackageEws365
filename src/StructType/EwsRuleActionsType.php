@@ -35,7 +35,7 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $Delete;
     /**
@@ -67,7 +67,7 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MarkAsRead;
     /**
@@ -83,7 +83,7 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $PermanentDelete;
     /**
@@ -107,7 +107,6 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ServerReplyWithMessage;
@@ -116,7 +115,7 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $StopProcessingRules;
     /**
@@ -136,18 +135,18 @@ class EwsRuleActionsType extends AbstractStructBase
      * @uses EwsRuleActionsType::setStopProcessingRules()
      * @param \Ews\ArrayType\EwsArrayOfStringsType $assignCategories
      * @param \Ews\StructType\EwsTargetFolderIdType $copyToFolder
-     * @param boolean $delete
+     * @param bool $delete
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType
      * $forwardAsAttachmentToRecipients
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
      * @param string $markImportance
-     * @param boolean $markAsRead
+     * @param bool $markAsRead
      * @param \Ews\StructType\EwsTargetFolderIdType $moveToFolder
-     * @param boolean $permanentDelete
+     * @param bool $permanentDelete
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients
      * @param \Ews\StructType\EwsItemIdType $serverReplyWithMessage
-     * @param boolean $stopProcessingRules
+     * @param bool $stopProcessingRules
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $assignCategories = null, \Ews\StructType\EwsTargetFolderIdType $copyToFolder = null, $delete = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients = null, $markImportance = null, $markAsRead = null, \Ews\StructType\EwsTargetFolderIdType $moveToFolder = null, $permanentDelete = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients = null, \Ews\StructType\EwsItemIdType $serverReplyWithMessage = null, $stopProcessingRules = null)
     {
@@ -204,7 +203,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Get Delete value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getDelete()
     {
@@ -212,7 +211,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Set Delete value
-     * @param boolean $delete
+     * @param bool $delete
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setDelete($delete = null)
@@ -269,11 +268,13 @@ class EwsRuleActionsType extends AbstractStructBase
      * Set MarkImportance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $markImportance
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setMarkImportance($markImportance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($markImportance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $markImportance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -282,7 +283,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Get MarkAsRead value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMarkAsRead()
     {
@@ -290,7 +291,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Set MarkAsRead value
-     * @param boolean $markAsRead
+     * @param bool $markAsRead
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setMarkAsRead($markAsRead = null)
@@ -318,7 +319,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Get PermanentDelete value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getPermanentDelete()
     {
@@ -326,7 +327,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Set PermanentDelete value
-     * @param boolean $permanentDelete
+     * @param bool $permanentDelete
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setPermanentDelete($permanentDelete = null)
@@ -390,7 +391,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Get StopProcessingRules value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getStopProcessingRules()
     {
@@ -398,7 +399,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Set StopProcessingRules value
-     * @param boolean $stopProcessingRules
+     * @param bool $stopProcessingRules
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setStopProcessingRules($stopProcessingRules = null)

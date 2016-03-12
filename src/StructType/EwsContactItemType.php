@@ -114,14 +114,14 @@ class EwsContactItemType extends EwsItemType
      * The Birthday
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $Birthday;
     /**
      * The BusinessHomePage
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var anyURI
+     * @var string
      */
     public $BusinessHomePage;
     /**
@@ -226,14 +226,14 @@ class EwsContactItemType extends EwsItemType
      * The WeddingAnniversary
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $WeddingAnniversary;
     /**
      * The HasPicture
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasPicture;
     /**
@@ -324,14 +324,14 @@ class EwsContactItemType extends EwsItemType
      * The IsAutoUpdateDisabled
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAutoUpdateDisabled;
     /**
      * The IsMessengerEnabled
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMessengerEnabled;
     /**
@@ -366,7 +366,7 @@ class EwsContactItemType extends EwsItemType
      * The IsHidden
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsHidden;
     /**
@@ -380,14 +380,14 @@ class EwsContactItemType extends EwsItemType
      * The PassportId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $PassportId;
     /**
      * The IsPrivate
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsPrivate;
     /**
@@ -422,7 +422,7 @@ class EwsContactItemType extends EwsItemType
      * The Cid
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $Cid;
     /**
@@ -471,28 +471,28 @@ class EwsContactItemType extends EwsItemType
      * The InviteFree
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $InviteFree;
     /**
      * The HidePresenceAndProfile
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HidePresenceAndProfile;
     /**
      * The IsPendingOutbound
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsPendingOutbound;
     /**
      * The SupportGroupFeeds
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SupportGroupFeeds;
     /**
@@ -506,7 +506,7 @@ class EwsContactItemType extends EwsItemType
      * The UnifiedInbox
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $UnifiedInbox;
     /**
@@ -536,7 +536,7 @@ class EwsContactItemType extends EwsItemType
      * The NotInBirthdayCalendar
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $NotInBirthdayCalendar;
     /**
@@ -578,7 +578,7 @@ class EwsContactItemType extends EwsItemType
      * The MobileIMEnabled
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MobileIMEnabled;
     /**
@@ -694,8 +694,8 @@ class EwsContactItemType extends EwsItemType
      * @param \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses
      * @param \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers
      * @param string $assistantName
-     * @param dateTime $birthday
-     * @param anyURI $businessHomePage
+     * @param string $birthday
+     * @param string $businessHomePage
      * @param \Ews\ArrayType\EwsArrayOfStringsType $children
      * @param \Ews\ArrayType\EwsArrayOfStringsType $companies
      * @param string $contactSource
@@ -710,8 +710,8 @@ class EwsContactItemType extends EwsItemType
      * @param string $profession
      * @param string $spouseName
      * @param string $surname
-     * @param dateTime $weddingAnniversary
-     * @param boolean $hasPicture
+     * @param string $weddingAnniversary
+     * @param bool $hasPicture
      * @param string $phoneticFullName
      * @param string $phoneticFirstName
      * @param string $phoneticLastName
@@ -724,43 +724,43 @@ class EwsContactItemType extends EwsItemType
      * @param \Ews\StructType\EwsSingleRecipientType $managerMailbox
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $directReports
      * @param string $accountName
-     * @param boolean $isAutoUpdateDisabled
-     * @param boolean $isMessengerEnabled
+     * @param bool $isAutoUpdateDisabled
+     * @param bool $isMessengerEnabled
      * @param string $comment
      * @param int $contactShortId
      * @param string $contactType
      * @param string $gender
-     * @param boolean $isHidden
+     * @param bool $isHidden
      * @param string $objectId
-     * @param long $passportId
-     * @param boolean $isPrivate
+     * @param int $passportId
+     * @param bool $isPrivate
      * @param string $sourceId
      * @param int $trustLevel
      * @param string $createdBy
      * @param \Ews\StructType\EwsContactUrlDictionaryType $urls
-     * @param long $cid
+     * @param int $cid
      * @param string $skypeAuthCertificate
      * @param string $skypeContext
      * @param string $skypeId
      * @param string $skypeRelationship
      * @param string $yomiNickname
      * @param string $xboxLiveTag
-     * @param boolean $inviteFree
-     * @param boolean $hidePresenceAndProfile
-     * @param boolean $isPendingOutbound
-     * @param boolean $supportGroupFeeds
+     * @param bool $inviteFree
+     * @param bool $hidePresenceAndProfile
+     * @param bool $isPendingOutbound
+     * @param bool $supportGroupFeeds
      * @param string $userTileHash
-     * @param boolean $unifiedInbox
+     * @param bool $unifiedInbox
      * @param \Ews\ArrayType\EwsArrayOfStringsType $mris
      * @param string $wlid
      * @param string $abchContactId
-     * @param boolean $notInBirthdayCalendar
+     * @param bool $notInBirthdayCalendar
      * @param string $shellContactType
      * @param string $imMri
      * @param int $presenceTrustLevel
      * @param string $otherMri
      * @param string $profileLastChanged
-     * @param boolean $mobileIMEnabled
+     * @param bool $mobileIMEnabled
      * @param string $partnerNetworkProfilePhotoUrl
      * @param string $partnerNetworkThumbnailPhotoUrl
      */
@@ -866,6 +866,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setFileAs($fileAs = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileAs) && !is_string($fileAs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAs)), __LINE__);
+        }
         $this->FileAs = $fileAs;
         return $this;
     }
@@ -881,11 +885,13 @@ class EwsContactItemType extends EwsItemType
      * Set FileAsMapping value
      * @uses \Ews\EnumType\EwsFileAsMappingType::valueIsValid()
      * @uses \Ews\EnumType\EwsFileAsMappingType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fileAsMapping
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setFileAsMapping($fileAsMapping = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFileAsMappingType::valueIsValid($fileAsMapping)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fileAsMapping, implode(', ', \Ews\EnumType\EwsFileAsMappingType::getValidValues())), __LINE__);
         }
@@ -907,6 +913,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -925,6 +935,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setGivenName($givenName = null)
     {
+        // validation for constraint: string
+        if (!is_null($givenName) && !is_string($givenName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($givenName)), __LINE__);
+        }
         $this->GivenName = $givenName;
         return $this;
     }
@@ -943,6 +957,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setInitials($initials = null)
     {
+        // validation for constraint: string
+        if (!is_null($initials) && !is_string($initials)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initials)), __LINE__);
+        }
         $this->Initials = $initials;
         return $this;
     }
@@ -961,6 +979,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setMiddleName($middleName = null)
     {
+        // validation for constraint: string
+        if (!is_null($middleName) && !is_string($middleName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($middleName)), __LINE__);
+        }
         $this->MiddleName = $middleName;
         return $this;
     }
@@ -979,6 +1001,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setNickname($nickname = null)
     {
+        // validation for constraint: string
+        if (!is_null($nickname) && !is_string($nickname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nickname)), __LINE__);
+        }
         $this->Nickname = $nickname;
         return $this;
     }
@@ -1015,6 +1041,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setCompanyName($companyName = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyName) && !is_string($companyName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyName)), __LINE__);
+        }
         $this->CompanyName = $companyName;
         return $this;
     }
@@ -1105,12 +1135,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setAssistantName($assistantName = null)
     {
+        // validation for constraint: string
+        if (!is_null($assistantName) && !is_string($assistantName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($assistantName)), __LINE__);
+        }
         $this->AssistantName = $assistantName;
         return $this;
     }
     /**
      * Get Birthday value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getBirthday()
     {
@@ -1118,17 +1152,21 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set Birthday value
-     * @param dateTime $birthday
+     * @param string $birthday
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setBirthday($birthday = null)
     {
+        // validation for constraint: string
+        if (!is_null($birthday) && !is_string($birthday)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($birthday)), __LINE__);
+        }
         $this->Birthday = $birthday;
         return $this;
     }
     /**
      * Get BusinessHomePage value
-     * @return anyURI|null
+     * @return string|null
      */
     public function getBusinessHomePage()
     {
@@ -1136,11 +1174,15 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set BusinessHomePage value
-     * @param anyURI $businessHomePage
+     * @param string $businessHomePage
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setBusinessHomePage($businessHomePage = null)
     {
+        // validation for constraint: string
+        if (!is_null($businessHomePage) && !is_string($businessHomePage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($businessHomePage)), __LINE__);
+        }
         $this->BusinessHomePage = $businessHomePage;
         return $this;
     }
@@ -1192,11 +1234,13 @@ class EwsContactItemType extends EwsItemType
      * Set ContactSource value
      * @uses \Ews\EnumType\EwsContactSourceType::valueIsValid()
      * @uses \Ews\EnumType\EwsContactSourceType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $contactSource
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setContactSource($contactSource = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContactSourceType::valueIsValid($contactSource)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactSource, implode(', ', \Ews\EnumType\EwsContactSourceType::getValidValues())), __LINE__);
         }
@@ -1218,6 +1262,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setDepartment($department = null)
     {
+        // validation for constraint: string
+        if (!is_null($department) && !is_string($department)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+        }
         $this->Department = $department;
         return $this;
     }
@@ -1236,6 +1284,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setGeneration($generation = null)
     {
+        // validation for constraint: string
+        if (!is_null($generation) && !is_string($generation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($generation)), __LINE__);
+        }
         $this->Generation = $generation;
         return $this;
     }
@@ -1272,6 +1324,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setJobTitle($jobTitle = null)
     {
+        // validation for constraint: string
+        if (!is_null($jobTitle) && !is_string($jobTitle)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($jobTitle)), __LINE__);
+        }
         $this->JobTitle = $jobTitle;
         return $this;
     }
@@ -1290,6 +1346,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setManager($manager = null)
     {
+        // validation for constraint: string
+        if (!is_null($manager) && !is_string($manager)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($manager)), __LINE__);
+        }
         $this->Manager = $manager;
         return $this;
     }
@@ -1308,6 +1368,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setMileage($mileage = null)
     {
+        // validation for constraint: string
+        if (!is_null($mileage) && !is_string($mileage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mileage)), __LINE__);
+        }
         $this->Mileage = $mileage;
         return $this;
     }
@@ -1326,6 +1390,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setOfficeLocation($officeLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($officeLocation) && !is_string($officeLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($officeLocation)), __LINE__);
+        }
         $this->OfficeLocation = $officeLocation;
         return $this;
     }
@@ -1341,11 +1409,13 @@ class EwsContactItemType extends EwsItemType
      * Set PostalAddressIndex value
      * @uses \Ews\EnumType\EwsPhysicalAddressIndexType::valueIsValid()
      * @uses \Ews\EnumType\EwsPhysicalAddressIndexType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $postalAddressIndex
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setPostalAddressIndex($postalAddressIndex = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPhysicalAddressIndexType::valueIsValid($postalAddressIndex)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $postalAddressIndex, implode(', ', \Ews\EnumType\EwsPhysicalAddressIndexType::getValidValues())), __LINE__);
         }
@@ -1367,6 +1437,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setProfession($profession = null)
     {
+        // validation for constraint: string
+        if (!is_null($profession) && !is_string($profession)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($profession)), __LINE__);
+        }
         $this->Profession = $profession;
         return $this;
     }
@@ -1385,6 +1459,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSpouseName($spouseName = null)
     {
+        // validation for constraint: string
+        if (!is_null($spouseName) && !is_string($spouseName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($spouseName)), __LINE__);
+        }
         $this->SpouseName = $spouseName;
         return $this;
     }
@@ -1403,12 +1481,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSurname($surname = null)
     {
+        // validation for constraint: string
+        if (!is_null($surname) && !is_string($surname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($surname)), __LINE__);
+        }
         $this->Surname = $surname;
         return $this;
     }
     /**
      * Get WeddingAnniversary value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getWeddingAnniversary()
     {
@@ -1416,17 +1498,21 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set WeddingAnniversary value
-     * @param dateTime $weddingAnniversary
+     * @param string $weddingAnniversary
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setWeddingAnniversary($weddingAnniversary = null)
     {
+        // validation for constraint: string
+        if (!is_null($weddingAnniversary) && !is_string($weddingAnniversary)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($weddingAnniversary)), __LINE__);
+        }
         $this->WeddingAnniversary = $weddingAnniversary;
         return $this;
     }
     /**
      * Get HasPicture value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasPicture()
     {
@@ -1434,7 +1520,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set HasPicture value
-     * @param boolean $hasPicture
+     * @param bool $hasPicture
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setHasPicture($hasPicture = null)
@@ -1457,6 +1543,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPhoneticFullName($phoneticFullName = null)
     {
+        // validation for constraint: string
+        if (!is_null($phoneticFullName) && !is_string($phoneticFullName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneticFullName)), __LINE__);
+        }
         $this->PhoneticFullName = $phoneticFullName;
         return $this;
     }
@@ -1475,6 +1565,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPhoneticFirstName($phoneticFirstName = null)
     {
+        // validation for constraint: string
+        if (!is_null($phoneticFirstName) && !is_string($phoneticFirstName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneticFirstName)), __LINE__);
+        }
         $this->PhoneticFirstName = $phoneticFirstName;
         return $this;
     }
@@ -1493,6 +1587,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPhoneticLastName($phoneticLastName = null)
     {
+        // validation for constraint: string
+        if (!is_null($phoneticLastName) && !is_string($phoneticLastName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneticLastName)), __LINE__);
+        }
         $this->PhoneticLastName = $phoneticLastName;
         return $this;
     }
@@ -1511,6 +1609,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -1529,6 +1631,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setNotes($notes = null)
     {
+        // validation for constraint: string
+        if (!is_null($notes) && !is_string($notes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($notes)), __LINE__);
+        }
         $this->Notes = $notes;
         return $this;
     }
@@ -1601,6 +1707,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setDirectoryId($directoryId = null)
     {
+        // validation for constraint: string
+        if (!is_null($directoryId) && !is_string($directoryId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($directoryId)), __LINE__);
+        }
         $this->DirectoryId = $directoryId;
         return $this;
     }
@@ -1655,12 +1765,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setAccountName($accountName = null)
     {
+        // validation for constraint: string
+        if (!is_null($accountName) && !is_string($accountName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+        }
         $this->AccountName = $accountName;
         return $this;
     }
     /**
      * Get IsAutoUpdateDisabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAutoUpdateDisabled()
     {
@@ -1668,7 +1782,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set IsAutoUpdateDisabled value
-     * @param boolean $isAutoUpdateDisabled
+     * @param bool $isAutoUpdateDisabled
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setIsAutoUpdateDisabled($isAutoUpdateDisabled = null)
@@ -1678,7 +1792,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get IsMessengerEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMessengerEnabled()
     {
@@ -1686,7 +1800,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set IsMessengerEnabled value
-     * @param boolean $isMessengerEnabled
+     * @param bool $isMessengerEnabled
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setIsMessengerEnabled($isMessengerEnabled = null)
@@ -1709,6 +1823,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setComment($comment = null)
     {
+        // validation for constraint: string
+        if (!is_null($comment) && !is_string($comment)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($comment)), __LINE__);
+        }
         $this->Comment = $comment;
         return $this;
     }
@@ -1727,6 +1845,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setContactShortId($contactShortId = null)
     {
+        // validation for constraint: int
+        if (!is_null($contactShortId) && !is_int($contactShortId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($contactShortId)), __LINE__);
+        }
         $this->ContactShortId = $contactShortId;
         return $this;
     }
@@ -1745,6 +1867,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setContactType($contactType = null)
     {
+        // validation for constraint: string
+        if (!is_null($contactType) && !is_string($contactType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contactType)), __LINE__);
+        }
         $this->ContactType = $contactType;
         return $this;
     }
@@ -1763,12 +1889,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setGender($gender = null)
     {
+        // validation for constraint: string
+        if (!is_null($gender) && !is_string($gender)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($gender)), __LINE__);
+        }
         $this->Gender = $gender;
         return $this;
     }
     /**
      * Get IsHidden value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsHidden()
     {
@@ -1776,7 +1906,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set IsHidden value
-     * @param boolean $isHidden
+     * @param bool $isHidden
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setIsHidden($isHidden = null)
@@ -1799,12 +1929,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setObjectId($objectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectId) && !is_string($objectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectId)), __LINE__);
+        }
         $this->ObjectId = $objectId;
         return $this;
     }
     /**
      * Get PassportId value
-     * @return long|null
+     * @return int|null
      */
     public function getPassportId()
     {
@@ -1812,17 +1946,21 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set PassportId value
-     * @param long $passportId
+     * @param int $passportId
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setPassportId($passportId = null)
     {
+        // validation for constraint: int
+        if (!is_null($passportId) && !is_int($passportId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($passportId)), __LINE__);
+        }
         $this->PassportId = $passportId;
         return $this;
     }
     /**
      * Get IsPrivate value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsPrivate()
     {
@@ -1830,7 +1968,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set IsPrivate value
-     * @param boolean $isPrivate
+     * @param bool $isPrivate
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setIsPrivate($isPrivate = null)
@@ -1853,6 +1991,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSourceId($sourceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($sourceId) && !is_string($sourceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceId)), __LINE__);
+        }
         $this->SourceId = $sourceId;
         return $this;
     }
@@ -1871,6 +2013,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setTrustLevel($trustLevel = null)
     {
+        // validation for constraint: int
+        if (!is_null($trustLevel) && !is_int($trustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($trustLevel)), __LINE__);
+        }
         $this->TrustLevel = $trustLevel;
         return $this;
     }
@@ -1889,6 +2035,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setCreatedBy($createdBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($createdBy) && !is_string($createdBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdBy)), __LINE__);
+        }
         $this->CreatedBy = $createdBy;
         return $this;
     }
@@ -1912,7 +2062,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get Cid value
-     * @return long|null
+     * @return int|null
      */
     public function getCid()
     {
@@ -1920,11 +2070,15 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set Cid value
-     * @param long $cid
+     * @param int $cid
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setCid($cid = null)
     {
+        // validation for constraint: int
+        if (!is_null($cid) && !is_int($cid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($cid)), __LINE__);
+        }
         $this->Cid = $cid;
         return $this;
     }
@@ -1943,6 +2097,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSkypeAuthCertificate($skypeAuthCertificate = null)
     {
+        // validation for constraint: string
+        if (!is_null($skypeAuthCertificate) && !is_string($skypeAuthCertificate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($skypeAuthCertificate)), __LINE__);
+        }
         $this->SkypeAuthCertificate = $skypeAuthCertificate;
         return $this;
     }
@@ -1961,6 +2119,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSkypeContext($skypeContext = null)
     {
+        // validation for constraint: string
+        if (!is_null($skypeContext) && !is_string($skypeContext)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($skypeContext)), __LINE__);
+        }
         $this->SkypeContext = $skypeContext;
         return $this;
     }
@@ -1979,6 +2141,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSkypeId($skypeId = null)
     {
+        // validation for constraint: string
+        if (!is_null($skypeId) && !is_string($skypeId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($skypeId)), __LINE__);
+        }
         $this->SkypeId = $skypeId;
         return $this;
     }
@@ -1997,6 +2163,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSkypeRelationship($skypeRelationship = null)
     {
+        // validation for constraint: string
+        if (!is_null($skypeRelationship) && !is_string($skypeRelationship)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($skypeRelationship)), __LINE__);
+        }
         $this->SkypeRelationship = $skypeRelationship;
         return $this;
     }
@@ -2015,6 +2185,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setYomiNickname($yomiNickname = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiNickname) && !is_string($yomiNickname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiNickname)), __LINE__);
+        }
         $this->YomiNickname = $yomiNickname;
         return $this;
     }
@@ -2033,12 +2207,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setXboxLiveTag($xboxLiveTag = null)
     {
+        // validation for constraint: string
+        if (!is_null($xboxLiveTag) && !is_string($xboxLiveTag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xboxLiveTag)), __LINE__);
+        }
         $this->XboxLiveTag = $xboxLiveTag;
         return $this;
     }
     /**
      * Get InviteFree value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getInviteFree()
     {
@@ -2046,7 +2224,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set InviteFree value
-     * @param boolean $inviteFree
+     * @param bool $inviteFree
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setInviteFree($inviteFree = null)
@@ -2056,7 +2234,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get HidePresenceAndProfile value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHidePresenceAndProfile()
     {
@@ -2064,7 +2242,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set HidePresenceAndProfile value
-     * @param boolean $hidePresenceAndProfile
+     * @param bool $hidePresenceAndProfile
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setHidePresenceAndProfile($hidePresenceAndProfile = null)
@@ -2074,7 +2252,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get IsPendingOutbound value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsPendingOutbound()
     {
@@ -2082,7 +2260,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set IsPendingOutbound value
-     * @param boolean $isPendingOutbound
+     * @param bool $isPendingOutbound
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setIsPendingOutbound($isPendingOutbound = null)
@@ -2092,7 +2270,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get SupportGroupFeeds value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSupportGroupFeeds()
     {
@@ -2100,7 +2278,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set SupportGroupFeeds value
-     * @param boolean $supportGroupFeeds
+     * @param bool $supportGroupFeeds
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setSupportGroupFeeds($supportGroupFeeds = null)
@@ -2123,12 +2301,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setUserTileHash($userTileHash = null)
     {
+        // validation for constraint: string
+        if (!is_null($userTileHash) && !is_string($userTileHash)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userTileHash)), __LINE__);
+        }
         $this->UserTileHash = $userTileHash;
         return $this;
     }
     /**
      * Get UnifiedInbox value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getUnifiedInbox()
     {
@@ -2136,7 +2318,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set UnifiedInbox value
-     * @param boolean $unifiedInbox
+     * @param bool $unifiedInbox
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setUnifiedInbox($unifiedInbox = null)
@@ -2177,6 +2359,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setWlid($wlid = null)
     {
+        // validation for constraint: string
+        if (!is_null($wlid) && !is_string($wlid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($wlid)), __LINE__);
+        }
         $this->Wlid = $wlid;
         return $this;
     }
@@ -2195,12 +2381,20 @@ class EwsContactItemType extends EwsItemType
      */
     public function setAbchContactId($abchContactId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($abchContactId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $abchContactId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($abchContactId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($abchContactId) && !is_string($abchContactId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($abchContactId)), __LINE__);
+        }
         $this->AbchContactId = $abchContactId;
         return $this;
     }
     /**
      * Get NotInBirthdayCalendar value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getNotInBirthdayCalendar()
     {
@@ -2208,7 +2402,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set NotInBirthdayCalendar value
-     * @param boolean $notInBirthdayCalendar
+     * @param bool $notInBirthdayCalendar
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setNotInBirthdayCalendar($notInBirthdayCalendar = null)
@@ -2231,6 +2425,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setShellContactType($shellContactType = null)
     {
+        // validation for constraint: string
+        if (!is_null($shellContactType) && !is_string($shellContactType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($shellContactType)), __LINE__);
+        }
         $this->ShellContactType = $shellContactType;
         return $this;
     }
@@ -2249,6 +2447,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setImMri($imMri = null)
     {
+        // validation for constraint: string
+        if (!is_null($imMri) && !is_string($imMri)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imMri)), __LINE__);
+        }
         $this->ImMri = $imMri;
         return $this;
     }
@@ -2267,6 +2469,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPresenceTrustLevel($presenceTrustLevel = null)
     {
+        // validation for constraint: int
+        if (!is_null($presenceTrustLevel) && !is_int($presenceTrustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($presenceTrustLevel)), __LINE__);
+        }
         $this->PresenceTrustLevel = $presenceTrustLevel;
         return $this;
     }
@@ -2285,6 +2491,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setOtherMri($otherMri = null)
     {
+        // validation for constraint: string
+        if (!is_null($otherMri) && !is_string($otherMri)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($otherMri)), __LINE__);
+        }
         $this->OtherMri = $otherMri;
         return $this;
     }
@@ -2303,12 +2513,16 @@ class EwsContactItemType extends EwsItemType
      */
     public function setProfileLastChanged($profileLastChanged = null)
     {
+        // validation for constraint: string
+        if (!is_null($profileLastChanged) && !is_string($profileLastChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($profileLastChanged)), __LINE__);
+        }
         $this->ProfileLastChanged = $profileLastChanged;
         return $this;
     }
     /**
      * Get MobileIMEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMobileIMEnabled()
     {
@@ -2316,7 +2530,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set MobileIMEnabled value
-     * @param boolean $mobileIMEnabled
+     * @param bool $mobileIMEnabled
      * @return \Ews\StructType\EwsContactItemType
      */
     public function setMobileIMEnabled($mobileIMEnabled = null)
@@ -2339,6 +2553,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPartnerNetworkProfilePhotoUrl($partnerNetworkProfilePhotoUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($partnerNetworkProfilePhotoUrl) && !is_string($partnerNetworkProfilePhotoUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($partnerNetworkProfilePhotoUrl)), __LINE__);
+        }
         $this->PartnerNetworkProfilePhotoUrl = $partnerNetworkProfilePhotoUrl;
         return $this;
     }
@@ -2357,6 +2575,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setPartnerNetworkThumbnailPhotoUrl($partnerNetworkThumbnailPhotoUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($partnerNetworkThumbnailPhotoUrl) && !is_string($partnerNetworkThumbnailPhotoUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($partnerNetworkThumbnailPhotoUrl)), __LINE__);
+        }
         $this->PartnerNetworkThumbnailPhotoUrl = $partnerNetworkThumbnailPhotoUrl;
         return $this;
     }

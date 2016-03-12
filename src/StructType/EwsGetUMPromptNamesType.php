@@ -58,6 +58,14 @@ class EwsGetUMPromptNamesType extends EwsBaseRequestType
      */
     public function setConfigurationObject($configurationObject = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($configurationObject) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $configurationObject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($configurationObject)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($configurationObject) && !is_string($configurationObject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($configurationObject)), __LINE__);
+        }
         $this->ConfigurationObject = $configurationObject;
         return $this;
     }
@@ -76,6 +84,10 @@ class EwsGetUMPromptNamesType extends EwsBaseRequestType
      */
     public function setHoursElapsedSinceLastModified($hoursElapsedSinceLastModified = null)
     {
+        // validation for constraint: int
+        if (!is_null($hoursElapsedSinceLastModified) && !is_int($hoursElapsedSinceLastModified)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($hoursElapsedSinceLastModified)), __LINE__);
+        }
         $this->HoursElapsedSinceLastModified = $hoursElapsedSinceLastModified;
         return $this;
     }

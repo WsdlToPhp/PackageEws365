@@ -17,14 +17,13 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: File context properties.
-     * @var array
+     * @var \Ews\StructType\EwsFileItemContext[]
      */
     public $FileContext;
     /**
      * Constructor method for ArrayOfFileItemContextsType
      * @uses EwsArrayOfFileItemContextsType::setFileContext()
-     * @param array $fileContext
+     * @param \Ews\StructType\EwsFileItemContext[] $fileContext
      */
     public function __construct(array $fileContext = array())
     {
@@ -33,7 +32,7 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
     }
     /**
      * Get FileContext value
-     * @return array
+     * @return \Ews\StructType\EwsFileItemContext[]|null
      */
     public function getFileContext()
     {
@@ -41,12 +40,34 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
     }
     /**
      * Set FileContext value
-     * @param array $fileContext
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFileItemContext[] $fileContext
      * @return \Ews\ArrayType\EwsArrayOfFileItemContextsType
      */
     public function setFileContext(array $fileContext = array())
     {
+        foreach ($fileContext as $arrayOfFileItemContextsTypeFileContextItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFileItemContextsTypeFileContextItem instanceof \Ews\StructType\EwsFileItemContext) {
+                throw new \InvalidArgumentException(sprintf('The FileContext property can only contain items of \Ews\StructType\EwsFileItemContext, "%s" given', is_object($arrayOfFileItemContextsTypeFileContextItem) ? get_class($arrayOfFileItemContextsTypeFileContextItem) : gettype($arrayOfFileItemContextsTypeFileContextItem)), __LINE__);
+            }
+        }
         $this->FileContext = $fileContext;
+        return $this;
+    }
+    /**
+     * Add item to FileContext value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFileItemContext $item
+     * @return \Ews\ArrayType\EwsArrayOfFileItemContextsType
+     */
+    public function addToFileContext(\Ews\StructType\EwsFileItemContext $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFileItemContext) {
+            throw new \InvalidArgumentException(sprintf('The FileContext property can only contain items of \Ews\StructType\EwsFileItemContext, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FileContext[] = $item;
         return $this;
     }
     /**

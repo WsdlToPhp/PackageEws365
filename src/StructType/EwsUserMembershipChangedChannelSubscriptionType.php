@@ -44,6 +44,10 @@ class EwsUserMembershipChangedChannelSubscriptionType extends EwsChannelSubscrip
      */
     public function setUserSmtpAddress($userSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($userSmtpAddress) && !is_string($userSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userSmtpAddress)), __LINE__);
+        }
         $this->UserSmtpAddress = $userSmtpAddress;
         return $this;
     }

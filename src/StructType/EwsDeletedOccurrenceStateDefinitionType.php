@@ -16,22 +16,22 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
      * The OccurrenceDate
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $OccurrenceDate;
     /**
      * The IsOccurrencePresent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOccurrencePresent;
     /**
      * Constructor method for DeletedOccurrenceStateDefinitionType
      * @uses EwsDeletedOccurrenceStateDefinitionType::setOccurrenceDate()
      * @uses EwsDeletedOccurrenceStateDefinitionType::setIsOccurrencePresent()
-     * @param dateTime $occurrenceDate
-     * @param boolean $isOccurrencePresent
+     * @param string $occurrenceDate
+     * @param bool $isOccurrencePresent
      */
     public function __construct($occurrenceDate = null, $isOccurrencePresent = null)
     {
@@ -41,7 +41,7 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
     }
     /**
      * Get OccurrenceDate value
-     * @return dateTime
+     * @return string
      */
     public function getOccurrenceDate()
     {
@@ -49,17 +49,21 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
     }
     /**
      * Set OccurrenceDate value
-     * @param dateTime $occurrenceDate
+     * @param string $occurrenceDate
      * @return \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
      */
     public function setOccurrenceDate($occurrenceDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($occurrenceDate) && !is_string($occurrenceDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($occurrenceDate)), __LINE__);
+        }
         $this->OccurrenceDate = $occurrenceDate;
         return $this;
     }
     /**
      * Get IsOccurrencePresent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOccurrencePresent()
     {
@@ -67,7 +71,7 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
     }
     /**
      * Set IsOccurrencePresent value
-     * @param boolean $isOccurrencePresent
+     * @param bool $isOccurrencePresent
      * @return \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
      */
     public function setIsOccurrencePresent($isOccurrencePresent = null)

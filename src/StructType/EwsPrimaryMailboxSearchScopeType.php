@@ -25,7 +25,7 @@ class EwsPrimaryMailboxSearchScopeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDeepTraversal;
     /**
@@ -33,7 +33,7 @@ class EwsPrimaryMailboxSearchScopeType extends AbstractStructBase
      * @uses EwsPrimaryMailboxSearchScopeType::setFolderScope()
      * @uses EwsPrimaryMailboxSearchScopeType::setIsDeepTraversal()
      * @param \Ews\StructType\EwsSearchFolderScopeType $folderScope
-     * @param boolean $isDeepTraversal
+     * @param bool $isDeepTraversal
      */
     public function __construct(\Ews\StructType\EwsSearchFolderScopeType $folderScope = null, $isDeepTraversal = null)
     {
@@ -61,7 +61,7 @@ class EwsPrimaryMailboxSearchScopeType extends AbstractStructBase
     }
     /**
      * Get IsDeepTraversal value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeepTraversal()
     {
@@ -69,7 +69,7 @@ class EwsPrimaryMailboxSearchScopeType extends AbstractStructBase
     }
     /**
      * Set IsDeepTraversal value
-     * @param boolean $isDeepTraversal
+     * @param bool $isDeepTraversal
      * @return \Ews\StructType\EwsPrimaryMailboxSearchScopeType
      */
     public function setIsDeepTraversal($isDeepTraversal = null)

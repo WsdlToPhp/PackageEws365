@@ -19,7 +19,6 @@ class EwsConsumerCalendarSharedInformation extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
@@ -84,11 +83,13 @@ class EwsConsumerCalendarSharedInformation extends AbstractStructBase
      * Set PermissionLevel value
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid()
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $permissionLevel
      * @return \Ews\StructType\EwsConsumerCalendarSharedInformation
      */
     public function setPermissionLevel($permissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
@@ -110,6 +111,10 @@ class EwsConsumerCalendarSharedInformation extends AbstractStructBase
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }

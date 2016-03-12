@@ -29,17 +29,17 @@ class EwsContactUrlKeyType
      * Constant for value 'EbcDisplayDefinition'
      * @return string 'EbcDisplayDefinition'
      */
-    const VALUE_EBCDISPLAYDEFINITION = 'EbcDisplayDefinition';
+    const VALUE_EBC_DISPLAY_DEFINITION = 'EbcDisplayDefinition';
     /**
      * Constant for value 'EbcFinalImage'
      * @return string 'EbcFinalImage'
      */
-    const VALUE_EBCFINALIMAGE = 'EbcFinalImage';
+    const VALUE_EBC_FINAL_IMAGE = 'EbcFinalImage';
     /**
      * Constant for value 'EbcLogo'
      * @return string 'EbcLogo'
      */
-    const VALUE_EBCLOGO = 'EbcLogo';
+    const VALUE_EBC_LOGO = 'EbcLogo';
     /**
      * Constant for value 'Feed'
      * @return string 'Feed'
@@ -54,7 +54,7 @@ class EwsContactUrlKeyType
      * Constant for value 'InternalMarker'
      * @return string 'InternalMarker'
      */
-    const VALUE_INTERNALMARKER = 'InternalMarker';
+    const VALUE_INTERNAL_MARKER = 'InternalMarker';
     /**
      * Constant for value 'Other'
      * @return string 'Other'
@@ -75,12 +75,12 @@ class EwsContactUrlKeyType
      * @uses self::VALUE_PERSONAL
      * @uses self::VALUE_BUSINESS
      * @uses self::VALUE_ATTACHMENT
-     * @uses self::VALUE_EBCDISPLAYDEFINITION
-     * @uses self::VALUE_EBCFINALIMAGE
-     * @uses self::VALUE_EBCLOGO
+     * @uses self::VALUE_EBC_DISPLAY_DEFINITION
+     * @uses self::VALUE_EBC_FINAL_IMAGE
+     * @uses self::VALUE_EBC_LOGO
      * @uses self::VALUE_FEED
      * @uses self::VALUE_IMAGE
-     * @uses self::VALUE_INTERNALMARKER
+     * @uses self::VALUE_INTERNAL_MARKER
      * @uses self::VALUE_OTHER
      * @return string[]
      */
@@ -90,12 +90,12 @@ class EwsContactUrlKeyType
             self::VALUE_PERSONAL,
             self::VALUE_BUSINESS,
             self::VALUE_ATTACHMENT,
-            self::VALUE_EBCDISPLAYDEFINITION,
-            self::VALUE_EBCFINALIMAGE,
-            self::VALUE_EBCLOGO,
+            self::VALUE_EBC_DISPLAY_DEFINITION,
+            self::VALUE_EBC_FINAL_IMAGE,
+            self::VALUE_EBC_LOGO,
             self::VALUE_FEED,
             self::VALUE_IMAGE,
-            self::VALUE_INTERNALMARKER,
+            self::VALUE_INTERNAL_MARKER,
             self::VALUE_OTHER,
         );
     }

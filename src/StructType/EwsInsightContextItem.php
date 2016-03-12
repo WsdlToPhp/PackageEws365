@@ -56,6 +56,10 @@ class EwsInsightContextItem extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsInsightContextItem extends AbstractStructBase
      */
     public function setVal($val = null)
     {
+        // validation for constraint: string
+        if (!is_null($val) && !is_string($val)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($val)), __LINE__);
+        }
         $this->Val = $val;
         return $this;
     }

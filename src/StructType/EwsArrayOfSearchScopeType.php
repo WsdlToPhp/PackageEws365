@@ -41,7 +41,7 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 4
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCustomSearchScopeType
+     * @var \Ews\StructType\EwsCustomSearchScopeType[]
      */
     public $CustomSearchScope;
     /**
@@ -81,13 +81,13 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
      * $primaryMailboxSearchScope
      * @param \Ews\StructType\EwsLargeArchiveSearchScopeType $largeArchiveSearchScope
      * @param \Ews\StructType\EwsGroupSearchScopeType $groupSearchScope
-     * @param \Ews\StructType\EwsCustomSearchScopeType $customSearchScope
+     * @param \Ews\StructType\EwsCustomSearchScopeType[] $customSearchScope
      * @param \Ews\StructType\EwsSingleGroupSearchScopeType $singleGroupSearchScope
      * @param \Ews\StructType\EwsOneDriveSearchScopeType $oneDriveSearchScope
      * @param \Ews\StructType\EwsSingleLargeArchiveSearchScopeType
      * $singleLargeArchiveSearchScope
      */
-    public function __construct(\Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope = null, \Ews\StructType\EwsLargeArchiveSearchScopeType $largeArchiveSearchScope = null, \Ews\StructType\EwsGroupSearchScopeType $groupSearchScope = null, \Ews\StructType\EwsCustomSearchScopeType $customSearchScope = null, \Ews\StructType\EwsSingleGroupSearchScopeType $singleGroupSearchScope = null, \Ews\StructType\EwsOneDriveSearchScopeType $oneDriveSearchScope = null, \Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope = null)
+    public function __construct(\Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope = null, \Ews\StructType\EwsLargeArchiveSearchScopeType $largeArchiveSearchScope = null, \Ews\StructType\EwsGroupSearchScopeType $groupSearchScope = null, array $customSearchScope = array(), \Ews\StructType\EwsSingleGroupSearchScopeType $singleGroupSearchScope = null, \Ews\StructType\EwsOneDriveSearchScopeType $oneDriveSearchScope = null, \Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope = null)
     {
         $this
             ->setPrimaryMailboxSearchScope($primaryMailboxSearchScope)
@@ -155,7 +155,7 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
     }
     /**
      * Get CustomSearchScope value
-     * @return \Ews\StructType\EwsCustomSearchScopeType|null
+     * @return \Ews\StructType\EwsCustomSearchScopeType[]|null
      */
     public function getCustomSearchScope()
     {
@@ -163,12 +163,34 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
     }
     /**
      * Set CustomSearchScope value
-     * @param \Ews\StructType\EwsCustomSearchScopeType $customSearchScope
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCustomSearchScopeType[] $customSearchScope
      * @return \Ews\StructType\EwsArrayOfSearchScopeType
      */
-    public function setCustomSearchScope(\Ews\StructType\EwsCustomSearchScopeType $customSearchScope = null)
+    public function setCustomSearchScope(array $customSearchScope = array())
     {
+        foreach ($customSearchScope as $arrayOfSearchScopeTypeCustomSearchScopeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSearchScopeTypeCustomSearchScopeItem instanceof \Ews\StructType\EwsCustomSearchScopeType) {
+                throw new \InvalidArgumentException(sprintf('The CustomSearchScope property can only contain items of \Ews\StructType\EwsCustomSearchScopeType, "%s" given', is_object($arrayOfSearchScopeTypeCustomSearchScopeItem) ? get_class($arrayOfSearchScopeTypeCustomSearchScopeItem) : gettype($arrayOfSearchScopeTypeCustomSearchScopeItem)), __LINE__);
+            }
+        }
         $this->CustomSearchScope = $customSearchScope;
+        return $this;
+    }
+    /**
+     * Add item to CustomSearchScope value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCustomSearchScopeType $item
+     * @return \Ews\StructType\EwsArrayOfSearchScopeType
+     */
+    public function addToCustomSearchScope(\Ews\StructType\EwsCustomSearchScopeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsCustomSearchScopeType) {
+            throw new \InvalidArgumentException(sprintf('The CustomSearchScope property can only contain items of \Ews\StructType\EwsCustomSearchScopeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->CustomSearchScope[] = $item;
         return $this;
     }
     /**

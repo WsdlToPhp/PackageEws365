@@ -42,6 +42,10 @@ class EwsValidateUnifiedGroupAliasType extends EwsBaseRequestType
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }

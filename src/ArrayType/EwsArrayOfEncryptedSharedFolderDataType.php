@@ -14,22 +14,23 @@ class EwsArrayOfEncryptedSharedFolderDataType extends AbstractStructArrayBase
 {
     /**
      * The EncryptedSharedFolderData
-     * @var array
+     * @var \Ews\StructType\EwsEncryptedSharedFolderDataType
      */
     public $EncryptedSharedFolderData;
     /**
      * Constructor method for ArrayOfEncryptedSharedFolderDataType
      * @uses EwsArrayOfEncryptedSharedFolderDataType::setEncryptedSharedFolderData()
-     * @param array $encryptedSharedFolderData
+     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType
+     * $encryptedSharedFolderData
      */
-    public function __construct(array $encryptedSharedFolderData = array())
+    public function __construct(\Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData = null)
     {
         $this
             ->setEncryptedSharedFolderData($encryptedSharedFolderData);
     }
     /**
      * Get EncryptedSharedFolderData value
-     * @return array
+     * @return \Ews\StructType\EwsEncryptedSharedFolderDataType|null
      */
     public function getEncryptedSharedFolderData()
     {
@@ -37,10 +38,11 @@ class EwsArrayOfEncryptedSharedFolderDataType extends AbstractStructArrayBase
     }
     /**
      * Set EncryptedSharedFolderData value
-     * @param array $encryptedSharedFolderData
+     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType
+     * $encryptedSharedFolderData
      * @return \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
      */
-    public function setEncryptedSharedFolderData(array $encryptedSharedFolderData = array())
+    public function setEncryptedSharedFolderData(\Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData = null)
     {
         $this->EncryptedSharedFolderData = $encryptedSharedFolderData;
         return $this;

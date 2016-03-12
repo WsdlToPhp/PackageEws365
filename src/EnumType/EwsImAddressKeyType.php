@@ -14,17 +14,17 @@ class EwsImAddressKeyType
      * Constant for value 'ImAddress1'
      * @return string 'ImAddress1'
      */
-    const VALUE_IMADDRESS1 = 'ImAddress1';
+    const VALUE_IM_ADDRESS_1 = 'ImAddress1';
     /**
      * Constant for value 'ImAddress2'
      * @return string 'ImAddress2'
      */
-    const VALUE_IMADDRESS2 = 'ImAddress2';
+    const VALUE_IM_ADDRESS_2 = 'ImAddress2';
     /**
      * Constant for value 'ImAddress3'
      * @return string 'ImAddress3'
      */
-    const VALUE_IMADDRESS3 = 'ImAddress3';
+    const VALUE_IM_ADDRESS_3 = 'ImAddress3';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsImAddressKeyType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_IMADDRESS1
-     * @uses self::VALUE_IMADDRESS2
-     * @uses self::VALUE_IMADDRESS3
+     * @uses self::VALUE_IM_ADDRESS_1
+     * @uses self::VALUE_IM_ADDRESS_2
+     * @uses self::VALUE_IM_ADDRESS_3
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_IMADDRESS1,
-            self::VALUE_IMADDRESS2,
-            self::VALUE_IMADDRESS3,
+            self::VALUE_IM_ADDRESS_1,
+            self::VALUE_IM_ADDRESS_2,
+            self::VALUE_IM_ADDRESS_3,
         );
     }
     /**

@@ -17,7 +17,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAliasUnique;
     /**
@@ -41,7 +41,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      * @uses EwsValidateUnifiedGroupAliasResponseMessageType::setIsAliasUnique()
      * @uses EwsValidateUnifiedGroupAliasResponseMessageType::setAlias()
      * @uses EwsValidateUnifiedGroupAliasResponseMessageType::setSmtpAddress()
-     * @param boolean $isAliasUnique
+     * @param bool $isAliasUnique
      * @param string $alias
      * @param string $smtpAddress
      */
@@ -54,7 +54,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     }
     /**
      * Get IsAliasUnique value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAliasUnique()
     {
@@ -62,7 +62,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     }
     /**
      * Set IsAliasUnique value
-     * @param boolean $isAliasUnique
+     * @param bool $isAliasUnique
      * @return \Ews\StructType\EwsValidateUnifiedGroupAliasResponseMessageType
      */
     public function setIsAliasUnique($isAliasUnique = null)
@@ -85,6 +85,10 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -103,6 +107,10 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }

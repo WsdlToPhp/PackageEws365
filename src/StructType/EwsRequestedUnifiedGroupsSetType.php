@@ -77,11 +77,13 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * Set FilterType value
      * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $filterType
      * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
      */
     public function setFilterType($filterType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $filterType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
@@ -100,11 +102,13 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * Set SortType value
      * @uses \Ews\EnumType\EwsUnifiedGroupsSortType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sortType
      * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
      */
     public function setSortType($sortType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsSortType::valueIsValid($sortType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues())), __LINE__);
         }
@@ -123,11 +127,13 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * Set SortDirection value
      * @uses \Ews\EnumType\EwsSortDirectionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSortDirectionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sortDirection
      * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
      */
     public function setSortDirection($sortDirection = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($sortDirection)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortDirection, implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }
@@ -149,6 +155,10 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      */
     public function setGroupsLimit($groupsLimit = null)
     {
+        // validation for constraint: int
+        if (!is_null($groupsLimit) && !is_int($groupsLimit)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($groupsLimit)), __LINE__);
+        }
         $this->GroupsLimit = $groupsLimit;
         return $this;
     }

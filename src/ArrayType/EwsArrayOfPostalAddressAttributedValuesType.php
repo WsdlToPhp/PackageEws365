@@ -17,14 +17,15 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsPostalAddressAttributedValueType[]
      */
     public $PostalAddressAttributedValue;
     /**
      * Constructor method for ArrayOfPostalAddressAttributedValuesType
      * @uses
      * EwsArrayOfPostalAddressAttributedValuesType::setPostalAddressAttributedValue()
-     * @param array $postalAddressAttributedValue
+     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[]
+     * $postalAddressAttributedValue
      */
     public function __construct(array $postalAddressAttributedValue = array())
     {
@@ -33,7 +34,7 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
     }
     /**
      * Get PostalAddressAttributedValue value
-     * @return array
+     * @return \Ews\StructType\EwsPostalAddressAttributedValueType[]|null
      */
     public function getPostalAddressAttributedValue()
     {
@@ -41,12 +42,35 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
     }
     /**
      * Set PostalAddressAttributedValue value
-     * @param array $postalAddressAttributedValue
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[]
+     * $postalAddressAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
      */
     public function setPostalAddressAttributedValue(array $postalAddressAttributedValue = array())
     {
+        foreach ($postalAddressAttributedValue as $arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem instanceof \Ews\StructType\EwsPostalAddressAttributedValueType) {
+                throw new \InvalidArgumentException(sprintf('The PostalAddressAttributedValue property can only contain items of \Ews\StructType\EwsPostalAddressAttributedValueType, "%s" given', is_object($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) ? get_class($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) : gettype($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem)), __LINE__);
+            }
+        }
         $this->PostalAddressAttributedValue = $postalAddressAttributedValue;
+        return $this;
+    }
+    /**
+     * Add item to PostalAddressAttributedValue value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPostalAddressAttributedValueType $item
+     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     */
+    public function addToPostalAddressAttributedValue(\Ews\StructType\EwsPostalAddressAttributedValueType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPostalAddressAttributedValueType) {
+            throw new \InvalidArgumentException(sprintf('The PostalAddressAttributedValue property can only contain items of \Ews\StructType\EwsPostalAddressAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->PostalAddressAttributedValue[] = $item;
         return $this;
     }
     /**

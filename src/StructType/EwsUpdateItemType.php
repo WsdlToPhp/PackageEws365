@@ -16,7 +16,6 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * The ConflictResolution
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Type of conflict resolution to attempt during update
      * @var string
      */
     public $ConflictResolution;
@@ -50,7 +49,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * The SuppressReadReceipts
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $SuppressReadReceipts;
     /**
@@ -66,7 +65,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges
      * @param string $messageDisposition
      * @param string $sendMeetingInvitationsOrCancellations
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      */
     public function __construct($conflictResolution = null, \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId = null, \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges = null, $messageDisposition = null, $sendMeetingInvitationsOrCancellations = null, $suppressReadReceipts = null)
     {
@@ -90,11 +89,13 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * Set ConflictResolution value
      * @uses \Ews\EnumType\EwsConflictResolutionType::valueIsValid()
      * @uses \Ews\EnumType\EwsConflictResolutionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $conflictResolution
      * @return \Ews\StructType\EwsUpdateItemType
      */
     public function setConflictResolution($conflictResolution = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConflictResolutionType::valueIsValid($conflictResolution)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $conflictResolution, implode(', ', \Ews\EnumType\EwsConflictResolutionType::getValidValues())), __LINE__);
         }
@@ -149,11 +150,13 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * Set MessageDisposition value
      * @uses \Ews\EnumType\EwsMessageDispositionType::valueIsValid()
      * @uses \Ews\EnumType\EwsMessageDispositionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $messageDisposition
      * @return \Ews\StructType\EwsUpdateItemType
      */
     public function setMessageDisposition($messageDisposition = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $messageDisposition, implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
         }
@@ -172,11 +175,13 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * Set SendMeetingInvitationsOrCancellations value
      * @uses \Ews\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sendMeetingInvitationsOrCancellations
      * @return \Ews\StructType\EwsUpdateItemType
      */
     public function setSendMeetingInvitationsOrCancellations($sendMeetingInvitationsOrCancellations = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid($sendMeetingInvitationsOrCancellations)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendMeetingInvitationsOrCancellations, implode(', ', \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues())), __LINE__);
         }
@@ -185,7 +190,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
     }
     /**
      * Get SuppressReadReceipts value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSuppressReadReceipts()
     {
@@ -193,7 +198,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
     }
     /**
      * Set SuppressReadReceipts value
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      * @return \Ews\StructType\EwsUpdateItemType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)

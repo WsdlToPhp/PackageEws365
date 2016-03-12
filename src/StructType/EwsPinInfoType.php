@@ -17,7 +17,7 @@ class EwsPinInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsValid;
     /**
@@ -25,7 +25,7 @@ class EwsPinInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $PinExpired;
     /**
@@ -33,7 +33,7 @@ class EwsPinInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $LockedOut;
     /**
@@ -41,7 +41,7 @@ class EwsPinInfoType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $FirstTimeUser;
     /**
@@ -59,10 +59,10 @@ class EwsPinInfoType extends AbstractStructBase
      * @uses EwsPinInfoType::setLockedOut()
      * @uses EwsPinInfoType::setFirstTimeUser()
      * @uses EwsPinInfoType::setPIN()
-     * @param boolean $isValid
-     * @param boolean $pinExpired
-     * @param boolean $lockedOut
-     * @param boolean $firstTimeUser
+     * @param bool $isValid
+     * @param bool $pinExpired
+     * @param bool $lockedOut
+     * @param bool $firstTimeUser
      * @param string $pIN
      */
     public function __construct($isValid = null, $pinExpired = null, $lockedOut = null, $firstTimeUser = null, $pIN = null)
@@ -76,7 +76,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Get IsValid value
-     * @return boolean
+     * @return bool
      */
     public function getIsValid()
     {
@@ -84,7 +84,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Set IsValid value
-     * @param boolean $isValid
+     * @param bool $isValid
      * @return \Ews\StructType\EwsPinInfoType
      */
     public function setIsValid($isValid = null)
@@ -94,7 +94,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Get PinExpired value
-     * @return boolean
+     * @return bool
      */
     public function getPinExpired()
     {
@@ -102,7 +102,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Set PinExpired value
-     * @param boolean $pinExpired
+     * @param bool $pinExpired
      * @return \Ews\StructType\EwsPinInfoType
      */
     public function setPinExpired($pinExpired = null)
@@ -112,7 +112,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Get LockedOut value
-     * @return boolean
+     * @return bool
      */
     public function getLockedOut()
     {
@@ -120,7 +120,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Set LockedOut value
-     * @param boolean $lockedOut
+     * @param bool $lockedOut
      * @return \Ews\StructType\EwsPinInfoType
      */
     public function setLockedOut($lockedOut = null)
@@ -130,7 +130,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Get FirstTimeUser value
-     * @return boolean
+     * @return bool
      */
     public function getFirstTimeUser()
     {
@@ -138,7 +138,7 @@ class EwsPinInfoType extends AbstractStructBase
     }
     /**
      * Set FirstTimeUser value
-     * @param boolean $firstTimeUser
+     * @param bool $firstTimeUser
      * @return \Ews\StructType\EwsPinInfoType
      */
     public function setFirstTimeUser($firstTimeUser = null)
@@ -161,6 +161,10 @@ class EwsPinInfoType extends AbstractStructBase
      */
     public function setPIN($pIN = null)
     {
+        // validation for constraint: string
+        if (!is_null($pIN) && !is_string($pIN)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pIN)), __LINE__);
+        }
         $this->PIN = $pIN;
         return $this;
     }

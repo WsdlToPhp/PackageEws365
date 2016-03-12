@@ -28,7 +28,7 @@ class EwsNormalizedBodyType extends AbstractStructBase
      * The IsTruncated
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsTruncated;
     /**
@@ -38,7 +38,7 @@ class EwsNormalizedBodyType extends AbstractStructBase
      * @uses EwsNormalizedBodyType::setIsTruncated()
      * @param string $normalizedBodyType
      * @param string $_
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      */
     public function __construct($normalizedBodyType = null, $_ = null, $isTruncated = null)
     {
@@ -59,11 +59,13 @@ class EwsNormalizedBodyType extends AbstractStructBase
      * Set NormalizedBodyType value
      * @uses \Ews\EnumType\EwsBodyTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $normalizedBodyType
      * @return \Ews\StructType\EwsNormalizedBodyType
      */
     public function setNormalizedBodyType($normalizedBodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeType::valueIsValid($normalizedBodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $normalizedBodyType, implode(', ', \Ews\EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
         }
@@ -85,12 +87,16 @@ class EwsNormalizedBodyType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
     /**
      * Get IsTruncated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsTruncated()
     {
@@ -98,7 +104,7 @@ class EwsNormalizedBodyType extends AbstractStructBase
     }
     /**
      * Set IsTruncated value
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      * @return \Ews\StructType\EwsNormalizedBodyType
      */
     public function setIsTruncated($isTruncated = null)

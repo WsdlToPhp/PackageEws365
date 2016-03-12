@@ -17,13 +17,13 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
 {
     /**
      * The IsSubscribed
-     * @var boolean
+     * @var bool
      */
     public $IsSubscribed;
     /**
      * Constructor method for SetUnifiedGroupUserSubscribeStateResponseMessageType
      * @uses EwsSetUnifiedGroupUserSubscribeStateResponseMessageType::setIsSubscribed()
-     * @param boolean $isSubscribed
+     * @param bool $isSubscribed
      */
     public function __construct($isSubscribed = null)
     {
@@ -32,7 +32,7 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
     }
     /**
      * Get IsSubscribed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsSubscribed()
     {
@@ -40,7 +40,7 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
     }
     /**
      * Set IsSubscribed value
-     * @param boolean $isSubscribed
+     * @param bool $isSubscribed
      * @return \Ews\StructType\EwsSetUnifiedGroupUserSubscribeStateResponseMessageType
      */
     public function setIsSubscribed($isSubscribed = null)

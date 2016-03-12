@@ -14,22 +14,22 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
 {
     /**
      * The ConfigurationName
-     * @var array
+     * @var string
      */
     public $ConfigurationName;
     /**
      * Constructor method for ArrayOfServiceConfigurationType
      * @uses EwsArrayOfServiceConfigurationType::setConfigurationName()
-     * @param array $configurationName
+     * @param string $configurationName
      */
-    public function __construct(array $configurationName = array())
+    public function __construct($configurationName = null)
     {
         $this
             ->setConfigurationName($configurationName);
     }
     /**
      * Get ConfigurationName value
-     * @return array
+     * @return string|null
      */
     public function getConfigurationName()
     {
@@ -37,18 +37,22 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
     }
     /**
      * Set ConfigurationName value
-     * @param array $configurationName
+     * @param string $configurationName
      * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public function setConfigurationName(array $configurationName = array())
+    public function setConfigurationName($configurationName = null)
     {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsServiceConfigurationType::valueIsValid($configurationName)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $configurationName, implode(', ', \Ews\EnumType\EwsServiceConfigurationType::getValidValues())), __LINE__);
+        }
         $this->ConfigurationName = $configurationName;
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string[]|null
+     * @return string|null
      */
     public function current()
     {
@@ -58,7 +62,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string[]|null
+     * @return string|null
      */
     public function item($index)
     {
@@ -67,7 +71,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string[]|null
+     * @return string|null
      */
     public function first()
     {
@@ -76,7 +80,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string[]|null
+     * @return string|null
      */
     public function last()
     {
@@ -86,7 +90,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string[]|null
+     * @return string|null
      */
     public function offsetGet($offset)
     {
@@ -95,13 +99,17 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
+     * @throws \InvalidArgumentException
      * @uses \Ews\EnumType\EwsServiceConfigurationType::valueIsValid()
-     * @param string[] $item
-     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType|bool
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
      */
     public function add($item)
     {
-        return \Ews\EnumType\EwsServiceConfigurationType::valueIsValid($item) ? parent::add($item) : false;
+        if (!\Ews\EnumType\EwsServiceConfigurationType::valueIsValid($item)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsServiceConfigurationType::getValidValues())), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

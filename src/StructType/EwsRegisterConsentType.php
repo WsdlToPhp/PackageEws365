@@ -56,6 +56,10 @@ class EwsRegisterConsentType extends EwsBaseRequestType
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -71,11 +75,13 @@ class EwsRegisterConsentType extends EwsBaseRequestType
      * Set ConsentState value
      * @uses \Ews\EnumType\EwsConsentStateType::valueIsValid()
      * @uses \Ews\EnumType\EwsConsentStateType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $consentState
      * @return \Ews\StructType\EwsRegisterConsentType
      */
     public function setConsentState($consentState = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConsentStateType::valueIsValid($consentState)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $consentState, implode(', ', \Ews\EnumType\EwsConsentStateType::getValidValues())), __LINE__);
         }

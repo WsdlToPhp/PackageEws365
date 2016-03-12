@@ -56,6 +56,10 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
      */
     public function setQueryString($queryString = null)
     {
+        // validation for constraint: string
+        if (!is_null($queryString) && !is_string($queryString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($queryString)), __LINE__);
+        }
         $this->QueryString = $queryString;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
      */
     public function setMaxResultsCount($maxResultsCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxResultsCount) && !is_int($maxResultsCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxResultsCount)), __LINE__);
+        }
         $this->MaxResultsCount = $maxResultsCount;
         return $this;
     }

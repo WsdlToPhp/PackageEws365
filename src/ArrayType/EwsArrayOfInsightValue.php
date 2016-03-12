@@ -17,13 +17,13 @@ class EwsArrayOfInsightValue extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsInsightValue[]
      */
     public $Item;
     /**
      * Constructor method for ArrayOfInsightValue
      * @uses EwsArrayOfInsightValue::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsInsightValue[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfInsightValue extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsInsightValue[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfInsightValue extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInsightValue[] $item
      * @return \Ews\ArrayType\EwsArrayOfInsightValue
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $arrayOfInsightValueItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfInsightValueItemItem instanceof \Ews\StructType\EwsInsightValue) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsInsightValue, "%s" given', is_object($arrayOfInsightValueItemItem) ? get_class($arrayOfInsightValueItemItem) : gettype($arrayOfInsightValueItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInsightValue $item
+     * @return \Ews\ArrayType\EwsArrayOfInsightValue
+     */
+    public function addToItem(\Ews\StructType\EwsInsightValue $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsInsightValue) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsInsightValue, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

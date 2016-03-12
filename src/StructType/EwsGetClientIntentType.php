@@ -53,6 +53,10 @@ class EwsGetClientIntentType extends EwsBaseRequestType
      */
     public function setGlobalObjectId($globalObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($globalObjectId) && !is_string($globalObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($globalObjectId)), __LINE__);
+        }
         $this->GlobalObjectId = $globalObjectId;
         return $this;
     }

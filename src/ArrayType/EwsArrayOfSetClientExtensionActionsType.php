@@ -17,13 +17,13 @@ class EwsArrayOfSetClientExtensionActionsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsSetClientExtensionActionType[]
      */
     public $Action;
     /**
      * Constructor method for ArrayOfSetClientExtensionActionsType
      * @uses EwsArrayOfSetClientExtensionActionsType::setAction()
-     * @param array $action
+     * @param \Ews\StructType\EwsSetClientExtensionActionType[] $action
      */
     public function __construct(array $action = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfSetClientExtensionActionsType extends AbstractStructArrayBase
     }
     /**
      * Get Action value
-     * @return array
+     * @return \Ews\StructType\EwsSetClientExtensionActionType[]
      */
     public function getAction()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfSetClientExtensionActionsType extends AbstractStructArrayBase
     }
     /**
      * Set Action value
-     * @param array $action
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSetClientExtensionActionType[] $action
      * @return \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType
      */
     public function setAction(array $action = array())
     {
+        foreach ($action as $arrayOfSetClientExtensionActionsTypeActionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSetClientExtensionActionsTypeActionItem instanceof \Ews\StructType\EwsSetClientExtensionActionType) {
+                throw new \InvalidArgumentException(sprintf('The Action property can only contain items of \Ews\StructType\EwsSetClientExtensionActionType, "%s" given', is_object($arrayOfSetClientExtensionActionsTypeActionItem) ? get_class($arrayOfSetClientExtensionActionsTypeActionItem) : gettype($arrayOfSetClientExtensionActionsTypeActionItem)), __LINE__);
+            }
+        }
         $this->Action = $action;
+        return $this;
+    }
+    /**
+     * Add item to Action value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSetClientExtensionActionType $item
+     * @return \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType
+     */
+    public function addToAction(\Ews\StructType\EwsSetClientExtensionActionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSetClientExtensionActionType) {
+            throw new \InvalidArgumentException(sprintf('The Action property can only contain items of \Ews\StructType\EwsSetClientExtensionActionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Action[] = $item;
         return $this;
     }
     /**

@@ -16,22 +16,22 @@ class EwsNonEmptyArrayOfPathsToElementType extends AbstractStructArrayBase
 {
     /**
      * The Path
-     * @var array
+     * @var \Ews\StructType\EwsBasePathToElementType
      */
     public $Path;
     /**
      * Constructor method for NonEmptyArrayOfPathsToElementType
      * @uses EwsNonEmptyArrayOfPathsToElementType::setPath()
-     * @param array $path
+     * @param \Ews\StructType\EwsBasePathToElementType $path
      */
-    public function __construct(array $path = array())
+    public function __construct(\Ews\StructType\EwsBasePathToElementType $path = null)
     {
         $this
             ->setPath($path);
     }
     /**
      * Get Path value
-     * @return array
+     * @return \Ews\StructType\EwsBasePathToElementType|null
      */
     public function getPath()
     {
@@ -39,10 +39,10 @@ class EwsNonEmptyArrayOfPathsToElementType extends AbstractStructArrayBase
     }
     /**
      * Set Path value
-     * @param array $path
+     * @param \Ews\StructType\EwsBasePathToElementType $path
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
      */
-    public function setPath(array $path = array())
+    public function setPath(\Ews\StructType\EwsBasePathToElementType $path = null)
     {
         $this->Path = $path;
         return $this;

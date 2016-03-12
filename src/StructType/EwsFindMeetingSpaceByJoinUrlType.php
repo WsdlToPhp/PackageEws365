@@ -45,6 +45,10 @@ class EwsFindMeetingSpaceByJoinUrlType extends EwsBaseRequestType
      */
     public function setJoinUrl($joinUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($joinUrl) && !is_string($joinUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinUrl)), __LINE__);
+        }
         $this->JoinUrl = $joinUrl;
         return $this;
     }

@@ -17,13 +17,13 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsWorkingPeriod[]
      */
     public $WorkingPeriod;
     /**
      * Constructor method for ArrayOfWorkingPeriod
      * @uses EwsArrayOfWorkingPeriod::setWorkingPeriod()
-     * @param array $workingPeriod
+     * @param \Ews\StructType\EwsWorkingPeriod[] $workingPeriod
      */
     public function __construct(array $workingPeriod = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
     }
     /**
      * Get WorkingPeriod value
-     * @return array
+     * @return \Ews\StructType\EwsWorkingPeriod[]|null
      */
     public function getWorkingPeriod()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
     }
     /**
      * Set WorkingPeriod value
-     * @param array $workingPeriod
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkingPeriod[] $workingPeriod
      * @return \Ews\ArrayType\EwsArrayOfWorkingPeriod
      */
     public function setWorkingPeriod(array $workingPeriod = array())
     {
+        foreach ($workingPeriod as $arrayOfWorkingPeriodWorkingPeriodItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfWorkingPeriodWorkingPeriodItem instanceof \Ews\StructType\EwsWorkingPeriod) {
+                throw new \InvalidArgumentException(sprintf('The WorkingPeriod property can only contain items of \Ews\StructType\EwsWorkingPeriod, "%s" given', is_object($arrayOfWorkingPeriodWorkingPeriodItem) ? get_class($arrayOfWorkingPeriodWorkingPeriodItem) : gettype($arrayOfWorkingPeriodWorkingPeriodItem)), __LINE__);
+            }
+        }
         $this->WorkingPeriod = $workingPeriod;
+        return $this;
+    }
+    /**
+     * Add item to WorkingPeriod value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkingPeriod $item
+     * @return \Ews\ArrayType\EwsArrayOfWorkingPeriod
+     */
+    public function addToWorkingPeriod(\Ews\StructType\EwsWorkingPeriod $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsWorkingPeriod) {
+            throw new \InvalidArgumentException(sprintf('The WorkingPeriod property can only contain items of \Ews\StructType\EwsWorkingPeriod, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->WorkingPeriod[] = $item;
         return $this;
     }
     /**

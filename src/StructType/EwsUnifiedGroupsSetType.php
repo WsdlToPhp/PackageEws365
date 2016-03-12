@@ -66,11 +66,13 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
      * Set FilterType value
      * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $filterType
      * @return \Ews\StructType\EwsUnifiedGroupsSetType
      */
     public function setFilterType($filterType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $filterType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
@@ -92,6 +94,10 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
      */
     public function setTotalGroups($totalGroups = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalGroups) && !is_int($totalGroups)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalGroups)), __LINE__);
+        }
         $this->TotalGroups = $totalGroups;
         return $this;
     }

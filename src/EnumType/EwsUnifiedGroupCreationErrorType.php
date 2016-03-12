@@ -14,17 +14,17 @@ class EwsUnifiedGroupCreationErrorType
      * Constant for value 'NoError'
      * @return string 'NoError'
      */
-    const VALUE_NOERROR = 'NoError';
+    const VALUE_NO_ERROR = 'NoError';
     /**
      * Constant for value 'FailedCreate'
      * @return string 'FailedCreate'
      */
-    const VALUE_FAILEDCREATE = 'FailedCreate';
+    const VALUE_FAILED_CREATE = 'FailedCreate';
     /**
      * Constant for value 'FailedMailboxProvision'
      * @return string 'FailedMailboxProvision'
      */
-    const VALUE_FAILEDMAILBOXPROVISION = 'FailedMailboxProvision';
+    const VALUE_FAILED_MAILBOX_PROVISION = 'FailedMailboxProvision';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsUnifiedGroupCreationErrorType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOERROR
-     * @uses self::VALUE_FAILEDCREATE
-     * @uses self::VALUE_FAILEDMAILBOXPROVISION
+     * @uses self::VALUE_NO_ERROR
+     * @uses self::VALUE_FAILED_CREATE
+     * @uses self::VALUE_FAILED_MAILBOX_PROVISION
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOERROR,
-            self::VALUE_FAILEDCREATE,
-            self::VALUE_FAILEDMAILBOXPROVISION,
+            self::VALUE_NO_ERROR,
+            self::VALUE_FAILED_CREATE,
+            self::VALUE_FAILED_MAILBOX_PROVISION,
         );
     }
     /**

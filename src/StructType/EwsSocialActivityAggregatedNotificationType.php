@@ -19,7 +19,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     public $LatestTimestamp;
     /**
      * The IsSeen
-     * @var boolean
+     * @var bool
      */
     public $IsSeen;
     /**
@@ -34,15 +34,11 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     public $SocialActivityActionType;
     /**
      * The TargetConversationId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $TargetConversationId;
     /**
      * The TargetItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $TargetItemId;
@@ -94,7 +90,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      * @uses EwsSocialActivityAggregatedNotificationType::setTargetMessagePreview()
      * @uses EwsSocialActivityAggregatedNotificationType::setUnseenItemIDs()
      * @param string $latestTimestamp
-     * @param boolean $isSeen
+     * @param bool $isSeen
      * @param \Ews\ArrayType\EwsArrayOfPeopleType $actors
      * @param string $socialActivityActionType
      * @param \Ews\StructType\EwsItemIdType $targetConversationId
@@ -137,12 +133,16 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setLatestTimestamp($latestTimestamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($latestTimestamp) && !is_string($latestTimestamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($latestTimestamp)), __LINE__);
+        }
         $this->LatestTimestamp = $latestTimestamp;
         return $this;
     }
     /**
      * Get IsSeen value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsSeen()
     {
@@ -150,7 +150,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     }
     /**
      * Set IsSeen value
-     * @param boolean $isSeen
+     * @param bool $isSeen
      * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
      */
     public function setIsSeen($isSeen = null)
@@ -188,11 +188,13 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      * Set SocialActivityActionType value
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $socialActivityActionType
      * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
      */
     public function setSocialActivityActionType($socialActivityActionType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $socialActivityActionType, implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
@@ -250,6 +252,14 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetMailboxGuid($targetMailboxGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($targetMailboxGuid) && !is_string($targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+        }
         $this->TargetMailboxGuid = $targetMailboxGuid;
         return $this;
     }
@@ -268,6 +278,10 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetMailboxSmtpAddress($targetMailboxSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetMailboxSmtpAddress) && !is_string($targetMailboxSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxSmtpAddress)), __LINE__);
+        }
         $this->TargetMailboxSmtpAddress = $targetMailboxSmtpAddress;
         return $this;
     }
@@ -286,6 +300,10 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetItemType($targetItemType = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetItemType) && !is_string($targetItemType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetItemType)), __LINE__);
+        }
         $this->TargetItemType = $targetItemType;
         return $this;
     }
@@ -304,6 +322,10 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetGroupName($targetGroupName = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetGroupName)), __LINE__);
+        }
         $this->TargetGroupName = $targetGroupName;
         return $this;
     }
@@ -322,6 +344,10 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetMessagePreview($targetMessagePreview = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetMessagePreview) && !is_string($targetMessagePreview)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMessagePreview)), __LINE__);
+        }
         $this->TargetMessagePreview = $targetMessagePreview;
         return $this;
     }

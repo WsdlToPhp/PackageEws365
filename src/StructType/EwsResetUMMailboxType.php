@@ -17,13 +17,13 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $KeepProperties;
     /**
      * Constructor method for ResetUMMailboxType
      * @uses EwsResetUMMailboxType::setKeepProperties()
-     * @param boolean $keepProperties
+     * @param bool $keepProperties
      */
     public function __construct($keepProperties = null)
     {
@@ -32,7 +32,7 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
     }
     /**
      * Get KeepProperties value
-     * @return boolean
+     * @return bool
      */
     public function getKeepProperties()
     {
@@ -40,7 +40,7 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
     }
     /**
      * Set KeepProperties value
-     * @param boolean $keepProperties
+     * @param bool $keepProperties
      * @return \Ews\StructType\EwsResetUMMailboxType
      */
     public function setKeepProperties($keepProperties = null)

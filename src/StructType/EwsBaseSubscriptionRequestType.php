@@ -28,14 +28,15 @@ abstract class EwsBaseSubscriptionRequestType extends AbstractStructBase
      * The Watermark
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var NonEmptyStringType
+     * - minLength: 1
+     * @var string
      */
     public $Watermark;
     /**
      * The SubscribeToAllFolders
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $SubscribeToAllFolders;
     /**
@@ -46,10 +47,10 @@ abstract class EwsBaseSubscriptionRequestType extends AbstractStructBase
      * @uses EwsBaseSubscriptionRequestType::setSubscribeToAllFolders()
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType $eventTypes
-     * @param NonEmptyStringType $watermark
-     * @param boolean $subscribeToAllFolders
+     * @param string $watermark
+     * @param bool $subscribeToAllFolders
      */
-    public function __construct(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null, \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType $eventTypes = null, NonEmptyStringType $watermark = null, $subscribeToAllFolders = null)
+    public function __construct(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null, \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType $eventTypes = null, $watermark = null, $subscribeToAllFolders = null)
     {
         $this
             ->setFolderIds($folderIds)
@@ -95,7 +96,7 @@ abstract class EwsBaseSubscriptionRequestType extends AbstractStructBase
     }
     /**
      * Get Watermark value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getWatermark()
     {
@@ -103,17 +104,25 @@ abstract class EwsBaseSubscriptionRequestType extends AbstractStructBase
     }
     /**
      * Set Watermark value
-     * @param NonEmptyStringType $watermark
+     * @param string $watermark
      * @return \Ews\StructType\EwsBaseSubscriptionRequestType
      */
-    public function setWatermark(NonEmptyStringType $watermark = null)
+    public function setWatermark($watermark = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(watermark) && strlen(watermark) < 1) || (is_array(watermark) && count(watermark) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($watermark) && !is_string($watermark)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($watermark)), __LINE__);
+        }
         $this->Watermark = $watermark;
         return $this;
     }
     /**
      * Get SubscribeToAllFolders value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSubscribeToAllFolders()
     {
@@ -121,7 +130,7 @@ abstract class EwsBaseSubscriptionRequestType extends AbstractStructBase
     }
     /**
      * Set SubscribeToAllFolders value
-     * @param boolean $subscribeToAllFolders
+     * @param bool $subscribeToAllFolders
      * @return \Ews\StructType\EwsBaseSubscriptionRequestType
      */
     public function setSubscribeToAllFolders($subscribeToAllFolders = null)

@@ -14,22 +14,24 @@ class EwsUnsubscribeType extends EwsBaseRequestType
 {
     /**
      * The SubscriptionId
-     * @var NonEmptyStringType
+     * Meta informations extracted from the WSDL
+     * - minLength: 1
+     * @var string
      */
     public $SubscriptionId;
     /**
      * Constructor method for UnsubscribeType
      * @uses EwsUnsubscribeType::setSubscriptionId()
-     * @param NonEmptyStringType $subscriptionId
+     * @param string $subscriptionId
      */
-    public function __construct(NonEmptyStringType $subscriptionId = null)
+    public function __construct($subscriptionId = null)
     {
         $this
             ->setSubscriptionId($subscriptionId);
     }
     /**
      * Get SubscriptionId value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getSubscriptionId()
     {
@@ -37,11 +39,19 @@ class EwsUnsubscribeType extends EwsBaseRequestType
     }
     /**
      * Set SubscriptionId value
-     * @param NonEmptyStringType $subscriptionId
+     * @param string $subscriptionId
      * @return \Ews\StructType\EwsUnsubscribeType
      */
-    public function setSubscriptionId(NonEmptyStringType $subscriptionId = null)
+    public function setSubscriptionId($subscriptionId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subscriptionId)), __LINE__);
+        }
         $this->SubscriptionId = $subscriptionId;
         return $this;
     }

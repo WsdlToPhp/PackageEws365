@@ -17,7 +17,6 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Represents an array of unified groups sets in a GetUserUnifiedGroup request
      * @var \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
      */
     public $RequestedGroupsSets;
@@ -77,6 +76,10 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
      */
     public function setUserSmtpAddress($userSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($userSmtpAddress) && !is_string($userSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userSmtpAddress)), __LINE__);
+        }
         $this->UserSmtpAddress = $userSmtpAddress;
         return $this;
     }

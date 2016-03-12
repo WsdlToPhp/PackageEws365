@@ -53,6 +53,14 @@ class EwsChannelSubscribeType extends EwsBaseRequestType
      */
     public function setChannelId($channelId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($channelId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $channelId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($channelId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($channelId) && !is_string($channelId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($channelId)), __LINE__);
+        }
         $this->ChannelId = $channelId;
         return $this;
     }

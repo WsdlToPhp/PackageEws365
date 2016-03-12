@@ -17,7 +17,6 @@ class EwsPlayOnPhoneType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -75,6 +74,10 @@ class EwsPlayOnPhoneType extends EwsBaseRequestType
      */
     public function setDialString($dialString = null)
     {
+        // validation for constraint: string
+        if (!is_null($dialString) && !is_string($dialString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dialString)), __LINE__);
+        }
         $this->DialString = $dialString;
         return $this;
     }

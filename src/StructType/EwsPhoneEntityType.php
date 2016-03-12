@@ -64,6 +64,10 @@ class EwsPhoneEntityType extends EwsEntityType
      */
     public function setOriginalPhoneString($originalPhoneString = null)
     {
+        // validation for constraint: string
+        if (!is_null($originalPhoneString) && !is_string($originalPhoneString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalPhoneString)), __LINE__);
+        }
         $this->OriginalPhoneString = $originalPhoneString;
         return $this;
     }
@@ -82,6 +86,10 @@ class EwsPhoneEntityType extends EwsEntityType
      */
     public function setPhoneString($phoneString = null)
     {
+        // validation for constraint: string
+        if (!is_null($phoneString) && !is_string($phoneString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneString)), __LINE__);
+        }
         $this->PhoneString = $phoneString;
         return $this;
     }
@@ -100,6 +108,10 @@ class EwsPhoneEntityType extends EwsEntityType
      */
     public function setType($type = null)
     {
+        // validation for constraint: string
+        if (!is_null($type) && !is_string($type)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
+        }
         $this->Type = $type;
         return $this;
     }

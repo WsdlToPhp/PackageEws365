@@ -37,7 +37,6 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      * The GroupId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $GroupId;
@@ -75,6 +74,14 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setTelUriAddress($telUriAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(telUriAddress) && strlen(telUriAddress) < 1) || (is_array(telUriAddress) && count(telUriAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($telUriAddress) && !is_string($telUriAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($telUriAddress)), __LINE__);
+        }
         $this->TelUriAddress = $telUriAddress;
         return $this;
     }
@@ -93,6 +100,14 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setImContactSipUriAddress($imContactSipUriAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(imContactSipUriAddress) && strlen(imContactSipUriAddress) < 1) || (is_array(imContactSipUriAddress) && count(imContactSipUriAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($imContactSipUriAddress) && !is_string($imContactSipUriAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imContactSipUriAddress)), __LINE__);
+        }
         $this->ImContactSipUriAddress = $imContactSipUriAddress;
         return $this;
     }
@@ -111,6 +126,14 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setImTelephoneNumber($imTelephoneNumber = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(imTelephoneNumber) && strlen(imTelephoneNumber) < 1) || (is_array(imTelephoneNumber) && count(imTelephoneNumber) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($imTelephoneNumber) && !is_string($imTelephoneNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imTelephoneNumber)), __LINE__);
+        }
         $this->ImTelephoneNumber = $imTelephoneNumber;
         return $this;
     }

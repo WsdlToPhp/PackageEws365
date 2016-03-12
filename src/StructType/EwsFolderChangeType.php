@@ -14,15 +14,11 @@ class EwsFolderChangeType extends AbstractStructBase
 {
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * The DistinguishedFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a distinguished folder
      * @var \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public $DistinguishedFolderId;

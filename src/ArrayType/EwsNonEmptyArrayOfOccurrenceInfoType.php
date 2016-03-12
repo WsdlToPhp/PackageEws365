@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfOccurrenceInfoType extends AbstractStructArrayBase
      * The Occurrence
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsOccurrenceInfoType[]
      */
     public $Occurrence;
     /**
      * Constructor method for NonEmptyArrayOfOccurrenceInfoType
      * @uses EwsNonEmptyArrayOfOccurrenceInfoType::setOccurrence()
-     * @param array $occurrence
+     * @param \Ews\StructType\EwsOccurrenceInfoType[] $occurrence
      */
     public function __construct(array $occurrence = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfOccurrenceInfoType extends AbstractStructArrayBase
     }
     /**
      * Get Occurrence value
-     * @return array
+     * @return \Ews\StructType\EwsOccurrenceInfoType[]|null
      */
     public function getOccurrence()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfOccurrenceInfoType extends AbstractStructArrayBase
     }
     /**
      * Set Occurrence value
-     * @param array $occurrence
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsOccurrenceInfoType[] $occurrence
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType
      */
     public function setOccurrence(array $occurrence = array())
     {
+        foreach ($occurrence as $nonEmptyArrayOfOccurrenceInfoTypeOccurrenceItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfOccurrenceInfoTypeOccurrenceItem instanceof \Ews\StructType\EwsOccurrenceInfoType) {
+                throw new \InvalidArgumentException(sprintf('The Occurrence property can only contain items of \Ews\StructType\EwsOccurrenceInfoType, "%s" given', is_object($nonEmptyArrayOfOccurrenceInfoTypeOccurrenceItem) ? get_class($nonEmptyArrayOfOccurrenceInfoTypeOccurrenceItem) : gettype($nonEmptyArrayOfOccurrenceInfoTypeOccurrenceItem)), __LINE__);
+            }
+        }
         $this->Occurrence = $occurrence;
+        return $this;
+    }
+    /**
+     * Add item to Occurrence value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsOccurrenceInfoType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType
+     */
+    public function addToOccurrence(\Ews\StructType\EwsOccurrenceInfoType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsOccurrenceInfoType) {
+            throw new \InvalidArgumentException(sprintf('The Occurrence property can only contain items of \Ews\StructType\EwsOccurrenceInfoType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Occurrence[] = $item;
         return $this;
     }
     /**

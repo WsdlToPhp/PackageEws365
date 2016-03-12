@@ -79,14 +79,14 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      * The IsReadReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsReadReceiptRequested;
     /**
      * The IsDeliveryReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDeliveryReceiptRequested;
     /**
@@ -100,7 +100,6 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      * The ReferenceItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ReferenceItemId;
@@ -137,8 +136,8 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients
-     * @param boolean $isReadReceiptRequested
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isReadReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param \Ews\StructType\EwsItemIdType $referenceItemId
      * @param string $objectName
@@ -176,6 +175,10 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      */
     public function setItemClass($itemClass = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemClass) && !is_string($itemClass)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+        }
         $this->ItemClass = $itemClass;
         return $this;
     }
@@ -191,11 +194,13 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      * Set Sensitivity value
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sensitivity
      * @return \Ews\StructType\EwsWellKnownResponseObjectType
      */
     public function setSensitivity($sensitivity = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sensitivity, implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
@@ -331,7 +336,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
     }
     /**
      * Get IsReadReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsReadReceiptRequested()
     {
@@ -339,7 +344,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
     }
     /**
      * Set IsReadReceiptRequested value
-     * @param boolean $isReadReceiptRequested
+     * @param bool $isReadReceiptRequested
      * @return \Ews\StructType\EwsWellKnownResponseObjectType
      */
     public function setIsReadReceiptRequested($isReadReceiptRequested = null)
@@ -349,7 +354,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
     }
     /**
      * Get IsDeliveryReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeliveryReceiptRequested()
     {
@@ -357,7 +362,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
     }
     /**
      * Set IsDeliveryReceiptRequested value
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @return \Ews\StructType\EwsWellKnownResponseObjectType
      */
     public function setIsDeliveryReceiptRequested($isDeliveryReceiptRequested = null)
@@ -416,6 +421,10 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      */
     public function setObjectName($objectName = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectName) && !is_string($objectName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+        }
         $this->ObjectName = $objectName;
         return $this;
     }

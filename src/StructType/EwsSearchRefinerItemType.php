@@ -35,7 +35,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $Count;
     /**
@@ -54,7 +54,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * @uses EwsSearchRefinerItemType::setToken()
      * @param string $name
      * @param string $value
-     * @param long $count
+     * @param int $count
      * @param string $token
      */
     public function __construct($name = null, $value = null, $count = null, $token = null)
@@ -80,6 +80,10 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -98,12 +102,16 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }
     /**
      * Get Count value
-     * @return long
+     * @return int
      */
     public function getCount()
     {
@@ -111,11 +119,15 @@ class EwsSearchRefinerItemType extends AbstractStructBase
     }
     /**
      * Set Count value
-     * @param long $count
+     * @param int $count
      * @return \Ews\StructType\EwsSearchRefinerItemType
      */
     public function setCount($count = null)
     {
+        // validation for constraint: int
+        if (!is_null($count) && !is_int($count)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($count)), __LINE__);
+        }
         $this->Count = $count;
         return $this;
     }
@@ -134,6 +146,10 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      */
     public function setToken($token = null)
     {
+        // validation for constraint: string
+        if (!is_null($token) && !is_string($token)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($token)), __LINE__);
+        }
         $this->Token = $token;
         return $this;
     }

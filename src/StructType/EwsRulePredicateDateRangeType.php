@@ -19,7 +19,7 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartDateTime;
     /**
@@ -27,15 +27,15 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndDateTime;
     /**
      * Constructor method for RulePredicateDateRangeType
      * @uses EwsRulePredicateDateRangeType::setStartDateTime()
      * @uses EwsRulePredicateDateRangeType::setEndDateTime()
-     * @param dateTime $startDateTime
-     * @param dateTime $endDateTime
+     * @param string $startDateTime
+     * @param string $endDateTime
      */
     public function __construct($startDateTime = null, $endDateTime = null)
     {
@@ -45,7 +45,7 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     }
     /**
      * Get StartDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartDateTime()
     {
@@ -53,17 +53,21 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     }
     /**
      * Set StartDateTime value
-     * @param dateTime $startDateTime
+     * @param string $startDateTime
      * @return \Ews\StructType\EwsRulePredicateDateRangeType
      */
     public function setStartDateTime($startDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startDateTime) && !is_string($startDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDateTime)), __LINE__);
+        }
         $this->StartDateTime = $startDateTime;
         return $this;
     }
     /**
      * Get EndDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndDateTime()
     {
@@ -71,11 +75,15 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     }
     /**
      * Set EndDateTime value
-     * @param dateTime $endDateTime
+     * @param string $endDateTime
      * @return \Ews\StructType\EwsRulePredicateDateRangeType
      */
     public function setEndDateTime($endDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endDateTime) && !is_string($endDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDateTime)), __LINE__);
+        }
         $this->EndDateTime = $endDateTime;
         return $this;
     }

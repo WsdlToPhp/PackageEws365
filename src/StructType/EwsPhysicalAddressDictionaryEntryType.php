@@ -91,11 +91,13 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      * Set Key value
      * @uses \Ews\EnumType\EwsPhysicalAddressKeyType::valueIsValid()
      * @uses \Ews\EnumType\EwsPhysicalAddressKeyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $key
      * @return \Ews\StructType\EwsPhysicalAddressDictionaryEntryType
      */
     public function setKey($key = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPhysicalAddressKeyType::valueIsValid($key)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $key, implode(', ', \Ews\EnumType\EwsPhysicalAddressKeyType::getValidValues())), __LINE__);
         }
@@ -117,6 +119,10 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setStreet($street = null)
     {
+        // validation for constraint: string
+        if (!is_null($street) && !is_string($street)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($street)), __LINE__);
+        }
         $this->Street = $street;
         return $this;
     }
@@ -135,6 +141,10 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setCity($city = null)
     {
+        // validation for constraint: string
+        if (!is_null($city) && !is_string($city)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($city)), __LINE__);
+        }
         $this->City = $city;
         return $this;
     }
@@ -153,6 +163,10 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setState($state = null)
     {
+        // validation for constraint: string
+        if (!is_null($state) && !is_string($state)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($state)), __LINE__);
+        }
         $this->State = $state;
         return $this;
     }
@@ -171,6 +185,10 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setCountryOrRegion($countryOrRegion = null)
     {
+        // validation for constraint: string
+        if (!is_null($countryOrRegion) && !is_string($countryOrRegion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($countryOrRegion)), __LINE__);
+        }
         $this->CountryOrRegion = $countryOrRegion;
         return $this;
     }
@@ -189,6 +207,10 @@ class EwsPhysicalAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setPostalCode($postalCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($postalCode) && !is_string($postalCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($postalCode)), __LINE__);
+        }
         $this->PostalCode = $postalCode;
         return $this;
     }

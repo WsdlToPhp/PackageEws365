@@ -17,7 +17,6 @@ class EwsGetUserUnifiedGroupsResponseMessageType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Represents an array of unified groups sets in a GetUserUnifiedGroups response
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType
      */
     public $GroupsSets;

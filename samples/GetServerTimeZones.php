@@ -37,7 +37,7 @@ $get = new \Ews\ServiceType\EwsGet($options);
 /**
  * Configure the SoapHeader, each header's method begins with "setSoapHeader".
  */
-$get->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE2013_SP1));
+$get->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
  * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
  */

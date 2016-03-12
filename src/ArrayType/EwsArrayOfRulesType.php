@@ -19,14 +19,13 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Rule type
-     * @var array
+     * @var \Ews\StructType\EwsRuleType[]
      */
     public $Rule;
     /**
      * Constructor method for ArrayOfRulesType
      * @uses EwsArrayOfRulesType::setRule()
-     * @param array $rule
+     * @param \Ews\StructType\EwsRuleType[] $rule
      */
     public function __construct(array $rule = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
     }
     /**
      * Get Rule value
-     * @return array
+     * @return \Ews\StructType\EwsRuleType[]|null
      */
     public function getRule()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
     }
     /**
      * Set Rule value
-     * @param array $rule
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleType[] $rule
      * @return \Ews\ArrayType\EwsArrayOfRulesType
      */
     public function setRule(array $rule = array())
     {
+        foreach ($rule as $arrayOfRulesTypeRuleItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRulesTypeRuleItem instanceof \Ews\StructType\EwsRuleType) {
+                throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsRuleType, "%s" given', is_object($arrayOfRulesTypeRuleItem) ? get_class($arrayOfRulesTypeRuleItem) : gettype($arrayOfRulesTypeRuleItem)), __LINE__);
+            }
+        }
         $this->Rule = $rule;
+        return $this;
+    }
+    /**
+     * Add item to Rule value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleType $item
+     * @return \Ews\ArrayType\EwsArrayOfRulesType
+     */
+    public function addToRule(\Ews\StructType\EwsRuleType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRuleType) {
+            throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsRuleType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Rule[] = $item;
         return $this;
     }
     /**

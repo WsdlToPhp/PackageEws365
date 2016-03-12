@@ -14,8 +14,6 @@ class EwsNewSocialActivityAddedEventType extends EwsSubscriptionLevelChannelEven
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -110,6 +108,10 @@ class EwsNewSocialActivityAddedEventType extends EwsSubscriptionLevelChannelEven
      */
     public function setCreatedTimeStamp($createdTimeStamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($createdTimeStamp) && !is_string($createdTimeStamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdTimeStamp)), __LINE__);
+        }
         $this->CreatedTimeStamp = $createdTimeStamp;
         return $this;
     }
@@ -179,11 +181,13 @@ class EwsNewSocialActivityAddedEventType extends EwsSubscriptionLevelChannelEven
      * Set Action value
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $action
      * @return \Ews\StructType\EwsNewSocialActivityAddedEventType
      */
     public function setAction($action = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($action)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $action, implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
@@ -205,6 +209,10 @@ class EwsNewSocialActivityAddedEventType extends EwsSubscriptionLevelChannelEven
      */
     public function setEventType($eventType = null)
     {
+        // validation for constraint: string
+        if (!is_null($eventType) && !is_string($eventType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventType)), __LINE__);
+        }
         $this->EventType = $eventType;
         return $this;
     }

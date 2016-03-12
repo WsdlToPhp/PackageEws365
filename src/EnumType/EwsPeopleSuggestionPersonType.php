@@ -24,7 +24,7 @@ class EwsPeopleSuggestionPersonType
      * Constant for value 'DistributionList'
      * @return string 'DistributionList'
      */
-    const VALUE_DISTRIBUTIONLIST = 'DistributionList';
+    const VALUE_DISTRIBUTION_LIST = 'DistributionList';
     /**
      * Constant for value 'Room'
      * @return string 'Room'
@@ -39,7 +39,7 @@ class EwsPeopleSuggestionPersonType
      * Constant for value 'ModernGroup'
      * @return string 'ModernGroup'
      */
-    const VALUE_MODERNGROUP = 'ModernGroup';
+    const VALUE_MODERN_GROUP = 'ModernGroup';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -54,10 +54,10 @@ class EwsPeopleSuggestionPersonType
      * Return allowed values
      * @uses self::VALUE_UNKNOWN
      * @uses self::VALUE_PERSON
-     * @uses self::VALUE_DISTRIBUTIONLIST
+     * @uses self::VALUE_DISTRIBUTION_LIST
      * @uses self::VALUE_ROOM
      * @uses self::VALUE_PLACE
-     * @uses self::VALUE_MODERNGROUP
+     * @uses self::VALUE_MODERN_GROUP
      * @return string[]
      */
     public static function getValidValues()
@@ -65,10 +65,10 @@ class EwsPeopleSuggestionPersonType
         return array(
             self::VALUE_UNKNOWN,
             self::VALUE_PERSON,
-            self::VALUE_DISTRIBUTIONLIST,
+            self::VALUE_DISTRIBUTION_LIST,
             self::VALUE_ROOM,
             self::VALUE_PLACE,
-            self::VALUE_MODERNGROUP,
+            self::VALUE_MODERN_GROUP,
         );
     }
     /**

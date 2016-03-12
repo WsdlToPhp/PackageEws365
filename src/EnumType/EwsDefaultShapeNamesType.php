@@ -14,7 +14,7 @@ class EwsDefaultShapeNamesType
      * Constant for value 'IdOnly'
      * @return string 'IdOnly'
      */
-    const VALUE_IDONLY = 'IdOnly';
+    const VALUE_ID_ONLY = 'IdOnly';
     /**
      * Constant for value 'Default'
      * @return string 'Default'
@@ -24,7 +24,7 @@ class EwsDefaultShapeNamesType
      * Constant for value 'AllProperties'
      * @return string 'AllProperties'
      */
-    const VALUE_ALLPROPERTIES = 'AllProperties';
+    const VALUE_ALL_PROPERTIES = 'AllProperties';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsDefaultShapeNamesType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_IDONLY
+     * @uses self::VALUE_ID_ONLY
      * @uses self::VALUE_DEFAULT
-     * @uses self::VALUE_ALLPROPERTIES
+     * @uses self::VALUE_ALL_PROPERTIES
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_IDONLY,
+            self::VALUE_ID_ONLY,
             self::VALUE_DEFAULT,
-            self::VALUE_ALLPROPERTIES,
+            self::VALUE_ALL_PROPERTIES,
         );
     }
     /**

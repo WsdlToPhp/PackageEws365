@@ -61,11 +61,13 @@ class EwsResponseMessageInfoType extends AbstractStructBase
      * Set ResponseClass value
      * @uses \Ews\EnumType\EwsResponseClassType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseClassType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseClass
      * @return \Ews\StructType\EwsResponseMessageInfoType
      */
     public function setResponseClass($responseClass = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseClassType::valueIsValid($responseClass)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseClass, implode(', ', \Ews\EnumType\EwsResponseClassType::getValidValues())), __LINE__);
         }
@@ -87,6 +89,10 @@ class EwsResponseMessageInfoType extends AbstractStructBase
      */
     public function setMessageText($messageText = null)
     {
+        // validation for constraint: string
+        if (!is_null($messageText) && !is_string($messageText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageText)), __LINE__);
+        }
         $this->MessageText = $messageText;
         return $this;
     }
@@ -105,6 +111,10 @@ class EwsResponseMessageInfoType extends AbstractStructBase
      */
     public function setResponseCode($responseCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($responseCode) && !is_string($responseCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($responseCode)), __LINE__);
+        }
         $this->ResponseCode = $responseCode;
         return $this;
     }

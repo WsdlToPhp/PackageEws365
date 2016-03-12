@@ -45,6 +45,10 @@ class EwsGetAppMarketplaceUrlResponseMessageType extends EwsResponseMessageType
      */
     public function setAppMarketplaceUrl($appMarketplaceUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($appMarketplaceUrl) && !is_string($appMarketplaceUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appMarketplaceUrl)), __LINE__);
+        }
         $this->AppMarketplaceUrl = $appMarketplaceUrl;
         return $this;
     }

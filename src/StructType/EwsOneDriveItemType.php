@@ -47,6 +47,10 @@ class EwsOneDriveItemType extends EwsItemType
      */
     public function setResourceId($resourceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($resourceId) && !is_string($resourceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($resourceId)), __LINE__);
+        }
         $this->ResourceId = $resourceId;
         return $this;
     }

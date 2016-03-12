@@ -17,8 +17,6 @@ class EwsGetDiscoverySearchConfigurationResponseMessageType extends EwsResponseM
 {
     /**
      * The DiscoverySearchConfigurations
-     * Meta informations extracted from the WSDL
-     * - documentation: Array of discovery search configuration.
      * @var \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
      */
     public $DiscoverySearchConfigurations;

@@ -16,7 +16,6 @@ class EwsUploadItemsResponseMessageType extends EwsResponseMessageType
      * The ItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;

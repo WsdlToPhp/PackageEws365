@@ -19,7 +19,8 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfSenderAddInsType
      * @uses EwsArrayOfSenderAddInsType::setMicrosoft_OutlookServices_SenderApp()
-     * @param array $microsoft_OutlookServices_SenderApp
+     * @param \Ews\StructType\EwsSenderAddInEntityType[]
+     * $microsoft_OutlookServices_SenderApp
      */
     public function __construct(array $microsoft_OutlookServices_SenderApp = array())
     {
@@ -28,7 +29,7 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
     }
     /**
      * Get microsoft_OutlookServices_SenderApp value
-     * @return array
+     * @return microsoft_OutlookServices_SenderApp
      */
     public function getMicrosoft_OutlookServices_SenderApp()
     {
@@ -36,12 +37,29 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
     }
     /**
      * Set microsoft_OutlookServices_SenderApp value
-     * @param array $microsoft_OutlookServices_SenderApp
+     * @param microsoft_OutlookServices_SenderApp $microsoft_OutlookServices_SenderApp
      * @return \Ews\ArrayType\EwsArrayOfSenderAddInsType
      */
     public function setMicrosoft_OutlookServices_SenderApp(array $microsoft_OutlookServices_SenderApp = array())
     {
+        foreach ($microsoft_OutlookServices_SenderApp as $arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem instanceof \Ews\StructType\EwsSenderAddInEntityType) {
+                throw new \InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of \Ews\StructType\EwsSenderAddInEntityType, "%s" given', is_object($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) ? get_class($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) : gettype($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem)), __LINE__);
+            }
+        }
         $this->Microsoft_OutlookServices_SenderApp = $this->{'Microsoft.OutlookServices.SenderApp'} = $microsoft_OutlookServices_SenderApp;
+        return $this;
+    }
+    /**
+     */
+    public function addToMicrosoft_OutlookServices_SenderApp(\Ews\StructType\EwsSenderAddInEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSenderAddInEntityType) {
+            throw new \InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of \Ews\StructType\EwsSenderAddInEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Microsoft_OutlookServices_SenderApp[] = $item;
         return $this;
     }
     /**

@@ -56,6 +56,10 @@ class EwsWorkTimeSlot extends AbstractStructBase
      */
     public function setStartTimeInMinutes($startTimeInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($startTimeInMinutes) && !is_int($startTimeInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($startTimeInMinutes)), __LINE__);
+        }
         $this->StartTimeInMinutes = $startTimeInMinutes;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsWorkTimeSlot extends AbstractStructBase
      */
     public function setEndTimeInMinutes($endTimeInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($endTimeInMinutes) && !is_int($endTimeInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($endTimeInMinutes)), __LINE__);
+        }
         $this->EndTimeInMinutes = $endTimeInMinutes;
         return $this;
     }

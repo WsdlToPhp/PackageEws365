@@ -28,8 +28,6 @@ class EwsMailboxHoldResultType extends AbstractStructBase
     public $Query;
     /**
      * The MailboxHoldStatuses
-     * Meta informations extracted from the WSDL
-     * - documentation: Array of mailbox hold status.
      * @var \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType
      */
     public $MailboxHoldStatuses;
@@ -64,6 +62,10 @@ class EwsMailboxHoldResultType extends AbstractStructBase
      */
     public function setHoldId($holdId = null)
     {
+        // validation for constraint: string
+        if (!is_null($holdId) && !is_string($holdId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdId)), __LINE__);
+        }
         $this->HoldId = $holdId;
         return $this;
     }
@@ -82,6 +84,10 @@ class EwsMailboxHoldResultType extends AbstractStructBase
      */
     public function setQuery($query = null)
     {
+        // validation for constraint: string
+        if (!is_null($query) && !is_string($query)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+        }
         $this->Query = $query;
         return $this;
     }

@@ -34,12 +34,12 @@ class EwsRefinerTypeType
      * Constant for value 'HasAttachment'
      * @return string 'HasAttachment'
      */
-    const VALUE_HASATTACHMENT = 'HasAttachment';
+    const VALUE_HAS_ATTACHMENT = 'HasAttachment';
     /**
      * Constant for value 'MailboxSource'
      * @return string 'MailboxSource'
      */
-    const VALUE_MAILBOXSOURCE = 'MailboxSource';
+    const VALUE_MAILBOX_SOURCE = 'MailboxSource';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -56,8 +56,8 @@ class EwsRefinerTypeType
      * @uses self::VALUE_TO
      * @uses self::VALUE_FROM
      * @uses self::VALUE_FOLDER
-     * @uses self::VALUE_HASATTACHMENT
-     * @uses self::VALUE_MAILBOXSOURCE
+     * @uses self::VALUE_HAS_ATTACHMENT
+     * @uses self::VALUE_MAILBOX_SOURCE
      * @return string[]
      */
     public static function getValidValues()
@@ -67,8 +67,8 @@ class EwsRefinerTypeType
             self::VALUE_TO,
             self::VALUE_FROM,
             self::VALUE_FOLDER,
-            self::VALUE_HASATTACHMENT,
-            self::VALUE_MAILBOXSOURCE,
+            self::VALUE_HAS_ATTACHMENT,
+            self::VALUE_MAILBOX_SOURCE,
         );
     }
     /**

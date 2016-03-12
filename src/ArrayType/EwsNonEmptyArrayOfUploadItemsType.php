@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfUploadItemsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsUploadItemType[]
      */
     public $Item;
     /**
      * Constructor method for NonEmptyArrayOfUploadItemsType
      * @uses EwsNonEmptyArrayOfUploadItemsType::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsUploadItemType[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfUploadItemsType extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsUploadItemType[]
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfUploadItemsType extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUploadItemType[] $item
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $nonEmptyArrayOfUploadItemsTypeItemItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfUploadItemsTypeItemItem instanceof \Ews\StructType\EwsUploadItemType) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsUploadItemType, "%s" given', is_object($nonEmptyArrayOfUploadItemsTypeItemItem) ? get_class($nonEmptyArrayOfUploadItemsTypeItemItem) : gettype($nonEmptyArrayOfUploadItemsTypeItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUploadItemType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType
+     */
+    public function addToItem(\Ews\StructType\EwsUploadItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUploadItemType) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsUploadItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

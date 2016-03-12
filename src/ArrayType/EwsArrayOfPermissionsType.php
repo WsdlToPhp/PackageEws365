@@ -14,24 +14,22 @@ class EwsArrayOfPermissionsType extends AbstractStructArrayBase
 {
     /**
      * The Permission
-     * Meta informations extracted from the WSDL
-     * - documentation: A permission on a folder
-     * @var array
+     * @var \Ews\StructType\EwsPermissionType
      */
     public $Permission;
     /**
      * Constructor method for ArrayOfPermissionsType
      * @uses EwsArrayOfPermissionsType::setPermission()
-     * @param array $permission
+     * @param \Ews\StructType\EwsPermissionType $permission
      */
-    public function __construct(array $permission = array())
+    public function __construct(\Ews\StructType\EwsPermissionType $permission = null)
     {
         $this
             ->setPermission($permission);
     }
     /**
      * Get Permission value
-     * @return array
+     * @return \Ews\StructType\EwsPermissionType|null
      */
     public function getPermission()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfPermissionsType extends AbstractStructArrayBase
     }
     /**
      * Set Permission value
-     * @param array $permission
+     * @param \Ews\StructType\EwsPermissionType $permission
      * @return \Ews\ArrayType\EwsArrayOfPermissionsType
      */
-    public function setPermission(array $permission = array())
+    public function setPermission(\Ews\StructType\EwsPermissionType $permission = null)
     {
         $this->Permission = $permission;
         return $this;

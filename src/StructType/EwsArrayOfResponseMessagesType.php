@@ -249,8 +249,6 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     public $CreateManagedFolderResponseMessage;
     /**
      * The ConvertIdResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response Message for a single id conversion in the ConvertId web method. Note that the AlternateId element will be missing in the case of an error.
      * @var \Ews\StructType\EwsConvertIdResponseMessageType
      */
     public $ConvertIdResponseMessage;
@@ -316,57 +314,41 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     public $ApplyConversationActionResponseMessage;
     /**
      * The FindMailboxStatisticsByKeywordsResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the FindMailboxStatisticsByKeywords web method.
      * @var \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
      */
     public $FindMailboxStatisticsByKeywordsResponseMessage;
     /**
      * The GetSearchableMailboxesResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetSearchableMailboxes web method.
      * @var \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
      */
     public $GetSearchableMailboxesResponseMessage;
     /**
      * The SearchMailboxesResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the SearchMailboxes web method.
      * @var \Ews\StructType\EwsSearchMailboxesResponseMessageType
      */
     public $SearchMailboxesResponseMessage;
     /**
      * The GetDiscoverySearchConfigurationResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetDiscoverySearchConfiguration web method.
      * @var \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
      */
     public $GetDiscoverySearchConfigurationResponseMessage;
     /**
      * The GetHoldOnMailboxesResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetHoldOnMailboxes web method.
      * @var \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType
      */
     public $GetHoldOnMailboxesResponseMessage;
     /**
      * The SetHoldOnMailboxesResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the SetHoldOnMailboxes web method.
      * @var \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType
      */
     public $SetHoldOnMailboxesResponseMessage;
     /**
      * The GetNonIndexableItemStatisticsResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetNonIndexableItemStatistics web method.
      * @var \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
      */
     public $GetNonIndexableItemStatisticsResponseMessage;
     /**
      * The GetNonIndexableItemDetailsResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetNonIndexableItemDetails web method.
      * @var \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
      */
     public $GetNonIndexableItemDetailsResponseMessage;
@@ -392,8 +374,6 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     public $GetConversationItemsResponseMessage;
     /**
      * The GetUserRetentionPolicyTagsResponseMessage
-     * Meta informations extracted from the WSDL
-     * - documentation: Response message type for the GetUserRetentionPolicyTags web method.
      * @var \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
      */
     public $GetUserRetentionPolicyTagsResponseMessage;

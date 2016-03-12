@@ -17,13 +17,13 @@ class EwsGetUMSubscriberCallAnsweringDataType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var duration
+     * @var int
      */
     public $Timeout;
     /**
      * Constructor method for GetUMSubscriberCallAnsweringDataType
      * @uses EwsGetUMSubscriberCallAnsweringDataType::setTimeout()
-     * @param duration $timeout
+     * @param int $timeout
      */
     public function __construct($timeout = null)
     {
@@ -32,7 +32,7 @@ class EwsGetUMSubscriberCallAnsweringDataType extends EwsBaseRequestType
     }
     /**
      * Get Timeout value
-     * @return duration
+     * @return int
      */
     public function getTimeout()
     {
@@ -40,11 +40,15 @@ class EwsGetUMSubscriberCallAnsweringDataType extends EwsBaseRequestType
     }
     /**
      * Set Timeout value
-     * @param duration $timeout
+     * @param int $timeout
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataType
      */
     public function setTimeout($timeout = null)
     {
+        // validation for constraint: int
+        if (!is_null($timeout) && !is_int($timeout)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($timeout)), __LINE__);
+        }
         $this->Timeout = $timeout;
         return $this;
     }

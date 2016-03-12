@@ -14,8 +14,6 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -37,7 +35,7 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
      * The MakeItemImmutable
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MakeItemImmutable;
     /**
@@ -49,7 +47,7 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates
      * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
-     * @param boolean $makeItemImmutable
+     * @param bool $makeItemImmutable
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $makeItemImmutable = null)
     {
@@ -115,7 +113,7 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
     }
     /**
      * Get MakeItemImmutable value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMakeItemImmutable()
     {
@@ -123,7 +121,7 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
     }
     /**
      * Set MakeItemImmutable value
-     * @param boolean $makeItemImmutable
+     * @param bool $makeItemImmutable
      * @return \Ews\StructType\EwsUpdateItemInRecoverableItemsType
      */
     public function setMakeItemImmutable($makeItemImmutable = null)

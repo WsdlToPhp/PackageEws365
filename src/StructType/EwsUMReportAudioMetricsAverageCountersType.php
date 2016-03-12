@@ -17,7 +17,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $TotalAudioQualityCallsSampled;
     /**
@@ -78,7 +78,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
      * @uses EwsUMReportAudioMetricsAverageCountersType::setPercentPacketLoss()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setRoundTrip()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setBurstLossDuration()
-     * @param long $totalAudioQualityCallsSampled
+     * @param int $totalAudioQualityCallsSampled
      * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOS
      * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOSDegradation
      * @param \Ews\StructType\EwsAudioMetricsAverageType $jitter
@@ -99,7 +99,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     }
     /**
      * Get TotalAudioQualityCallsSampled value
-     * @return long
+     * @return int
      */
     public function getTotalAudioQualityCallsSampled()
     {
@@ -107,11 +107,15 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     }
     /**
      * Set TotalAudioQualityCallsSampled value
-     * @param long $totalAudioQualityCallsSampled
+     * @param int $totalAudioQualityCallsSampled
      * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
      */
     public function setTotalAudioQualityCallsSampled($totalAudioQualityCallsSampled = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalAudioQualityCallsSampled) && !is_int($totalAudioQualityCallsSampled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalAudioQualityCallsSampled)), __LINE__);
+        }
         $this->TotalAudioQualityCallsSampled = $totalAudioQualityCallsSampled;
         return $this;
     }

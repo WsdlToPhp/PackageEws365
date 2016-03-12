@@ -19,17 +19,17 @@ class EwsItemTypesFilterType
      * Constant for value 'MailItems'
      * @return string 'MailItems'
      */
-    const VALUE_MAILITEMS = 'MailItems';
+    const VALUE_MAIL_ITEMS = 'MailItems';
     /**
      * Constant for value 'MailConversations'
      * @return string 'MailConversations'
      */
-    const VALUE_MAILCONVERSATIONS = 'MailConversations';
+    const VALUE_MAIL_CONVERSATIONS = 'MailConversations';
     /**
      * Constant for value 'CalendarItems'
      * @return string 'CalendarItems'
      */
-    const VALUE_CALENDARITEMS = 'CalendarItems';
+    const VALUE_CALENDAR_ITEMS = 'CalendarItems';
     /**
      * Constant for value 'People'
      * @return string 'People'
@@ -39,12 +39,12 @@ class EwsItemTypesFilterType
      * Constant for value 'OneDriveItems'
      * @return string 'OneDriveItems'
      */
-    const VALUE_ONEDRIVEITEMS = 'OneDriveItems';
+    const VALUE_ONE_DRIVE_ITEMS = 'OneDriveItems';
     /**
      * Constant for value 'FileItems'
      * @return string 'FileItems'
      */
-    const VALUE_FILEITEMS = 'FileItems';
+    const VALUE_FILE_ITEMS = 'FileItems';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -58,24 +58,24 @@ class EwsItemTypesFilterType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_MAILITEMS
-     * @uses self::VALUE_MAILCONVERSATIONS
-     * @uses self::VALUE_CALENDARITEMS
+     * @uses self::VALUE_MAIL_ITEMS
+     * @uses self::VALUE_MAIL_CONVERSATIONS
+     * @uses self::VALUE_CALENDAR_ITEMS
      * @uses self::VALUE_PEOPLE
-     * @uses self::VALUE_ONEDRIVEITEMS
-     * @uses self::VALUE_FILEITEMS
+     * @uses self::VALUE_ONE_DRIVE_ITEMS
+     * @uses self::VALUE_FILE_ITEMS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_MAILITEMS,
-            self::VALUE_MAILCONVERSATIONS,
-            self::VALUE_CALENDARITEMS,
+            self::VALUE_MAIL_ITEMS,
+            self::VALUE_MAIL_CONVERSATIONS,
+            self::VALUE_CALENDAR_ITEMS,
             self::VALUE_PEOPLE,
-            self::VALUE_ONEDRIVEITEMS,
-            self::VALUE_FILEITEMS,
+            self::VALUE_ONE_DRIVE_ITEMS,
+            self::VALUE_FILE_ITEMS,
         );
     }
     /**

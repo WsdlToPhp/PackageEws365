@@ -25,7 +25,7 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
      * The SearchArchiveOnly
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SearchArchiveOnly;
     /**
@@ -33,7 +33,7 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
      * @uses EwsGetNonIndexableItemStatisticsType::setMailboxes()
      * @uses EwsGetNonIndexableItemStatisticsType::setSearchArchiveOnly()
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
-     * @param boolean $searchArchiveOnly
+     * @param bool $searchArchiveOnly
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null, $searchArchiveOnly = null)
     {
@@ -61,7 +61,7 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
     }
     /**
      * Get SearchArchiveOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSearchArchiveOnly()
     {
@@ -69,7 +69,7 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
     }
     /**
      * Set SearchArchiveOnly value
-     * @param boolean $searchArchiveOnly
+     * @param bool $searchArchiveOnly
      * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsType
      */
     public function setSearchArchiveOnly($searchArchiveOnly = null)

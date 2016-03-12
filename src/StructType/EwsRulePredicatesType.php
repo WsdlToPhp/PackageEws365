@@ -75,7 +75,6 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Flagged for action enumeration, currently used in FlaggedForAction rule predicate
      * @var string
      */
     public $FlaggedForAction;
@@ -100,7 +99,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasAttachments;
     /**
@@ -116,7 +115,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsApprovalRequest;
     /**
@@ -124,7 +123,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAutomaticForward;
     /**
@@ -132,7 +131,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAutomaticReply;
     /**
@@ -140,7 +139,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsEncrypted;
     /**
@@ -148,7 +147,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMeetingRequest;
     /**
@@ -156,7 +155,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMeetingResponse;
     /**
@@ -164,7 +163,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsNDR;
     /**
@@ -172,7 +171,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsPermissionControlled;
     /**
@@ -180,7 +179,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsReadReceipt;
     /**
@@ -188,7 +187,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsSigned;
     /**
@@ -196,7 +195,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsVoicemail;
     /**
@@ -220,7 +219,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $NotSentToMe;
     /**
@@ -228,7 +227,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SentCcMe;
     /**
@@ -236,7 +235,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SentOnlyToMe;
     /**
@@ -252,7 +251,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SentToMe;
     /**
@@ -260,7 +259,7 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SentToOrCcMe;
     /**
@@ -276,7 +275,6 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Date range type used for the WithinDateRange rule predicate.
      * @var \Ews\StructType\EwsRulePredicateDateRangeType
      */
     public $WithinDateRange;
@@ -285,7 +283,6 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Size range type used for the WithinSizeRange rule predicate.
      * @var \Ews\StructType\EwsRulePredicateSizeRangeType
      */
     public $WithinSizeRange;
@@ -335,27 +332,27 @@ class EwsRulePredicatesType extends AbstractStructBase
      * @param string $flaggedForAction
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses
      * @param \Ews\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts
-     * @param boolean $hasAttachments
+     * @param bool $hasAttachments
      * @param string $importance
-     * @param boolean $isApprovalRequest
-     * @param boolean $isAutomaticForward
-     * @param boolean $isAutomaticReply
-     * @param boolean $isEncrypted
-     * @param boolean $isMeetingRequest
-     * @param boolean $isMeetingResponse
-     * @param boolean $isNDR
-     * @param boolean $isPermissionControlled
-     * @param boolean $isReadReceipt
-     * @param boolean $isSigned
-     * @param boolean $isVoicemail
+     * @param bool $isApprovalRequest
+     * @param bool $isAutomaticForward
+     * @param bool $isAutomaticReply
+     * @param bool $isEncrypted
+     * @param bool $isMeetingRequest
+     * @param bool $isMeetingResponse
+     * @param bool $isNDR
+     * @param bool $isPermissionControlled
+     * @param bool $isReadReceipt
+     * @param bool $isSigned
+     * @param bool $isVoicemail
      * @param \Ews\ArrayType\EwsArrayOfStringsType $itemClasses
      * @param \Ews\ArrayType\EwsArrayOfStringsType $messageClassifications
-     * @param boolean $notSentToMe
-     * @param boolean $sentCcMe
-     * @param boolean $sentOnlyToMe
+     * @param bool $notSentToMe
+     * @param bool $sentCcMe
+     * @param bool $sentOnlyToMe
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses
-     * @param boolean $sentToMe
-     * @param boolean $sentToOrCcMe
+     * @param bool $sentToMe
+     * @param bool $sentToOrCcMe
      * @param string $sensitivity
      * @param \Ews\StructType\EwsRulePredicateDateRangeType $withinDateRange
      * @param \Ews\StructType\EwsRulePredicateSizeRangeType $withinSizeRange
@@ -536,11 +533,13 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Set FlaggedForAction value
      * @uses \Ews\EnumType\EwsFlaggedForActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsFlaggedForActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $flaggedForAction
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setFlaggedForAction($flaggedForAction = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlaggedForActionType::valueIsValid($flaggedForAction)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flaggedForAction, implode(', ', \Ews\EnumType\EwsFlaggedForActionType::getValidValues())), __LINE__);
         }
@@ -585,7 +584,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get HasAttachments value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasAttachments()
     {
@@ -593,7 +592,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set HasAttachments value
-     * @param boolean $hasAttachments
+     * @param bool $hasAttachments
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setHasAttachments($hasAttachments = null)
@@ -613,11 +612,13 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Set Importance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $importance
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setImportance($importance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -626,7 +627,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsApprovalRequest value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsApprovalRequest()
     {
@@ -634,7 +635,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsApprovalRequest value
-     * @param boolean $isApprovalRequest
+     * @param bool $isApprovalRequest
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsApprovalRequest($isApprovalRequest = null)
@@ -644,7 +645,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsAutomaticForward value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAutomaticForward()
     {
@@ -652,7 +653,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsAutomaticForward value
-     * @param boolean $isAutomaticForward
+     * @param bool $isAutomaticForward
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsAutomaticForward($isAutomaticForward = null)
@@ -662,7 +663,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsAutomaticReply value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAutomaticReply()
     {
@@ -670,7 +671,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsAutomaticReply value
-     * @param boolean $isAutomaticReply
+     * @param bool $isAutomaticReply
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsAutomaticReply($isAutomaticReply = null)
@@ -680,7 +681,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsEncrypted value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsEncrypted()
     {
@@ -688,7 +689,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsEncrypted value
-     * @param boolean $isEncrypted
+     * @param bool $isEncrypted
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsEncrypted($isEncrypted = null)
@@ -698,7 +699,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsMeetingRequest value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMeetingRequest()
     {
@@ -706,7 +707,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsMeetingRequest value
-     * @param boolean $isMeetingRequest
+     * @param bool $isMeetingRequest
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsMeetingRequest($isMeetingRequest = null)
@@ -716,7 +717,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsMeetingResponse value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMeetingResponse()
     {
@@ -724,7 +725,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsMeetingResponse value
-     * @param boolean $isMeetingResponse
+     * @param bool $isMeetingResponse
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsMeetingResponse($isMeetingResponse = null)
@@ -734,7 +735,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsNDR value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsNDR()
     {
@@ -742,7 +743,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsNDR value
-     * @param boolean $isNDR
+     * @param bool $isNDR
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsNDR($isNDR = null)
@@ -752,7 +753,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsPermissionControlled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsPermissionControlled()
     {
@@ -760,7 +761,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsPermissionControlled value
-     * @param boolean $isPermissionControlled
+     * @param bool $isPermissionControlled
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsPermissionControlled($isPermissionControlled = null)
@@ -770,7 +771,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsReadReceipt value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsReadReceipt()
     {
@@ -778,7 +779,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsReadReceipt value
-     * @param boolean $isReadReceipt
+     * @param bool $isReadReceipt
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsReadReceipt($isReadReceipt = null)
@@ -788,7 +789,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsSigned value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsSigned()
     {
@@ -796,7 +797,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsSigned value
-     * @param boolean $isSigned
+     * @param bool $isSigned
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsSigned($isSigned = null)
@@ -806,7 +807,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get IsVoicemail value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsVoicemail()
     {
@@ -814,7 +815,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set IsVoicemail value
-     * @param boolean $isVoicemail
+     * @param bool $isVoicemail
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setIsVoicemail($isVoicemail = null)
@@ -860,7 +861,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get NotSentToMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getNotSentToMe()
     {
@@ -868,7 +869,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set NotSentToMe value
-     * @param boolean $notSentToMe
+     * @param bool $notSentToMe
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setNotSentToMe($notSentToMe = null)
@@ -878,7 +879,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get SentCcMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSentCcMe()
     {
@@ -886,7 +887,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set SentCcMe value
-     * @param boolean $sentCcMe
+     * @param bool $sentCcMe
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setSentCcMe($sentCcMe = null)
@@ -896,7 +897,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get SentOnlyToMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSentOnlyToMe()
     {
@@ -904,7 +905,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set SentOnlyToMe value
-     * @param boolean $sentOnlyToMe
+     * @param bool $sentOnlyToMe
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setSentOnlyToMe($sentOnlyToMe = null)
@@ -932,7 +933,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get SentToMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSentToMe()
     {
@@ -940,7 +941,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set SentToMe value
-     * @param boolean $sentToMe
+     * @param bool $sentToMe
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setSentToMe($sentToMe = null)
@@ -950,7 +951,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get SentToOrCcMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSentToOrCcMe()
     {
@@ -958,7 +959,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Set SentToOrCcMe value
-     * @param boolean $sentToOrCcMe
+     * @param bool $sentToOrCcMe
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setSentToOrCcMe($sentToOrCcMe = null)
@@ -978,11 +979,13 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Set Sensitivity value
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sensitivity
      * @return \Ews\StructType\EwsRulePredicatesType
      */
     public function setSensitivity($sensitivity = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sensitivity, implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }

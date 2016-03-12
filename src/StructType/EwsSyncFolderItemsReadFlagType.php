@@ -14,14 +14,12 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * The IsRead
-     * @var boolean
+     * @var bool
      */
     public $IsRead;
     /**
@@ -29,7 +27,7 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
      * @uses EwsSyncFolderItemsReadFlagType::setItemId()
      * @uses EwsSyncFolderItemsReadFlagType::setIsRead()
      * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param boolean $isRead
+     * @param bool $isRead
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $isRead = null)
     {
@@ -57,7 +55,7 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
     }
     /**
      * Get IsRead value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRead()
     {
@@ -65,7 +63,7 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
     }
     /**
      * Set IsRead value
-     * @param boolean $isRead
+     * @param bool $isRead
      * @return \Ews\StructType\EwsSyncFolderItemsReadFlagType
      */
     public function setIsRead($isRead = null)

@@ -69,6 +69,10 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      */
     public function setMailbox($mailbox = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailbox) && !is_string($mailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+        }
         $this->Mailbox = $mailbox;
         return $this;
     }
@@ -84,11 +88,13 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      * Set Status value
      * @uses \Ews\EnumType\EwsHoldStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsHoldStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $status
      * @return \Ews\StructType\EwsMailboxHoldStatusType
      */
     public function setStatus($status = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsHoldStatusType::valueIsValid($status)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $status, implode(', ', \Ews\EnumType\EwsHoldStatusType::getValidValues())), __LINE__);
         }
@@ -110,6 +116,10 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      */
     public function setAdditionalInfo($additionalInfo = null)
     {
+        // validation for constraint: string
+        if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalInfo)), __LINE__);
+        }
         $this->AdditionalInfo = $additionalInfo;
         return $this;
     }

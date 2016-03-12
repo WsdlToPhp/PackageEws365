@@ -67,6 +67,10 @@ class EwsEmailAddress extends AbstractStructBase
      */
     public function setAddress($address = null)
     {
+        // validation for constraint: string
+        if (!is_null($address) && !is_string($address)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+        }
         $this->Address = $address;
         return $this;
     }
@@ -85,6 +89,10 @@ class EwsEmailAddress extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -103,6 +111,10 @@ class EwsEmailAddress extends AbstractStructBase
      */
     public function setRoutingType($routingType = null)
     {
+        // validation for constraint: string
+        if (!is_null($routingType) && !is_string($routingType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingType)), __LINE__);
+        }
         $this->RoutingType = $routingType;
         return $this;
     }

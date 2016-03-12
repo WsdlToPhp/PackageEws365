@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * The Period
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsPeriodType[]
      */
     public $Period;
     /**
      * Constructor method for NonEmptyArrayOfPeriodsType
      * @uses EwsNonEmptyArrayOfPeriodsType::setPeriod()
-     * @param array $period
+     * @param \Ews\StructType\EwsPeriodType[] $period
      */
     public function __construct(array $period = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
     }
     /**
      * Get Period value
-     * @return array
+     * @return \Ews\StructType\EwsPeriodType[]|null
      */
     public function getPeriod()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
     }
     /**
      * Set Period value
-     * @param array $period
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPeriodType[] $period
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType
      */
     public function setPeriod(array $period = array())
     {
+        foreach ($period as $nonEmptyArrayOfPeriodsTypePeriodItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfPeriodsTypePeriodItem instanceof \Ews\StructType\EwsPeriodType) {
+                throw new \InvalidArgumentException(sprintf('The Period property can only contain items of \Ews\StructType\EwsPeriodType, "%s" given', is_object($nonEmptyArrayOfPeriodsTypePeriodItem) ? get_class($nonEmptyArrayOfPeriodsTypePeriodItem) : gettype($nonEmptyArrayOfPeriodsTypePeriodItem)), __LINE__);
+            }
+        }
         $this->Period = $period;
+        return $this;
+    }
+    /**
+     * Add item to Period value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPeriodType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType
+     */
+    public function addToPeriod(\Ews\StructType\EwsPeriodType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPeriodType) {
+            throw new \InvalidArgumentException(sprintf('The Period property can only contain items of \Ews\StructType\EwsPeriodType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Period[] = $item;
         return $this;
     }
     /**

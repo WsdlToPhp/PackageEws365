@@ -17,13 +17,13 @@ class EwsOneDriveSearchScopeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $OneDriveView;
     /**
      * Constructor method for OneDriveSearchScopeType
      * @uses EwsOneDriveSearchScopeType::setOneDriveView()
-     * @param string[] $oneDriveView
+     * @param string $oneDriveView
      */
     public function __construct($oneDriveView = null)
     {
@@ -32,7 +32,7 @@ class EwsOneDriveSearchScopeType extends AbstractStructBase
     }
     /**
      * Get OneDriveView value
-     * @return string[]
+     * @return string
      */
     public function getOneDriveView()
     {
@@ -42,11 +42,13 @@ class EwsOneDriveSearchScopeType extends AbstractStructBase
      * Set OneDriveView value
      * @uses \Ews\EnumType\EwsOneDriveViewType::valueIsValid()
      * @uses \Ews\EnumType\EwsOneDriveViewType::getValidValues()
-     * @param string[] $oneDriveView
+     * @throws \InvalidArgumentException
+     * @param string $oneDriveView
      * @return \Ews\StructType\EwsOneDriveSearchScopeType
      */
     public function setOneDriveView($oneDriveView = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsOneDriveViewType::valueIsValid($oneDriveView)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $oneDriveView, implode(', ', \Ews\EnumType\EwsOneDriveViewType::getValidValues())), __LINE__);
         }

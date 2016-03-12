@@ -19,14 +19,13 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Keyword statistics search result.
-     * @var array
+     * @var \Ews\StructType\EwsKeywordStatisticsSearchResultType[]
      */
     public $KeywordStat;
     /**
      * Constructor method for ArrayOfKeywordStatisticsSearchResultsType
      * @uses EwsArrayOfKeywordStatisticsSearchResultsType::setKeywordStat()
-     * @param array $keywordStat
+     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType[] $keywordStat
      */
     public function __construct(array $keywordStat = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
     }
     /**
      * Get KeywordStat value
-     * @return array
+     * @return \Ews\StructType\EwsKeywordStatisticsSearchResultType[]|null
      */
     public function getKeywordStat()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
     }
     /**
      * Set KeywordStat value
-     * @param array $keywordStat
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType[] $keywordStat
      * @return \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType
      */
     public function setKeywordStat(array $keywordStat = array())
     {
+        foreach ($keywordStat as $arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem instanceof \Ews\StructType\EwsKeywordStatisticsSearchResultType) {
+                throw new \InvalidArgumentException(sprintf('The KeywordStat property can only contain items of \Ews\StructType\EwsKeywordStatisticsSearchResultType, "%s" given', is_object($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) ? get_class($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) : gettype($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem)), __LINE__);
+            }
+        }
         $this->KeywordStat = $keywordStat;
+        return $this;
+    }
+    /**
+     * Add item to KeywordStat value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType $item
+     * @return \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType
+     */
+    public function addToKeywordStat(\Ews\StructType\EwsKeywordStatisticsSearchResultType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsKeywordStatisticsSearchResultType) {
+            throw new \InvalidArgumentException(sprintf('The KeywordStat property can only contain items of \Ews\StructType\EwsKeywordStatisticsSearchResultType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->KeywordStat[] = $item;
         return $this;
     }
     /**

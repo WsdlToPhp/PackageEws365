@@ -14,24 +14,22 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
-     * @var array
+     * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Mailbox;
     /**
      * Constructor method for ArrayOfRecipientsType
      * @uses EwsArrayOfRecipientsType::setMailbox()
-     * @param array $mailbox
+     * @param \Ews\StructType\EwsEmailAddressType $mailbox
      */
-    public function __construct(array $mailbox = array())
+    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null)
     {
         $this
             ->setMailbox($mailbox);
     }
     /**
      * Get Mailbox value
-     * @return array
+     * @return \Ews\StructType\EwsEmailAddressType|null
      */
     public function getMailbox()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
     }
     /**
      * Set Mailbox value
-     * @param array $mailbox
+     * @param \Ews\StructType\EwsEmailAddressType $mailbox
      * @return \Ews\ArrayType\EwsArrayOfRecipientsType
      */
-    public function setMailbox(array $mailbox = array())
+    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
     {
         $this->Mailbox = $mailbox;
         return $this;

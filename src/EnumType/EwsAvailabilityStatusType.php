@@ -39,7 +39,7 @@ class EwsAvailabilityStatusType
      * Constant for value 'WorkingElsewhere'
      * @return string 'WorkingElsewhere'
      */
-    const VALUE_WORKINGELSEWHERE = 'WorkingElsewhere';
+    const VALUE_WORKING_ELSEWHERE = 'WorkingElsewhere';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -57,7 +57,7 @@ class EwsAvailabilityStatusType
      * @uses self::VALUE_TENTATIVE
      * @uses self::VALUE_BUSY
      * @uses self::VALUE_OOF
-     * @uses self::VALUE_WORKINGELSEWHERE
+     * @uses self::VALUE_WORKING_ELSEWHERE
      * @return string[]
      */
     public static function getValidValues()
@@ -68,7 +68,7 @@ class EwsAvailabilityStatusType
             self::VALUE_TENTATIVE,
             self::VALUE_BUSY,
             self::VALUE_OOF,
-            self::VALUE_WORKINGELSEWHERE,
+            self::VALUE_WORKING_ELSEWHERE,
         );
     }
     /**

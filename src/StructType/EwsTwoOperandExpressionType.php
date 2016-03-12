@@ -21,8 +21,6 @@ abstract class EwsTwoOperandExpressionType extends EwsSearchExpressionType
     public $Path;
     /**
      * The FieldURIOrConstant
-     * Meta informations extracted from the WSDL
-     * - ref: t:Path
      * @var \Ews\StructType\EwsFieldURIOrConstantType
      */
     public $FieldURIOrConstant;

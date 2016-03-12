@@ -49,11 +49,13 @@ class EwsPhoneNumberDictionaryEntryType extends AbstractStructBase
      * Set Key value
      * @uses \Ews\EnumType\EwsPhoneNumberKeyType::valueIsValid()
      * @uses \Ews\EnumType\EwsPhoneNumberKeyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $key
      * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType
      */
     public function setKey($key = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPhoneNumberKeyType::valueIsValid($key)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $key, implode(', ', \Ews\EnumType\EwsPhoneNumberKeyType::getValidValues())), __LINE__);
         }
@@ -75,6 +77,10 @@ class EwsPhoneNumberDictionaryEntryType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

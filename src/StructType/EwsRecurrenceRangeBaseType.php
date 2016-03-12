@@ -14,13 +14,13 @@ abstract class EwsRecurrenceRangeBaseType extends AbstractStructBase
 {
     /**
      * The StartDate
-     * @var date
+     * @var string
      */
     public $StartDate;
     /**
      * Constructor method for RecurrenceRangeBaseType
      * @uses EwsRecurrenceRangeBaseType::setStartDate()
-     * @param date $startDate
+     * @param string $startDate
      */
     public function __construct($startDate = null)
     {
@@ -29,7 +29,7 @@ abstract class EwsRecurrenceRangeBaseType extends AbstractStructBase
     }
     /**
      * Get StartDate value
-     * @return date|null
+     * @return string|null
      */
     public function getStartDate()
     {
@@ -37,11 +37,15 @@ abstract class EwsRecurrenceRangeBaseType extends AbstractStructBase
     }
     /**
      * Set StartDate value
-     * @param date $startDate
+     * @param string $startDate
      * @return \Ews\StructType\EwsRecurrenceRangeBaseType
      */
     public function setStartDate($startDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($startDate) && !is_string($startDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDate)), __LINE__);
+        }
         $this->StartDate = $startDate;
         return $this;
     }

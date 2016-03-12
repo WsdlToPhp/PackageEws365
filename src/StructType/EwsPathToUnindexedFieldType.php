@@ -41,11 +41,13 @@ class EwsPathToUnindexedFieldType extends EwsBasePathToElementType
      * Set FieldURI value
      * @uses \Ews\EnumType\EwsUnindexedFieldURIType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnindexedFieldURIType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fieldURI
      * @return \Ews\StructType\EwsPathToUnindexedFieldType
      */
     public function setFieldURI($fieldURI = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnindexedFieldURIType::valueIsValid($fieldURI)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsUnindexedFieldURIType::getValidValues())), __LINE__);
         }

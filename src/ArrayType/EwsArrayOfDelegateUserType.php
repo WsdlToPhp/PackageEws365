@@ -17,13 +17,13 @@ class EwsArrayOfDelegateUserType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsDelegateUserType[]
      */
     public $DelegateUser;
     /**
      * Constructor method for ArrayOfDelegateUserType
      * @uses EwsArrayOfDelegateUserType::setDelegateUser()
-     * @param array $delegateUser
+     * @param \Ews\StructType\EwsDelegateUserType[] $delegateUser
      */
     public function __construct(array $delegateUser = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfDelegateUserType extends AbstractStructArrayBase
     }
     /**
      * Get DelegateUser value
-     * @return array
+     * @return \Ews\StructType\EwsDelegateUserType[]
      */
     public function getDelegateUser()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfDelegateUserType extends AbstractStructArrayBase
     }
     /**
      * Set DelegateUser value
-     * @param array $delegateUser
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsDelegateUserType[] $delegateUser
      * @return \Ews\ArrayType\EwsArrayOfDelegateUserType
      */
     public function setDelegateUser(array $delegateUser = array())
     {
+        foreach ($delegateUser as $arrayOfDelegateUserTypeDelegateUserItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfDelegateUserTypeDelegateUserItem instanceof \Ews\StructType\EwsDelegateUserType) {
+                throw new \InvalidArgumentException(sprintf('The DelegateUser property can only contain items of \Ews\StructType\EwsDelegateUserType, "%s" given', is_object($arrayOfDelegateUserTypeDelegateUserItem) ? get_class($arrayOfDelegateUserTypeDelegateUserItem) : gettype($arrayOfDelegateUserTypeDelegateUserItem)), __LINE__);
+            }
+        }
         $this->DelegateUser = $delegateUser;
+        return $this;
+    }
+    /**
+     * Add item to DelegateUser value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsDelegateUserType $item
+     * @return \Ews\ArrayType\EwsArrayOfDelegateUserType
+     */
+    public function addToDelegateUser(\Ews\StructType\EwsDelegateUserType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsDelegateUserType) {
+            throw new \InvalidArgumentException(sprintf('The DelegateUser property can only contain items of \Ews\StructType\EwsDelegateUserType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->DelegateUser[] = $item;
         return $this;
     }
     /**

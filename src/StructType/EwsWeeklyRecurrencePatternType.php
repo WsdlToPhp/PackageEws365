@@ -67,11 +67,13 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
      * Set FirstDayOfWeek value
      * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
      * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $firstDayOfWeek
      * @return \Ews\StructType\EwsWeeklyRecurrencePatternType
      */
     public function setFirstDayOfWeek($firstDayOfWeek = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($firstDayOfWeek)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $firstDayOfWeek, implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }

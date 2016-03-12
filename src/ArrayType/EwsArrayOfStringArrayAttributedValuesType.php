@@ -17,13 +17,14 @@ class EwsArrayOfStringArrayAttributedValuesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsStringArrayAttributedValueType[]
      */
     public $StringArrayAttributedValue;
     /**
      * Constructor method for ArrayOfStringArrayAttributedValuesType
      * @uses EwsArrayOfStringArrayAttributedValuesType::setStringArrayAttributedValue()
-     * @param array $stringArrayAttributedValue
+     * @param \Ews\StructType\EwsStringArrayAttributedValueType[]
+     * $stringArrayAttributedValue
      */
     public function __construct(array $stringArrayAttributedValue = array())
     {
@@ -32,7 +33,7 @@ class EwsArrayOfStringArrayAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Get StringArrayAttributedValue value
-     * @return array
+     * @return \Ews\StructType\EwsStringArrayAttributedValueType[]|null
      */
     public function getStringArrayAttributedValue()
     {
@@ -40,12 +41,35 @@ class EwsArrayOfStringArrayAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Set StringArrayAttributedValue value
-     * @param array $stringArrayAttributedValue
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsStringArrayAttributedValueType[]
+     * $stringArrayAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType
      */
     public function setStringArrayAttributedValue(array $stringArrayAttributedValue = array())
     {
+        foreach ($stringArrayAttributedValue as $arrayOfStringArrayAttributedValuesTypeStringArrayAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfStringArrayAttributedValuesTypeStringArrayAttributedValueItem instanceof \Ews\StructType\EwsStringArrayAttributedValueType) {
+                throw new \InvalidArgumentException(sprintf('The StringArrayAttributedValue property can only contain items of \Ews\StructType\EwsStringArrayAttributedValueType, "%s" given', is_object($arrayOfStringArrayAttributedValuesTypeStringArrayAttributedValueItem) ? get_class($arrayOfStringArrayAttributedValuesTypeStringArrayAttributedValueItem) : gettype($arrayOfStringArrayAttributedValuesTypeStringArrayAttributedValueItem)), __LINE__);
+            }
+        }
         $this->StringArrayAttributedValue = $stringArrayAttributedValue;
+        return $this;
+    }
+    /**
+     * Add item to StringArrayAttributedValue value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsStringArrayAttributedValueType $item
+     * @return \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType
+     */
+    public function addToStringArrayAttributedValue(\Ews\StructType\EwsStringArrayAttributedValueType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsStringArrayAttributedValueType) {
+            throw new \InvalidArgumentException(sprintf('The StringArrayAttributedValue property can only contain items of \Ews\StructType\EwsStringArrayAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->StringArrayAttributedValue[] = $item;
         return $this;
     }
     /**

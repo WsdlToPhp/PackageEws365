@@ -41,11 +41,13 @@ class EwsPathToExceptionFieldType extends EwsBasePathToElementType
      * Set FieldURI value
      * @uses \Ews\EnumType\EwsExceptionPropertyURIType::valueIsValid()
      * @uses \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fieldURI
      * @return \Ews\StructType\EwsPathToExceptionFieldType
      */
     public function setFieldURI($fieldURI = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExceptionPropertyURIType::valueIsValid($fieldURI)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues())), __LINE__);
         }

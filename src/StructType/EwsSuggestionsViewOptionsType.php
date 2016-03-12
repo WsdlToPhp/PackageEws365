@@ -65,7 +65,7 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $CurrentMeetingTime;
     /**
@@ -92,7 +92,7 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      * @param int $maximumNonWorkHourResultsByDay
      * @param int $meetingDurationInMinutes
      * @param string $minimumSuggestionQuality
-     * @param dateTime $currentMeetingTime
+     * @param string $currentMeetingTime
      * @param string $globalObjectId
      */
     public function __construct(\Ews\StructType\EwsDuration $detailedSuggestionsWindow = null, $goodThreshold = null, $maximumResultsByDay = null, $maximumNonWorkHourResultsByDay = null, $meetingDurationInMinutes = null, $minimumSuggestionQuality = null, $currentMeetingTime = null, $globalObjectId = null)
@@ -140,6 +140,10 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      */
     public function setGoodThreshold($goodThreshold = null)
     {
+        // validation for constraint: int
+        if (!is_null($goodThreshold) && !is_int($goodThreshold)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($goodThreshold)), __LINE__);
+        }
         $this->GoodThreshold = $goodThreshold;
         return $this;
     }
@@ -158,6 +162,10 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      */
     public function setMaximumResultsByDay($maximumResultsByDay = null)
     {
+        // validation for constraint: int
+        if (!is_null($maximumResultsByDay) && !is_int($maximumResultsByDay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumResultsByDay)), __LINE__);
+        }
         $this->MaximumResultsByDay = $maximumResultsByDay;
         return $this;
     }
@@ -176,6 +184,10 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      */
     public function setMaximumNonWorkHourResultsByDay($maximumNonWorkHourResultsByDay = null)
     {
+        // validation for constraint: int
+        if (!is_null($maximumNonWorkHourResultsByDay) && !is_int($maximumNonWorkHourResultsByDay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumNonWorkHourResultsByDay)), __LINE__);
+        }
         $this->MaximumNonWorkHourResultsByDay = $maximumNonWorkHourResultsByDay;
         return $this;
     }
@@ -194,6 +206,10 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      */
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
     }
@@ -209,11 +225,13 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      * Set MinimumSuggestionQuality value
      * @uses \Ews\EnumType\EwsSuggestionQuality::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionQuality::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $minimumSuggestionQuality
      * @return \Ews\StructType\EwsSuggestionsViewOptionsType
      */
     public function setMinimumSuggestionQuality($minimumSuggestionQuality = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionQuality::valueIsValid($minimumSuggestionQuality)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $minimumSuggestionQuality, implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
         }
@@ -222,7 +240,7 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     }
     /**
      * Get CurrentMeetingTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getCurrentMeetingTime()
     {
@@ -230,11 +248,15 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     }
     /**
      * Set CurrentMeetingTime value
-     * @param dateTime $currentMeetingTime
+     * @param string $currentMeetingTime
      * @return \Ews\StructType\EwsSuggestionsViewOptionsType
      */
     public function setCurrentMeetingTime($currentMeetingTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($currentMeetingTime) && !is_string($currentMeetingTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currentMeetingTime)), __LINE__);
+        }
         $this->CurrentMeetingTime = $currentMeetingTime;
         return $this;
     }
@@ -253,6 +275,10 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
      */
     public function setGlobalObjectId($globalObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($globalObjectId) && !is_string($globalObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($globalObjectId)), __LINE__);
+        }
         $this->GlobalObjectId = $globalObjectId;
         return $this;
     }

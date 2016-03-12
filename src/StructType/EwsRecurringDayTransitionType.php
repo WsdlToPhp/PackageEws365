@@ -47,11 +47,13 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
      * Set DayOfWeek value
      * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
      * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $dayOfWeek
      * @return \Ews\StructType\EwsRecurringDayTransitionType
      */
     public function setDayOfWeek($dayOfWeek = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($dayOfWeek)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dayOfWeek, implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
@@ -73,6 +75,10 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
      */
     public function setOccurrence($occurrence = null)
     {
+        // validation for constraint: int
+        if (!is_null($occurrence) && !is_int($occurrence)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($occurrence)), __LINE__);
+        }
         $this->Occurrence = $occurrence;
         return $this;
     }

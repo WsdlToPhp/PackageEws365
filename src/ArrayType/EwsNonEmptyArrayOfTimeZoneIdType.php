@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * The Id
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var string[]
      */
     public $Id;
     /**
      * Constructor method for NonEmptyArrayOfTimeZoneIdType
      * @uses EwsNonEmptyArrayOfTimeZoneIdType::setId()
-     * @param array $id
+     * @param string[] $id
      */
     public function __construct(array $id = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
     }
     /**
      * Get Id value
-     * @return array
+     * @return string[]|null
      */
     public function getId()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
     }
     /**
      * Set Id value
-     * @param array $id
+     * @throws \InvalidArgumentException
+     * @param string[] $id
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
      */
     public function setId(array $id = array())
     {
+        foreach ($id as $nonEmptyArrayOfTimeZoneIdTypeIdItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfTimeZoneIdTypeIdItem)) {
+                throw new \InvalidArgumentException(sprintf('The Id property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfTimeZoneIdTypeIdItem) ? get_class($nonEmptyArrayOfTimeZoneIdTypeIdItem) : gettype($nonEmptyArrayOfTimeZoneIdTypeIdItem)), __LINE__);
+            }
+        }
         $this->Id = $id;
+        return $this;
+    }
+    /**
+     * Add item to Id value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
+     */
+    public function addToId($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Id property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Id[] = $item;
         return $this;
     }
     /**

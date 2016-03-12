@@ -39,12 +39,12 @@ class EwsRoleMemberTypeType
      * Constant for value 'SkypeId'
      * @return string 'SkypeId'
      */
-    const VALUE_SKYPEID = 'SkypeId';
+    const VALUE_SKYPE_ID = 'SkypeId';
     /**
      * Constant for value 'ExternalId'
      * @return string 'ExternalId'
      */
-    const VALUE_EXTERNALID = 'ExternalId';
+    const VALUE_EXTERNAL_ID = 'ExternalId';
     /**
      * Constant for value 'Group'
      * @return string 'Group'
@@ -97,8 +97,8 @@ class EwsRoleMemberTypeType
      * @uses self::VALUE_EVERYONE
      * @uses self::VALUE_EMAIL
      * @uses self::VALUE_PHONE
-     * @uses self::VALUE_SKYPEID
-     * @uses self::VALUE_EXTERNALID
+     * @uses self::VALUE_SKYPE_ID
+     * @uses self::VALUE_EXTERNAL_ID
      * @uses self::VALUE_GROUP
      * @uses self::VALUE_GUID
      * @uses self::VALUE_ROLE
@@ -116,8 +116,8 @@ class EwsRoleMemberTypeType
             self::VALUE_EVERYONE,
             self::VALUE_EMAIL,
             self::VALUE_PHONE,
-            self::VALUE_SKYPEID,
-            self::VALUE_EXTERNALID,
+            self::VALUE_SKYPE_ID,
+            self::VALUE_EXTERNAL_ID,
             self::VALUE_GROUP,
             self::VALUE_GUID,
             self::VALUE_ROLE,

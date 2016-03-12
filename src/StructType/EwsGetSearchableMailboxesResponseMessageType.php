@@ -16,8 +16,6 @@ class EwsGetSearchableMailboxesResponseMessageType extends EwsResponseMessageTyp
 {
     /**
      * The SearchableMailboxes
-     * Meta informations extracted from the WSDL
-     * - documentation: Array of searchable mailbox.
      * @var \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
      */
     public $SearchableMailboxes;
@@ -25,7 +23,6 @@ class EwsGetSearchableMailboxesResponseMessageType extends EwsResponseMessageTyp
      * The FailedMailboxes
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of failed mailbox and error message.
      * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
     public $FailedMailboxes;

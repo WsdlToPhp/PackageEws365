@@ -17,13 +17,13 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var string[]
      */
     public $Url;
     /**
      * Constructor method for ArrayOfUrlsType
      * @uses EwsArrayOfUrlsType::setUrl()
-     * @param array $url
+     * @param string[] $url
      */
     public function __construct(array $url = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
     }
     /**
      * Get Url value
-     * @return array
+     * @return string[]|null
      */
     public function getUrl()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
     }
     /**
      * Set Url value
-     * @param array $url
+     * @throws \InvalidArgumentException
+     * @param string[] $url
      * @return \Ews\ArrayType\EwsArrayOfUrlsType
      */
     public function setUrl(array $url = array())
     {
+        foreach ($url as $arrayOfUrlsTypeUrlItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfUrlsTypeUrlItem)) {
+                throw new \InvalidArgumentException(sprintf('The Url property can only contain items of string, "%s" given', is_object($arrayOfUrlsTypeUrlItem) ? get_class($arrayOfUrlsTypeUrlItem) : gettype($arrayOfUrlsTypeUrlItem)), __LINE__);
+            }
+        }
         $this->Url = $url;
+        return $this;
+    }
+    /**
+     * Add item to Url value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfUrlsType
+     */
+    public function addToUrl($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Url property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Url[] = $item;
         return $this;
     }
     /**

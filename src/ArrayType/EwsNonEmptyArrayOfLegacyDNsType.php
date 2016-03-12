@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var string[]
      */
     public $LegacyDN;
     /**
      * Constructor method for NonEmptyArrayOfLegacyDNsType
      * @uses EwsNonEmptyArrayOfLegacyDNsType::setLegacyDN()
-     * @param array $legacyDN
+     * @param string[] $legacyDN
      */
     public function __construct(array $legacyDN = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
     }
     /**
      * Get LegacyDN value
-     * @return array
+     * @return string[]
      */
     public function getLegacyDN()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
     }
     /**
      * Set LegacyDN value
-     * @param array $legacyDN
+     * @throws \InvalidArgumentException
+     * @param string[] $legacyDN
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
     public function setLegacyDN(array $legacyDN = array())
     {
+        foreach ($legacyDN as $nonEmptyArrayOfLegacyDNsTypeLegacyDNItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfLegacyDNsTypeLegacyDNItem)) {
+                throw new \InvalidArgumentException(sprintf('The LegacyDN property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfLegacyDNsTypeLegacyDNItem) ? get_class($nonEmptyArrayOfLegacyDNsTypeLegacyDNItem) : gettype($nonEmptyArrayOfLegacyDNsTypeLegacyDNItem)), __LINE__);
+            }
+        }
         $this->LegacyDN = $legacyDN;
+        return $this;
+    }
+    /**
+     * Add item to LegacyDN value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     */
+    public function addToLegacyDN($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The LegacyDN property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->LegacyDN[] = $item;
         return $this;
     }
     /**

@@ -100,6 +100,10 @@ class EwsSyncFolderHierarchyType extends EwsBaseRequestType
      */
     public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }

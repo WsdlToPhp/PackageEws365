@@ -17,7 +17,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $AutoAttendantCalls;
     /**
@@ -25,7 +25,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $FailedCalls;
     /**
@@ -33,7 +33,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $FaxCalls;
     /**
@@ -41,7 +41,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $MissedCalls;
     /**
@@ -49,7 +49,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $OtherCalls;
     /**
@@ -57,7 +57,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $OutboundCalls;
     /**
@@ -65,7 +65,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $SubscriberAccessCalls;
     /**
@@ -73,7 +73,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $VoiceMailCalls;
     /**
@@ -81,7 +81,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $TotalCalls;
     /**
@@ -89,7 +89,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $Date;
     /**
@@ -113,16 +113,16 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * @uses EwsUMReportRawCountersType::setTotalCalls()
      * @uses EwsUMReportRawCountersType::setDate()
      * @uses EwsUMReportRawCountersType::setAudioMetricsAverages()
-     * @param long $autoAttendantCalls
-     * @param long $failedCalls
-     * @param long $faxCalls
-     * @param long $missedCalls
-     * @param long $otherCalls
-     * @param long $outboundCalls
-     * @param long $subscriberAccessCalls
-     * @param long $voiceMailCalls
-     * @param long $totalCalls
-     * @param dateTime $date
+     * @param int $autoAttendantCalls
+     * @param int $failedCalls
+     * @param int $faxCalls
+     * @param int $missedCalls
+     * @param int $otherCalls
+     * @param int $outboundCalls
+     * @param int $subscriberAccessCalls
+     * @param int $voiceMailCalls
+     * @param int $totalCalls
+     * @param string $date
      * @param \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
      * $audioMetricsAverages
      */
@@ -143,7 +143,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Get AutoAttendantCalls value
-     * @return long
+     * @return int
      */
     public function getAutoAttendantCalls()
     {
@@ -151,17 +151,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set AutoAttendantCalls value
-     * @param long $autoAttendantCalls
+     * @param int $autoAttendantCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setAutoAttendantCalls($autoAttendantCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($autoAttendantCalls) && !is_int($autoAttendantCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($autoAttendantCalls)), __LINE__);
+        }
         $this->AutoAttendantCalls = $autoAttendantCalls;
         return $this;
     }
     /**
      * Get FailedCalls value
-     * @return long
+     * @return int
      */
     public function getFailedCalls()
     {
@@ -169,17 +173,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set FailedCalls value
-     * @param long $failedCalls
+     * @param int $failedCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setFailedCalls($failedCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($failedCalls) && !is_int($failedCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($failedCalls)), __LINE__);
+        }
         $this->FailedCalls = $failedCalls;
         return $this;
     }
     /**
      * Get FaxCalls value
-     * @return long
+     * @return int
      */
     public function getFaxCalls()
     {
@@ -187,17 +195,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set FaxCalls value
-     * @param long $faxCalls
+     * @param int $faxCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setFaxCalls($faxCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($faxCalls) && !is_int($faxCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($faxCalls)), __LINE__);
+        }
         $this->FaxCalls = $faxCalls;
         return $this;
     }
     /**
      * Get MissedCalls value
-     * @return long
+     * @return int
      */
     public function getMissedCalls()
     {
@@ -205,17 +217,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set MissedCalls value
-     * @param long $missedCalls
+     * @param int $missedCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setMissedCalls($missedCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($missedCalls) && !is_int($missedCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($missedCalls)), __LINE__);
+        }
         $this->MissedCalls = $missedCalls;
         return $this;
     }
     /**
      * Get OtherCalls value
-     * @return long
+     * @return int
      */
     public function getOtherCalls()
     {
@@ -223,17 +239,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set OtherCalls value
-     * @param long $otherCalls
+     * @param int $otherCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setOtherCalls($otherCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($otherCalls) && !is_int($otherCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($otherCalls)), __LINE__);
+        }
         $this->OtherCalls = $otherCalls;
         return $this;
     }
     /**
      * Get OutboundCalls value
-     * @return long
+     * @return int
      */
     public function getOutboundCalls()
     {
@@ -241,17 +261,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set OutboundCalls value
-     * @param long $outboundCalls
+     * @param int $outboundCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setOutboundCalls($outboundCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($outboundCalls) && !is_int($outboundCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($outboundCalls)), __LINE__);
+        }
         $this->OutboundCalls = $outboundCalls;
         return $this;
     }
     /**
      * Get SubscriberAccessCalls value
-     * @return long
+     * @return int
      */
     public function getSubscriberAccessCalls()
     {
@@ -259,17 +283,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set SubscriberAccessCalls value
-     * @param long $subscriberAccessCalls
+     * @param int $subscriberAccessCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setSubscriberAccessCalls($subscriberAccessCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($subscriberAccessCalls) && !is_int($subscriberAccessCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($subscriberAccessCalls)), __LINE__);
+        }
         $this->SubscriberAccessCalls = $subscriberAccessCalls;
         return $this;
     }
     /**
      * Get VoiceMailCalls value
-     * @return long
+     * @return int
      */
     public function getVoiceMailCalls()
     {
@@ -277,17 +305,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set VoiceMailCalls value
-     * @param long $voiceMailCalls
+     * @param int $voiceMailCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setVoiceMailCalls($voiceMailCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($voiceMailCalls) && !is_int($voiceMailCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($voiceMailCalls)), __LINE__);
+        }
         $this->VoiceMailCalls = $voiceMailCalls;
         return $this;
     }
     /**
      * Get TotalCalls value
-     * @return long
+     * @return int
      */
     public function getTotalCalls()
     {
@@ -295,17 +327,21 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set TotalCalls value
-     * @param long $totalCalls
+     * @param int $totalCalls
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setTotalCalls($totalCalls = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalCalls) && !is_int($totalCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalCalls)), __LINE__);
+        }
         $this->TotalCalls = $totalCalls;
         return $this;
     }
     /**
      * Get Date value
-     * @return dateTime
+     * @return string
      */
     public function getDate()
     {
@@ -313,11 +349,15 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set Date value
-     * @param dateTime $date
+     * @param string $date
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setDate($date = null)
     {
+        // validation for constraint: string
+        if (!is_null($date) && !is_string($date)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($date)), __LINE__);
+        }
         $this->Date = $date;
         return $this;
     }

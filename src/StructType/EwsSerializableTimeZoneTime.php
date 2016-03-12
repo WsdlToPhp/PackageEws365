@@ -33,7 +33,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var short
+     * @var int
      */
     public $DayOrder;
     /**
@@ -41,7 +41,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var short
+     * @var int
      */
     public $Month;
     /**
@@ -70,8 +70,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      * @uses EwsSerializableTimeZoneTime::setYear()
      * @param int $bias
      * @param string $time
-     * @param short $dayOrder
-     * @param short $month
+     * @param int $dayOrder
+     * @param int $month
      * @param string $dayOfWeek
      * @param string $year
      */
@@ -100,6 +100,10 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      */
     public function setBias($bias = null)
     {
+        // validation for constraint: int
+        if (!is_null($bias) && !is_int($bias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($bias)), __LINE__);
+        }
         $this->Bias = $bias;
         return $this;
     }
@@ -118,12 +122,16 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      */
     public function setTime($time = null)
     {
+        // validation for constraint: string
+        if (!is_null($time) && !is_string($time)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($time)), __LINE__);
+        }
         $this->Time = $time;
         return $this;
     }
     /**
      * Get DayOrder value
-     * @return short
+     * @return int
      */
     public function getDayOrder()
     {
@@ -131,17 +139,21 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     }
     /**
      * Set DayOrder value
-     * @param short $dayOrder
+     * @param int $dayOrder
      * @return \Ews\StructType\EwsSerializableTimeZoneTime
      */
     public function setDayOrder($dayOrder = null)
     {
+        // validation for constraint: int
+        if (!is_null($dayOrder) && !is_int($dayOrder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dayOrder)), __LINE__);
+        }
         $this->DayOrder = $dayOrder;
         return $this;
     }
     /**
      * Get Month value
-     * @return short
+     * @return int
      */
     public function getMonth()
     {
@@ -149,11 +161,15 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     }
     /**
      * Set Month value
-     * @param short $month
+     * @param int $month
      * @return \Ews\StructType\EwsSerializableTimeZoneTime
      */
     public function setMonth($month = null)
     {
+        // validation for constraint: int
+        if (!is_null($month) && !is_int($month)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($month)), __LINE__);
+        }
         $this->Month = $month;
         return $this;
     }
@@ -169,11 +185,13 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      * Set DayOfWeek value
      * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
      * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $dayOfWeek
      * @return \Ews\StructType\EwsSerializableTimeZoneTime
      */
     public function setDayOfWeek($dayOfWeek = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($dayOfWeek)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dayOfWeek, implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
@@ -195,6 +213,10 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
      */
     public function setYear($year = null)
     {
+        // validation for constraint: string
+        if (!is_null($year) && !is_string($year)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($year)), __LINE__);
+        }
         $this->Year = $year;
         return $this;
     }

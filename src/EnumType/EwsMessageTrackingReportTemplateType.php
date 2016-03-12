@@ -19,7 +19,7 @@ class EwsMessageTrackingReportTemplateType
      * Constant for value 'RecipientPath'
      * @return string 'RecipientPath'
      */
-    const VALUE_RECIPIENTPATH = 'RecipientPath';
+    const VALUE_RECIPIENT_PATH = 'RecipientPath';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsMessageTrackingReportTemplateType
     /**
      * Return allowed values
      * @uses self::VALUE_SUMMARY
-     * @uses self::VALUE_RECIPIENTPATH
+     * @uses self::VALUE_RECIPIENT_PATH
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_SUMMARY,
-            self::VALUE_RECIPIENTPATH,
+            self::VALUE_RECIPIENT_PATH,
         );
     }
     /**

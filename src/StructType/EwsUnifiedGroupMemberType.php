@@ -25,7 +25,7 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOwner;
     /**
@@ -33,7 +33,7 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
      * @uses EwsUnifiedGroupMemberType::setPersona()
      * @uses EwsUnifiedGroupMemberType::setIsOwner()
      * @param \Ews\StructType\EwsPersonaType $persona
-     * @param boolean $isOwner
+     * @param bool $isOwner
      */
     public function __construct(\Ews\StructType\EwsPersonaType $persona = null, $isOwner = null)
     {
@@ -61,7 +61,7 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
     }
     /**
      * Get IsOwner value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOwner()
     {
@@ -69,7 +69,7 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
     }
     /**
      * Set IsOwner value
-     * @param boolean $isOwner
+     * @param bool $isOwner
      * @return \Ews\StructType\EwsUnifiedGroupMemberType
      */
     public function setIsOwner($isOwner = null)

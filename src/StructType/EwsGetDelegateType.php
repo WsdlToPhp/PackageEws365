@@ -16,7 +16,7 @@ class EwsGetDelegateType extends EwsBaseDelegateType
      * The IncludePermissions
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $IncludePermissions;
     /**
@@ -31,7 +31,7 @@ class EwsGetDelegateType extends EwsBaseDelegateType
      * Constructor method for GetDelegateType
      * @uses EwsGetDelegateType::setIncludePermissions()
      * @uses EwsGetDelegateType::setUserIds()
-     * @param boolean $includePermissions
+     * @param bool $includePermissions
      * @param \Ews\ArrayType\EwsArrayOfUserIdType $userIds
      */
     public function __construct($includePermissions = null, \Ews\ArrayType\EwsArrayOfUserIdType $userIds = null)
@@ -42,7 +42,7 @@ class EwsGetDelegateType extends EwsBaseDelegateType
     }
     /**
      * Get IncludePermissions value
-     * @return boolean
+     * @return bool
      */
     public function getIncludePermissions()
     {
@@ -50,7 +50,7 @@ class EwsGetDelegateType extends EwsBaseDelegateType
     }
     /**
      * Set IncludePermissions value
-     * @param boolean $includePermissions
+     * @param bool $includePermissions
      * @return \Ews\StructType\EwsGetDelegateType
      */
     public function setIncludePermissions($includePermissions = null)

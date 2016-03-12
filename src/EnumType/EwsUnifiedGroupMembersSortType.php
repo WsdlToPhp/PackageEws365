@@ -19,12 +19,12 @@ class EwsUnifiedGroupMembersSortType
      * Constant for value 'DisplayName'
      * @return string 'DisplayName'
      */
-    const VALUE_DISPLAYNAME = 'DisplayName';
+    const VALUE_DISPLAY_NAME = 'DisplayName';
     /**
      * Constant for value 'OwnerAndDisplayName'
      * @return string 'OwnerAndDisplayName'
      */
-    const VALUE_OWNERANDDISPLAYNAME = 'OwnerAndDisplayName';
+    const VALUE_OWNER_AND_DISPLAY_NAME = 'OwnerAndDisplayName';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -38,16 +38,16 @@ class EwsUnifiedGroupMembersSortType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_DISPLAYNAME
-     * @uses self::VALUE_OWNERANDDISPLAYNAME
+     * @uses self::VALUE_DISPLAY_NAME
+     * @uses self::VALUE_OWNER_AND_DISPLAY_NAME
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_DISPLAYNAME,
-            self::VALUE_OWNERANDDISPLAYNAME,
+            self::VALUE_DISPLAY_NAME,
+            self::VALUE_OWNER_AND_DISPLAY_NAME,
         );
     }
     /**

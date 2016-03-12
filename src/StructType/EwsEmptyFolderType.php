@@ -23,7 +23,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * The DeleteSubFolders
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $DeleteSubFolders;
     /**
@@ -37,7 +37,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * @uses EwsEmptyFolderType::setDeleteSubFolders()
      * @uses EwsEmptyFolderType::setFolderIds()
      * @param string $deleteType
-     * @param boolean $deleteSubFolders
+     * @param bool $deleteSubFolders
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
     public function __construct($deleteType = null, $deleteSubFolders = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
@@ -59,11 +59,13 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * Set DeleteType value
      * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
      * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deleteType
      * @return \Ews\StructType\EwsEmptyFolderType
      */
     public function setDeleteType($deleteType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
@@ -72,7 +74,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
     }
     /**
      * Get DeleteSubFolders value
-     * @return boolean
+     * @return bool
      */
     public function getDeleteSubFolders()
     {
@@ -80,7 +82,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
     }
     /**
      * Set DeleteSubFolders value
-     * @param boolean $deleteSubFolders
+     * @param bool $deleteSubFolders
      * @return \Ews\StructType\EwsEmptyFolderType
      */
     public function setDeleteSubFolders($deleteSubFolders = null)

@@ -19,14 +19,13 @@ class EwsArrayOfRuleValidationErrorsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * - documentation: Represents a single validation error on a particular rule property value, predicate property value or action property value
-     * @var array
+     * @var \Ews\StructType\EwsRuleValidationErrorType[]
      */
     public $Error;
     /**
      * Constructor method for ArrayOfRuleValidationErrorsType
      * @uses EwsArrayOfRuleValidationErrorsType::setError()
-     * @param array $error
+     * @param \Ews\StructType\EwsRuleValidationErrorType[] $error
      */
     public function __construct(array $error = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfRuleValidationErrorsType extends AbstractStructArrayBase
     }
     /**
      * Get Error value
-     * @return array
+     * @return \Ews\StructType\EwsRuleValidationErrorType[]
      */
     public function getError()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfRuleValidationErrorsType extends AbstractStructArrayBase
     }
     /**
      * Set Error value
-     * @param array $error
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleValidationErrorType[] $error
      * @return \Ews\ArrayType\EwsArrayOfRuleValidationErrorsType
      */
     public function setError(array $error = array())
     {
+        foreach ($error as $arrayOfRuleValidationErrorsTypeErrorItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRuleValidationErrorsTypeErrorItem instanceof \Ews\StructType\EwsRuleValidationErrorType) {
+                throw new \InvalidArgumentException(sprintf('The Error property can only contain items of \Ews\StructType\EwsRuleValidationErrorType, "%s" given', is_object($arrayOfRuleValidationErrorsTypeErrorItem) ? get_class($arrayOfRuleValidationErrorsTypeErrorItem) : gettype($arrayOfRuleValidationErrorsTypeErrorItem)), __LINE__);
+            }
+        }
         $this->Error = $error;
+        return $this;
+    }
+    /**
+     * Add item to Error value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleValidationErrorType $item
+     * @return \Ews\ArrayType\EwsArrayOfRuleValidationErrorsType
+     */
+    public function addToError(\Ews\StructType\EwsRuleValidationErrorType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRuleValidationErrorType) {
+            throw new \InvalidArgumentException(sprintf('The Error property can only contain items of \Ews\StructType\EwsRuleValidationErrorType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Error[] = $item;
         return $this;
     }
     /**

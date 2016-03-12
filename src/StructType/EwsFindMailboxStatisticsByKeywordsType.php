@@ -18,7 +18,6 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * The Mailboxes
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * - documentation: Array of user mailbox.
      * @var \Ews\ArrayType\EwsArrayOfUserMailboxesType
      */
     public $Mailboxes;
@@ -54,21 +53,20 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * The FromDate
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $FromDate;
     /**
      * The ToDate
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ToDate;
     /**
      * The MessageTypes
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of search item kind enum.
      * @var \Ews\ArrayType\EwsArrayOfSearchItemKindsType
      */
     public $MessageTypes;
@@ -76,21 +74,21 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * The SearchDumpster
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SearchDumpster;
     /**
      * The IncludePersonalArchive
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludePersonalArchive;
     /**
      * The IncludeUnsearchableItems
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludeUnsearchableItems;
     /**
@@ -111,12 +109,12 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * @param string $language
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $senders
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients
-     * @param dateTime $fromDate
-     * @param dateTime $toDate
+     * @param string $fromDate
+     * @param string $toDate
      * @param \Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes
-     * @param boolean $searchDumpster
-     * @param boolean $includePersonalArchive
-     * @param boolean $includeUnsearchableItems
+     * @param bool $searchDumpster
+     * @param bool $includePersonalArchive
+     * @param bool $includeUnsearchableItems
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfUserMailboxesType $mailboxes = null, \Ews\ArrayType\EwsArrayOfStringsType $keywords = null, $language = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $senders = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients = null, $fromDate = null, $toDate = null, \Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes = null, $searchDumpster = null, $includePersonalArchive = null, $includeUnsearchableItems = null)
     {
@@ -184,6 +182,10 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      */
     public function setLanguage($language = null)
     {
+        // validation for constraint: string
+        if (!is_null($language) && !is_string($language)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+        }
         $this->Language = $language;
         return $this;
     }
@@ -225,7 +227,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Get FromDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getFromDate()
     {
@@ -233,17 +235,21 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Set FromDate value
-     * @param dateTime $fromDate
+     * @param string $fromDate
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
      */
     public function setFromDate($fromDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($fromDate) && !is_string($fromDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fromDate)), __LINE__);
+        }
         $this->FromDate = $fromDate;
         return $this;
     }
     /**
      * Get ToDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getToDate()
     {
@@ -251,11 +257,15 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Set ToDate value
-     * @param dateTime $toDate
+     * @param string $toDate
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
      */
     public function setToDate($toDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($toDate) && !is_string($toDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($toDate)), __LINE__);
+        }
         $this->ToDate = $toDate;
         return $this;
     }
@@ -279,7 +289,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Get SearchDumpster value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSearchDumpster()
     {
@@ -287,7 +297,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Set SearchDumpster value
-     * @param boolean $searchDumpster
+     * @param bool $searchDumpster
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
      */
     public function setSearchDumpster($searchDumpster = null)
@@ -297,7 +307,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Get IncludePersonalArchive value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludePersonalArchive()
     {
@@ -305,7 +315,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Set IncludePersonalArchive value
-     * @param boolean $includePersonalArchive
+     * @param bool $includePersonalArchive
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
      */
     public function setIncludePersonalArchive($includePersonalArchive = null)
@@ -315,7 +325,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Get IncludeUnsearchableItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeUnsearchableItems()
     {
@@ -323,7 +333,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Set IncludeUnsearchableItems value
-     * @param boolean $includeUnsearchableItems
+     * @param bool $includeUnsearchableItems
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
      */
     public function setIncludeUnsearchableItems($includeUnsearchableItems = null)

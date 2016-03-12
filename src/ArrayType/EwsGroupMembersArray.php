@@ -14,22 +14,22 @@ class EwsGroupMembersArray extends AbstractStructArrayBase
 {
     /**
      * The Member
-     * @var array
+     * @var string
      */
     public $Member;
     /**
      * Constructor method for GroupMembersArray
      * @uses EwsGroupMembersArray::setMember()
-     * @param array $member
+     * @param string $member
      */
-    public function __construct(array $member = array())
+    public function __construct($member = null)
     {
         $this
             ->setMember($member);
     }
     /**
      * Get Member value
-     * @return array
+     * @return string|null
      */
     public function getMember()
     {
@@ -37,11 +37,15 @@ class EwsGroupMembersArray extends AbstractStructArrayBase
     }
     /**
      * Set Member value
-     * @param array $member
+     * @param string $member
      * @return \Ews\ArrayType\EwsGroupMembersArray
      */
-    public function setMember(array $member = array())
+    public function setMember($member = null)
     {
+        // validation for constraint: string
+        if (!is_null($member) && !is_string($member)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($member)), __LINE__);
+        }
         $this->Member = $member;
         return $this;
     }

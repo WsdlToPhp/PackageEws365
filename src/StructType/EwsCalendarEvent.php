@@ -17,7 +17,7 @@ class EwsCalendarEvent extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
@@ -25,7 +25,7 @@ class EwsCalendarEvent extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
@@ -50,8 +50,8 @@ class EwsCalendarEvent extends AbstractStructBase
      * @uses EwsCalendarEvent::setEndTime()
      * @uses EwsCalendarEvent::setBusyType()
      * @uses EwsCalendarEvent::setCalendarEventDetails()
-     * @param dateTime $startTime
-     * @param dateTime $endTime
+     * @param string $startTime
+     * @param string $endTime
      * @param string $busyType
      * @param \Ews\StructType\EwsCalendarEventDetails $calendarEventDetails
      */
@@ -65,7 +65,7 @@ class EwsCalendarEvent extends AbstractStructBase
     }
     /**
      * Get StartTime value
-     * @return dateTime
+     * @return string
      */
     public function getStartTime()
     {
@@ -73,17 +73,21 @@ class EwsCalendarEvent extends AbstractStructBase
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsCalendarEvent
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime
+     * @return string
      */
     public function getEndTime()
     {
@@ -91,11 +95,15 @@ class EwsCalendarEvent extends AbstractStructBase
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsCalendarEvent
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }
@@ -111,11 +119,13 @@ class EwsCalendarEvent extends AbstractStructBase
      * Set BusyType value
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $busyType
      * @return \Ews\StructType\EwsCalendarEvent
      */
     public function setBusyType($busyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $busyType, implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }

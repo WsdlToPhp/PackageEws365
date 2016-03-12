@@ -25,7 +25,7 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartDateTime;
     /**
@@ -33,7 +33,7 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndDateTime;
     /**
@@ -69,8 +69,8 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * @uses EwsGetUMCallDataRecordsType::setNumberOfRecords()
      * @uses EwsGetUMCallDataRecordsType::setUserLegacyExchangeDN()
      * @param string $filterBy
-     * @param dateTime $startDateTime
-     * @param dateTime $endDateTime
+     * @param string $startDateTime
+     * @param string $endDateTime
      * @param int $offset
      * @param int $numberOfRecords
      * @param string $userLegacyExchangeDN
@@ -97,11 +97,13 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * Set FilterBy value
      * @uses \Ews\EnumType\EwsUMCDRFilterByType::valueIsValid()
      * @uses \Ews\EnumType\EwsUMCDRFilterByType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $filterBy
      * @return \Ews\StructType\EwsGetUMCallDataRecordsType
      */
     public function setFilterBy($filterBy = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUMCDRFilterByType::valueIsValid($filterBy)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $filterBy, implode(', ', \Ews\EnumType\EwsUMCDRFilterByType::getValidValues())), __LINE__);
         }
@@ -110,7 +112,7 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
     }
     /**
      * Get StartDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartDateTime()
     {
@@ -118,17 +120,21 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
     }
     /**
      * Set StartDateTime value
-     * @param dateTime $startDateTime
+     * @param string $startDateTime
      * @return \Ews\StructType\EwsGetUMCallDataRecordsType
      */
     public function setStartDateTime($startDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startDateTime) && !is_string($startDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDateTime)), __LINE__);
+        }
         $this->StartDateTime = $startDateTime;
         return $this;
     }
     /**
      * Get EndDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndDateTime()
     {
@@ -136,11 +142,15 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
     }
     /**
      * Set EndDateTime value
-     * @param dateTime $endDateTime
+     * @param string $endDateTime
      * @return \Ews\StructType\EwsGetUMCallDataRecordsType
      */
     public function setEndDateTime($endDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endDateTime) && !is_string($endDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDateTime)), __LINE__);
+        }
         $this->EndDateTime = $endDateTime;
         return $this;
     }
@@ -159,6 +169,10 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      */
     public function setOffset($offset = null)
     {
+        // validation for constraint: int
+        if (!is_null($offset) && !is_int($offset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offset)), __LINE__);
+        }
         $this->Offset = $offset;
         return $this;
     }
@@ -177,6 +191,10 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      */
     public function setNumberOfRecords($numberOfRecords = null)
     {
+        // validation for constraint: int
+        if (!is_null($numberOfRecords) && !is_int($numberOfRecords)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfRecords)), __LINE__);
+        }
         $this->NumberOfRecords = $numberOfRecords;
         return $this;
     }
@@ -195,6 +213,10 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      */
     public function setUserLegacyExchangeDN($userLegacyExchangeDN = null)
     {
+        // validation for constraint: string
+        if (!is_null($userLegacyExchangeDN) && !is_string($userLegacyExchangeDN)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userLegacyExchangeDN)), __LINE__);
+        }
         $this->UserLegacyExchangeDN = $userLegacyExchangeDN;
         return $this;
     }

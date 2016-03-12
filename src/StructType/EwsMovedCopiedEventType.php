@@ -14,22 +14,16 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
 {
     /**
      * The OldFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $OldFolderId;
     /**
      * The OldItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $OldItemId;
     /**
      * The OldParentFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $OldParentFolderId;

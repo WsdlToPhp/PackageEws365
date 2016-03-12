@@ -16,13 +16,13 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
      * The TaskSuggestion
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsTaskSuggestionType[]
      */
     public $TaskSuggestion;
     /**
      * Constructor method for ArrayOfTaskSuggestionsType
      * @uses EwsArrayOfTaskSuggestionsType::setTaskSuggestion()
-     * @param array $taskSuggestion
+     * @param \Ews\StructType\EwsTaskSuggestionType[] $taskSuggestion
      */
     public function __construct(array $taskSuggestion = array())
     {
@@ -31,7 +31,7 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
     }
     /**
      * Get TaskSuggestion value
-     * @return array
+     * @return \Ews\StructType\EwsTaskSuggestionType[]|null
      */
     public function getTaskSuggestion()
     {
@@ -39,12 +39,34 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
     }
     /**
      * Set TaskSuggestion value
-     * @param array $taskSuggestion
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsTaskSuggestionType[] $taskSuggestion
      * @return \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
      */
     public function setTaskSuggestion(array $taskSuggestion = array())
     {
+        foreach ($taskSuggestion as $arrayOfTaskSuggestionsTypeTaskSuggestionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfTaskSuggestionsTypeTaskSuggestionItem instanceof \Ews\StructType\EwsTaskSuggestionType) {
+                throw new \InvalidArgumentException(sprintf('The TaskSuggestion property can only contain items of \Ews\StructType\EwsTaskSuggestionType, "%s" given', is_object($arrayOfTaskSuggestionsTypeTaskSuggestionItem) ? get_class($arrayOfTaskSuggestionsTypeTaskSuggestionItem) : gettype($arrayOfTaskSuggestionsTypeTaskSuggestionItem)), __LINE__);
+            }
+        }
         $this->TaskSuggestion = $taskSuggestion;
+        return $this;
+    }
+    /**
+     * Add item to TaskSuggestion value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsTaskSuggestionType $item
+     * @return \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
+     */
+    public function addToTaskSuggestion(\Ews\StructType\EwsTaskSuggestionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsTaskSuggestionType) {
+            throw new \InvalidArgumentException(sprintf('The TaskSuggestion property can only contain items of \Ews\StructType\EwsTaskSuggestionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TaskSuggestion[] = $item;
         return $this;
     }
     /**

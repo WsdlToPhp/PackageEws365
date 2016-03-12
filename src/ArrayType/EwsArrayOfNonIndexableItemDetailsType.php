@@ -19,14 +19,13 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Non indexable item detail.
-     * @var array
+     * @var \Ews\StructType\EwsNonIndexableItemDetailType[]
      */
     public $NonIndexableItemDetail;
     /**
      * Constructor method for ArrayOfNonIndexableItemDetailsType
      * @uses EwsArrayOfNonIndexableItemDetailsType::setNonIndexableItemDetail()
-     * @param array $nonIndexableItemDetail
+     * @param \Ews\StructType\EwsNonIndexableItemDetailType[] $nonIndexableItemDetail
      */
     public function __construct(array $nonIndexableItemDetail = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
     }
     /**
      * Get NonIndexableItemDetail value
-     * @return array
+     * @return \Ews\StructType\EwsNonIndexableItemDetailType[]|null
      */
     public function getNonIndexableItemDetail()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
     }
     /**
      * Set NonIndexableItemDetail value
-     * @param array $nonIndexableItemDetail
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNonIndexableItemDetailType[] $nonIndexableItemDetail
      * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType
      */
     public function setNonIndexableItemDetail(array $nonIndexableItemDetail = array())
     {
+        foreach ($nonIndexableItemDetail as $arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem instanceof \Ews\StructType\EwsNonIndexableItemDetailType) {
+                throw new \InvalidArgumentException(sprintf('The NonIndexableItemDetail property can only contain items of \Ews\StructType\EwsNonIndexableItemDetailType, "%s" given', is_object($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) ? get_class($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) : gettype($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem)), __LINE__);
+            }
+        }
         $this->NonIndexableItemDetail = $nonIndexableItemDetail;
+        return $this;
+    }
+    /**
+     * Add item to NonIndexableItemDetail value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNonIndexableItemDetailType $item
+     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType
+     */
+    public function addToNonIndexableItemDetail(\Ews\StructType\EwsNonIndexableItemDetailType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsNonIndexableItemDetailType) {
+            throw new \InvalidArgumentException(sprintf('The NonIndexableItemDetail property can only contain items of \Ews\StructType\EwsNonIndexableItemDetailType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->NonIndexableItemDetail[] = $item;
         return $this;
     }
     /**

@@ -39,7 +39,7 @@ class EwsResponseTypeType
      * Constant for value 'NoResponseReceived'
      * @return string 'NoResponseReceived'
      */
-    const VALUE_NORESPONSERECEIVED = 'NoResponseReceived';
+    const VALUE_NO_RESPONSE_RECEIVED = 'NoResponseReceived';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -57,7 +57,7 @@ class EwsResponseTypeType
      * @uses self::VALUE_TENTATIVE
      * @uses self::VALUE_ACCEPT
      * @uses self::VALUE_DECLINE
-     * @uses self::VALUE_NORESPONSERECEIVED
+     * @uses self::VALUE_NO_RESPONSE_RECEIVED
      * @return string[]
      */
     public static function getValidValues()
@@ -68,7 +68,7 @@ class EwsResponseTypeType
             self::VALUE_TENTATIVE,
             self::VALUE_ACCEPT,
             self::VALUE_DECLINE,
-            self::VALUE_NORESPONSERECEIVED,
+            self::VALUE_NO_RESPONSE_RECEIVED,
         );
     }
     /**

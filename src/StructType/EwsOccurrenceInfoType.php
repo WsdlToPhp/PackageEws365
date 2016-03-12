@@ -14,24 +14,22 @@ class EwsOccurrenceInfoType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * The Start
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The End
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
      * The OriginalStart
-     * @var dateTime
+     * @var string
      */
     public $OriginalStart;
     /**
@@ -41,9 +39,9 @@ class EwsOccurrenceInfoType extends AbstractStructBase
      * @uses EwsOccurrenceInfoType::setEnd()
      * @uses EwsOccurrenceInfoType::setOriginalStart()
      * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param dateTime $start
-     * @param dateTime $end
-     * @param dateTime $originalStart
+     * @param string $start
+     * @param string $end
+     * @param string $originalStart
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $start = null, $end = null, $originalStart = null)
     {
@@ -73,7 +71,7 @@ class EwsOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -81,17 +79,21 @@ class EwsOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsOccurrenceInfoType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -99,17 +101,21 @@ class EwsOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsOccurrenceInfoType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }
     /**
      * Get OriginalStart value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getOriginalStart()
     {
@@ -117,11 +123,15 @@ class EwsOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Set OriginalStart value
-     * @param dateTime $originalStart
+     * @param string $originalStart
      * @return \Ews\StructType\EwsOccurrenceInfoType
      */
     public function setOriginalStart($originalStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($originalStart) && !is_string($originalStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalStart)), __LINE__);
+        }
         $this->OriginalStart = $originalStart;
         return $this;
     }

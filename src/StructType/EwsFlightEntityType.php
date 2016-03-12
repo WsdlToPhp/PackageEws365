@@ -94,6 +94,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setFlightNumber($flightNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($flightNumber) && !is_string($flightNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($flightNumber)), __LINE__);
+        }
         $this->FlightNumber = $flightNumber;
         return $this;
     }
@@ -112,6 +116,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setAirlineIataCode($airlineIataCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($airlineIataCode) && !is_string($airlineIataCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($airlineIataCode)), __LINE__);
+        }
         $this->AirlineIataCode = $airlineIataCode;
         return $this;
     }
@@ -130,6 +138,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setDepartureTime($departureTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($departureTime) && !is_string($departureTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureTime)), __LINE__);
+        }
         $this->DepartureTime = $departureTime;
         return $this;
     }
@@ -148,6 +160,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setWindowsTimeZoneName($windowsTimeZoneName = null)
     {
+        // validation for constraint: string
+        if (!is_null($windowsTimeZoneName) && !is_string($windowsTimeZoneName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($windowsTimeZoneName)), __LINE__);
+        }
         $this->WindowsTimeZoneName = $windowsTimeZoneName;
         return $this;
     }
@@ -166,6 +182,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setDepartureAirportIataCode($departureAirportIataCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($departureAirportIataCode) && !is_string($departureAirportIataCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureAirportIataCode)), __LINE__);
+        }
         $this->DepartureAirportIataCode = $departureAirportIataCode;
         return $this;
     }
@@ -184,6 +204,10 @@ class EwsFlightEntityType extends AbstractStructBase
      */
     public function setArrivalAirportIataCode($arrivalAirportIataCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($arrivalAirportIataCode) && !is_string($arrivalAirportIataCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($arrivalAirportIataCode)), __LINE__);
+        }
         $this->ArrivalAirportIataCode = $arrivalAirportIataCode;
         return $this;
     }

@@ -14,7 +14,7 @@ abstract class EwsChannelEventType extends AbstractStructBase
 {
     /**
      * The TimeStamp
-     * @var dateTime
+     * @var string
      */
     public $TimeStamp;
     /**
@@ -29,7 +29,7 @@ abstract class EwsChannelEventType extends AbstractStructBase
      * Constructor method for ChannelEventType
      * @uses EwsChannelEventType::setTimeStamp()
      * @uses EwsChannelEventType::setNotificationId()
-     * @param dateTime $timeStamp
+     * @param string $timeStamp
      * @param string $notificationId
      */
     public function __construct($timeStamp = null, $notificationId = null)
@@ -40,7 +40,7 @@ abstract class EwsChannelEventType extends AbstractStructBase
     }
     /**
      * Get TimeStamp value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getTimeStamp()
     {
@@ -48,11 +48,15 @@ abstract class EwsChannelEventType extends AbstractStructBase
     }
     /**
      * Set TimeStamp value
-     * @param dateTime $timeStamp
+     * @param string $timeStamp
      * @return \Ews\StructType\EwsChannelEventType
      */
     public function setTimeStamp($timeStamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($timeStamp) && !is_string($timeStamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeStamp)), __LINE__);
+        }
         $this->TimeStamp = $timeStamp;
         return $this;
     }
@@ -71,6 +75,14 @@ abstract class EwsChannelEventType extends AbstractStructBase
      */
     public function setNotificationId($notificationId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($notificationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $notificationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($notificationId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($notificationId) && !is_string($notificationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($notificationId)), __LINE__);
+        }
         $this->NotificationId = $notificationId;
         return $this;
     }

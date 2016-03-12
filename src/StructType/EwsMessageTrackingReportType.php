@@ -16,7 +16,6 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * The Sender
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Sender;
@@ -24,7 +23,6 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * The PurportedSender
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $PurportedSender;
@@ -39,7 +37,7 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * The SubmitTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $SubmitTime;
     /**
@@ -73,7 +71,7 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * @param \Ews\StructType\EwsEmailAddressType $sender
      * @param \Ews\StructType\EwsEmailAddressType $purportedSender
      * @param string $subject
-     * @param dateTime $submitTime
+     * @param string $submitTime
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType
      * $recipientTrackingEvents
@@ -141,12 +139,16 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
     /**
      * Get SubmitTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getSubmitTime()
     {
@@ -154,11 +156,15 @@ class EwsMessageTrackingReportType extends AbstractStructBase
     }
     /**
      * Set SubmitTime value
-     * @param dateTime $submitTime
+     * @param string $submitTime
      * @return \Ews\StructType\EwsMessageTrackingReportType
      */
     public function setSubmitTime($submitTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($submitTime) && !is_string($submitTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($submitTime)), __LINE__);
+        }
         $this->SubmitTime = $submitTime;
         return $this;
     }
