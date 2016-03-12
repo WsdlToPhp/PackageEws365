@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.0.4
+- update generated classes using latest generator version
+
 ## 0.0.3
 - update classmap definition thanks to PackageGenerator fixed issue #36
 
