@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsReminderItemActionType[]
      */
     public $ReminderItemAction;
     /**
      * Constructor method for NonEmptyArrayOfReminderItemActionType
      * @uses EwsNonEmptyArrayOfReminderItemActionType::setReminderItemAction()
-     * @param array $reminderItemAction
+     * @param \Ews\StructType\EwsReminderItemActionType[] $reminderItemAction
      */
     public function __construct(array $reminderItemAction = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
     }
     /**
      * Get ReminderItemAction value
-     * @return array
+     * @return \Ews\StructType\EwsReminderItemActionType[]
      */
     public function getReminderItemAction()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
     }
     /**
      * Set ReminderItemAction value
-     * @param array $reminderItemAction
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsReminderItemActionType[] $reminderItemAction
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
      */
     public function setReminderItemAction(array $reminderItemAction = array())
     {
+        foreach ($reminderItemAction as $nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem instanceof \Ews\StructType\EwsReminderItemActionType) {
+                throw new \InvalidArgumentException(sprintf('The ReminderItemAction property can only contain items of \Ews\StructType\EwsReminderItemActionType, "%s" given', is_object($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) ? get_class($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) : gettype($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem)), __LINE__);
+            }
+        }
         $this->ReminderItemAction = $reminderItemAction;
+        return $this;
+    }
+    /**
+     * Add item to ReminderItemAction value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsReminderItemActionType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
+     */
+    public function addToReminderItemAction(\Ews\StructType\EwsReminderItemActionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsReminderItemActionType) {
+            throw new \InvalidArgumentException(sprintf('The ReminderItemAction property can only contain items of \Ews\StructType\EwsReminderItemActionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ReminderItemAction[] = $item;
         return $this;
     }
     /**

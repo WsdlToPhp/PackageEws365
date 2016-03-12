@@ -17,13 +17,13 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupResourceType[]
      */
     public $Resource;
     /**
      * Constructor method for ArrayOfUnifiedGroupResourcesType
      * @uses EwsArrayOfUnifiedGroupResourcesType::setResource()
-     * @param array $resource
+     * @param \Ews\StructType\EwsUnifiedGroupResourceType[] $resource
      */
     public function __construct(array $resource = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
     }
     /**
      * Get Resource value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupResourceType[]|null
      */
     public function getResource()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
     }
     /**
      * Set Resource value
-     * @param array $resource
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupResourceType[] $resource
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
      */
     public function setResource(array $resource = array())
     {
+        foreach ($resource as $arrayOfUnifiedGroupResourcesTypeResourceItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupResourcesTypeResourceItem instanceof \Ews\StructType\EwsUnifiedGroupResourceType) {
+                throw new \InvalidArgumentException(sprintf('The Resource property can only contain items of \Ews\StructType\EwsUnifiedGroupResourceType, "%s" given', is_object($arrayOfUnifiedGroupResourcesTypeResourceItem) ? get_class($arrayOfUnifiedGroupResourcesTypeResourceItem) : gettype($arrayOfUnifiedGroupResourcesTypeResourceItem)), __LINE__);
+            }
+        }
         $this->Resource = $resource;
+        return $this;
+    }
+    /**
+     * Add item to Resource value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupResourceType $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
+     */
+    public function addToResource(\Ews\StructType\EwsUnifiedGroupResourceType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupResourceType) {
+            throw new \InvalidArgumentException(sprintf('The Resource property can only contain items of \Ews\StructType\EwsUnifiedGroupResourceType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Resource[] = $item;
         return $this;
     }
     /**

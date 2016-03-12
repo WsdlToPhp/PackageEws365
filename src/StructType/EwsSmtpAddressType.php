@@ -6,6 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SmtpAddressType StructType
+ * Meta informations extracted from the WSDL
  * - minLength: 1
  * @package Ews
  * @subpackage Structs
@@ -45,6 +46,14 @@ class EwsSmtpAddressType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(_) && strlen(_) < 1) || (is_array(_) && count(_) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

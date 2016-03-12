@@ -17,13 +17,13 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsLocationConstraintItem[]
      */
     public $LocationItem;
     /**
      * Constructor method for ArrayOfLocationConstraintItems
      * @uses EwsArrayOfLocationConstraintItems::setLocationItem()
-     * @param array $locationItem
+     * @param \Ews\StructType\EwsLocationConstraintItem[] $locationItem
      */
     public function __construct(array $locationItem = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
     }
     /**
      * Get LocationItem value
-     * @return array
+     * @return \Ews\StructType\EwsLocationConstraintItem[]|null
      */
     public function getLocationItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
     }
     /**
      * Set LocationItem value
-     * @param array $locationItem
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsLocationConstraintItem[] $locationItem
      * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems
      */
     public function setLocationItem(array $locationItem = array())
     {
+        foreach ($locationItem as $arrayOfLocationConstraintItemsLocationItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfLocationConstraintItemsLocationItemItem instanceof \Ews\StructType\EwsLocationConstraintItem) {
+                throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of \Ews\StructType\EwsLocationConstraintItem, "%s" given', is_object($arrayOfLocationConstraintItemsLocationItemItem) ? get_class($arrayOfLocationConstraintItemsLocationItemItem) : gettype($arrayOfLocationConstraintItemsLocationItemItem)), __LINE__);
+            }
+        }
         $this->LocationItem = $locationItem;
+        return $this;
+    }
+    /**
+     * Add item to LocationItem value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsLocationConstraintItem $item
+     * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems
+     */
+    public function addToLocationItem(\Ews\StructType\EwsLocationConstraintItem $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsLocationConstraintItem) {
+            throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of \Ews\StructType\EwsLocationConstraintItem, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->LocationItem[] = $item;
         return $this;
     }
     /**

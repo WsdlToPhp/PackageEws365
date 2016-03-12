@@ -14,37 +14,37 @@ class EwsNotificationEventTypeType
      * Constant for value 'CopiedEvent'
      * @return string 'CopiedEvent'
      */
-    const VALUE_COPIEDEVENT = 'CopiedEvent';
+    const VALUE_COPIED_EVENT = 'CopiedEvent';
     /**
      * Constant for value 'CreatedEvent'
      * @return string 'CreatedEvent'
      */
-    const VALUE_CREATEDEVENT = 'CreatedEvent';
+    const VALUE_CREATED_EVENT = 'CreatedEvent';
     /**
      * Constant for value 'DeletedEvent'
      * @return string 'DeletedEvent'
      */
-    const VALUE_DELETEDEVENT = 'DeletedEvent';
+    const VALUE_DELETED_EVENT = 'DeletedEvent';
     /**
      * Constant for value 'ModifiedEvent'
      * @return string 'ModifiedEvent'
      */
-    const VALUE_MODIFIEDEVENT = 'ModifiedEvent';
+    const VALUE_MODIFIED_EVENT = 'ModifiedEvent';
     /**
      * Constant for value 'MovedEvent'
      * @return string 'MovedEvent'
      */
-    const VALUE_MOVEDEVENT = 'MovedEvent';
+    const VALUE_MOVED_EVENT = 'MovedEvent';
     /**
      * Constant for value 'NewMailEvent'
      * @return string 'NewMailEvent'
      */
-    const VALUE_NEWMAILEVENT = 'NewMailEvent';
+    const VALUE_NEW_MAIL_EVENT = 'NewMailEvent';
     /**
      * Constant for value 'FreeBusyChangedEvent'
      * @return string 'FreeBusyChangedEvent'
      */
-    const VALUE_FREEBUSYCHANGEDEVENT = 'FreeBusyChangedEvent';
+    const VALUE_FREE_BUSY_CHANGED_EVENT = 'FreeBusyChangedEvent';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -57,25 +57,25 @@ class EwsNotificationEventTypeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_COPIEDEVENT
-     * @uses self::VALUE_CREATEDEVENT
-     * @uses self::VALUE_DELETEDEVENT
-     * @uses self::VALUE_MODIFIEDEVENT
-     * @uses self::VALUE_MOVEDEVENT
-     * @uses self::VALUE_NEWMAILEVENT
-     * @uses self::VALUE_FREEBUSYCHANGEDEVENT
+     * @uses self::VALUE_COPIED_EVENT
+     * @uses self::VALUE_CREATED_EVENT
+     * @uses self::VALUE_DELETED_EVENT
+     * @uses self::VALUE_MODIFIED_EVENT
+     * @uses self::VALUE_MOVED_EVENT
+     * @uses self::VALUE_NEW_MAIL_EVENT
+     * @uses self::VALUE_FREE_BUSY_CHANGED_EVENT
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_COPIEDEVENT,
-            self::VALUE_CREATEDEVENT,
-            self::VALUE_DELETEDEVENT,
-            self::VALUE_MODIFIEDEVENT,
-            self::VALUE_MOVEDEVENT,
-            self::VALUE_NEWMAILEVENT,
-            self::VALUE_FREEBUSYCHANGEDEVENT,
+            self::VALUE_COPIED_EVENT,
+            self::VALUE_CREATED_EVENT,
+            self::VALUE_DELETED_EVENT,
+            self::VALUE_MODIFIED_EVENT,
+            self::VALUE_MOVED_EVENT,
+            self::VALUE_NEW_MAIL_EVENT,
+            self::VALUE_FREE_BUSY_CHANGED_EVENT,
         );
     }
     /**

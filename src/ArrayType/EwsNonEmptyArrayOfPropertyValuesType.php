@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfPropertyValuesType extends AbstractStructArrayBase
      * The Value
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var string[]
      */
     public $Value;
     /**
      * Constructor method for NonEmptyArrayOfPropertyValuesType
      * @uses EwsNonEmptyArrayOfPropertyValuesType::setValue()
-     * @param array $value
+     * @param string[] $value
      */
     public function __construct(array $value = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfPropertyValuesType extends AbstractStructArrayBase
     }
     /**
      * Get Value value
-     * @return array
+     * @return string[]|null
      */
     public function getValue()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfPropertyValuesType extends AbstractStructArrayBase
     }
     /**
      * Set Value value
-     * @param array $value
+     * @throws \InvalidArgumentException
+     * @param string[] $value
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType
      */
     public function setValue(array $value = array())
     {
+        foreach ($value as $nonEmptyArrayOfPropertyValuesTypeValueItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfPropertyValuesTypeValueItem)) {
+                throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfPropertyValuesTypeValueItem) ? get_class($nonEmptyArrayOfPropertyValuesTypeValueItem) : gettype($nonEmptyArrayOfPropertyValuesTypeValueItem)), __LINE__);
+            }
+        }
         $this->Value = $value;
+        return $this;
+    }
+    /**
+     * Add item to Value value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType
+     */
+    public function addToValue($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Value[] = $item;
         return $this;
     }
     /**

@@ -17,7 +17,6 @@ class EwsPersonaType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $PersonaId;
@@ -42,7 +41,7 @@ class EwsPersonaType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $CreationTime;
     /**
@@ -257,7 +256,6 @@ class EwsPersonaType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $EmailAddress;
@@ -314,7 +312,7 @@ class EwsPersonaType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var double
+     * @var float
      */
     public $RankingWeight;
     /**
@@ -848,7 +846,7 @@ class EwsPersonaType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $personaId
      * @param string $personaType
      * @param string $personaObjectStatus
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @param \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies
      * @param string $displayNameFirstLastSortKey
      * @param string $displayNameLastFirstSortKey
@@ -882,7 +880,7 @@ class EwsPersonaType extends AbstractStructBase
      * @param string $homeCity
      * @param string $workCity
      * @param int $relevanceScore
-     * @param double $rankingWeight
+     * @param float $rankingWeight
      * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderIds
      * @param \Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames
@@ -1087,6 +1085,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setPersonaType($personaType = null)
     {
+        // validation for constraint: string
+        if (!is_null($personaType) && !is_string($personaType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personaType)), __LINE__);
+        }
         $this->PersonaType = $personaType;
         return $this;
     }
@@ -1105,12 +1107,16 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setPersonaObjectStatus($personaObjectStatus = null)
     {
+        // validation for constraint: string
+        if (!is_null($personaObjectStatus) && !is_string($personaObjectStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personaObjectStatus)), __LINE__);
+        }
         $this->PersonaObjectStatus = $personaObjectStatus;
         return $this;
     }
     /**
      * Get CreationTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getCreationTime()
     {
@@ -1118,11 +1124,15 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set CreationTime value
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setCreationTime($creationTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($creationTime) && !is_string($creationTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationTime)), __LINE__);
+        }
         $this->CreationTime = $creationTime;
         return $this;
     }
@@ -1159,6 +1169,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameFirstLastSortKey($displayNameFirstLastSortKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameFirstLastSortKey) && !is_string($displayNameFirstLastSortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLastSortKey)), __LINE__);
+        }
         $this->DisplayNameFirstLastSortKey = $displayNameFirstLastSortKey;
         return $this;
     }
@@ -1177,6 +1191,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameLastFirstSortKey($displayNameLastFirstSortKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameLastFirstSortKey) && !is_string($displayNameLastFirstSortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirstSortKey)), __LINE__);
+        }
         $this->DisplayNameLastFirstSortKey = $displayNameLastFirstSortKey;
         return $this;
     }
@@ -1195,6 +1213,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setCompanyNameSortKey($companyNameSortKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyNameSortKey) && !is_string($companyNameSortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyNameSortKey)), __LINE__);
+        }
         $this->CompanyNameSortKey = $companyNameSortKey;
         return $this;
     }
@@ -1213,6 +1235,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setHomeCitySortKey($homeCitySortKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($homeCitySortKey) && !is_string($homeCitySortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homeCitySortKey)), __LINE__);
+        }
         $this->HomeCitySortKey = $homeCitySortKey;
         return $this;
     }
@@ -1231,6 +1257,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setWorkCitySortKey($workCitySortKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($workCitySortKey) && !is_string($workCitySortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($workCitySortKey)), __LINE__);
+        }
         $this->WorkCitySortKey = $workCitySortKey;
         return $this;
     }
@@ -1249,6 +1279,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameFirstLastHeader($displayNameFirstLastHeader = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameFirstLastHeader) && !is_string($displayNameFirstLastHeader)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLastHeader)), __LINE__);
+        }
         $this->DisplayNameFirstLastHeader = $displayNameFirstLastHeader;
         return $this;
     }
@@ -1267,6 +1301,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameLastFirstHeader($displayNameLastFirstHeader = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameLastFirstHeader) && !is_string($displayNameLastFirstHeader)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirstHeader)), __LINE__);
+        }
         $this->DisplayNameLastFirstHeader = $displayNameLastFirstHeader;
         return $this;
     }
@@ -1285,6 +1323,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -1303,6 +1345,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameFirstLast($displayNameFirstLast = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameFirstLast) && !is_string($displayNameFirstLast)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLast)), __LINE__);
+        }
         $this->DisplayNameFirstLast = $displayNameFirstLast;
         return $this;
     }
@@ -1321,6 +1367,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNameLastFirst($displayNameLastFirst = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNameLastFirst) && !is_string($displayNameLastFirst)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirst)), __LINE__);
+        }
         $this->DisplayNameLastFirst = $displayNameLastFirst;
         return $this;
     }
@@ -1339,6 +1389,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setFileAs($fileAs = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileAs) && !is_string($fileAs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAs)), __LINE__);
+        }
         $this->FileAs = $fileAs;
         return $this;
     }
@@ -1357,6 +1411,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setFileAsId($fileAsId = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileAsId) && !is_string($fileAsId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAsId)), __LINE__);
+        }
         $this->FileAsId = $fileAsId;
         return $this;
     }
@@ -1375,6 +1433,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDisplayNamePrefix($displayNamePrefix = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayNamePrefix) && !is_string($displayNamePrefix)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNamePrefix)), __LINE__);
+        }
         $this->DisplayNamePrefix = $displayNamePrefix;
         return $this;
     }
@@ -1393,6 +1455,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setGivenName($givenName = null)
     {
+        // validation for constraint: string
+        if (!is_null($givenName) && !is_string($givenName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($givenName)), __LINE__);
+        }
         $this->GivenName = $givenName;
         return $this;
     }
@@ -1411,6 +1477,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setMiddleName($middleName = null)
     {
+        // validation for constraint: string
+        if (!is_null($middleName) && !is_string($middleName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($middleName)), __LINE__);
+        }
         $this->MiddleName = $middleName;
         return $this;
     }
@@ -1429,6 +1499,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setSurname($surname = null)
     {
+        // validation for constraint: string
+        if (!is_null($surname) && !is_string($surname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($surname)), __LINE__);
+        }
         $this->Surname = $surname;
         return $this;
     }
@@ -1447,6 +1521,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setGeneration($generation = null)
     {
+        // validation for constraint: string
+        if (!is_null($generation) && !is_string($generation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($generation)), __LINE__);
+        }
         $this->Generation = $generation;
         return $this;
     }
@@ -1465,6 +1543,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setNickname($nickname = null)
     {
+        // validation for constraint: string
+        if (!is_null($nickname) && !is_string($nickname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nickname)), __LINE__);
+        }
         $this->Nickname = $nickname;
         return $this;
     }
@@ -1483,6 +1565,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setYomiCompanyName($yomiCompanyName = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiCompanyName) && !is_string($yomiCompanyName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiCompanyName)), __LINE__);
+        }
         $this->YomiCompanyName = $yomiCompanyName;
         return $this;
     }
@@ -1501,6 +1587,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setYomiFirstName($yomiFirstName = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiFirstName) && !is_string($yomiFirstName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiFirstName)), __LINE__);
+        }
         $this->YomiFirstName = $yomiFirstName;
         return $this;
     }
@@ -1519,6 +1609,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setYomiLastName($yomiLastName = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiLastName) && !is_string($yomiLastName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiLastName)), __LINE__);
+        }
         $this->YomiLastName = $yomiLastName;
         return $this;
     }
@@ -1537,6 +1631,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }
@@ -1555,6 +1653,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setDepartment($department = null)
     {
+        // validation for constraint: string
+        if (!is_null($department) && !is_string($department)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+        }
         $this->Department = $department;
         return $this;
     }
@@ -1573,6 +1675,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setCompanyName($companyName = null)
     {
+        // validation for constraint: string
+        if (!is_null($companyName) && !is_string($companyName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyName)), __LINE__);
+        }
         $this->CompanyName = $companyName;
         return $this;
     }
@@ -1591,6 +1697,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
@@ -1663,6 +1773,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setImAddress($imAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($imAddress) && !is_string($imAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imAddress)), __LINE__);
+        }
         $this->ImAddress = $imAddress;
         return $this;
     }
@@ -1681,6 +1795,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setHomeCity($homeCity = null)
     {
+        // validation for constraint: string
+        if (!is_null($homeCity) && !is_string($homeCity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homeCity)), __LINE__);
+        }
         $this->HomeCity = $homeCity;
         return $this;
     }
@@ -1699,6 +1817,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setWorkCity($workCity = null)
     {
+        // validation for constraint: string
+        if (!is_null($workCity) && !is_string($workCity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($workCity)), __LINE__);
+        }
         $this->WorkCity = $workCity;
         return $this;
     }
@@ -1717,12 +1839,16 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setRelevanceScore($relevanceScore = null)
     {
+        // validation for constraint: int
+        if (!is_null($relevanceScore) && !is_int($relevanceScore)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($relevanceScore)), __LINE__);
+        }
         $this->RelevanceScore = $relevanceScore;
         return $this;
     }
     /**
      * Get RankingWeight value
-     * @return double|null
+     * @return float|null
      */
     public function getRankingWeight()
     {
@@ -1730,7 +1856,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set RankingWeight value
-     * @param double $rankingWeight
+     * @param float $rankingWeight
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setRankingWeight($rankingWeight = null)

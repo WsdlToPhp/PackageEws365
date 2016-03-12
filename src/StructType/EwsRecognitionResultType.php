@@ -45,6 +45,14 @@ class EwsRecognitionResultType extends AbstractStructBase
      */
     public function setResult($result = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(result) && strlen(result) < 1) || (is_array(result) && count(result) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($result) && !is_string($result)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($result)), __LINE__);
+        }
         $this->Result = $result;
         return $this;
     }

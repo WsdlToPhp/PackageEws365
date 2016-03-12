@@ -14,13 +14,13 @@ class EwsLargeArchiveSearchScopeType extends AbstractStructBase
 {
     /**
      * The ArchiveTypes
-     * @var string[]
+     * @var string
      */
     public $ArchiveTypes;
     /**
      * Constructor method for LargeArchiveSearchScopeType
      * @uses EwsLargeArchiveSearchScopeType::setArchiveTypes()
-     * @param string[] $archiveTypes
+     * @param string $archiveTypes
      */
     public function __construct($archiveTypes = null)
     {
@@ -29,7 +29,7 @@ class EwsLargeArchiveSearchScopeType extends AbstractStructBase
     }
     /**
      * Get ArchiveTypes value
-     * @return string[]|null
+     * @return string|null
      */
     public function getArchiveTypes()
     {
@@ -39,11 +39,13 @@ class EwsLargeArchiveSearchScopeType extends AbstractStructBase
      * Set ArchiveTypes value
      * @uses \Ews\EnumType\EwsSearchScopeArchivesType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchScopeArchivesType::getValidValues()
-     * @param string[] $archiveTypes
+     * @throws \InvalidArgumentException
+     * @param string $archiveTypes
      * @return \Ews\StructType\EwsLargeArchiveSearchScopeType
      */
     public function setArchiveTypes($archiveTypes = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchScopeArchivesType::valueIsValid($archiveTypes)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $archiveTypes, implode(', ', \Ews\EnumType\EwsSearchScopeArchivesType::getValidValues())), __LINE__);
         }

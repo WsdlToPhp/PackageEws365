@@ -89,11 +89,13 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
      * Set ErrorCode value
      * @uses \Ews\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $errorCode
      * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
      */
     public function setErrorCode($errorCode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid($errorCode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues())), __LINE__);
         }
@@ -115,6 +117,10 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
      */
     public function setLegacyDN($legacyDN = null)
     {
+        // validation for constraint: string
+        if (!is_null($legacyDN) && !is_string($legacyDN)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($legacyDN)), __LINE__);
+        }
         $this->LegacyDN = $legacyDN;
         return $this;
     }
@@ -133,6 +139,10 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
      */
     public function setMailboxDatabase($mailboxDatabase = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxDatabase) && !is_string($mailboxDatabase)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxDatabase)), __LINE__);
+        }
         $this->MailboxDatabase = $mailboxDatabase;
         return $this;
     }

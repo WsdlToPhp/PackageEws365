@@ -17,13 +17,13 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsStaffAvailabilityResponseType[]
      */
     public $Response;
     /**
      * Constructor method for ArrayOfStaffAvailabilityResponseType
      * @uses EwsArrayOfStaffAvailabilityResponseType::setResponse()
-     * @param array $response
+     * @param \Ews\StructType\EwsStaffAvailabilityResponseType[] $response
      */
     public function __construct(array $response = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
     }
     /**
      * Get Response value
-     * @return array
+     * @return \Ews\StructType\EwsStaffAvailabilityResponseType[]|null
      */
     public function getResponse()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
     }
     /**
      * Set Response value
-     * @param array $response
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsStaffAvailabilityResponseType[] $response
      * @return \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
      */
     public function setResponse(array $response = array())
     {
+        foreach ($response as $arrayOfStaffAvailabilityResponseTypeResponseItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfStaffAvailabilityResponseTypeResponseItem instanceof \Ews\StructType\EwsStaffAvailabilityResponseType) {
+                throw new \InvalidArgumentException(sprintf('The Response property can only contain items of \Ews\StructType\EwsStaffAvailabilityResponseType, "%s" given', is_object($arrayOfStaffAvailabilityResponseTypeResponseItem) ? get_class($arrayOfStaffAvailabilityResponseTypeResponseItem) : gettype($arrayOfStaffAvailabilityResponseTypeResponseItem)), __LINE__);
+            }
+        }
         $this->Response = $response;
+        return $this;
+    }
+    /**
+     * Add item to Response value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsStaffAvailabilityResponseType $item
+     * @return \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
+     */
+    public function addToResponse(\Ews\StructType\EwsStaffAvailabilityResponseType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsStaffAvailabilityResponseType) {
+            throw new \InvalidArgumentException(sprintf('The Response property can only contain items of \Ews\StructType\EwsStaffAvailabilityResponseType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Response[] = $item;
         return $this;
     }
     /**

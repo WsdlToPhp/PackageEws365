@@ -14,27 +14,21 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
 {
     /**
      * The TimeStamp
-     * @var dateTime
+     * @var string
      */
     public $TimeStamp;
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * The ParentFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
@@ -44,7 +38,7 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * @uses EwsBaseObjectChangedEventType::setFolderId()
      * @uses EwsBaseObjectChangedEventType::setItemId()
      * @uses EwsBaseObjectChangedEventType::setParentFolderId()
-     * @param dateTime $timeStamp
+     * @param string $timeStamp
      * @param \Ews\StructType\EwsFolderIdType $folderId
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsFolderIdType $parentFolderId
@@ -59,7 +53,7 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
     }
     /**
      * Get TimeStamp value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getTimeStamp()
     {
@@ -67,11 +61,15 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
     }
     /**
      * Set TimeStamp value
-     * @param dateTime $timeStamp
+     * @param string $timeStamp
      * @return \Ews\StructType\EwsBaseObjectChangedEventType
      */
     public function setTimeStamp($timeStamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($timeStamp) && !is_string($timeStamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeStamp)), __LINE__);
+        }
         $this->TimeStamp = $timeStamp;
         return $this;
     }

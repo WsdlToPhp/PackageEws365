@@ -14,8 +14,6 @@ class EwsSearchParametersType extends AbstractStructBase
 {
     /**
      * The Restriction
-     * Meta informations extracted from the WSDL
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;
@@ -28,7 +26,6 @@ class EwsSearchParametersType extends AbstractStructBase
      * The Traversal
      * Meta informations extracted from the WSDL
      * - use: optional
-     * - documentation: Types of sub-tree traversal for deletion and enumeration
      * @var string
      */
     public $Traversal;
@@ -96,11 +93,13 @@ class EwsSearchParametersType extends AbstractStructBase
      * Set Traversal value
      * @uses \Ews\EnumType\EwsSearchFolderTraversalType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchFolderTraversalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $traversal
      * @return \Ews\StructType\EwsSearchParametersType
      */
     public function setTraversal($traversal = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchFolderTraversalType::valueIsValid($traversal)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsSearchFolderTraversalType::getValidValues())), __LINE__);
         }

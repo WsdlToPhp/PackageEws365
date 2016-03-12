@@ -28,8 +28,6 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
      * The Transitions
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - maxOccurs: unbounded
-     * - ref: t:Transition
      * @var \Ews\StructType\EwsArrayOfTransitionsType
      */
     public $Transitions;
@@ -134,6 +132,10 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -152,6 +154,10 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }

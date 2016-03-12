@@ -74,6 +74,10 @@ class EwsClientExtensionResponseType extends EwsResponseMessageType
      */
     public function setRawMasterTableXml($rawMasterTableXml = null)
     {
+        // validation for constraint: string
+        if (!is_null($rawMasterTableXml) && !is_string($rawMasterTableXml)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rawMasterTableXml)), __LINE__);
+        }
         $this->RawMasterTableXml = $rawMasterTableXml;
         return $this;
     }

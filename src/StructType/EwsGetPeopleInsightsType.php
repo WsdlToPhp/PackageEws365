@@ -143,6 +143,10 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
      */
     public function setAppId($appId = null)
     {
+        // validation for constraint: string
+        if (!is_null($appId) && !is_string($appId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appId)), __LINE__);
+        }
         $this->AppId = $appId;
         return $this;
     }

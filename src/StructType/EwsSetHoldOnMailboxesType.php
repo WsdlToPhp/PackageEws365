@@ -53,14 +53,14 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      * The IncludeNonIndexableItems
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludeNonIndexableItems;
     /**
      * The Deduplication
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $Deduplication;
     /**
@@ -93,8 +93,8 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      * @param string $query
      * @param \Ews\ArrayType\EwsArrayOfStringsType $mailboxes
      * @param string $language
-     * @param boolean $includeNonIndexableItems
-     * @param boolean $deduplication
+     * @param bool $includeNonIndexableItems
+     * @param bool $deduplication
      * @param string $inPlaceHoldIdentity
      * @param string $itemHoldPeriod
      */
@@ -123,11 +123,13 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      * Set ActionType value
      * @uses \Ews\EnumType\EwsHoldActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsHoldActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $actionType
      * @return \Ews\StructType\EwsSetHoldOnMailboxesType
      */
     public function setActionType($actionType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsHoldActionType::valueIsValid($actionType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionType, implode(', ', \Ews\EnumType\EwsHoldActionType::getValidValues())), __LINE__);
         }
@@ -149,6 +151,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setHoldId($holdId = null)
     {
+        // validation for constraint: string
+        if (!is_null($holdId) && !is_string($holdId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdId)), __LINE__);
+        }
         $this->HoldId = $holdId;
         return $this;
     }
@@ -167,6 +173,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setQuery($query = null)
     {
+        // validation for constraint: string
+        if (!is_null($query) && !is_string($query)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+        }
         $this->Query = $query;
         return $this;
     }
@@ -203,12 +213,16 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setLanguage($language = null)
     {
+        // validation for constraint: string
+        if (!is_null($language) && !is_string($language)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+        }
         $this->Language = $language;
         return $this;
     }
     /**
      * Get IncludeNonIndexableItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeNonIndexableItems()
     {
@@ -216,7 +230,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     }
     /**
      * Set IncludeNonIndexableItems value
-     * @param boolean $includeNonIndexableItems
+     * @param bool $includeNonIndexableItems
      * @return \Ews\StructType\EwsSetHoldOnMailboxesType
      */
     public function setIncludeNonIndexableItems($includeNonIndexableItems = null)
@@ -226,7 +240,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     }
     /**
      * Get Deduplication value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getDeduplication()
     {
@@ -234,7 +248,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     }
     /**
      * Set Deduplication value
-     * @param boolean $deduplication
+     * @param bool $deduplication
      * @return \Ews\StructType\EwsSetHoldOnMailboxesType
      */
     public function setDeduplication($deduplication = null)
@@ -257,6 +271,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setInPlaceHoldIdentity($inPlaceHoldIdentity = null)
     {
+        // validation for constraint: string
+        if (!is_null($inPlaceHoldIdentity) && !is_string($inPlaceHoldIdentity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inPlaceHoldIdentity)), __LINE__);
+        }
         $this->InPlaceHoldIdentity = $inPlaceHoldIdentity;
         return $this;
     }
@@ -275,6 +293,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setItemHoldPeriod($itemHoldPeriod = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemHoldPeriod) && !is_string($itemHoldPeriod)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemHoldPeriod)), __LINE__);
+        }
         $this->ItemHoldPeriod = $itemHoldPeriod;
         return $this;
     }

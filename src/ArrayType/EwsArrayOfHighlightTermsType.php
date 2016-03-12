@@ -17,13 +17,13 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsHighlightTermType[]
      */
     public $Term;
     /**
      * Constructor method for ArrayOfHighlightTermsType
      * @uses EwsArrayOfHighlightTermsType::setTerm()
-     * @param array $term
+     * @param \Ews\StructType\EwsHighlightTermType[] $term
      */
     public function __construct(array $term = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
     }
     /**
      * Get Term value
-     * @return array
+     * @return \Ews\StructType\EwsHighlightTermType[]|null
      */
     public function getTerm()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
     }
     /**
      * Set Term value
-     * @param array $term
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsHighlightTermType[] $term
      * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType
      */
     public function setTerm(array $term = array())
     {
+        foreach ($term as $arrayOfHighlightTermsTypeTermItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfHighlightTermsTypeTermItem instanceof \Ews\StructType\EwsHighlightTermType) {
+                throw new \InvalidArgumentException(sprintf('The Term property can only contain items of \Ews\StructType\EwsHighlightTermType, "%s" given', is_object($arrayOfHighlightTermsTypeTermItem) ? get_class($arrayOfHighlightTermsTypeTermItem) : gettype($arrayOfHighlightTermsTypeTermItem)), __LINE__);
+            }
+        }
         $this->Term = $term;
+        return $this;
+    }
+    /**
+     * Add item to Term value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsHighlightTermType $item
+     * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType
+     */
+    public function addToTerm(\Ews\StructType\EwsHighlightTermType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsHighlightTermType) {
+            throw new \InvalidArgumentException(sprintf('The Term property can only contain items of \Ews\StructType\EwsHighlightTermType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Term[] = $item;
         return $this;
     }
     /**

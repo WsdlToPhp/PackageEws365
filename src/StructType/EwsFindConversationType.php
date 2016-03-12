@@ -64,7 +64,6 @@ class EwsFindConversationType extends EwsBaseRequestType
      * The Traversal
      * Meta informations extracted from the WSDL
      * - use: optional
-     * - documentation: Types of sub-tree traversal for conversations
      * @var string
      */
     public $Traversal;
@@ -72,7 +71,6 @@ class EwsFindConversationType extends EwsBaseRequestType
      * The ViewFilter
      * Meta informations extracted from the WSDL
      * - use: optional
-     * - documentation: Types of view filters for finding items/conversations
      * @var string
      */
     public $ViewFilter;
@@ -196,11 +194,13 @@ class EwsFindConversationType extends EwsBaseRequestType
      * Set MailboxScope value
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mailboxScope
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setMailboxScope($mailboxScope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
@@ -255,11 +255,13 @@ class EwsFindConversationType extends EwsBaseRequestType
      * Set Traversal value
      * @uses \Ews\EnumType\EwsConversationQueryTraversalType::valueIsValid()
      * @uses \Ews\EnumType\EwsConversationQueryTraversalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $traversal
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setTraversal($traversal = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationQueryTraversalType::valueIsValid($traversal)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsConversationQueryTraversalType::getValidValues())), __LINE__);
         }
@@ -278,11 +280,13 @@ class EwsFindConversationType extends EwsBaseRequestType
      * Set ViewFilter value
      * @uses \Ews\EnumType\EwsViewFilterType::valueIsValid()
      * @uses \Ews\EnumType\EwsViewFilterType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $viewFilter
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setViewFilter($viewFilter = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsViewFilterType::valueIsValid($viewFilter)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $viewFilter, implode(', ', \Ews\EnumType\EwsViewFilterType::getValidValues())), __LINE__);
         }

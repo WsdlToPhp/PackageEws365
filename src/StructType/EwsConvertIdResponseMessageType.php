@@ -19,7 +19,6 @@ class EwsConvertIdResponseMessageType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Surfaces alternate representations of an item or folder id. No change key is included.
      * @var \Ews\StructType\EwsAlternateIdBaseType
      */
     public $AlternateId;

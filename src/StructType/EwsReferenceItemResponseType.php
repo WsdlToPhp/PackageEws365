@@ -16,7 +16,6 @@ class EwsReferenceItemResponseType extends EwsResponseObjectType
      * The ReferenceItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ReferenceItemId;
@@ -73,6 +72,10 @@ class EwsReferenceItemResponseType extends EwsResponseObjectType
      */
     public function setObjectName($objectName = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectName) && !is_string($objectName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+        }
         $this->ObjectName = $objectName;
         return $this;
     }

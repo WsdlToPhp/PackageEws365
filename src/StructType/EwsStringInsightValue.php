@@ -45,6 +45,10 @@ class EwsStringInsightValue extends EwsInsightValue
      */
     public function setData($data = null)
     {
+        // validation for constraint: string
+        if (!is_null($data) && !is_string($data)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($data)), __LINE__);
+        }
         $this->Data = $data;
         return $this;
     }

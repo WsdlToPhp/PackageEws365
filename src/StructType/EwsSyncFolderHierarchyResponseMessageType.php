@@ -23,7 +23,7 @@ class EwsSyncFolderHierarchyResponseMessageType extends EwsResponseMessageType
      * The IncludesLastFolderInRange
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludesLastFolderInRange;
     /**
@@ -39,7 +39,7 @@ class EwsSyncFolderHierarchyResponseMessageType extends EwsResponseMessageType
      * @uses EwsSyncFolderHierarchyResponseMessageType::setIncludesLastFolderInRange()
      * @uses EwsSyncFolderHierarchyResponseMessageType::setChanges()
      * @param string $syncState
-     * @param boolean $includesLastFolderInRange
+     * @param bool $includesLastFolderInRange
      * @param \Ews\StructType\EwsSyncFolderHierarchyChangesType $changes
      */
     public function __construct($syncState = null, $includesLastFolderInRange = null, \Ews\StructType\EwsSyncFolderHierarchyChangesType $changes = null)
@@ -64,12 +64,16 @@ class EwsSyncFolderHierarchyResponseMessageType extends EwsResponseMessageType
      */
     public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }
     /**
      * Get IncludesLastFolderInRange value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludesLastFolderInRange()
     {
@@ -77,7 +81,7 @@ class EwsSyncFolderHierarchyResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set IncludesLastFolderInRange value
-     * @param boolean $includesLastFolderInRange
+     * @param bool $includesLastFolderInRange
      * @return \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType
      */
     public function setIncludesLastFolderInRange($includesLastFolderInRange = null)

@@ -23,7 +23,7 @@ class EwsSmtpDomain extends AbstractStructBase
      * The IncludeSubdomains
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IncludeSubdomains;
     /**
@@ -31,7 +31,7 @@ class EwsSmtpDomain extends AbstractStructBase
      * @uses EwsSmtpDomain::setName()
      * @uses EwsSmtpDomain::setIncludeSubdomains()
      * @param string $name
-     * @param boolean $includeSubdomains
+     * @param bool $includeSubdomains
      */
     public function __construct($name = null, $includeSubdomains = null)
     {
@@ -54,12 +54,16 @@ class EwsSmtpDomain extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
     /**
      * Get IncludeSubdomains value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeSubdomains()
     {
@@ -67,7 +71,7 @@ class EwsSmtpDomain extends AbstractStructBase
     }
     /**
      * Set IncludeSubdomains value
-     * @param boolean $includeSubdomains
+     * @param bool $includeSubdomains
      * @return \Ews\StructType\EwsSmtpDomain
      */
     public function setIncludeSubdomains($includeSubdomains = null)

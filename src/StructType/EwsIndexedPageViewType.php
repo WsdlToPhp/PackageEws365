@@ -54,6 +54,10 @@ class EwsIndexedPageViewType extends EwsBasePagingType
      */
     public function setOffset($offset = null)
     {
+        // validation for constraint: int
+        if (!is_null($offset) && !is_int($offset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offset)), __LINE__);
+        }
         $this->Offset = $offset;
         return $this;
     }
@@ -69,11 +73,13 @@ class EwsIndexedPageViewType extends EwsBasePagingType
      * Set BasePoint value
      * @uses \Ews\EnumType\EwsIndexBasePointType::valueIsValid()
      * @uses \Ews\EnumType\EwsIndexBasePointType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $basePoint
      * @return \Ews\StructType\EwsIndexedPageViewType
      */
     public function setBasePoint($basePoint = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $basePoint, implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
         }

@@ -18,7 +18,6 @@ abstract class EwsAlternateIdBaseType extends AbstractStructBase
      * The Format
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Surfaces the various id types that are supported for conversion
      * @var string
      */
     public $Format;
@@ -44,11 +43,13 @@ abstract class EwsAlternateIdBaseType extends AbstractStructBase
      * Set Format value
      * @uses \Ews\EnumType\EwsIdFormatType::valueIsValid()
      * @uses \Ews\EnumType\EwsIdFormatType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $format
      * @return \Ews\StructType\EwsAlternateIdBaseType
      */
     public function setFormat($format = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($format)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $format, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }

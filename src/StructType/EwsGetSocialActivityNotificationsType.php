@@ -61,6 +61,10 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      */
     public function setOldestTimeStamp($oldestTimeStamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($oldestTimeStamp) && !is_string($oldestTimeStamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($oldestTimeStamp)), __LINE__);
+        }
         $this->OldestTimeStamp = $oldestTimeStamp;
         return $this;
     }
@@ -79,6 +83,10 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      */
     public function setMaxItems($maxItems = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxItems) && !is_int($maxItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxItems)), __LINE__);
+        }
         $this->MaxItems = $maxItems;
         return $this;
     }
@@ -94,11 +102,13 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      * Set SocialActivityActionType value
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
      * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $socialActivityActionType
      * @return \Ews\StructType\EwsGetSocialActivityNotificationsType
      */
     public function setSocialActivityActionType($socialActivityActionType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $socialActivityActionType, implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }

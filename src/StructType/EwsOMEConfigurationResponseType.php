@@ -45,6 +45,10 @@ class EwsOMEConfigurationResponseType extends EwsResponseMessageType
      */
     public function setXml($xml = null)
     {
+        // validation for constraint: string
+        if (!is_null($xml) && !is_string($xml)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xml)), __LINE__);
+        }
         $this->Xml = $xml;
         return $this;
     }

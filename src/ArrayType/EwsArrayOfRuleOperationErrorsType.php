@@ -17,13 +17,13 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsRuleOperationErrorType[]
      */
     public $RuleOperationError;
     /**
      * Constructor method for ArrayOfRuleOperationErrorsType
      * @uses EwsArrayOfRuleOperationErrorsType::setRuleOperationError()
-     * @param array $ruleOperationError
+     * @param \Ews\StructType\EwsRuleOperationErrorType[] $ruleOperationError
      */
     public function __construct(array $ruleOperationError = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
     }
     /**
      * Get RuleOperationError value
-     * @return array
+     * @return \Ews\StructType\EwsRuleOperationErrorType[]
      */
     public function getRuleOperationError()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
     }
     /**
      * Set RuleOperationError value
-     * @param array $ruleOperationError
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleOperationErrorType[] $ruleOperationError
      * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
      */
     public function setRuleOperationError(array $ruleOperationError = array())
     {
+        foreach ($ruleOperationError as $arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRuleOperationErrorsTypeRuleOperationErrorItem instanceof \Ews\StructType\EwsRuleOperationErrorType) {
+                throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of \Ews\StructType\EwsRuleOperationErrorType, "%s" given', is_object($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) ? get_class($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) : gettype($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem)), __LINE__);
+            }
+        }
         $this->RuleOperationError = $ruleOperationError;
+        return $this;
+    }
+    /**
+     * Add item to RuleOperationError value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRuleOperationErrorType $item
+     * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
+     */
+    public function addToRuleOperationError(\Ews\StructType\EwsRuleOperationErrorType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRuleOperationErrorType) {
+            throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of \Ews\StructType\EwsRuleOperationErrorType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RuleOperationError[] = $item;
         return $this;
     }
     /**

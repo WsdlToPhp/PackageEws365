@@ -16,7 +16,6 @@ class EwsSeekToConditionPageViewType extends EwsBasePagingType
      * The Condition
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Condition;
@@ -70,11 +69,13 @@ class EwsSeekToConditionPageViewType extends EwsBasePagingType
      * Set BasePoint value
      * @uses \Ews\EnumType\EwsIndexBasePointType::valueIsValid()
      * @uses \Ews\EnumType\EwsIndexBasePointType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $basePoint
      * @return \Ews\StructType\EwsSeekToConditionPageViewType
      */
     public function setBasePoint($basePoint = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $basePoint, implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
         }

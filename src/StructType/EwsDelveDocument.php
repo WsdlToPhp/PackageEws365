@@ -17,7 +17,7 @@ class EwsDelveDocument extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var double
+     * @var float
      */
     public $Rank;
     /**
@@ -104,7 +104,7 @@ class EwsDelveDocument extends EwsInsightValue
      * @uses EwsDelveDocument::setDocumentId()
      * @uses EwsDelveDocument::setPreviewURL()
      * @uses EwsDelveDocument::setLastEditor()
-     * @param double $rank
+     * @param float $rank
      * @param string $author
      * @param string $created
      * @param string $lastModifiedTime
@@ -131,7 +131,7 @@ class EwsDelveDocument extends EwsInsightValue
     }
     /**
      * Get Rank value
-     * @return double|null
+     * @return float|null
      */
     public function getRank()
     {
@@ -139,7 +139,7 @@ class EwsDelveDocument extends EwsInsightValue
     }
     /**
      * Set Rank value
-     * @param double $rank
+     * @param float $rank
      * @return \Ews\StructType\EwsDelveDocument
      */
     public function setRank($rank = null)
@@ -162,6 +162,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setAuthor($author = null)
     {
+        // validation for constraint: string
+        if (!is_null($author) && !is_string($author)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($author)), __LINE__);
+        }
         $this->Author = $author;
         return $this;
     }
@@ -180,6 +184,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setCreated($created = null)
     {
+        // validation for constraint: string
+        if (!is_null($created) && !is_string($created)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($created)), __LINE__);
+        }
         $this->Created = $created;
         return $this;
     }
@@ -198,6 +206,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setLastModifiedTime($lastModifiedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+        }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
     }
@@ -216,6 +228,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setDefaultEncodingURL($defaultEncodingURL = null)
     {
+        // validation for constraint: string
+        if (!is_null($defaultEncodingURL) && !is_string($defaultEncodingURL)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($defaultEncodingURL)), __LINE__);
+        }
         $this->DefaultEncodingURL = $defaultEncodingURL;
         return $this;
     }
@@ -234,6 +250,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setFileType($fileType = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileType) && !is_string($fileType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileType)), __LINE__);
+        }
         $this->FileType = $fileType;
         return $this;
     }
@@ -252,6 +272,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }
@@ -270,6 +294,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setDocumentId($documentId = null)
     {
+        // validation for constraint: string
+        if (!is_null($documentId) && !is_string($documentId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($documentId)), __LINE__);
+        }
         $this->DocumentId = $documentId;
         return $this;
     }
@@ -288,6 +316,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setPreviewURL($previewURL = null)
     {
+        // validation for constraint: string
+        if (!is_null($previewURL) && !is_string($previewURL)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($previewURL)), __LINE__);
+        }
         $this->PreviewURL = $previewURL;
         return $this;
     }
@@ -306,6 +338,10 @@ class EwsDelveDocument extends EwsInsightValue
      */
     public function setLastEditor($lastEditor = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastEditor) && !is_string($lastEditor)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastEditor)), __LINE__);
+        }
         $this->LastEditor = $lastEditor;
         return $this;
     }

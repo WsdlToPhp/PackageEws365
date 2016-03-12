@@ -43,7 +43,7 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsArchive;
     /**
@@ -55,7 +55,7 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
      * @param string $mailbox
      * @param int $errorCode
      * @param string $errorMessage
-     * @param boolean $isArchive
+     * @param bool $isArchive
      */
     public function __construct($mailbox = null, $errorCode = null, $errorMessage = null, $isArchive = null)
     {
@@ -80,6 +80,10 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
      */
     public function setMailbox($mailbox = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailbox) && !is_string($mailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+        }
         $this->Mailbox = $mailbox;
         return $this;
     }
@@ -98,6 +102,10 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
      */
     public function setErrorCode($errorCode = null)
     {
+        // validation for constraint: int
+        if (!is_null($errorCode) && !is_int($errorCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($errorCode)), __LINE__);
+        }
         $this->ErrorCode = $errorCode;
         return $this;
     }
@@ -116,12 +124,16 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
      */
     public function setErrorMessage($errorMessage = null)
     {
+        // validation for constraint: string
+        if (!is_null($errorMessage) && !is_string($errorMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorMessage)), __LINE__);
+        }
         $this->ErrorMessage = $errorMessage;
         return $this;
     }
     /**
      * Get IsArchive value
-     * @return boolean
+     * @return bool
      */
     public function getIsArchive()
     {
@@ -129,7 +141,7 @@ class EwsFailedSearchMailboxType extends AbstractStructBase
     }
     /**
      * Set IsArchive value
-     * @param boolean $isArchive
+     * @param bool $isArchive
      * @return \Ews\StructType\EwsFailedSearchMailboxType
      */
     public function setIsArchive($isArchive = null)

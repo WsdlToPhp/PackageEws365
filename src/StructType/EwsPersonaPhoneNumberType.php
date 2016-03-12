@@ -56,6 +56,10 @@ class EwsPersonaPhoneNumberType extends AbstractStructBase
      */
     public function setNumber($number = null)
     {
+        // validation for constraint: string
+        if (!is_null($number) && !is_string($number)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($number)), __LINE__);
+        }
         $this->Number = $number;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsPersonaPhoneNumberType extends AbstractStructBase
      */
     public function setType($type = null)
     {
+        // validation for constraint: string
+        if (!is_null($type) && !is_string($type)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
+        }
         $this->Type = $type;
         return $this;
     }

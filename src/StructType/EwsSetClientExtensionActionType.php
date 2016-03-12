@@ -62,11 +62,13 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
      * Set ActionId value
      * @uses \Ews\EnumType\EwsSetClientExtensionActionIdType::valueIsValid()
      * @uses \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $actionId
      * @return \Ews\StructType\EwsSetClientExtensionActionType
      */
     public function setActionId($actionId = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSetClientExtensionActionIdType::valueIsValid($actionId)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionId, implode(', ', \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues())), __LINE__);
         }
@@ -106,6 +108,10 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
      */
     public function setExtensionId($extensionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($extensionId) && !is_string($extensionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($extensionId)), __LINE__);
+        }
         $this->ExtensionId = $extensionId;
         return $this;
     }

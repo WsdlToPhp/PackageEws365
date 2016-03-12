@@ -21,7 +21,7 @@ class EwsItemQueryTraversalType
      * Constant for value 'SoftDeleted'
      * @return string 'SoftDeleted'
      */
-    const VALUE_SOFTDELETED = 'SoftDeleted';
+    const VALUE_SOFT_DELETED = 'SoftDeleted';
     /**
      * Constant for value 'Associated'
      * @return string 'Associated'
@@ -40,7 +40,7 @@ class EwsItemQueryTraversalType
     /**
      * Return allowed values
      * @uses self::VALUE_SHALLOW
-     * @uses self::VALUE_SOFTDELETED
+     * @uses self::VALUE_SOFT_DELETED
      * @uses self::VALUE_ASSOCIATED
      * @return string[]
      */
@@ -48,7 +48,7 @@ class EwsItemQueryTraversalType
     {
         return array(
             self::VALUE_SHALLOW,
-            self::VALUE_SOFTDELETED,
+            self::VALUE_SOFT_DELETED,
             self::VALUE_ASSOCIATED,
         );
     }

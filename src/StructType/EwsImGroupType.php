@@ -32,7 +32,6 @@ class EwsImGroupType extends AbstractStructBase
      * The ExchangeStoreId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ExchangeStoreId;
@@ -97,6 +96,14 @@ class EwsImGroupType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(displayName) && strlen(displayName) < 1) || (is_array(displayName) && count(displayName) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -115,6 +122,14 @@ class EwsImGroupType extends AbstractStructBase
      */
     public function setGroupType($groupType = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(groupType) && strlen(groupType) < 1) || (is_array(groupType) && count(groupType) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($groupType) && !is_string($groupType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupType)), __LINE__);
+        }
         $this->GroupType = $groupType;
         return $this;
     }
@@ -187,6 +202,10 @@ class EwsImGroupType extends AbstractStructBase
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }

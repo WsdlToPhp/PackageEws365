@@ -21,7 +21,6 @@ class EwsConversationResponseShapeType extends AbstractStructBase
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:Path
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
@@ -50,11 +49,13 @@ class EwsConversationResponseShapeType extends AbstractStructBase
      * Set BaseShape value
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid()
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $baseShape
      * @return \Ews\StructType\EwsConversationResponseShapeType
      */
     public function setBaseShape($baseShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($baseShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $baseShape, implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }

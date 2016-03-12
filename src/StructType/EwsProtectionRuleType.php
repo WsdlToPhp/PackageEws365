@@ -32,21 +32,21 @@ class EwsProtectionRuleType extends AbstractStructBase
      * The Name
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var anonymous635
+     * @var string
      */
     public $Name;
     /**
      * The UserOverridable
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $UserOverridable;
     /**
      * The Priority
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var anonymous636
+     * @var string
      */
     public $Priority;
     /**
@@ -58,11 +58,11 @@ class EwsProtectionRuleType extends AbstractStructBase
      * @uses EwsProtectionRuleType::setPriority()
      * @param \Ews\StructType\EwsProtectionRuleConditionType $condition
      * @param \Ews\StructType\EwsProtectionRuleActionType $action
-     * @param anonymous635 $name
-     * @param boolean $userOverridable
-     * @param anonymous636 $priority
+     * @param string $name
+     * @param bool $userOverridable
+     * @param string $priority
      */
-    public function __construct(\Ews\StructType\EwsProtectionRuleConditionType $condition = null, \Ews\StructType\EwsProtectionRuleActionType $action = null, anonymous635 $name = null, $userOverridable = null, anonymous636 $priority = null)
+    public function __construct(\Ews\StructType\EwsProtectionRuleConditionType $condition = null, \Ews\StructType\EwsProtectionRuleActionType $action = null, $name = null, $userOverridable = null, $priority = null)
     {
         $this
             ->setCondition($condition)
@@ -109,7 +109,7 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Get Name value
-     * @return anonymous635
+     * @return string
      */
     public function getName()
     {
@@ -117,17 +117,21 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Set Name value
-     * @param anonymous635 $name
+     * @param string $name
      * @return \Ews\StructType\EwsProtectionRuleType
      */
-    public function setName(anonymous635 $name = null)
+    public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
     /**
      * Get UserOverridable value
-     * @return boolean
+     * @return bool
      */
     public function getUserOverridable()
     {
@@ -135,7 +139,7 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Set UserOverridable value
-     * @param boolean $userOverridable
+     * @param bool $userOverridable
      * @return \Ews\StructType\EwsProtectionRuleType
      */
     public function setUserOverridable($userOverridable = null)
@@ -145,7 +149,7 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Get Priority value
-     * @return anonymous636
+     * @return string
      */
     public function getPriority()
     {
@@ -153,11 +157,15 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Set Priority value
-     * @param anonymous636 $priority
+     * @param string $priority
      * @return \Ews\StructType\EwsProtectionRuleType
      */
-    public function setPriority(anonymous636 $priority = null)
+    public function setPriority($priority = null)
     {
+        // validation for constraint: string
+        if (!is_null($priority) && !is_string($priority)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($priority)), __LINE__);
+        }
         $this->Priority = $priority;
         return $this;
     }

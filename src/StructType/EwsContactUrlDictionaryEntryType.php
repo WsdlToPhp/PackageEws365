@@ -61,11 +61,13 @@ class EwsContactUrlDictionaryEntryType extends AbstractStructBase
      * Set Type value
      * @uses \Ews\EnumType\EwsContactUrlKeyType::valueIsValid()
      * @uses \Ews\EnumType\EwsContactUrlKeyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsContactUrlDictionaryEntryType
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContactUrlKeyType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsContactUrlKeyType::getValidValues())), __LINE__);
         }
@@ -87,6 +89,10 @@ class EwsContactUrlDictionaryEntryType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -105,6 +111,10 @@ class EwsContactUrlDictionaryEntryType extends AbstractStructBase
      */
     public function setAddress($address = null)
     {
+        // validation for constraint: string
+        if (!is_null($address) && !is_string($address)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+        }
         $this->Address = $address;
         return $this;
     }

@@ -23,7 +23,7 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
      * The ReturnFullTimeZoneData
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $ReturnFullTimeZoneData;
     /**
@@ -31,7 +31,7 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
      * @uses EwsGetServerTimeZonesType::setIds()
      * @uses EwsGetServerTimeZonesType::setReturnFullTimeZoneData()
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids
-     * @param boolean $returnFullTimeZoneData
+     * @param bool $returnFullTimeZoneData
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids = null, $returnFullTimeZoneData = null)
     {
@@ -59,7 +59,7 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
     }
     /**
      * Get ReturnFullTimeZoneData value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReturnFullTimeZoneData()
     {
@@ -67,7 +67,7 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
     }
     /**
      * Set ReturnFullTimeZoneData value
-     * @param boolean $returnFullTimeZoneData
+     * @param bool $returnFullTimeZoneData
      * @return \Ews\StructType\EwsGetServerTimeZonesType
      */
     public function setReturnFullTimeZoneData($returnFullTimeZoneData = null)

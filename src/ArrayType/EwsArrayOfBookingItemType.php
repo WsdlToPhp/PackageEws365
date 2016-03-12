@@ -17,13 +17,13 @@ class EwsArrayOfBookingItemType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsBookingItemType[]
      */
     public $Item;
     /**
      * Constructor method for ArrayOfBookingItemType
      * @uses EwsArrayOfBookingItemType::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsBookingItemType[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBookingItemType extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsBookingItemType[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfBookingItemType extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingItemType[] $item
      * @return \Ews\ArrayType\EwsArrayOfBookingItemType
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $arrayOfBookingItemTypeItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBookingItemTypeItemItem instanceof \Ews\StructType\EwsBookingItemType) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsBookingItemType, "%s" given', is_object($arrayOfBookingItemTypeItemItem) ? get_class($arrayOfBookingItemTypeItemItem) : gettype($arrayOfBookingItemTypeItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingItemType $item
+     * @return \Ews\ArrayType\EwsArrayOfBookingItemType
+     */
+    public function addToItem(\Ews\StructType\EwsBookingItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsBookingItemType) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsBookingItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

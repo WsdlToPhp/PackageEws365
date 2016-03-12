@@ -306,6 +306,10 @@ class EwsAudioQualityType extends AbstractStructBase
      */
     public function setAudioCodec($audioCodec = null)
     {
+        // validation for constraint: string
+        if (!is_null($audioCodec) && !is_string($audioCodec)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($audioCodec)), __LINE__);
+        }
         $this->AudioCodec = $audioCodec;
         return $this;
     }

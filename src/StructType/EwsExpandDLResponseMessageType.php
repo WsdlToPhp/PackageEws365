@@ -36,7 +36,7 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public $AbsoluteDenominator;
     /**
      * The IncludesLastItemInRange
-     * @var boolean
+     * @var bool
      */
     public $IncludesLastItemInRange;
     /**
@@ -56,7 +56,7 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
      * @param int $indexedPagingOffset
      * @param int $numeratorOffset
      * @param int $absoluteDenominator
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @param int $totalItemsInView
      */
     public function __construct(\Ews\StructType\EwsArrayOfDLExpansionType $dLExpansion = null, $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
@@ -102,6 +102,10 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
      */
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($indexedPagingOffset) && !is_int($indexedPagingOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
     }
@@ -120,6 +124,10 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
      */
     public function setNumeratorOffset($numeratorOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($numeratorOffset) && !is_int($numeratorOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numeratorOffset)), __LINE__);
+        }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
     }
@@ -138,12 +146,16 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
      */
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
+        // validation for constraint: int
+        if (!is_null($absoluteDenominator) && !is_int($absoluteDenominator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
     }
     /**
      * Get IncludesLastItemInRange value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludesLastItemInRange()
     {
@@ -151,7 +163,7 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set IncludesLastItemInRange value
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @return \Ews\StructType\EwsExpandDLResponseMessageType
      */
     public function setIncludesLastItemInRange($includesLastItemInRange = null)
@@ -174,6 +186,10 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
      */
     public function setTotalItemsInView($totalItemsInView = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalItemsInView) && !is_int($totalItemsInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalItemsInView)), __LINE__);
+        }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
     }

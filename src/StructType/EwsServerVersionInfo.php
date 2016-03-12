@@ -84,6 +84,10 @@ class EwsServerVersionInfo extends AbstractStructBase
      */
     public function setMajorVersion($majorVersion = null)
     {
+        // validation for constraint: int
+        if (!is_null($majorVersion) && !is_int($majorVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($majorVersion)), __LINE__);
+        }
         $this->MajorVersion = $majorVersion;
         return $this;
     }
@@ -102,6 +106,10 @@ class EwsServerVersionInfo extends AbstractStructBase
      */
     public function setMinorVersion($minorVersion = null)
     {
+        // validation for constraint: int
+        if (!is_null($minorVersion) && !is_int($minorVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($minorVersion)), __LINE__);
+        }
         $this->MinorVersion = $minorVersion;
         return $this;
     }
@@ -120,6 +128,10 @@ class EwsServerVersionInfo extends AbstractStructBase
      */
     public function setMajorBuildNumber($majorBuildNumber = null)
     {
+        // validation for constraint: int
+        if (!is_null($majorBuildNumber) && !is_int($majorBuildNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($majorBuildNumber)), __LINE__);
+        }
         $this->MajorBuildNumber = $majorBuildNumber;
         return $this;
     }
@@ -138,6 +150,10 @@ class EwsServerVersionInfo extends AbstractStructBase
      */
     public function setMinorBuildNumber($minorBuildNumber = null)
     {
+        // validation for constraint: int
+        if (!is_null($minorBuildNumber) && !is_int($minorBuildNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($minorBuildNumber)), __LINE__);
+        }
         $this->MinorBuildNumber = $minorBuildNumber;
         return $this;
     }
@@ -156,6 +172,10 @@ class EwsServerVersionInfo extends AbstractStructBase
      */
     public function setVersion($version = null)
     {
+        // validation for constraint: string
+        if (!is_null($version) && !is_string($version)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($version)), __LINE__);
+        }
         $this->Version = $version;
         return $this;
     }

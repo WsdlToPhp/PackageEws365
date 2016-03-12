@@ -153,6 +153,10 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
      */
     public function setMaxItemsToReturn($maxItemsToReturn = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxItemsToReturn) && !is_int($maxItemsToReturn)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxItemsToReturn)), __LINE__);
+        }
         $this->MaxItemsToReturn = $maxItemsToReturn;
         return $this;
     }
@@ -168,11 +172,13 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
      * Set SortOrder value
      * @uses \Ews\EnumType\EwsConversationNodeSortOrder::valueIsValid()
      * @uses \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sortOrder
      * @return \Ews\StructType\EwsGetConversationItemsType
      */
     public function setSortOrder($sortOrder = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationNodeSortOrder::valueIsValid($sortOrder)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortOrder, implode(', ', \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues())), __LINE__);
         }
@@ -191,11 +197,13 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
      * Set MailboxScope value
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mailboxScope
      * @return \Ews\StructType\EwsGetConversationItemsType
      */
     public function setMailboxScope($mailboxScope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }

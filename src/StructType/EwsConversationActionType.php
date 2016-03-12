@@ -25,7 +25,6 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ConversationId;
@@ -42,7 +41,7 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ConversationLastSyncTime;
     /**
@@ -50,7 +49,7 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ProcessRightAway;
     /**
@@ -74,7 +73,7 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $EnableAlwaysDelete;
     /**
@@ -82,7 +81,7 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRead;
     /**
@@ -122,7 +121,7 @@ class EwsConversationActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SuppressReadReceipts;
     /**
@@ -144,17 +143,17 @@ class EwsConversationActionType extends AbstractStructBase
      * @param string $action
      * @param \Ews\StructType\EwsItemIdType $conversationId
      * @param \Ews\StructType\EwsTargetFolderIdType $contextFolderId
-     * @param dateTime $conversationLastSyncTime
-     * @param boolean $processRightAway
+     * @param string $conversationLastSyncTime
+     * @param bool $processRightAway
      * @param \Ews\StructType\EwsTargetFolderIdType $destinationFolderId
      * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @param boolean $enableAlwaysDelete
-     * @param boolean $isRead
+     * @param bool $enableAlwaysDelete
+     * @param bool $isRead
      * @param string $deleteType
      * @param string $retentionPolicyType
      * @param string $retentionPolicyTagId
      * @param \Ews\StructType\EwsFlagType $flag
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      */
     public function __construct($action = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsTargetFolderIdType $contextFolderId = null, $conversationLastSyncTime = null, $processRightAway = null, \Ews\StructType\EwsTargetFolderIdType $destinationFolderId = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $enableAlwaysDelete = null, $isRead = null, $deleteType = null, $retentionPolicyType = null, $retentionPolicyTagId = null, \Ews\StructType\EwsFlagType $flag = null, $suppressReadReceipts = null)
     {
@@ -186,11 +185,13 @@ class EwsConversationActionType extends AbstractStructBase
      * Set Action value
      * @uses \Ews\EnumType\EwsConversationActionTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsConversationActionTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $action
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setAction($action = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationActionTypeType::valueIsValid($action)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $action, implode(', ', \Ews\EnumType\EwsConversationActionTypeType::getValidValues())), __LINE__);
         }
@@ -235,7 +236,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Get ConversationLastSyncTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getConversationLastSyncTime()
     {
@@ -243,17 +244,21 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Set ConversationLastSyncTime value
-     * @param dateTime $conversationLastSyncTime
+     * @param string $conversationLastSyncTime
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setConversationLastSyncTime($conversationLastSyncTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationLastSyncTime) && !is_string($conversationLastSyncTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationLastSyncTime)), __LINE__);
+        }
         $this->ConversationLastSyncTime = $conversationLastSyncTime;
         return $this;
     }
     /**
      * Get ProcessRightAway value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getProcessRightAway()
     {
@@ -261,7 +266,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Set ProcessRightAway value
-     * @param boolean $processRightAway
+     * @param bool $processRightAway
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setProcessRightAway($processRightAway = null)
@@ -307,7 +312,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Get EnableAlwaysDelete value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getEnableAlwaysDelete()
     {
@@ -315,7 +320,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Set EnableAlwaysDelete value
-     * @param boolean $enableAlwaysDelete
+     * @param bool $enableAlwaysDelete
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setEnableAlwaysDelete($enableAlwaysDelete = null)
@@ -325,7 +330,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Get IsRead value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRead()
     {
@@ -333,7 +338,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Set IsRead value
-     * @param boolean $isRead
+     * @param bool $isRead
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setIsRead($isRead = null)
@@ -353,11 +358,13 @@ class EwsConversationActionType extends AbstractStructBase
      * Set DeleteType value
      * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
      * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deleteType
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setDeleteType($deleteType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
@@ -376,11 +383,13 @@ class EwsConversationActionType extends AbstractStructBase
      * Set RetentionPolicyType value
      * @uses \Ews\EnumType\EwsRetentionType::valueIsValid()
      * @uses \Ews\EnumType\EwsRetentionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $retentionPolicyType
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setRetentionPolicyType($retentionPolicyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRetentionType::valueIsValid($retentionPolicyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $retentionPolicyType, implode(', ', \Ews\EnumType\EwsRetentionType::getValidValues())), __LINE__);
         }
@@ -402,6 +411,10 @@ class EwsConversationActionType extends AbstractStructBase
      */
     public function setRetentionPolicyTagId($retentionPolicyTagId = null)
     {
+        // validation for constraint: string
+        if (!is_null($retentionPolicyTagId) && !is_string($retentionPolicyTagId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($retentionPolicyTagId)), __LINE__);
+        }
         $this->RetentionPolicyTagId = $retentionPolicyTagId;
         return $this;
     }
@@ -425,7 +438,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Get SuppressReadReceipts value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSuppressReadReceipts()
     {
@@ -433,7 +446,7 @@ class EwsConversationActionType extends AbstractStructBase
     }
     /**
      * Set SuppressReadReceipts value
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      * @return \Ews\StructType\EwsConversationActionType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)

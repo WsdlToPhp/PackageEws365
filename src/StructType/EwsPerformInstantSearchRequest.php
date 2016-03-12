@@ -25,7 +25,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $ItemType;
     /**
@@ -33,7 +33,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $QueryOptions;
     /**
@@ -41,7 +41,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $SearchRequestId;
     /**
@@ -73,7 +73,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDeepTraversal;
     /**
@@ -81,7 +81,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $WaitOnSearchResults;
     /**
@@ -96,15 +96,15 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * @uses EwsPerformInstantSearchRequest::setIsDeepTraversal()
      * @uses EwsPerformInstantSearchRequest::setWaitOnSearchResults()
      * @param string $searchSessionId
-     * @param string[] $itemType
-     * @param string[] $queryOptions
-     * @param long $searchRequestId
+     * @param string $itemType
+     * @param string $queryOptions
+     * @param int $searchRequestId
      * @param string $kqlQuery
      * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope
      * @param \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType
      * $distinguishedFolderScope
-     * @param boolean $isDeepTraversal
-     * @param boolean $waitOnSearchResults
+     * @param bool $isDeepTraversal
+     * @param bool $waitOnSearchResults
      */
     public function __construct($searchSessionId = null, $itemType = null, $queryOptions = null, $searchRequestId = null, $kqlQuery = null, \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope = null, \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope = null, $isDeepTraversal = null, $waitOnSearchResults = null)
     {
@@ -134,12 +134,16 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
     /**
      * Get ItemType value
-     * @return string[]
+     * @return string
      */
     public function getItemType()
     {
@@ -149,11 +153,13 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Set ItemType value
      * @uses \Ews\EnumType\EwsInstantSearchItemType::valueIsValid()
      * @uses \Ews\EnumType\EwsInstantSearchItemType::getValidValues()
-     * @param string[] $itemType
+     * @throws \InvalidArgumentException
+     * @param string $itemType
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setItemType($itemType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsInstantSearchItemType::valueIsValid($itemType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $itemType, implode(', ', \Ews\EnumType\EwsInstantSearchItemType::getValidValues())), __LINE__);
         }
@@ -162,7 +168,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Get QueryOptions value
-     * @return string[]
+     * @return string
      */
     public function getQueryOptions()
     {
@@ -172,11 +178,13 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * Set QueryOptions value
      * @uses \Ews\EnumType\EwsQueryOptionsType::valueIsValid()
      * @uses \Ews\EnumType\EwsQueryOptionsType::getValidValues()
-     * @param string[] $queryOptions
+     * @throws \InvalidArgumentException
+     * @param string $queryOptions
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setQueryOptions($queryOptions = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsQueryOptionsType::valueIsValid($queryOptions)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $queryOptions, implode(', ', \Ews\EnumType\EwsQueryOptionsType::getValidValues())), __LINE__);
         }
@@ -185,7 +193,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Get SearchRequestId value
-     * @return long
+     * @return int
      */
     public function getSearchRequestId()
     {
@@ -193,11 +201,15 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Set SearchRequestId value
-     * @param long $searchRequestId
+     * @param int $searchRequestId
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setSearchRequestId($searchRequestId = null)
     {
+        // validation for constraint: int
+        if (!is_null($searchRequestId) && !is_int($searchRequestId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchRequestId)), __LINE__);
+        }
         $this->SearchRequestId = $searchRequestId;
         return $this;
     }
@@ -216,6 +228,10 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      */
     public function setKqlQuery($kqlQuery = null)
     {
+        // validation for constraint: string
+        if (!is_null($kqlQuery) && !is_string($kqlQuery)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($kqlQuery)), __LINE__);
+        }
         $this->KqlQuery = $kqlQuery;
         return $this;
     }
@@ -258,7 +274,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Get IsDeepTraversal value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeepTraversal()
     {
@@ -266,7 +282,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Set IsDeepTraversal value
-     * @param boolean $isDeepTraversal
+     * @param bool $isDeepTraversal
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setIsDeepTraversal($isDeepTraversal = null)
@@ -276,7 +292,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Get WaitOnSearchResults value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getWaitOnSearchResults()
     {
@@ -284,7 +300,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Set WaitOnSearchResults value
-     * @param boolean $waitOnSearchResults
+     * @param bool $waitOnSearchResults
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setWaitOnSearchResults($waitOnSearchResults = null)

@@ -14,17 +14,17 @@ class EwsXrmGraphRelationshipEntityType
      * Constant for value 'XrmDeal'
      * @return string 'XrmDeal'
      */
-    const VALUE_XRMDEAL = 'XrmDeal';
+    const VALUE_XRM_DEAL = 'XrmDeal';
     /**
      * Constant for value 'XrmContact'
      * @return string 'XrmContact'
      */
-    const VALUE_XRMCONTACT = 'XrmContact';
+    const VALUE_XRM_CONTACT = 'XrmContact';
     /**
      * Constant for value 'XrmOrganization'
      * @return string 'XrmOrganization'
      */
-    const VALUE_XRMORGANIZATION = 'XrmOrganization';
+    const VALUE_XRM_ORGANIZATION = 'XrmOrganization';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsXrmGraphRelationshipEntityType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_XRMDEAL
-     * @uses self::VALUE_XRMCONTACT
-     * @uses self::VALUE_XRMORGANIZATION
+     * @uses self::VALUE_XRM_DEAL
+     * @uses self::VALUE_XRM_CONTACT
+     * @uses self::VALUE_XRM_ORGANIZATION
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_XRMDEAL,
-            self::VALUE_XRMCONTACT,
-            self::VALUE_XRMORGANIZATION,
+            self::VALUE_XRM_DEAL,
+            self::VALUE_XRM_CONTACT,
+            self::VALUE_XRM_ORGANIZATION,
         );
     }
     /**

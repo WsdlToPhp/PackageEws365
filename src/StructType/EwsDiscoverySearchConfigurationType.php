@@ -35,7 +35,6 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Array of searchable mailbox.
      * @var \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
      */
     public $SearchableMailboxes;
@@ -103,6 +102,10 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      */
     public function setSearchId($searchId = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchId) && !is_string($searchId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchId)), __LINE__);
+        }
         $this->SearchId = $searchId;
         return $this;
     }
@@ -121,6 +124,10 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      */
     public function setSearchQuery($searchQuery = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchQuery) && !is_string($searchQuery)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchQuery)), __LINE__);
+        }
         $this->SearchQuery = $searchQuery;
         return $this;
     }
@@ -157,6 +164,10 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      */
     public function setInPlaceHoldIdentity($inPlaceHoldIdentity = null)
     {
+        // validation for constraint: string
+        if (!is_null($inPlaceHoldIdentity) && !is_string($inPlaceHoldIdentity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inPlaceHoldIdentity)), __LINE__);
+        }
         $this->InPlaceHoldIdentity = $inPlaceHoldIdentity;
         return $this;
     }
@@ -175,6 +186,10 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      */
     public function setManagedByOrganization($managedByOrganization = null)
     {
+        // validation for constraint: string
+        if (!is_null($managedByOrganization) && !is_string($managedByOrganization)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($managedByOrganization)), __LINE__);
+        }
         $this->ManagedByOrganization = $managedByOrganization;
         return $this;
     }
@@ -193,6 +208,10 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      */
     public function setLanguage($language = null)
     {
+        // validation for constraint: string
+        if (!is_null($language) && !is_string($language)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+        }
         $this->Language = $language;
         return $this;
     }

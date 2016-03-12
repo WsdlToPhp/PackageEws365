@@ -45,6 +45,10 @@ class EwsEndInstantSearchSessionRequest extends EwsBaseRequestType
      */
     public function setSessionId($sessionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($sessionId) && !is_string($sessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sessionId)), __LINE__);
+        }
         $this->SessionId = $sessionId;
         return $this;
     }

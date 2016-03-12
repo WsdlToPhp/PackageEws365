@@ -16,9 +16,6 @@ class EwsExtendedPropertyType extends AbstractStructBase
 {
     /**
      * The ExtendedFieldURI
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an extended property. Note that there are only a couple of valid attribute combinations. Note that all occurances require the PropertyType attribute. 1. (DistinguishedPropertySetId || PropertySetId) + (PropertyName ||
-     * Property Id) 2. PropertyTag
      * @var \Ews\StructType\EwsPathToExtendedFieldType
      */
     public $ExtendedFieldURI;
@@ -81,6 +78,10 @@ class EwsExtendedPropertyType extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }

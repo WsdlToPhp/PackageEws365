@@ -16,7 +16,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * The IncludeMimeContent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludeMimeContent;
     /**
@@ -31,14 +31,13 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $FilterHtmlContent;
     /**
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:Path
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
@@ -48,9 +47,9 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * @uses EwsAttachmentResponseShapeType::setBodyType()
      * @uses EwsAttachmentResponseShapeType::setFilterHtmlContent()
      * @uses EwsAttachmentResponseShapeType::setAdditionalProperties()
-     * @param boolean $includeMimeContent
+     * @param bool $includeMimeContent
      * @param string $bodyType
-     * @param boolean $filterHtmlContent
+     * @param bool $filterHtmlContent
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
     public function __construct($includeMimeContent = null, $bodyType = null, $filterHtmlContent = null, \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
@@ -63,7 +62,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Get IncludeMimeContent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeMimeContent()
     {
@@ -71,7 +70,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Set IncludeMimeContent value
-     * @param boolean $includeMimeContent
+     * @param bool $includeMimeContent
      * @return \Ews\StructType\EwsAttachmentResponseShapeType
      */
     public function setIncludeMimeContent($includeMimeContent = null)
@@ -91,11 +90,13 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * Set BodyType value
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $bodyType
      * @return \Ews\StructType\EwsAttachmentResponseShapeType
      */
     public function setBodyType($bodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($bodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bodyType, implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
@@ -104,7 +105,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Get FilterHtmlContent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getFilterHtmlContent()
     {
@@ -112,7 +113,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Set FilterHtmlContent value
-     * @param boolean $filterHtmlContent
+     * @param bool $filterHtmlContent
      * @return \Ews\StructType\EwsAttachmentResponseShapeType
      */
     public function setFilterHtmlContent($filterHtmlContent = null)

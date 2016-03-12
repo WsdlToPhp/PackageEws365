@@ -19,15 +19,11 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
     public $TargetItemType;
     /**
      * The TargetConversationId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $TargetConversationId;
     /**
      * The TargetItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $TargetItemId;
@@ -97,6 +93,10 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
      */
     public function setTargetItemType($targetItemType = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetItemType) && !is_string($targetItemType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetItemType)), __LINE__);
+        }
         $this->TargetItemType = $targetItemType;
         return $this;
     }
@@ -151,6 +151,10 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
      */
     public function setTargetMailboxSmtpAddress($targetMailboxSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetMailboxSmtpAddress) && !is_string($targetMailboxSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxSmtpAddress)), __LINE__);
+        }
         $this->TargetMailboxSmtpAddress = $targetMailboxSmtpAddress;
         return $this;
     }
@@ -169,6 +173,14 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
      */
     public function setTargetMailboxGuid($targetMailboxGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($targetMailboxGuid) && !is_string($targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+        }
         $this->TargetMailboxGuid = $targetMailboxGuid;
         return $this;
     }
@@ -187,6 +199,10 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
      */
     public function setTargetSubject($targetSubject = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetSubject) && !is_string($targetSubject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetSubject)), __LINE__);
+        }
         $this->TargetSubject = $targetSubject;
         return $this;
     }
@@ -205,6 +221,10 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
      */
     public function setTargetLogicalId($targetLogicalId = null)
     {
+        // validation for constraint: string
+        if (!is_null($targetLogicalId) && !is_string($targetLogicalId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetLogicalId)), __LINE__);
+        }
         $this->TargetLogicalId = $targetLogicalId;
         return $this;
     }

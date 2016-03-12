@@ -16,7 +16,6 @@ class EwsCreateAttachmentType extends EwsBaseRequestType
      * The ParentItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ParentItemId;

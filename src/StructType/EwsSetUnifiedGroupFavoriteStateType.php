@@ -17,13 +17,13 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFavoriteUnifiedGroup;
     /**
      * Constructor method for SetUnifiedGroupFavoriteStateType
      * @uses EwsSetUnifiedGroupFavoriteStateType::setIsFavoriteUnifiedGroup()
-     * @param boolean $isFavoriteUnifiedGroup
+     * @param bool $isFavoriteUnifiedGroup
      */
     public function __construct($isFavoriteUnifiedGroup = null)
     {
@@ -32,7 +32,7 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
     }
     /**
      * Get IsFavoriteUnifiedGroup value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFavoriteUnifiedGroup()
     {
@@ -40,7 +40,7 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
     }
     /**
      * Set IsFavoriteUnifiedGroup value
-     * @param boolean $isFavoriteUnifiedGroup
+     * @param bool $isFavoriteUnifiedGroup
      * @return \Ews\StructType\EwsSetUnifiedGroupFavoriteStateType
      */
     public function setIsFavoriteUnifiedGroup($isFavoriteUnifiedGroup = null)

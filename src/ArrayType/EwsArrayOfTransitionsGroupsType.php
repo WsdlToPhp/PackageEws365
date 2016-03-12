@@ -16,15 +16,13 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * The TransitionsGroup
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * - maxOccurs: unbounded
-     * - ref: t:Transition
-     * @var array
+     * @var \Ews\StructType\EwsArrayOfTransitionsType[]
      */
     public $TransitionsGroup;
     /**
      * Constructor method for ArrayOfTransitionsGroupsType
      * @uses EwsArrayOfTransitionsGroupsType::setTransitionsGroup()
-     * @param array $transitionsGroup
+     * @param \Ews\StructType\EwsArrayOfTransitionsType[] $transitionsGroup
      */
     public function __construct(array $transitionsGroup = array())
     {
@@ -33,7 +31,7 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
     }
     /**
      * Get TransitionsGroup value
-     * @return array
+     * @return \Ews\StructType\EwsArrayOfTransitionsType[]|null
      */
     public function getTransitionsGroup()
     {
@@ -41,12 +39,34 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
     }
     /**
      * Set TransitionsGroup value
-     * @param array $transitionsGroup
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsArrayOfTransitionsType[] $transitionsGroup
      * @return \Ews\ArrayType\EwsArrayOfTransitionsGroupsType
      */
     public function setTransitionsGroup(array $transitionsGroup = array())
     {
+        foreach ($transitionsGroup as $arrayOfTransitionsGroupsTypeTransitionsGroupItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfTransitionsGroupsTypeTransitionsGroupItem instanceof \Ews\StructType\EwsArrayOfTransitionsType) {
+                throw new \InvalidArgumentException(sprintf('The TransitionsGroup property can only contain items of \Ews\StructType\EwsArrayOfTransitionsType, "%s" given', is_object($arrayOfTransitionsGroupsTypeTransitionsGroupItem) ? get_class($arrayOfTransitionsGroupsTypeTransitionsGroupItem) : gettype($arrayOfTransitionsGroupsTypeTransitionsGroupItem)), __LINE__);
+            }
+        }
         $this->TransitionsGroup = $transitionsGroup;
+        return $this;
+    }
+    /**
+     * Add item to TransitionsGroup value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsArrayOfTransitionsType $item
+     * @return \Ews\ArrayType\EwsArrayOfTransitionsGroupsType
+     */
+    public function addToTransitionsGroup(\Ews\StructType\EwsArrayOfTransitionsType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsArrayOfTransitionsType) {
+            throw new \InvalidArgumentException(sprintf('The TransitionsGroup property can only contain items of \Ews\StructType\EwsArrayOfTransitionsType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TransitionsGroup[] = $item;
         return $this;
     }
     /**

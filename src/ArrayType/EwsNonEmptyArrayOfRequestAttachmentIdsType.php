@@ -14,22 +14,22 @@ class EwsNonEmptyArrayOfRequestAttachmentIdsType extends AbstractStructArrayBase
 {
     /**
      * The AttachmentId
-     * @var array
+     * @var \Ews\StructType\EwsRequestAttachmentIdType
      */
     public $AttachmentId;
     /**
      * Constructor method for NonEmptyArrayOfRequestAttachmentIdsType
      * @uses EwsNonEmptyArrayOfRequestAttachmentIdsType::setAttachmentId()
-     * @param array $attachmentId
+     * @param \Ews\StructType\EwsRequestAttachmentIdType $attachmentId
      */
-    public function __construct(array $attachmentId = array())
+    public function __construct(\Ews\StructType\EwsRequestAttachmentIdType $attachmentId = null)
     {
         $this
             ->setAttachmentId($attachmentId);
     }
     /**
      * Get AttachmentId value
-     * @return array
+     * @return \Ews\StructType\EwsRequestAttachmentIdType|null
      */
     public function getAttachmentId()
     {
@@ -37,10 +37,10 @@ class EwsNonEmptyArrayOfRequestAttachmentIdsType extends AbstractStructArrayBase
     }
     /**
      * Set AttachmentId value
-     * @param array $attachmentId
+     * @param \Ews\StructType\EwsRequestAttachmentIdType $attachmentId
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType
      */
-    public function setAttachmentId(array $attachmentId = array())
+    public function setAttachmentId(\Ews\StructType\EwsRequestAttachmentIdType $attachmentId = null)
     {
         $this->AttachmentId = $attachmentId;
         return $this;

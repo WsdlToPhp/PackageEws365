@@ -33,7 +33,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $StartTimeInUTC;
     /**
@@ -57,7 +57,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var double
+     * @var float
      */
     public $Score;
     /**
@@ -70,10 +70,10 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * @uses EwsMeetingLocationItemType::setScore()
      * @param string $displayName
      * @param \Ews\StructType\EwsPersonaPostalAddressType $postalAddress
-     * @param dateTime $startTimeInUTC
+     * @param string $startTimeInUTC
      * @param string $source
      * @param int $capacity
-     * @param double $score
+     * @param float $score
      */
     public function __construct($displayName = null, \Ews\StructType\EwsPersonaPostalAddressType $postalAddress = null, $startTimeInUTC = null, $source = null, $capacity = null, $score = null)
     {
@@ -100,6 +100,10 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -123,7 +127,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     }
     /**
      * Get StartTimeInUTC value
-     * @return dateTime
+     * @return string
      */
     public function getStartTimeInUTC()
     {
@@ -131,11 +135,15 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     }
     /**
      * Set StartTimeInUTC value
-     * @param dateTime $startTimeInUTC
+     * @param string $startTimeInUTC
      * @return \Ews\StructType\EwsMeetingLocationItemType
      */
     public function setStartTimeInUTC($startTimeInUTC = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTimeInUTC) && !is_string($startTimeInUTC)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTimeInUTC)), __LINE__);
+        }
         $this->StartTimeInUTC = $startTimeInUTC;
         return $this;
     }
@@ -154,6 +162,10 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      */
     public function setSource($source = null)
     {
+        // validation for constraint: string
+        if (!is_null($source) && !is_string($source)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($source)), __LINE__);
+        }
         $this->Source = $source;
         return $this;
     }
@@ -172,12 +184,16 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      */
     public function setCapacity($capacity = null)
     {
+        // validation for constraint: int
+        if (!is_null($capacity) && !is_int($capacity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($capacity)), __LINE__);
+        }
         $this->Capacity = $capacity;
         return $this;
     }
     /**
      * Get Score value
-     * @return double|null
+     * @return float|null
      */
     public function getScore()
     {
@@ -185,7 +201,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     }
     /**
      * Set Score value
-     * @param double $score
+     * @param float $score
      * @return \Ews\StructType\EwsMeetingLocationItemType
      */
     public function setScore($score = null)

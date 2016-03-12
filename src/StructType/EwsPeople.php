@@ -17,22 +17,22 @@ class EwsPeople extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonaType
+     * @var \Ews\StructType\EwsPersonaType[]
      */
     public $Persona;
     /**
      * Constructor method for People
      * @uses EwsPeople::setPersona()
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @param \Ews\StructType\EwsPersonaType[] $persona
      */
-    public function __construct(\Ews\StructType\EwsPersonaType $persona = null)
+    public function __construct(array $persona = array())
     {
         $this
             ->setPersona($persona);
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \Ews\StructType\EwsPersonaType[]|null
      */
     public function getPersona()
     {
@@ -40,12 +40,34 @@ class EwsPeople extends AbstractStructBase
     }
     /**
      * Set Persona value
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPersonaType[] $persona
      * @return \Ews\StructType\EwsPeople
      */
-    public function setPersona(\Ews\StructType\EwsPersonaType $persona = null)
+    public function setPersona(array $persona = array())
     {
+        foreach ($persona as $peoplePersonaItem) {
+            // validation for constraint: itemType
+            if (!$peoplePersonaItem instanceof \Ews\StructType\EwsPersonaType) {
+                throw new \InvalidArgumentException(sprintf('The Persona property can only contain items of \Ews\StructType\EwsPersonaType, "%s" given', is_object($peoplePersonaItem) ? get_class($peoplePersonaItem) : gettype($peoplePersonaItem)), __LINE__);
+            }
+        }
         $this->Persona = $persona;
+        return $this;
+    }
+    /**
+     * Add item to Persona value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPersonaType $item
+     * @return \Ews\StructType\EwsPeople
+     */
+    public function addToPersona(\Ews\StructType\EwsPersonaType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPersonaType) {
+            throw new \InvalidArgumentException(sprintf('The Persona property can only contain items of \Ews\StructType\EwsPersonaType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Persona[] = $item;
         return $this;
     }
     /**

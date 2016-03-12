@@ -56,6 +56,10 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      */
     public function setEmail($email = null)
     {
+        // validation for constraint: string
+        if (!is_null($email) && !is_string($email)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($email)), __LINE__);
+        }
         $this->Email = $email;
         return $this;
     }
@@ -71,11 +75,13 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      * Set SizeRequested value
      * @uses \Ews\EnumType\EwsUserPhotoSizeType::valueIsValid()
      * @uses \Ews\EnumType\EwsUserPhotoSizeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sizeRequested
      * @return \Ews\StructType\EwsGetUserPhotoType
      */
     public function setSizeRequested($sizeRequested = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserPhotoSizeType::valueIsValid($sizeRequested)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sizeRequested, implode(', ', \Ews\EnumType\EwsUserPhotoSizeType::getValidValues())), __LINE__);
         }

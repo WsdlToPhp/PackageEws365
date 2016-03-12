@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
      * The ParticipantActivity
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsParticipantActivity[]
      */
     public $ParticipantActivity;
     /**
      * Constructor method for NonEmptyArrayOfParticipantActivities
      * @uses EwsNonEmptyArrayOfParticipantActivities::setParticipantActivity()
-     * @param array $participantActivity
+     * @param \Ews\StructType\EwsParticipantActivity[] $participantActivity
      */
     public function __construct(array $participantActivity = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
     }
     /**
      * Get ParticipantActivity value
-     * @return array
+     * @return \Ews\StructType\EwsParticipantActivity[]|null
      */
     public function getParticipantActivity()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
     }
     /**
      * Set ParticipantActivity value
-     * @param array $participantActivity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsParticipantActivity[] $participantActivity
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
      */
     public function setParticipantActivity(array $participantActivity = array())
     {
+        foreach ($participantActivity as $nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfParticipantActivitiesParticipantActivityItem instanceof \Ews\StructType\EwsParticipantActivity) {
+                throw new \InvalidArgumentException(sprintf('The ParticipantActivity property can only contain items of \Ews\StructType\EwsParticipantActivity, "%s" given', is_object($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) ? get_class($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) : gettype($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem)), __LINE__);
+            }
+        }
         $this->ParticipantActivity = $participantActivity;
+        return $this;
+    }
+    /**
+     * Add item to ParticipantActivity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsParticipantActivity $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
+     */
+    public function addToParticipantActivity(\Ews\StructType\EwsParticipantActivity $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsParticipantActivity) {
+            throw new \InvalidArgumentException(sprintf('The ParticipantActivity property can only contain items of \Ews\StructType\EwsParticipantActivity, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ParticipantActivity[] = $item;
         return $this;
     }
     /**

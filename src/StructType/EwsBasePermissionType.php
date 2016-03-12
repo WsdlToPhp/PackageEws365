@@ -27,7 +27,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $CanCreateItems;
     /**
@@ -35,7 +35,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $CanCreateSubFolders;
     /**
@@ -43,7 +43,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFolderOwner;
     /**
@@ -51,7 +51,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFolderVisible;
     /**
@@ -59,7 +59,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFolderContact;
     /**
@@ -89,11 +89,11 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * @uses EwsBasePermissionType::setEditItems()
      * @uses EwsBasePermissionType::setDeleteItems()
      * @param \Ews\StructType\EwsUserIdType $userId
-     * @param boolean $canCreateItems
-     * @param boolean $canCreateSubFolders
-     * @param boolean $isFolderOwner
-     * @param boolean $isFolderVisible
-     * @param boolean $isFolderContact
+     * @param bool $canCreateItems
+     * @param bool $canCreateSubFolders
+     * @param bool $isFolderOwner
+     * @param bool $isFolderVisible
+     * @param bool $isFolderContact
      * @param string $editItems
      * @param string $deleteItems
      */
@@ -129,7 +129,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Get CanCreateItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCanCreateItems()
     {
@@ -137,7 +137,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Set CanCreateItems value
-     * @param boolean $canCreateItems
+     * @param bool $canCreateItems
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setCanCreateItems($canCreateItems = null)
@@ -147,7 +147,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Get CanCreateSubFolders value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCanCreateSubFolders()
     {
@@ -155,7 +155,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Set CanCreateSubFolders value
-     * @param boolean $canCreateSubFolders
+     * @param bool $canCreateSubFolders
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setCanCreateSubFolders($canCreateSubFolders = null)
@@ -165,7 +165,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Get IsFolderOwner value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFolderOwner()
     {
@@ -173,7 +173,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Set IsFolderOwner value
-     * @param boolean $isFolderOwner
+     * @param bool $isFolderOwner
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setIsFolderOwner($isFolderOwner = null)
@@ -183,7 +183,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Get IsFolderVisible value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFolderVisible()
     {
@@ -191,7 +191,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Set IsFolderVisible value
-     * @param boolean $isFolderVisible
+     * @param bool $isFolderVisible
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setIsFolderVisible($isFolderVisible = null)
@@ -201,7 +201,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Get IsFolderContact value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFolderContact()
     {
@@ -209,7 +209,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     }
     /**
      * Set IsFolderContact value
-     * @param boolean $isFolderContact
+     * @param bool $isFolderContact
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setIsFolderContact($isFolderContact = null)
@@ -229,11 +229,13 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Set EditItems value
      * @uses \Ews\EnumType\EwsPermissionActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsPermissionActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $editItems
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setEditItems($editItems = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionActionType::valueIsValid($editItems)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $editItems, implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
         }
@@ -252,11 +254,13 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      * Set DeleteItems value
      * @uses \Ews\EnumType\EwsPermissionActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsPermissionActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deleteItems
      * @return \Ews\StructType\EwsBasePermissionType
      */
     public function setDeleteItems($deleteItems = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionActionType::valueIsValid($deleteItems)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteItems, implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
         }

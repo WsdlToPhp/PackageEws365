@@ -19,17 +19,17 @@ class EwsOneDriveViewType
      * Constant for value 'SharedWithMe'
      * @return string 'SharedWithMe'
      */
-    const VALUE_SHAREDWITHME = 'SharedWithMe';
+    const VALUE_SHARED_WITH_ME = 'SharedWithMe';
     /**
      * Constant for value 'MyDocuments'
      * @return string 'MyDocuments'
      */
-    const VALUE_MYDOCUMENTS = 'MyDocuments';
+    const VALUE_MY_DOCUMENTS = 'MyDocuments';
     /**
      * Constant for value 'RecycleBin'
      * @return string 'RecycleBin'
      */
-    const VALUE_RECYCLEBIN = 'RecycleBin';
+    const VALUE_RECYCLE_BIN = 'RecycleBin';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -43,18 +43,18 @@ class EwsOneDriveViewType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_SHAREDWITHME
-     * @uses self::VALUE_MYDOCUMENTS
-     * @uses self::VALUE_RECYCLEBIN
+     * @uses self::VALUE_SHARED_WITH_ME
+     * @uses self::VALUE_MY_DOCUMENTS
+     * @uses self::VALUE_RECYCLE_BIN
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_SHAREDWITHME,
-            self::VALUE_MYDOCUMENTS,
-            self::VALUE_RECYCLEBIN,
+            self::VALUE_SHARED_WITH_ME,
+            self::VALUE_MY_DOCUMENTS,
+            self::VALUE_RECYCLE_BIN,
         );
     }
     /**

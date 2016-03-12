@@ -14,7 +14,7 @@ class EwsHoldStatusType
      * Constant for value 'NotOnHold'
      * @return string 'NotOnHold'
      */
-    const VALUE_NOTONHOLD = 'NotOnHold';
+    const VALUE_NOT_ON_HOLD = 'NotOnHold';
     /**
      * Constant for value 'Pending'
      * @return string 'Pending'
@@ -24,12 +24,12 @@ class EwsHoldStatusType
      * Constant for value 'OnHold'
      * @return string 'OnHold'
      */
-    const VALUE_ONHOLD = 'OnHold';
+    const VALUE_ON_HOLD = 'OnHold';
     /**
      * Constant for value 'PartialHold'
      * @return string 'PartialHold'
      */
-    const VALUE_PARTIALHOLD = 'PartialHold';
+    const VALUE_PARTIAL_HOLD = 'PartialHold';
     /**
      * Constant for value 'Failed'
      * @return string 'Failed'
@@ -47,20 +47,20 @@ class EwsHoldStatusType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOTONHOLD
+     * @uses self::VALUE_NOT_ON_HOLD
      * @uses self::VALUE_PENDING
-     * @uses self::VALUE_ONHOLD
-     * @uses self::VALUE_PARTIALHOLD
+     * @uses self::VALUE_ON_HOLD
+     * @uses self::VALUE_PARTIAL_HOLD
      * @uses self::VALUE_FAILED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOTONHOLD,
+            self::VALUE_NOT_ON_HOLD,
             self::VALUE_PENDING,
-            self::VALUE_ONHOLD,
-            self::VALUE_PARTIALHOLD,
+            self::VALUE_ON_HOLD,
+            self::VALUE_PARTIAL_HOLD,
             self::VALUE_FAILED,
         );
     }

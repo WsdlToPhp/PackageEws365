@@ -47,6 +47,10 @@ abstract class EwsResponseObjectType extends EwsResponseObjectCoreType
      */
     public function setObjectName($objectName = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectName) && !is_string($objectName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+        }
         $this->ObjectName = $objectName;
         return $this;
     }

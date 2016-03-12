@@ -17,7 +17,7 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $UmEnabled;
     /**
@@ -33,7 +33,7 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $PlayOnPhoneEnabled;
     /**
@@ -41,9 +41,9 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      * @uses EwsUnifiedMessageServiceConfiguration::setUmEnabled()
      * @uses EwsUnifiedMessageServiceConfiguration::setPlayOnPhoneDialString()
      * @uses EwsUnifiedMessageServiceConfiguration::setPlayOnPhoneEnabled()
-     * @param boolean $umEnabled
+     * @param bool $umEnabled
      * @param string $playOnPhoneDialString
-     * @param boolean $playOnPhoneEnabled
+     * @param bool $playOnPhoneEnabled
      */
     public function __construct($umEnabled = null, $playOnPhoneDialString = null, $playOnPhoneEnabled = null)
     {
@@ -54,7 +54,7 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Get UmEnabled value
-     * @return boolean
+     * @return bool
      */
     public function getUmEnabled()
     {
@@ -62,7 +62,7 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Set UmEnabled value
-     * @param boolean $umEnabled
+     * @param bool $umEnabled
      * @return \Ews\StructType\EwsUnifiedMessageServiceConfiguration
      */
     public function setUmEnabled($umEnabled = null)
@@ -85,12 +85,16 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      */
     public function setPlayOnPhoneDialString($playOnPhoneDialString = null)
     {
+        // validation for constraint: string
+        if (!is_null($playOnPhoneDialString) && !is_string($playOnPhoneDialString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($playOnPhoneDialString)), __LINE__);
+        }
         $this->PlayOnPhoneDialString = $playOnPhoneDialString;
         return $this;
     }
     /**
      * Get PlayOnPhoneEnabled value
-     * @return boolean
+     * @return bool
      */
     public function getPlayOnPhoneEnabled()
     {
@@ -98,7 +102,7 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Set PlayOnPhoneEnabled value
-     * @param boolean $playOnPhoneEnabled
+     * @param bool $playOnPhoneEnabled
      * @return \Ews\StructType\EwsUnifiedMessageServiceConfiguration
      */
     public function setPlayOnPhoneEnabled($playOnPhoneEnabled = null)

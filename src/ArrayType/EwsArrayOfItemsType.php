@@ -14,22 +14,22 @@ class EwsArrayOfItemsType extends AbstractStructArrayBase
 {
     /**
      * The Item
-     * @var array
+     * @var \Ews\StructType\EwsItemType
      */
     public $Item;
     /**
      * Constructor method for ArrayOfItemsType
      * @uses EwsArrayOfItemsType::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsItemType $item
      */
-    public function __construct(array $item = array())
+    public function __construct(\Ews\StructType\EwsItemType $item = null)
     {
         $this
             ->setItem($item);
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsItemType|null
      */
     public function getItem()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfItemsType extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @param \Ews\StructType\EwsItemType $item
      * @return \Ews\ArrayType\EwsArrayOfItemsType
      */
-    public function setItem(array $item = array())
+    public function setItem(\Ews\StructType\EwsItemType $item = null)
     {
         $this->Item = $item;
         return $this;

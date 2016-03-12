@@ -19,15 +19,15 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Discovery search configuration.
-     * @var array
+     * @var \Ews\StructType\EwsDiscoverySearchConfigurationType[]
      */
     public $DiscoverySearchConfiguration;
     /**
      * Constructor method for ArrayOfDiscoverySearchConfigurationType
      * @uses
      * EwsArrayOfDiscoverySearchConfigurationType::setDiscoverySearchConfiguration()
-     * @param array $discoverySearchConfiguration
+     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[]
+     * $discoverySearchConfiguration
      */
     public function __construct(array $discoverySearchConfiguration = array())
     {
@@ -36,7 +36,7 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
     }
     /**
      * Get DiscoverySearchConfiguration value
-     * @return array
+     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType[]|null
      */
     public function getDiscoverySearchConfiguration()
     {
@@ -44,12 +44,35 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
     }
     /**
      * Set DiscoverySearchConfiguration value
-     * @param array $discoverySearchConfiguration
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[]
+     * $discoverySearchConfiguration
      * @return \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
      */
     public function setDiscoverySearchConfiguration(array $discoverySearchConfiguration = array())
     {
+        foreach ($discoverySearchConfiguration as $arrayOfDiscoverySearchConfigurationTypeDiscoverySearchConfigurationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfDiscoverySearchConfigurationTypeDiscoverySearchConfigurationItem instanceof \Ews\StructType\EwsDiscoverySearchConfigurationType) {
+                throw new \InvalidArgumentException(sprintf('The DiscoverySearchConfiguration property can only contain items of \Ews\StructType\EwsDiscoverySearchConfigurationType, "%s" given', is_object($arrayOfDiscoverySearchConfigurationTypeDiscoverySearchConfigurationItem) ? get_class($arrayOfDiscoverySearchConfigurationTypeDiscoverySearchConfigurationItem) : gettype($arrayOfDiscoverySearchConfigurationTypeDiscoverySearchConfigurationItem)), __LINE__);
+            }
+        }
         $this->DiscoverySearchConfiguration = $discoverySearchConfiguration;
+        return $this;
+    }
+    /**
+     * Add item to DiscoverySearchConfiguration value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType $item
+     * @return \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
+     */
+    public function addToDiscoverySearchConfiguration(\Ews\StructType\EwsDiscoverySearchConfigurationType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsDiscoverySearchConfigurationType) {
+            throw new \InvalidArgumentException(sprintf('The DiscoverySearchConfiguration property can only contain items of \Ews\StructType\EwsDiscoverySearchConfigurationType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->DiscoverySearchConfiguration[] = $item;
         return $this;
     }
     /**

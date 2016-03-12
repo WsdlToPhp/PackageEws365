@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
      * The ConversationAction
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsConversationActionType[]
      */
     public $ConversationAction;
     /**
      * Constructor method for NonEmptyArrayOfApplyConversationActionType
      * @uses EwsNonEmptyArrayOfApplyConversationActionType::setConversationAction()
-     * @param array $conversationAction
+     * @param \Ews\StructType\EwsConversationActionType[] $conversationAction
      */
     public function __construct(array $conversationAction = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
     }
     /**
      * Get ConversationAction value
-     * @return array
+     * @return \Ews\StructType\EwsConversationActionType[]|null
      */
     public function getConversationAction()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
     }
     /**
      * Set ConversationAction value
-     * @param array $conversationAction
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsConversationActionType[] $conversationAction
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
      */
     public function setConversationAction(array $conversationAction = array())
     {
+        foreach ($conversationAction as $nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfApplyConversationActionTypeConversationActionItem instanceof \Ews\StructType\EwsConversationActionType) {
+                throw new \InvalidArgumentException(sprintf('The ConversationAction property can only contain items of \Ews\StructType\EwsConversationActionType, "%s" given', is_object($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) ? get_class($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) : gettype($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem)), __LINE__);
+            }
+        }
         $this->ConversationAction = $conversationAction;
+        return $this;
+    }
+    /**
+     * Add item to ConversationAction value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsConversationActionType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
+     */
+    public function addToConversationAction(\Ews\StructType\EwsConversationActionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsConversationActionType) {
+            throw new \InvalidArgumentException(sprintf('The ConversationAction property can only contain items of \Ews\StructType\EwsConversationActionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ConversationAction[] = $item;
         return $this;
     }
     /**

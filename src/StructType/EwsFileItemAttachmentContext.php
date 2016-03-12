@@ -67,7 +67,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReceivedTime;
     /**
@@ -103,7 +103,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      * @param string $displayTo
      * @param string $displayCc
      * @param string $displayBcc
-     * @param dateTime $receivedTime
+     * @param string $receivedTime
      * @param string $importance
      * @param string $itemPath
      */
@@ -135,6 +135,10 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setItemReferenceId($itemReferenceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemReferenceId) && !is_string($itemReferenceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemReferenceId)), __LINE__);
+        }
         $this->ItemReferenceId = $itemReferenceId;
         return $this;
     }
@@ -153,6 +157,10 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setReferenceId($referenceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($referenceId) && !is_string($referenceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($referenceId)), __LINE__);
+        }
         $this->ReferenceId = $referenceId;
         return $this;
     }
@@ -189,6 +197,10 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setDisplayTo($displayTo = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayTo) && !is_string($displayTo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayTo)), __LINE__);
+        }
         $this->DisplayTo = $displayTo;
         return $this;
     }
@@ -207,6 +219,10 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setDisplayCc($displayCc = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayCc) && !is_string($displayCc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayCc)), __LINE__);
+        }
         $this->DisplayCc = $displayCc;
         return $this;
     }
@@ -225,12 +241,16 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setDisplayBcc($displayBcc = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayBcc) && !is_string($displayBcc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayBcc)), __LINE__);
+        }
         $this->DisplayBcc = $displayBcc;
         return $this;
     }
     /**
      * Get ReceivedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReceivedTime()
     {
@@ -238,11 +258,15 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     }
     /**
      * Set ReceivedTime value
-     * @param dateTime $receivedTime
+     * @param string $receivedTime
      * @return \Ews\StructType\EwsFileItemAttachmentContext
      */
     public function setReceivedTime($receivedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($receivedTime) && !is_string($receivedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($receivedTime)), __LINE__);
+        }
         $this->ReceivedTime = $receivedTime;
         return $this;
     }
@@ -258,11 +282,13 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      * Set Importance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $importance
      * @return \Ews\StructType\EwsFileItemAttachmentContext
      */
     public function setImportance($importance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -284,6 +310,10 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
      */
     public function setItemPath($itemPath = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemPath) && !is_string($itemPath)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemPath)), __LINE__);
+        }
         $this->ItemPath = $itemPath;
         return $this;
     }

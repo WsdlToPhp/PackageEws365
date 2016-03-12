@@ -55,6 +55,10 @@ class EwsTaskSuggestionType extends EwsEntityType
      */
     public function setTaskString($taskString = null)
     {
+        // validation for constraint: string
+        if (!is_null($taskString) && !is_string($taskString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($taskString)), __LINE__);
+        }
         $this->TaskString = $taskString;
         return $this;
     }

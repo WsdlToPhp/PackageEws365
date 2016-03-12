@@ -44,6 +44,10 @@ class EwsFindMeetingTimesConstraints extends AbstractStructBase
      */
     public function setMaxCandidates($maxCandidates = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxCandidates) && !is_int($maxCandidates)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxCandidates)), __LINE__);
+        }
         $this->MaxCandidates = $maxCandidates;
         return $this;
     }

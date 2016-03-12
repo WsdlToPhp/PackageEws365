@@ -16,7 +16,6 @@ class EwsMemberType extends AbstractStructBase
      * The Mailbox
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Mailbox;
@@ -80,11 +79,13 @@ class EwsMemberType extends AbstractStructBase
      * Set Status value
      * @uses \Ews\EnumType\EwsMemberStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsMemberStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $status
      * @return \Ews\StructType\EwsMemberType
      */
     public function setStatus($status = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMemberStatusType::valueIsValid($status)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $status, implode(', ', \Ews\EnumType\EwsMemberStatusType::getValidValues())), __LINE__);
         }
@@ -106,6 +107,10 @@ class EwsMemberType extends AbstractStructBase
      */
     public function setKey($key = null)
     {
+        // validation for constraint: string
+        if (!is_null($key) && !is_string($key)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($key)), __LINE__);
+        }
         $this->Key = $key;
         return $this;
     }

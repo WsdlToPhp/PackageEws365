@@ -244,6 +244,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setCarrier($carrier = null)
     {
+        // validation for constraint: string
+        if (!is_null($carrier) && !is_string($carrier)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($carrier)), __LINE__);
+        }
         $this->Carrier = $carrier;
         return $this;
     }
@@ -262,6 +266,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setTrackingNumber($trackingNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($trackingNumber) && !is_string($trackingNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($trackingNumber)), __LINE__);
+        }
         $this->TrackingNumber = $trackingNumber;
         return $this;
     }
@@ -280,6 +288,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setTrackingUrl($trackingUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($trackingUrl) && !is_string($trackingUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($trackingUrl)), __LINE__);
+        }
         $this->TrackingUrl = $trackingUrl;
         return $this;
     }
@@ -298,6 +310,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setExpectedArrivalFrom($expectedArrivalFrom = null)
     {
+        // validation for constraint: string
+        if (!is_null($expectedArrivalFrom) && !is_string($expectedArrivalFrom)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expectedArrivalFrom)), __LINE__);
+        }
         $this->ExpectedArrivalFrom = $expectedArrivalFrom;
         return $this;
     }
@@ -316,6 +332,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setExpectedArrivalUntil($expectedArrivalUntil = null)
     {
+        // validation for constraint: string
+        if (!is_null($expectedArrivalUntil) && !is_string($expectedArrivalUntil)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expectedArrivalUntil)), __LINE__);
+        }
         $this->ExpectedArrivalUntil = $expectedArrivalUntil;
         return $this;
     }
@@ -334,6 +354,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProduct($product = null)
     {
+        // validation for constraint: string
+        if (!is_null($product) && !is_string($product)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($product)), __LINE__);
+        }
         $this->Product = $product;
         return $this;
     }
@@ -352,6 +376,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductUrl($productUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($productUrl) && !is_string($productUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productUrl)), __LINE__);
+        }
         $this->ProductUrl = $productUrl;
         return $this;
     }
@@ -370,6 +398,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductImage($productImage = null)
     {
+        // validation for constraint: string
+        if (!is_null($productImage) && !is_string($productImage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productImage)), __LINE__);
+        }
         $this->ProductImage = $productImage;
         return $this;
     }
@@ -388,6 +420,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductSku($productSku = null)
     {
+        // validation for constraint: string
+        if (!is_null($productSku) && !is_string($productSku)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productSku)), __LINE__);
+        }
         $this->ProductSku = $productSku;
         return $this;
     }
@@ -406,6 +442,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductDescription($productDescription = null)
     {
+        // validation for constraint: string
+        if (!is_null($productDescription) && !is_string($productDescription)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productDescription)), __LINE__);
+        }
         $this->ProductDescription = $productDescription;
         return $this;
     }
@@ -424,6 +464,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductBrand($productBrand = null)
     {
+        // validation for constraint: string
+        if (!is_null($productBrand) && !is_string($productBrand)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productBrand)), __LINE__);
+        }
         $this->ProductBrand = $productBrand;
         return $this;
     }
@@ -442,6 +486,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setProductColor($productColor = null)
     {
+        // validation for constraint: string
+        if (!is_null($productColor) && !is_string($productColor)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($productColor)), __LINE__);
+        }
         $this->ProductColor = $productColor;
         return $this;
     }
@@ -460,6 +508,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setOrderNumber($orderNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($orderNumber) && !is_string($orderNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($orderNumber)), __LINE__);
+        }
         $this->OrderNumber = $orderNumber;
         return $this;
     }
@@ -478,6 +530,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setSeller($seller = null)
     {
+        // validation for constraint: string
+        if (!is_null($seller) && !is_string($seller)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($seller)), __LINE__);
+        }
         $this->Seller = $seller;
         return $this;
     }
@@ -496,6 +552,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setOrderStatus($orderStatus = null)
     {
+        // validation for constraint: string
+        if (!is_null($orderStatus) && !is_string($orderStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($orderStatus)), __LINE__);
+        }
         $this->OrderStatus = $orderStatus;
         return $this;
     }
@@ -514,6 +574,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setAddressName($addressName = null)
     {
+        // validation for constraint: string
+        if (!is_null($addressName) && !is_string($addressName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($addressName)), __LINE__);
+        }
         $this->AddressName = $addressName;
         return $this;
     }
@@ -532,6 +596,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setStreetAddress($streetAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($streetAddress) && !is_string($streetAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($streetAddress)), __LINE__);
+        }
         $this->StreetAddress = $streetAddress;
         return $this;
     }
@@ -550,6 +618,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setAddressLocality($addressLocality = null)
     {
+        // validation for constraint: string
+        if (!is_null($addressLocality) && !is_string($addressLocality)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($addressLocality)), __LINE__);
+        }
         $this->AddressLocality = $addressLocality;
         return $this;
     }
@@ -568,6 +640,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setAddressRegion($addressRegion = null)
     {
+        // validation for constraint: string
+        if (!is_null($addressRegion) && !is_string($addressRegion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($addressRegion)), __LINE__);
+        }
         $this->AddressRegion = $addressRegion;
         return $this;
     }
@@ -586,6 +662,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setAddressCountry($addressCountry = null)
     {
+        // validation for constraint: string
+        if (!is_null($addressCountry) && !is_string($addressCountry)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($addressCountry)), __LINE__);
+        }
         $this->AddressCountry = $addressCountry;
         return $this;
     }
@@ -604,6 +684,10 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      */
     public function setPostalCode($postalCode = null)
     {
+        // validation for constraint: string
+        if (!is_null($postalCode) && !is_string($postalCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($postalCode)), __LINE__);
+        }
         $this->PostalCode = $postalCode;
         return $this;
     }

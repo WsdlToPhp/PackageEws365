@@ -25,7 +25,6 @@ class EwsDisableAppType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: List of possible reasons for disabling the client extension
      * @var string
      */
     public $DisableReason;
@@ -57,6 +56,10 @@ class EwsDisableAppType extends EwsBaseRequestType
      */
     public function setID($iD = null)
     {
+        // validation for constraint: string
+        if (!is_null($iD) && !is_string($iD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+        }
         $this->ID = $iD;
         return $this;
     }
@@ -72,11 +75,13 @@ class EwsDisableAppType extends EwsBaseRequestType
      * Set DisableReason value
      * @uses \Ews\EnumType\EwsDisableReasonType::valueIsValid()
      * @uses \Ews\EnumType\EwsDisableReasonType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $disableReason
      * @return \Ews\StructType\EwsDisableAppType
      */
     public function setDisableReason($disableReason = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisableReasonType::valueIsValid($disableReason)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $disableReason, implode(', ', \Ews\EnumType\EwsDisableReasonType::getValidValues())), __LINE__);
         }

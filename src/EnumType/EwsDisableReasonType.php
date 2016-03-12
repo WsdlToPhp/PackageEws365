@@ -16,22 +16,22 @@ class EwsDisableReasonType
      * Constant for value 'NoReason'
      * @return string 'NoReason'
      */
-    const VALUE_NOREASON = 'NoReason';
+    const VALUE_NO_REASON = 'NoReason';
     /**
      * Constant for value 'OutlookClientPerformance'
      * @return string 'OutlookClientPerformance'
      */
-    const VALUE_OUTLOOKCLIENTPERFORMANCE = 'OutlookClientPerformance';
+    const VALUE_OUTLOOK_CLIENT_PERFORMANCE = 'OutlookClientPerformance';
     /**
      * Constant for value 'OWAClientPerformance'
      * @return string 'OWAClientPerformance'
      */
-    const VALUE_OWACLIENTPERFORMANCE = 'OWAClientPerformance';
+    const VALUE_OWACLIENT_PERFORMANCE = 'OWAClientPerformance';
     /**
      * Constant for value 'MobileClientPerformance'
      * @return string 'MobileClientPerformance'
      */
-    const VALUE_MOBILECLIENTPERFORMANCE = 'MobileClientPerformance';
+    const VALUE_MOBILE_CLIENT_PERFORMANCE = 'MobileClientPerformance';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -44,19 +44,19 @@ class EwsDisableReasonType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOREASON
-     * @uses self::VALUE_OUTLOOKCLIENTPERFORMANCE
-     * @uses self::VALUE_OWACLIENTPERFORMANCE
-     * @uses self::VALUE_MOBILECLIENTPERFORMANCE
+     * @uses self::VALUE_NO_REASON
+     * @uses self::VALUE_OUTLOOK_CLIENT_PERFORMANCE
+     * @uses self::VALUE_OWACLIENT_PERFORMANCE
+     * @uses self::VALUE_MOBILE_CLIENT_PERFORMANCE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOREASON,
-            self::VALUE_OUTLOOKCLIENTPERFORMANCE,
-            self::VALUE_OWACLIENTPERFORMANCE,
-            self::VALUE_MOBILECLIENTPERFORMANCE,
+            self::VALUE_NO_REASON,
+            self::VALUE_OUTLOOK_CLIENT_PERFORMANCE,
+            self::VALUE_OWACLIENT_PERFORMANCE,
+            self::VALUE_MOBILE_CLIENT_PERFORMANCE,
         );
     }
     /**

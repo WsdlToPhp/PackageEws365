@@ -64,6 +64,10 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
      */
     public function setRecurringMasterId($recurringMasterId = null)
     {
+        // validation for constraint: string
+        if (!is_null($recurringMasterId) && !is_string($recurringMasterId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($recurringMasterId)), __LINE__);
+        }
         $this->RecurringMasterId = $recurringMasterId;
         return $this;
     }
@@ -82,6 +86,10 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
      */
     public function setInstanceIndex($instanceIndex = null)
     {
+        // validation for constraint: int
+        if (!is_null($instanceIndex) && !is_int($instanceIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($instanceIndex)), __LINE__);
+        }
         $this->InstanceIndex = $instanceIndex;
         return $this;
     }
@@ -100,6 +108,10 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
      */
     public function setChangeKey($changeKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($changeKey) && !is_string($changeKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+        }
         $this->ChangeKey = $changeKey;
         return $this;
     }

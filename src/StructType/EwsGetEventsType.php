@@ -14,22 +14,26 @@ class EwsGetEventsType extends EwsBaseRequestType
 {
     /**
      * The SubscriptionId
-     * @var NonEmptyStringType
+     * Meta informations extracted from the WSDL
+     * - minLength: 1
+     * @var string
      */
     public $SubscriptionId;
     /**
      * The Watermark
-     * @var NonEmptyStringType
+     * Meta informations extracted from the WSDL
+     * - minLength: 1
+     * @var string
      */
     public $Watermark;
     /**
      * Constructor method for GetEventsType
      * @uses EwsGetEventsType::setSubscriptionId()
      * @uses EwsGetEventsType::setWatermark()
-     * @param NonEmptyStringType $subscriptionId
-     * @param NonEmptyStringType $watermark
+     * @param string $subscriptionId
+     * @param string $watermark
      */
-    public function __construct(NonEmptyStringType $subscriptionId = null, NonEmptyStringType $watermark = null)
+    public function __construct($subscriptionId = null, $watermark = null)
     {
         $this
             ->setSubscriptionId($subscriptionId)
@@ -37,7 +41,7 @@ class EwsGetEventsType extends EwsBaseRequestType
     }
     /**
      * Get SubscriptionId value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getSubscriptionId()
     {
@@ -45,17 +49,25 @@ class EwsGetEventsType extends EwsBaseRequestType
     }
     /**
      * Set SubscriptionId value
-     * @param NonEmptyStringType $subscriptionId
+     * @param string $subscriptionId
      * @return \Ews\StructType\EwsGetEventsType
      */
-    public function setSubscriptionId(NonEmptyStringType $subscriptionId = null)
+    public function setSubscriptionId($subscriptionId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subscriptionId)), __LINE__);
+        }
         $this->SubscriptionId = $subscriptionId;
         return $this;
     }
     /**
      * Get Watermark value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getWatermark()
     {
@@ -63,11 +75,19 @@ class EwsGetEventsType extends EwsBaseRequestType
     }
     /**
      * Set Watermark value
-     * @param NonEmptyStringType $watermark
+     * @param string $watermark
      * @return \Ews\StructType\EwsGetEventsType
      */
-    public function setWatermark(NonEmptyStringType $watermark = null)
+    public function setWatermark($watermark = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(watermark) && strlen(watermark) < 1) || (is_array(watermark) && count(watermark) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($watermark) && !is_string($watermark)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($watermark)), __LINE__);
+        }
         $this->Watermark = $watermark;
         return $this;
     }

@@ -23,7 +23,7 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
      * The UserConfigurationProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $UserConfigurationProperties;
     /**
@@ -31,7 +31,7 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
      * @uses EwsGetUserConfigurationType::setUserConfigurationName()
      * @uses EwsGetUserConfigurationType::setUserConfigurationProperties()
      * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
-     * @param string[] $userConfigurationProperties
+     * @param string $userConfigurationProperties
      */
     public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, $userConfigurationProperties = null)
     {
@@ -59,7 +59,7 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
     }
     /**
      * Get UserConfigurationProperties value
-     * @return string[]
+     * @return string
      */
     public function getUserConfigurationProperties()
     {
@@ -69,11 +69,13 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
      * Set UserConfigurationProperties value
      * @uses \Ews\EnumType\EwsUserConfigurationPropertyType::valueIsValid()
      * @uses \Ews\EnumType\EwsUserConfigurationPropertyType::getValidValues()
-     * @param string[] $userConfigurationProperties
+     * @throws \InvalidArgumentException
+     * @param string $userConfigurationProperties
      * @return \Ews\StructType\EwsGetUserConfigurationType
      */
     public function setUserConfigurationProperties($userConfigurationProperties = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserConfigurationPropertyType::valueIsValid($userConfigurationProperties)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $userConfigurationProperties, implode(', ', \Ews\EnumType\EwsUserConfigurationPropertyType::getValidValues())), __LINE__);
         }

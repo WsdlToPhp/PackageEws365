@@ -14,13 +14,13 @@ class EwsSetImListMigrationCompletedType extends EwsBaseRequestType
 {
     /**
      * The ImListMigrationCompleted
-     * @var boolean
+     * @var bool
      */
     public $ImListMigrationCompleted;
     /**
      * Constructor method for SetImListMigrationCompletedType
      * @uses EwsSetImListMigrationCompletedType::setImListMigrationCompleted()
-     * @param boolean $imListMigrationCompleted
+     * @param bool $imListMigrationCompleted
      */
     public function __construct($imListMigrationCompleted = null)
     {
@@ -29,7 +29,7 @@ class EwsSetImListMigrationCompletedType extends EwsBaseRequestType
     }
     /**
      * Get ImListMigrationCompleted value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getImListMigrationCompleted()
     {
@@ -37,7 +37,7 @@ class EwsSetImListMigrationCompletedType extends EwsBaseRequestType
     }
     /**
      * Set ImListMigrationCompleted value
-     * @param boolean $imListMigrationCompleted
+     * @param bool $imListMigrationCompleted
      * @return \Ews\StructType\EwsSetImListMigrationCompletedType
      */
     public function setImListMigrationCompleted($imListMigrationCompleted = null)

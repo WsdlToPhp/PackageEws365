@@ -17,13 +17,13 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[]
      */
     public $Sender;
     /**
      * Constructor method for ArrayOfUnifiedGroupSenderRestrictionsDataType
      * @uses EwsArrayOfUnifiedGroupSenderRestrictionsDataType::setSender()
-     * @param array $sender
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
      */
     public function __construct(array $sender = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
     }
     /**
      * Get Sender value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[]|null
      */
     public function getSender()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
     }
     /**
      * Set Sender value
-     * @param array $sender
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
      */
     public function setSender(array $sender = array())
     {
+        foreach ($sender as $arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
+                throw new \InvalidArgumentException(sprintf('The Sender property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType, "%s" given', is_object($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) ? get_class($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) : gettype($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem)), __LINE__);
+            }
+        }
         $this->Sender = $sender;
+        return $this;
+    }
+    /**
+     * Add item to Sender value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     */
+    public function addToSender(\Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
+            throw new \InvalidArgumentException(sprintf('The Sender property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Sender[] = $item;
         return $this;
     }
     /**

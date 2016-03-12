@@ -53,11 +53,13 @@ class EwsWorkHoursType extends AbstractStructBase
      * Set WorkDay value
      * @uses \Ews\EnumType\EwsSystemDayOfWeek::valueIsValid()
      * @uses \Ews\EnumType\EwsSystemDayOfWeek::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $workDay
      * @return \Ews\StructType\EwsWorkHoursType
      */
     public function setWorkDay($workDay = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSystemDayOfWeek::valueIsValid($workDay)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $workDay, implode(', ', \Ews\EnumType\EwsSystemDayOfWeek::getValidValues())), __LINE__);
         }

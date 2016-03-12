@@ -45,6 +45,14 @@ class EwsUserConfigurationNameType extends EwsTargetFolderIdType
      */
     public function setName($name = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(name) && strlen(name) < 1) || (is_array(name) && count(name) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }

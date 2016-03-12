@@ -19,17 +19,17 @@ class EwsEntityFeedbackEntityAddSourceType
      * Constant for value 'EntityRelevanceApi'
      * @return string 'EntityRelevanceApi'
      */
-    const VALUE_ENTITYRELEVANCEAPI = 'EntityRelevanceApi';
+    const VALUE_ENTITY_RELEVANCE_API = 'EntityRelevanceApi';
     /**
      * Constant for value 'ActiveDirectory'
      * @return string 'ActiveDirectory'
      */
-    const VALUE_ACTIVEDIRECTORY = 'ActiveDirectory';
+    const VALUE_ACTIVE_DIRECTORY = 'ActiveDirectory';
     /**
      * Constant for value 'ExplicitTyping'
      * @return string 'ExplicitTyping'
      */
-    const VALUE_EXPLICITTYPING = 'ExplicitTyping';
+    const VALUE_EXPLICIT_TYPING = 'ExplicitTyping';
     /**
      * Constant for value 'Paste'
      * @return string 'Paste'
@@ -39,7 +39,7 @@ class EwsEntityFeedbackEntityAddSourceType
      * Constant for value 'RecipientCache'
      * @return string 'RecipientCache'
      */
-    const VALUE_RECIPIENTCACHE = 'RecipientCache';
+    const VALUE_RECIPIENT_CACHE = 'RecipientCache';
     /**
      * Constant for value 'Other'
      * @return string 'Other'
@@ -58,11 +58,11 @@ class EwsEntityFeedbackEntityAddSourceType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_ENTITYRELEVANCEAPI
-     * @uses self::VALUE_ACTIVEDIRECTORY
-     * @uses self::VALUE_EXPLICITTYPING
+     * @uses self::VALUE_ENTITY_RELEVANCE_API
+     * @uses self::VALUE_ACTIVE_DIRECTORY
+     * @uses self::VALUE_EXPLICIT_TYPING
      * @uses self::VALUE_PASTE
-     * @uses self::VALUE_RECIPIENTCACHE
+     * @uses self::VALUE_RECIPIENT_CACHE
      * @uses self::VALUE_OTHER
      * @return string[]
      */
@@ -70,11 +70,11 @@ class EwsEntityFeedbackEntityAddSourceType
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_ENTITYRELEVANCEAPI,
-            self::VALUE_ACTIVEDIRECTORY,
-            self::VALUE_EXPLICITTYPING,
+            self::VALUE_ENTITY_RELEVANCE_API,
+            self::VALUE_ACTIVE_DIRECTORY,
+            self::VALUE_EXPLICIT_TYPING,
             self::VALUE_PASTE,
-            self::VALUE_RECIPIENTCACHE,
+            self::VALUE_RECIPIENT_CACHE,
             self::VALUE_OTHER,
         );
     }

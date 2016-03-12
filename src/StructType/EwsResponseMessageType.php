@@ -30,7 +30,6 @@ class EwsResponseMessageType extends AbstractStructBase
      * The ResponseCode
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Represents the message keys that can be returned by response error messages
      * @var string
      */
     public $ResponseCode;
@@ -82,11 +81,13 @@ class EwsResponseMessageType extends AbstractStructBase
      * Set ResponseClass value
      * @uses \Ews\EnumType\EwsResponseClassType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseClassType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseClass
      * @return \Ews\StructType\EwsResponseMessageType
      */
     public function setResponseClass($responseClass = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseClassType::valueIsValid($responseClass)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseClass, implode(', ', \Ews\EnumType\EwsResponseClassType::getValidValues())), __LINE__);
         }
@@ -108,6 +109,10 @@ class EwsResponseMessageType extends AbstractStructBase
      */
     public function setMessageText($messageText = null)
     {
+        // validation for constraint: string
+        if (!is_null($messageText) && !is_string($messageText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageText)), __LINE__);
+        }
         $this->MessageText = $messageText;
         return $this;
     }
@@ -123,11 +128,13 @@ class EwsResponseMessageType extends AbstractStructBase
      * Set ResponseCode value
      * @uses \Ews\EnumType\EwsResponseCodeType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseCodeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseCode
      * @return \Ews\StructType\EwsResponseMessageType
      */
     public function setResponseCode($responseCode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseCodeType::valueIsValid($responseCode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseCode, implode(', ', \Ews\EnumType\EwsResponseCodeType::getValidValues())), __LINE__);
         }
@@ -149,6 +156,10 @@ class EwsResponseMessageType extends AbstractStructBase
      */
     public function setDescriptiveLinkKey($descriptiveLinkKey = null)
     {
+        // validation for constraint: int
+        if (!is_null($descriptiveLinkKey) && !is_int($descriptiveLinkKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($descriptiveLinkKey)), __LINE__);
+        }
         $this->DescriptiveLinkKey = $descriptiveLinkKey;
         return $this;
     }

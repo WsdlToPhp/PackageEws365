@@ -19,7 +19,6 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * The PropertyType
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Includes all of the extended property types that we support. Note that Error, Null, Object and Object array can not be used in restrictions, or for setting/getting values. They are only there for error reporting purposes.
      * @var string
      */
     public $PropertyType;
@@ -27,7 +26,6 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * The DistinguishedPropertySetId
      * Meta informations extracted from the WSDL
      * - use: optional
-     * - documentation: Defines the well known property set ids for extended properties.
      * @var string
      */
     public $DistinguishedPropertySetId;
@@ -100,11 +98,13 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * Set PropertyType value
      * @uses \Ews\EnumType\EwsMapiPropertyTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsMapiPropertyTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $propertyType
      * @return \Ews\StructType\EwsPathToExtendedFieldType
      */
     public function setPropertyType($propertyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMapiPropertyTypeType::valueIsValid($propertyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $propertyType, implode(', ', \Ews\EnumType\EwsMapiPropertyTypeType::getValidValues())), __LINE__);
         }
@@ -123,11 +123,13 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * Set DistinguishedPropertySetId value
      * @uses \Ews\EnumType\EwsDistinguishedPropertySetType::valueIsValid()
      * @uses \Ews\EnumType\EwsDistinguishedPropertySetType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $distinguishedPropertySetId
      * @return \Ews\StructType\EwsPathToExtendedFieldType
      */
     public function setDistinguishedPropertySetId($distinguishedPropertySetId = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedPropertySetType::valueIsValid($distinguishedPropertySetId)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $distinguishedPropertySetId, implode(', ', \Ews\EnumType\EwsDistinguishedPropertySetType::getValidValues())), __LINE__);
         }
@@ -149,6 +151,14 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      */
     public function setPropertySetId($propertySetId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($propertySetId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $propertySetId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertySetId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($propertySetId) && !is_string($propertySetId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($propertySetId)), __LINE__);
+        }
         $this->PropertySetId = $propertySetId;
         return $this;
     }
@@ -167,6 +177,14 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      */
     public function setPropertyTag($propertyTag = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($propertyTag) && !preg_match('/(0x|0X)[0-9A-Fa-f]{1,4}/', $propertyTag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertyTag)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($propertyTag) && !is_string($propertyTag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($propertyTag)), __LINE__);
+        }
         $this->PropertyTag = $propertyTag;
         return $this;
     }
@@ -185,6 +203,10 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      */
     public function setPropertyName($propertyName = null)
     {
+        // validation for constraint: string
+        if (!is_null($propertyName) && !is_string($propertyName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($propertyName)), __LINE__);
+        }
         $this->PropertyName = $propertyName;
         return $this;
     }
@@ -203,6 +225,10 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      */
     public function setPropertyId($propertyId = null)
     {
+        // validation for constraint: int
+        if (!is_null($propertyId) && !is_int($propertyId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertyId)), __LINE__);
+        }
         $this->PropertyId = $propertyId;
         return $this;
     }

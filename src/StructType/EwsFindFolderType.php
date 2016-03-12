@@ -16,7 +16,6 @@ class EwsFindFolderType extends EwsBaseRequestType
      * The Traversal
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Types of sub-tree traversal for deletion and enumeration
      * @var string
      */
     public $Traversal;
@@ -39,7 +38,6 @@ class EwsFindFolderType extends EwsBaseRequestType
      * The Restriction
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;
@@ -85,11 +83,13 @@ class EwsFindFolderType extends EwsBaseRequestType
      * Set Traversal value
      * @uses \Ews\EnumType\EwsFolderQueryTraversalType::valueIsValid()
      * @uses \Ews\EnumType\EwsFolderQueryTraversalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $traversal
      * @return \Ews\StructType\EwsFindFolderType
      */
     public function setTraversal($traversal = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFolderQueryTraversalType::valueIsValid($traversal)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsFolderQueryTraversalType::getValidValues())), __LINE__);
         }

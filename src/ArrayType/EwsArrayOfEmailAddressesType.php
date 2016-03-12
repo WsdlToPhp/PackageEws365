@@ -17,14 +17,13 @@ class EwsArrayOfEmailAddressesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
-     * @var array
+     * @var \Ews\StructType\EwsEmailAddressType[]
      */
     public $Address;
     /**
      * Constructor method for ArrayOfEmailAddressesType
      * @uses EwsArrayOfEmailAddressesType::setAddress()
-     * @param array $address
+     * @param \Ews\StructType\EwsEmailAddressType[] $address
      */
     public function __construct(array $address = array())
     {
@@ -33,7 +32,7 @@ class EwsArrayOfEmailAddressesType extends AbstractStructArrayBase
     }
     /**
      * Get Address value
-     * @return array
+     * @return \Ews\StructType\EwsEmailAddressType[]|null
      */
     public function getAddress()
     {
@@ -41,12 +40,34 @@ class EwsArrayOfEmailAddressesType extends AbstractStructArrayBase
     }
     /**
      * Set Address value
-     * @param array $address
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressType[] $address
      * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType
      */
     public function setAddress(array $address = array())
     {
+        foreach ($address as $arrayOfEmailAddressesTypeAddressItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEmailAddressesTypeAddressItem instanceof \Ews\StructType\EwsEmailAddressType) {
+                throw new \InvalidArgumentException(sprintf('The Address property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($arrayOfEmailAddressesTypeAddressItem) ? get_class($arrayOfEmailAddressesTypeAddressItem) : gettype($arrayOfEmailAddressesTypeAddressItem)), __LINE__);
+            }
+        }
         $this->Address = $address;
+        return $this;
+    }
+    /**
+     * Add item to Address value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressType $item
+     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     */
+    public function addToAddress(\Ews\StructType\EwsEmailAddressType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailAddressType) {
+            throw new \InvalidArgumentException(sprintf('The Address property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Address[] = $item;
         return $this;
     }
     /**

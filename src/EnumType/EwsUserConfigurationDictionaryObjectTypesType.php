@@ -14,7 +14,7 @@ class EwsUserConfigurationDictionaryObjectTypesType
      * Constant for value 'DateTime'
      * @return string 'DateTime'
      */
-    const VALUE_DATETIME = 'DateTime';
+    const VALUE_DATE_TIME = 'DateTime';
     /**
      * Constant for value 'Boolean'
      * @return string 'Boolean'
@@ -34,32 +34,32 @@ class EwsUserConfigurationDictionaryObjectTypesType
      * Constant for value 'Integer32'
      * @return string 'Integer32'
      */
-    const VALUE_INTEGER32 = 'Integer32';
+    const VALUE_INTEGER_32 = 'Integer32';
     /**
      * Constant for value 'UnsignedInteger32'
      * @return string 'UnsignedInteger32'
      */
-    const VALUE_UNSIGNEDINTEGER32 = 'UnsignedInteger32';
+    const VALUE_UNSIGNED_INTEGER_32 = 'UnsignedInteger32';
     /**
      * Constant for value 'Integer64'
      * @return string 'Integer64'
      */
-    const VALUE_INTEGER64 = 'Integer64';
+    const VALUE_INTEGER_64 = 'Integer64';
     /**
      * Constant for value 'UnsignedInteger64'
      * @return string 'UnsignedInteger64'
      */
-    const VALUE_UNSIGNEDINTEGER64 = 'UnsignedInteger64';
+    const VALUE_UNSIGNED_INTEGER_64 = 'UnsignedInteger64';
     /**
      * Constant for value 'StringArray'
      * @return string 'StringArray'
      */
-    const VALUE_STRINGARRAY = 'StringArray';
+    const VALUE_STRING_ARRAY = 'StringArray';
     /**
      * Constant for value 'ByteArray'
      * @return string 'ByteArray'
      */
-    const VALUE_BYTEARRAY = 'ByteArray';
+    const VALUE_BYTE_ARRAY = 'ByteArray';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -72,31 +72,31 @@ class EwsUserConfigurationDictionaryObjectTypesType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_DATETIME
+     * @uses self::VALUE_DATE_TIME
      * @uses self::VALUE_BOOLEAN
      * @uses self::VALUE_BYTE
      * @uses self::VALUE_STRING
-     * @uses self::VALUE_INTEGER32
-     * @uses self::VALUE_UNSIGNEDINTEGER32
-     * @uses self::VALUE_INTEGER64
-     * @uses self::VALUE_UNSIGNEDINTEGER64
-     * @uses self::VALUE_STRINGARRAY
-     * @uses self::VALUE_BYTEARRAY
+     * @uses self::VALUE_INTEGER_32
+     * @uses self::VALUE_UNSIGNED_INTEGER_32
+     * @uses self::VALUE_INTEGER_64
+     * @uses self::VALUE_UNSIGNED_INTEGER_64
+     * @uses self::VALUE_STRING_ARRAY
+     * @uses self::VALUE_BYTE_ARRAY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_DATETIME,
+            self::VALUE_DATE_TIME,
             self::VALUE_BOOLEAN,
             self::VALUE_BYTE,
             self::VALUE_STRING,
-            self::VALUE_INTEGER32,
-            self::VALUE_UNSIGNEDINTEGER32,
-            self::VALUE_INTEGER64,
-            self::VALUE_UNSIGNEDINTEGER64,
-            self::VALUE_STRINGARRAY,
-            self::VALUE_BYTEARRAY,
+            self::VALUE_INTEGER_32,
+            self::VALUE_UNSIGNED_INTEGER_32,
+            self::VALUE_INTEGER_64,
+            self::VALUE_UNSIGNED_INTEGER_64,
+            self::VALUE_STRING_ARRAY,
+            self::VALUE_BYTE_ARRAY,
         );
     }
     /**

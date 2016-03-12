@@ -25,7 +25,7 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $StepTime;
     /**
@@ -51,7 +51,7 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      * @uses EwsSearchDiagnosticsStepType::setStepType()
      * @uses EwsSearchDiagnosticsStepType::setAdditionalEntries()
      * @param string $startTime
-     * @param long $stepTime
+     * @param int $stepTime
      * @param string $stepType
      * @param \Ews\StructType\EwsAdditionalEntries $additionalEntries
      */
@@ -78,12 +78,16 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get StepTime value
-     * @return long|null
+     * @return int|null
      */
     public function getStepTime()
     {
@@ -91,11 +95,15 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
     }
     /**
      * Set StepTime value
-     * @param long $stepTime
+     * @param int $stepTime
      * @return \Ews\StructType\EwsSearchDiagnosticsStepType
      */
     public function setStepTime($stepTime = null)
     {
+        // validation for constraint: int
+        if (!is_null($stepTime) && !is_int($stepTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($stepTime)), __LINE__);
+        }
         $this->StepTime = $stepTime;
         return $this;
     }
@@ -114,6 +122,10 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      */
     public function setStepType($stepType = null)
     {
+        // validation for constraint: string
+        if (!is_null($stepType) && !is_string($stepType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($stepType)), __LINE__);
+        }
         $this->StepType = $stepType;
         return $this;
     }

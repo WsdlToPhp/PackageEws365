@@ -16,32 +16,32 @@ class EwsIdFormatType
      * Constant for value 'EwsLegacyId'
      * @return string 'EwsLegacyId'
      */
-    const VALUE_EWSLEGACYID = 'EwsLegacyId';
+    const VALUE_EWS_LEGACY_ID = 'EwsLegacyId';
     /**
      * Constant for value 'EwsId'
      * @return string 'EwsId'
      */
-    const VALUE_EWSID = 'EwsId';
+    const VALUE_EWS_ID = 'EwsId';
     /**
      * Constant for value 'EntryId'
      * @return string 'EntryId'
      */
-    const VALUE_ENTRYID = 'EntryId';
+    const VALUE_ENTRY_ID = 'EntryId';
     /**
      * Constant for value 'HexEntryId'
      * @return string 'HexEntryId'
      */
-    const VALUE_HEXENTRYID = 'HexEntryId';
+    const VALUE_HEX_ENTRY_ID = 'HexEntryId';
     /**
      * Constant for value 'StoreId'
      * @return string 'StoreId'
      */
-    const VALUE_STOREID = 'StoreId';
+    const VALUE_STORE_ID = 'StoreId';
     /**
      * Constant for value 'OwaId'
      * @return string 'OwaId'
      */
-    const VALUE_OWAID = 'OwaId';
+    const VALUE_OWA_ID = 'OwaId';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -54,23 +54,23 @@ class EwsIdFormatType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_EWSLEGACYID
-     * @uses self::VALUE_EWSID
-     * @uses self::VALUE_ENTRYID
-     * @uses self::VALUE_HEXENTRYID
-     * @uses self::VALUE_STOREID
-     * @uses self::VALUE_OWAID
+     * @uses self::VALUE_EWS_LEGACY_ID
+     * @uses self::VALUE_EWS_ID
+     * @uses self::VALUE_ENTRY_ID
+     * @uses self::VALUE_HEX_ENTRY_ID
+     * @uses self::VALUE_STORE_ID
+     * @uses self::VALUE_OWA_ID
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_EWSLEGACYID,
-            self::VALUE_EWSID,
-            self::VALUE_ENTRYID,
-            self::VALUE_HEXENTRYID,
-            self::VALUE_STOREID,
-            self::VALUE_OWAID,
+            self::VALUE_EWS_LEGACY_ID,
+            self::VALUE_EWS_ID,
+            self::VALUE_ENTRY_ID,
+            self::VALUE_HEX_ENTRY_ID,
+            self::VALUE_STORE_ID,
+            self::VALUE_OWA_ID,
         );
     }
     /**

@@ -33,7 +33,7 @@ class EwsUnseenDataType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $LastVisitedTimeUtc;
     /**
@@ -43,7 +43,7 @@ class EwsUnseenDataType extends AbstractStructBase
      * @uses EwsUnseenDataType::setLastVisitedTimeUtc()
      * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
      * @param int $count
-     * @param dateTime $lastVisitedTimeUtc
+     * @param string $lastVisitedTimeUtc
      */
     public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null, $count = null, $lastVisitedTimeUtc = null)
     {
@@ -85,12 +85,16 @@ class EwsUnseenDataType extends AbstractStructBase
      */
     public function setCount($count = null)
     {
+        // validation for constraint: int
+        if (!is_null($count) && !is_int($count)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($count)), __LINE__);
+        }
         $this->Count = $count;
         return $this;
     }
     /**
      * Get LastVisitedTimeUtc value
-     * @return dateTime
+     * @return string
      */
     public function getLastVisitedTimeUtc()
     {
@@ -98,11 +102,15 @@ class EwsUnseenDataType extends AbstractStructBase
     }
     /**
      * Set LastVisitedTimeUtc value
-     * @param dateTime $lastVisitedTimeUtc
+     * @param string $lastVisitedTimeUtc
      * @return \Ews\StructType\EwsUnseenDataType
      */
     public function setLastVisitedTimeUtc($lastVisitedTimeUtc = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastVisitedTimeUtc) && !is_string($lastVisitedTimeUtc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedTimeUtc)), __LINE__);
+        }
         $this->LastVisitedTimeUtc = $lastVisitedTimeUtc;
         return $this;
     }

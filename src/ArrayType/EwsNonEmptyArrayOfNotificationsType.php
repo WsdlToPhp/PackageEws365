@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsNotificationType[]
      */
     public $Notification;
     /**
      * Constructor method for NonEmptyArrayOfNotificationsType
      * @uses EwsNonEmptyArrayOfNotificationsType::setNotification()
-     * @param array $notification
+     * @param \Ews\StructType\EwsNotificationType[] $notification
      */
     public function __construct(array $notification = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
     }
     /**
      * Get Notification value
-     * @return array
+     * @return \Ews\StructType\EwsNotificationType[]|null
      */
     public function getNotification()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
     }
     /**
      * Set Notification value
-     * @param array $notification
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNotificationType[] $notification
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType
      */
     public function setNotification(array $notification = array())
     {
+        foreach ($notification as $nonEmptyArrayOfNotificationsTypeNotificationItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfNotificationsTypeNotificationItem instanceof \Ews\StructType\EwsNotificationType) {
+                throw new \InvalidArgumentException(sprintf('The Notification property can only contain items of \Ews\StructType\EwsNotificationType, "%s" given', is_object($nonEmptyArrayOfNotificationsTypeNotificationItem) ? get_class($nonEmptyArrayOfNotificationsTypeNotificationItem) : gettype($nonEmptyArrayOfNotificationsTypeNotificationItem)), __LINE__);
+            }
+        }
         $this->Notification = $notification;
+        return $this;
+    }
+    /**
+     * Add item to Notification value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsNotificationType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType
+     */
+    public function addToNotification(\Ews\StructType\EwsNotificationType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsNotificationType) {
+            throw new \InvalidArgumentException(sprintf('The Notification property can only contain items of \Ews\StructType\EwsNotificationType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Notification[] = $item;
         return $this;
     }
     /**

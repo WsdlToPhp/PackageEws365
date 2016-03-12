@@ -17,13 +17,13 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsClientExtensionType[]
      */
     public $ClientExtension;
     /**
      * Constructor method for ArrayOfClientExtensionsType
      * @uses EwsArrayOfClientExtensionsType::setClientExtension()
-     * @param array $clientExtension
+     * @param \Ews\StructType\EwsClientExtensionType[] $clientExtension
      */
     public function __construct(array $clientExtension = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
     }
     /**
      * Get ClientExtension value
-     * @return array
+     * @return \Ews\StructType\EwsClientExtensionType[]|null
      */
     public function getClientExtension()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
     }
     /**
      * Set ClientExtension value
-     * @param array $clientExtension
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsClientExtensionType[] $clientExtension
      * @return \Ews\ArrayType\EwsArrayOfClientExtensionsType
      */
     public function setClientExtension(array $clientExtension = array())
     {
+        foreach ($clientExtension as $arrayOfClientExtensionsTypeClientExtensionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfClientExtensionsTypeClientExtensionItem instanceof \Ews\StructType\EwsClientExtensionType) {
+                throw new \InvalidArgumentException(sprintf('The ClientExtension property can only contain items of \Ews\StructType\EwsClientExtensionType, "%s" given', is_object($arrayOfClientExtensionsTypeClientExtensionItem) ? get_class($arrayOfClientExtensionsTypeClientExtensionItem) : gettype($arrayOfClientExtensionsTypeClientExtensionItem)), __LINE__);
+            }
+        }
         $this->ClientExtension = $clientExtension;
+        return $this;
+    }
+    /**
+     * Add item to ClientExtension value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsClientExtensionType $item
+     * @return \Ews\ArrayType\EwsArrayOfClientExtensionsType
+     */
+    public function addToClientExtension(\Ews\StructType\EwsClientExtensionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsClientExtensionType) {
+            throw new \InvalidArgumentException(sprintf('The ClientExtension property can only contain items of \Ews\StructType\EwsClientExtensionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ClientExtension[] = $item;
         return $this;
     }
     /**

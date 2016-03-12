@@ -19,7 +19,7 @@ class EwsXrmActivityStreamFlagsType
      * Constant for value 'IsRendered'
      * @return string 'IsRendered'
      */
-    const VALUE_ISRENDERED = 'IsRendered';
+    const VALUE_IS_RENDERED = 'IsRendered';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsXrmActivityStreamFlagsType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_ISRENDERED
+     * @uses self::VALUE_IS_RENDERED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_ISRENDERED,
+            self::VALUE_IS_RENDERED,
         );
     }
     /**

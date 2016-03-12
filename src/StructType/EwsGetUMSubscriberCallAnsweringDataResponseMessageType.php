@@ -18,7 +18,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsOOF;
     /**
@@ -34,7 +34,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsMailboxQuotaExceeded;
     /**
@@ -42,7 +42,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $TaskTimedOut;
     /**
@@ -73,10 +73,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setTaskTimedOut()
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setGreeting()
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setGreetingName()
-     * @param boolean $isOOF
+     * @param bool $isOOF
      * @param string $isTranscriptionEnabledInMailboxConfig
-     * @param boolean $isMailboxQuotaExceeded
-     * @param boolean $taskTimedOut
+     * @param bool $isMailboxQuotaExceeded
+     * @param bool $taskTimedOut
      * @param base64Binary $greeting
      * @param string $greetingName
      */
@@ -92,7 +92,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Get IsOOF value
-     * @return boolean
+     * @return bool
      */
     public function getIsOOF()
     {
@@ -100,7 +100,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Set IsOOF value
-     * @param boolean $isOOF
+     * @param bool $isOOF
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
     public function setIsOOF($isOOF = null)
@@ -120,11 +120,13 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Set IsTranscriptionEnabledInMailboxConfig value
      * @uses \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid()
      * @uses \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $isTranscriptionEnabledInMailboxConfig
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
     public function setIsTranscriptionEnabledInMailboxConfig($isTranscriptionEnabledInMailboxConfig = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid($isTranscriptionEnabledInMailboxConfig)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $isTranscriptionEnabledInMailboxConfig, implode(', ', \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues())), __LINE__);
         }
@@ -133,7 +135,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Get IsMailboxQuotaExceeded value
-     * @return boolean
+     * @return bool
      */
     public function getIsMailboxQuotaExceeded()
     {
@@ -141,7 +143,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Set IsMailboxQuotaExceeded value
-     * @param boolean $isMailboxQuotaExceeded
+     * @param bool $isMailboxQuotaExceeded
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
     public function setIsMailboxQuotaExceeded($isMailboxQuotaExceeded = null)
@@ -151,7 +153,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Get TaskTimedOut value
-     * @return boolean
+     * @return bool
      */
     public function getTaskTimedOut()
     {
@@ -159,7 +161,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Set TaskTimedOut value
-     * @param boolean $taskTimedOut
+     * @param bool $taskTimedOut
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
     public function setTaskTimedOut($taskTimedOut = null)
@@ -200,6 +202,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      */
     public function setGreetingName($greetingName = null)
     {
+        // validation for constraint: string
+        if (!is_null($greetingName) && !is_string($greetingName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($greetingName)), __LINE__);
+        }
         $this->GreetingName = $greetingName;
         return $this;
     }

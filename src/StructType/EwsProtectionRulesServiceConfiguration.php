@@ -32,7 +32,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
      * The RefreshInterval
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var anonymous632
+     * @var string
      */
     public $RefreshInterval;
     /**
@@ -42,9 +42,9 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
      * @uses EwsProtectionRulesServiceConfiguration::setRefreshInterval()
      * @param \Ews\ArrayType\EwsArrayOfProtectionRulesType $rules
      * @param \Ews\StructType\EwsSmtpDomainList $internalDomains
-     * @param anonymous632 $refreshInterval
+     * @param string $refreshInterval
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfProtectionRulesType $rules = null, \Ews\StructType\EwsSmtpDomainList $internalDomains = null, anonymous632 $refreshInterval = null)
+    public function __construct(\Ews\ArrayType\EwsArrayOfProtectionRulesType $rules = null, \Ews\StructType\EwsSmtpDomainList $internalDomains = null, $refreshInterval = null)
     {
         $this
             ->setRules($rules)
@@ -89,7 +89,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Get RefreshInterval value
-     * @return anonymous632
+     * @return string
      */
     public function getRefreshInterval()
     {
@@ -97,11 +97,15 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Set RefreshInterval value
-     * @param anonymous632 $refreshInterval
+     * @param string $refreshInterval
      * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
      */
-    public function setRefreshInterval(anonymous632 $refreshInterval = null)
+    public function setRefreshInterval($refreshInterval = null)
     {
+        // validation for constraint: string
+        if (!is_null($refreshInterval) && !is_string($refreshInterval)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refreshInterval)), __LINE__);
+        }
         $this->RefreshInterval = $refreshInterval;
         return $this;
     }

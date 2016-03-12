@@ -17,22 +17,22 @@ class EwsSmtpDomainList extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSmtpDomain
+     * @var \Ews\StructType\EwsSmtpDomain[]
      */
     public $Domain;
     /**
      * Constructor method for SmtpDomainList
      * @uses EwsSmtpDomainList::setDomain()
-     * @param \Ews\StructType\EwsSmtpDomain $domain
+     * @param \Ews\StructType\EwsSmtpDomain[] $domain
      */
-    public function __construct(\Ews\StructType\EwsSmtpDomain $domain = null)
+    public function __construct(array $domain = array())
     {
         $this
             ->setDomain($domain);
     }
     /**
      * Get Domain value
-     * @return \Ews\StructType\EwsSmtpDomain|null
+     * @return \Ews\StructType\EwsSmtpDomain[]|null
      */
     public function getDomain()
     {
@@ -40,12 +40,34 @@ class EwsSmtpDomainList extends AbstractStructBase
     }
     /**
      * Set Domain value
-     * @param \Ews\StructType\EwsSmtpDomain $domain
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSmtpDomain[] $domain
      * @return \Ews\StructType\EwsSmtpDomainList
      */
-    public function setDomain(\Ews\StructType\EwsSmtpDomain $domain = null)
+    public function setDomain(array $domain = array())
     {
+        foreach ($domain as $smtpDomainListDomainItem) {
+            // validation for constraint: itemType
+            if (!$smtpDomainListDomainItem instanceof \Ews\StructType\EwsSmtpDomain) {
+                throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of \Ews\StructType\EwsSmtpDomain, "%s" given', is_object($smtpDomainListDomainItem) ? get_class($smtpDomainListDomainItem) : gettype($smtpDomainListDomainItem)), __LINE__);
+            }
+        }
         $this->Domain = $domain;
+        return $this;
+    }
+    /**
+     * Add item to Domain value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSmtpDomain $item
+     * @return \Ews\StructType\EwsSmtpDomainList
+     */
+    public function addToDomain(\Ews\StructType\EwsSmtpDomain $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSmtpDomain) {
+            throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of \Ews\StructType\EwsSmtpDomain, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Domain[] = $item;
         return $this;
     }
     /**

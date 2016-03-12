@@ -56,6 +56,10 @@ class EwsItemIdType extends EwsBaseItemIdType
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsItemIdType extends EwsBaseItemIdType
      */
     public function setChangeKey($changeKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($changeKey) && !is_string($changeKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+        }
         $this->ChangeKey = $changeKey;
         return $this;
     }

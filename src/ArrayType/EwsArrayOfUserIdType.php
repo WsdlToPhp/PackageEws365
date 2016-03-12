@@ -17,13 +17,13 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsUserIdType[]
      */
     public $UserId;
     /**
      * Constructor method for ArrayOfUserIdType
      * @uses EwsArrayOfUserIdType::setUserId()
-     * @param array $userId
+     * @param \Ews\StructType\EwsUserIdType[] $userId
      */
     public function __construct(array $userId = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
     }
     /**
      * Get UserId value
-     * @return array
+     * @return \Ews\StructType\EwsUserIdType[]
      */
     public function getUserId()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
     }
     /**
      * Set UserId value
-     * @param array $userId
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserIdType[] $userId
      * @return \Ews\ArrayType\EwsArrayOfUserIdType
      */
     public function setUserId(array $userId = array())
     {
+        foreach ($userId as $arrayOfUserIdTypeUserIdItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUserIdTypeUserIdItem instanceof \Ews\StructType\EwsUserIdType) {
+                throw new \InvalidArgumentException(sprintf('The UserId property can only contain items of \Ews\StructType\EwsUserIdType, "%s" given', is_object($arrayOfUserIdTypeUserIdItem) ? get_class($arrayOfUserIdTypeUserIdItem) : gettype($arrayOfUserIdTypeUserIdItem)), __LINE__);
+            }
+        }
         $this->UserId = $userId;
+        return $this;
+    }
+    /**
+     * Add item to UserId value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserIdType $item
+     * @return \Ews\ArrayType\EwsArrayOfUserIdType
+     */
+    public function addToUserId(\Ews\StructType\EwsUserIdType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUserIdType) {
+            throw new \InvalidArgumentException(sprintf('The UserId property can only contain items of \Ews\StructType\EwsUserIdType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UserId[] = $item;
         return $this;
     }
     /**

@@ -105,11 +105,13 @@ class EwsCreateItemType extends EwsBaseRequestType
      * Set MessageDisposition value
      * @uses \Ews\EnumType\EwsMessageDispositionType::valueIsValid()
      * @uses \Ews\EnumType\EwsMessageDispositionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $messageDisposition
      * @return \Ews\StructType\EwsCreateItemType
      */
     public function setMessageDisposition($messageDisposition = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $messageDisposition, implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
         }
@@ -128,11 +130,13 @@ class EwsCreateItemType extends EwsBaseRequestType
      * Set SendMeetingInvitations value
      * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sendMeetingInvitations
      * @return \Ews\StructType\EwsCreateItemType
      */
     public function setSendMeetingInvitations($sendMeetingInvitations = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid($sendMeetingInvitations)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendMeetingInvitations, implode(', ', \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
         }

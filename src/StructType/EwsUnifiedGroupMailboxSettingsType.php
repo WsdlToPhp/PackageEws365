@@ -17,7 +17,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExternalSendersEnabled;
     /**
@@ -25,15 +25,15 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $AutoSubscribeNewMembers;
     /**
      * Constructor method for UnifiedGroupMailboxSettingsType
      * @uses EwsUnifiedGroupMailboxSettingsType::setExternalSendersEnabled()
      * @uses EwsUnifiedGroupMailboxSettingsType::setAutoSubscribeNewMembers()
-     * @param boolean $externalSendersEnabled
-     * @param boolean $autoSubscribeNewMembers
+     * @param bool $externalSendersEnabled
+     * @param bool $autoSubscribeNewMembers
      */
     public function __construct($externalSendersEnabled = null, $autoSubscribeNewMembers = null)
     {
@@ -43,7 +43,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
     }
     /**
      * Get ExternalSendersEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExternalSendersEnabled()
     {
@@ -51,7 +51,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
     }
     /**
      * Set ExternalSendersEnabled value
-     * @param boolean $externalSendersEnabled
+     * @param bool $externalSendersEnabled
      * @return \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
      */
     public function setExternalSendersEnabled($externalSendersEnabled = null)
@@ -61,7 +61,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
     }
     /**
      * Get AutoSubscribeNewMembers value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAutoSubscribeNewMembers()
     {
@@ -69,7 +69,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
     }
     /**
      * Set AutoSubscribeNewMembers value
-     * @param boolean $autoSubscribeNewMembers
+     * @param bool $autoSubscribeNewMembers
      * @return \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)

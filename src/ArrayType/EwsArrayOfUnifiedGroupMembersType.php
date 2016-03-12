@@ -17,13 +17,13 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupMemberType[]
      */
     public $Member;
     /**
      * Constructor method for ArrayOfUnifiedGroupMembersType
      * @uses EwsArrayOfUnifiedGroupMembersType::setMember()
-     * @param array $member
+     * @param \Ews\StructType\EwsUnifiedGroupMemberType[] $member
      */
     public function __construct(array $member = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
     }
     /**
      * Get Member value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupMemberType[]|null
      */
     public function getMember()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
     }
     /**
      * Set Member value
-     * @param array $member
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupMemberType[] $member
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembersType
      */
     public function setMember(array $member = array())
     {
+        foreach ($member as $arrayOfUnifiedGroupMembersTypeMemberItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupMembersTypeMemberItem instanceof \Ews\StructType\EwsUnifiedGroupMemberType) {
+                throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsUnifiedGroupMemberType, "%s" given', is_object($arrayOfUnifiedGroupMembersTypeMemberItem) ? get_class($arrayOfUnifiedGroupMembersTypeMemberItem) : gettype($arrayOfUnifiedGroupMembersTypeMemberItem)), __LINE__);
+            }
+        }
         $this->Member = $member;
+        return $this;
+    }
+    /**
+     * Add item to Member value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupMemberType $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembersType
+     */
+    public function addToMember(\Ews\StructType\EwsUnifiedGroupMemberType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupMemberType) {
+            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsUnifiedGroupMemberType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Member[] = $item;
         return $this;
     }
     /**

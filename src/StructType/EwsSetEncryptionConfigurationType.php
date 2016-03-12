@@ -49,7 +49,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $OTPEnabled;
     /**
@@ -63,7 +63,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      * @param string $emailText
      * @param string $portalText
      * @param string $disclaimerText
-     * @param boolean $oTPEnabled
+     * @param bool $oTPEnabled
      */
     public function __construct($imageBase64 = null, $emailText = null, $portalText = null, $disclaimerText = null, $oTPEnabled = null)
     {
@@ -89,6 +89,10 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      */
     public function setImageBase64($imageBase64 = null)
     {
+        // validation for constraint: string
+        if (!is_null($imageBase64) && !is_string($imageBase64)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageBase64)), __LINE__);
+        }
         $this->ImageBase64 = $imageBase64;
         return $this;
     }
@@ -107,6 +111,10 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      */
     public function setEmailText($emailText = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailText) && !is_string($emailText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailText)), __LINE__);
+        }
         $this->EmailText = $emailText;
         return $this;
     }
@@ -125,6 +133,10 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      */
     public function setPortalText($portalText = null)
     {
+        // validation for constraint: string
+        if (!is_null($portalText) && !is_string($portalText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($portalText)), __LINE__);
+        }
         $this->PortalText = $portalText;
         return $this;
     }
@@ -143,12 +155,16 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      */
     public function setDisclaimerText($disclaimerText = null)
     {
+        // validation for constraint: string
+        if (!is_null($disclaimerText) && !is_string($disclaimerText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($disclaimerText)), __LINE__);
+        }
         $this->DisclaimerText = $disclaimerText;
         return $this;
     }
     /**
      * Get OTPEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getOTPEnabled()
     {
@@ -156,7 +172,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     }
     /**
      * Set OTPEnabled value
-     * @param boolean $oTPEnabled
+     * @param bool $oTPEnabled
      * @return \Ews\StructType\EwsSetEncryptionConfigurationType
      */
     public function setOTPEnabled($oTPEnabled = null)

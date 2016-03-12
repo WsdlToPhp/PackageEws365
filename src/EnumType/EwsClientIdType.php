@@ -44,17 +44,17 @@ class EwsClientIdType
      * Constant for value 'MacOutlook'
      * @return string 'MacOutlook'
      */
-    const VALUE_MACOUTLOOK = 'MacOutlook';
+    const VALUE_MAC_OUTLOOK = 'MacOutlook';
     /**
      * Constant for value 'POP3'
      * @return string 'POP3'
      */
-    const VALUE_POP3 = 'POP3';
+    const VALUE_POP_3 = 'POP3';
     /**
      * Constant for value 'IMAP4'
      * @return string 'IMAP4'
      */
-    const VALUE_IMAP4 = 'IMAP4';
+    const VALUE_IMAP_4 = 'IMAP4';
     /**
      * Constant for value 'Other'
      * @return string 'Other'
@@ -69,12 +69,12 @@ class EwsClientIdType
      * Constant for value 'OutlookService'
      * @return string 'OutlookService'
      */
-    const VALUE_OUTLOOKSERVICE = 'OutlookService';
+    const VALUE_OUTLOOK_SERVICE = 'OutlookService';
     /**
      * Constant for value 'MacMail'
      * @return string 'MacMail'
      */
-    const VALUE_MACMAIL = 'MacMail';
+    const VALUE_MAC_MAIL = 'MacMail';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -93,13 +93,13 @@ class EwsClientIdType
      * @uses self::VALUE_DESKTOP
      * @uses self::VALUE_EXCHANGE
      * @uses self::VALUE_OUTLOOK
-     * @uses self::VALUE_MACOUTLOOK
-     * @uses self::VALUE_POP3
-     * @uses self::VALUE_IMAP4
+     * @uses self::VALUE_MAC_OUTLOOK
+     * @uses self::VALUE_POP_3
+     * @uses self::VALUE_IMAP_4
      * @uses self::VALUE_OTHER
      * @uses self::VALUE_LYNC
-     * @uses self::VALUE_OUTLOOKSERVICE
-     * @uses self::VALUE_MACMAIL
+     * @uses self::VALUE_OUTLOOK_SERVICE
+     * @uses self::VALUE_MAC_MAIL
      * @return string[]
      */
     public static function getValidValues()
@@ -111,13 +111,13 @@ class EwsClientIdType
             self::VALUE_DESKTOP,
             self::VALUE_EXCHANGE,
             self::VALUE_OUTLOOK,
-            self::VALUE_MACOUTLOOK,
-            self::VALUE_POP3,
-            self::VALUE_IMAP4,
+            self::VALUE_MAC_OUTLOOK,
+            self::VALUE_POP_3,
+            self::VALUE_IMAP_4,
             self::VALUE_OTHER,
             self::VALUE_LYNC,
-            self::VALUE_OUTLOOKSERVICE,
-            self::VALUE_MACMAIL,
+            self::VALUE_OUTLOOK_SERVICE,
+            self::VALUE_MAC_MAIL,
         );
     }
     /**

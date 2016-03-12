@@ -62,6 +62,10 @@ class EwsEnhancedLocationType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -80,6 +84,10 @@ class EwsEnhancedLocationType extends AbstractStructBase
      */
     public function setAnnotation($annotation = null)
     {
+        // validation for constraint: string
+        if (!is_null($annotation) && !is_string($annotation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($annotation)), __LINE__);
+        }
         $this->Annotation = $annotation;
         return $this;
     }

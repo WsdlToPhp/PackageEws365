@@ -17,14 +17,15 @@ class EwsArrayOfEmailAddressAttributedValuesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsEmailAddressAttributedValueType[]
      */
     public $EmailAddressAttributedValue;
     /**
      * Constructor method for ArrayOfEmailAddressAttributedValuesType
      * @uses
      * EwsArrayOfEmailAddressAttributedValuesType::setEmailAddressAttributedValue()
-     * @param array $emailAddressAttributedValue
+     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[]
+     * $emailAddressAttributedValue
      */
     public function __construct(array $emailAddressAttributedValue = array())
     {
@@ -33,7 +34,7 @@ class EwsArrayOfEmailAddressAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Get EmailAddressAttributedValue value
-     * @return array
+     * @return \Ews\StructType\EwsEmailAddressAttributedValueType[]|null
      */
     public function getEmailAddressAttributedValue()
     {
@@ -41,12 +42,35 @@ class EwsArrayOfEmailAddressAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Set EmailAddressAttributedValue value
-     * @param array $emailAddressAttributedValue
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[]
+     * $emailAddressAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
      */
     public function setEmailAddressAttributedValue(array $emailAddressAttributedValue = array())
     {
+        foreach ($emailAddressAttributedValue as $arrayOfEmailAddressAttributedValuesTypeEmailAddressAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEmailAddressAttributedValuesTypeEmailAddressAttributedValueItem instanceof \Ews\StructType\EwsEmailAddressAttributedValueType) {
+                throw new \InvalidArgumentException(sprintf('The EmailAddressAttributedValue property can only contain items of \Ews\StructType\EwsEmailAddressAttributedValueType, "%s" given', is_object($arrayOfEmailAddressAttributedValuesTypeEmailAddressAttributedValueItem) ? get_class($arrayOfEmailAddressAttributedValuesTypeEmailAddressAttributedValueItem) : gettype($arrayOfEmailAddressAttributedValuesTypeEmailAddressAttributedValueItem)), __LINE__);
+            }
+        }
         $this->EmailAddressAttributedValue = $emailAddressAttributedValue;
+        return $this;
+    }
+    /**
+     * Add item to EmailAddressAttributedValue value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressAttributedValueType $item
+     * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
+     */
+    public function addToEmailAddressAttributedValue(\Ews\StructType\EwsEmailAddressAttributedValueType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailAddressAttributedValueType) {
+            throw new \InvalidArgumentException(sprintf('The EmailAddressAttributedValue property can only contain items of \Ews\StructType\EwsEmailAddressAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->EmailAddressAttributedValue[] = $item;
         return $this;
     }
     /**

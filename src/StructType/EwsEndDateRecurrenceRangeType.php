@@ -14,13 +14,13 @@ class EwsEndDateRecurrenceRangeType extends EwsRecurrenceRangeBaseType
 {
     /**
      * The EndDate
-     * @var date
+     * @var string
      */
     public $EndDate;
     /**
      * Constructor method for EndDateRecurrenceRangeType
      * @uses EwsEndDateRecurrenceRangeType::setEndDate()
-     * @param date $endDate
+     * @param string $endDate
      */
     public function __construct($endDate = null)
     {
@@ -29,7 +29,7 @@ class EwsEndDateRecurrenceRangeType extends EwsRecurrenceRangeBaseType
     }
     /**
      * Get EndDate value
-     * @return date|null
+     * @return string|null
      */
     public function getEndDate()
     {
@@ -37,11 +37,15 @@ class EwsEndDateRecurrenceRangeType extends EwsRecurrenceRangeBaseType
     }
     /**
      * Set EndDate value
-     * @param date $endDate
+     * @param string $endDate
      * @return \Ews\StructType\EwsEndDateRecurrenceRangeType
      */
     public function setEndDate($endDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($endDate) && !is_string($endDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDate)), __LINE__);
+        }
         $this->EndDate = $endDate;
         return $this;
     }

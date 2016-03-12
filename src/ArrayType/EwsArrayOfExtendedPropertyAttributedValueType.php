@@ -17,7 +17,7 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsExtendedPropertyAttributedValueType[]
      */
     public $ExtendedPropertyAttributedValue;
     /**
@@ -25,7 +25,8 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
      * @uses
      * EwsArrayOfExtendedPropertyAttributedValueType::setExtendedPropertyAttributedValu
      * e()
-     * @param array $extendedPropertyAttributedValue
+     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[]
+     * $extendedPropertyAttributedValue
      */
     public function __construct(array $extendedPropertyAttributedValue = array())
     {
@@ -34,7 +35,7 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
     }
     /**
      * Get ExtendedPropertyAttributedValue value
-     * @return array
+     * @return \Ews\StructType\EwsExtendedPropertyAttributedValueType[]|null
      */
     public function getExtendedPropertyAttributedValue()
     {
@@ -42,12 +43,35 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
     }
     /**
      * Set ExtendedPropertyAttributedValue value
-     * @param array $extendedPropertyAttributedValue
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[]
+     * $extendedPropertyAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
      */
     public function setExtendedPropertyAttributedValue(array $extendedPropertyAttributedValue = array())
     {
+        foreach ($extendedPropertyAttributedValue as $arrayOfExtendedPropertyAttributedValueTypeExtendedPropertyAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfExtendedPropertyAttributedValueTypeExtendedPropertyAttributedValueItem instanceof \Ews\StructType\EwsExtendedPropertyAttributedValueType) {
+                throw new \InvalidArgumentException(sprintf('The ExtendedPropertyAttributedValue property can only contain items of \Ews\StructType\EwsExtendedPropertyAttributedValueType, "%s" given', is_object($arrayOfExtendedPropertyAttributedValueTypeExtendedPropertyAttributedValueItem) ? get_class($arrayOfExtendedPropertyAttributedValueTypeExtendedPropertyAttributedValueItem) : gettype($arrayOfExtendedPropertyAttributedValueTypeExtendedPropertyAttributedValueItem)), __LINE__);
+            }
+        }
         $this->ExtendedPropertyAttributedValue = $extendedPropertyAttributedValue;
+        return $this;
+    }
+    /**
+     * Add item to ExtendedPropertyAttributedValue value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType $item
+     * @return \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
+     */
+    public function addToExtendedPropertyAttributedValue(\Ews\StructType\EwsExtendedPropertyAttributedValueType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsExtendedPropertyAttributedValueType) {
+            throw new \InvalidArgumentException(sprintf('The ExtendedPropertyAttributedValue property can only contain items of \Ews\StructType\EwsExtendedPropertyAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ExtendedPropertyAttributedValue[] = $item;
         return $this;
     }
     /**

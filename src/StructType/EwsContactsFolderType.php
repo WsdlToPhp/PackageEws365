@@ -23,7 +23,6 @@ class EwsContactsFolderType extends EwsBaseFolderType
      * The PermissionSet
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: The set of permissions on a folder
      * @var \Ews\StructType\EwsPermissionSetType
      */
     public $PermissionSet;
@@ -72,11 +71,13 @@ class EwsContactsFolderType extends EwsBaseFolderType
      * Set SharingEffectiveRights value
      * @uses \Ews\EnumType\EwsPermissionReadAccessType::valueIsValid()
      * @uses \Ews\EnumType\EwsPermissionReadAccessType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sharingEffectiveRights
      * @return \Ews\StructType\EwsContactsFolderType
      */
     public function setSharingEffectiveRights($sharingEffectiveRights = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionReadAccessType::valueIsValid($sharingEffectiveRights)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sharingEffectiveRights, implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
         }
@@ -116,6 +117,10 @@ class EwsContactsFolderType extends EwsBaseFolderType
      */
     public function setSourceId($sourceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($sourceId) && !is_string($sourceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceId)), __LINE__);
+        }
         $this->SourceId = $sourceId;
         return $this;
     }
@@ -134,6 +139,10 @@ class EwsContactsFolderType extends EwsBaseFolderType
      */
     public function setAccountName($accountName = null)
     {
+        // validation for constraint: string
+        if (!is_null($accountName) && !is_string($accountName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+        }
         $this->AccountName = $accountName;
         return $this;
     }

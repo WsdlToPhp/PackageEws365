@@ -17,7 +17,6 @@ class EwsClientIntentType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -42,7 +41,7 @@ class EwsClientIntentType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $WouldRepair;
     /**
@@ -63,7 +62,7 @@ class EwsClientIntentType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param int $intent
      * @param int $itemVersion
-     * @param boolean $wouldRepair
+     * @param bool $wouldRepair
      * @param string $predictedAction
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $intent = null, $itemVersion = null, $wouldRepair = null, $predictedAction = null)
@@ -108,6 +107,10 @@ class EwsClientIntentType extends AbstractStructBase
      */
     public function setIntent($intent = null)
     {
+        // validation for constraint: int
+        if (!is_null($intent) && !is_int($intent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($intent)), __LINE__);
+        }
         $this->Intent = $intent;
         return $this;
     }
@@ -126,12 +129,16 @@ class EwsClientIntentType extends AbstractStructBase
      */
     public function setItemVersion($itemVersion = null)
     {
+        // validation for constraint: int
+        if (!is_null($itemVersion) && !is_int($itemVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemVersion)), __LINE__);
+        }
         $this->ItemVersion = $itemVersion;
         return $this;
     }
     /**
      * Get WouldRepair value
-     * @return boolean
+     * @return bool
      */
     public function getWouldRepair()
     {
@@ -139,7 +146,7 @@ class EwsClientIntentType extends AbstractStructBase
     }
     /**
      * Set WouldRepair value
-     * @param boolean $wouldRepair
+     * @param bool $wouldRepair
      * @return \Ews\StructType\EwsClientIntentType
      */
     public function setWouldRepair($wouldRepair = null)
@@ -159,11 +166,13 @@ class EwsClientIntentType extends AbstractStructBase
      * Set PredictedAction value
      * @uses \Ews\EnumType\EwsClientIntentMeetingInquiryActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientIntentMeetingInquiryActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $predictedAction
      * @return \Ews\StructType\EwsClientIntentType
      */
     public function setPredictedAction($predictedAction = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientIntentMeetingInquiryActionType::valueIsValid($predictedAction)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $predictedAction, implode(', ', \Ews\EnumType\EwsClientIntentMeetingInquiryActionType::getValidValues())), __LINE__);
         }

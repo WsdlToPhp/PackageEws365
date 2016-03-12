@@ -44,6 +44,10 @@ class EwsEmailAddressEntityType extends EwsEntityType
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }

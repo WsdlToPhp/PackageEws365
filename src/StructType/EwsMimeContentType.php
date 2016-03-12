@@ -52,6 +52,10 @@ class EwsMimeContentType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
@@ -70,6 +74,10 @@ class EwsMimeContentType extends AbstractStructBase
      */
     public function setCharacterSet($characterSet = null)
     {
+        // validation for constraint: string
+        if (!is_null($characterSet) && !is_string($characterSet)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($characterSet)), __LINE__);
+        }
         $this->CharacterSet = $characterSet;
         return $this;
     }

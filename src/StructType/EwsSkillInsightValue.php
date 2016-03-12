@@ -56,6 +56,10 @@ class EwsSkillInsightValue extends EwsInsightValue
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsSkillInsightValue extends EwsInsightValue
      */
     public function setStrength($strength = null)
     {
+        // validation for constraint: int
+        if (!is_null($strength) && !is_int($strength)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($strength)), __LINE__);
+        }
         $this->Strength = $strength;
         return $this;
     }

@@ -17,7 +17,6 @@ class EwsExtendedPropertyAttributedValueType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Represents an extended property instance (both its path identifier along with its associated value).
      * @var \Ews\StructType\EwsExtendedPropertyType
      */
     public $Value;

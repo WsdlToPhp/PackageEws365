@@ -18,7 +18,6 @@ class EwsGetHoldOnMailboxesResponseMessageType extends EwsResponseMessageType
      * The MailboxHoldResult
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Mailbox hold result.
      * @var \Ews\StructType\EwsMailboxHoldResultType
      */
     public $MailboxHoldResult;

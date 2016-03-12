@@ -17,13 +17,13 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsAttendeeAvailability[]
      */
     public $AttendeeAvailability;
     /**
      * Constructor method for ArrayOfAttendeeAvailability
      * @uses EwsArrayOfAttendeeAvailability::setAttendeeAvailability()
-     * @param array $attendeeAvailability
+     * @param \Ews\StructType\EwsAttendeeAvailability[] $attendeeAvailability
      */
     public function __construct(array $attendeeAvailability = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
     }
     /**
      * Get AttendeeAvailability value
-     * @return array
+     * @return \Ews\StructType\EwsAttendeeAvailability[]|null
      */
     public function getAttendeeAvailability()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
     }
     /**
      * Set AttendeeAvailability value
-     * @param array $attendeeAvailability
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAttendeeAvailability[] $attendeeAvailability
      * @return \Ews\ArrayType\EwsArrayOfAttendeeAvailability
      */
     public function setAttendeeAvailability(array $attendeeAvailability = array())
     {
+        foreach ($attendeeAvailability as $arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAttendeeAvailabilityAttendeeAvailabilityItem instanceof \Ews\StructType\EwsAttendeeAvailability) {
+                throw new \InvalidArgumentException(sprintf('The AttendeeAvailability property can only contain items of \Ews\StructType\EwsAttendeeAvailability, "%s" given', is_object($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) ? get_class($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) : gettype($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem)), __LINE__);
+            }
+        }
         $this->AttendeeAvailability = $attendeeAvailability;
+        return $this;
+    }
+    /**
+     * Add item to AttendeeAvailability value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAttendeeAvailability $item
+     * @return \Ews\ArrayType\EwsArrayOfAttendeeAvailability
+     */
+    public function addToAttendeeAvailability(\Ews\StructType\EwsAttendeeAvailability $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsAttendeeAvailability) {
+            throw new \InvalidArgumentException(sprintf('The AttendeeAvailability property can only contain items of \Ews\StructType\EwsAttendeeAvailability, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AttendeeAvailability[] = $item;
         return $this;
     }
     /**

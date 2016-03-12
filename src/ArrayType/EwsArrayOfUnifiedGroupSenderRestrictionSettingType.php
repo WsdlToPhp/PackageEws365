@@ -17,13 +17,13 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[]
      */
     public $Setting;
     /**
      * Constructor method for ArrayOfUnifiedGroupSenderRestrictionSettingType
      * @uses EwsArrayOfUnifiedGroupSenderRestrictionSettingType::setSetting()
-     * @param array $setting
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[] $setting
      */
     public function __construct(array $setting = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
     }
     /**
      * Get Setting value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[]
      */
     public function getSetting()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
     }
     /**
      * Set Setting value
-     * @param array $setting
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[] $setting
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
     public function setSetting(array $setting = array())
     {
+        foreach ($setting as $arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting) {
+                throw new \InvalidArgumentException(sprintf('The Setting property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, "%s" given', is_object($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) ? get_class($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) : gettype($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem)), __LINE__);
+            }
+        }
         $this->Setting = $setting;
+        return $this;
+    }
+    /**
+     * Add item to Setting value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
+     */
+    public function addToSetting(\Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting) {
+            throw new \InvalidArgumentException(sprintf('The Setting property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Setting[] = $item;
         return $this;
     }
     /**

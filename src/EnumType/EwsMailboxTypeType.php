@@ -19,7 +19,7 @@ class EwsMailboxTypeType
      * Constant for value 'OneOff'
      * @return string 'OneOff'
      */
-    const VALUE_ONEOFF = 'OneOff';
+    const VALUE_ONE_OFF = 'OneOff';
     /**
      * Constant for value 'Mailbox'
      * @return string 'Mailbox'
@@ -29,12 +29,12 @@ class EwsMailboxTypeType
      * Constant for value 'PublicDL'
      * @return string 'PublicDL'
      */
-    const VALUE_PUBLICDL = 'PublicDL';
+    const VALUE_PUBLIC_DL = 'PublicDL';
     /**
      * Constant for value 'PrivateDL'
      * @return string 'PrivateDL'
      */
-    const VALUE_PRIVATEDL = 'PrivateDL';
+    const VALUE_PRIVATE_DL = 'PrivateDL';
     /**
      * Constant for value 'Contact'
      * @return string 'Contact'
@@ -44,12 +44,12 @@ class EwsMailboxTypeType
      * Constant for value 'PublicFolder'
      * @return string 'PublicFolder'
      */
-    const VALUE_PUBLICFOLDER = 'PublicFolder';
+    const VALUE_PUBLIC_FOLDER = 'PublicFolder';
     /**
      * Constant for value 'GroupMailbox'
      * @return string 'GroupMailbox'
      */
-    const VALUE_GROUPMAILBOX = 'GroupMailbox';
+    const VALUE_GROUP_MAILBOX = 'GroupMailbox';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -63,26 +63,26 @@ class EwsMailboxTypeType
     /**
      * Return allowed values
      * @uses self::VALUE_UNKNOWN
-     * @uses self::VALUE_ONEOFF
+     * @uses self::VALUE_ONE_OFF
      * @uses self::VALUE_MAILBOX
-     * @uses self::VALUE_PUBLICDL
-     * @uses self::VALUE_PRIVATEDL
+     * @uses self::VALUE_PUBLIC_DL
+     * @uses self::VALUE_PRIVATE_DL
      * @uses self::VALUE_CONTACT
-     * @uses self::VALUE_PUBLICFOLDER
-     * @uses self::VALUE_GROUPMAILBOX
+     * @uses self::VALUE_PUBLIC_FOLDER
+     * @uses self::VALUE_GROUP_MAILBOX
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_UNKNOWN,
-            self::VALUE_ONEOFF,
+            self::VALUE_ONE_OFF,
             self::VALUE_MAILBOX,
-            self::VALUE_PUBLICDL,
-            self::VALUE_PRIVATEDL,
+            self::VALUE_PUBLIC_DL,
+            self::VALUE_PRIVATE_DL,
             self::VALUE_CONTACT,
-            self::VALUE_PUBLICFOLDER,
-            self::VALUE_GROUPMAILBOX,
+            self::VALUE_PUBLIC_FOLDER,
+            self::VALUE_GROUP_MAILBOX,
         );
     }
     /**

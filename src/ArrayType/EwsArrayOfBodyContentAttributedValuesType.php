@@ -17,13 +17,14 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsBodyContentAttributedValueType[]
      */
     public $BodyContentAttributedValue;
     /**
      * Constructor method for ArrayOfBodyContentAttributedValuesType
      * @uses EwsArrayOfBodyContentAttributedValuesType::setBodyContentAttributedValue()
-     * @param array $bodyContentAttributedValue
+     * @param \Ews\StructType\EwsBodyContentAttributedValueType[]
+     * $bodyContentAttributedValue
      */
     public function __construct(array $bodyContentAttributedValue = array())
     {
@@ -32,7 +33,7 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Get BodyContentAttributedValue value
-     * @return array
+     * @return \Ews\StructType\EwsBodyContentAttributedValueType[]|null
      */
     public function getBodyContentAttributedValue()
     {
@@ -40,12 +41,35 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     }
     /**
      * Set BodyContentAttributedValue value
-     * @param array $bodyContentAttributedValue
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBodyContentAttributedValueType[]
+     * $bodyContentAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
      */
     public function setBodyContentAttributedValue(array $bodyContentAttributedValue = array())
     {
+        foreach ($bodyContentAttributedValue as $arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
+                throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of \Ews\StructType\EwsBodyContentAttributedValueType, "%s" given', is_object($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) ? get_class($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) : gettype($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem)), __LINE__);
+            }
+        }
         $this->BodyContentAttributedValue = $bodyContentAttributedValue;
+        return $this;
+    }
+    /**
+     * Add item to BodyContentAttributedValue value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBodyContentAttributedValueType $item
+     * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
+     */
+    public function addToBodyContentAttributedValue(\Ews\StructType\EwsBodyContentAttributedValueType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
+            throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of \Ews\StructType\EwsBodyContentAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->BodyContentAttributedValue[] = $item;
         return $this;
     }
     /**

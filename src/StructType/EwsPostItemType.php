@@ -44,14 +44,14 @@ class EwsPostItemType extends EwsItemType
      * The IsRead
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRead;
     /**
      * The PostedTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $PostedTime;
     /**
@@ -82,8 +82,8 @@ class EwsPostItemType extends EwsItemType
      * @param string $conversationTopic
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param string $internetMessageId
-     * @param boolean $isRead
-     * @param dateTime $postedTime
+     * @param bool $isRead
+     * @param string $postedTime
      * @param string $references
      * @param \Ews\StructType\EwsSingleRecipientType $sender
      */
@@ -132,6 +132,10 @@ class EwsPostItemType extends EwsItemType
      */
     public function setConversationTopic($conversationTopic = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationTopic)), __LINE__);
+        }
         $this->ConversationTopic = $conversationTopic;
         return $this;
     }
@@ -168,12 +172,16 @@ class EwsPostItemType extends EwsItemType
      */
     public function setInternetMessageId($internetMessageId = null)
     {
+        // validation for constraint: string
+        if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internetMessageId)), __LINE__);
+        }
         $this->InternetMessageId = $internetMessageId;
         return $this;
     }
     /**
      * Get IsRead value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRead()
     {
@@ -181,7 +189,7 @@ class EwsPostItemType extends EwsItemType
     }
     /**
      * Set IsRead value
-     * @param boolean $isRead
+     * @param bool $isRead
      * @return \Ews\StructType\EwsPostItemType
      */
     public function setIsRead($isRead = null)
@@ -191,7 +199,7 @@ class EwsPostItemType extends EwsItemType
     }
     /**
      * Get PostedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getPostedTime()
     {
@@ -199,11 +207,15 @@ class EwsPostItemType extends EwsItemType
     }
     /**
      * Set PostedTime value
-     * @param dateTime $postedTime
+     * @param string $postedTime
      * @return \Ews\StructType\EwsPostItemType
      */
     public function setPostedTime($postedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($postedTime) && !is_string($postedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($postedTime)), __LINE__);
+        }
         $this->PostedTime = $postedTime;
         return $this;
     }
@@ -222,6 +234,10 @@ class EwsPostItemType extends EwsItemType
      */
     public function setReferences($references = null)
     {
+        // validation for constraint: string
+        if (!is_null($references) && !is_string($references)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($references)), __LINE__);
+        }
         $this->References = $references;
         return $this;
     }

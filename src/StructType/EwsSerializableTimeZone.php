@@ -67,6 +67,10 @@ class EwsSerializableTimeZone extends AbstractStructBase
      */
     public function setBias($bias = null)
     {
+        // validation for constraint: int
+        if (!is_null($bias) && !is_int($bias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($bias)), __LINE__);
+        }
         $this->Bias = $bias;
         return $this;
     }

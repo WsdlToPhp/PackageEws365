@@ -27,7 +27,6 @@ class EwsMailboxQueryType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Array of mailbox and its search scope.
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
     public $MailboxSearchScopes;
@@ -60,6 +59,10 @@ class EwsMailboxQueryType extends AbstractStructBase
      */
     public function setQuery($query = null)
     {
+        // validation for constraint: string
+        if (!is_null($query) && !is_string($query)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+        }
         $this->Query = $query;
         return $this;
     }

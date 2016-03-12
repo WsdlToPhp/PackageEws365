@@ -27,8 +27,6 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     public $ResponseMessage;
     /**
      * The OofSettings
-     * Meta informations extracted from the WSDL
-     * - type: t:UserOofSettings
      * @var \Ews\StructType\EwsUserOofSettings
      */
     public $OofSettings;
@@ -104,11 +102,13 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
      * Set AllowExternalOof value
      * @uses \Ews\EnumType\EwsExternalAudience::valueIsValid()
      * @uses \Ews\EnumType\EwsExternalAudience::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $allowExternalOof
      * @return \Ews\StructType\EwsGetUserOofSettingsResponse
      */
     public function setAllowExternalOof($allowExternalOof = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($allowExternalOof)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $allowExternalOof, implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }

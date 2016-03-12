@@ -33,7 +33,7 @@ class EwsMailboxData extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExcludeConflicts;
     /**
@@ -43,7 +43,7 @@ class EwsMailboxData extends AbstractStructBase
      * @uses EwsMailboxData::setExcludeConflicts()
      * @param \Ews\StructType\EwsEmailAddress $email
      * @param string $attendeeType
-     * @param boolean $excludeConflicts
+     * @param bool $excludeConflicts
      */
     public function __construct(\Ews\StructType\EwsEmailAddress $email = null, $attendeeType = null, $excludeConflicts = null)
     {
@@ -82,11 +82,13 @@ class EwsMailboxData extends AbstractStructBase
      * Set AttendeeType value
      * @uses \Ews\EnumType\EwsMeetingAttendeeType::valueIsValid()
      * @uses \Ews\EnumType\EwsMeetingAttendeeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $attendeeType
      * @return \Ews\StructType\EwsMailboxData
      */
     public function setAttendeeType($attendeeType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMeetingAttendeeType::valueIsValid($attendeeType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $attendeeType, implode(', ', \Ews\EnumType\EwsMeetingAttendeeType::getValidValues())), __LINE__);
         }
@@ -95,7 +97,7 @@ class EwsMailboxData extends AbstractStructBase
     }
     /**
      * Get ExcludeConflicts value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExcludeConflicts()
     {
@@ -103,7 +105,7 @@ class EwsMailboxData extends AbstractStructBase
     }
     /**
      * Set ExcludeConflicts value
-     * @param boolean $excludeConflicts
+     * @param bool $excludeConflicts
      * @return \Ews\StructType\EwsMailboxData
      */
     public function setExcludeConflicts($excludeConflicts = null)

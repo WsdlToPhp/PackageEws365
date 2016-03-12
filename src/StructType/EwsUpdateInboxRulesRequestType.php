@@ -17,7 +17,6 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Represents an array of rule operations to be performed
      * @var \Ews\StructType\EwsArrayOfRuleOperationsType
      */
     public $Operations;
@@ -34,7 +33,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $RemoveOutlookRuleBlob;
     /**
@@ -44,7 +43,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
      * @uses EwsUpdateInboxRulesRequestType::setRemoveOutlookRuleBlob()
      * @param \Ews\StructType\EwsArrayOfRuleOperationsType $operations
      * @param string $mailboxSmtpAddress
-     * @param boolean $removeOutlookRuleBlob
+     * @param bool $removeOutlookRuleBlob
      */
     public function __construct(\Ews\StructType\EwsArrayOfRuleOperationsType $operations = null, $mailboxSmtpAddress = null, $removeOutlookRuleBlob = null)
     {
@@ -86,12 +85,16 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
      */
     public function setMailboxSmtpAddress($mailboxSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxSmtpAddress) && !is_string($mailboxSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxSmtpAddress)), __LINE__);
+        }
         $this->MailboxSmtpAddress = $mailboxSmtpAddress;
         return $this;
     }
     /**
      * Get RemoveOutlookRuleBlob value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getRemoveOutlookRuleBlob()
     {
@@ -99,7 +102,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
     }
     /**
      * Set RemoveOutlookRuleBlob value
-     * @param boolean $removeOutlookRuleBlob
+     * @param bool $removeOutlookRuleBlob
      * @return \Ews\StructType\EwsUpdateInboxRulesRequestType
      */
     public function setRemoveOutlookRuleBlob($removeOutlookRuleBlob = null)

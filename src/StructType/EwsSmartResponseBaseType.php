@@ -51,14 +51,14 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
      * The IsReadReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsReadReceiptRequested;
     /**
      * The IsDeliveryReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDeliveryReceiptRequested;
     /**
@@ -72,7 +72,6 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
      * The ReferenceItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ReferenceItemId;
@@ -100,8 +99,8 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients
-     * @param boolean $isReadReceiptRequested
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isReadReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param \Ews\StructType\EwsItemIdType $referenceItemId
      * @param string $objectName
@@ -135,6 +134,10 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
@@ -212,7 +215,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     }
     /**
      * Get IsReadReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsReadReceiptRequested()
     {
@@ -220,7 +223,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     }
     /**
      * Set IsReadReceiptRequested value
-     * @param boolean $isReadReceiptRequested
+     * @param bool $isReadReceiptRequested
      * @return \Ews\StructType\EwsSmartResponseBaseType
      */
     public function setIsReadReceiptRequested($isReadReceiptRequested = null)
@@ -230,7 +233,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     }
     /**
      * Get IsDeliveryReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeliveryReceiptRequested()
     {
@@ -238,7 +241,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     }
     /**
      * Set IsDeliveryReceiptRequested value
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @return \Ews\StructType\EwsSmartResponseBaseType
      */
     public function setIsDeliveryReceiptRequested($isDeliveryReceiptRequested = null)
@@ -297,6 +300,10 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
      */
     public function setObjectName($objectName = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectName) && !is_string($objectName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+        }
         $this->ObjectName = $objectName;
         return $this;
     }

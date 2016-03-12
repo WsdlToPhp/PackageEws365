@@ -19,7 +19,7 @@ class EwsTokenSourceType
      * Constant for value 'LinkedIn'
      * @return string 'LinkedIn'
      */
-    const VALUE_LINKEDIN = 'LinkedIn';
+    const VALUE_LINKED_IN = 'LinkedIn';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsTokenSourceType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_LINKEDIN
+     * @uses self::VALUE_LINKED_IN
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_LINKEDIN,
+            self::VALUE_LINKED_IN,
         );
     }
     /**

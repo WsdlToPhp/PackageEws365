@@ -25,7 +25,6 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $SourceId;
@@ -42,7 +41,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsWritable;
     /**
@@ -50,7 +49,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsQuickContact;
     /**
@@ -58,7 +57,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsHidden;
     /**
@@ -66,7 +65,6 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
@@ -82,9 +80,9 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * @param string $id
      * @param \Ews\StructType\EwsItemIdType $sourceId
      * @param string $displayName
-     * @param boolean $isWritable
-     * @param boolean $isQuickContact
-     * @param boolean $isHidden
+     * @param bool $isWritable
+     * @param bool $isQuickContact
+     * @param bool $isHidden
      * @param \Ews\StructType\EwsFolderIdType $folderId
      */
     public function __construct($id = null, \Ews\StructType\EwsItemIdType $sourceId = null, $displayName = null, $isWritable = null, $isQuickContact = null, $isHidden = null, \Ews\StructType\EwsFolderIdType $folderId = null)
@@ -113,6 +111,10 @@ class EwsPersonaAttributionType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -149,12 +151,16 @@ class EwsPersonaAttributionType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
     /**
      * Get IsWritable value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsWritable()
     {
@@ -162,7 +168,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     }
     /**
      * Set IsWritable value
-     * @param boolean $isWritable
+     * @param bool $isWritable
      * @return \Ews\StructType\EwsPersonaAttributionType
      */
     public function setIsWritable($isWritable = null)
@@ -172,7 +178,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     }
     /**
      * Get IsQuickContact value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsQuickContact()
     {
@@ -180,7 +186,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     }
     /**
      * Set IsQuickContact value
-     * @param boolean $isQuickContact
+     * @param bool $isQuickContact
      * @return \Ews\StructType\EwsPersonaAttributionType
      */
     public function setIsQuickContact($isQuickContact = null)
@@ -190,7 +196,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     }
     /**
      * Get IsHidden value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsHidden()
     {
@@ -198,7 +204,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     }
     /**
      * Set IsHidden value
-     * @param boolean $isHidden
+     * @param bool $isHidden
      * @return \Ews\StructType\EwsPersonaAttributionType
      */
     public function setIsHidden($isHidden = null)

@@ -17,13 +17,13 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsFlightEntityType[]
      */
     public $Flight;
     /**
      * Constructor method for ArrayOfFlightsType
      * @uses EwsArrayOfFlightsType::setFlight()
-     * @param array $flight
+     * @param \Ews\StructType\EwsFlightEntityType[] $flight
      */
     public function __construct(array $flight = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
     }
     /**
      * Get Flight value
-     * @return array
+     * @return \Ews\StructType\EwsFlightEntityType[]|null
      */
     public function getFlight()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
     }
     /**
      * Set Flight value
-     * @param array $flight
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFlightEntityType[] $flight
      * @return \Ews\ArrayType\EwsArrayOfFlightsType
      */
     public function setFlight(array $flight = array())
     {
+        foreach ($flight as $arrayOfFlightsTypeFlightItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFlightsTypeFlightItem instanceof \Ews\StructType\EwsFlightEntityType) {
+                throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of \Ews\StructType\EwsFlightEntityType, "%s" given', is_object($arrayOfFlightsTypeFlightItem) ? get_class($arrayOfFlightsTypeFlightItem) : gettype($arrayOfFlightsTypeFlightItem)), __LINE__);
+            }
+        }
         $this->Flight = $flight;
+        return $this;
+    }
+    /**
+     * Add item to Flight value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFlightEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfFlightsType
+     */
+    public function addToFlight(\Ews\StructType\EwsFlightEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFlightEntityType) {
+            throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of \Ews\StructType\EwsFlightEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Flight[] = $item;
         return $this;
     }
     /**

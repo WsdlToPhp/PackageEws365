@@ -64,6 +64,10 @@ class EwsRoleMemberItemType extends EwsItemType
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -79,11 +83,13 @@ class EwsRoleMemberItemType extends EwsItemType
      * Set Type value
      * @uses \Ews\EnumType\EwsRoleMemberTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsRoleMemberTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsRoleMemberItemType
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRoleMemberTypeType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsRoleMemberTypeType::getValidValues())), __LINE__);
         }
@@ -105,6 +111,10 @@ class EwsRoleMemberItemType extends EwsItemType
      */
     public function setMemberId($memberId = null)
     {
+        // validation for constraint: string
+        if (!is_null($memberId) && !is_string($memberId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($memberId)), __LINE__);
+        }
         $this->MemberId = $memberId;
         return $this;
     }

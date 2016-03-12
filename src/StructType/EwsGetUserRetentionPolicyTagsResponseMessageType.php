@@ -16,8 +16,6 @@ class EwsGetUserRetentionPolicyTagsResponseMessageType extends EwsResponseMessag
 {
     /**
      * The RetentionPolicyTags
-     * Meta informations extracted from the WSDL
-     * - documentation: Array of retention policy tags.
      * @var \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType
      */
     public $RetentionPolicyTags;

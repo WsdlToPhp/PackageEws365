@@ -14,32 +14,32 @@ class EwsEffectiveRightsType extends AbstractStructBase
 {
     /**
      * The CreateAssociated
-     * @var boolean
+     * @var bool
      */
     public $CreateAssociated;
     /**
      * The CreateContents
-     * @var boolean
+     * @var bool
      */
     public $CreateContents;
     /**
      * The CreateHierarchy
-     * @var boolean
+     * @var bool
      */
     public $CreateHierarchy;
     /**
      * The Delete
-     * @var boolean
+     * @var bool
      */
     public $Delete;
     /**
      * The Modify
-     * @var boolean
+     * @var bool
      */
     public $Modify;
     /**
      * The Read
-     * @var boolean
+     * @var bool
      */
     public $Read;
     /**
@@ -47,7 +47,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ViewPrivateItems;
     /**
@@ -59,13 +59,13 @@ class EwsEffectiveRightsType extends AbstractStructBase
      * @uses EwsEffectiveRightsType::setModify()
      * @uses EwsEffectiveRightsType::setRead()
      * @uses EwsEffectiveRightsType::setViewPrivateItems()
-     * @param boolean $createAssociated
-     * @param boolean $createContents
-     * @param boolean $createHierarchy
-     * @param boolean $delete
-     * @param boolean $modify
-     * @param boolean $read
-     * @param boolean $viewPrivateItems
+     * @param bool $createAssociated
+     * @param bool $createContents
+     * @param bool $createHierarchy
+     * @param bool $delete
+     * @param bool $modify
+     * @param bool $read
+     * @param bool $viewPrivateItems
      */
     public function __construct($createAssociated = null, $createContents = null, $createHierarchy = null, $delete = null, $modify = null, $read = null, $viewPrivateItems = null)
     {
@@ -80,7 +80,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get CreateAssociated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCreateAssociated()
     {
@@ -88,7 +88,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set CreateAssociated value
-     * @param boolean $createAssociated
+     * @param bool $createAssociated
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setCreateAssociated($createAssociated = null)
@@ -98,7 +98,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get CreateContents value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCreateContents()
     {
@@ -106,7 +106,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set CreateContents value
-     * @param boolean $createContents
+     * @param bool $createContents
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setCreateContents($createContents = null)
@@ -116,7 +116,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get CreateHierarchy value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCreateHierarchy()
     {
@@ -124,7 +124,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set CreateHierarchy value
-     * @param boolean $createHierarchy
+     * @param bool $createHierarchy
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setCreateHierarchy($createHierarchy = null)
@@ -134,7 +134,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get Delete value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getDelete()
     {
@@ -142,7 +142,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set Delete value
-     * @param boolean $delete
+     * @param bool $delete
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setDelete($delete = null)
@@ -152,7 +152,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get Modify value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getModify()
     {
@@ -160,7 +160,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set Modify value
-     * @param boolean $modify
+     * @param bool $modify
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setModify($modify = null)
@@ -170,7 +170,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get Read value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getRead()
     {
@@ -178,7 +178,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set Read value
-     * @param boolean $read
+     * @param bool $read
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setRead($read = null)
@@ -188,7 +188,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Get ViewPrivateItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getViewPrivateItems()
     {
@@ -196,7 +196,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     }
     /**
      * Set ViewPrivateItems value
-     * @param boolean $viewPrivateItems
+     * @param bool $viewPrivateItems
      * @return \Ews\StructType\EwsEffectiveRightsType
      */
     public function setViewPrivateItems($viewPrivateItems = null)

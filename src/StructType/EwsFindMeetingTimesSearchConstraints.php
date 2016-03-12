@@ -82,6 +82,10 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
      */
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
     }
@@ -97,11 +101,13 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
      * Set ActivityDomain value
      * @uses \Ews\EnumType\EwsActivityDomainType::valueIsValid()
      * @uses \Ews\EnumType\EwsActivityDomainType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $activityDomain
      * @return \Ews\StructType\EwsFindMeetingTimesSearchConstraints
      */
     public function setActivityDomain($activityDomain = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $activityDomain, implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
         }

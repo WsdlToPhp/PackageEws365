@@ -33,7 +33,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EventTime;
     /**
@@ -115,7 +115,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * @uses EwsXrmActivityStreamType::setAdditionalActivityDetails()
      * @param string $id
      * @param string $clientSessionId
-     * @param dateTime $eventTime
+     * @param string $eventTime
      * @param base64Binary $sourceUser
      * @param string $actionVerb
      * @param string $subtype
@@ -155,6 +155,10 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -173,12 +177,16 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setClientSessionId($clientSessionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($clientSessionId) && !is_string($clientSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientSessionId)), __LINE__);
+        }
         $this->ClientSessionId = $clientSessionId;
         return $this;
     }
     /**
      * Get EventTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEventTime()
     {
@@ -186,11 +194,15 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     }
     /**
      * Set EventTime value
-     * @param dateTime $eventTime
+     * @param string $eventTime
      * @return \Ews\StructType\EwsXrmActivityStreamType
      */
     public function setEventTime($eventTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($eventTime) && !is_string($eventTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventTime)), __LINE__);
+        }
         $this->EventTime = $eventTime;
         return $this;
     }
@@ -227,6 +239,10 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setActionVerb($actionVerb = null)
     {
+        // validation for constraint: string
+        if (!is_null($actionVerb) && !is_string($actionVerb)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($actionVerb)), __LINE__);
+        }
         $this->ActionVerb = $actionVerb;
         return $this;
     }
@@ -245,6 +261,10 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setSubtype($subtype = null)
     {
+        // validation for constraint: string
+        if (!is_null($subtype) && !is_string($subtype)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subtype)), __LINE__);
+        }
         $this->Subtype = $subtype;
         return $this;
     }
@@ -296,11 +316,13 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * Set Flags value
      * @uses \Ews\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid()
      * @uses \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $flags
      * @return \Ews\StructType\EwsXrmActivityStreamType
      */
     public function setFlags($flags = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid($flags)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flags, implode(', ', \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues())), __LINE__);
         }
@@ -322,6 +344,10 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setModifiedProperties($modifiedProperties = null)
     {
+        // validation for constraint: string
+        if (!is_null($modifiedProperties) && !is_string($modifiedProperties)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($modifiedProperties)), __LINE__);
+        }
         $this->ModifiedProperties = $modifiedProperties;
         return $this;
     }
@@ -340,6 +366,10 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      */
     public function setAdditionalActivityDetails($additionalActivityDetails = null)
     {
+        // validation for constraint: string
+        if (!is_null($additionalActivityDetails) && !is_string($additionalActivityDetails)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalActivityDetails)), __LINE__);
+        }
         $this->AdditionalActivityDetails = $additionalActivityDetails;
         return $this;
     }

@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * The InternetMessageHeader
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsInternetHeaderType[]
      */
     public $InternetMessageHeader;
     /**
      * Constructor method for NonEmptyArrayOfInternetHeadersType
      * @uses EwsNonEmptyArrayOfInternetHeadersType::setInternetMessageHeader()
-     * @param array $internetMessageHeader
+     * @param \Ews\StructType\EwsInternetHeaderType[] $internetMessageHeader
      */
     public function __construct(array $internetMessageHeader = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
     }
     /**
      * Get InternetMessageHeader value
-     * @return array
+     * @return \Ews\StructType\EwsInternetHeaderType[]|null
      */
     public function getInternetMessageHeader()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
     }
     /**
      * Set InternetMessageHeader value
-     * @param array $internetMessageHeader
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInternetHeaderType[] $internetMessageHeader
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
      */
     public function setInternetMessageHeader(array $internetMessageHeader = array())
     {
+        foreach ($internetMessageHeader as $nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem instanceof \Ews\StructType\EwsInternetHeaderType) {
+                throw new \InvalidArgumentException(sprintf('The InternetMessageHeader property can only contain items of \Ews\StructType\EwsInternetHeaderType, "%s" given', is_object($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) ? get_class($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) : gettype($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem)), __LINE__);
+            }
+        }
         $this->InternetMessageHeader = $internetMessageHeader;
+        return $this;
+    }
+    /**
+     * Add item to InternetMessageHeader value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsInternetHeaderType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
+     */
+    public function addToInternetMessageHeader(\Ews\StructType\EwsInternetHeaderType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsInternetHeaderType) {
+            throw new \InvalidArgumentException(sprintf('The InternetMessageHeader property can only contain items of \Ews\StructType\EwsInternetHeaderType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->InternetMessageHeader[] = $item;
         return $this;
     }
     /**

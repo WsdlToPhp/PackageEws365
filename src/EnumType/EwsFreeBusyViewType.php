@@ -19,17 +19,17 @@ class EwsFreeBusyViewType
      * Constant for value 'MergedOnly'
      * @return string 'MergedOnly'
      */
-    const VALUE_MERGEDONLY = 'MergedOnly';
+    const VALUE_MERGED_ONLY = 'MergedOnly';
     /**
      * Constant for value 'FreeBusy'
      * @return string 'FreeBusy'
      */
-    const VALUE_FREEBUSY = 'FreeBusy';
+    const VALUE_FREE_BUSY = 'FreeBusy';
     /**
      * Constant for value 'FreeBusyMerged'
      * @return string 'FreeBusyMerged'
      */
-    const VALUE_FREEBUSYMERGED = 'FreeBusyMerged';
+    const VALUE_FREE_BUSY_MERGED = 'FreeBusyMerged';
     /**
      * Constant for value 'Detailed'
      * @return string 'Detailed'
@@ -39,7 +39,7 @@ class EwsFreeBusyViewType
      * Constant for value 'DetailedMerged'
      * @return string 'DetailedMerged'
      */
-    const VALUE_DETAILEDMERGED = 'DetailedMerged';
+    const VALUE_DETAILED_MERGED = 'DetailedMerged';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -53,22 +53,22 @@ class EwsFreeBusyViewType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_MERGEDONLY
-     * @uses self::VALUE_FREEBUSY
-     * @uses self::VALUE_FREEBUSYMERGED
+     * @uses self::VALUE_MERGED_ONLY
+     * @uses self::VALUE_FREE_BUSY
+     * @uses self::VALUE_FREE_BUSY_MERGED
      * @uses self::VALUE_DETAILED
-     * @uses self::VALUE_DETAILEDMERGED
+     * @uses self::VALUE_DETAILED_MERGED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_MERGEDONLY,
-            self::VALUE_FREEBUSY,
-            self::VALUE_FREEBUSYMERGED,
+            self::VALUE_MERGED_ONLY,
+            self::VALUE_FREE_BUSY,
+            self::VALUE_FREE_BUSY_MERGED,
             self::VALUE_DETAILED,
-            self::VALUE_DETAILEDMERGED,
+            self::VALUE_DETAILED_MERGED,
         );
     }
     /**

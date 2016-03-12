@@ -16,13 +16,13 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * The MeetingSuggestion
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsMeetingSuggestionType[]
      */
     public $MeetingSuggestion;
     /**
      * Constructor method for ArrayOfMeetingSuggestionsType
      * @uses EwsArrayOfMeetingSuggestionsType::setMeetingSuggestion()
-     * @param array $meetingSuggestion
+     * @param \Ews\StructType\EwsMeetingSuggestionType[] $meetingSuggestion
      */
     public function __construct(array $meetingSuggestion = array())
     {
@@ -31,7 +31,7 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
     }
     /**
      * Get MeetingSuggestion value
-     * @return array
+     * @return \Ews\StructType\EwsMeetingSuggestionType[]|null
      */
     public function getMeetingSuggestion()
     {
@@ -39,12 +39,34 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
     }
     /**
      * Set MeetingSuggestion value
-     * @param array $meetingSuggestion
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingSuggestionType[] $meetingSuggestion
      * @return \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
      */
     public function setMeetingSuggestion(array $meetingSuggestion = array())
     {
+        foreach ($meetingSuggestion as $arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMeetingSuggestionsTypeMeetingSuggestionItem instanceof \Ews\StructType\EwsMeetingSuggestionType) {
+                throw new \InvalidArgumentException(sprintf('The MeetingSuggestion property can only contain items of \Ews\StructType\EwsMeetingSuggestionType, "%s" given', is_object($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) ? get_class($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) : gettype($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem)), __LINE__);
+            }
+        }
         $this->MeetingSuggestion = $meetingSuggestion;
+        return $this;
+    }
+    /**
+     * Add item to MeetingSuggestion value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingSuggestionType $item
+     * @return \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
+     */
+    public function addToMeetingSuggestion(\Ews\StructType\EwsMeetingSuggestionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMeetingSuggestionType) {
+            throw new \InvalidArgumentException(sprintf('The MeetingSuggestion property can only contain items of \Ews\StructType\EwsMeetingSuggestionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MeetingSuggestion[] = $item;
         return $this;
     }
     /**

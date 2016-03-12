@@ -16,13 +16,13 @@ class EwsArrayOfMeetingTimeCandidate extends AbstractStructArrayBase
      * The MeetingTimeCandidate
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsMeetingTimeCandidate[]
      */
     public $MeetingTimeCandidate;
     /**
      * Constructor method for ArrayOfMeetingTimeCandidate
      * @uses EwsArrayOfMeetingTimeCandidate::setMeetingTimeCandidate()
-     * @param array $meetingTimeCandidate
+     * @param \Ews\StructType\EwsMeetingTimeCandidate[] $meetingTimeCandidate
      */
     public function __construct(array $meetingTimeCandidate = array())
     {
@@ -31,7 +31,7 @@ class EwsArrayOfMeetingTimeCandidate extends AbstractStructArrayBase
     }
     /**
      * Get MeetingTimeCandidate value
-     * @return array
+     * @return \Ews\StructType\EwsMeetingTimeCandidate[]|null
      */
     public function getMeetingTimeCandidate()
     {
@@ -39,12 +39,34 @@ class EwsArrayOfMeetingTimeCandidate extends AbstractStructArrayBase
     }
     /**
      * Set MeetingTimeCandidate value
-     * @param array $meetingTimeCandidate
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingTimeCandidate[] $meetingTimeCandidate
      * @return \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate
      */
     public function setMeetingTimeCandidate(array $meetingTimeCandidate = array())
     {
+        foreach ($meetingTimeCandidate as $arrayOfMeetingTimeCandidateMeetingTimeCandidateItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMeetingTimeCandidateMeetingTimeCandidateItem instanceof \Ews\StructType\EwsMeetingTimeCandidate) {
+                throw new \InvalidArgumentException(sprintf('The MeetingTimeCandidate property can only contain items of \Ews\StructType\EwsMeetingTimeCandidate, "%s" given', is_object($arrayOfMeetingTimeCandidateMeetingTimeCandidateItem) ? get_class($arrayOfMeetingTimeCandidateMeetingTimeCandidateItem) : gettype($arrayOfMeetingTimeCandidateMeetingTimeCandidateItem)), __LINE__);
+            }
+        }
         $this->MeetingTimeCandidate = $meetingTimeCandidate;
+        return $this;
+    }
+    /**
+     * Add item to MeetingTimeCandidate value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingTimeCandidate $item
+     * @return \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate
+     */
+    public function addToMeetingTimeCandidate(\Ews\StructType\EwsMeetingTimeCandidate $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMeetingTimeCandidate) {
+            throw new \InvalidArgumentException(sprintf('The MeetingTimeCandidate property can only contain items of \Ews\StructType\EwsMeetingTimeCandidate, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MeetingTimeCandidate[] = $item;
         return $this;
     }
     /**

@@ -54,6 +54,10 @@ class EwsRootItemIdType extends EwsBaseItemIdType
      */
     public function setRootItemId($rootItemId = null)
     {
+        // validation for constraint: string
+        if (!is_null($rootItemId) && !is_string($rootItemId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rootItemId)), __LINE__);
+        }
         $this->RootItemId = $rootItemId;
         return $this;
     }
@@ -72,6 +76,10 @@ class EwsRootItemIdType extends EwsBaseItemIdType
      */
     public function setRootItemChangeKey($rootItemChangeKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($rootItemChangeKey) && !is_string($rootItemChangeKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rootItemChangeKey)), __LINE__);
+        }
         $this->RootItemChangeKey = $rootItemChangeKey;
         return $this;
     }

@@ -16,13 +16,13 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
      * The SharingInvitation
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsSharingInvitation[]
      */
     public $SharingInvitation;
     /**
      * Constructor method for ArrayOfSharingInvitation
      * @uses EwsArrayOfSharingInvitation::setSharingInvitation()
-     * @param array $sharingInvitation
+     * @param \Ews\StructType\EwsSharingInvitation[] $sharingInvitation
      */
     public function __construct(array $sharingInvitation = array())
     {
@@ -31,7 +31,7 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
     }
     /**
      * Get SharingInvitation value
-     * @return array
+     * @return \Ews\StructType\EwsSharingInvitation[]|null
      */
     public function getSharingInvitation()
     {
@@ -39,12 +39,34 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
     }
     /**
      * Set SharingInvitation value
-     * @param array $sharingInvitation
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSharingInvitation[] $sharingInvitation
      * @return \Ews\ArrayType\EwsArrayOfSharingInvitation
      */
     public function setSharingInvitation(array $sharingInvitation = array())
     {
+        foreach ($sharingInvitation as $arrayOfSharingInvitationSharingInvitationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSharingInvitationSharingInvitationItem instanceof \Ews\StructType\EwsSharingInvitation) {
+                throw new \InvalidArgumentException(sprintf('The SharingInvitation property can only contain items of \Ews\StructType\EwsSharingInvitation, "%s" given', is_object($arrayOfSharingInvitationSharingInvitationItem) ? get_class($arrayOfSharingInvitationSharingInvitationItem) : gettype($arrayOfSharingInvitationSharingInvitationItem)), __LINE__);
+            }
+        }
         $this->SharingInvitation = $sharingInvitation;
+        return $this;
+    }
+    /**
+     * Add item to SharingInvitation value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSharingInvitation $item
+     * @return \Ews\ArrayType\EwsArrayOfSharingInvitation
+     */
+    public function addToSharingInvitation(\Ews\StructType\EwsSharingInvitation $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSharingInvitation) {
+            throw new \InvalidArgumentException(sprintf('The SharingInvitation property can only contain items of \Ews\StructType\EwsSharingInvitation, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->SharingInvitation[] = $item;
         return $this;
     }
     /**

@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * The ItemChange
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsItemChangeType[]
      */
     public $ItemChange;
     /**
      * Constructor method for NonEmptyArrayOfItemChangesType
      * @uses EwsNonEmptyArrayOfItemChangesType::setItemChange()
-     * @param array $itemChange
+     * @param \Ews\StructType\EwsItemChangeType[] $itemChange
      */
     public function __construct(array $itemChange = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
     }
     /**
      * Get ItemChange value
-     * @return array
+     * @return \Ews\StructType\EwsItemChangeType[]|null
      */
     public function getItemChange()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
     }
     /**
      * Set ItemChange value
-     * @param array $itemChange
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsItemChangeType[] $itemChange
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType
      */
     public function setItemChange(array $itemChange = array())
     {
+        foreach ($itemChange as $nonEmptyArrayOfItemChangesTypeItemChangeItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfItemChangesTypeItemChangeItem instanceof \Ews\StructType\EwsItemChangeType) {
+                throw new \InvalidArgumentException(sprintf('The ItemChange property can only contain items of \Ews\StructType\EwsItemChangeType, "%s" given', is_object($nonEmptyArrayOfItemChangesTypeItemChangeItem) ? get_class($nonEmptyArrayOfItemChangesTypeItemChangeItem) : gettype($nonEmptyArrayOfItemChangesTypeItemChangeItem)), __LINE__);
+            }
+        }
         $this->ItemChange = $itemChange;
+        return $this;
+    }
+    /**
+     * Add item to ItemChange value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsItemChangeType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType
+     */
+    public function addToItemChange(\Ews\StructType\EwsItemChangeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsItemChangeType) {
+            throw new \InvalidArgumentException(sprintf('The ItemChange property can only contain items of \Ews\StructType\EwsItemChangeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ItemChange[] = $item;
         return $this;
     }
     /**

@@ -19,13 +19,13 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var string[]
      */
     public $SearchItemKind;
     /**
      * Constructor method for ArrayOfSearchItemKindsType
      * @uses EwsArrayOfSearchItemKindsType::setSearchItemKind()
-     * @param array $searchItemKind
+     * @param string[] $searchItemKind
      */
     public function __construct(array $searchItemKind = array())
     {
@@ -34,7 +34,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     }
     /**
      * Get SearchItemKind value
-     * @return array
+     * @return string[]
      */
     public function getSearchItemKind()
     {
@@ -42,12 +42,39 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     }
     /**
      * Set SearchItemKind value
-     * @param array $searchItemKind
+     * @throws \InvalidArgumentException
+     * @param string[] $searchItemKind
      * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
      */
     public function setSearchItemKind(array $searchItemKind = array())
     {
+        $invalidValues = array();
+        foreach ($searchItemKind as $arrayOfSearchItemKindsTypeSearchItemKindItem) {
+            if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
+                $invalidValues[] = var_export($arrayOfSearchItemKindsTypeSearchItemKindItem);
+            }
+        }
+        if (!empty($invalidValues)) {
+            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+        }
         $this->SearchItemKind = $searchItemKind;
+        return $this;
+    }
+    /**
+     * Add item to SearchItemKind value
+     * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
+     * @uses \Ews\EnumType\EwsSearchItemKindType::getValidValues()
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
+     */
+    public function addToSearchItemKind($item)
+    {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+        }
+        $this->SearchItemKind[] = $item;
         return $this;
     }
     /**
@@ -100,13 +127,17 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
+     * @throws \InvalidArgumentException
      * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
      * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType|bool
+     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
      */
     public function add($item)
     {
-        return \Ews\EnumType\EwsSearchItemKindType::valueIsValid($item) ? parent::add($item) : false;
+        if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

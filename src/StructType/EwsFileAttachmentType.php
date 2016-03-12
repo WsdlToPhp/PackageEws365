@@ -17,7 +17,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsContactPhoto;
     /**
@@ -32,7 +32,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * Constructor method for FileAttachmentType
      * @uses EwsFileAttachmentType::setIsContactPhoto()
      * @uses EwsFileAttachmentType::setContent()
-     * @param boolean $isContactPhoto
+     * @param bool $isContactPhoto
      * @param base64Binary $content
      */
     public function __construct($isContactPhoto = null, base64Binary $content = null)
@@ -43,7 +43,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
     }
     /**
      * Get IsContactPhoto value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsContactPhoto()
     {
@@ -51,7 +51,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
     }
     /**
      * Set IsContactPhoto value
-     * @param boolean $isContactPhoto
+     * @param bool $isContactPhoto
      * @return \Ews\StructType\EwsFileAttachmentType
      */
     public function setIsContactPhoto($isContactPhoto = null)

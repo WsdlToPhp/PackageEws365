@@ -16,14 +16,15 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
      * The MeetingParticipantAvailability
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsMeetingParticipantAvailability[]
      */
     public $MeetingParticipantAvailability;
     /**
      * Constructor method for ArrayOfMeetingParticipantAvailability
      * @uses
      * EwsArrayOfMeetingParticipantAvailability::setMeetingParticipantAvailability()
-     * @param array $meetingParticipantAvailability
+     * @param \Ews\StructType\EwsMeetingParticipantAvailability[]
+     * $meetingParticipantAvailability
      */
     public function __construct(array $meetingParticipantAvailability = array())
     {
@@ -32,7 +33,7 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     }
     /**
      * Get MeetingParticipantAvailability value
-     * @return array
+     * @return \Ews\StructType\EwsMeetingParticipantAvailability[]|null
      */
     public function getMeetingParticipantAvailability()
     {
@@ -40,12 +41,35 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     }
     /**
      * Set MeetingParticipantAvailability value
-     * @param array $meetingParticipantAvailability
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingParticipantAvailability[]
+     * $meetingParticipantAvailability
      * @return \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
      */
     public function setMeetingParticipantAvailability(array $meetingParticipantAvailability = array())
     {
+        foreach ($meetingParticipantAvailability as $arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem instanceof \Ews\StructType\EwsMeetingParticipantAvailability) {
+                throw new \InvalidArgumentException(sprintf('The MeetingParticipantAvailability property can only contain items of \Ews\StructType\EwsMeetingParticipantAvailability, "%s" given', is_object($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) ? get_class($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) : gettype($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem)), __LINE__);
+            }
+        }
         $this->MeetingParticipantAvailability = $meetingParticipantAvailability;
+        return $this;
+    }
+    /**
+     * Add item to MeetingParticipantAvailability value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingParticipantAvailability $item
+     * @return \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
+     */
+    public function addToMeetingParticipantAvailability(\Ews\StructType\EwsMeetingParticipantAvailability $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMeetingParticipantAvailability) {
+            throw new \InvalidArgumentException(sprintf('The MeetingParticipantAvailability property can only contain items of \Ews\StructType\EwsMeetingParticipantAvailability, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MeetingParticipantAvailability[] = $item;
         return $this;
     }
     /**

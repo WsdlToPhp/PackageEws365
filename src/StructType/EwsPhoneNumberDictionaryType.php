@@ -16,22 +16,22 @@ class EwsPhoneNumberDictionaryType extends AbstractStructBase
      * The Entry
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsPhoneNumberDictionaryEntryType
+     * @var \Ews\StructType\EwsPhoneNumberDictionaryEntryType[]
      */
     public $Entry;
     /**
      * Constructor method for PhoneNumberDictionaryType
      * @uses EwsPhoneNumberDictionaryType::setEntry()
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType $entry
+     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType[] $entry
      */
-    public function __construct(\Ews\StructType\EwsPhoneNumberDictionaryEntryType $entry = null)
+    public function __construct(array $entry = array())
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType|null
+     * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType[]|null
      */
     public function getEntry()
     {
@@ -39,12 +39,34 @@ class EwsPhoneNumberDictionaryType extends AbstractStructBase
     }
     /**
      * Set Entry value
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType $entry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType[] $entry
      * @return \Ews\StructType\EwsPhoneNumberDictionaryType
      */
-    public function setEntry(\Ews\StructType\EwsPhoneNumberDictionaryEntryType $entry = null)
+    public function setEntry(array $entry = array())
     {
+        foreach ($entry as $phoneNumberDictionaryTypeEntryItem) {
+            // validation for constraint: itemType
+            if (!$phoneNumberDictionaryTypeEntryItem instanceof \Ews\StructType\EwsPhoneNumberDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsPhoneNumberDictionaryEntryType, "%s" given', is_object($phoneNumberDictionaryTypeEntryItem) ? get_class($phoneNumberDictionaryTypeEntryItem) : gettype($phoneNumberDictionaryTypeEntryItem)), __LINE__);
+            }
+        }
         $this->Entry = $entry;
+        return $this;
+    }
+    /**
+     * Add item to Entry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType $item
+     * @return \Ews\StructType\EwsPhoneNumberDictionaryType
+     */
+    public function addToEntry(\Ews\StructType\EwsPhoneNumberDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPhoneNumberDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsPhoneNumberDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Entry[] = $item;
         return $this;
     }
     /**

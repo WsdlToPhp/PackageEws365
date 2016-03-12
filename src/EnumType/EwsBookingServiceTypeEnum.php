@@ -14,12 +14,12 @@ class EwsBookingServiceTypeEnum
      * Constant for value 'UserDefined'
      * @return string 'UserDefined'
      */
-    const VALUE_USERDEFINED = 'UserDefined';
+    const VALUE_USER_DEFINED = 'UserDefined';
     /**
      * Constant for value 'TimeOff'
      * @return string 'TimeOff'
      */
-    const VALUE_TIMEOFF = 'TimeOff';
+    const VALUE_TIME_OFF = 'TimeOff';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsBookingServiceTypeEnum
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_USERDEFINED
-     * @uses self::VALUE_TIMEOFF
+     * @uses self::VALUE_USER_DEFINED
+     * @uses self::VALUE_TIME_OFF
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_USERDEFINED,
-            self::VALUE_TIMEOFF,
+            self::VALUE_USER_DEFINED,
+            self::VALUE_TIME_OFF,
         );
     }
     /**

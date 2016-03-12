@@ -45,6 +45,10 @@ class EwsGetPasswordExpirationDateType extends EwsBaseRequestType
      */
     public function setMailboxSmtpAddress($mailboxSmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxSmtpAddress) && !is_string($mailboxSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxSmtpAddress)), __LINE__);
+        }
         $this->MailboxSmtpAddress = $mailboxSmtpAddress;
         return $this;
     }

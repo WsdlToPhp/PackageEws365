@@ -71,6 +71,14 @@ class EwsGetUMCallSummaryType extends EwsBaseRequestType
      */
     public function setDailPlanGuid($dailPlanGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($dailPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dailPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dailPlanGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($dailPlanGuid) && !is_string($dailPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dailPlanGuid)), __LINE__);
+        }
         $this->DailPlanGuid = $dailPlanGuid;
         return $this;
     }
@@ -89,6 +97,14 @@ class EwsGetUMCallSummaryType extends EwsBaseRequestType
      */
     public function setGatewayGuid($gatewayGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($gatewayGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($gatewayGuid) && !is_string($gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($gatewayGuid)), __LINE__);
+        }
         $this->GatewayGuid = $gatewayGuid;
         return $this;
     }
@@ -104,11 +120,13 @@ class EwsGetUMCallSummaryType extends EwsBaseRequestType
      * Set GroupRecordsBy value
      * @uses \Ews\EnumType\EwsUMCDRGroupByType::valueIsValid()
      * @uses \Ews\EnumType\EwsUMCDRGroupByType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $groupRecordsBy
      * @return \Ews\StructType\EwsGetUMCallSummaryType
      */
     public function setGroupRecordsBy($groupRecordsBy = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUMCDRGroupByType::valueIsValid($groupRecordsBy)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupRecordsBy, implode(', ', \Ews\EnumType\EwsUMCDRGroupByType::getValidValues())), __LINE__);
         }

@@ -54,11 +54,13 @@ class EwsPreviewItemResponseShapeType extends AbstractStructBase
      * Set BaseShape value
      * @uses \Ews\EnumType\EwsPreviewItemBaseShapeType::valueIsValid()
      * @uses \Ews\EnumType\EwsPreviewItemBaseShapeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $baseShape
      * @return \Ews\StructType\EwsPreviewItemResponseShapeType
      */
     public function setBaseShape($baseShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPreviewItemBaseShapeType::valueIsValid($baseShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $baseShape, implode(', ', \Ews\EnumType\EwsPreviewItemBaseShapeType::getValidValues())), __LINE__);
         }

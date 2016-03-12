@@ -18,22 +18,22 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * - minLength: 1
-     * @var string
+     * @var string[]
      */
     public $Value;
     /**
      * Constructor method for ProtectionRuleSenderDepartmentsType
      * @uses EwsProtectionRuleSenderDepartmentsType::setValue()
-     * @param string $value
+     * @param string[] $value
      */
-    public function __construct($value = null)
+    public function __construct(array $value = array())
     {
         $this
             ->setValue($value);
     }
     /**
      * Get Value value
-     * @return string
+     * @return string[]
      */
     public function getValue()
     {
@@ -41,12 +41,42 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
     }
     /**
      * Set Value value
-     * @param string $value
+     * @throws \InvalidArgumentException
+     * @param string[] $value
      * @return \Ews\StructType\EwsProtectionRuleSenderDepartmentsType
      */
-    public function setValue($value = null)
+    public function setValue(array $value = array())
     {
+        // validation for constraint: minLength
+        if ((is_scalar(value) && strlen(value) < 1) || (is_array(value) && count(value) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        foreach ($value as $protectionRuleSenderDepartmentsTypeValueItem) {
+            // validation for constraint: itemType
+            if (!is_string($protectionRuleSenderDepartmentsTypeValueItem)) {
+                throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($protectionRuleSenderDepartmentsTypeValueItem) ? get_class($protectionRuleSenderDepartmentsTypeValueItem) : gettype($protectionRuleSenderDepartmentsTypeValueItem)), __LINE__);
+            }
+        }
         $this->Value = $value;
+        return $this;
+    }
+    /**
+     * Add item to Value value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\StructType\EwsProtectionRuleSenderDepartmentsType
+     */
+    public function addToValue($item)
+    {
+        // validation for constraint: minLength
+        if ((is_scalar(item) && strlen(item) < 1) || (is_array(item) && count(item) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Value[] = $item;
         return $this;
     }
     /**

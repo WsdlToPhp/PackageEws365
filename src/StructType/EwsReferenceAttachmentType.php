@@ -65,7 +65,7 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $AttachmentIsFolder;
     /**
@@ -83,7 +83,7 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      * @param string $attachmentThumbnailUrl
      * @param string $attachmentPreviewUrl
      * @param int $permissionType
-     * @param boolean $attachmentIsFolder
+     * @param bool $attachmentIsFolder
      */
     public function __construct($attachLongPathName = null, $providerType = null, $providerEndpointUrl = null, $attachmentThumbnailUrl = null, $attachmentPreviewUrl = null, $permissionType = null, $attachmentIsFolder = null)
     {
@@ -111,6 +111,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setAttachLongPathName($attachLongPathName = null)
     {
+        // validation for constraint: string
+        if (!is_null($attachLongPathName) && !is_string($attachLongPathName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($attachLongPathName)), __LINE__);
+        }
         $this->AttachLongPathName = $attachLongPathName;
         return $this;
     }
@@ -129,6 +133,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setProviderType($providerType = null)
     {
+        // validation for constraint: string
+        if (!is_null($providerType) && !is_string($providerType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($providerType)), __LINE__);
+        }
         $this->ProviderType = $providerType;
         return $this;
     }
@@ -147,6 +155,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setProviderEndpointUrl($providerEndpointUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($providerEndpointUrl) && !is_string($providerEndpointUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($providerEndpointUrl)), __LINE__);
+        }
         $this->ProviderEndpointUrl = $providerEndpointUrl;
         return $this;
     }
@@ -165,6 +177,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setAttachmentThumbnailUrl($attachmentThumbnailUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($attachmentThumbnailUrl) && !is_string($attachmentThumbnailUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($attachmentThumbnailUrl)), __LINE__);
+        }
         $this->AttachmentThumbnailUrl = $attachmentThumbnailUrl;
         return $this;
     }
@@ -183,6 +199,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setAttachmentPreviewUrl($attachmentPreviewUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($attachmentPreviewUrl) && !is_string($attachmentPreviewUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($attachmentPreviewUrl)), __LINE__);
+        }
         $this->AttachmentPreviewUrl = $attachmentPreviewUrl;
         return $this;
     }
@@ -201,12 +221,16 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setPermissionType($permissionType = null)
     {
+        // validation for constraint: int
+        if (!is_null($permissionType) && !is_int($permissionType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($permissionType)), __LINE__);
+        }
         $this->PermissionType = $permissionType;
         return $this;
     }
     /**
      * Get AttachmentIsFolder value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAttachmentIsFolder()
     {
@@ -214,7 +238,7 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
     }
     /**
      * Set AttachmentIsFolder value
-     * @param boolean $attachmentIsFolder
+     * @param bool $attachmentIsFolder
      * @return \Ews\StructType\EwsReferenceAttachmentType
      */
     public function setAttachmentIsFolder($attachmentIsFolder = null)

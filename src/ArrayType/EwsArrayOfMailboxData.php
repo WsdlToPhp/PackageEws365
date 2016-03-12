@@ -18,13 +18,13 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var array
+     * @var \Ews\StructType\EwsMailboxData[]
      */
     public $MailboxData;
     /**
      * Constructor method for ArrayOfMailboxData
      * @uses EwsArrayOfMailboxData::setMailboxData()
-     * @param array $mailboxData
+     * @param \Ews\StructType\EwsMailboxData[] $mailboxData
      */
     public function __construct(array $mailboxData = array())
     {
@@ -33,20 +33,51 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
     }
     /**
      * Get MailboxData value
-     * @return array
+     * An additional test has been added (isset) before returning the property value as
+     * this property may have been unset before, due to the fact that this property is
+     * removable from the request (nillable=true+minOccurs=0)
+     * @return \Ews\StructType\EwsMailboxData[]|null
      */
     public function getMailboxData()
     {
-        return $this->MailboxData;
+        return isset($this->MailboxData) ? $this->MailboxData : null;
     }
     /**
      * Set MailboxData value
-     * @param array $mailboxData
+     * This property is removable from request (nillable=true+minOccurs=0), therefore
+     * if the value assigned to this property is null, it is removed from this object
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxData[] $mailboxData
      * @return \Ews\ArrayType\EwsArrayOfMailboxData
      */
     public function setMailboxData(array $mailboxData = array())
     {
-        $this->MailboxData = $mailboxData;
+        foreach ($mailboxData as $arrayOfMailboxDataMailboxDataItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMailboxDataMailboxDataItem instanceof \Ews\StructType\EwsMailboxData) {
+                throw new \InvalidArgumentException(sprintf('The MailboxData property can only contain items of \Ews\StructType\EwsMailboxData, "%s" given', is_object($arrayOfMailboxDataMailboxDataItem) ? get_class($arrayOfMailboxDataMailboxDataItem) : gettype($arrayOfMailboxDataMailboxDataItem)), __LINE__);
+            }
+        }
+        if (is_null($mailboxData)) {
+            unset($this->MailboxData);
+        } else {
+            $this->MailboxData = $mailboxData;
+        }
+        return $this;
+    }
+    /**
+     * Add item to MailboxData value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailboxData $item
+     * @return \Ews\ArrayType\EwsArrayOfMailboxData
+     */
+    public function addToMailboxData(\Ews\StructType\EwsMailboxData $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMailboxData) {
+            throw new \InvalidArgumentException(sprintf('The MailboxData property can only contain items of \Ews\StructType\EwsMailboxData, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MailboxData[] = $item;
         return $this;
     }
     /**

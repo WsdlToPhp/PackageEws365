@@ -17,13 +17,13 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsMeetingLocationItemType[]
      */
     public $MeetingLocation;
     /**
      * Constructor method for ArrayOfMeetingLocationItemType
      * @uses EwsArrayOfMeetingLocationItemType::setMeetingLocation()
-     * @param array $meetingLocation
+     * @param \Ews\StructType\EwsMeetingLocationItemType[] $meetingLocation
      */
     public function __construct(array $meetingLocation = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
     }
     /**
      * Get MeetingLocation value
-     * @return array
+     * @return \Ews\StructType\EwsMeetingLocationItemType[]|null
      */
     public function getMeetingLocation()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
     }
     /**
      * Set MeetingLocation value
-     * @param array $meetingLocation
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingLocationItemType[] $meetingLocation
      * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
      */
     public function setMeetingLocation(array $meetingLocation = array())
     {
+        foreach ($meetingLocation as $arrayOfMeetingLocationItemTypeMeetingLocationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMeetingLocationItemTypeMeetingLocationItem instanceof \Ews\StructType\EwsMeetingLocationItemType) {
+                throw new \InvalidArgumentException(sprintf('The MeetingLocation property can only contain items of \Ews\StructType\EwsMeetingLocationItemType, "%s" given', is_object($arrayOfMeetingLocationItemTypeMeetingLocationItem) ? get_class($arrayOfMeetingLocationItemTypeMeetingLocationItem) : gettype($arrayOfMeetingLocationItemTypeMeetingLocationItem)), __LINE__);
+            }
+        }
         $this->MeetingLocation = $meetingLocation;
+        return $this;
+    }
+    /**
+     * Add item to MeetingLocation value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMeetingLocationItemType $item
+     * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     */
+    public function addToMeetingLocation(\Ews\StructType\EwsMeetingLocationItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMeetingLocationItemType) {
+            throw new \InvalidArgumentException(sprintf('The MeetingLocation property can only contain items of \Ews\StructType\EwsMeetingLocationItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MeetingLocation[] = $item;
         return $this;
     }
     /**

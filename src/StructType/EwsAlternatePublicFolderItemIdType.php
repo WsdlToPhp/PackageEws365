@@ -46,6 +46,10 @@ class EwsAlternatePublicFolderItemIdType extends EwsAlternatePublicFolderIdType
      */
     public function setItemId($itemId = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemId) && !is_string($itemId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemId)), __LINE__);
+        }
         $this->ItemId = $itemId;
         return $this;
     }

@@ -49,6 +49,14 @@ class EwsEndSearchSession extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }

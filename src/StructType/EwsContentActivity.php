@@ -124,6 +124,14 @@ class EwsContentActivity extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($id)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -142,6 +150,10 @@ class EwsContentActivity extends AbstractStructBase
      */
     public function setSharedBy($sharedBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($sharedBy) && !is_string($sharedBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharedBy)), __LINE__);
+        }
         $this->SharedBy = $sharedBy;
         return $this;
     }
@@ -160,6 +172,10 @@ class EwsContentActivity extends AbstractStructBase
      */
     public function setContentLocation($contentLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentLocation) && !is_string($contentLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentLocation)), __LINE__);
+        }
         $this->ContentLocation = $contentLocation;
         return $this;
     }
@@ -178,6 +194,10 @@ class EwsContentActivity extends AbstractStructBase
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
@@ -196,6 +216,10 @@ class EwsContentActivity extends AbstractStructBase
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }
@@ -211,11 +235,13 @@ class EwsContentActivity extends AbstractStructBase
      * Set Type value
      * @uses \Ews\EnumType\EwsContentActivityType::valueIsValid()
      * @uses \Ews\EnumType\EwsContentActivityType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsContentActivity
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContentActivityType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsContentActivityType::getValidValues())), __LINE__);
         }
@@ -234,11 +260,13 @@ class EwsContentActivity extends AbstractStructBase
      * Set MediaType value
      * @uses \Ews\EnumType\EwsContentActivityMediaType::valueIsValid()
      * @uses \Ews\EnumType\EwsContentActivityMediaType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mediaType
      * @return \Ews\StructType\EwsContentActivity
      */
     public function setMediaType($mediaType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContentActivityMediaType::valueIsValid($mediaType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mediaType, implode(', ', \Ews\EnumType\EwsContentActivityMediaType::getValidValues())), __LINE__);
         }
@@ -257,11 +285,13 @@ class EwsContentActivity extends AbstractStructBase
      * Set Acl value
      * @uses \Ews\EnumType\EwsContentActivityAcl::valueIsValid()
      * @uses \Ews\EnumType\EwsContentActivityAcl::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $acl
      * @return \Ews\StructType\EwsContentActivity
      */
     public function setAcl($acl = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContentActivityAcl::valueIsValid($acl)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $acl, implode(', ', \Ews\EnumType\EwsContentActivityAcl::getValidValues())), __LINE__);
         }

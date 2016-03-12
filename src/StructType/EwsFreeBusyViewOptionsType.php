@@ -33,7 +33,7 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string[]
+     * @var string
      */
     public $RequestedView;
     /**
@@ -43,7 +43,7 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
      * @uses EwsFreeBusyViewOptionsType::setRequestedView()
      * @param \Ews\StructType\EwsDuration $timeWindow
      * @param int $mergedFreeBusyIntervalInMinutes
-     * @param string[] $requestedView
+     * @param string $requestedView
      */
     public function __construct(\Ews\StructType\EwsDuration $timeWindow = null, $mergedFreeBusyIntervalInMinutes = null, $requestedView = null)
     {
@@ -85,12 +85,16 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
      */
     public function setMergedFreeBusyIntervalInMinutes($mergedFreeBusyIntervalInMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($mergedFreeBusyIntervalInMinutes) && !is_int($mergedFreeBusyIntervalInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($mergedFreeBusyIntervalInMinutes)), __LINE__);
+        }
         $this->MergedFreeBusyIntervalInMinutes = $mergedFreeBusyIntervalInMinutes;
         return $this;
     }
     /**
      * Get RequestedView value
-     * @return string[]|null
+     * @return string|null
      */
     public function getRequestedView()
     {
@@ -100,11 +104,13 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
      * Set RequestedView value
      * @uses \Ews\EnumType\EwsFreeBusyViewType::valueIsValid()
      * @uses \Ews\EnumType\EwsFreeBusyViewType::getValidValues()
-     * @param string[] $requestedView
+     * @throws \InvalidArgumentException
+     * @param string $requestedView
      * @return \Ews\StructType\EwsFreeBusyViewOptionsType
      */
     public function setRequestedView($requestedView = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($requestedView)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $requestedView, implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues())), __LINE__);
         }

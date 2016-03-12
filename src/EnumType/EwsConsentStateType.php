@@ -14,12 +14,12 @@ class EwsConsentStateType
      * Constant for value 'NotResponded'
      * @return string 'NotResponded'
      */
-    const VALUE_NOTRESPONDED = 'NotResponded';
+    const VALUE_NOT_RESPONDED = 'NotResponded';
     /**
      * Constant for value 'NotConsented'
      * @return string 'NotConsented'
      */
-    const VALUE_NOTCONSENTED = 'NotConsented';
+    const VALUE_NOT_CONSENTED = 'NotConsented';
     /**
      * Constant for value 'Consented'
      * @return string 'Consented'
@@ -37,16 +37,16 @@ class EwsConsentStateType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOTRESPONDED
-     * @uses self::VALUE_NOTCONSENTED
+     * @uses self::VALUE_NOT_RESPONDED
+     * @uses self::VALUE_NOT_CONSENTED
      * @uses self::VALUE_CONSENTED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOTRESPONDED,
-            self::VALUE_NOTCONSENTED,
+            self::VALUE_NOT_RESPONDED,
+            self::VALUE_NOT_CONSENTED,
             self::VALUE_CONSENTED,
         );
     }

@@ -25,7 +25,7 @@ class EwsInsight extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var double
+     * @var float
      */
     public $Rank;
     /**
@@ -57,7 +57,7 @@ class EwsInsight extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $RequiresToken;
     /**
@@ -69,11 +69,11 @@ class EwsInsight extends AbstractStructBase
      * @uses EwsInsight::setItemList()
      * @uses EwsInsight::setRequiresToken()
      * @param string $insightType
-     * @param double $rank
+     * @param float $rank
      * @param \Ews\StructType\EwsInsightContent $content
      * @param string $text
      * @param \Ews\ArrayType\EwsArrayOfInsightValue $itemList
-     * @param boolean $requiresToken
+     * @param bool $requiresToken
      */
     public function __construct($insightType = null, $rank = null, \Ews\StructType\EwsInsightContent $content = null, $text = null, \Ews\ArrayType\EwsArrayOfInsightValue $itemList = null, $requiresToken = null)
     {
@@ -100,12 +100,16 @@ class EwsInsight extends AbstractStructBase
      */
     public function setInsightType($insightType = null)
     {
+        // validation for constraint: string
+        if (!is_null($insightType) && !is_string($insightType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($insightType)), __LINE__);
+        }
         $this->InsightType = $insightType;
         return $this;
     }
     /**
      * Get Rank value
-     * @return double|null
+     * @return float|null
      */
     public function getRank()
     {
@@ -113,7 +117,7 @@ class EwsInsight extends AbstractStructBase
     }
     /**
      * Set Rank value
-     * @param double $rank
+     * @param float $rank
      * @return \Ews\StructType\EwsInsight
      */
     public function setRank($rank = null)
@@ -154,6 +158,10 @@ class EwsInsight extends AbstractStructBase
      */
     public function setText($text = null)
     {
+        // validation for constraint: string
+        if (!is_null($text) && !is_string($text)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($text)), __LINE__);
+        }
         $this->Text = $text;
         return $this;
     }
@@ -177,7 +185,7 @@ class EwsInsight extends AbstractStructBase
     }
     /**
      * Get RequiresToken value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getRequiresToken()
     {
@@ -185,7 +193,7 @@ class EwsInsight extends AbstractStructBase
     }
     /**
      * Set RequiresToken value
-     * @param boolean $requiresToken
+     * @param bool $requiresToken
      * @return \Ews\StructType\EwsInsight
      */
     public function setRequiresToken($requiresToken = null)

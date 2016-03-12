@@ -26,16 +26,11 @@ class EwsGroupByType extends EwsBaseGroupByType
     public $IndexedFieldURI;
     /**
      * The ExtendedFieldURI
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an extended property. Note that there are only a couple of valid attribute combinations. Note that all occurances require the PropertyType attribute. 1. (DistinguishedPropertySetId || PropertySetId) + (PropertyName ||
-     * Property Id) 2. PropertyTag
      * @var \Ews\StructType\EwsPathToExtendedFieldType
      */
     public $ExtendedFieldURI;
     /**
      * The AggregateOn
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents the field of each item to aggregate on and the qualifier to apply to that field in determining which item will represent the group.
      * @var \Ews\StructType\EwsAggregateOnType
      */
     public $AggregateOn;

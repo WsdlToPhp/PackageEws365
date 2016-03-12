@@ -14,23 +14,24 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
 {
     /**
      * The MessageTrackingSearchResult
-     * @var array
+     * @var \Ews\StructType\EwsFindMessageTrackingSearchResultType
      */
     public $MessageTrackingSearchResult;
     /**
      * Constructor method for ArrayOfFindMessageTrackingSearchResultType
      * @uses
      * EwsArrayOfFindMessageTrackingSearchResultType::setMessageTrackingSearchResult()
-     * @param array $messageTrackingSearchResult
+     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType
+     * $messageTrackingSearchResult
      */
-    public function __construct(array $messageTrackingSearchResult = array())
+    public function __construct(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
     {
         $this
             ->setMessageTrackingSearchResult($messageTrackingSearchResult);
     }
     /**
      * Get MessageTrackingSearchResult value
-     * @return array
+     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
      */
     public function getMessageTrackingSearchResult()
     {
@@ -38,10 +39,11 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
     }
     /**
      * Set MessageTrackingSearchResult value
-     * @param array $messageTrackingSearchResult
+     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType
+     * $messageTrackingSearchResult
      * @return \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
      */
-    public function setMessageTrackingSearchResult(array $messageTrackingSearchResult = array())
+    public function setMessageTrackingSearchResult(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
     {
         $this->MessageTrackingSearchResult = $messageTrackingSearchResult;
         return $this;

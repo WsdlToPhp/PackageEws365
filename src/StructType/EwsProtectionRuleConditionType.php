@@ -78,6 +78,14 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      */
     public function setAllInternal($allInternal = null)
     {
+        // validation for constraint: length
+        if ((is_scalar(allInternal) && strlen(allInternal) !== 0) || (is_array(allInternal) && count(allInternal) !== 0)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 0 element(s) or a scalar of 0 character(s)', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($allInternal) && !is_string($allInternal)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($allInternal)), __LINE__);
+        }
         $this->AllInternal = $allInternal;
         return $this;
     }
@@ -150,6 +158,14 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      */
     public function setTrue($true = null)
     {
+        // validation for constraint: length
+        if ((is_scalar(true) && strlen(true) !== 0) || (is_array(true) && count(true) !== 0)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 0 element(s) or a scalar of 0 character(s)', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($true) && !is_string($true)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($true)), __LINE__);
+        }
         $this->True = $true;
         return $this;
     }

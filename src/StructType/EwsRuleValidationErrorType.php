@@ -19,7 +19,6 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Rule field URI enumerates all possible rule fields that could trigger validation error
      * @var string
      */
     public $FieldURI;
@@ -28,7 +27,6 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Rule validation error code describing what failed validation for each rule predicate or action.
      * @var string
      */
     public $ErrorCode;
@@ -79,11 +77,13 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * Set FieldURI value
      * @uses \Ews\EnumType\EwsRuleFieldURIType::valueIsValid()
      * @uses \Ews\EnumType\EwsRuleFieldURIType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fieldURI
      * @return \Ews\StructType\EwsRuleValidationErrorType
      */
     public function setFieldURI($fieldURI = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRuleFieldURIType::valueIsValid($fieldURI)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsRuleFieldURIType::getValidValues())), __LINE__);
         }
@@ -102,11 +102,13 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * Set ErrorCode value
      * @uses \Ews\EnumType\EwsRuleValidationErrorCodeType::valueIsValid()
      * @uses \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $errorCode
      * @return \Ews\StructType\EwsRuleValidationErrorType
      */
     public function setErrorCode($errorCode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRuleValidationErrorCodeType::valueIsValid($errorCode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues())), __LINE__);
         }
@@ -128,6 +130,10 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      */
     public function setErrorMessage($errorMessage = null)
     {
+        // validation for constraint: string
+        if (!is_null($errorMessage) && !is_string($errorMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorMessage)), __LINE__);
+        }
         $this->ErrorMessage = $errorMessage;
         return $this;
     }
@@ -146,6 +152,10 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      */
     public function setFieldValue($fieldValue = null)
     {
+        // validation for constraint: string
+        if (!is_null($fieldValue) && !is_string($fieldValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fieldValue)), __LINE__);
+        }
         $this->FieldValue = $fieldValue;
         return $this;
     }

@@ -89,6 +89,10 @@ class EwsUserIdType extends AbstractStructBase
      */
     public function setSID($sID = null)
     {
+        // validation for constraint: string
+        if (!is_null($sID) && !is_string($sID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sID)), __LINE__);
+        }
         $this->SID = $sID;
         return $this;
     }
@@ -107,6 +111,10 @@ class EwsUserIdType extends AbstractStructBase
      */
     public function setPrimarySmtpAddress($primarySmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+        }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
     }
@@ -125,6 +133,10 @@ class EwsUserIdType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -140,11 +152,13 @@ class EwsUserIdType extends AbstractStructBase
      * Set DistinguishedUser value
      * @uses \Ews\EnumType\EwsDistinguishedUserType::valueIsValid()
      * @uses \Ews\EnumType\EwsDistinguishedUserType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $distinguishedUser
      * @return \Ews\StructType\EwsUserIdType
      */
     public function setDistinguishedUser($distinguishedUser = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedUserType::valueIsValid($distinguishedUser)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $distinguishedUser, implode(', ', \Ews\EnumType\EwsDistinguishedUserType::getValidValues())), __LINE__);
         }
@@ -166,6 +180,10 @@ class EwsUserIdType extends AbstractStructBase
      */
     public function setExternalUserIdentity($externalUserIdentity = null)
     {
+        // validation for constraint: string
+        if (!is_null($externalUserIdentity) && !is_string($externalUserIdentity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalUserIdentity)), __LINE__);
+        }
         $this->ExternalUserIdentity = $externalUserIdentity;
         return $this;
     }

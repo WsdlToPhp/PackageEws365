@@ -14,12 +14,12 @@ class EwsSharingInvitationPermissionLevel
      * Constant for value 'FreeBusy'
      * @return string 'FreeBusy'
      */
-    const VALUE_FREEBUSY = 'FreeBusy';
+    const VALUE_FREE_BUSY = 'FreeBusy';
     /**
      * Constant for value 'LimitedDetails'
      * @return string 'LimitedDetails'
      */
-    const VALUE_LIMITEDDETAILS = 'LimitedDetails';
+    const VALUE_LIMITED_DETAILS = 'LimitedDetails';
     /**
      * Constant for value 'Read'
      * @return string 'Read'
@@ -29,12 +29,12 @@ class EwsSharingInvitationPermissionLevel
      * Constant for value 'ReadWrite'
      * @return string 'ReadWrite'
      */
-    const VALUE_READWRITE = 'ReadWrite';
+    const VALUE_READ_WRITE = 'ReadWrite';
     /**
      * Constant for value 'CoOwner'
      * @return string 'CoOwner'
      */
-    const VALUE_COOWNER = 'CoOwner';
+    const VALUE_CO_OWNER = 'CoOwner';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -47,21 +47,21 @@ class EwsSharingInvitationPermissionLevel
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_FREEBUSY
-     * @uses self::VALUE_LIMITEDDETAILS
+     * @uses self::VALUE_FREE_BUSY
+     * @uses self::VALUE_LIMITED_DETAILS
      * @uses self::VALUE_READ
-     * @uses self::VALUE_READWRITE
-     * @uses self::VALUE_COOWNER
+     * @uses self::VALUE_READ_WRITE
+     * @uses self::VALUE_CO_OWNER
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_FREEBUSY,
-            self::VALUE_LIMITEDDETAILS,
+            self::VALUE_FREE_BUSY,
+            self::VALUE_LIMITED_DETAILS,
             self::VALUE_READ,
-            self::VALUE_READWRITE,
-            self::VALUE_COOWNER,
+            self::VALUE_READ_WRITE,
+            self::VALUE_CO_OWNER,
         );
     }
     /**

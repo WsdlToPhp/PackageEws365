@@ -56,6 +56,10 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
      */
     public function setErrorCount($errorCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($errorCount) && !is_int($errorCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($errorCount)), __LINE__);
+        }
         $this->ErrorCount = $errorCount;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
      */
     public function setErrorDetails($errorDetails = null)
     {
+        // validation for constraint: string
+        if (!is_null($errorDetails) && !is_string($errorDetails)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorDetails)), __LINE__);
+        }
         $this->ErrorDetails = $errorDetails;
         return $this;
     }

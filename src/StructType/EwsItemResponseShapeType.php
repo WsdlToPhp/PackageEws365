@@ -21,7 +21,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * The IncludeMimeContent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludeMimeContent;
     /**
@@ -50,7 +50,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $FilterHtmlContent;
     /**
@@ -58,7 +58,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ConvertHtmlCodePageToUTF8;
     /**
@@ -74,7 +74,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $BlockExternalImages;
     /**
@@ -82,7 +82,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $AddBlankTargetToLinks;
     /**
@@ -97,7 +97,6 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - ref: t:Path
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
@@ -116,15 +115,15 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * @uses EwsItemResponseShapeType::setMaximumBodySize()
      * @uses EwsItemResponseShapeType::setAdditionalProperties()
      * @param string $baseShape
-     * @param boolean $includeMimeContent
+     * @param bool $includeMimeContent
      * @param string $bodyType
      * @param string $uniqueBodyType
      * @param string $normalizedBodyType
-     * @param boolean $filterHtmlContent
-     * @param boolean $convertHtmlCodePageToUTF8
+     * @param bool $filterHtmlContent
+     * @param bool $convertHtmlCodePageToUTF8
      * @param string $inlineImageUrlTemplate
-     * @param boolean $blockExternalImages
-     * @param boolean $addBlankTargetToLinks
+     * @param bool $blockExternalImages
+     * @param bool $addBlankTargetToLinks
      * @param int $maximumBodySize
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
@@ -156,11 +155,13 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Set BaseShape value
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid()
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $baseShape
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setBaseShape($baseShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($baseShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $baseShape, implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }
@@ -169,7 +170,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Get IncludeMimeContent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeMimeContent()
     {
@@ -177,7 +178,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set IncludeMimeContent value
-     * @param boolean $includeMimeContent
+     * @param bool $includeMimeContent
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setIncludeMimeContent($includeMimeContent = null)
@@ -197,11 +198,13 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Set BodyType value
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $bodyType
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setBodyType($bodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($bodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bodyType, implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
@@ -220,11 +223,13 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Set UniqueBodyType value
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $uniqueBodyType
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setUniqueBodyType($uniqueBodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($uniqueBodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $uniqueBodyType, implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
@@ -243,11 +248,13 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * Set NormalizedBodyType value
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeResponseType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $normalizedBodyType
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setNormalizedBodyType($normalizedBodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($normalizedBodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $normalizedBodyType, implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
@@ -256,7 +263,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Get FilterHtmlContent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getFilterHtmlContent()
     {
@@ -264,7 +271,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set FilterHtmlContent value
-     * @param boolean $filterHtmlContent
+     * @param bool $filterHtmlContent
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setFilterHtmlContent($filterHtmlContent = null)
@@ -274,7 +281,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Get ConvertHtmlCodePageToUTF8 value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getConvertHtmlCodePageToUTF8()
     {
@@ -282,7 +289,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set ConvertHtmlCodePageToUTF8 value
-     * @param boolean $convertHtmlCodePageToUTF8
+     * @param bool $convertHtmlCodePageToUTF8
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setConvertHtmlCodePageToUTF8($convertHtmlCodePageToUTF8 = null)
@@ -305,12 +312,16 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setInlineImageUrlTemplate($inlineImageUrlTemplate = null)
     {
+        // validation for constraint: string
+        if (!is_null($inlineImageUrlTemplate) && !is_string($inlineImageUrlTemplate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inlineImageUrlTemplate)), __LINE__);
+        }
         $this->InlineImageUrlTemplate = $inlineImageUrlTemplate;
         return $this;
     }
     /**
      * Get BlockExternalImages value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getBlockExternalImages()
     {
@@ -318,7 +329,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set BlockExternalImages value
-     * @param boolean $blockExternalImages
+     * @param bool $blockExternalImages
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setBlockExternalImages($blockExternalImages = null)
@@ -328,7 +339,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Get AddBlankTargetToLinks value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAddBlankTargetToLinks()
     {
@@ -336,7 +347,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set AddBlankTargetToLinks value
-     * @param boolean $addBlankTargetToLinks
+     * @param bool $addBlankTargetToLinks
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
     public function setAddBlankTargetToLinks($addBlankTargetToLinks = null)
@@ -359,6 +370,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setMaximumBodySize($maximumBodySize = null)
     {
+        // validation for constraint: int
+        if (!is_null($maximumBodySize) && !is_int($maximumBodySize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumBodySize)), __LINE__);
+        }
         $this->MaximumBodySize = $maximumBodySize;
         return $this;
     }

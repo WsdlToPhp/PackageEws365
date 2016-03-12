@@ -45,6 +45,10 @@ class EwsDeleteRuleOperationType extends EwsRuleOperationType
      */
     public function setRuleId($ruleId = null)
     {
+        // validation for constraint: string
+        if (!is_null($ruleId) && !is_string($ruleId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ruleId)), __LINE__);
+        }
         $this->RuleId = $ruleId;
         return $this;
     }

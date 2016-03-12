@@ -17,13 +17,13 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsPhoneEntityType[]
      */
     public $Phone;
     /**
      * Constructor method for ArrayOfPhoneEntitiesType
      * @uses EwsArrayOfPhoneEntitiesType::setPhone()
-     * @param array $phone
+     * @param \Ews\StructType\EwsPhoneEntityType[] $phone
      */
     public function __construct(array $phone = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Get Phone value
-     * @return array
+     * @return \Ews\StructType\EwsPhoneEntityType[]|null
      */
     public function getPhone()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Set Phone value
-     * @param array $phone
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhoneEntityType[] $phone
      * @return \Ews\ArrayType\EwsArrayOfPhoneEntitiesType
      */
     public function setPhone(array $phone = array())
     {
+        foreach ($phone as $arrayOfPhoneEntitiesTypePhoneItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfPhoneEntitiesTypePhoneItem instanceof \Ews\StructType\EwsPhoneEntityType) {
+                throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Ews\StructType\EwsPhoneEntityType, "%s" given', is_object($arrayOfPhoneEntitiesTypePhoneItem) ? get_class($arrayOfPhoneEntitiesTypePhoneItem) : gettype($arrayOfPhoneEntitiesTypePhoneItem)), __LINE__);
+            }
+        }
         $this->Phone = $phone;
+        return $this;
+    }
+    /**
+     * Add item to Phone value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhoneEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfPhoneEntitiesType
+     */
+    public function addToPhone(\Ews\StructType\EwsPhoneEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPhoneEntityType) {
+            throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Ews\StructType\EwsPhoneEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Phone[] = $item;
         return $this;
     }
     /**

@@ -17,13 +17,13 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsUMReportRawCountersType[]
      */
     public $UMReportRawCounters;
     /**
      * Constructor method for ArrayOfUMReportRawCountersType
      * @uses EwsArrayOfUMReportRawCountersType::setUMReportRawCounters()
-     * @param array $uMReportRawCounters
+     * @param \Ews\StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
      */
     public function __construct(array $uMReportRawCounters = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
     }
     /**
      * Get UMReportRawCounters value
-     * @return array
+     * @return \Ews\StructType\EwsUMReportRawCountersType[]|null
      */
     public function getUMReportRawCounters()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
     }
     /**
      * Set UMReportRawCounters value
-     * @param array $uMReportRawCounters
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
      * @return \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
      */
     public function setUMReportRawCounters(array $uMReportRawCounters = array())
     {
+        foreach ($uMReportRawCounters as $arrayOfUMReportRawCountersTypeUMReportRawCountersItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUMReportRawCountersTypeUMReportRawCountersItem instanceof \Ews\StructType\EwsUMReportRawCountersType) {
+                throw new \InvalidArgumentException(sprintf('The UMReportRawCounters property can only contain items of \Ews\StructType\EwsUMReportRawCountersType, "%s" given', is_object($arrayOfUMReportRawCountersTypeUMReportRawCountersItem) ? get_class($arrayOfUMReportRawCountersTypeUMReportRawCountersItem) : gettype($arrayOfUMReportRawCountersTypeUMReportRawCountersItem)), __LINE__);
+            }
+        }
         $this->UMReportRawCounters = $uMReportRawCounters;
+        return $this;
+    }
+    /**
+     * Add item to UMReportRawCounters value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUMReportRawCountersType $item
+     * @return \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
+     */
+    public function addToUMReportRawCounters(\Ews\StructType\EwsUMReportRawCountersType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUMReportRawCountersType) {
+            throw new \InvalidArgumentException(sprintf('The UMReportRawCounters property can only contain items of \Ews\StructType\EwsUMReportRawCountersType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UMReportRawCounters[] = $item;
         return $this;
     }
     /**

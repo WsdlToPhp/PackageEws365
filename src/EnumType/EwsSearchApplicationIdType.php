@@ -34,7 +34,7 @@ class EwsSearchApplicationIdType
      * Constant for value 'OneDrive'
      * @return string 'OneDrive'
      */
-    const VALUE_ONEDRIVE = 'OneDrive';
+    const VALUE_ONE_DRIVE = 'OneDrive';
     /**
      * Constant for value 'Other'
      * @return string 'Other'
@@ -56,7 +56,7 @@ class EwsSearchApplicationIdType
      * @uses self::VALUE_OWA
      * @uses self::VALUE_PAW
      * @uses self::VALUE_TEAMSPACE
-     * @uses self::VALUE_ONEDRIVE
+     * @uses self::VALUE_ONE_DRIVE
      * @uses self::VALUE_OTHER
      * @return string[]
      */
@@ -67,7 +67,7 @@ class EwsSearchApplicationIdType
             self::VALUE_OWA,
             self::VALUE_PAW,
             self::VALUE_TEAMSPACE,
-            self::VALUE_ONEDRIVE,
+            self::VALUE_ONE_DRIVE,
             self::VALUE_OTHER,
         );
     }

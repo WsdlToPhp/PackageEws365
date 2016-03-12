@@ -14,8 +14,6 @@ class EwsSetTeamMailboxRequestType extends EwsBaseRequestType
 {
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $EmailAddress;
@@ -78,6 +76,10 @@ class EwsSetTeamMailboxRequestType extends EwsBaseRequestType
      */
     public function setSharePointSiteUrl($sharePointSiteUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($sharePointSiteUrl) && !is_string($sharePointSiteUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharePointSiteUrl)), __LINE__);
+        }
         $this->SharePointSiteUrl = $sharePointSiteUrl;
         return $this;
     }
@@ -93,11 +95,13 @@ class EwsSetTeamMailboxRequestType extends EwsBaseRequestType
      * Set State value
      * @uses \Ews\EnumType\EwsTeamMailboxLifecycleStateType::valueIsValid()
      * @uses \Ews\EnumType\EwsTeamMailboxLifecycleStateType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $state
      * @return \Ews\StructType\EwsSetTeamMailboxRequestType
      */
     public function setState($state = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTeamMailboxLifecycleStateType::valueIsValid($state)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $state, implode(', ', \Ews\EnumType\EwsTeamMailboxLifecycleStateType::getValidValues())), __LINE__);
         }

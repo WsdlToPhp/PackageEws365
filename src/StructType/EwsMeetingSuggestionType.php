@@ -45,14 +45,14 @@ class EwsMeetingSuggestionType extends EwsEntityType
      * The StartTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
      * The EndTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
@@ -67,8 +67,8 @@ class EwsMeetingSuggestionType extends EwsEntityType
      * @param string $location
      * @param string $subject
      * @param string $meetingString
-     * @param dateTime $startTime
-     * @param dateTime $endTime
+     * @param string $startTime
+     * @param string $endTime
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfEmailUsersType $attendees = null, $location = null, $subject = null, $meetingString = null, $startTime = null, $endTime = null)
     {
@@ -113,6 +113,10 @@ class EwsMeetingSuggestionType extends EwsEntityType
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
@@ -131,6 +135,10 @@ class EwsMeetingSuggestionType extends EwsEntityType
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
@@ -149,12 +157,16 @@ class EwsMeetingSuggestionType extends EwsEntityType
      */
     public function setMeetingString($meetingString = null)
     {
+        // validation for constraint: string
+        if (!is_null($meetingString) && !is_string($meetingString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingString)), __LINE__);
+        }
         $this->MeetingString = $meetingString;
         return $this;
     }
     /**
      * Get StartTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartTime()
     {
@@ -162,17 +174,21 @@ class EwsMeetingSuggestionType extends EwsEntityType
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsMeetingSuggestionType
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndTime()
     {
@@ -180,11 +196,15 @@ class EwsMeetingSuggestionType extends EwsEntityType
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsMeetingSuggestionType
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }

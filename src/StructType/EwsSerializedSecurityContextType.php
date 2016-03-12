@@ -75,6 +75,10 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
      */
     public function setUserSid($userSid = null)
     {
+        // validation for constraint: string
+        if (!is_null($userSid) && !is_string($userSid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userSid)), __LINE__);
+        }
         $this->UserSid = $userSid;
         return $this;
     }
@@ -130,6 +134,10 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
      */
     public function setPrimarySmtpAddress($primarySmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+        }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
     }

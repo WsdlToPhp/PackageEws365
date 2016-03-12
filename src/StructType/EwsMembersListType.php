@@ -17,22 +17,22 @@ class EwsMembersListType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMemberType
+     * @var \Ews\StructType\EwsMemberType[]
      */
     public $Member;
     /**
      * Constructor method for MembersListType
      * @uses EwsMembersListType::setMember()
-     * @param \Ews\StructType\EwsMemberType $member
+     * @param \Ews\StructType\EwsMemberType[] $member
      */
-    public function __construct(\Ews\StructType\EwsMemberType $member = null)
+    public function __construct(array $member = array())
     {
         $this
             ->setMember($member);
     }
     /**
      * Get Member value
-     * @return \Ews\StructType\EwsMemberType|null
+     * @return \Ews\StructType\EwsMemberType[]|null
      */
     public function getMember()
     {
@@ -40,12 +40,34 @@ class EwsMembersListType extends AbstractStructBase
     }
     /**
      * Set Member value
-     * @param \Ews\StructType\EwsMemberType $member
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMemberType[] $member
      * @return \Ews\StructType\EwsMembersListType
      */
-    public function setMember(\Ews\StructType\EwsMemberType $member = null)
+    public function setMember(array $member = array())
     {
+        foreach ($member as $membersListTypeMemberItem) {
+            // validation for constraint: itemType
+            if (!$membersListTypeMemberItem instanceof \Ews\StructType\EwsMemberType) {
+                throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsMemberType, "%s" given', is_object($membersListTypeMemberItem) ? get_class($membersListTypeMemberItem) : gettype($membersListTypeMemberItem)), __LINE__);
+            }
+        }
         $this->Member = $member;
+        return $this;
+    }
+    /**
+     * Add item to Member value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMemberType $item
+     * @return \Ews\StructType\EwsMembersListType
+     */
+    public function addToMember(\Ews\StructType\EwsMemberType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMemberType) {
+            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsMemberType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Member[] = $item;
         return $this;
     }
     /**

@@ -14,12 +14,12 @@ class EwsSearchResultType
      * Constant for value 'StatisticsOnly'
      * @return string 'StatisticsOnly'
      */
-    const VALUE_STATISTICSONLY = 'StatisticsOnly';
+    const VALUE_STATISTICS_ONLY = 'StatisticsOnly';
     /**
      * Constant for value 'PreviewOnly'
      * @return string 'PreviewOnly'
      */
-    const VALUE_PREVIEWONLY = 'PreviewOnly';
+    const VALUE_PREVIEW_ONLY = 'PreviewOnly';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsSearchResultType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_STATISTICSONLY
-     * @uses self::VALUE_PREVIEWONLY
+     * @uses self::VALUE_STATISTICS_ONLY
+     * @uses self::VALUE_PREVIEW_ONLY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_STATISTICSONLY,
-            self::VALUE_PREVIEWONLY,
+            self::VALUE_STATISTICS_ONLY,
+            self::VALUE_PREVIEW_ONLY,
         );
     }
     /**

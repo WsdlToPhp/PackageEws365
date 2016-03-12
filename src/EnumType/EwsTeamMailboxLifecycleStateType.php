@@ -29,7 +29,7 @@ class EwsTeamMailboxLifecycleStateType
      * Constant for value 'PendingDelete'
      * @return string 'PendingDelete'
      */
-    const VALUE_PENDINGDELETE = 'PendingDelete';
+    const VALUE_PENDING_DELETE = 'PendingDelete';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -45,7 +45,7 @@ class EwsTeamMailboxLifecycleStateType
      * @uses self::VALUE_ACTIVE
      * @uses self::VALUE_CLOSED
      * @uses self::VALUE_UNLINKED
-     * @uses self::VALUE_PENDINGDELETE
+     * @uses self::VALUE_PENDING_DELETE
      * @return string[]
      */
     public static function getValidValues()
@@ -54,7 +54,7 @@ class EwsTeamMailboxLifecycleStateType
             self::VALUE_ACTIVE,
             self::VALUE_CLOSED,
             self::VALUE_UNLINKED,
-            self::VALUE_PENDINGDELETE,
+            self::VALUE_PENDING_DELETE,
         );
     }
     /**

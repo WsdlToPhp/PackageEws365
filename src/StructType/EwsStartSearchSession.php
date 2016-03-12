@@ -29,7 +29,7 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $WarmupOptions;
     /**
@@ -37,7 +37,7 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $SuggestionTypes;
     /**
@@ -53,7 +53,6 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Surfaces the various id types that are supported for conversion
      * @var string
      */
     public $IdFormat;
@@ -65,8 +64,8 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * @uses EwsStartSearchSession::setSearchScope()
      * @uses EwsStartSearchSession::setIdFormat()
      * @param string $searchSessionId
-     * @param string[] $warmupOptions
-     * @param string[] $suggestionTypes
+     * @param string $warmupOptions
+     * @param string $suggestionTypes
      * @param \Ews\StructType\EwsArrayOfSearchScopeType $searchScope
      * @param string $idFormat
      */
@@ -94,12 +93,20 @@ class EwsStartSearchSession extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
     /**
      * Get WarmupOptions value
-     * @return string[]
+     * @return string
      */
     public function getWarmupOptions()
     {
@@ -109,11 +116,13 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Set WarmupOptions value
      * @uses \Ews\EnumType\EwsWarmupOptionsType::valueIsValid()
      * @uses \Ews\EnumType\EwsWarmupOptionsType::getValidValues()
-     * @param string[] $warmupOptions
+     * @throws \InvalidArgumentException
+     * @param string $warmupOptions
      * @return \Ews\StructType\EwsStartSearchSession
      */
     public function setWarmupOptions($warmupOptions = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsWarmupOptionsType::valueIsValid($warmupOptions)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $warmupOptions, implode(', ', \Ews\EnumType\EwsWarmupOptionsType::getValidValues())), __LINE__);
         }
@@ -122,7 +131,7 @@ class EwsStartSearchSession extends EwsBaseRequestType
     }
     /**
      * Get SuggestionTypes value
-     * @return string[]
+     * @return string
      */
     public function getSuggestionTypes()
     {
@@ -132,11 +141,13 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Set SuggestionTypes value
      * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
-     * @param string[] $suggestionTypes
+     * @throws \InvalidArgumentException
+     * @param string $suggestionTypes
      * @return \Ews\StructType\EwsStartSearchSession
      */
     public function setSuggestionTypes($suggestionTypes = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($suggestionTypes)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionTypes, implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues())), __LINE__);
         }
@@ -173,11 +184,13 @@ class EwsStartSearchSession extends EwsBaseRequestType
      * Set IdFormat value
      * @uses \Ews\EnumType\EwsIdFormatType::valueIsValid()
      * @uses \Ews\EnumType\EwsIdFormatType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $idFormat
      * @return \Ews\StructType\EwsStartSearchSession
      */
     public function setIdFormat($idFormat = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($idFormat)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $idFormat, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }

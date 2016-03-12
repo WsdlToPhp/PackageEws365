@@ -17,7 +17,7 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 100
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsResolutionType
+     * @var \Ews\StructType\EwsResolutionType[]
      */
     public $Resolution;
     /**
@@ -37,7 +37,7 @@ class EwsArrayOfResolutionType extends AbstractStructBase
     public $AbsoluteDenominator;
     /**
      * The IncludesLastItemInRange
-     * @var boolean
+     * @var bool
      */
     public $IncludesLastItemInRange;
     /**
@@ -53,14 +53,14 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      * @uses EwsArrayOfResolutionType::setAbsoluteDenominator()
      * @uses EwsArrayOfResolutionType::setIncludesLastItemInRange()
      * @uses EwsArrayOfResolutionType::setTotalItemsInView()
-     * @param \Ews\StructType\EwsResolutionType $resolution
+     * @param \Ews\StructType\EwsResolutionType[] $resolution
      * @param int $indexedPagingOffset
      * @param int $numeratorOffset
      * @param int $absoluteDenominator
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @param int $totalItemsInView
      */
-    public function __construct(\Ews\StructType\EwsResolutionType $resolution = null, $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
+    public function __construct(array $resolution = array(), $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
     {
         $this
             ->setResolution($resolution)
@@ -72,7 +72,7 @@ class EwsArrayOfResolutionType extends AbstractStructBase
     }
     /**
      * Get Resolution value
-     * @return \Ews\StructType\EwsResolutionType|null
+     * @return \Ews\StructType\EwsResolutionType[]|null
      */
     public function getResolution()
     {
@@ -80,12 +80,34 @@ class EwsArrayOfResolutionType extends AbstractStructBase
     }
     /**
      * Set Resolution value
-     * @param \Ews\StructType\EwsResolutionType $resolution
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsResolutionType[] $resolution
      * @return \Ews\StructType\EwsArrayOfResolutionType
      */
-    public function setResolution(\Ews\StructType\EwsResolutionType $resolution = null)
+    public function setResolution(array $resolution = array())
     {
+        foreach ($resolution as $arrayOfResolutionTypeResolutionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfResolutionTypeResolutionItem instanceof \Ews\StructType\EwsResolutionType) {
+                throw new \InvalidArgumentException(sprintf('The Resolution property can only contain items of \Ews\StructType\EwsResolutionType, "%s" given', is_object($arrayOfResolutionTypeResolutionItem) ? get_class($arrayOfResolutionTypeResolutionItem) : gettype($arrayOfResolutionTypeResolutionItem)), __LINE__);
+            }
+        }
         $this->Resolution = $resolution;
+        return $this;
+    }
+    /**
+     * Add item to Resolution value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsResolutionType $item
+     * @return \Ews\StructType\EwsArrayOfResolutionType
+     */
+    public function addToResolution(\Ews\StructType\EwsResolutionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsResolutionType) {
+            throw new \InvalidArgumentException(sprintf('The Resolution property can only contain items of \Ews\StructType\EwsResolutionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Resolution[] = $item;
         return $this;
     }
     /**
@@ -103,6 +125,10 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      */
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($indexedPagingOffset) && !is_int($indexedPagingOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
     }
@@ -121,6 +147,10 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      */
     public function setNumeratorOffset($numeratorOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($numeratorOffset) && !is_int($numeratorOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numeratorOffset)), __LINE__);
+        }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
     }
@@ -139,12 +169,16 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      */
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
+        // validation for constraint: int
+        if (!is_null($absoluteDenominator) && !is_int($absoluteDenominator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
     }
     /**
      * Get IncludesLastItemInRange value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludesLastItemInRange()
     {
@@ -152,7 +186,7 @@ class EwsArrayOfResolutionType extends AbstractStructBase
     }
     /**
      * Set IncludesLastItemInRange value
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @return \Ews\StructType\EwsArrayOfResolutionType
      */
     public function setIncludesLastItemInRange($includesLastItemInRange = null)
@@ -175,6 +209,10 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      */
     public function setTotalItemsInView($totalItemsInView = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalItemsInView) && !is_int($totalItemsInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalItemsInView)), __LINE__);
+        }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
     }

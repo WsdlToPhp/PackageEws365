@@ -25,7 +25,7 @@ class EwsInsightValue extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $UpdatedUtcTicks;
     /**
@@ -33,7 +33,7 @@ class EwsInsightValue extends AbstractStructBase
      * @uses EwsInsightValue::setInsightSource()
      * @uses EwsInsightValue::setUpdatedUtcTicks()
      * @param string $insightSource
-     * @param long $updatedUtcTicks
+     * @param int $updatedUtcTicks
      */
     public function __construct($insightSource = null, $updatedUtcTicks = null)
     {
@@ -56,12 +56,16 @@ class EwsInsightValue extends AbstractStructBase
      */
     public function setInsightSource($insightSource = null)
     {
+        // validation for constraint: string
+        if (!is_null($insightSource) && !is_string($insightSource)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($insightSource)), __LINE__);
+        }
         $this->InsightSource = $insightSource;
         return $this;
     }
     /**
      * Get UpdatedUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getUpdatedUtcTicks()
     {
@@ -69,11 +73,15 @@ class EwsInsightValue extends AbstractStructBase
     }
     /**
      * Set UpdatedUtcTicks value
-     * @param long $updatedUtcTicks
+     * @param int $updatedUtcTicks
      * @return \Ews\StructType\EwsInsightValue
      */
     public function setUpdatedUtcTicks($updatedUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($updatedUtcTicks) && !is_int($updatedUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($updatedUtcTicks)), __LINE__);
+        }
         $this->UpdatedUtcTicks = $updatedUtcTicks;
         return $this;
     }

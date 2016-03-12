@@ -16,13 +16,13 @@ class EwsAttendeeConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      * The IsRequired
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRequired;
     /**
      * Constructor method for AttendeeConstraintItem
      * @uses EwsAttendeeConstraintItem::setIsRequired()
-     * @param boolean $isRequired
+     * @param bool $isRequired
      */
     public function __construct($isRequired = null)
     {
@@ -31,7 +31,7 @@ class EwsAttendeeConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
     }
     /**
      * Get IsRequired value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRequired()
     {
@@ -39,7 +39,7 @@ class EwsAttendeeConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
     }
     /**
      * Set IsRequired value
-     * @param boolean $isRequired
+     * @param bool $isRequired
      * @return \Ews\StructType\EwsAttendeeConstraintItem
      */
     public function setIsRequired($isRequired = null)

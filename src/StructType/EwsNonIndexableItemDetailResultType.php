@@ -18,7 +18,6 @@ class EwsNonIndexableItemDetailResultType extends AbstractStructBase
      * The Items
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of non indexable item details.
      * @var \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType
      */
     public $Items;
@@ -26,7 +25,6 @@ class EwsNonIndexableItemDetailResultType extends AbstractStructBase
      * The FailedMailboxes
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Array of failed mailbox and error message.
      * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
     public $FailedMailboxes;

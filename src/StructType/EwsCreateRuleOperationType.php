@@ -17,7 +17,6 @@ class EwsCreateRuleOperationType extends EwsRuleOperationType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Rule type
      * @var \Ews\StructType\EwsRuleType
      */
     public $Rule;

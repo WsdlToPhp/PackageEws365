@@ -17,13 +17,13 @@ class EwsArrayOfBookingMailbox extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsBookingMailboxType[]
      */
     public $Mailbox;
     /**
      * Constructor method for ArrayOfBookingMailbox
      * @uses EwsArrayOfBookingMailbox::setMailbox()
-     * @param array $mailbox
+     * @param \Ews\StructType\EwsBookingMailboxType[] $mailbox
      */
     public function __construct(array $mailbox = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBookingMailbox extends AbstractStructArrayBase
     }
     /**
      * Get Mailbox value
-     * @return array
+     * @return \Ews\StructType\EwsBookingMailboxType[]|null
      */
     public function getMailbox()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfBookingMailbox extends AbstractStructArrayBase
     }
     /**
      * Set Mailbox value
-     * @param array $mailbox
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingMailboxType[] $mailbox
      * @return \Ews\ArrayType\EwsArrayOfBookingMailbox
      */
     public function setMailbox(array $mailbox = array())
     {
+        foreach ($mailbox as $arrayOfBookingMailboxMailboxItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBookingMailboxMailboxItem instanceof \Ews\StructType\EwsBookingMailboxType) {
+                throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsBookingMailboxType, "%s" given', is_object($arrayOfBookingMailboxMailboxItem) ? get_class($arrayOfBookingMailboxMailboxItem) : gettype($arrayOfBookingMailboxMailboxItem)), __LINE__);
+            }
+        }
         $this->Mailbox = $mailbox;
+        return $this;
+    }
+    /**
+     * Add item to Mailbox value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsBookingMailboxType $item
+     * @return \Ews\ArrayType\EwsArrayOfBookingMailbox
+     */
+    public function addToMailbox(\Ews\StructType\EwsBookingMailboxType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsBookingMailboxType) {
+            throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsBookingMailboxType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Mailbox[] = $item;
         return $this;
     }
     /**

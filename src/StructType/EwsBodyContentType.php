@@ -56,6 +56,10 @@ class EwsBodyContentType extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }
@@ -71,11 +75,13 @@ class EwsBodyContentType extends AbstractStructBase
      * Set BodyType value
      * @uses \Ews\EnumType\EwsBodyTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $bodyType
      * @return \Ews\StructType\EwsBodyContentType
      */
     public function setBodyType($bodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeType::valueIsValid($bodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bodyType, implode(', ', \Ews\EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
         }

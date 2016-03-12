@@ -16,22 +16,22 @@ class EwsContactUrlDictionaryType extends AbstractStructBase
      * The Url
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsContactUrlDictionaryEntryType
+     * @var \Ews\StructType\EwsContactUrlDictionaryEntryType[]
      */
     public $Url;
     /**
      * Constructor method for ContactUrlDictionaryType
      * @uses EwsContactUrlDictionaryType::setUrl()
-     * @param \Ews\StructType\EwsContactUrlDictionaryEntryType $url
+     * @param \Ews\StructType\EwsContactUrlDictionaryEntryType[] $url
      */
-    public function __construct(\Ews\StructType\EwsContactUrlDictionaryEntryType $url = null)
+    public function __construct(array $url = array())
     {
         $this
             ->setUrl($url);
     }
     /**
      * Get Url value
-     * @return \Ews\StructType\EwsContactUrlDictionaryEntryType|null
+     * @return \Ews\StructType\EwsContactUrlDictionaryEntryType[]|null
      */
     public function getUrl()
     {
@@ -39,12 +39,34 @@ class EwsContactUrlDictionaryType extends AbstractStructBase
     }
     /**
      * Set Url value
-     * @param \Ews\StructType\EwsContactUrlDictionaryEntryType $url
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContactUrlDictionaryEntryType[] $url
      * @return \Ews\StructType\EwsContactUrlDictionaryType
      */
-    public function setUrl(\Ews\StructType\EwsContactUrlDictionaryEntryType $url = null)
+    public function setUrl(array $url = array())
     {
+        foreach ($url as $contactUrlDictionaryTypeUrlItem) {
+            // validation for constraint: itemType
+            if (!$contactUrlDictionaryTypeUrlItem instanceof \Ews\StructType\EwsContactUrlDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The Url property can only contain items of \Ews\StructType\EwsContactUrlDictionaryEntryType, "%s" given', is_object($contactUrlDictionaryTypeUrlItem) ? get_class($contactUrlDictionaryTypeUrlItem) : gettype($contactUrlDictionaryTypeUrlItem)), __LINE__);
+            }
+        }
         $this->Url = $url;
+        return $this;
+    }
+    /**
+     * Add item to Url value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContactUrlDictionaryEntryType $item
+     * @return \Ews\StructType\EwsContactUrlDictionaryType
+     */
+    public function addToUrl(\Ews\StructType\EwsContactUrlDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsContactUrlDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The Url property can only contain items of \Ews\StructType\EwsContactUrlDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Url[] = $item;
         return $this;
     }
     /**

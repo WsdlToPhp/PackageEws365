@@ -17,7 +17,6 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $RecipientAddress;
@@ -26,7 +25,7 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $PendingMailTips;
     /**
@@ -42,7 +41,7 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MailboxFull;
     /**
@@ -82,7 +81,7 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $DeliveryRestricted;
     /**
@@ -90,7 +89,7 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsModerated;
     /**
@@ -98,7 +97,7 @@ class EwsMailTips extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $InvalidRecipient;
     /**
@@ -124,16 +123,16 @@ class EwsMailTips extends AbstractStructBase
      * @uses EwsMailTips::setInvalidRecipient()
      * @uses EwsMailTips::setScope()
      * @param \Ews\StructType\EwsEmailAddressType $recipientAddress
-     * @param string[] $pendingMailTips
+     * @param string $pendingMailTips
      * @param \Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice
-     * @param boolean $mailboxFull
+     * @param bool $mailboxFull
      * @param string $customMailTip
      * @param int $totalMemberCount
      * @param int $externalMemberCount
      * @param int $maxMessageSize
-     * @param boolean $deliveryRestricted
-     * @param boolean $isModerated
-     * @param boolean $invalidRecipient
+     * @param bool $deliveryRestricted
+     * @param bool $isModerated
+     * @param bool $invalidRecipient
      * @param int $scope
      */
     public function __construct(\Ews\StructType\EwsEmailAddressType $recipientAddress = null, $pendingMailTips = null, \Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice = null, $mailboxFull = null, $customMailTip = null, $totalMemberCount = null, $externalMemberCount = null, $maxMessageSize = null, $deliveryRestricted = null, $isModerated = null, $invalidRecipient = null, $scope = null)
@@ -172,7 +171,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Get PendingMailTips value
-     * @return string[]
+     * @return string
      */
     public function getPendingMailTips()
     {
@@ -182,11 +181,13 @@ class EwsMailTips extends AbstractStructBase
      * Set PendingMailTips value
      * @uses \Ews\EnumType\EwsMailTipTypes::valueIsValid()
      * @uses \Ews\EnumType\EwsMailTipTypes::getValidValues()
-     * @param string[] $pendingMailTips
+     * @throws \InvalidArgumentException
+     * @param string $pendingMailTips
      * @return \Ews\StructType\EwsMailTips
      */
     public function setPendingMailTips($pendingMailTips = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailTipTypes::valueIsValid($pendingMailTips)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $pendingMailTips, implode(', ', \Ews\EnumType\EwsMailTipTypes::getValidValues())), __LINE__);
         }
@@ -213,7 +214,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Get MailboxFull value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMailboxFull()
     {
@@ -221,7 +222,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Set MailboxFull value
-     * @param boolean $mailboxFull
+     * @param bool $mailboxFull
      * @return \Ews\StructType\EwsMailTips
      */
     public function setMailboxFull($mailboxFull = null)
@@ -244,6 +245,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setCustomMailTip($customMailTip = null)
     {
+        // validation for constraint: string
+        if (!is_null($customMailTip) && !is_string($customMailTip)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($customMailTip)), __LINE__);
+        }
         $this->CustomMailTip = $customMailTip;
         return $this;
     }
@@ -262,6 +267,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setTotalMemberCount($totalMemberCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalMemberCount) && !is_int($totalMemberCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalMemberCount)), __LINE__);
+        }
         $this->TotalMemberCount = $totalMemberCount;
         return $this;
     }
@@ -280,6 +289,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setExternalMemberCount($externalMemberCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($externalMemberCount) && !is_int($externalMemberCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($externalMemberCount)), __LINE__);
+        }
         $this->ExternalMemberCount = $externalMemberCount;
         return $this;
     }
@@ -298,12 +311,16 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setMaxMessageSize($maxMessageSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxMessageSize) && !is_int($maxMessageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxMessageSize)), __LINE__);
+        }
         $this->MaxMessageSize = $maxMessageSize;
         return $this;
     }
     /**
      * Get DeliveryRestricted value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getDeliveryRestricted()
     {
@@ -311,7 +328,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Set DeliveryRestricted value
-     * @param boolean $deliveryRestricted
+     * @param bool $deliveryRestricted
      * @return \Ews\StructType\EwsMailTips
      */
     public function setDeliveryRestricted($deliveryRestricted = null)
@@ -321,7 +338,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Get IsModerated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsModerated()
     {
@@ -329,7 +346,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Set IsModerated value
-     * @param boolean $isModerated
+     * @param bool $isModerated
      * @return \Ews\StructType\EwsMailTips
      */
     public function setIsModerated($isModerated = null)
@@ -339,7 +356,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Get InvalidRecipient value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getInvalidRecipient()
     {
@@ -347,7 +364,7 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Set InvalidRecipient value
-     * @param boolean $invalidRecipient
+     * @param bool $invalidRecipient
      * @return \Ews\StructType\EwsMailTips
      */
     public function setInvalidRecipient($invalidRecipient = null)
@@ -370,6 +387,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setScope($scope = null)
     {
+        // validation for constraint: int
+        if (!is_null($scope) && !is_int($scope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($scope)), __LINE__);
+        }
         $this->Scope = $scope;
         return $this;
     }

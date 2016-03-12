@@ -17,13 +17,13 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsFreeBusyResponseType[]
      */
     public $FreeBusyResponse;
     /**
      * Constructor method for ArrayOfFreeBusyResponse
      * @uses EwsArrayOfFreeBusyResponse::setFreeBusyResponse()
-     * @param array $freeBusyResponse
+     * @param \Ews\StructType\EwsFreeBusyResponseType[] $freeBusyResponse
      */
     public function __construct(array $freeBusyResponse = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
     }
     /**
      * Get FreeBusyResponse value
-     * @return array
+     * @return \Ews\StructType\EwsFreeBusyResponseType[]|null
      */
     public function getFreeBusyResponse()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
     }
     /**
      * Set FreeBusyResponse value
-     * @param array $freeBusyResponse
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFreeBusyResponseType[] $freeBusyResponse
      * @return \Ews\ArrayType\EwsArrayOfFreeBusyResponse
      */
     public function setFreeBusyResponse(array $freeBusyResponse = array())
     {
+        foreach ($freeBusyResponse as $arrayOfFreeBusyResponseFreeBusyResponseItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFreeBusyResponseFreeBusyResponseItem instanceof \Ews\StructType\EwsFreeBusyResponseType) {
+                throw new \InvalidArgumentException(sprintf('The FreeBusyResponse property can only contain items of \Ews\StructType\EwsFreeBusyResponseType, "%s" given', is_object($arrayOfFreeBusyResponseFreeBusyResponseItem) ? get_class($arrayOfFreeBusyResponseFreeBusyResponseItem) : gettype($arrayOfFreeBusyResponseFreeBusyResponseItem)), __LINE__);
+            }
+        }
         $this->FreeBusyResponse = $freeBusyResponse;
+        return $this;
+    }
+    /**
+     * Add item to FreeBusyResponse value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFreeBusyResponseType $item
+     * @return \Ews\ArrayType\EwsArrayOfFreeBusyResponse
+     */
+    public function addToFreeBusyResponse(\Ews\StructType\EwsFreeBusyResponseType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFreeBusyResponseType) {
+            throw new \InvalidArgumentException(sprintf('The FreeBusyResponse property can only contain items of \Ews\StructType\EwsFreeBusyResponseType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FreeBusyResponse[] = $item;
         return $this;
     }
     /**

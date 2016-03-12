@@ -14,29 +14,21 @@ class EwsTargetFolderIdType extends AbstractStructBase
 {
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * The DistinguishedFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a distinguished folder
      * @var \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public $DistinguishedFolderId;
     /**
      * The AddressListId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a address list
      * @var \Ews\StructType\EwsAddressListIdType
      */
     public $AddressListId;
     /**
      * The ConsumerCalendarId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a consumer calendar. This is reserved for a select number of server-2-server calls.
      * @var \Ews\StructType\EwsConsumerCalendarIdType
      */
     public $ConsumerCalendarId;

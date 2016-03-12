@@ -19,7 +19,7 @@ class EwsPermissionReadAccessType
      * Constant for value 'FullDetails'
      * @return string 'FullDetails'
      */
-    const VALUE_FULLDETAILS = 'FullDetails';
+    const VALUE_FULL_DETAILS = 'FullDetails';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsPermissionReadAccessType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_FULLDETAILS
+     * @uses self::VALUE_FULL_DETAILS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_FULLDETAILS,
+            self::VALUE_FULL_DETAILS,
         );
     }
     /**

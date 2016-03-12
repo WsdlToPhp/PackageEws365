@@ -85,6 +85,10 @@ class EwsStaffAvailabilityResponseType extends AbstractStructBase
      */
     public function setStaffEmail($staffEmail = null)
     {
+        // validation for constraint: string
+        if (!is_null($staffEmail) && !is_string($staffEmail)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($staffEmail)), __LINE__);
+        }
         $this->StaffEmail = $staffEmail;
         return $this;
     }

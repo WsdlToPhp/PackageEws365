@@ -52,6 +52,10 @@ class EwsInternetHeaderType extends AbstractStructBase
      */
     public function setHeaderName($headerName = null)
     {
+        // validation for constraint: string
+        if (!is_null($headerName) && !is_string($headerName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($headerName)), __LINE__);
+        }
         $this->HeaderName = $headerName;
         return $this;
     }
@@ -70,6 +74,10 @@ class EwsInternetHeaderType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

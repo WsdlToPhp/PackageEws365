@@ -17,13 +17,13 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsCultureInfoDataType[]
      */
     public $AvailableCulture;
     /**
      * Constructor method for ArrayOfAvailableCulturesType
      * @uses EwsArrayOfAvailableCulturesType::setAvailableCulture()
-     * @param array $availableCulture
+     * @param \Ews\StructType\EwsCultureInfoDataType[] $availableCulture
      */
     public function __construct(array $availableCulture = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
     }
     /**
      * Get AvailableCulture value
-     * @return array
+     * @return \Ews\StructType\EwsCultureInfoDataType[]|null
      */
     public function getAvailableCulture()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
     }
     /**
      * Set AvailableCulture value
-     * @param array $availableCulture
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCultureInfoDataType[] $availableCulture
      * @return \Ews\ArrayType\EwsArrayOfAvailableCulturesType
      */
     public function setAvailableCulture(array $availableCulture = array())
     {
+        foreach ($availableCulture as $arrayOfAvailableCulturesTypeAvailableCultureItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAvailableCulturesTypeAvailableCultureItem instanceof \Ews\StructType\EwsCultureInfoDataType) {
+                throw new \InvalidArgumentException(sprintf('The AvailableCulture property can only contain items of \Ews\StructType\EwsCultureInfoDataType, "%s" given', is_object($arrayOfAvailableCulturesTypeAvailableCultureItem) ? get_class($arrayOfAvailableCulturesTypeAvailableCultureItem) : gettype($arrayOfAvailableCulturesTypeAvailableCultureItem)), __LINE__);
+            }
+        }
         $this->AvailableCulture = $availableCulture;
+        return $this;
+    }
+    /**
+     * Add item to AvailableCulture value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCultureInfoDataType $item
+     * @return \Ews\ArrayType\EwsArrayOfAvailableCulturesType
+     */
+    public function addToAvailableCulture(\Ews\StructType\EwsCultureInfoDataType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsCultureInfoDataType) {
+            throw new \InvalidArgumentException(sprintf('The AvailableCulture property can only contain items of \Ews\StructType\EwsCultureInfoDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AvailableCulture[] = $item;
         return $this;
     }
     /**

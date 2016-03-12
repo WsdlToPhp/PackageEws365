@@ -14,12 +14,12 @@ class EwsAffectedTaskOccurrencesType
      * Constant for value 'AllOccurrences'
      * @return string 'AllOccurrences'
      */
-    const VALUE_ALLOCCURRENCES = 'AllOccurrences';
+    const VALUE_ALL_OCCURRENCES = 'AllOccurrences';
     /**
      * Constant for value 'SpecifiedOccurrenceOnly'
      * @return string 'SpecifiedOccurrenceOnly'
      */
-    const VALUE_SPECIFIEDOCCURRENCEONLY = 'SpecifiedOccurrenceOnly';
+    const VALUE_SPECIFIED_OCCURRENCE_ONLY = 'SpecifiedOccurrenceOnly';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsAffectedTaskOccurrencesType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_ALLOCCURRENCES
-     * @uses self::VALUE_SPECIFIEDOCCURRENCEONLY
+     * @uses self::VALUE_ALL_OCCURRENCES
+     * @uses self::VALUE_SPECIFIED_OCCURRENCE_ONLY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_ALLOCCURRENCES,
-            self::VALUE_SPECIFIEDOCCURRENCEONLY,
+            self::VALUE_ALL_OCCURRENCES,
+            self::VALUE_SPECIFIED_OCCURRENCE_ONLY,
         );
     }
     /**

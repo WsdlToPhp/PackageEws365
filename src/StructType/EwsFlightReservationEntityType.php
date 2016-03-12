@@ -95,6 +95,10 @@ class EwsFlightReservationEntityType extends AbstractStructBase
      */
     public function setReservationId($reservationId = null)
     {
+        // validation for constraint: string
+        if (!is_null($reservationId) && !is_string($reservationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationId)), __LINE__);
+        }
         $this->ReservationId = $reservationId;
         return $this;
     }
@@ -113,6 +117,10 @@ class EwsFlightReservationEntityType extends AbstractStructBase
      */
     public function setReservationStatus($reservationStatus = null)
     {
+        // validation for constraint: string
+        if (!is_null($reservationStatus) && !is_string($reservationStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationStatus)), __LINE__);
+        }
         $this->ReservationStatus = $reservationStatus;
         return $this;
     }
@@ -131,6 +139,10 @@ class EwsFlightReservationEntityType extends AbstractStructBase
      */
     public function setUnderName($underName = null)
     {
+        // validation for constraint: string
+        if (!is_null($underName) && !is_string($underName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($underName)), __LINE__);
+        }
         $this->UnderName = $underName;
         return $this;
     }
@@ -149,6 +161,10 @@ class EwsFlightReservationEntityType extends AbstractStructBase
      */
     public function setBrokerName($brokerName = null)
     {
+        // validation for constraint: string
+        if (!is_null($brokerName) && !is_string($brokerName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brokerName)), __LINE__);
+        }
         $this->BrokerName = $brokerName;
         return $this;
     }
@@ -167,6 +183,10 @@ class EwsFlightReservationEntityType extends AbstractStructBase
      */
     public function setBrokerPhone($brokerPhone = null)
     {
+        // validation for constraint: string
+        if (!is_null($brokerPhone) && !is_string($brokerPhone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brokerPhone)), __LINE__);
+        }
         $this->BrokerPhone = $brokerPhone;
         return $this;
     }

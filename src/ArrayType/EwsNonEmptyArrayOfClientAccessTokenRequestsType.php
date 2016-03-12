@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsClientAccessTokenRequestType[]
      */
     public $TokenRequest;
     /**
      * Constructor method for NonEmptyArrayOfClientAccessTokenRequestsType
      * @uses EwsNonEmptyArrayOfClientAccessTokenRequestsType::setTokenRequest()
-     * @param array $tokenRequest
+     * @param \Ews\StructType\EwsClientAccessTokenRequestType[] $tokenRequest
      */
     public function __construct(array $tokenRequest = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
     }
     /**
      * Get TokenRequest value
-     * @return array
+     * @return \Ews\StructType\EwsClientAccessTokenRequestType[]
      */
     public function getTokenRequest()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
     }
     /**
      * Set TokenRequest value
-     * @param array $tokenRequest
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsClientAccessTokenRequestType[] $tokenRequest
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
      */
     public function setTokenRequest(array $tokenRequest = array())
     {
+        foreach ($tokenRequest as $nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem instanceof \Ews\StructType\EwsClientAccessTokenRequestType) {
+                throw new \InvalidArgumentException(sprintf('The TokenRequest property can only contain items of \Ews\StructType\EwsClientAccessTokenRequestType, "%s" given', is_object($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) ? get_class($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) : gettype($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem)), __LINE__);
+            }
+        }
         $this->TokenRequest = $tokenRequest;
+        return $this;
+    }
+    /**
+     * Add item to TokenRequest value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsClientAccessTokenRequestType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
+     */
+    public function addToTokenRequest(\Ews\StructType\EwsClientAccessTokenRequestType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsClientAccessTokenRequestType) {
+            throw new \InvalidArgumentException(sprintf('The TokenRequest property can only contain items of \Ews\StructType\EwsClientAccessTokenRequestType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TokenRequest[] = $item;
         return $this;
     }
     /**

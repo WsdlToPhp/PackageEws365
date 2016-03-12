@@ -14,24 +14,22 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
 {
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
-     * @var array
+     * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * Constructor method for ArrayOfFolderIdType
      * @uses EwsArrayOfFolderIdType::setFolderId()
-     * @param array $folderId
+     * @param \Ews\StructType\EwsFolderIdType $folderId
      */
-    public function __construct(array $folderId = array())
+    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null)
     {
         $this
             ->setFolderId($folderId);
     }
     /**
      * Get FolderId value
-     * @return array
+     * @return \Ews\StructType\EwsFolderIdType|null
      */
     public function getFolderId()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
     }
     /**
      * Set FolderId value
-     * @param array $folderId
+     * @param \Ews\StructType\EwsFolderIdType $folderId
      * @return \Ews\ArrayType\EwsArrayOfFolderIdType
      */
-    public function setFolderId(array $folderId = array())
+    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
     {
         $this->FolderId = $folderId;
         return $this;

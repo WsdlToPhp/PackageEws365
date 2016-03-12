@@ -45,6 +45,10 @@ class EwsNewBookingMailboxResponseMessageType extends EwsResponseMessageType
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }

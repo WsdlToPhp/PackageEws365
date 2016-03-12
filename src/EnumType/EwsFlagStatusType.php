@@ -14,7 +14,7 @@ class EwsFlagStatusType
      * Constant for value 'NotFlagged'
      * @return string 'NotFlagged'
      */
-    const VALUE_NOTFLAGGED = 'NotFlagged';
+    const VALUE_NOT_FLAGGED = 'NotFlagged';
     /**
      * Constant for value 'Flagged'
      * @return string 'Flagged'
@@ -37,7 +37,7 @@ class EwsFlagStatusType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOTFLAGGED
+     * @uses self::VALUE_NOT_FLAGGED
      * @uses self::VALUE_FLAGGED
      * @uses self::VALUE_COMPLETE
      * @return string[]
@@ -45,7 +45,7 @@ class EwsFlagStatusType
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOTFLAGGED,
+            self::VALUE_NOT_FLAGGED,
             self::VALUE_FLAGGED,
             self::VALUE_COMPLETE,
         );

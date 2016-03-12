@@ -14,22 +14,22 @@ class EwsDeliverMeetingRequestsType
      * Constant for value 'DelegatesOnly'
      * @return string 'DelegatesOnly'
      */
-    const VALUE_DELEGATESONLY = 'DelegatesOnly';
+    const VALUE_DELEGATES_ONLY = 'DelegatesOnly';
     /**
      * Constant for value 'DelegatesAndMe'
      * @return string 'DelegatesAndMe'
      */
-    const VALUE_DELEGATESANDME = 'DelegatesAndMe';
+    const VALUE_DELEGATES_AND_ME = 'DelegatesAndMe';
     /**
      * Constant for value 'DelegatesAndSendInformationToMe'
      * @return string 'DelegatesAndSendInformationToMe'
      */
-    const VALUE_DELEGATESANDSENDINFORMATIONTOME = 'DelegatesAndSendInformationToMe';
+    const VALUE_DELEGATES_AND_SEND_INFORMATION_TO_ME = 'DelegatesAndSendInformationToMe';
     /**
      * Constant for value 'NoForward'
      * @return string 'NoForward'
      */
-    const VALUE_NOFORWARD = 'NoForward';
+    const VALUE_NO_FORWARD = 'NoForward';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -42,19 +42,19 @@ class EwsDeliverMeetingRequestsType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_DELEGATESONLY
-     * @uses self::VALUE_DELEGATESANDME
-     * @uses self::VALUE_DELEGATESANDSENDINFORMATIONTOME
-     * @uses self::VALUE_NOFORWARD
+     * @uses self::VALUE_DELEGATES_ONLY
+     * @uses self::VALUE_DELEGATES_AND_ME
+     * @uses self::VALUE_DELEGATES_AND_SEND_INFORMATION_TO_ME
+     * @uses self::VALUE_NO_FORWARD
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_DELEGATESONLY,
-            self::VALUE_DELEGATESANDME,
-            self::VALUE_DELEGATESANDSENDINFORMATIONTOME,
-            self::VALUE_NOFORWARD,
+            self::VALUE_DELEGATES_ONLY,
+            self::VALUE_DELEGATES_AND_ME,
+            self::VALUE_DELEGATES_AND_SEND_INFORMATION_TO_ME,
+            self::VALUE_NO_FORWARD,
         );
     }
     /**

@@ -17,13 +17,13 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var string[]
      */
     public $Attribution;
     /**
      * Constructor method for ArrayOfValueAttributionsType
      * @uses EwsArrayOfValueAttributionsType::setAttribution()
-     * @param array $attribution
+     * @param string[] $attribution
      */
     public function __construct(array $attribution = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
     }
     /**
      * Get Attribution value
-     * @return array
+     * @return string[]
      */
     public function getAttribution()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
     }
     /**
      * Set Attribution value
-     * @param array $attribution
+     * @throws \InvalidArgumentException
+     * @param string[] $attribution
      * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
      */
     public function setAttribution(array $attribution = array())
     {
+        foreach ($attribution as $arrayOfValueAttributionsTypeAttributionItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfValueAttributionsTypeAttributionItem)) {
+                throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of string, "%s" given', is_object($arrayOfValueAttributionsTypeAttributionItem) ? get_class($arrayOfValueAttributionsTypeAttributionItem) : gettype($arrayOfValueAttributionsTypeAttributionItem)), __LINE__);
+            }
+        }
         $this->Attribution = $attribution;
+        return $this;
+    }
+    /**
+     * Add item to Attribution value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     */
+    public function addToAttribution($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Attribution[] = $item;
         return $this;
     }
     /**

@@ -16,7 +16,7 @@ class EwsStandardGroupByType
      * Constant for value 'ConversationTopic'
      * @return string 'ConversationTopic'
      */
-    const VALUE_CONVERSATIONTOPIC = 'ConversationTopic';
+    const VALUE_CONVERSATION_TOPIC = 'ConversationTopic';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -29,13 +29,13 @@ class EwsStandardGroupByType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_CONVERSATIONTOPIC
+     * @uses self::VALUE_CONVERSATION_TOPIC
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_CONVERSATIONTOPIC,
+            self::VALUE_CONVERSATION_TOPIC,
         );
     }
     /**

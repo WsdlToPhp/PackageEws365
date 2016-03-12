@@ -44,6 +44,10 @@ class EwsAddressEntityType extends EwsEntityType
      */
     public function setAddress($address = null)
     {
+        // validation for constraint: string
+        if (!is_null($address) && !is_string($address)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+        }
         $this->Address = $address;
         return $this;
     }

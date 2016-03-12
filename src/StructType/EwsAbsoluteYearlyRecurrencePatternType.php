@@ -50,6 +50,10 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      */
     public function setDayOfMonth($dayOfMonth = null)
     {
+        // validation for constraint: int
+        if (!is_null($dayOfMonth) && !is_int($dayOfMonth)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dayOfMonth)), __LINE__);
+        }
         $this->DayOfMonth = $dayOfMonth;
         return $this;
     }
@@ -65,11 +69,13 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Set Month value
      * @uses \Ews\EnumType\EwsMonthNamesType::valueIsValid()
      * @uses \Ews\EnumType\EwsMonthNamesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $month
      * @return \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
      */
     public function setMonth($month = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMonthNamesType::valueIsValid($month)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $month, implode(', ', \Ews\EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
         }

@@ -25,7 +25,7 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      * The ExpandGroupMembership
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExpandGroupMembership;
     /**
@@ -33,7 +33,7 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      * @uses EwsGetSearchableMailboxesType::setSearchFilter()
      * @uses EwsGetSearchableMailboxesType::setExpandGroupMembership()
      * @param string $searchFilter
-     * @param boolean $expandGroupMembership
+     * @param bool $expandGroupMembership
      */
     public function __construct($searchFilter = null, $expandGroupMembership = null)
     {
@@ -56,12 +56,16 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      */
     public function setSearchFilter($searchFilter = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchFilter) && !is_string($searchFilter)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchFilter)), __LINE__);
+        }
         $this->SearchFilter = $searchFilter;
         return $this;
     }
     /**
      * Get ExpandGroupMembership value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExpandGroupMembership()
     {
@@ -69,7 +73,7 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
     }
     /**
      * Set ExpandGroupMembership value
-     * @param boolean $expandGroupMembership
+     * @param bool $expandGroupMembership
      * @return \Ews\StructType\EwsGetSearchableMailboxesType
      */
     public function setExpandGroupMembership($expandGroupMembership = null)

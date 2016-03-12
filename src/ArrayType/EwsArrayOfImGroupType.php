@@ -14,24 +14,22 @@ class EwsArrayOfImGroupType extends AbstractStructArrayBase
 {
     /**
      * The ImGroup
-     * Meta informations extracted from the WSDL
-     * - documentation: A Group on the ImContactList, with one or more members
-     * @var array
+     * @var \Ews\StructType\EwsImGroupType
      */
     public $ImGroup;
     /**
      * Constructor method for ArrayOfImGroupType
      * @uses EwsArrayOfImGroupType::setImGroup()
-     * @param array $imGroup
+     * @param \Ews\StructType\EwsImGroupType $imGroup
      */
-    public function __construct(array $imGroup = array())
+    public function __construct(\Ews\StructType\EwsImGroupType $imGroup = null)
     {
         $this
             ->setImGroup($imGroup);
     }
     /**
      * Get ImGroup value
-     * @return array
+     * @return \Ews\StructType\EwsImGroupType|null
      */
     public function getImGroup()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfImGroupType extends AbstractStructArrayBase
     }
     /**
      * Set ImGroup value
-     * @param array $imGroup
+     * @param \Ews\StructType\EwsImGroupType $imGroup
      * @return \Ews\ArrayType\EwsArrayOfImGroupType
      */
-    public function setImGroup(array $imGroup = array())
+    public function setImGroup(\Ews\StructType\EwsImGroupType $imGroup = null)
     {
         $this->ImGroup = $imGroup;
         return $this;

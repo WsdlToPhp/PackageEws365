@@ -57,11 +57,13 @@ class EwsGetUnifiedGroupMembersType extends EwsUnifiedGroupBaseRequestType
      * Set GroupMembersResponseShape value
      * @uses \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $groupMembersResponseShape
      * @return \Ews\StructType\EwsGetUnifiedGroupMembersType
      */
     public function setGroupMembersResponseShape($groupMembersResponseShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid($groupMembersResponseShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupMembersResponseShape, implode(', ', \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues())), __LINE__);
         }
@@ -98,11 +100,13 @@ class EwsGetUnifiedGroupMembersType extends EwsUnifiedGroupBaseRequestType
      * Set MembersSortOrder value
      * @uses \Ews\EnumType\EwsUnifiedGroupMembersSortType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupMembersSortType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $membersSortOrder
      * @return \Ews\StructType\EwsGetUnifiedGroupMembersType
      */
     public function setMembersSortOrder($membersSortOrder = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupMembersSortType::valueIsValid($membersSortOrder)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $membersSortOrder, implode(', ', \Ews\EnumType\EwsUnifiedGroupMembersSortType::getValidValues())), __LINE__);
         }

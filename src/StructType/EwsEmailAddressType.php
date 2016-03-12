@@ -48,7 +48,6 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      * The ItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -99,6 +98,10 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -117,6 +120,14 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(emailAddress) && strlen(emailAddress) < 1) || (is_array(emailAddress) && count(emailAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }
@@ -135,6 +146,14 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      */
     public function setRoutingType($routingType = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(routingType) && strlen(routingType) < 1) || (is_array(routingType) && count(routingType) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($routingType) && !is_string($routingType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingType)), __LINE__);
+        }
         $this->RoutingType = $routingType;
         return $this;
     }
@@ -150,11 +169,13 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      * Set MailboxType value
      * @uses \Ews\EnumType\EwsMailboxTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mailboxType
      * @return \Ews\StructType\EwsEmailAddressType
      */
     public function setMailboxType($mailboxType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxType, implode(', ', \Ews\EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
         }
@@ -194,6 +215,10 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      */
     public function setOriginalDisplayName($originalDisplayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($originalDisplayName) && !is_string($originalDisplayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalDisplayName)), __LINE__);
+        }
         $this->OriginalDisplayName = $originalDisplayName;
         return $this;
     }

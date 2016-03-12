@@ -105,11 +105,13 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
      * Set ContainmentMode value
      * @uses \Ews\EnumType\EwsContainmentModeType::valueIsValid()
      * @uses \Ews\EnumType\EwsContainmentModeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $containmentMode
      * @return \Ews\StructType\EwsContainsExpressionType
      */
     public function setContainmentMode($containmentMode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContainmentModeType::valueIsValid($containmentMode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $containmentMode, implode(', ', \Ews\EnumType\EwsContainmentModeType::getValidValues())), __LINE__);
         }
@@ -128,11 +130,13 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
      * Set ContainmentComparison value
      * @uses \Ews\EnumType\EwsContainmentComparisonType::valueIsValid()
      * @uses \Ews\EnumType\EwsContainmentComparisonType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $containmentComparison
      * @return \Ews\StructType\EwsContainsExpressionType
      */
     public function setContainmentComparison($containmentComparison = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContainmentComparisonType::valueIsValid($containmentComparison)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $containmentComparison, implode(', ', \Ews\EnumType\EwsContainmentComparisonType::getValidValues())), __LINE__);
         }

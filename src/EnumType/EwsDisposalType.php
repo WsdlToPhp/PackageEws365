@@ -14,17 +14,17 @@ class EwsDisposalType
      * Constant for value 'HardDelete'
      * @return string 'HardDelete'
      */
-    const VALUE_HARDDELETE = 'HardDelete';
+    const VALUE_HARD_DELETE = 'HardDelete';
     /**
      * Constant for value 'SoftDelete'
      * @return string 'SoftDelete'
      */
-    const VALUE_SOFTDELETE = 'SoftDelete';
+    const VALUE_SOFT_DELETE = 'SoftDelete';
     /**
      * Constant for value 'MoveToDeletedItems'
      * @return string 'MoveToDeletedItems'
      */
-    const VALUE_MOVETODELETEDITEMS = 'MoveToDeletedItems';
+    const VALUE_MOVE_TO_DELETED_ITEMS = 'MoveToDeletedItems';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsDisposalType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_HARDDELETE
-     * @uses self::VALUE_SOFTDELETE
-     * @uses self::VALUE_MOVETODELETEDITEMS
+     * @uses self::VALUE_HARD_DELETE
+     * @uses self::VALUE_SOFT_DELETE
+     * @uses self::VALUE_MOVE_TO_DELETED_ITEMS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_HARDDELETE,
-            self::VALUE_SOFTDELETE,
-            self::VALUE_MOVETODELETEDITEMS,
+            self::VALUE_HARD_DELETE,
+            self::VALUE_SOFT_DELETE,
+            self::VALUE_MOVE_TO_DELETED_ITEMS,
         );
     }
     /**

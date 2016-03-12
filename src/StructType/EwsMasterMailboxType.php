@@ -155,6 +155,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setMailboxType($mailboxType = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxType) && !is_string($mailboxType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxType)), __LINE__);
+        }
         $this->MailboxType = $mailboxType;
         return $this;
     }
@@ -173,6 +177,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -191,6 +199,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -209,6 +221,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }
@@ -224,11 +240,13 @@ class EwsMasterMailboxType extends AbstractStructBase
      * Set GroupType value
      * @uses \Ews\EnumType\EwsModernGroupTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsModernGroupTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $groupType
      * @return \Ews\StructType\EwsMasterMailboxType
      */
     public function setGroupType($groupType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsModernGroupTypeType::valueIsValid($groupType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupType, implode(', ', \Ews\EnumType\EwsModernGroupTypeType::getValidValues())), __LINE__);
         }
@@ -250,6 +268,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
@@ -268,6 +290,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setPhoto($photo = null)
     {
+        // validation for constraint: string
+        if (!is_null($photo) && !is_string($photo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($photo)), __LINE__);
+        }
         $this->Photo = $photo;
         return $this;
     }
@@ -286,6 +312,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setSharePointUrl($sharePointUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($sharePointUrl) && !is_string($sharePointUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharePointUrl)), __LINE__);
+        }
         $this->SharePointUrl = $sharePointUrl;
         return $this;
     }
@@ -304,6 +334,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setInboxUrl($inboxUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($inboxUrl) && !is_string($inboxUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inboxUrl)), __LINE__);
+        }
         $this->InboxUrl = $inboxUrl;
         return $this;
     }
@@ -322,6 +356,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setCalendarUrl($calendarUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($calendarUrl) && !is_string($calendarUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarUrl)), __LINE__);
+        }
         $this->CalendarUrl = $calendarUrl;
         return $this;
     }
@@ -340,6 +378,10 @@ class EwsMasterMailboxType extends AbstractStructBase
      */
     public function setDomainController($domainController = null)
     {
+        // validation for constraint: string
+        if (!is_null($domainController) && !is_string($domainController)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($domainController)), __LINE__);
+        }
         $this->DomainController = $domainController;
         return $this;
     }

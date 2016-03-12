@@ -67,6 +67,14 @@ class EwsGetSharingFolderType extends EwsBaseRequestType
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }
@@ -82,11 +90,13 @@ class EwsGetSharingFolderType extends EwsBaseRequestType
      * Set DataType value
      * @uses \Ews\EnumType\EwsSharingDataType::valueIsValid()
      * @uses \Ews\EnumType\EwsSharingDataType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $dataType
      * @return \Ews\StructType\EwsGetSharingFolderType
      */
     public function setDataType($dataType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingDataType::valueIsValid($dataType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dataType, implode(', ', \Ews\EnumType\EwsSharingDataType::getValidValues())), __LINE__);
         }
@@ -108,6 +118,14 @@ class EwsGetSharingFolderType extends EwsBaseRequestType
      */
     public function setSharedFolderId($sharedFolderId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(sharedFolderId) && strlen(sharedFolderId) < 1) || (is_array(sharedFolderId) && count(sharedFolderId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($sharedFolderId) && !is_string($sharedFolderId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharedFolderId)), __LINE__);
+        }
         $this->SharedFolderId = $sharedFolderId;
         return $this;
     }

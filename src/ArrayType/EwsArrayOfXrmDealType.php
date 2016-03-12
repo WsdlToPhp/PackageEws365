@@ -17,13 +17,13 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsXrmDealType[]
      */
     public $Deal;
     /**
      * Constructor method for ArrayOfXrmDealType
      * @uses EwsArrayOfXrmDealType::setDeal()
-     * @param array $deal
+     * @param \Ews\StructType\EwsXrmDealType[] $deal
      */
     public function __construct(array $deal = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
     }
     /**
      * Get Deal value
-     * @return array
+     * @return \Ews\StructType\EwsXrmDealType[]|null
      */
     public function getDeal()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
     }
     /**
      * Set Deal value
-     * @param array $deal
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmDealType[] $deal
      * @return \Ews\ArrayType\EwsArrayOfXrmDealType
      */
     public function setDeal(array $deal = array())
     {
+        foreach ($deal as $arrayOfXrmDealTypeDealItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmDealTypeDealItem instanceof \Ews\StructType\EwsXrmDealType) {
+                throw new \InvalidArgumentException(sprintf('The Deal property can only contain items of \Ews\StructType\EwsXrmDealType, "%s" given', is_object($arrayOfXrmDealTypeDealItem) ? get_class($arrayOfXrmDealTypeDealItem) : gettype($arrayOfXrmDealTypeDealItem)), __LINE__);
+            }
+        }
         $this->Deal = $deal;
+        return $this;
+    }
+    /**
+     * Add item to Deal value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmDealType $item
+     * @return \Ews\ArrayType\EwsArrayOfXrmDealType
+     */
+    public function addToDeal(\Ews\StructType\EwsXrmDealType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsXrmDealType) {
+            throw new \InvalidArgumentException(sprintf('The Deal property can only contain items of \Ews\StructType\EwsXrmDealType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Deal[] = $item;
         return $this;
     }
     /**

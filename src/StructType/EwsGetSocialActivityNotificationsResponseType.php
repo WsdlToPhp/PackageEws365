@@ -17,23 +17,23 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @var \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
      */
     public $AggregatedNotification;
     /**
      * Constructor method for GetSocialActivityNotificationsResponseType
      * @uses EwsGetSocialActivityNotificationsResponseType::setAggregatedNotification()
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
      * $aggregatedNotification
      */
-    public function __construct(\Ews\StructType\EwsSocialActivityAggregatedNotificationType $aggregatedNotification = null)
+    public function __construct(array $aggregatedNotification = array())
     {
         $this
             ->setAggregatedNotification($aggregatedNotification);
     }
     /**
      * Get AggregatedNotification value
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType|null
+     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]|null
      */
     public function getAggregatedNotification()
     {
@@ -41,13 +41,35 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
     }
     /**
      * Set AggregatedNotification value
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
      * $aggregatedNotification
      * @return \Ews\StructType\EwsGetSocialActivityNotificationsResponseType
      */
-    public function setAggregatedNotification(\Ews\StructType\EwsSocialActivityAggregatedNotificationType $aggregatedNotification = null)
+    public function setAggregatedNotification(array $aggregatedNotification = array())
     {
+        foreach ($aggregatedNotification as $getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) {
+            // validation for constraint: itemType
+            if (!$getSocialActivityNotificationsResponseTypeAggregatedNotificationItem instanceof \Ews\StructType\EwsSocialActivityAggregatedNotificationType) {
+                throw new \InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of \Ews\StructType\EwsSocialActivityAggregatedNotificationType, "%s" given', is_object($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) ? get_class($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) : gettype($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem)), __LINE__);
+            }
+        }
         $this->AggregatedNotification = $aggregatedNotification;
+        return $this;
+    }
+    /**
+     * Add item to AggregatedNotification value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType $item
+     * @return \Ews\StructType\EwsGetSocialActivityNotificationsResponseType
+     */
+    public function addToAggregatedNotification(\Ews\StructType\EwsSocialActivityAggregatedNotificationType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSocialActivityAggregatedNotificationType) {
+            throw new \InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of \Ews\StructType\EwsSocialActivityAggregatedNotificationType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->AggregatedNotification[] = $item;
         return $this;
     }
     /**

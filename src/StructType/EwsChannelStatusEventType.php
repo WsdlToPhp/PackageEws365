@@ -14,13 +14,13 @@ class EwsChannelStatusEventType extends EwsChannelEventType
 {
     /**
      * The IsNew
-     * @var boolean
+     * @var bool
      */
     public $IsNew;
     /**
      * Constructor method for ChannelStatusEventType
      * @uses EwsChannelStatusEventType::setIsNew()
-     * @param boolean $isNew
+     * @param bool $isNew
      */
     public function __construct($isNew = null)
     {
@@ -29,7 +29,7 @@ class EwsChannelStatusEventType extends EwsChannelEventType
     }
     /**
      * Get IsNew value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsNew()
     {
@@ -37,7 +37,7 @@ class EwsChannelStatusEventType extends EwsChannelEventType
     }
     /**
      * Set IsNew value
-     * @param boolean $isNew
+     * @param bool $isNew
      * @return \Ews\StructType\EwsChannelStatusEventType
      */
     public function setIsNew($isNew = null)

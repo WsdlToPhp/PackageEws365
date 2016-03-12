@@ -56,6 +56,10 @@ class EwsHighlightTermType extends AbstractStructBase
      */
     public function setScope($scope = null)
     {
+        // validation for constraint: string
+        if (!is_null($scope) && !is_string($scope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scope)), __LINE__);
+        }
         $this->Scope = $scope;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsHighlightTermType extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }

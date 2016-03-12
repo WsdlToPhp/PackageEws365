@@ -17,13 +17,13 @@ class EwsArrayOfSuggestionDayResult extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsSuggestionDayResult[]
      */
     public $SuggestionDayResult;
     /**
      * Constructor method for ArrayOfSuggestionDayResult
      * @uses EwsArrayOfSuggestionDayResult::setSuggestionDayResult()
-     * @param array $suggestionDayResult
+     * @param \Ews\StructType\EwsSuggestionDayResult[] $suggestionDayResult
      */
     public function __construct(array $suggestionDayResult = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfSuggestionDayResult extends AbstractStructArrayBase
     }
     /**
      * Get SuggestionDayResult value
-     * @return array
+     * @return \Ews\StructType\EwsSuggestionDayResult[]|null
      */
     public function getSuggestionDayResult()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfSuggestionDayResult extends AbstractStructArrayBase
     }
     /**
      * Set SuggestionDayResult value
-     * @param array $suggestionDayResult
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSuggestionDayResult[] $suggestionDayResult
      * @return \Ews\ArrayType\EwsArrayOfSuggestionDayResult
      */
     public function setSuggestionDayResult(array $suggestionDayResult = array())
     {
+        foreach ($suggestionDayResult as $arrayOfSuggestionDayResultSuggestionDayResultItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSuggestionDayResultSuggestionDayResultItem instanceof \Ews\StructType\EwsSuggestionDayResult) {
+                throw new \InvalidArgumentException(sprintf('The SuggestionDayResult property can only contain items of \Ews\StructType\EwsSuggestionDayResult, "%s" given', is_object($arrayOfSuggestionDayResultSuggestionDayResultItem) ? get_class($arrayOfSuggestionDayResultSuggestionDayResultItem) : gettype($arrayOfSuggestionDayResultSuggestionDayResultItem)), __LINE__);
+            }
+        }
         $this->SuggestionDayResult = $suggestionDayResult;
+        return $this;
+    }
+    /**
+     * Add item to SuggestionDayResult value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSuggestionDayResult $item
+     * @return \Ews\ArrayType\EwsArrayOfSuggestionDayResult
+     */
+    public function addToSuggestionDayResult(\Ews\StructType\EwsSuggestionDayResult $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSuggestionDayResult) {
+            throw new \InvalidArgumentException(sprintf('The SuggestionDayResult property can only contain items of \Ews\StructType\EwsSuggestionDayResult, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->SuggestionDayResult[] = $item;
         return $this;
     }
     /**

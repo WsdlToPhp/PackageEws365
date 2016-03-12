@@ -17,13 +17,13 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $RefreshStaffList;
     /**
      * Constructor method for GetBookingStaffType
      * @uses EwsGetBookingStaffType::setRefreshStaffList()
-     * @param boolean $refreshStaffList
+     * @param bool $refreshStaffList
      */
     public function __construct($refreshStaffList = null)
     {
@@ -32,7 +32,7 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
     }
     /**
      * Get RefreshStaffList value
-     * @return boolean
+     * @return bool
      */
     public function getRefreshStaffList()
     {
@@ -40,7 +40,7 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
     }
     /**
      * Set RefreshStaffList value
-     * @param boolean $refreshStaffList
+     * @param bool $refreshStaffList
      * @return \Ews\StructType\EwsGetBookingStaffType
      */
     public function setRefreshStaffList($refreshStaffList = null)

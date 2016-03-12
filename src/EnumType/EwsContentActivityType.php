@@ -19,12 +19,12 @@ class EwsContentActivityType
      * Constant for value 'WhiteBoard'
      * @return string 'WhiteBoard'
      */
-    const VALUE_WHITEBOARD = 'WhiteBoard';
+    const VALUE_WHITE_BOARD = 'WhiteBoard';
     /**
      * Constant for value 'QAndA'
      * @return string 'QAndA'
      */
-    const VALUE_QANDA = 'QAndA';
+    const VALUE_QAND_A = 'QAndA';
     /**
      * Constant for value 'Chat'
      * @return string 'Chat'
@@ -44,7 +44,7 @@ class EwsContentActivityType
      * Constant for value 'SharedNotes'
      * @return string 'SharedNotes'
      */
-    const VALUE_SHAREDNOTES = 'SharedNotes';
+    const VALUE_SHARED_NOTES = 'SharedNotes';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -58,24 +58,24 @@ class EwsContentActivityType
     /**
      * Return allowed values
      * @uses self::VALUE_POLL
-     * @uses self::VALUE_WHITEBOARD
-     * @uses self::VALUE_QANDA
+     * @uses self::VALUE_WHITE_BOARD
+     * @uses self::VALUE_QAND_A
      * @uses self::VALUE_CHAT
      * @uses self::VALUE_MEETING
      * @uses self::VALUE_ANNOTATIONS
-     * @uses self::VALUE_SHAREDNOTES
+     * @uses self::VALUE_SHARED_NOTES
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_POLL,
-            self::VALUE_WHITEBOARD,
-            self::VALUE_QANDA,
+            self::VALUE_WHITE_BOARD,
+            self::VALUE_QAND_A,
             self::VALUE_CHAT,
             self::VALUE_MEETING,
             self::VALUE_ANNOTATIONS,
-            self::VALUE_SHAREDNOTES,
+            self::VALUE_SHARED_NOTES,
         );
     }
     /**

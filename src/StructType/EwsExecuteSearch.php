@@ -61,7 +61,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $ItemTypes;
     /**
@@ -77,7 +77,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $ResultRowCount;
     /**
@@ -85,7 +85,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $ResultRowOffset;
     /**
@@ -93,7 +93,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $MaxResultsCountHint;
     /**
@@ -101,7 +101,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $MaxPreviewLength;
     /**
@@ -117,7 +117,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $RetrieveRefiners;
     /**
@@ -125,7 +125,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $MaxRefinersCountPerRefinerType;
     /**
@@ -133,7 +133,6 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Surfaces the various id types that are supported for conversion
      * @var string
      */
     public $IdFormat;
@@ -150,7 +149,6 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $SearchRestrictions;
@@ -159,7 +157,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludeDeleted;
     /**
@@ -187,19 +185,19 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * @param string $searchSessionId
      * @param \Ews\StructType\EwsArrayOfSearchScopeType $searchScope
      * @param string $query
-     * @param string[] $itemTypes
+     * @param string $itemTypes
      * @param \Ews\StructType\EwsAnalyzedQuery $analyzedQuery
-     * @param long $resultRowCount
-     * @param long $resultRowOffset
-     * @param long $maxResultsCountHint
-     * @param long $maxPreviewLength
+     * @param int $resultRowCount
+     * @param int $resultRowOffset
+     * @param int $maxResultsCountHint
+     * @param int $maxPreviewLength
      * @param \Ews\StructType\EwsSearchRefiners $searchRefiners
-     * @param boolean $retrieveRefiners
-     * @param long $maxRefinersCountPerRefinerType
+     * @param bool $retrieveRefiners
+     * @param int $maxRefinersCountPerRefinerType
      * @param string $idFormat
      * @param string $propertySetName
      * @param \Ews\StructType\EwsRestrictionType $searchRestrictions
-     * @param boolean $includeDeleted
+     * @param bool $includeDeleted
      */
     public function __construct($applicationId = null, $scenario = null, $searchSessionId = null, \Ews\StructType\EwsArrayOfSearchScopeType $searchScope = null, $query = null, $itemTypes = null, \Ews\StructType\EwsAnalyzedQuery $analyzedQuery = null, $resultRowCount = null, $resultRowOffset = null, $maxResultsCountHint = null, $maxPreviewLength = null, \Ews\StructType\EwsSearchRefiners $searchRefiners = null, $retrieveRefiners = null, $maxRefinersCountPerRefinerType = null, $idFormat = null, $propertySetName = null, \Ews\StructType\EwsRestrictionType $searchRestrictions = null, $includeDeleted = null)
     {
@@ -235,11 +233,13 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Set ApplicationId value
      * @uses \Ews\EnumType\EwsSearchApplicationIdType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchApplicationIdType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $applicationId
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setApplicationId($applicationId = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchApplicationIdType::valueIsValid($applicationId)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $applicationId, implode(', ', \Ews\EnumType\EwsSearchApplicationIdType::getValidValues())), __LINE__);
         }
@@ -261,6 +261,10 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setScenario($scenario = null)
     {
+        // validation for constraint: string
+        if (!is_null($scenario) && !is_string($scenario)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scenario)), __LINE__);
+        }
         $this->Scenario = $scenario;
         return $this;
     }
@@ -279,6 +283,14 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
@@ -315,12 +327,16 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setQuery($query = null)
     {
+        // validation for constraint: string
+        if (!is_null($query) && !is_string($query)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+        }
         $this->Query = $query;
         return $this;
     }
     /**
      * Get ItemTypes value
-     * @return string[]
+     * @return string
      */
     public function getItemTypes()
     {
@@ -330,11 +346,13 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Set ItemTypes value
      * @uses \Ews\EnumType\EwsItemTypesFilterType::valueIsValid()
      * @uses \Ews\EnumType\EwsItemTypesFilterType::getValidValues()
-     * @param string[] $itemTypes
+     * @throws \InvalidArgumentException
+     * @param string $itemTypes
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setItemTypes($itemTypes = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsItemTypesFilterType::valueIsValid($itemTypes)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $itemTypes, implode(', ', \Ews\EnumType\EwsItemTypesFilterType::getValidValues())), __LINE__);
         }
@@ -361,7 +379,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Get ResultRowCount value
-     * @return long|null
+     * @return int|null
      */
     public function getResultRowCount()
     {
@@ -369,17 +387,21 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set ResultRowCount value
-     * @param long $resultRowCount
+     * @param int $resultRowCount
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setResultRowCount($resultRowCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($resultRowCount) && !is_int($resultRowCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($resultRowCount)), __LINE__);
+        }
         $this->ResultRowCount = $resultRowCount;
         return $this;
     }
     /**
      * Get ResultRowOffset value
-     * @return long|null
+     * @return int|null
      */
     public function getResultRowOffset()
     {
@@ -387,17 +409,21 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set ResultRowOffset value
-     * @param long $resultRowOffset
+     * @param int $resultRowOffset
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setResultRowOffset($resultRowOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($resultRowOffset) && !is_int($resultRowOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($resultRowOffset)), __LINE__);
+        }
         $this->ResultRowOffset = $resultRowOffset;
         return $this;
     }
     /**
      * Get MaxResultsCountHint value
-     * @return long|null
+     * @return int|null
      */
     public function getMaxResultsCountHint()
     {
@@ -405,17 +431,21 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set MaxResultsCountHint value
-     * @param long $maxResultsCountHint
+     * @param int $maxResultsCountHint
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setMaxResultsCountHint($maxResultsCountHint = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxResultsCountHint) && !is_int($maxResultsCountHint)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxResultsCountHint)), __LINE__);
+        }
         $this->MaxResultsCountHint = $maxResultsCountHint;
         return $this;
     }
     /**
      * Get MaxPreviewLength value
-     * @return long|null
+     * @return int|null
      */
     public function getMaxPreviewLength()
     {
@@ -423,11 +453,15 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set MaxPreviewLength value
-     * @param long $maxPreviewLength
+     * @param int $maxPreviewLength
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setMaxPreviewLength($maxPreviewLength = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxPreviewLength) && !is_int($maxPreviewLength)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxPreviewLength)), __LINE__);
+        }
         $this->MaxPreviewLength = $maxPreviewLength;
         return $this;
     }
@@ -451,7 +485,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Get RetrieveRefiners value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getRetrieveRefiners()
     {
@@ -459,7 +493,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set RetrieveRefiners value
-     * @param boolean $retrieveRefiners
+     * @param bool $retrieveRefiners
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setRetrieveRefiners($retrieveRefiners = null)
@@ -469,7 +503,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Get MaxRefinersCountPerRefinerType value
-     * @return long|null
+     * @return int|null
      */
     public function getMaxRefinersCountPerRefinerType()
     {
@@ -477,11 +511,15 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set MaxRefinersCountPerRefinerType value
-     * @param long $maxRefinersCountPerRefinerType
+     * @param int $maxRefinersCountPerRefinerType
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setMaxRefinersCountPerRefinerType($maxRefinersCountPerRefinerType = null)
     {
+        // validation for constraint: int
+        if (!is_null($maxRefinersCountPerRefinerType) && !is_int($maxRefinersCountPerRefinerType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxRefinersCountPerRefinerType)), __LINE__);
+        }
         $this->MaxRefinersCountPerRefinerType = $maxRefinersCountPerRefinerType;
         return $this;
     }
@@ -497,11 +535,13 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Set IdFormat value
      * @uses \Ews\EnumType\EwsIdFormatType::valueIsValid()
      * @uses \Ews\EnumType\EwsIdFormatType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $idFormat
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setIdFormat($idFormat = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($idFormat)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $idFormat, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }
@@ -520,11 +560,13 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * Set PropertySetName value
      * @uses \Ews\EnumType\EwsSearchResultsPropertySetNameType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchResultsPropertySetNameType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $propertySetName
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setPropertySetName($propertySetName = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultsPropertySetNameType::valueIsValid($propertySetName)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $propertySetName, implode(', ', \Ews\EnumType\EwsSearchResultsPropertySetNameType::getValidValues())), __LINE__);
         }
@@ -551,7 +593,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Get IncludeDeleted value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludeDeleted()
     {
@@ -559,7 +601,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     }
     /**
      * Set IncludeDeleted value
-     * @param boolean $includeDeleted
+     * @param bool $includeDeleted
      * @return \Ews\StructType\EwsExecuteSearch
      */
     public function setIncludeDeleted($includeDeleted = null)

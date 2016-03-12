@@ -14,22 +14,22 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
 {
     /**
      * The UnknownEntry
-     * @var array
+     * @var string
      */
     public $UnknownEntry;
     /**
      * Constructor method for ArrayOfUnknownEntriesType
      * @uses EwsArrayOfUnknownEntriesType::setUnknownEntry()
-     * @param array $unknownEntry
+     * @param string $unknownEntry
      */
-    public function __construct(array $unknownEntry = array())
+    public function __construct($unknownEntry = null)
     {
         $this
             ->setUnknownEntry($unknownEntry);
     }
     /**
      * Get UnknownEntry value
-     * @return array
+     * @return string|null
      */
     public function getUnknownEntry()
     {
@@ -37,11 +37,15 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
     }
     /**
      * Set UnknownEntry value
-     * @param array $unknownEntry
+     * @param string $unknownEntry
      * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType
      */
-    public function setUnknownEntry(array $unknownEntry = array())
+    public function setUnknownEntry($unknownEntry = null)
     {
+        // validation for constraint: string
+        if (!is_null($unknownEntry) && !is_string($unknownEntry)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($unknownEntry)), __LINE__);
+        }
         $this->UnknownEntry = $unknownEntry;
         return $this;
     }

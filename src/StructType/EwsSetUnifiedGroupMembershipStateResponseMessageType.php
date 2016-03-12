@@ -65,11 +65,13 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
      * Set GroupActionResultType value
      * @uses \Ews\EnumType\EwsUnifiedGroupActionResultType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $groupActionResultType
      * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
      */
     public function setGroupActionResultType($groupActionResultType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupActionResultType::valueIsValid($groupActionResultType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupActionResultType, implode(', ', \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues())), __LINE__);
         }

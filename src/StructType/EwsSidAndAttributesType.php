@@ -16,7 +16,7 @@ class EwsSidAndAttributesType extends AbstractStructBase
      * The Attributes
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var unsignedInt
+     * @var int
      */
     public $Attributes;
     /**
@@ -28,7 +28,7 @@ class EwsSidAndAttributesType extends AbstractStructBase
      * Constructor method for SidAndAttributesType
      * @uses EwsSidAndAttributesType::setAttributes()
      * @uses EwsSidAndAttributesType::setSecurityIdentifier()
-     * @param unsignedInt $attributes
+     * @param int $attributes
      * @param string $securityIdentifier
      */
     public function __construct($attributes = null, $securityIdentifier = null)
@@ -39,7 +39,7 @@ class EwsSidAndAttributesType extends AbstractStructBase
     }
     /**
      * Get Attributes value
-     * @return unsignedInt
+     * @return int
      */
     public function getAttributes()
     {
@@ -47,11 +47,15 @@ class EwsSidAndAttributesType extends AbstractStructBase
     }
     /**
      * Set Attributes value
-     * @param unsignedInt $attributes
+     * @param int $attributes
      * @return \Ews\StructType\EwsSidAndAttributesType
      */
     public function setAttributes($attributes = null)
     {
+        // validation for constraint: int
+        if (!is_null($attributes) && !is_int($attributes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($attributes)), __LINE__);
+        }
         $this->Attributes = $attributes;
         return $this;
     }
@@ -70,6 +74,10 @@ class EwsSidAndAttributesType extends AbstractStructBase
      */
     public function setSecurityIdentifier($securityIdentifier = null)
     {
+        // validation for constraint: string
+        if (!is_null($securityIdentifier) && !is_string($securityIdentifier)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($securityIdentifier)), __LINE__);
+        }
         $this->SecurityIdentifier = $securityIdentifier;
         return $this;
     }

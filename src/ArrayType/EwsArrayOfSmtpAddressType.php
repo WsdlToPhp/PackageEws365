@@ -16,22 +16,22 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * The SmtpAddress
      * Meta informations extracted from the WSDL
      * - minLength: 1
-     * @var array
+     * @var string
      */
     public $SmtpAddress;
     /**
      * Constructor method for ArrayOfSmtpAddressType
      * @uses EwsArrayOfSmtpAddressType::setSmtpAddress()
-     * @param array $smtpAddress
+     * @param string $smtpAddress
      */
-    public function __construct(array $smtpAddress = array())
+    public function __construct($smtpAddress = null)
     {
         $this
             ->setSmtpAddress($smtpAddress);
     }
     /**
      * Get SmtpAddress value
-     * @return array
+     * @return string|null
      */
     public function getSmtpAddress()
     {
@@ -39,11 +39,19 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
     }
     /**
      * Set SmtpAddress value
-     * @param array $smtpAddress
+     * @param string $smtpAddress
      * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType
      */
-    public function setSmtpAddress(array $smtpAddress = array())
+    public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }

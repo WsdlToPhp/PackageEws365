@@ -23,7 +23,7 @@ class EwsLocationConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      * The ResolveAvailability
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ResolveAvailability;
     /**
@@ -31,7 +31,7 @@ class EwsLocationConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      * @uses EwsLocationConstraintItem::setName()
      * @uses EwsLocationConstraintItem::setResolveAvailability()
      * @param string $name
-     * @param boolean $resolveAvailability
+     * @param bool $resolveAvailability
      */
     public function __construct($name = null, $resolveAvailability = null)
     {
@@ -54,12 +54,16 @@ class EwsLocationConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
     /**
      * Get ResolveAvailability value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getResolveAvailability()
     {
@@ -67,7 +71,7 @@ class EwsLocationConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
     }
     /**
      * Set ResolveAvailability value
-     * @param boolean $resolveAvailability
+     * @param bool $resolveAvailability
      * @return \Ews\StructType\EwsLocationConstraintItem
      */
     public function setResolveAvailability($resolveAvailability = null)

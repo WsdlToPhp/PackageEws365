@@ -16,22 +16,16 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
 {
     /**
      * The AlternateId
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an alternate mailbox folder or item Id.
      * @var \Ews\StructType\EwsAlternateIdType
      */
     public $AlternateId;
     /**
      * The AlternatePublicFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an alternate public folder Id.
      * @var \Ews\StructType\EwsAlternatePublicFolderIdType
      */
     public $AlternatePublicFolderId;
     /**
      * The AlternatePublicFolderItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an alternate public folder item Id.
      * @var \Ews\StructType\EwsAlternatePublicFolderItemIdType
      */
     public $AlternatePublicFolderItemId;

@@ -18,7 +18,6 @@ class EwsGetNonIndexableItemDetailsResponseMessageType extends EwsResponseMessag
      * The NonIndexableItemDetailsResult
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Non indexable item details result.
      * @var \Ews\StructType\EwsNonIndexableItemDetailResultType
      */
     public $NonIndexableItemDetailsResult;

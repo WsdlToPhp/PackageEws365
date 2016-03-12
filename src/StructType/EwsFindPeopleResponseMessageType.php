@@ -104,6 +104,10 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
      */
     public function setTotalNumberOfPeopleInView($totalNumberOfPeopleInView = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalNumberOfPeopleInView) && !is_int($totalNumberOfPeopleInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalNumberOfPeopleInView)), __LINE__);
+        }
         $this->TotalNumberOfPeopleInView = $totalNumberOfPeopleInView;
         return $this;
     }
@@ -122,6 +126,10 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
      */
     public function setFirstMatchingRowIndex($firstMatchingRowIndex = null)
     {
+        // validation for constraint: int
+        if (!is_null($firstMatchingRowIndex) && !is_int($firstMatchingRowIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($firstMatchingRowIndex)), __LINE__);
+        }
         $this->FirstMatchingRowIndex = $firstMatchingRowIndex;
         return $this;
     }
@@ -140,6 +148,10 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
      */
     public function setFirstLoadedRowIndex($firstLoadedRowIndex = null)
     {
+        // validation for constraint: int
+        if (!is_null($firstLoadedRowIndex) && !is_int($firstLoadedRowIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($firstLoadedRowIndex)), __LINE__);
+        }
         $this->FirstLoadedRowIndex = $firstLoadedRowIndex;
         return $this;
     }
@@ -158,6 +170,14 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
      */
     public function setTransactionId($transactionId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($transactionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $transactionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($transactionId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($transactionId) && !is_string($transactionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionId)), __LINE__);
+        }
         $this->TransactionId = $transactionId;
         return $this;
     }

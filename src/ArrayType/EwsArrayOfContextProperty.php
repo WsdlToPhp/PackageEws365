@@ -17,13 +17,13 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsContextPropertyType[]
      */
     public $ContextProperty;
     /**
      * Constructor method for ArrayOfContextProperty
      * @uses EwsArrayOfContextProperty::setContextProperty()
-     * @param array $contextProperty
+     * @param \Ews\StructType\EwsContextPropertyType[] $contextProperty
      */
     public function __construct(array $contextProperty = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
     }
     /**
      * Get ContextProperty value
-     * @return array
+     * @return \Ews\StructType\EwsContextPropertyType[]
      */
     public function getContextProperty()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
     }
     /**
      * Set ContextProperty value
-     * @param array $contextProperty
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContextPropertyType[] $contextProperty
      * @return \Ews\ArrayType\EwsArrayOfContextProperty
      */
     public function setContextProperty(array $contextProperty = array())
     {
+        foreach ($contextProperty as $arrayOfContextPropertyContextPropertyItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfContextPropertyContextPropertyItem instanceof \Ews\StructType\EwsContextPropertyType) {
+                throw new \InvalidArgumentException(sprintf('The ContextProperty property can only contain items of \Ews\StructType\EwsContextPropertyType, "%s" given', is_object($arrayOfContextPropertyContextPropertyItem) ? get_class($arrayOfContextPropertyContextPropertyItem) : gettype($arrayOfContextPropertyContextPropertyItem)), __LINE__);
+            }
+        }
         $this->ContextProperty = $contextProperty;
+        return $this;
+    }
+    /**
+     * Add item to ContextProperty value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContextPropertyType $item
+     * @return \Ews\ArrayType\EwsArrayOfContextProperty
+     */
+    public function addToContextProperty(\Ews\StructType\EwsContextPropertyType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsContextPropertyType) {
+            throw new \InvalidArgumentException(sprintf('The ContextProperty property can only contain items of \Ews\StructType\EwsContextPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ContextProperty[] = $item;
         return $this;
     }
     /**

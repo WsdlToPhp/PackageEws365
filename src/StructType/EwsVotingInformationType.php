@@ -72,6 +72,10 @@ class EwsVotingInformationType extends AbstractStructBase
      */
     public function setVotingResponse($votingResponse = null)
     {
+        // validation for constraint: string
+        if (!is_null($votingResponse) && !is_string($votingResponse)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($votingResponse)), __LINE__);
+        }
         $this->VotingResponse = $votingResponse;
         return $this;
     }

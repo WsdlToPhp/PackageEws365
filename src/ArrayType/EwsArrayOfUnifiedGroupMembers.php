@@ -17,13 +17,13 @@ class EwsArrayOfUnifiedGroupMembers extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var string[]
      */
     public $Member;
     /**
      * Constructor method for ArrayOfUnifiedGroupMembers
      * @uses EwsArrayOfUnifiedGroupMembers::setMember()
-     * @param array $member
+     * @param string[] $member
      */
     public function __construct(array $member = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUnifiedGroupMembers extends AbstractStructArrayBase
     }
     /**
      * Get Member value
-     * @return array
+     * @return string[]|null
      */
     public function getMember()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUnifiedGroupMembers extends AbstractStructArrayBase
     }
     /**
      * Set Member value
-     * @param array $member
+     * @throws \InvalidArgumentException
+     * @param string[] $member
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
      */
     public function setMember(array $member = array())
     {
+        foreach ($member as $arrayOfUnifiedGroupMembersMemberItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfUnifiedGroupMembersMemberItem)) {
+                throw new \InvalidArgumentException(sprintf('The Member property can only contain items of string, "%s" given', is_object($arrayOfUnifiedGroupMembersMemberItem) ? get_class($arrayOfUnifiedGroupMembersMemberItem) : gettype($arrayOfUnifiedGroupMembersMemberItem)), __LINE__);
+            }
+        }
         $this->Member = $member;
+        return $this;
+    }
+    /**
+     * Add item to Member value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
+     */
+    public function addToMember($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Member[] = $item;
         return $this;
     }
     /**

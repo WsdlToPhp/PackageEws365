@@ -17,7 +17,7 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $OutlookRuleBlobExists;
     /**
@@ -25,7 +25,6 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Array of rule objects
      * @var \Ews\ArrayType\EwsArrayOfRulesType
      */
     public $InboxRules;
@@ -33,7 +32,7 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      * Constructor method for GetInboxRulesResponseType
      * @uses EwsGetInboxRulesResponseType::setOutlookRuleBlobExists()
      * @uses EwsGetInboxRulesResponseType::setInboxRules()
-     * @param boolean $outlookRuleBlobExists
+     * @param bool $outlookRuleBlobExists
      * @param \Ews\ArrayType\EwsArrayOfRulesType $inboxRules
      */
     public function __construct($outlookRuleBlobExists = null, \Ews\ArrayType\EwsArrayOfRulesType $inboxRules = null)
@@ -44,7 +43,7 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
     }
     /**
      * Get OutlookRuleBlobExists value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getOutlookRuleBlobExists()
     {
@@ -52,7 +51,7 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
     }
     /**
      * Set OutlookRuleBlobExists value
-     * @param boolean $outlookRuleBlobExists
+     * @param bool $outlookRuleBlobExists
      * @return \Ews\StructType\EwsGetInboxRulesResponseType
      */
     public function setOutlookRuleBlobExists($outlookRuleBlobExists = null)

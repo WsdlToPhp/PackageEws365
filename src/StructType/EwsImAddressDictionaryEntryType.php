@@ -49,11 +49,13 @@ class EwsImAddressDictionaryEntryType extends AbstractStructBase
      * Set Key value
      * @uses \Ews\EnumType\EwsImAddressKeyType::valueIsValid()
      * @uses \Ews\EnumType\EwsImAddressKeyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $key
      * @return \Ews\StructType\EwsImAddressDictionaryEntryType
      */
     public function setKey($key = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImAddressKeyType::valueIsValid($key)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $key, implode(', ', \Ews\EnumType\EwsImAddressKeyType::getValidValues())), __LINE__);
         }
@@ -75,6 +77,10 @@ class EwsImAddressDictionaryEntryType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

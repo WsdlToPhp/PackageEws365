@@ -19,32 +19,32 @@ class EwsRetentionActionType
      * Constant for value 'MoveToDeletedItems'
      * @return string 'MoveToDeletedItems'
      */
-    const VALUE_MOVETODELETEDITEMS = 'MoveToDeletedItems';
+    const VALUE_MOVE_TO_DELETED_ITEMS = 'MoveToDeletedItems';
     /**
      * Constant for value 'MoveToFolder'
      * @return string 'MoveToFolder'
      */
-    const VALUE_MOVETOFOLDER = 'MoveToFolder';
+    const VALUE_MOVE_TO_FOLDER = 'MoveToFolder';
     /**
      * Constant for value 'DeleteAndAllowRecovery'
      * @return string 'DeleteAndAllowRecovery'
      */
-    const VALUE_DELETEANDALLOWRECOVERY = 'DeleteAndAllowRecovery';
+    const VALUE_DELETE_AND_ALLOW_RECOVERY = 'DeleteAndAllowRecovery';
     /**
      * Constant for value 'PermanentlyDelete'
      * @return string 'PermanentlyDelete'
      */
-    const VALUE_PERMANENTLYDELETE = 'PermanentlyDelete';
+    const VALUE_PERMANENTLY_DELETE = 'PermanentlyDelete';
     /**
      * Constant for value 'MarkAsPastRetentionLimit'
      * @return string 'MarkAsPastRetentionLimit'
      */
-    const VALUE_MARKASPASTRETENTIONLIMIT = 'MarkAsPastRetentionLimit';
+    const VALUE_MARK_AS_PAST_RETENTION_LIMIT = 'MarkAsPastRetentionLimit';
     /**
      * Constant for value 'MoveToArchive'
      * @return string 'MoveToArchive'
      */
-    const VALUE_MOVETOARCHIVE = 'MoveToArchive';
+    const VALUE_MOVE_TO_ARCHIVE = 'MoveToArchive';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -58,24 +58,24 @@ class EwsRetentionActionType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_MOVETODELETEDITEMS
-     * @uses self::VALUE_MOVETOFOLDER
-     * @uses self::VALUE_DELETEANDALLOWRECOVERY
-     * @uses self::VALUE_PERMANENTLYDELETE
-     * @uses self::VALUE_MARKASPASTRETENTIONLIMIT
-     * @uses self::VALUE_MOVETOARCHIVE
+     * @uses self::VALUE_MOVE_TO_DELETED_ITEMS
+     * @uses self::VALUE_MOVE_TO_FOLDER
+     * @uses self::VALUE_DELETE_AND_ALLOW_RECOVERY
+     * @uses self::VALUE_PERMANENTLY_DELETE
+     * @uses self::VALUE_MARK_AS_PAST_RETENTION_LIMIT
+     * @uses self::VALUE_MOVE_TO_ARCHIVE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_MOVETODELETEDITEMS,
-            self::VALUE_MOVETOFOLDER,
-            self::VALUE_DELETEANDALLOWRECOVERY,
-            self::VALUE_PERMANENTLYDELETE,
-            self::VALUE_MARKASPASTRETENTIONLIMIT,
-            self::VALUE_MOVETOARCHIVE,
+            self::VALUE_MOVE_TO_DELETED_ITEMS,
+            self::VALUE_MOVE_TO_FOLDER,
+            self::VALUE_DELETE_AND_ALLOW_RECOVERY,
+            self::VALUE_PERMANENTLY_DELETE,
+            self::VALUE_MARK_AS_PAST_RETENTION_LIMIT,
+            self::VALUE_MOVE_TO_ARCHIVE,
         );
     }
     /**

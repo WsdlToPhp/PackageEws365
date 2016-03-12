@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * The FolderName
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var string[]
      */
     public $FolderName;
     /**
      * Constructor method for NonEmptyArrayOfFolderNamesType
      * @uses EwsNonEmptyArrayOfFolderNamesType::setFolderName()
-     * @param array $folderName
+     * @param string[] $folderName
      */
     public function __construct(array $folderName = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
     }
     /**
      * Get FolderName value
-     * @return array
+     * @return string[]|null
      */
     public function getFolderName()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
     }
     /**
      * Set FolderName value
-     * @param array $folderName
+     * @throws \InvalidArgumentException
+     * @param string[] $folderName
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
      */
     public function setFolderName(array $folderName = array())
     {
+        foreach ($folderName as $nonEmptyArrayOfFolderNamesTypeFolderNameItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfFolderNamesTypeFolderNameItem)) {
+                throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfFolderNamesTypeFolderNameItem) ? get_class($nonEmptyArrayOfFolderNamesTypeFolderNameItem) : gettype($nonEmptyArrayOfFolderNamesTypeFolderNameItem)), __LINE__);
+            }
+        }
         $this->FolderName = $folderName;
+        return $this;
+    }
+    /**
+     * Add item to FolderName value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
+     */
+    public function addToFolderName($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FolderName[] = $item;
         return $this;
     }
     /**

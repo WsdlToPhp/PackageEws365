@@ -156,6 +156,10 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      */
     public function setOwnerCount($ownerCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($ownerCount) && !is_int($ownerCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerCount)), __LINE__);
+        }
         $this->OwnerCount = $ownerCount;
         return $this;
     }
@@ -174,6 +178,10 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
@@ -192,6 +200,10 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      */
     public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalDirectoryObjectId)), __LINE__);
+        }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
         return $this;
     }

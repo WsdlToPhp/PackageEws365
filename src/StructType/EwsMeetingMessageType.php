@@ -16,7 +16,6 @@ class EwsMeetingMessageType extends EwsMessageType
      * The AssociatedCalendarItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $AssociatedCalendarItemId;
@@ -24,21 +23,21 @@ class EwsMeetingMessageType extends EwsMessageType
      * The IsDelegated
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDelegated;
     /**
      * The IsOutOfDate
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOutOfDate;
     /**
      * The HasBeenProcessed
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasBeenProcessed;
     /**
@@ -59,21 +58,21 @@ class EwsMeetingMessageType extends EwsMessageType
      * The RecurrenceId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $RecurrenceId;
     /**
      * The DateTimeStamp
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $DateTimeStamp;
     /**
      * The IsOrganizer
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOrganizer;
     /**
@@ -88,14 +87,14 @@ class EwsMeetingMessageType extends EwsMessageType
      * @uses EwsMeetingMessageType::setDateTimeStamp()
      * @uses EwsMeetingMessageType::setIsOrganizer()
      * @param \Ews\StructType\EwsItemIdType $associatedCalendarItemId
-     * @param boolean $isDelegated
-     * @param boolean $isOutOfDate
-     * @param boolean $hasBeenProcessed
+     * @param bool $isDelegated
+     * @param bool $isOutOfDate
+     * @param bool $hasBeenProcessed
      * @param string $responseType
      * @param string $uID
-     * @param dateTime $recurrenceId
-     * @param dateTime $dateTimeStamp
-     * @param boolean $isOrganizer
+     * @param string $recurrenceId
+     * @param string $dateTimeStamp
+     * @param bool $isOrganizer
      */
     public function __construct(\Ews\StructType\EwsItemIdType $associatedCalendarItemId = null, $isDelegated = null, $isOutOfDate = null, $hasBeenProcessed = null, $responseType = null, $uID = null, $recurrenceId = null, $dateTimeStamp = null, $isOrganizer = null)
     {
@@ -130,7 +129,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Get IsDelegated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDelegated()
     {
@@ -138,7 +137,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set IsDelegated value
-     * @param boolean $isDelegated
+     * @param bool $isDelegated
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setIsDelegated($isDelegated = null)
@@ -148,7 +147,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Get IsOutOfDate value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOutOfDate()
     {
@@ -156,7 +155,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set IsOutOfDate value
-     * @param boolean $isOutOfDate
+     * @param bool $isOutOfDate
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setIsOutOfDate($isOutOfDate = null)
@@ -166,7 +165,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Get HasBeenProcessed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasBeenProcessed()
     {
@@ -174,7 +173,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set HasBeenProcessed value
-     * @param boolean $hasBeenProcessed
+     * @param bool $hasBeenProcessed
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setHasBeenProcessed($hasBeenProcessed = null)
@@ -194,11 +193,13 @@ class EwsMeetingMessageType extends EwsMessageType
      * Set ResponseType value
      * @uses \Ews\EnumType\EwsResponseTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseType
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setResponseType($responseType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($responseType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseType, implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
@@ -220,12 +221,16 @@ class EwsMeetingMessageType extends EwsMessageType
      */
     public function setUID($uID = null)
     {
+        // validation for constraint: string
+        if (!is_null($uID) && !is_string($uID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uID)), __LINE__);
+        }
         $this->UID = $uID;
         return $this;
     }
     /**
      * Get RecurrenceId value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getRecurrenceId()
     {
@@ -233,17 +238,21 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set RecurrenceId value
-     * @param dateTime $recurrenceId
+     * @param string $recurrenceId
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setRecurrenceId($recurrenceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($recurrenceId) && !is_string($recurrenceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($recurrenceId)), __LINE__);
+        }
         $this->RecurrenceId = $recurrenceId;
         return $this;
     }
     /**
      * Get DateTimeStamp value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDateTimeStamp()
     {
@@ -251,17 +260,21 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set DateTimeStamp value
-     * @param dateTime $dateTimeStamp
+     * @param string $dateTimeStamp
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setDateTimeStamp($dateTimeStamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeStamp) && !is_string($dateTimeStamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeStamp)), __LINE__);
+        }
         $this->DateTimeStamp = $dateTimeStamp;
         return $this;
     }
     /**
      * Get IsOrganizer value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOrganizer()
     {
@@ -269,7 +282,7 @@ class EwsMeetingMessageType extends EwsMessageType
     }
     /**
      * Set IsOrganizer value
-     * @param boolean $isOrganizer
+     * @param bool $isOrganizer
      * @return \Ews\StructType\EwsMeetingMessageType
      */
     public function setIsOrganizer($isOrganizer = null)

@@ -68,6 +68,14 @@ class EwsGetChannelEventsType extends EwsBaseRequestType
      */
     public function setChannelId($channelId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($channelId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $channelId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($channelId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($channelId) && !is_string($channelId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($channelId)), __LINE__);
+        }
         $this->ChannelId = $channelId;
         return $this;
     }
@@ -86,6 +94,10 @@ class EwsGetChannelEventsType extends EwsBaseRequestType
      */
     public function setConnectionTimeout($connectionTimeout = null)
     {
+        // validation for constraint: int
+        if (!is_null($connectionTimeout) && !is_int($connectionTimeout)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($connectionTimeout)), __LINE__);
+        }
         $this->ConnectionTimeout = $connectionTimeout;
         return $this;
     }
@@ -104,6 +116,14 @@ class EwsGetChannelEventsType extends EwsBaseRequestType
      */
     public function setLastNotificationId($lastNotificationId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($lastNotificationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $lastNotificationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lastNotificationId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($lastNotificationId) && !is_string($lastNotificationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastNotificationId)), __LINE__);
+        }
         $this->LastNotificationId = $lastNotificationId;
         return $this;
     }

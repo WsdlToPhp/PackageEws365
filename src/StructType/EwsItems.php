@@ -17,22 +17,22 @@ class EwsItems extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemType
+     * @var \Ews\StructType\EwsItemType[]
      */
     public $Item;
     /**
      * Constructor method for Items
      * @uses EwsItems::setItem()
-     * @param \Ews\StructType\EwsItemType $item
+     * @param \Ews\StructType\EwsItemType[] $item
      */
-    public function __construct(\Ews\StructType\EwsItemType $item = null)
+    public function __construct(array $item = array())
     {
         $this
             ->setItem($item);
     }
     /**
      * Get Item value
-     * @return \Ews\StructType\EwsItemType|null
+     * @return \Ews\StructType\EwsItemType[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsItems extends AbstractStructBase
     }
     /**
      * Set Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsItemType[] $item
+     * @return \Ews\StructType\EwsItems
+     */
+    public function setItem(array $item = array())
+    {
+        foreach ($item as $itemsItemItem) {
+            // validation for constraint: itemType
+            if (!$itemsItemItem instanceof \Ews\StructType\EwsItemType) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsItemType, "%s" given', is_object($itemsItemItem) ? get_class($itemsItemItem) : gettype($itemsItemItem)), __LINE__);
+            }
+        }
+        $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsItemType $item
      * @return \Ews\StructType\EwsItems
      */
-    public function setItem(\Ews\StructType\EwsItemType $item = null)
+    public function addToItem(\Ews\StructType\EwsItemType $item)
     {
-        $this->Item = $item;
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsItemType) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**
