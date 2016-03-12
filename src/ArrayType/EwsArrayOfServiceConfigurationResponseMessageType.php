@@ -17,7 +17,7 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
      */
     public $ServiceConfigurationResponseMessageType;
     /**
@@ -25,7 +25,8 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
      * @uses
      * EwsArrayOfServiceConfigurationResponseMessageType::setServiceConfigurationRespon
      * seMessageType()
-     * @param array $serviceConfigurationResponseMessageType
+     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
+     * $serviceConfigurationResponseMessageType
      */
     public function __construct(array $serviceConfigurationResponseMessageType = array())
     {
@@ -34,7 +35,7 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
     }
     /**
      * Get ServiceConfigurationResponseMessageType value
-     * @return array
+     * @return \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
      */
     public function getServiceConfigurationResponseMessageType()
     {
@@ -42,12 +43,35 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
     }
     /**
      * Set ServiceConfigurationResponseMessageType value
-     * @param array $serviceConfigurationResponseMessageType
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
+     * $serviceConfigurationResponseMessageType
      * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
      */
     public function setServiceConfigurationResponseMessageType(array $serviceConfigurationResponseMessageType = array())
     {
+        foreach ($serviceConfigurationResponseMessageType as $arrayOfServiceConfigurationResponseMessageTypeServiceConfigurationResponseMessageTypeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfServiceConfigurationResponseMessageTypeServiceConfigurationResponseMessageTypeItem instanceof \Ews\StructType\EwsServiceConfigurationResponseMessageType) {
+                throw new \InvalidArgumentException(sprintf('The ServiceConfigurationResponseMessageType property can only contain items of \Ews\StructType\EwsServiceConfigurationResponseMessageType, "%s" given', is_object($arrayOfServiceConfigurationResponseMessageTypeServiceConfigurationResponseMessageTypeItem) ? get_class($arrayOfServiceConfigurationResponseMessageTypeServiceConfigurationResponseMessageTypeItem) : gettype($arrayOfServiceConfigurationResponseMessageTypeServiceConfigurationResponseMessageTypeItem)), __LINE__);
+            }
+        }
         $this->ServiceConfigurationResponseMessageType = $serviceConfigurationResponseMessageType;
+        return $this;
+    }
+    /**
+     * Add item to ServiceConfigurationResponseMessageType value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType $item
+     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
+     */
+    public function addToServiceConfigurationResponseMessageType(\Ews\StructType\EwsServiceConfigurationResponseMessageType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsServiceConfigurationResponseMessageType) {
+            throw new \InvalidArgumentException(sprintf('The ServiceConfigurationResponseMessageType property can only contain items of \Ews\StructType\EwsServiceConfigurationResponseMessageType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ServiceConfigurationResponseMessageType[] = $item;
         return $this;
     }
     /**

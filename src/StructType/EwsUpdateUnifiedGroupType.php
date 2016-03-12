@@ -29,12 +29,12 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
     public $CultureName;
     /**
      * The AutoSubscribeNewMembers
-     * @var boolean
+     * @var bool
      */
     public $AutoSubscribeNewMembers;
     /**
      * The SenderAuthenticationRequired
-     * @var boolean
+     * @var bool
      */
     public $SenderAuthenticationRequired;
     /**
@@ -47,8 +47,8 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      * @param string $name
      * @param string $description
      * @param string $cultureName
-     * @param boolean $autoSubscribeNewMembers
-     * @param boolean $senderAuthenticationRequired
+     * @param bool $autoSubscribeNewMembers
+     * @param bool $senderAuthenticationRequired
      */
     public function __construct($name = null, $description = null, $cultureName = null, $autoSubscribeNewMembers = null, $senderAuthenticationRequired = null)
     {
@@ -74,6 +74,10 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -92,6 +96,10 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
@@ -110,12 +118,16 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      */
     public function setCultureName($cultureName = null)
     {
+        // validation for constraint: string
+        if (!is_null($cultureName) && !is_string($cultureName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cultureName)), __LINE__);
+        }
         $this->CultureName = $cultureName;
         return $this;
     }
     /**
      * Get AutoSubscribeNewMembers value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAutoSubscribeNewMembers()
     {
@@ -123,7 +135,7 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
     }
     /**
      * Set AutoSubscribeNewMembers value
-     * @param boolean $autoSubscribeNewMembers
+     * @param bool $autoSubscribeNewMembers
      * @return \Ews\StructType\EwsUpdateUnifiedGroupType
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
@@ -133,7 +145,7 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
     }
     /**
      * Get SenderAuthenticationRequired value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSenderAuthenticationRequired()
     {
@@ -141,7 +153,7 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
     }
     /**
      * Set SenderAuthenticationRequired value
-     * @param boolean $senderAuthenticationRequired
+     * @param bool $senderAuthenticationRequired
      * @return \Ews\StructType\EwsUpdateUnifiedGroupType
      */
     public function setSenderAuthenticationRequired($senderAuthenticationRequired = null)

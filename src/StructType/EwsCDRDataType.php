@@ -17,7 +17,7 @@ class EwsCDRDataType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $CallStartTime;
     /**
@@ -43,7 +43,7 @@ class EwsCDRDataType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $CreationTime;
     /**
@@ -243,10 +243,10 @@ class EwsCDRDataType extends AbstractStructBase
      * @uses EwsCDRDataType::setCalleeLegacyExchangeDN()
      * @uses EwsCDRDataType::setAutoAttendantName()
      * @uses EwsCDRDataType::setAudioQualityMetrics()
-     * @param dateTime $callStartTime
+     * @param string $callStartTime
      * @param int $callDuration
      * @param string $gatewayGuid
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @param string $callType
      * @param string $callIdentity
      * @param string $parentCallIdentity
@@ -300,7 +300,7 @@ class EwsCDRDataType extends AbstractStructBase
     }
     /**
      * Get CallStartTime value
-     * @return dateTime
+     * @return string
      */
     public function getCallStartTime()
     {
@@ -308,11 +308,15 @@ class EwsCDRDataType extends AbstractStructBase
     }
     /**
      * Set CallStartTime value
-     * @param dateTime $callStartTime
+     * @param string $callStartTime
      * @return \Ews\StructType\EwsCDRDataType
      */
     public function setCallStartTime($callStartTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($callStartTime) && !is_string($callStartTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callStartTime)), __LINE__);
+        }
         $this->CallStartTime = $callStartTime;
         return $this;
     }
@@ -331,6 +335,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallDuration($callDuration = null)
     {
+        // validation for constraint: int
+        if (!is_null($callDuration) && !is_int($callDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($callDuration)), __LINE__);
+        }
         $this->CallDuration = $callDuration;
         return $this;
     }
@@ -349,12 +357,20 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setGatewayGuid($gatewayGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($gatewayGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($gatewayGuid) && !is_string($gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($gatewayGuid)), __LINE__);
+        }
         $this->GatewayGuid = $gatewayGuid;
         return $this;
     }
     /**
      * Get CreationTime value
-     * @return dateTime
+     * @return string
      */
     public function getCreationTime()
     {
@@ -362,11 +378,15 @@ class EwsCDRDataType extends AbstractStructBase
     }
     /**
      * Set CreationTime value
-     * @param dateTime $creationTime
+     * @param string $creationTime
      * @return \Ews\StructType\EwsCDRDataType
      */
     public function setCreationTime($creationTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($creationTime) && !is_string($creationTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationTime)), __LINE__);
+        }
         $this->CreationTime = $creationTime;
         return $this;
     }
@@ -385,6 +405,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallType($callType = null)
     {
+        // validation for constraint: string
+        if (!is_null($callType) && !is_string($callType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callType)), __LINE__);
+        }
         $this->CallType = $callType;
         return $this;
     }
@@ -403,6 +427,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallIdentity($callIdentity = null)
     {
+        // validation for constraint: string
+        if (!is_null($callIdentity) && !is_string($callIdentity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callIdentity)), __LINE__);
+        }
         $this->CallIdentity = $callIdentity;
         return $this;
     }
@@ -421,6 +449,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setParentCallIdentity($parentCallIdentity = null)
     {
+        // validation for constraint: string
+        if (!is_null($parentCallIdentity) && !is_string($parentCallIdentity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parentCallIdentity)), __LINE__);
+        }
         $this->ParentCallIdentity = $parentCallIdentity;
         return $this;
     }
@@ -439,6 +471,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setUMServerName($uMServerName = null)
     {
+        // validation for constraint: string
+        if (!is_null($uMServerName) && !is_string($uMServerName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uMServerName)), __LINE__);
+        }
         $this->UMServerName = $uMServerName;
         return $this;
     }
@@ -457,6 +493,14 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setDialPlanGuid($dialPlanGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($dialPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dialPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dialPlanGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($dialPlanGuid) && !is_string($dialPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dialPlanGuid)), __LINE__);
+        }
         $this->DialPlanGuid = $dialPlanGuid;
         return $this;
     }
@@ -475,6 +519,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setDialPlanName($dialPlanName = null)
     {
+        // validation for constraint: string
+        if (!is_null($dialPlanName) && !is_string($dialPlanName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dialPlanName)), __LINE__);
+        }
         $this->DialPlanName = $dialPlanName;
         return $this;
     }
@@ -493,6 +541,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setIPGatewayAddress($iPGatewayAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($iPGatewayAddress) && !is_string($iPGatewayAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iPGatewayAddress)), __LINE__);
+        }
         $this->IPGatewayAddress = $iPGatewayAddress;
         return $this;
     }
@@ -511,6 +563,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setIPGatewayName($iPGatewayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($iPGatewayName) && !is_string($iPGatewayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iPGatewayName)), __LINE__);
+        }
         $this->IPGatewayName = $iPGatewayName;
         return $this;
     }
@@ -529,6 +585,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCalledPhoneNumber($calledPhoneNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($calledPhoneNumber) && !is_string($calledPhoneNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calledPhoneNumber)), __LINE__);
+        }
         $this->CalledPhoneNumber = $calledPhoneNumber;
         return $this;
     }
@@ -547,6 +607,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallerPhoneNumber($callerPhoneNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($callerPhoneNumber) && !is_string($callerPhoneNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callerPhoneNumber)), __LINE__);
+        }
         $this->CallerPhoneNumber = $callerPhoneNumber;
         return $this;
     }
@@ -565,6 +629,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setOfferResult($offerResult = null)
     {
+        // validation for constraint: string
+        if (!is_null($offerResult) && !is_string($offerResult)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($offerResult)), __LINE__);
+        }
         $this->OfferResult = $offerResult;
         return $this;
     }
@@ -583,6 +651,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setDropCallReason($dropCallReason = null)
     {
+        // validation for constraint: string
+        if (!is_null($dropCallReason) && !is_string($dropCallReason)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dropCallReason)), __LINE__);
+        }
         $this->DropCallReason = $dropCallReason;
         return $this;
     }
@@ -601,6 +673,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setReasonForCall($reasonForCall = null)
     {
+        // validation for constraint: string
+        if (!is_null($reasonForCall) && !is_string($reasonForCall)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reasonForCall)), __LINE__);
+        }
         $this->ReasonForCall = $reasonForCall;
         return $this;
     }
@@ -619,6 +695,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setTransferredNumber($transferredNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($transferredNumber) && !is_string($transferredNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transferredNumber)), __LINE__);
+        }
         $this->TransferredNumber = $transferredNumber;
         return $this;
     }
@@ -637,6 +717,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setDialedString($dialedString = null)
     {
+        // validation for constraint: string
+        if (!is_null($dialedString) && !is_string($dialedString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dialedString)), __LINE__);
+        }
         $this->DialedString = $dialedString;
         return $this;
     }
@@ -655,6 +739,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallerMailboxAlias($callerMailboxAlias = null)
     {
+        // validation for constraint: string
+        if (!is_null($callerMailboxAlias) && !is_string($callerMailboxAlias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callerMailboxAlias)), __LINE__);
+        }
         $this->CallerMailboxAlias = $callerMailboxAlias;
         return $this;
     }
@@ -673,6 +761,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCalleeMailboxAlias($calleeMailboxAlias = null)
     {
+        // validation for constraint: string
+        if (!is_null($calleeMailboxAlias) && !is_string($calleeMailboxAlias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calleeMailboxAlias)), __LINE__);
+        }
         $this->CalleeMailboxAlias = $calleeMailboxAlias;
         return $this;
     }
@@ -691,6 +783,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCallerLegacyExchangeDN($callerLegacyExchangeDN = null)
     {
+        // validation for constraint: string
+        if (!is_null($callerLegacyExchangeDN) && !is_string($callerLegacyExchangeDN)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callerLegacyExchangeDN)), __LINE__);
+        }
         $this->CallerLegacyExchangeDN = $callerLegacyExchangeDN;
         return $this;
     }
@@ -709,6 +805,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setCalleeLegacyExchangeDN($calleeLegacyExchangeDN = null)
     {
+        // validation for constraint: string
+        if (!is_null($calleeLegacyExchangeDN) && !is_string($calleeLegacyExchangeDN)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calleeLegacyExchangeDN)), __LINE__);
+        }
         $this->CalleeLegacyExchangeDN = $calleeLegacyExchangeDN;
         return $this;
     }
@@ -727,6 +827,10 @@ class EwsCDRDataType extends AbstractStructBase
      */
     public function setAutoAttendantName($autoAttendantName = null)
     {
+        // validation for constraint: string
+        if (!is_null($autoAttendantName) && !is_string($autoAttendantName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($autoAttendantName)), __LINE__);
+        }
         $this->AutoAttendantName = $autoAttendantName;
         return $this;
     }

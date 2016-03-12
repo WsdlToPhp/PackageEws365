@@ -65,7 +65,7 @@ class EwsAttachmentType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastModifiedTime;
     /**
@@ -73,7 +73,7 @@ class EwsAttachmentType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsInline;
     /**
@@ -92,8 +92,8 @@ class EwsAttachmentType extends AbstractStructBase
      * @param string $contentId
      * @param string $contentLocation
      * @param int $size
-     * @param dateTime $lastModifiedTime
-     * @param boolean $isInline
+     * @param string $lastModifiedTime
+     * @param bool $isInline
      */
     public function __construct(\Ews\StructType\EwsAttachmentIdType $attachmentId = null, $name = null, $contentType = null, $contentId = null, $contentLocation = null, $size = null, $lastModifiedTime = null, $isInline = null)
     {
@@ -140,6 +140,10 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -158,6 +162,10 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setContentType($contentType = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentType) && !is_string($contentType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentType)), __LINE__);
+        }
         $this->ContentType = $contentType;
         return $this;
     }
@@ -176,6 +184,10 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setContentId($contentId = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentId) && !is_string($contentId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentId)), __LINE__);
+        }
         $this->ContentId = $contentId;
         return $this;
     }
@@ -194,6 +206,10 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setContentLocation($contentLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($contentLocation) && !is_string($contentLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentLocation)), __LINE__);
+        }
         $this->ContentLocation = $contentLocation;
         return $this;
     }
@@ -212,12 +228,16 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }
     /**
      * Get LastModifiedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastModifiedTime()
     {
@@ -225,17 +245,21 @@ class EwsAttachmentType extends AbstractStructBase
     }
     /**
      * Set LastModifiedTime value
-     * @param dateTime $lastModifiedTime
+     * @param string $lastModifiedTime
      * @return \Ews\StructType\EwsAttachmentType
      */
     public function setLastModifiedTime($lastModifiedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+        }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
     }
     /**
      * Get IsInline value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsInline()
     {
@@ -243,7 +267,7 @@ class EwsAttachmentType extends AbstractStructBase
     }
     /**
      * Set IsInline value
-     * @param boolean $isInline
+     * @param bool $isInline
      * @return \Ews\StructType\EwsAttachmentType
      */
     public function setIsInline($isInline = null)

@@ -14,12 +14,12 @@ class EwsSyncFolderItemsScopeType
      * Constant for value 'NormalItems'
      * @return string 'NormalItems'
      */
-    const VALUE_NORMALITEMS = 'NormalItems';
+    const VALUE_NORMAL_ITEMS = 'NormalItems';
     /**
      * Constant for value 'NormalAndAssociatedItems'
      * @return string 'NormalAndAssociatedItems'
      */
-    const VALUE_NORMALANDASSOCIATEDITEMS = 'NormalAndAssociatedItems';
+    const VALUE_NORMAL_AND_ASSOCIATED_ITEMS = 'NormalAndAssociatedItems';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsSyncFolderItemsScopeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NORMALITEMS
-     * @uses self::VALUE_NORMALANDASSOCIATEDITEMS
+     * @uses self::VALUE_NORMAL_ITEMS
+     * @uses self::VALUE_NORMAL_AND_ASSOCIATED_ITEMS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NORMALITEMS,
-            self::VALUE_NORMALANDASSOCIATEDITEMS,
+            self::VALUE_NORMAL_ITEMS,
+            self::VALUE_NORMAL_AND_ASSOCIATED_ITEMS,
         );
     }
     /**

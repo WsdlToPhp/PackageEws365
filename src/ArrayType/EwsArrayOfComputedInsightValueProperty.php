@@ -17,13 +17,13 @@ class EwsArrayOfComputedInsightValueProperty extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsComputedInsightValueProperty[]
      */
     public $Property;
     /**
      * Constructor method for ArrayOfComputedInsightValueProperty
      * @uses EwsArrayOfComputedInsightValueProperty::setProperty()
-     * @param array $property
+     * @param \Ews\StructType\EwsComputedInsightValueProperty[] $property
      */
     public function __construct(array $property = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfComputedInsightValueProperty extends AbstractStructArrayBase
     }
     /**
      * Get Property value
-     * @return array
+     * @return \Ews\StructType\EwsComputedInsightValueProperty[]|null
      */
     public function getProperty()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfComputedInsightValueProperty extends AbstractStructArrayBase
     }
     /**
      * Set Property value
-     * @param array $property
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsComputedInsightValueProperty[] $property
      * @return \Ews\ArrayType\EwsArrayOfComputedInsightValueProperty
      */
     public function setProperty(array $property = array())
     {
+        foreach ($property as $arrayOfComputedInsightValuePropertyPropertyItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfComputedInsightValuePropertyPropertyItem instanceof \Ews\StructType\EwsComputedInsightValueProperty) {
+                throw new \InvalidArgumentException(sprintf('The Property property can only contain items of \Ews\StructType\EwsComputedInsightValueProperty, "%s" given', is_object($arrayOfComputedInsightValuePropertyPropertyItem) ? get_class($arrayOfComputedInsightValuePropertyPropertyItem) : gettype($arrayOfComputedInsightValuePropertyPropertyItem)), __LINE__);
+            }
+        }
         $this->Property = $property;
+        return $this;
+    }
+    /**
+     * Add item to Property value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsComputedInsightValueProperty $item
+     * @return \Ews\ArrayType\EwsArrayOfComputedInsightValueProperty
+     */
+    public function addToProperty(\Ews\StructType\EwsComputedInsightValueProperty $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsComputedInsightValueProperty) {
+            throw new \InvalidArgumentException(sprintf('The Property property can only contain items of \Ews\StructType\EwsComputedInsightValueProperty, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Property[] = $item;
         return $this;
     }
     /**

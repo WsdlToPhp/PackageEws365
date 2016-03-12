@@ -17,13 +17,13 @@ class EwsSetUnifiedGroupUserSubscribeStateType extends EwsUnifiedGroupBaseReques
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsSubscribed;
     /**
      * Constructor method for SetUnifiedGroupUserSubscribeStateType
      * @uses EwsSetUnifiedGroupUserSubscribeStateType::setIsSubscribed()
-     * @param boolean $isSubscribed
+     * @param bool $isSubscribed
      */
     public function __construct($isSubscribed = null)
     {
@@ -32,7 +32,7 @@ class EwsSetUnifiedGroupUserSubscribeStateType extends EwsUnifiedGroupBaseReques
     }
     /**
      * Get IsSubscribed value
-     * @return boolean
+     * @return bool
      */
     public function getIsSubscribed()
     {
@@ -40,7 +40,7 @@ class EwsSetUnifiedGroupUserSubscribeStateType extends EwsUnifiedGroupBaseReques
     }
     /**
      * Set IsSubscribed value
-     * @param boolean $isSubscribed
+     * @param bool $isSubscribed
      * @return \Ews\StructType\EwsSetUnifiedGroupUserSubscribeStateType
      */
     public function setIsSubscribed($isSubscribed = null)

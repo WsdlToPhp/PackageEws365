@@ -16,22 +16,22 @@ class EwsProtectionRuleArgumentType extends AbstractStructBase
      * The Value
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var anonymous647
+     * @var string
      */
     public $Value;
     /**
      * Constructor method for ProtectionRuleArgumentType
      * @uses EwsProtectionRuleArgumentType::setValue()
-     * @param anonymous647 $value
+     * @param string $value
      */
-    public function __construct(anonymous647 $value = null)
+    public function __construct($value = null)
     {
         $this
             ->setValue($value);
     }
     /**
      * Get Value value
-     * @return anonymous647
+     * @return string
      */
     public function getValue()
     {
@@ -39,11 +39,15 @@ class EwsProtectionRuleArgumentType extends AbstractStructBase
     }
     /**
      * Set Value value
-     * @param anonymous647 $value
+     * @param string $value
      * @return \Ews\StructType\EwsProtectionRuleArgumentType
      */
-    public function setValue(anonymous647 $value = null)
+    public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }

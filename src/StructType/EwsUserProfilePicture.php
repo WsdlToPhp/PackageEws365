@@ -78,6 +78,10 @@ class EwsUserProfilePicture extends EwsInsightValue
      */
     public function setBlob($blob = null)
     {
+        // validation for constraint: string
+        if (!is_null($blob) && !is_string($blob)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($blob)), __LINE__);
+        }
         $this->Blob = $blob;
         return $this;
     }
@@ -96,6 +100,10 @@ class EwsUserProfilePicture extends EwsInsightValue
      */
     public function setPhotoSize($photoSize = null)
     {
+        // validation for constraint: string
+        if (!is_null($photoSize) && !is_string($photoSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($photoSize)), __LINE__);
+        }
         $this->PhotoSize = $photoSize;
         return $this;
     }
@@ -114,6 +122,10 @@ class EwsUserProfilePicture extends EwsInsightValue
      */
     public function setUrl($url = null)
     {
+        // validation for constraint: string
+        if (!is_null($url) && !is_string($url)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($url)), __LINE__);
+        }
         $this->Url = $url;
         return $this;
     }
@@ -132,6 +144,10 @@ class EwsUserProfilePicture extends EwsInsightValue
      */
     public function setImageType($imageType = null)
     {
+        // validation for constraint: string
+        if (!is_null($imageType) && !is_string($imageType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageType)), __LINE__);
+        }
         $this->ImageType = $imageType;
         return $this;
     }

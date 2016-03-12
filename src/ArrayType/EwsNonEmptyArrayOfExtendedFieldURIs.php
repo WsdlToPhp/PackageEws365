@@ -14,25 +14,22 @@ class EwsNonEmptyArrayOfExtendedFieldURIs extends AbstractStructArrayBase
 {
     /**
      * The ExtendedProperty
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an extended property. Note that there are only a couple of valid attribute combinations. Note that all occurances require the PropertyType attribute. 1. (DistinguishedPropertySetId || PropertySetId) + (PropertyName ||
-     * Property Id) 2. PropertyTag
-     * @var array
+     * @var \Ews\StructType\EwsPathToExtendedFieldType
      */
     public $ExtendedProperty;
     /**
      * Constructor method for NonEmptyArrayOfExtendedFieldURIs
      * @uses EwsNonEmptyArrayOfExtendedFieldURIs::setExtendedProperty()
-     * @param array $extendedProperty
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedProperty
      */
-    public function __construct(array $extendedProperty = array())
+    public function __construct(\Ews\StructType\EwsPathToExtendedFieldType $extendedProperty = null)
     {
         $this
             ->setExtendedProperty($extendedProperty);
     }
     /**
      * Get ExtendedProperty value
-     * @return array
+     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
      */
     public function getExtendedProperty()
     {
@@ -40,10 +37,10 @@ class EwsNonEmptyArrayOfExtendedFieldURIs extends AbstractStructArrayBase
     }
     /**
      * Set ExtendedProperty value
-     * @param array $extendedProperty
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedProperty
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs
      */
-    public function setExtendedProperty(array $extendedProperty = array())
+    public function setExtendedProperty(\Ews\StructType\EwsPathToExtendedFieldType $extendedProperty = null)
     {
         $this->ExtendedProperty = $extendedProperty;
         return $this;

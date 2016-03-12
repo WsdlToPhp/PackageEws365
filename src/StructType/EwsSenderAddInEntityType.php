@@ -45,6 +45,10 @@ class EwsSenderAddInEntityType extends AbstractStructBase
      */
     public function setExtensionId($extensionId = null)
     {
+        // validation for constraint: string
+        if (!is_null($extensionId) && !is_string($extensionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($extensionId)), __LINE__);
+        }
         $this->ExtensionId = $extensionId;
         return $this;
     }

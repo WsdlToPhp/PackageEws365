@@ -17,13 +17,13 @@ class EwsArrayOfCompanyInsightValue extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsCompanyInsightValue[]
      */
     public $Item;
     /**
      * Constructor method for ArrayOfCompanyInsightValue
      * @uses EwsArrayOfCompanyInsightValue::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsCompanyInsightValue[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfCompanyInsightValue extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsCompanyInsightValue[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfCompanyInsightValue extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCompanyInsightValue[] $item
      * @return \Ews\ArrayType\EwsArrayOfCompanyInsightValue
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $arrayOfCompanyInsightValueItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfCompanyInsightValueItemItem instanceof \Ews\StructType\EwsCompanyInsightValue) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsCompanyInsightValue, "%s" given', is_object($arrayOfCompanyInsightValueItemItem) ? get_class($arrayOfCompanyInsightValueItemItem) : gettype($arrayOfCompanyInsightValueItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCompanyInsightValue $item
+     * @return \Ews\ArrayType\EwsArrayOfCompanyInsightValue
+     */
+    public function addToItem(\Ews\StructType\EwsCompanyInsightValue $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsCompanyInsightValue) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsCompanyInsightValue, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

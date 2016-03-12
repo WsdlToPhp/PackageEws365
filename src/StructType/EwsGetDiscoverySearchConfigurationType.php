@@ -25,14 +25,14 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
      * The ExpandGroupMembership
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ExpandGroupMembership;
     /**
      * The InPlaceHoldConfigurationOnly
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $InPlaceHoldConfigurationOnly;
     /**
@@ -41,8 +41,8 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
      * @uses EwsGetDiscoverySearchConfigurationType::setExpandGroupMembership()
      * @uses EwsGetDiscoverySearchConfigurationType::setInPlaceHoldConfigurationOnly()
      * @param string $searchId
-     * @param boolean $expandGroupMembership
-     * @param boolean $inPlaceHoldConfigurationOnly
+     * @param bool $expandGroupMembership
+     * @param bool $inPlaceHoldConfigurationOnly
      */
     public function __construct($searchId = null, $expandGroupMembership = null, $inPlaceHoldConfigurationOnly = null)
     {
@@ -66,12 +66,16 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
      */
     public function setSearchId($searchId = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchId) && !is_string($searchId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchId)), __LINE__);
+        }
         $this->SearchId = $searchId;
         return $this;
     }
     /**
      * Get ExpandGroupMembership value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getExpandGroupMembership()
     {
@@ -79,7 +83,7 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     }
     /**
      * Set ExpandGroupMembership value
-     * @param boolean $expandGroupMembership
+     * @param bool $expandGroupMembership
      * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationType
      */
     public function setExpandGroupMembership($expandGroupMembership = null)
@@ -89,7 +93,7 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     }
     /**
      * Get InPlaceHoldConfigurationOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getInPlaceHoldConfigurationOnly()
     {
@@ -97,7 +101,7 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     }
     /**
      * Set InPlaceHoldConfigurationOnly value
-     * @param boolean $inPlaceHoldConfigurationOnly
+     * @param bool $inPlaceHoldConfigurationOnly
      * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationType
      */
     public function setInPlaceHoldConfigurationOnly($inPlaceHoldConfigurationOnly = null)

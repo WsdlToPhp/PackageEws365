@@ -25,7 +25,6 @@ class EwsRuleOperationErrorType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Represents an array of rule validation errors
      * @var \Ews\ArrayType\EwsArrayOfRuleValidationErrorsType
      */
     public $ValidationErrors;
@@ -57,6 +56,10 @@ class EwsRuleOperationErrorType extends AbstractStructBase
      */
     public function setOperationIndex($operationIndex = null)
     {
+        // validation for constraint: int
+        if (!is_null($operationIndex) && !is_int($operationIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($operationIndex)), __LINE__);
+        }
         $this->OperationIndex = $operationIndex;
         return $this;
     }

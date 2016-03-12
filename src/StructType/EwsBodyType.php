@@ -28,7 +28,7 @@ class EwsBodyType extends AbstractStructBase
      * The IsTruncated
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsTruncated;
     /**
@@ -38,7 +38,7 @@ class EwsBodyType extends AbstractStructBase
      * @uses EwsBodyType::setIsTruncated()
      * @param string $bodyType
      * @param string $_
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      */
     public function __construct($bodyType = null, $_ = null, $isTruncated = null)
     {
@@ -59,11 +59,13 @@ class EwsBodyType extends AbstractStructBase
      * Set BodyType value
      * @uses \Ews\EnumType\EwsBodyTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsBodyTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $bodyType
      * @return \Ews\StructType\EwsBodyType
      */
     public function setBodyType($bodyType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeType::valueIsValid($bodyType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bodyType, implode(', ', \Ews\EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
         }
@@ -85,12 +87,16 @@ class EwsBodyType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
     /**
      * Get IsTruncated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsTruncated()
     {
@@ -98,7 +104,7 @@ class EwsBodyType extends AbstractStructBase
     }
     /**
      * Set IsTruncated value
-     * @param boolean $isTruncated
+     * @param bool $isTruncated
      * @return \Ews\StructType\EwsBodyType
      */
     public function setIsTruncated($isTruncated = null)

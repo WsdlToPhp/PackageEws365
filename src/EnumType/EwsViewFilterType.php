@@ -26,12 +26,12 @@ class EwsViewFilterType
      * Constant for value 'HasAttachment'
      * @return string 'HasAttachment'
      */
-    const VALUE_HASATTACHMENT = 'HasAttachment';
+    const VALUE_HAS_ATTACHMENT = 'HasAttachment';
     /**
      * Constant for value 'ToOrCcMe'
      * @return string 'ToOrCcMe'
      */
-    const VALUE_TOORCCME = 'ToOrCcMe';
+    const VALUE_TO_OR_CC_ME = 'ToOrCcMe';
     /**
      * Constant for value 'Unread'
      * @return string 'Unread'
@@ -41,22 +41,22 @@ class EwsViewFilterType
      * Constant for value 'TaskActive'
      * @return string 'TaskActive'
      */
-    const VALUE_TASKACTIVE = 'TaskActive';
+    const VALUE_TASK_ACTIVE = 'TaskActive';
     /**
      * Constant for value 'TaskOverdue'
      * @return string 'TaskOverdue'
      */
-    const VALUE_TASKOVERDUE = 'TaskOverdue';
+    const VALUE_TASK_OVERDUE = 'TaskOverdue';
     /**
      * Constant for value 'TaskCompleted'
      * @return string 'TaskCompleted'
      */
-    const VALUE_TASKCOMPLETED = 'TaskCompleted';
+    const VALUE_TASK_COMPLETED = 'TaskCompleted';
     /**
      * Constant for value 'NoClutter'
      * @return string 'NoClutter'
      */
-    const VALUE_NOCLUTTER = 'NoClutter';
+    const VALUE_NO_CLUTTER = 'NoClutter';
     /**
      * Constant for value 'Clutter'
      * @return string 'Clutter'
@@ -76,13 +76,13 @@ class EwsViewFilterType
      * Return allowed values
      * @uses self::VALUE_ALL
      * @uses self::VALUE_FLAGGED
-     * @uses self::VALUE_HASATTACHMENT
-     * @uses self::VALUE_TOORCCME
+     * @uses self::VALUE_HAS_ATTACHMENT
+     * @uses self::VALUE_TO_OR_CC_ME
      * @uses self::VALUE_UNREAD
-     * @uses self::VALUE_TASKACTIVE
-     * @uses self::VALUE_TASKOVERDUE
-     * @uses self::VALUE_TASKCOMPLETED
-     * @uses self::VALUE_NOCLUTTER
+     * @uses self::VALUE_TASK_ACTIVE
+     * @uses self::VALUE_TASK_OVERDUE
+     * @uses self::VALUE_TASK_COMPLETED
+     * @uses self::VALUE_NO_CLUTTER
      * @uses self::VALUE_CLUTTER
      * @return string[]
      */
@@ -91,13 +91,13 @@ class EwsViewFilterType
         return array(
             self::VALUE_ALL,
             self::VALUE_FLAGGED,
-            self::VALUE_HASATTACHMENT,
-            self::VALUE_TOORCCME,
+            self::VALUE_HAS_ATTACHMENT,
+            self::VALUE_TO_OR_CC_ME,
             self::VALUE_UNREAD,
-            self::VALUE_TASKACTIVE,
-            self::VALUE_TASKOVERDUE,
-            self::VALUE_TASKCOMPLETED,
-            self::VALUE_NOCLUTTER,
+            self::VALUE_TASK_ACTIVE,
+            self::VALUE_TASK_OVERDUE,
+            self::VALUE_TASK_COMPLETED,
+            self::VALUE_NO_CLUTTER,
             self::VALUE_CLUTTER,
         );
     }

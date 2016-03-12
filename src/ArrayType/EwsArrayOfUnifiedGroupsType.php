@@ -17,14 +17,13 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Represents a unified group with favorite state
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupType[]
      */
     public $UnifiedGroup;
     /**
      * Constructor method for ArrayOfUnifiedGroupsType
      * @uses EwsArrayOfUnifiedGroupsType::setUnifiedGroup()
-     * @param array $unifiedGroup
+     * @param \Ews\StructType\EwsUnifiedGroupType[] $unifiedGroup
      */
     public function __construct(array $unifiedGroup = array())
     {
@@ -33,7 +32,7 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
     }
     /**
      * Get UnifiedGroup value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupType[]|null
      */
     public function getUnifiedGroup()
     {
@@ -41,12 +40,34 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
     }
     /**
      * Set UnifiedGroup value
-     * @param array $unifiedGroup
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupType[] $unifiedGroup
      * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsType
      */
     public function setUnifiedGroup(array $unifiedGroup = array())
     {
+        foreach ($unifiedGroup as $arrayOfUnifiedGroupsTypeUnifiedGroupItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupsTypeUnifiedGroupItem instanceof \Ews\StructType\EwsUnifiedGroupType) {
+                throw new \InvalidArgumentException(sprintf('The UnifiedGroup property can only contain items of \Ews\StructType\EwsUnifiedGroupType, "%s" given', is_object($arrayOfUnifiedGroupsTypeUnifiedGroupItem) ? get_class($arrayOfUnifiedGroupsTypeUnifiedGroupItem) : gettype($arrayOfUnifiedGroupsTypeUnifiedGroupItem)), __LINE__);
+            }
+        }
         $this->UnifiedGroup = $unifiedGroup;
+        return $this;
+    }
+    /**
+     * Add item to UnifiedGroup value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupType $item
+     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsType
+     */
+    public function addToUnifiedGroup(\Ews\StructType\EwsUnifiedGroupType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupType) {
+            throw new \InvalidArgumentException(sprintf('The UnifiedGroup property can only contain items of \Ews\StructType\EwsUnifiedGroupType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UnifiedGroup[] = $item;
         return $this;
     }
     /**

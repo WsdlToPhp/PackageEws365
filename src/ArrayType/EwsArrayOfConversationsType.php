@@ -14,22 +14,22 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
 {
     /**
      * The Conversation
-     * @var array
+     * @var \Ews\StructType\EwsConversationType
      */
     public $Conversation;
     /**
      * Constructor method for ArrayOfConversationsType
      * @uses EwsArrayOfConversationsType::setConversation()
-     * @param array $conversation
+     * @param \Ews\StructType\EwsConversationType $conversation
      */
-    public function __construct(array $conversation = array())
+    public function __construct(\Ews\StructType\EwsConversationType $conversation = null)
     {
         $this
             ->setConversation($conversation);
     }
     /**
      * Get Conversation value
-     * @return array
+     * @return \Ews\StructType\EwsConversationType|null
      */
     public function getConversation()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
     }
     /**
      * Set Conversation value
-     * @param array $conversation
+     * @param \Ews\StructType\EwsConversationType $conversation
      * @return \Ews\ArrayType\EwsArrayOfConversationsType
      */
-    public function setConversation(array $conversation = array())
+    public function setConversation(\Ews\StructType\EwsConversationType $conversation = null)
     {
         $this->Conversation = $conversation;
         return $this;

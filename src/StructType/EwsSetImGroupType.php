@@ -14,8 +14,6 @@ class EwsSetImGroupType extends EwsBaseRequestType
 {
     /**
      * The GroupId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $GroupId;
@@ -72,6 +70,14 @@ class EwsSetImGroupType extends EwsBaseRequestType
      */
     public function setNewDisplayName($newDisplayName = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(newDisplayName) && strlen(newDisplayName) < 1) || (is_array(newDisplayName) && count(newDisplayName) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($newDisplayName) && !is_string($newDisplayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($newDisplayName)), __LINE__);
+        }
         $this->NewDisplayName = $newDisplayName;
         return $this;
     }

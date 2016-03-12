@@ -14,17 +14,17 @@ class EwsUnifiedGroupIdentityType
      * Constant for value 'SmtpAddress'
      * @return string 'SmtpAddress'
      */
-    const VALUE_SMTPADDRESS = 'SmtpAddress';
+    const VALUE_SMTP_ADDRESS = 'SmtpAddress';
     /**
      * Constant for value 'LegacyDn'
      * @return string 'LegacyDn'
      */
-    const VALUE_LEGACYDN = 'LegacyDn';
+    const VALUE_LEGACY_DN = 'LegacyDn';
     /**
      * Constant for value 'ExternalDirectoryObjectId'
      * @return string 'ExternalDirectoryObjectId'
      */
-    const VALUE_EXTERNALDIRECTORYOBJECTID = 'ExternalDirectoryObjectId';
+    const VALUE_EXTERNAL_DIRECTORY_OBJECT_ID = 'ExternalDirectoryObjectId';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsUnifiedGroupIdentityType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_SMTPADDRESS
-     * @uses self::VALUE_LEGACYDN
-     * @uses self::VALUE_EXTERNALDIRECTORYOBJECTID
+     * @uses self::VALUE_SMTP_ADDRESS
+     * @uses self::VALUE_LEGACY_DN
+     * @uses self::VALUE_EXTERNAL_DIRECTORY_OBJECT_ID
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_SMTPADDRESS,
-            self::VALUE_LEGACYDN,
-            self::VALUE_EXTERNALDIRECTORYOBJECTID,
+            self::VALUE_SMTP_ADDRESS,
+            self::VALUE_LEGACY_DN,
+            self::VALUE_EXTERNAL_DIRECTORY_OBJECT_ID,
         );
     }
     /**

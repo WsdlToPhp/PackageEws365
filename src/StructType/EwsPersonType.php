@@ -331,6 +331,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setFullName($fullName = null)
     {
+        // validation for constraint: string
+        if (!is_null($fullName) && !is_string($fullName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+        }
         $this->FullName = $fullName;
         return $this;
     }
@@ -349,6 +353,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setGivenName($givenName = null)
     {
+        // validation for constraint: string
+        if (!is_null($givenName) && !is_string($givenName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($givenName)), __LINE__);
+        }
         $this->GivenName = $givenName;
         return $this;
     }
@@ -367,6 +375,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setSurname($surname = null)
     {
+        // validation for constraint: string
+        if (!is_null($surname) && !is_string($surname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($surname)), __LINE__);
+        }
         $this->Surname = $surname;
         return $this;
     }
@@ -385,6 +397,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($phoneNumber) && !is_string($phoneNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneNumber)), __LINE__);
+        }
         $this->PhoneNumber = $phoneNumber;
         return $this;
     }
@@ -403,6 +419,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setSMSNumber($sMSNumber = null)
     {
+        // validation for constraint: string
+        if (!is_null($sMSNumber) && !is_string($sMSNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sMSNumber)), __LINE__);
+        }
         $this->SMSNumber = $sMSNumber;
         return $this;
     }
@@ -421,6 +441,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }
@@ -439,6 +463,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -457,6 +485,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setDepartment($department = null)
     {
+        // validation for constraint: string
+        if (!is_null($department) && !is_string($department)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+        }
         $this->Department = $department;
         return $this;
     }
@@ -475,6 +507,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setLinkedInProfileLink($linkedInProfileLink = null)
     {
+        // validation for constraint: string
+        if (!is_null($linkedInProfileLink) && !is_string($linkedInProfileLink)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($linkedInProfileLink)), __LINE__);
+        }
         $this->LinkedInProfileLink = $linkedInProfileLink;
         return $this;
     }
@@ -511,6 +547,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setProfessionalBiography($professionalBiography = null)
     {
+        // validation for constraint: string
+        if (!is_null($professionalBiography) && !is_string($professionalBiography)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($professionalBiography)), __LINE__);
+        }
         $this->ProfessionalBiography = $professionalBiography;
         return $this;
     }
@@ -583,6 +623,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setTeamSize($teamSize = null)
     {
+        // validation for constraint: string
+        if (!is_null($teamSize) && !is_string($teamSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($teamSize)), __LINE__);
+        }
         $this->TeamSize = $teamSize;
         return $this;
     }
@@ -619,6 +663,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setBirthday($birthday = null)
     {
+        // validation for constraint: string
+        if (!is_null($birthday) && !is_string($birthday)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($birthday)), __LINE__);
+        }
         $this->Birthday = $birthday;
         return $this;
     }
@@ -637,6 +685,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setHometown($hometown = null)
     {
+        // validation for constraint: string
+        if (!is_null($hometown) && !is_string($hometown)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hometown)), __LINE__);
+        }
         $this->Hometown = $hometown;
         return $this;
     }
@@ -655,6 +707,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setCurrentLocation($currentLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($currentLocation) && !is_string($currentLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currentLocation)), __LINE__);
+        }
         $this->CurrentLocation = $currentLocation;
         return $this;
     }
@@ -691,6 +747,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setOffice($office = null)
     {
+        // validation for constraint: string
+        if (!is_null($office) && !is_string($office)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($office)), __LINE__);
+        }
         $this->Office = $office;
         return $this;
     }
@@ -709,6 +769,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setHeadline($headline = null)
     {
+        // validation for constraint: string
+        if (!is_null($headline) && !is_string($headline)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($headline)), __LINE__);
+        }
         $this->Headline = $headline;
         return $this;
     }
@@ -745,6 +809,10 @@ class EwsPersonType extends AbstractStructBase
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }

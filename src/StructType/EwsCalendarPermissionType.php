@@ -53,11 +53,13 @@ class EwsCalendarPermissionType extends EwsBasePermissionType
      * Set CalendarPermissionLevel value
      * @uses \Ews\EnumType\EwsCalendarPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $calendarPermissionLevel
      * @return \Ews\StructType\EwsCalendarPermissionType
      */
     public function setCalendarPermissionLevel($calendarPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarPermissionLevelType::valueIsValid($calendarPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $calendarPermissionLevel, implode(', ', \Ews\EnumType\EwsCalendarPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -76,11 +78,13 @@ class EwsCalendarPermissionType extends EwsBasePermissionType
      * Set ReadItems value
      * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $readItems
      * @return \Ews\StructType\EwsCalendarPermissionType
      */
     public function setReadItems($readItems = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid($readItems)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $readItems, implode(', ', \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues())), __LINE__);
         }

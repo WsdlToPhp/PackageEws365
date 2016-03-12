@@ -17,13 +17,13 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsEntityFeedbackEntryType[]
      */
     public $EntityFeedbackEntry;
     /**
      * Constructor method for ArrayOfEntityFeedbackEntry
      * @uses EwsArrayOfEntityFeedbackEntry::setEntityFeedbackEntry()
-     * @param array $entityFeedbackEntry
+     * @param \Ews\StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
      */
     public function __construct(array $entityFeedbackEntry = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
     }
     /**
      * Get EntityFeedbackEntry value
-     * @return array
+     * @return \Ews\StructType\EwsEntityFeedbackEntryType[]
      */
     public function getEntityFeedbackEntry()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
     }
     /**
      * Set EntityFeedbackEntry value
-     * @param array $entityFeedbackEntry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
      * @return \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
      */
     public function setEntityFeedbackEntry(array $entityFeedbackEntry = array())
     {
+        foreach ($entityFeedbackEntry as $arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEntityFeedbackEntryEntityFeedbackEntryItem instanceof \Ews\StructType\EwsEntityFeedbackEntryType) {
+                throw new \InvalidArgumentException(sprintf('The EntityFeedbackEntry property can only contain items of \Ews\StructType\EwsEntityFeedbackEntryType, "%s" given', is_object($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) ? get_class($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) : gettype($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem)), __LINE__);
+            }
+        }
         $this->EntityFeedbackEntry = $entityFeedbackEntry;
+        return $this;
+    }
+    /**
+     * Add item to EntityFeedbackEntry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEntityFeedbackEntryType $item
+     * @return \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
+     */
+    public function addToEntityFeedbackEntry(\Ews\StructType\EwsEntityFeedbackEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEntityFeedbackEntryType) {
+            throw new \InvalidArgumentException(sprintf('The EntityFeedbackEntry property can only contain items of \Ews\StructType\EwsEntityFeedbackEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->EntityFeedbackEntry[] = $item;
         return $this;
     }
     /**

@@ -16,7 +16,6 @@ class EwsFolderType extends EwsBaseFolderType
      * The PermissionSet
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: The set of permissions on a folder
      * @var \Ews\StructType\EwsPermissionSetType
      */
     public $PermissionSet;
@@ -73,6 +72,10 @@ class EwsFolderType extends EwsBaseFolderType
      */
     public function setUnreadCount($unreadCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($unreadCount) && !is_int($unreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unreadCount)), __LINE__);
+        }
         $this->UnreadCount = $unreadCount;
         return $this;
     }

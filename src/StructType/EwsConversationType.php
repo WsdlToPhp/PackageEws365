@@ -16,7 +16,6 @@ class EwsConversationType extends AbstractStructBase
      * The ConversationId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ConversationId;
@@ -73,14 +72,14 @@ class EwsConversationType extends AbstractStructBase
      * The LastDeliveryTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastDeliveryTime;
     /**
      * The GlobalLastDeliveryTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $GlobalLastDeliveryTime;
     /**
@@ -115,14 +114,14 @@ class EwsConversationType extends AbstractStructBase
      * The HasAttachments
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasAttachments;
     /**
      * The GlobalHasAttachments
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $GlobalHasAttachments;
     /**
@@ -213,7 +212,7 @@ class EwsConversationType extends AbstractStructBase
      * The LastModifiedTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastModifiedTime;
     /**
@@ -262,35 +261,35 @@ class EwsConversationType extends AbstractStructBase
      * The HasIrm
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasIrm;
     /**
      * The GlobalHasIrm
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $GlobalHasIrm;
     /**
      * The SortKey
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $SortKey;
     /**
      * The MentionedMe
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MentionedMe;
     /**
      * The GlobalMentionedMe
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $GlobalMentionedMe;
     /**
@@ -343,14 +342,14 @@ class EwsConversationType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders
      * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders
      * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders
-     * @param dateTime $lastDeliveryTime
-     * @param dateTime $globalLastDeliveryTime
+     * @param string $lastDeliveryTime
+     * @param string $globalLastDeliveryTime
      * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
      * @param \Ews\ArrayType\EwsArrayOfStringsType $globalCategories
      * @param string $flagStatus
      * @param string $globalFlagStatus
-     * @param boolean $hasAttachments
-     * @param boolean $globalHasAttachments
+     * @param bool $hasAttachments
+     * @param bool $globalHasAttachments
      * @param int $messageCount
      * @param int $globalMessageCount
      * @param int $unreadCount
@@ -363,18 +362,18 @@ class EwsConversationType extends AbstractStructBase
      * @param string $globalImportance
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
-     * @param dateTime $lastModifiedTime
+     * @param string $lastModifiedTime
      * @param base64Binary $instanceKey
      * @param string $preview
      * @param string $mailboxScope
      * @param string $iconIndex
      * @param string $globalIconIndex
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds
-     * @param boolean $hasIrm
-     * @param boolean $globalHasIrm
-     * @param long $sortKey
-     * @param boolean $mentionedMe
-     * @param boolean $globalMentionedMe
+     * @param bool $hasIrm
+     * @param bool $globalHasIrm
+     * @param int $sortKey
+     * @param bool $mentionedMe
+     * @param bool $globalMentionedMe
      */
     public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $conversationTopic = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null, $lastDeliveryTime = null, $globalLastDeliveryTime = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, \Ews\ArrayType\EwsArrayOfStringsType $globalCategories = null, $flagStatus = null, $globalFlagStatus = null, $hasAttachments = null, $globalHasAttachments = null, $messageCount = null, $globalMessageCount = null, $unreadCount = null, $globalUnreadCount = null, $size = null, $globalSize = null, \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses = null, \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null, $importance = null, $globalImportance = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null, $lastModifiedTime = null, base64Binary $instanceKey = null, $preview = null, $mailboxScope = null, $iconIndex = null, $globalIconIndex = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null, $hasIrm = null, $globalHasIrm = null, $sortKey = null, $mentionedMe = null, $globalMentionedMe = null)
     {
@@ -453,6 +452,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setConversationTopic($conversationTopic = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationTopic)), __LINE__);
+        }
         $this->ConversationTopic = $conversationTopic;
         return $this;
     }
@@ -566,7 +569,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get LastDeliveryTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastDeliveryTime()
     {
@@ -574,17 +577,21 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set LastDeliveryTime value
-     * @param dateTime $lastDeliveryTime
+     * @param string $lastDeliveryTime
      * @return \Ews\StructType\EwsConversationType
      */
     public function setLastDeliveryTime($lastDeliveryTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastDeliveryTime) && !is_string($lastDeliveryTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastDeliveryTime)), __LINE__);
+        }
         $this->LastDeliveryTime = $lastDeliveryTime;
         return $this;
     }
     /**
      * Get GlobalLastDeliveryTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getGlobalLastDeliveryTime()
     {
@@ -592,11 +599,15 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set GlobalLastDeliveryTime value
-     * @param dateTime $globalLastDeliveryTime
+     * @param string $globalLastDeliveryTime
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalLastDeliveryTime($globalLastDeliveryTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($globalLastDeliveryTime) && !is_string($globalLastDeliveryTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($globalLastDeliveryTime)), __LINE__);
+        }
         $this->GlobalLastDeliveryTime = $globalLastDeliveryTime;
         return $this;
     }
@@ -648,11 +659,13 @@ class EwsConversationType extends AbstractStructBase
      * Set FlagStatus value
      * @uses \Ews\EnumType\EwsFlagStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsFlagStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $flagStatus
      * @return \Ews\StructType\EwsConversationType
      */
     public function setFlagStatus($flagStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($flagStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flagStatus, implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
@@ -671,11 +684,13 @@ class EwsConversationType extends AbstractStructBase
      * Set GlobalFlagStatus value
      * @uses \Ews\EnumType\EwsFlagStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsFlagStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $globalFlagStatus
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalFlagStatus($globalFlagStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($globalFlagStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalFlagStatus, implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
@@ -684,7 +699,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get HasAttachments value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasAttachments()
     {
@@ -692,7 +707,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set HasAttachments value
-     * @param boolean $hasAttachments
+     * @param bool $hasAttachments
      * @return \Ews\StructType\EwsConversationType
      */
     public function setHasAttachments($hasAttachments = null)
@@ -702,7 +717,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get GlobalHasAttachments value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getGlobalHasAttachments()
     {
@@ -710,7 +725,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set GlobalHasAttachments value
-     * @param boolean $globalHasAttachments
+     * @param bool $globalHasAttachments
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalHasAttachments($globalHasAttachments = null)
@@ -733,6 +748,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setMessageCount($messageCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($messageCount) && !is_int($messageCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($messageCount)), __LINE__);
+        }
         $this->MessageCount = $messageCount;
         return $this;
     }
@@ -751,6 +770,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalMessageCount($globalMessageCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($globalMessageCount) && !is_int($globalMessageCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalMessageCount)), __LINE__);
+        }
         $this->GlobalMessageCount = $globalMessageCount;
         return $this;
     }
@@ -769,6 +792,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setUnreadCount($unreadCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($unreadCount) && !is_int($unreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unreadCount)), __LINE__);
+        }
         $this->UnreadCount = $unreadCount;
         return $this;
     }
@@ -787,6 +814,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalUnreadCount($globalUnreadCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($globalUnreadCount) && !is_int($globalUnreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalUnreadCount)), __LINE__);
+        }
         $this->GlobalUnreadCount = $globalUnreadCount;
         return $this;
     }
@@ -805,6 +836,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }
@@ -823,6 +858,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalSize($globalSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($globalSize) && !is_int($globalSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalSize)), __LINE__);
+        }
         $this->GlobalSize = $globalSize;
         return $this;
     }
@@ -874,11 +913,13 @@ class EwsConversationType extends AbstractStructBase
      * Set Importance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $importance
      * @return \Ews\StructType\EwsConversationType
      */
     public function setImportance($importance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -897,11 +938,13 @@ class EwsConversationType extends AbstractStructBase
      * Set GlobalImportance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $globalImportance
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalImportance($globalImportance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($globalImportance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalImportance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -946,7 +989,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get LastModifiedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastModifiedTime()
     {
@@ -954,11 +997,15 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set LastModifiedTime value
-     * @param dateTime $lastModifiedTime
+     * @param string $lastModifiedTime
      * @return \Ews\StructType\EwsConversationType
      */
     public function setLastModifiedTime($lastModifiedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+        }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
     }
@@ -995,6 +1042,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setPreview($preview = null)
     {
+        // validation for constraint: string
+        if (!is_null($preview) && !is_string($preview)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+        }
         $this->Preview = $preview;
         return $this;
     }
@@ -1010,11 +1061,13 @@ class EwsConversationType extends AbstractStructBase
      * Set MailboxScope value
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mailboxScope
      * @return \Ews\StructType\EwsConversationType
      */
     public function setMailboxScope($mailboxScope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
@@ -1033,11 +1086,13 @@ class EwsConversationType extends AbstractStructBase
      * Set IconIndex value
      * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
      * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $iconIndex
      * @return \Ews\StructType\EwsConversationType
      */
     public function setIconIndex($iconIndex = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $iconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
@@ -1056,11 +1111,13 @@ class EwsConversationType extends AbstractStructBase
      * Set GlobalIconIndex value
      * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
      * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $globalIconIndex
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalIconIndex($globalIconIndex = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($globalIconIndex)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalIconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
@@ -1087,7 +1144,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get HasIrm value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasIrm()
     {
@@ -1095,7 +1152,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set HasIrm value
-     * @param boolean $hasIrm
+     * @param bool $hasIrm
      * @return \Ews\StructType\EwsConversationType
      */
     public function setHasIrm($hasIrm = null)
@@ -1105,7 +1162,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get GlobalHasIrm value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getGlobalHasIrm()
     {
@@ -1113,7 +1170,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set GlobalHasIrm value
-     * @param boolean $globalHasIrm
+     * @param bool $globalHasIrm
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalHasIrm($globalHasIrm = null)
@@ -1123,7 +1180,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get SortKey value
-     * @return long|null
+     * @return int|null
      */
     public function getSortKey()
     {
@@ -1131,17 +1188,21 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set SortKey value
-     * @param long $sortKey
+     * @param int $sortKey
      * @return \Ews\StructType\EwsConversationType
      */
     public function setSortKey($sortKey = null)
     {
+        // validation for constraint: int
+        if (!is_null($sortKey) && !is_int($sortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sortKey)), __LINE__);
+        }
         $this->SortKey = $sortKey;
         return $this;
     }
     /**
      * Get MentionedMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMentionedMe()
     {
@@ -1149,7 +1210,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set MentionedMe value
-     * @param boolean $mentionedMe
+     * @param bool $mentionedMe
      * @return \Ews\StructType\EwsConversationType
      */
     public function setMentionedMe($mentionedMe = null)
@@ -1159,7 +1220,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get GlobalMentionedMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getGlobalMentionedMe()
     {
@@ -1167,7 +1228,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set GlobalMentionedMe value
-     * @param boolean $globalMentionedMe
+     * @param bool $globalMentionedMe
      * @return \Ews\StructType\EwsConversationType
      */
     public function setGlobalMentionedMe($globalMentionedMe = null)

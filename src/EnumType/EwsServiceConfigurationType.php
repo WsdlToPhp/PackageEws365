@@ -14,22 +14,22 @@ class EwsServiceConfigurationType
      * Constant for value 'MailTips'
      * @return string 'MailTips'
      */
-    const VALUE_MAILTIPS = 'MailTips';
+    const VALUE_MAIL_TIPS = 'MailTips';
     /**
      * Constant for value 'UnifiedMessagingConfiguration'
      * @return string 'UnifiedMessagingConfiguration'
      */
-    const VALUE_UNIFIEDMESSAGINGCONFIGURATION = 'UnifiedMessagingConfiguration';
+    const VALUE_UNIFIED_MESSAGING_CONFIGURATION = 'UnifiedMessagingConfiguration';
     /**
      * Constant for value 'ProtectionRules'
      * @return string 'ProtectionRules'
      */
-    const VALUE_PROTECTIONRULES = 'ProtectionRules';
+    const VALUE_PROTECTION_RULES = 'ProtectionRules';
     /**
      * Constant for value 'PolicyNudges'
      * @return string 'PolicyNudges'
      */
-    const VALUE_POLICYNUDGES = 'PolicyNudges';
+    const VALUE_POLICY_NUDGES = 'PolicyNudges';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -42,19 +42,19 @@ class EwsServiceConfigurationType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_MAILTIPS
-     * @uses self::VALUE_UNIFIEDMESSAGINGCONFIGURATION
-     * @uses self::VALUE_PROTECTIONRULES
-     * @uses self::VALUE_POLICYNUDGES
+     * @uses self::VALUE_MAIL_TIPS
+     * @uses self::VALUE_UNIFIED_MESSAGING_CONFIGURATION
+     * @uses self::VALUE_PROTECTION_RULES
+     * @uses self::VALUE_POLICY_NUDGES
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_MAILTIPS,
-            self::VALUE_UNIFIEDMESSAGINGCONFIGURATION,
-            self::VALUE_PROTECTIONRULES,
-            self::VALUE_POLICYNUDGES,
+            self::VALUE_MAIL_TIPS,
+            self::VALUE_UNIFIED_MESSAGING_CONFIGURATION,
+            self::VALUE_PROTECTION_RULES,
+            self::VALUE_POLICY_NUDGES,
         );
     }
     /**

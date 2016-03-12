@@ -33,7 +33,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDebug;
     /**
@@ -43,7 +43,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
      * @uses EwsGetClientExtensionType::setIsDebug()
      * @param \Ews\ArrayType\EwsArrayOfStringsType $requestedExtensionIds
      * @param \Ews\StructType\EwsGetClientExtensionUserParametersType $userParameters
-     * @param boolean $isDebug
+     * @param bool $isDebug
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $requestedExtensionIds = null, \Ews\StructType\EwsGetClientExtensionUserParametersType $userParameters = null, $isDebug = null)
     {
@@ -90,7 +90,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
     }
     /**
      * Get IsDebug value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDebug()
     {
@@ -98,7 +98,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
     }
     /**
      * Set IsDebug value
-     * @param boolean $isDebug
+     * @param bool $isDebug
      * @return \Ews\StructType\EwsGetClientExtensionType
      */
     public function setIsDebug($isDebug = null)

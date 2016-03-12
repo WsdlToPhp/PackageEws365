@@ -14,21 +14,24 @@ class EwsNotificationType extends AbstractStructBase
 {
     /**
      * The SubscriptionId
-     * @var NonEmptyStringType
+     * Meta informations extracted from the WSDL
+     * - minLength: 1
+     * @var string
      */
     public $SubscriptionId;
     /**
      * The PreviousWatermark
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var NonEmptyStringType
+     * - minLength: 1
+     * @var string
      */
     public $PreviousWatermark;
     /**
      * The MoreEvents
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MoreEvents;
     /**
@@ -84,9 +87,9 @@ class EwsNotificationType extends AbstractStructBase
      * @uses EwsNotificationType::setNewMailEvent()
      * @uses EwsNotificationType::setStatusEvent()
      * @uses EwsNotificationType::setFreeBusyChangedEvent()
-     * @param NonEmptyStringType $subscriptionId
-     * @param NonEmptyStringType $previousWatermark
-     * @param boolean $moreEvents
+     * @param string $subscriptionId
+     * @param string $previousWatermark
+     * @param bool $moreEvents
      * @param \Ews\StructType\EwsMovedCopiedEventType $copiedEvent
      * @param \Ews\StructType\EwsBaseObjectChangedEventType $createdEvent
      * @param \Ews\StructType\EwsBaseObjectChangedEventType $deletedEvent
@@ -96,7 +99,7 @@ class EwsNotificationType extends AbstractStructBase
      * @param \Ews\StructType\EwsBaseNotificationEventType $statusEvent
      * @param \Ews\StructType\EwsBaseObjectChangedEventType $freeBusyChangedEvent
      */
-    public function __construct(NonEmptyStringType $subscriptionId = null, NonEmptyStringType $previousWatermark = null, $moreEvents = null, \Ews\StructType\EwsMovedCopiedEventType $copiedEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $createdEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $deletedEvent = null, \Ews\StructType\EwsModifiedEventType $modifiedEvent = null, \Ews\StructType\EwsMovedCopiedEventType $movedEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $newMailEvent = null, \Ews\StructType\EwsBaseNotificationEventType $statusEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $freeBusyChangedEvent = null)
+    public function __construct($subscriptionId = null, $previousWatermark = null, $moreEvents = null, \Ews\StructType\EwsMovedCopiedEventType $copiedEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $createdEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $deletedEvent = null, \Ews\StructType\EwsModifiedEventType $modifiedEvent = null, \Ews\StructType\EwsMovedCopiedEventType $movedEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $newMailEvent = null, \Ews\StructType\EwsBaseNotificationEventType $statusEvent = null, \Ews\StructType\EwsBaseObjectChangedEventType $freeBusyChangedEvent = null)
     {
         $this
             ->setSubscriptionId($subscriptionId)
@@ -113,7 +116,7 @@ class EwsNotificationType extends AbstractStructBase
     }
     /**
      * Get SubscriptionId value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getSubscriptionId()
     {
@@ -121,17 +124,25 @@ class EwsNotificationType extends AbstractStructBase
     }
     /**
      * Set SubscriptionId value
-     * @param NonEmptyStringType $subscriptionId
+     * @param string $subscriptionId
      * @return \Ews\StructType\EwsNotificationType
      */
-    public function setSubscriptionId(NonEmptyStringType $subscriptionId = null)
+    public function setSubscriptionId($subscriptionId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subscriptionId)), __LINE__);
+        }
         $this->SubscriptionId = $subscriptionId;
         return $this;
     }
     /**
      * Get PreviousWatermark value
-     * @return NonEmptyStringType|null
+     * @return string|null
      */
     public function getPreviousWatermark()
     {
@@ -139,17 +150,25 @@ class EwsNotificationType extends AbstractStructBase
     }
     /**
      * Set PreviousWatermark value
-     * @param NonEmptyStringType $previousWatermark
+     * @param string $previousWatermark
      * @return \Ews\StructType\EwsNotificationType
      */
-    public function setPreviousWatermark(NonEmptyStringType $previousWatermark = null)
+    public function setPreviousWatermark($previousWatermark = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(previousWatermark) && strlen(previousWatermark) < 1) || (is_array(previousWatermark) && count(previousWatermark) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($previousWatermark) && !is_string($previousWatermark)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($previousWatermark)), __LINE__);
+        }
         $this->PreviousWatermark = $previousWatermark;
         return $this;
     }
     /**
      * Get MoreEvents value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMoreEvents()
     {
@@ -157,7 +176,7 @@ class EwsNotificationType extends AbstractStructBase
     }
     /**
      * Set MoreEvents value
-     * @param boolean $moreEvents
+     * @param bool $moreEvents
      * @return \Ews\StructType\EwsNotificationType
      */
     public function setMoreEvents($moreEvents = null)

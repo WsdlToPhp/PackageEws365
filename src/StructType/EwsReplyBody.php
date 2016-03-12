@@ -56,6 +56,10 @@ class EwsReplyBody extends AbstractStructBase
      */
     public function setMessage($message = null)
     {
+        // validation for constraint: string
+        if (!is_null($message) && !is_string($message)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($message)), __LINE__);
+        }
         $this->Message = $message;
         return $this;
     }

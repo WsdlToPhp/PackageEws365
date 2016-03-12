@@ -24,7 +24,7 @@ class EwsUnifiedGroupsFilterType
      * Constant for value 'ExcludeFavorites'
      * @return string 'ExcludeFavorites'
      */
-    const VALUE_EXCLUDEFAVORITES = 'ExcludeFavorites';
+    const VALUE_EXCLUDE_FAVORITES = 'ExcludeFavorites';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -39,7 +39,7 @@ class EwsUnifiedGroupsFilterType
      * Return allowed values
      * @uses self::VALUE_ALL
      * @uses self::VALUE_FAVORITES
-     * @uses self::VALUE_EXCLUDEFAVORITES
+     * @uses self::VALUE_EXCLUDE_FAVORITES
      * @return string[]
      */
     public static function getValidValues()
@@ -47,7 +47,7 @@ class EwsUnifiedGroupsFilterType
         return array(
             self::VALUE_ALL,
             self::VALUE_FAVORITES,
-            self::VALUE_EXCLUDEFAVORITES,
+            self::VALUE_EXCLUDE_FAVORITES,
         );
     }
     /**

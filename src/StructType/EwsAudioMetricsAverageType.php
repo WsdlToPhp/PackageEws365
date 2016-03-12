@@ -17,7 +17,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var double
+     * @var float
      */
     public $TotalValue;
     /**
@@ -25,15 +25,15 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var double
+     * @var float
      */
     public $TotalCount;
     /**
      * Constructor method for AudioMetricsAverageType
      * @uses EwsAudioMetricsAverageType::setTotalValue()
      * @uses EwsAudioMetricsAverageType::setTotalCount()
-     * @param double $totalValue
-     * @param double $totalCount
+     * @param float $totalValue
+     * @param float $totalCount
      */
     public function __construct($totalValue = null, $totalCount = null)
     {
@@ -43,7 +43,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
     }
     /**
      * Get TotalValue value
-     * @return double
+     * @return float
      */
     public function getTotalValue()
     {
@@ -51,7 +51,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
     }
     /**
      * Set TotalValue value
-     * @param double $totalValue
+     * @param float $totalValue
      * @return \Ews\StructType\EwsAudioMetricsAverageType
      */
     public function setTotalValue($totalValue = null)
@@ -61,7 +61,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
     }
     /**
      * Get TotalCount value
-     * @return double
+     * @return float
      */
     public function getTotalCount()
     {
@@ -69,7 +69,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
     }
     /**
      * Set TotalCount value
-     * @param double $totalCount
+     * @param float $totalCount
      * @return \Ews\StructType\EwsAudioMetricsAverageType
      */
     public function setTotalCount($totalCount = null)

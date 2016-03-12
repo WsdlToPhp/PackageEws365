@@ -17,13 +17,13 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsProtectionRuleType[]
      */
     public $Rule;
     /**
      * Constructor method for ArrayOfProtectionRulesType
      * @uses EwsArrayOfProtectionRulesType::setRule()
-     * @param array $rule
+     * @param \Ews\StructType\EwsProtectionRuleType[] $rule
      */
     public function __construct(array $rule = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
     }
     /**
      * Get Rule value
-     * @return array
+     * @return \Ews\StructType\EwsProtectionRuleType[]|null
      */
     public function getRule()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
     }
     /**
      * Set Rule value
-     * @param array $rule
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsProtectionRuleType[] $rule
      * @return \Ews\ArrayType\EwsArrayOfProtectionRulesType
      */
     public function setRule(array $rule = array())
     {
+        foreach ($rule as $arrayOfProtectionRulesTypeRuleItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfProtectionRulesTypeRuleItem instanceof \Ews\StructType\EwsProtectionRuleType) {
+                throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsProtectionRuleType, "%s" given', is_object($arrayOfProtectionRulesTypeRuleItem) ? get_class($arrayOfProtectionRulesTypeRuleItem) : gettype($arrayOfProtectionRulesTypeRuleItem)), __LINE__);
+            }
+        }
         $this->Rule = $rule;
+        return $this;
+    }
+    /**
+     * Add item to Rule value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsProtectionRuleType $item
+     * @return \Ews\ArrayType\EwsArrayOfProtectionRulesType
+     */
+    public function addToRule(\Ews\StructType\EwsProtectionRuleType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsProtectionRuleType) {
+            throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsProtectionRuleType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Rule[] = $item;
         return $this;
     }
     /**

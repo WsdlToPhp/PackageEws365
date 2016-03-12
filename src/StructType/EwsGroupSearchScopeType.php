@@ -14,13 +14,13 @@ class EwsGroupSearchScopeType extends AbstractStructBase
 {
     /**
      * The GroupTypes
-     * @var string[]
+     * @var string
      */
     public $GroupTypes;
     /**
      * Constructor method for GroupSearchScopeType
      * @uses EwsGroupSearchScopeType::setGroupTypes()
-     * @param string[] $groupTypes
+     * @param string $groupTypes
      */
     public function __construct($groupTypes = null)
     {
@@ -29,7 +29,7 @@ class EwsGroupSearchScopeType extends AbstractStructBase
     }
     /**
      * Get GroupTypes value
-     * @return string[]|null
+     * @return string|null
      */
     public function getGroupTypes()
     {
@@ -39,11 +39,13 @@ class EwsGroupSearchScopeType extends AbstractStructBase
      * Set GroupTypes value
      * @uses \Ews\EnumType\EwsSearchScopeGroupsType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchScopeGroupsType::getValidValues()
-     * @param string[] $groupTypes
+     * @throws \InvalidArgumentException
+     * @param string $groupTypes
      * @return \Ews\StructType\EwsGroupSearchScopeType
      */
     public function setGroupTypes($groupTypes = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchScopeGroupsType::valueIsValid($groupTypes)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupTypes, implode(', ', \Ews\EnumType\EwsSearchScopeGroupsType::getValidValues())), __LINE__);
         }

@@ -14,8 +14,6 @@ class EwsRemoveContactFromImListType extends EwsBaseRequestType
 {
     /**
      * The ContactId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ContactId;

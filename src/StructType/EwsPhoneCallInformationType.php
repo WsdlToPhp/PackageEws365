@@ -75,11 +75,13 @@ class EwsPhoneCallInformationType extends AbstractStructBase
      * Set PhoneCallState value
      * @uses \Ews\EnumType\EwsPhoneCallStateType::valueIsValid()
      * @uses \Ews\EnumType\EwsPhoneCallStateType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $phoneCallState
      * @return \Ews\StructType\EwsPhoneCallInformationType
      */
     public function setPhoneCallState($phoneCallState = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPhoneCallStateType::valueIsValid($phoneCallState)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $phoneCallState, implode(', ', \Ews\EnumType\EwsPhoneCallStateType::getValidValues())), __LINE__);
         }
@@ -98,11 +100,13 @@ class EwsPhoneCallInformationType extends AbstractStructBase
      * Set ConnectionFailureCause value
      * @uses \Ews\EnumType\EwsConnectionFailureCauseType::valueIsValid()
      * @uses \Ews\EnumType\EwsConnectionFailureCauseType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $connectionFailureCause
      * @return \Ews\StructType\EwsPhoneCallInformationType
      */
     public function setConnectionFailureCause($connectionFailureCause = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConnectionFailureCauseType::valueIsValid($connectionFailureCause)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $connectionFailureCause, implode(', ', \Ews\EnumType\EwsConnectionFailureCauseType::getValidValues())), __LINE__);
         }
@@ -124,6 +128,10 @@ class EwsPhoneCallInformationType extends AbstractStructBase
      */
     public function setSIPResponseText($sIPResponseText = null)
     {
+        // validation for constraint: string
+        if (!is_null($sIPResponseText) && !is_string($sIPResponseText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sIPResponseText)), __LINE__);
+        }
         $this->SIPResponseText = $sIPResponseText;
         return $this;
     }
@@ -142,6 +150,10 @@ class EwsPhoneCallInformationType extends AbstractStructBase
      */
     public function setSIPResponseCode($sIPResponseCode = null)
     {
+        // validation for constraint: int
+        if (!is_null($sIPResponseCode) && !is_int($sIPResponseCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sIPResponseCode)), __LINE__);
+        }
         $this->SIPResponseCode = $sIPResponseCode;
         return $this;
     }

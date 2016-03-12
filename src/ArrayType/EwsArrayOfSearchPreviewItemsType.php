@@ -19,14 +19,13 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Mailbox search preview item.
-     * @var array
+     * @var \Ews\StructType\EwsSearchPreviewItemType[]
      */
     public $SearchPreviewItem;
     /**
      * Constructor method for ArrayOfSearchPreviewItemsType
      * @uses EwsArrayOfSearchPreviewItemsType::setSearchPreviewItem()
-     * @param array $searchPreviewItem
+     * @param \Ews\StructType\EwsSearchPreviewItemType[] $searchPreviewItem
      */
     public function __construct(array $searchPreviewItem = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
     }
     /**
      * Get SearchPreviewItem value
-     * @return array
+     * @return \Ews\StructType\EwsSearchPreviewItemType[]|null
      */
     public function getSearchPreviewItem()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
     }
     /**
      * Set SearchPreviewItem value
-     * @param array $searchPreviewItem
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSearchPreviewItemType[] $searchPreviewItem
      * @return \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
      */
     public function setSearchPreviewItem(array $searchPreviewItem = array())
     {
+        foreach ($searchPreviewItem as $arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSearchPreviewItemsTypeSearchPreviewItemItem instanceof \Ews\StructType\EwsSearchPreviewItemType) {
+                throw new \InvalidArgumentException(sprintf('The SearchPreviewItem property can only contain items of \Ews\StructType\EwsSearchPreviewItemType, "%s" given', is_object($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) ? get_class($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) : gettype($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem)), __LINE__);
+            }
+        }
         $this->SearchPreviewItem = $searchPreviewItem;
+        return $this;
+    }
+    /**
+     * Add item to SearchPreviewItem value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSearchPreviewItemType $item
+     * @return \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
+     */
+    public function addToSearchPreviewItem(\Ews\StructType\EwsSearchPreviewItemType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsSearchPreviewItemType) {
+            throw new \InvalidArgumentException(sprintf('The SearchPreviewItem property can only contain items of \Ews\StructType\EwsSearchPreviewItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->SearchPreviewItem[] = $item;
         return $this;
     }
     /**

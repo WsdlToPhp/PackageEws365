@@ -17,13 +17,13 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsWorkTimeSlot[]
      */
     public $TimeSlot;
     /**
      * Constructor method for ArrayOfWorkTimeSlot
      * @uses EwsArrayOfWorkTimeSlot::setTimeSlot()
-     * @param array $timeSlot
+     * @param \Ews\StructType\EwsWorkTimeSlot[] $timeSlot
      */
     public function __construct(array $timeSlot = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
     }
     /**
      * Get TimeSlot value
-     * @return array
+     * @return \Ews\StructType\EwsWorkTimeSlot[]|null
      */
     public function getTimeSlot()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
     }
     /**
      * Set TimeSlot value
-     * @param array $timeSlot
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkTimeSlot[] $timeSlot
      * @return \Ews\ArrayType\EwsArrayOfWorkTimeSlot
      */
     public function setTimeSlot(array $timeSlot = array())
     {
+        foreach ($timeSlot as $arrayOfWorkTimeSlotTimeSlotItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfWorkTimeSlotTimeSlotItem instanceof \Ews\StructType\EwsWorkTimeSlot) {
+                throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of \Ews\StructType\EwsWorkTimeSlot, "%s" given', is_object($arrayOfWorkTimeSlotTimeSlotItem) ? get_class($arrayOfWorkTimeSlotTimeSlotItem) : gettype($arrayOfWorkTimeSlotTimeSlotItem)), __LINE__);
+            }
+        }
         $this->TimeSlot = $timeSlot;
+        return $this;
+    }
+    /**
+     * Add item to TimeSlot value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsWorkTimeSlot $item
+     * @return \Ews\ArrayType\EwsArrayOfWorkTimeSlot
+     */
+    public function addToTimeSlot(\Ews\StructType\EwsWorkTimeSlot $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsWorkTimeSlot) {
+            throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of \Ews\StructType\EwsWorkTimeSlot, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->TimeSlot[] = $item;
         return $this;
     }
     /**

@@ -14,12 +14,12 @@ class EwsTaskStatusType
      * Constant for value 'NotStarted'
      * @return string 'NotStarted'
      */
-    const VALUE_NOTSTARTED = 'NotStarted';
+    const VALUE_NOT_STARTED = 'NotStarted';
     /**
      * Constant for value 'InProgress'
      * @return string 'InProgress'
      */
-    const VALUE_INPROGRESS = 'InProgress';
+    const VALUE_IN_PROGRESS = 'InProgress';
     /**
      * Constant for value 'Completed'
      * @return string 'Completed'
@@ -29,7 +29,7 @@ class EwsTaskStatusType
      * Constant for value 'WaitingOnOthers'
      * @return string 'WaitingOnOthers'
      */
-    const VALUE_WAITINGONOTHERS = 'WaitingOnOthers';
+    const VALUE_WAITING_ON_OTHERS = 'WaitingOnOthers';
     /**
      * Constant for value 'Deferred'
      * @return string 'Deferred'
@@ -47,20 +47,20 @@ class EwsTaskStatusType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOTSTARTED
-     * @uses self::VALUE_INPROGRESS
+     * @uses self::VALUE_NOT_STARTED
+     * @uses self::VALUE_IN_PROGRESS
      * @uses self::VALUE_COMPLETED
-     * @uses self::VALUE_WAITINGONOTHERS
+     * @uses self::VALUE_WAITING_ON_OTHERS
      * @uses self::VALUE_DEFERRED
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOTSTARTED,
-            self::VALUE_INPROGRESS,
+            self::VALUE_NOT_STARTED,
+            self::VALUE_IN_PROGRESS,
             self::VALUE_COMPLETED,
-            self::VALUE_WAITINGONOTHERS,
+            self::VALUE_WAITING_ON_OTHERS,
             self::VALUE_DEFERRED,
         );
     }

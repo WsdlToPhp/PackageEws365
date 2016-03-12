@@ -17,7 +17,7 @@ class EwsSuggestion extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $MeetingTime;
     /**
@@ -25,7 +25,7 @@ class EwsSuggestion extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsWorkTime;
     /**
@@ -50,8 +50,8 @@ class EwsSuggestion extends AbstractStructBase
      * @uses EwsSuggestion::setIsWorkTime()
      * @uses EwsSuggestion::setSuggestionQuality()
      * @uses EwsSuggestion::setAttendeeConflictDataArray()
-     * @param dateTime $meetingTime
-     * @param boolean $isWorkTime
+     * @param string $meetingTime
+     * @param bool $isWorkTime
      * @param string $suggestionQuality
      * @param \Ews\StructType\EwsArrayOfAttendeeConflictData $attendeeConflictDataArray
      */
@@ -65,7 +65,7 @@ class EwsSuggestion extends AbstractStructBase
     }
     /**
      * Get MeetingTime value
-     * @return dateTime
+     * @return string
      */
     public function getMeetingTime()
     {
@@ -73,17 +73,21 @@ class EwsSuggestion extends AbstractStructBase
     }
     /**
      * Set MeetingTime value
-     * @param dateTime $meetingTime
+     * @param string $meetingTime
      * @return \Ews\StructType\EwsSuggestion
      */
     public function setMeetingTime($meetingTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($meetingTime) && !is_string($meetingTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingTime)), __LINE__);
+        }
         $this->MeetingTime = $meetingTime;
         return $this;
     }
     /**
      * Get IsWorkTime value
-     * @return boolean
+     * @return bool
      */
     public function getIsWorkTime()
     {
@@ -91,7 +95,7 @@ class EwsSuggestion extends AbstractStructBase
     }
     /**
      * Set IsWorkTime value
-     * @param boolean $isWorkTime
+     * @param bool $isWorkTime
      * @return \Ews\StructType\EwsSuggestion
      */
     public function setIsWorkTime($isWorkTime = null)
@@ -111,11 +115,13 @@ class EwsSuggestion extends AbstractStructBase
      * Set SuggestionQuality value
      * @uses \Ews\EnumType\EwsSuggestionQuality::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionQuality::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $suggestionQuality
      * @return \Ews\StructType\EwsSuggestion
      */
     public function setSuggestionQuality($suggestionQuality = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionQuality::valueIsValid($suggestionQuality)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionQuality, implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
         }

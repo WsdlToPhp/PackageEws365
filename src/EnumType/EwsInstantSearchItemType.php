@@ -19,17 +19,17 @@ class EwsInstantSearchItemType
      * Constant for value 'MailItem'
      * @return string 'MailItem'
      */
-    const VALUE_MAILITEM = 'MailItem';
+    const VALUE_MAIL_ITEM = 'MailItem';
     /**
      * Constant for value 'MailConversation'
      * @return string 'MailConversation'
      */
-    const VALUE_MAILCONVERSATION = 'MailConversation';
+    const VALUE_MAIL_CONVERSATION = 'MailConversation';
     /**
      * Constant for value 'CalendarItem'
      * @return string 'CalendarItem'
      */
-    const VALUE_CALENDARITEM = 'CalendarItem';
+    const VALUE_CALENDAR_ITEM = 'CalendarItem';
     /**
      * Constant for value 'Persona'
      * @return string 'Persona'
@@ -48,9 +48,9 @@ class EwsInstantSearchItemType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_MAILITEM
-     * @uses self::VALUE_MAILCONVERSATION
-     * @uses self::VALUE_CALENDARITEM
+     * @uses self::VALUE_MAIL_ITEM
+     * @uses self::VALUE_MAIL_CONVERSATION
+     * @uses self::VALUE_CALENDAR_ITEM
      * @uses self::VALUE_PERSONA
      * @return string[]
      */
@@ -58,9 +58,9 @@ class EwsInstantSearchItemType
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_MAILITEM,
-            self::VALUE_MAILCONVERSATION,
-            self::VALUE_CALENDARITEM,
+            self::VALUE_MAIL_ITEM,
+            self::VALUE_MAIL_CONVERSATION,
+            self::VALUE_CALENDAR_ITEM,
             self::VALUE_PERSONA,
         );
     }

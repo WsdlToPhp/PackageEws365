@@ -14,12 +14,12 @@ class EwsSearchScopeArchivesType
      * Constant for value 'MainArchive'
      * @return string 'MainArchive'
      */
-    const VALUE_MAINARCHIVE = 'MainArchive';
+    const VALUE_MAIN_ARCHIVE = 'MainArchive';
     /**
      * Constant for value 'AuxArchive'
      * @return string 'AuxArchive'
      */
-    const VALUE_AUXARCHIVE = 'AuxArchive';
+    const VALUE_AUX_ARCHIVE = 'AuxArchive';
     /**
      * Constant for value 'All'
      * @return string 'All'
@@ -37,16 +37,16 @@ class EwsSearchScopeArchivesType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_MAINARCHIVE
-     * @uses self::VALUE_AUXARCHIVE
+     * @uses self::VALUE_MAIN_ARCHIVE
+     * @uses self::VALUE_AUX_ARCHIVE
      * @uses self::VALUE_ALL
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_MAINARCHIVE,
-            self::VALUE_AUXARCHIVE,
+            self::VALUE_MAIN_ARCHIVE,
+            self::VALUE_AUX_ARCHIVE,
             self::VALUE_ALL,
         );
     }

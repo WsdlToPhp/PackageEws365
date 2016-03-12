@@ -41,11 +41,13 @@ abstract class EwsBaseGroupByType extends AbstractStructBase
      * Set Order value
      * @uses \Ews\EnumType\EwsSortDirectionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSortDirectionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $order
      * @return \Ews\StructType\EwsBaseGroupByType
      */
     public function setOrder($order = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($order)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $order, implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }

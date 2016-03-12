@@ -42,11 +42,13 @@ class EwsRequestTypeHeader extends AbstractStructBase
      * Set RequestType value
      * @uses \Ews\EnumType\EwsAvailabilityProxyRequestType::valueIsValid()
      * @uses \Ews\EnumType\EwsAvailabilityProxyRequestType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $requestType
      * @return \Ews\StructType\EwsRequestTypeHeader
      */
     public function setRequestType($requestType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAvailabilityProxyRequestType::valueIsValid($requestType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $requestType, implode(', ', \Ews\EnumType\EwsAvailabilityProxyRequestType::getValidValues())), __LINE__);
         }

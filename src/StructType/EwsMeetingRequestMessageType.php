@@ -30,28 +30,28 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * The Start
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The End
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
      * The OriginalStart
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $OriginalStart;
     /**
      * The IsAllDayEvent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAllDayEvent;
     /**
@@ -79,28 +79,28 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * The IsMeeting
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMeeting;
     /**
      * The IsCancelled
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsCancelled;
     /**
      * The IsRecurring
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRecurring;
     /**
      * The MeetingRequestWasSent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MeetingRequestWasSent;
     /**
@@ -191,7 +191,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * The AppointmentReplyTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $AppointmentReplyTime;
     /**
@@ -277,14 +277,14 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * The AllowNewTimeProposal
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $AllowNewTimeProposal;
     /**
      * The IsOnlineMeeting
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOnlineMeeting;
     /**
@@ -320,7 +320,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartWallClock;
     /**
@@ -328,7 +328,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndWallClock;
     /**
@@ -398,17 +398,17 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * @uses EwsMeetingRequestMessageType::setEndTimeZoneId()
      * @param string $meetingRequestType
      * @param string $intendedFreeBusyStatus
-     * @param dateTime $start
-     * @param dateTime $end
-     * @param dateTime $originalStart
-     * @param boolean $isAllDayEvent
+     * @param string $start
+     * @param string $end
+     * @param string $originalStart
+     * @param bool $isAllDayEvent
      * @param string $legacyFreeBusyStatus
      * @param string $location
      * @param string $when
-     * @param boolean $isMeeting
-     * @param boolean $isCancelled
-     * @param boolean $isRecurring
-     * @param boolean $meetingRequestWasSent
+     * @param bool $isMeeting
+     * @param bool $isCancelled
+     * @param bool $isRecurring
+     * @param bool $meetingRequestWasSent
      * @param string $calendarItemType
      * @param string $myResponseType
      * @param \Ews\StructType\EwsSingleRecipientType $organizer
@@ -421,7 +421,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings
      * @param string $duration
      * @param string $timeZone
-     * @param dateTime $appointmentReplyTime
+     * @param string $appointmentReplyTime
      * @param int $appointmentSequenceNumber
      * @param int $appointmentState
      * @param \Ews\StructType\EwsRecurrenceType $recurrence
@@ -434,14 +434,14 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * @param \Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone
      * @param \Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone
      * @param int $conferenceType
-     * @param boolean $allowNewTimeProposal
-     * @param boolean $isOnlineMeeting
+     * @param bool $allowNewTimeProposal
+     * @param bool $isOnlineMeeting
      * @param string $meetingWorkspaceUrl
      * @param string $netShowUrl
      * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
      * @param \Ews\StructType\EwsChangeHighlightsType $changeHighlights
-     * @param dateTime $startWallClock
-     * @param dateTime $endWallClock
+     * @param string $startWallClock
+     * @param string $endWallClock
      * @param string $startTimeZoneId
      * @param string $endTimeZoneId
      */
@@ -508,11 +508,13 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Set MeetingRequestType value
      * @uses \Ews\EnumType\EwsMeetingRequestTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsMeetingRequestTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $meetingRequestType
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setMeetingRequestType($meetingRequestType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMeetingRequestTypeType::valueIsValid($meetingRequestType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $meetingRequestType, implode(', ', \Ews\EnumType\EwsMeetingRequestTypeType::getValidValues())), __LINE__);
         }
@@ -531,11 +533,13 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Set IntendedFreeBusyStatus value
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $intendedFreeBusyStatus
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIntendedFreeBusyStatus($intendedFreeBusyStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($intendedFreeBusyStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $intendedFreeBusyStatus, implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
@@ -544,7 +548,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -552,17 +556,21 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -570,17 +578,21 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }
     /**
      * Get OriginalStart value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getOriginalStart()
     {
@@ -588,17 +600,21 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set OriginalStart value
-     * @param dateTime $originalStart
+     * @param string $originalStart
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setOriginalStart($originalStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($originalStart) && !is_string($originalStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($originalStart)), __LINE__);
+        }
         $this->OriginalStart = $originalStart;
         return $this;
     }
     /**
      * Get IsAllDayEvent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAllDayEvent()
     {
@@ -606,7 +622,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set IsAllDayEvent value
-     * @param boolean $isAllDayEvent
+     * @param bool $isAllDayEvent
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIsAllDayEvent($isAllDayEvent = null)
@@ -626,11 +642,13 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Set LegacyFreeBusyStatus value
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
      * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $legacyFreeBusyStatus
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setLegacyFreeBusyStatus($legacyFreeBusyStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($legacyFreeBusyStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $legacyFreeBusyStatus, implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
@@ -652,6 +670,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
@@ -670,12 +692,16 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setWhen($when = null)
     {
+        // validation for constraint: string
+        if (!is_null($when) && !is_string($when)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($when)), __LINE__);
+        }
         $this->When = $when;
         return $this;
     }
     /**
      * Get IsMeeting value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMeeting()
     {
@@ -683,7 +709,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set IsMeeting value
-     * @param boolean $isMeeting
+     * @param bool $isMeeting
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIsMeeting($isMeeting = null)
@@ -693,7 +719,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get IsCancelled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsCancelled()
     {
@@ -701,7 +727,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set IsCancelled value
-     * @param boolean $isCancelled
+     * @param bool $isCancelled
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIsCancelled($isCancelled = null)
@@ -711,7 +737,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get IsRecurring value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRecurring()
     {
@@ -719,7 +745,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set IsRecurring value
-     * @param boolean $isRecurring
+     * @param bool $isRecurring
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIsRecurring($isRecurring = null)
@@ -729,7 +755,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get MeetingRequestWasSent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMeetingRequestWasSent()
     {
@@ -737,7 +763,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set MeetingRequestWasSent value
-     * @param boolean $meetingRequestWasSent
+     * @param bool $meetingRequestWasSent
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setMeetingRequestWasSent($meetingRequestWasSent = null)
@@ -757,11 +783,13 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Set CalendarItemType value
      * @uses \Ews\EnumType\EwsCalendarItemTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarItemTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $calendarItemType
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setCalendarItemType($calendarItemType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemTypeType::valueIsValid($calendarItemType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $calendarItemType, implode(', ', \Ews\EnumType\EwsCalendarItemTypeType::getValidValues())), __LINE__);
         }
@@ -780,11 +808,13 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Set MyResponseType value
      * @uses \Ews\EnumType\EwsResponseTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $myResponseType
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setMyResponseType($myResponseType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($myResponseType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $myResponseType, implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
@@ -878,6 +908,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setConflictingMeetingCount($conflictingMeetingCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($conflictingMeetingCount) && !is_int($conflictingMeetingCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($conflictingMeetingCount)), __LINE__);
+        }
         $this->ConflictingMeetingCount = $conflictingMeetingCount;
         return $this;
     }
@@ -896,6 +930,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setAdjacentMeetingCount($adjacentMeetingCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($adjacentMeetingCount) && !is_int($adjacentMeetingCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($adjacentMeetingCount)), __LINE__);
+        }
         $this->AdjacentMeetingCount = $adjacentMeetingCount;
         return $this;
     }
@@ -950,6 +988,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setDuration($duration = null)
     {
+        // validation for constraint: string
+        if (!is_null($duration) && !is_string($duration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($duration)), __LINE__);
+        }
         $this->Duration = $duration;
         return $this;
     }
@@ -968,12 +1010,16 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setTimeZone($timeZone = null)
     {
+        // validation for constraint: string
+        if (!is_null($timeZone) && !is_string($timeZone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZone)), __LINE__);
+        }
         $this->TimeZone = $timeZone;
         return $this;
     }
     /**
      * Get AppointmentReplyTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getAppointmentReplyTime()
     {
@@ -981,11 +1027,15 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set AppointmentReplyTime value
-     * @param dateTime $appointmentReplyTime
+     * @param string $appointmentReplyTime
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setAppointmentReplyTime($appointmentReplyTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($appointmentReplyTime) && !is_string($appointmentReplyTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appointmentReplyTime)), __LINE__);
+        }
         $this->AppointmentReplyTime = $appointmentReplyTime;
         return $this;
     }
@@ -1004,6 +1054,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setAppointmentSequenceNumber($appointmentSequenceNumber = null)
     {
+        // validation for constraint: int
+        if (!is_null($appointmentSequenceNumber) && !is_int($appointmentSequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($appointmentSequenceNumber)), __LINE__);
+        }
         $this->AppointmentSequenceNumber = $appointmentSequenceNumber;
         return $this;
     }
@@ -1022,6 +1076,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setAppointmentState($appointmentState = null)
     {
+        // validation for constraint: int
+        if (!is_null($appointmentState) && !is_int($appointmentState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($appointmentState)), __LINE__);
+        }
         $this->AppointmentState = $appointmentState;
         return $this;
     }
@@ -1185,12 +1243,16 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setConferenceType($conferenceType = null)
     {
+        // validation for constraint: int
+        if (!is_null($conferenceType) && !is_int($conferenceType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($conferenceType)), __LINE__);
+        }
         $this->ConferenceType = $conferenceType;
         return $this;
     }
     /**
      * Get AllowNewTimeProposal value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAllowNewTimeProposal()
     {
@@ -1198,7 +1260,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set AllowNewTimeProposal value
-     * @param boolean $allowNewTimeProposal
+     * @param bool $allowNewTimeProposal
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setAllowNewTimeProposal($allowNewTimeProposal = null)
@@ -1208,7 +1270,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get IsOnlineMeeting value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOnlineMeeting()
     {
@@ -1216,7 +1278,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set IsOnlineMeeting value
-     * @param boolean $isOnlineMeeting
+     * @param bool $isOnlineMeeting
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setIsOnlineMeeting($isOnlineMeeting = null)
@@ -1239,6 +1301,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setMeetingWorkspaceUrl($meetingWorkspaceUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($meetingWorkspaceUrl) && !is_string($meetingWorkspaceUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingWorkspaceUrl)), __LINE__);
+        }
         $this->MeetingWorkspaceUrl = $meetingWorkspaceUrl;
         return $this;
     }
@@ -1257,6 +1323,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setNetShowUrl($netShowUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($netShowUrl) && !is_string($netShowUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($netShowUrl)), __LINE__);
+        }
         $this->NetShowUrl = $netShowUrl;
         return $this;
     }
@@ -1298,7 +1368,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Get StartWallClock value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartWallClock()
     {
@@ -1306,17 +1376,21 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set StartWallClock value
-     * @param dateTime $startWallClock
+     * @param string $startWallClock
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setStartWallClock($startWallClock = null)
     {
+        // validation for constraint: string
+        if (!is_null($startWallClock) && !is_string($startWallClock)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startWallClock)), __LINE__);
+        }
         $this->StartWallClock = $startWallClock;
         return $this;
     }
     /**
      * Get EndWallClock value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndWallClock()
     {
@@ -1324,11 +1398,15 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set EndWallClock value
-     * @param dateTime $endWallClock
+     * @param string $endWallClock
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setEndWallClock($endWallClock = null)
     {
+        // validation for constraint: string
+        if (!is_null($endWallClock) && !is_string($endWallClock)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endWallClock)), __LINE__);
+        }
         $this->EndWallClock = $endWallClock;
         return $this;
     }
@@ -1347,6 +1425,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setStartTimeZoneId($startTimeZoneId = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTimeZoneId) && !is_string($startTimeZoneId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTimeZoneId)), __LINE__);
+        }
         $this->StartTimeZoneId = $startTimeZoneId;
         return $this;
     }
@@ -1365,6 +1447,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setEndTimeZoneId($endTimeZoneId = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTimeZoneId) && !is_string($endTimeZoneId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTimeZoneId)), __LINE__);
+        }
         $this->EndTimeZoneId = $endTimeZoneId;
         return $this;
     }

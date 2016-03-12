@@ -17,8 +17,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \Ews\StructType\EwsEmailAddressType[]
      */
     public $Mailbox;
     /**
@@ -38,7 +37,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public $AbsoluteDenominator;
     /**
      * The IncludesLastItemInRange
-     * @var boolean
+     * @var bool
      */
     public $IncludesLastItemInRange;
     /**
@@ -54,14 +53,14 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      * @uses EwsArrayOfDLExpansionType::setAbsoluteDenominator()
      * @uses EwsArrayOfDLExpansionType::setIncludesLastItemInRange()
      * @uses EwsArrayOfDLExpansionType::setTotalItemsInView()
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \Ews\StructType\EwsEmailAddressType[] $mailbox
      * @param int $indexedPagingOffset
      * @param int $numeratorOffset
      * @param int $absoluteDenominator
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @param int $totalItemsInView
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null, $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
+    public function __construct(array $mailbox = array(), $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -73,7 +72,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \Ews\StructType\EwsEmailAddressType[]|null
      */
     public function getMailbox()
     {
@@ -81,12 +80,34 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressType[] $mailbox
      * @return \Ews\StructType\EwsArrayOfDLExpansionType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(array $mailbox = array())
     {
+        foreach ($mailbox as $arrayOfDLExpansionTypeMailboxItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfDLExpansionTypeMailboxItem instanceof \Ews\StructType\EwsEmailAddressType) {
+                throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($arrayOfDLExpansionTypeMailboxItem) ? get_class($arrayOfDLExpansionTypeMailboxItem) : gettype($arrayOfDLExpansionTypeMailboxItem)), __LINE__);
+            }
+        }
         $this->Mailbox = $mailbox;
+        return $this;
+    }
+    /**
+     * Add item to Mailbox value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressType $item
+     * @return \Ews\StructType\EwsArrayOfDLExpansionType
+     */
+    public function addToMailbox(\Ews\StructType\EwsEmailAddressType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailAddressType) {
+            throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Mailbox[] = $item;
         return $this;
     }
     /**
@@ -104,6 +125,10 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      */
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($indexedPagingOffset) && !is_int($indexedPagingOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
     }
@@ -122,6 +147,10 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      */
     public function setNumeratorOffset($numeratorOffset = null)
     {
+        // validation for constraint: int
+        if (!is_null($numeratorOffset) && !is_int($numeratorOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numeratorOffset)), __LINE__);
+        }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
     }
@@ -140,12 +169,16 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      */
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
+        // validation for constraint: int
+        if (!is_null($absoluteDenominator) && !is_int($absoluteDenominator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
     }
     /**
      * Get IncludesLastItemInRange value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludesLastItemInRange()
     {
@@ -153,7 +186,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     }
     /**
      * Set IncludesLastItemInRange value
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @return \Ews\StructType\EwsArrayOfDLExpansionType
      */
     public function setIncludesLastItemInRange($includesLastItemInRange = null)
@@ -176,6 +209,10 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      */
     public function setTotalItemsInView($totalItemsInView = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalItemsInView) && !is_int($totalItemsInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalItemsInView)), __LINE__);
+        }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
     }

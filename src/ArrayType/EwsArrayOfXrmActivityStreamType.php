@@ -17,13 +17,13 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsXrmActivityStreamType[]
      */
     public $Activity;
     /**
      * Constructor method for ArrayOfXrmActivityStreamType
      * @uses EwsArrayOfXrmActivityStreamType::setActivity()
-     * @param array $activity
+     * @param \Ews\StructType\EwsXrmActivityStreamType[] $activity
      */
     public function __construct(array $activity = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
     }
     /**
      * Get Activity value
-     * @return array
+     * @return \Ews\StructType\EwsXrmActivityStreamType[]|null
      */
     public function getActivity()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
     }
     /**
      * Set Activity value
-     * @param array $activity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmActivityStreamType[] $activity
      * @return \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
      */
     public function setActivity(array $activity = array())
     {
+        foreach ($activity as $arrayOfXrmActivityStreamTypeActivityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmActivityStreamTypeActivityItem instanceof \Ews\StructType\EwsXrmActivityStreamType) {
+                throw new \InvalidArgumentException(sprintf('The Activity property can only contain items of \Ews\StructType\EwsXrmActivityStreamType, "%s" given', is_object($arrayOfXrmActivityStreamTypeActivityItem) ? get_class($arrayOfXrmActivityStreamTypeActivityItem) : gettype($arrayOfXrmActivityStreamTypeActivityItem)), __LINE__);
+            }
+        }
         $this->Activity = $activity;
+        return $this;
+    }
+    /**
+     * Add item to Activity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmActivityStreamType $item
+     * @return \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
+     */
+    public function addToActivity(\Ews\StructType\EwsXrmActivityStreamType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsXrmActivityStreamType) {
+            throw new \InvalidArgumentException(sprintf('The Activity property can only contain items of \Ews\StructType\EwsXrmActivityStreamType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Activity[] = $item;
         return $this;
     }
     /**

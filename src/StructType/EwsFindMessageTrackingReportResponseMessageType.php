@@ -124,6 +124,10 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
      */
     public function setExecutedSearchScope($executedSearchScope = null)
     {
+        // validation for constraint: string
+        if (!is_null($executedSearchScope) && !is_string($executedSearchScope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($executedSearchScope)), __LINE__);
+        }
         $this->ExecutedSearchScope = $executedSearchScope;
         return $this;
     }

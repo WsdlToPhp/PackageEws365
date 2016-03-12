@@ -14,8 +14,6 @@ abstract class EwsBaseDelegateType extends EwsBaseRequestType
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Mailbox;

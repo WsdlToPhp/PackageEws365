@@ -26,7 +26,7 @@ class EwsFolderQueryTraversalType
      * Constant for value 'SoftDeleted'
      * @return string 'SoftDeleted'
      */
-    const VALUE_SOFTDELETED = 'SoftDeleted';
+    const VALUE_SOFT_DELETED = 'SoftDeleted';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -41,7 +41,7 @@ class EwsFolderQueryTraversalType
      * Return allowed values
      * @uses self::VALUE_SHALLOW
      * @uses self::VALUE_DEEP
-     * @uses self::VALUE_SOFTDELETED
+     * @uses self::VALUE_SOFT_DELETED
      * @return string[]
      */
     public static function getValidValues()
@@ -49,7 +49,7 @@ class EwsFolderQueryTraversalType
         return array(
             self::VALUE_SHALLOW,
             self::VALUE_DEEP,
-            self::VALUE_SOFTDELETED,
+            self::VALUE_SOFT_DELETED,
         );
     }
     /**

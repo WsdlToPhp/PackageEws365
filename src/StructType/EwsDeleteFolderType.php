@@ -49,11 +49,13 @@ class EwsDeleteFolderType extends EwsBaseRequestType
      * Set DeleteType value
      * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
      * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deleteType
      * @return \Ews\StructType\EwsDeleteFolderType
      */
     public function setDeleteType($deleteType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }

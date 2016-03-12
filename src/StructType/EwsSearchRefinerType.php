@@ -53,11 +53,13 @@ class EwsSearchRefinerType extends AbstractStructBase
      * Set RefinerType value
      * @uses \Ews\EnumType\EwsRefinerTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsRefinerTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $refinerType
      * @return \Ews\StructType\EwsSearchRefinerType
      */
     public function setRefinerType($refinerType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRefinerTypeType::valueIsValid($refinerType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $refinerType, implode(', ', \Ews\EnumType\EwsRefinerTypeType::getValidValues())), __LINE__);
         }

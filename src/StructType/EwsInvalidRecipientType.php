@@ -21,8 +21,6 @@ class EwsInvalidRecipientType extends AbstractStructBase
     public $SmtpAddress;
     /**
      * The ResponseCode
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents the message keys that can be returned for invalid recipients
      * @var string
      */
     public $ResponseCode;
@@ -64,6 +62,14 @@ class EwsInvalidRecipientType extends AbstractStructBase
      */
     public function setSmtpAddress($smtpAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+        }
         $this->SmtpAddress = $smtpAddress;
         return $this;
     }
@@ -79,11 +85,13 @@ class EwsInvalidRecipientType extends AbstractStructBase
      * Set ResponseCode value
      * @uses \Ews\EnumType\EwsInvalidRecipientResponseCodeType::valueIsValid()
      * @uses \Ews\EnumType\EwsInvalidRecipientResponseCodeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseCode
      * @return \Ews\StructType\EwsInvalidRecipientType
      */
     public function setResponseCode($responseCode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsInvalidRecipientResponseCodeType::valueIsValid($responseCode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseCode, implode(', ', \Ews\EnumType\EwsInvalidRecipientResponseCodeType::getValidValues())), __LINE__);
         }
@@ -105,6 +113,10 @@ class EwsInvalidRecipientType extends AbstractStructBase
      */
     public function setMessageText($messageText = null)
     {
+        // validation for constraint: string
+        if (!is_null($messageText) && !is_string($messageText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageText)), __LINE__);
+        }
         $this->MessageText = $messageText;
         return $this;
     }

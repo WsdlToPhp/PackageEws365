@@ -44,6 +44,10 @@ class EwsMeetingTimeCandidatesConstraintItem extends AbstractStructBase
      */
     public function setEmail($email = null)
     {
+        // validation for constraint: string
+        if (!is_null($email) && !is_string($email)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($email)), __LINE__);
+        }
         $this->Email = $email;
         return $this;
     }

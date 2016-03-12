@@ -17,7 +17,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $HasChanged;
     /**
@@ -32,7 +32,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * Constructor method for GetUserPhotoResponseMessageType
      * @uses EwsGetUserPhotoResponseMessageType::setHasChanged()
      * @uses EwsGetUserPhotoResponseMessageType::setPictureData()
-     * @param boolean $hasChanged
+     * @param bool $hasChanged
      * @param base64Binary $pictureData
      */
     public function __construct($hasChanged = null, base64Binary $pictureData = null)
@@ -43,7 +43,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get HasChanged value
-     * @return boolean
+     * @return bool
      */
     public function getHasChanged()
     {
@@ -51,7 +51,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set HasChanged value
-     * @param boolean $hasChanged
+     * @param bool $hasChanged
      * @return \Ews\StructType\EwsGetUserPhotoResponseMessageType
      */
     public function setHasChanged($hasChanged = null)

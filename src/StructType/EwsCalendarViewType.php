@@ -16,22 +16,22 @@ class EwsCalendarViewType extends EwsBasePagingType
      * The StartDate
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var dateTime
+     * @var string
      */
     public $StartDate;
     /**
      * The EndDate
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var dateTime
+     * @var string
      */
     public $EndDate;
     /**
      * Constructor method for CalendarViewType
      * @uses EwsCalendarViewType::setStartDate()
      * @uses EwsCalendarViewType::setEndDate()
-     * @param dateTime $startDate
-     * @param dateTime $endDate
+     * @param string $startDate
+     * @param string $endDate
      */
     public function __construct($startDate = null, $endDate = null)
     {
@@ -41,7 +41,7 @@ class EwsCalendarViewType extends EwsBasePagingType
     }
     /**
      * Get StartDate value
-     * @return dateTime
+     * @return string
      */
     public function getStartDate()
     {
@@ -49,17 +49,21 @@ class EwsCalendarViewType extends EwsBasePagingType
     }
     /**
      * Set StartDate value
-     * @param dateTime $startDate
+     * @param string $startDate
      * @return \Ews\StructType\EwsCalendarViewType
      */
     public function setStartDate($startDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($startDate) && !is_string($startDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDate)), __LINE__);
+        }
         $this->StartDate = $startDate;
         return $this;
     }
     /**
      * Get EndDate value
-     * @return dateTime
+     * @return string
      */
     public function getEndDate()
     {
@@ -67,11 +71,15 @@ class EwsCalendarViewType extends EwsBasePagingType
     }
     /**
      * Set EndDate value
-     * @param dateTime $endDate
+     * @param string $endDate
      * @return \Ews\StructType\EwsCalendarViewType
      */
     public function setEndDate($endDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($endDate) && !is_string($endDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDate)), __LINE__);
+        }
         $this->EndDate = $endDate;
         return $this;
     }

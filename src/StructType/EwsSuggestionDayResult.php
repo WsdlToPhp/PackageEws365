@@ -17,7 +17,7 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $Date;
     /**
@@ -41,7 +41,7 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * @uses EwsSuggestionDayResult::setDate()
      * @uses EwsSuggestionDayResult::setDayQuality()
      * @uses EwsSuggestionDayResult::setSuggestionArray()
-     * @param dateTime $date
+     * @param string $date
      * @param string $dayQuality
      * @param \Ews\ArrayType\EwsArrayOfSuggestion $suggestionArray
      */
@@ -54,7 +54,7 @@ class EwsSuggestionDayResult extends AbstractStructBase
     }
     /**
      * Get Date value
-     * @return dateTime
+     * @return string
      */
     public function getDate()
     {
@@ -62,11 +62,15 @@ class EwsSuggestionDayResult extends AbstractStructBase
     }
     /**
      * Set Date value
-     * @param dateTime $date
+     * @param string $date
      * @return \Ews\StructType\EwsSuggestionDayResult
      */
     public function setDate($date = null)
     {
+        // validation for constraint: string
+        if (!is_null($date) && !is_string($date)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($date)), __LINE__);
+        }
         $this->Date = $date;
         return $this;
     }
@@ -82,11 +86,13 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * Set DayQuality value
      * @uses \Ews\EnumType\EwsSuggestionQuality::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionQuality::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $dayQuality
      * @return \Ews\StructType\EwsSuggestionDayResult
      */
     public function setDayQuality($dayQuality = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionQuality::valueIsValid($dayQuality)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dayQuality, implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
         }

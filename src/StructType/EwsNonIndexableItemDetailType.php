@@ -19,7 +19,6 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -44,7 +43,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsPartiallyIndexed;
     /**
@@ -52,7 +51,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsPermanentFailure;
     /**
@@ -76,7 +75,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastAttemptTime;
     /**
@@ -101,11 +100,11 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param string $errorCode
      * @param string $errorDescription
-     * @param boolean $isPartiallyIndexed
-     * @param boolean $isPermanentFailure
+     * @param bool $isPartiallyIndexed
+     * @param bool $isPermanentFailure
      * @param string $sortValue
      * @param int $attemptCount
-     * @param dateTime $lastAttemptTime
+     * @param string $lastAttemptTime
      * @param string $additionalInfo
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $errorCode = null, $errorDescription = null, $isPartiallyIndexed = null, $isPermanentFailure = null, $sortValue = null, $attemptCount = null, $lastAttemptTime = null, $additionalInfo = null)
@@ -151,11 +150,13 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Set ErrorCode value
      * @uses \Ews\EnumType\EwsItemIndexErrorType::valueIsValid()
      * @uses \Ews\EnumType\EwsItemIndexErrorType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $errorCode
      * @return \Ews\StructType\EwsNonIndexableItemDetailType
      */
     public function setErrorCode($errorCode = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsItemIndexErrorType::valueIsValid($errorCode)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsItemIndexErrorType::getValidValues())), __LINE__);
         }
@@ -177,12 +178,16 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setErrorDescription($errorDescription = null)
     {
+        // validation for constraint: string
+        if (!is_null($errorDescription) && !is_string($errorDescription)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorDescription)), __LINE__);
+        }
         $this->ErrorDescription = $errorDescription;
         return $this;
     }
     /**
      * Get IsPartiallyIndexed value
-     * @return boolean
+     * @return bool
      */
     public function getIsPartiallyIndexed()
     {
@@ -190,7 +195,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     }
     /**
      * Set IsPartiallyIndexed value
-     * @param boolean $isPartiallyIndexed
+     * @param bool $isPartiallyIndexed
      * @return \Ews\StructType\EwsNonIndexableItemDetailType
      */
     public function setIsPartiallyIndexed($isPartiallyIndexed = null)
@@ -200,7 +205,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     }
     /**
      * Get IsPermanentFailure value
-     * @return boolean
+     * @return bool
      */
     public function getIsPermanentFailure()
     {
@@ -208,7 +213,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     }
     /**
      * Set IsPermanentFailure value
-     * @param boolean $isPermanentFailure
+     * @param bool $isPermanentFailure
      * @return \Ews\StructType\EwsNonIndexableItemDetailType
      */
     public function setIsPermanentFailure($isPermanentFailure = null)
@@ -231,6 +236,10 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setSortValue($sortValue = null)
     {
+        // validation for constraint: string
+        if (!is_null($sortValue) && !is_string($sortValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortValue)), __LINE__);
+        }
         $this->SortValue = $sortValue;
         return $this;
     }
@@ -249,12 +258,16 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setAttemptCount($attemptCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($attemptCount) && !is_int($attemptCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($attemptCount)), __LINE__);
+        }
         $this->AttemptCount = $attemptCount;
         return $this;
     }
     /**
      * Get LastAttemptTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastAttemptTime()
     {
@@ -262,11 +275,15 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     }
     /**
      * Set LastAttemptTime value
-     * @param dateTime $lastAttemptTime
+     * @param string $lastAttemptTime
      * @return \Ews\StructType\EwsNonIndexableItemDetailType
      */
     public function setLastAttemptTime($lastAttemptTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastAttemptTime) && !is_string($lastAttemptTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastAttemptTime)), __LINE__);
+        }
         $this->LastAttemptTime = $lastAttemptTime;
         return $this;
     }
@@ -285,6 +302,10 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setAdditionalInfo($additionalInfo = null)
     {
+        // validation for constraint: string
+        if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalInfo)), __LINE__);
+        }
         $this->AdditionalInfo = $additionalInfo;
         return $this;
     }

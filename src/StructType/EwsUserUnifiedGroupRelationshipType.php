@@ -17,7 +17,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsMember;
     /**
@@ -25,7 +25,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsOwner;
     /**
@@ -33,7 +33,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsSubscribed;
     /**
@@ -41,9 +41,9 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * @uses EwsUserUnifiedGroupRelationshipType::setIsMember()
      * @uses EwsUserUnifiedGroupRelationshipType::setIsOwner()
      * @uses EwsUserUnifiedGroupRelationshipType::setIsSubscribed()
-     * @param boolean $isMember
-     * @param boolean $isOwner
-     * @param boolean $isSubscribed
+     * @param bool $isMember
+     * @param bool $isOwner
+     * @param bool $isSubscribed
      */
     public function __construct($isMember = null, $isOwner = null, $isSubscribed = null)
     {
@@ -54,7 +54,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Get IsMember value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMember()
     {
@@ -62,7 +62,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Set IsMember value
-     * @param boolean $isMember
+     * @param bool $isMember
      * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
      */
     public function setIsMember($isMember = null)
@@ -72,7 +72,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Get IsOwner value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsOwner()
     {
@@ -80,7 +80,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Set IsOwner value
-     * @param boolean $isOwner
+     * @param bool $isOwner
      * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
      */
     public function setIsOwner($isOwner = null)
@@ -90,7 +90,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Get IsSubscribed value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsSubscribed()
     {
@@ -98,7 +98,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     }
     /**
      * Set IsSubscribed value
-     * @param boolean $isSubscribed
+     * @param bool $isSubscribed
      * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
      */
     public function setIsSubscribed($isSubscribed = null)

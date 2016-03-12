@@ -16,13 +16,13 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
      * The Range
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsOccurrencesRangeType[]
      */
     public $Range;
     /**
      * Constructor method for ArrayOfOccurrenceRangesType
      * @uses EwsArrayOfOccurrenceRangesType::setRange()
-     * @param array $range
+     * @param \Ews\StructType\EwsOccurrencesRangeType[] $range
      */
     public function __construct(array $range = array())
     {
@@ -31,7 +31,7 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
     }
     /**
      * Get Range value
-     * @return array
+     * @return \Ews\StructType\EwsOccurrencesRangeType[]|null
      */
     public function getRange()
     {
@@ -39,12 +39,34 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
     }
     /**
      * Set Range value
-     * @param array $range
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsOccurrencesRangeType[] $range
      * @return \Ews\ArrayType\EwsArrayOfOccurrenceRangesType
      */
     public function setRange(array $range = array())
     {
+        foreach ($range as $arrayOfOccurrenceRangesTypeRangeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfOccurrenceRangesTypeRangeItem instanceof \Ews\StructType\EwsOccurrencesRangeType) {
+                throw new \InvalidArgumentException(sprintf('The Range property can only contain items of \Ews\StructType\EwsOccurrencesRangeType, "%s" given', is_object($arrayOfOccurrenceRangesTypeRangeItem) ? get_class($arrayOfOccurrenceRangesTypeRangeItem) : gettype($arrayOfOccurrenceRangesTypeRangeItem)), __LINE__);
+            }
+        }
         $this->Range = $range;
+        return $this;
+    }
+    /**
+     * Add item to Range value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsOccurrencesRangeType $item
+     * @return \Ews\ArrayType\EwsArrayOfOccurrenceRangesType
+     */
+    public function addToRange(\Ews\StructType\EwsOccurrencesRangeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsOccurrencesRangeType) {
+            throw new \InvalidArgumentException(sprintf('The Range property can only contain items of \Ews\StructType\EwsOccurrencesRangeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Range[] = $item;
         return $this;
     }
     /**

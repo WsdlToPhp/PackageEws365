@@ -28,7 +28,7 @@ class EwsStreamingSubscriptionRequestType extends AbstractStructBase
      * The SubscribeToAllFolders
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $SubscribeToAllFolders;
     /**
@@ -38,7 +38,7 @@ class EwsStreamingSubscriptionRequestType extends AbstractStructBase
      * @uses EwsStreamingSubscriptionRequestType::setSubscribeToAllFolders()
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType $eventTypes
-     * @param boolean $subscribeToAllFolders
+     * @param bool $subscribeToAllFolders
      */
     public function __construct(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null, \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType $eventTypes = null, $subscribeToAllFolders = null)
     {
@@ -85,7 +85,7 @@ class EwsStreamingSubscriptionRequestType extends AbstractStructBase
     }
     /**
      * Get SubscribeToAllFolders value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSubscribeToAllFolders()
     {
@@ -93,7 +93,7 @@ class EwsStreamingSubscriptionRequestType extends AbstractStructBase
     }
     /**
      * Set SubscribeToAllFolders value
-     * @param boolean $subscribeToAllFolders
+     * @param bool $subscribeToAllFolders
      * @return \Ews\StructType\EwsStreamingSubscriptionRequestType
      */
     public function setSubscribeToAllFolders($subscribeToAllFolders = null)

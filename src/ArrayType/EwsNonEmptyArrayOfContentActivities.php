@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
      * The ContentActivity
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsContentActivity[]
      */
     public $ContentActivity;
     /**
      * Constructor method for NonEmptyArrayOfContentActivities
      * @uses EwsNonEmptyArrayOfContentActivities::setContentActivity()
-     * @param array $contentActivity
+     * @param \Ews\StructType\EwsContentActivity[] $contentActivity
      */
     public function __construct(array $contentActivity = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
     }
     /**
      * Get ContentActivity value
-     * @return array
+     * @return \Ews\StructType\EwsContentActivity[]|null
      */
     public function getContentActivity()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
     }
     /**
      * Set ContentActivity value
-     * @param array $contentActivity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContentActivity[] $contentActivity
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
      */
     public function setContentActivity(array $contentActivity = array())
     {
+        foreach ($contentActivity as $nonEmptyArrayOfContentActivitiesContentActivityItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfContentActivitiesContentActivityItem instanceof \Ews\StructType\EwsContentActivity) {
+                throw new \InvalidArgumentException(sprintf('The ContentActivity property can only contain items of \Ews\StructType\EwsContentActivity, "%s" given', is_object($nonEmptyArrayOfContentActivitiesContentActivityItem) ? get_class($nonEmptyArrayOfContentActivitiesContentActivityItem) : gettype($nonEmptyArrayOfContentActivitiesContentActivityItem)), __LINE__);
+            }
+        }
         $this->ContentActivity = $contentActivity;
+        return $this;
+    }
+    /**
+     * Add item to ContentActivity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsContentActivity $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
+     */
+    public function addToContentActivity(\Ews\StructType\EwsContentActivity $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsContentActivity) {
+            throw new \InvalidArgumentException(sprintf('The ContentActivity property can only contain items of \Ews\StructType\EwsContentActivity, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ContentActivity[] = $item;
         return $this;
     }
     /**

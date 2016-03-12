@@ -16,7 +16,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * The HasLocationChanged
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasLocationChanged;
     /**
@@ -30,28 +30,28 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * The HasStartTimeChanged
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasStartTimeChanged;
     /**
      * The Start
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The HasEndTimeChanged
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasEndTimeChanged;
     /**
      * The End
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
@@ -62,12 +62,12 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * @uses EwsChangeHighlightsType::setStart()
      * @uses EwsChangeHighlightsType::setHasEndTimeChanged()
      * @uses EwsChangeHighlightsType::setEnd()
-     * @param boolean $hasLocationChanged
+     * @param bool $hasLocationChanged
      * @param string $location
-     * @param boolean $hasStartTimeChanged
-     * @param dateTime $start
-     * @param boolean $hasEndTimeChanged
-     * @param dateTime $end
+     * @param bool $hasStartTimeChanged
+     * @param string $start
+     * @param bool $hasEndTimeChanged
+     * @param string $end
      */
     public function __construct($hasLocationChanged = null, $location = null, $hasStartTimeChanged = null, $start = null, $hasEndTimeChanged = null, $end = null)
     {
@@ -81,7 +81,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Get HasLocationChanged value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasLocationChanged()
     {
@@ -89,7 +89,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Set HasLocationChanged value
-     * @param boolean $hasLocationChanged
+     * @param bool $hasLocationChanged
      * @return \Ews\StructType\EwsChangeHighlightsType
      */
     public function setHasLocationChanged($hasLocationChanged = null)
@@ -112,12 +112,16 @@ class EwsChangeHighlightsType extends AbstractStructBase
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
     /**
      * Get HasStartTimeChanged value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasStartTimeChanged()
     {
@@ -125,7 +129,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Set HasStartTimeChanged value
-     * @param boolean $hasStartTimeChanged
+     * @param bool $hasStartTimeChanged
      * @return \Ews\StructType\EwsChangeHighlightsType
      */
     public function setHasStartTimeChanged($hasStartTimeChanged = null)
@@ -135,7 +139,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -143,17 +147,21 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsChangeHighlightsType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get HasEndTimeChanged value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasEndTimeChanged()
     {
@@ -161,7 +169,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Set HasEndTimeChanged value
-     * @param boolean $hasEndTimeChanged
+     * @param bool $hasEndTimeChanged
      * @return \Ews\StructType\EwsChangeHighlightsType
      */
     public function setHasEndTimeChanged($hasEndTimeChanged = null)
@@ -171,7 +179,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -179,11 +187,15 @@ class EwsChangeHighlightsType extends AbstractStructBase
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsChangeHighlightsType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }

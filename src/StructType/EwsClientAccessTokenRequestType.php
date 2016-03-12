@@ -61,6 +61,10 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -76,11 +80,13 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
      * Set TokenType value
      * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $tokenType
      * @return \Ews\StructType\EwsClientAccessTokenRequestType
      */
     public function setTokenType($tokenType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid($tokenType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tokenType, implode(', ', \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues())), __LINE__);
         }
@@ -102,6 +108,10 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
      */
     public function setScope($scope = null)
     {
+        // validation for constraint: string
+        if (!is_null($scope) && !is_string($scope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scope)), __LINE__);
+        }
         $this->Scope = $scope;
         return $this;
     }

@@ -24,7 +24,7 @@ class EwsClientExtensionTypeType
      * Constant for value 'MarketPlace'
      * @return string 'MarketPlace'
      */
-    const VALUE_MARKETPLACE = 'MarketPlace';
+    const VALUE_MARKET_PLACE = 'MarketPlace';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -39,7 +39,7 @@ class EwsClientExtensionTypeType
      * Return allowed values
      * @uses self::VALUE_DEFAULT
      * @uses self::VALUE_PRIVATE
-     * @uses self::VALUE_MARKETPLACE
+     * @uses self::VALUE_MARKET_PLACE
      * @return string[]
      */
     public static function getValidValues()
@@ -47,7 +47,7 @@ class EwsClientExtensionTypeType
         return array(
             self::VALUE_DEFAULT,
             self::VALUE_PRIVATE,
-            self::VALUE_MARKETPLACE,
+            self::VALUE_MARKET_PLACE,
         );
     }
     /**

@@ -14,8 +14,6 @@ class EwsGetSharingMetadataType extends EwsBaseRequestType
 {
     /**
      * The IdOfFolderToShare
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $IdOfFolderToShare;
@@ -80,6 +78,14 @@ class EwsGetSharingMetadataType extends EwsBaseRequestType
      */
     public function setSenderSmtpAddress($senderSmtpAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(senderSmtpAddress) && strlen(senderSmtpAddress) < 1) || (is_array(senderSmtpAddress) && count(senderSmtpAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($senderSmtpAddress) && !is_string($senderSmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($senderSmtpAddress)), __LINE__);
+        }
         $this->SenderSmtpAddress = $senderSmtpAddress;
         return $this;
     }

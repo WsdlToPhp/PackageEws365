@@ -17,13 +17,13 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsXrmRelationshipBaseType[]
      */
     public $XrmRelationshipBaseType;
     /**
      * Constructor method for ArrayOfXrmRelationshipBaseType
      * @uses EwsArrayOfXrmRelationshipBaseType::setXrmRelationshipBaseType()
-     * @param array $xrmRelationshipBaseType
+     * @param \Ews\StructType\EwsXrmRelationshipBaseType[] $xrmRelationshipBaseType
      */
     public function __construct(array $xrmRelationshipBaseType = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
     }
     /**
      * Get XrmRelationshipBaseType value
-     * @return array
+     * @return \Ews\StructType\EwsXrmRelationshipBaseType[]|null
      */
     public function getXrmRelationshipBaseType()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
     }
     /**
      * Set XrmRelationshipBaseType value
-     * @param array $xrmRelationshipBaseType
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmRelationshipBaseType[] $xrmRelationshipBaseType
      * @return \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType
      */
     public function setXrmRelationshipBaseType(array $xrmRelationshipBaseType = array())
     {
+        foreach ($xrmRelationshipBaseType as $arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem instanceof \Ews\StructType\EwsXrmRelationshipBaseType) {
+                throw new \InvalidArgumentException(sprintf('The XrmRelationshipBaseType property can only contain items of \Ews\StructType\EwsXrmRelationshipBaseType, "%s" given', is_object($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) ? get_class($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) : gettype($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem)), __LINE__);
+            }
+        }
         $this->XrmRelationshipBaseType = $xrmRelationshipBaseType;
+        return $this;
+    }
+    /**
+     * Add item to XrmRelationshipBaseType value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsXrmRelationshipBaseType $item
+     * @return \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType
+     */
+    public function addToXrmRelationshipBaseType(\Ews\StructType\EwsXrmRelationshipBaseType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsXrmRelationshipBaseType) {
+            throw new \InvalidArgumentException(sprintf('The XrmRelationshipBaseType property can only contain items of \Ews\StructType\EwsXrmRelationshipBaseType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->XrmRelationshipBaseType[] = $item;
         return $this;
     }
     /**

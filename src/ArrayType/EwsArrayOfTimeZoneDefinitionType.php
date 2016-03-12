@@ -14,22 +14,22 @@ class EwsArrayOfTimeZoneDefinitionType extends AbstractStructArrayBase
 {
     /**
      * The TimeZoneDefinition
-     * @var array
+     * @var \Ews\StructType\EwsTimeZoneDefinitionType
      */
     public $TimeZoneDefinition;
     /**
      * Constructor method for ArrayOfTimeZoneDefinitionType
      * @uses EwsArrayOfTimeZoneDefinitionType::setTimeZoneDefinition()
-     * @param array $timeZoneDefinition
+     * @param \Ews\StructType\EwsTimeZoneDefinitionType $timeZoneDefinition
      */
-    public function __construct(array $timeZoneDefinition = array())
+    public function __construct(\Ews\StructType\EwsTimeZoneDefinitionType $timeZoneDefinition = null)
     {
         $this
             ->setTimeZoneDefinition($timeZoneDefinition);
     }
     /**
      * Get TimeZoneDefinition value
-     * @return array
+     * @return \Ews\StructType\EwsTimeZoneDefinitionType|null
      */
     public function getTimeZoneDefinition()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfTimeZoneDefinitionType extends AbstractStructArrayBase
     }
     /**
      * Set TimeZoneDefinition value
-     * @param array $timeZoneDefinition
+     * @param \Ews\StructType\EwsTimeZoneDefinitionType $timeZoneDefinition
      * @return \Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType
      */
-    public function setTimeZoneDefinition(array $timeZoneDefinition = array())
+    public function setTimeZoneDefinition(\Ews\StructType\EwsTimeZoneDefinitionType $timeZoneDefinition = null)
     {
         $this->TimeZoneDefinition = $timeZoneDefinition;
         return $this;

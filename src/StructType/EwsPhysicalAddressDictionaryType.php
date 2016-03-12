@@ -16,22 +16,22 @@ class EwsPhysicalAddressDictionaryType extends AbstractStructBase
      * The Entry
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsPhysicalAddressDictionaryEntryType
+     * @var \Ews\StructType\EwsPhysicalAddressDictionaryEntryType[]
      */
     public $Entry;
     /**
      * Constructor method for PhysicalAddressDictionaryType
      * @uses EwsPhysicalAddressDictionaryType::setEntry()
-     * @param \Ews\StructType\EwsPhysicalAddressDictionaryEntryType $entry
+     * @param \Ews\StructType\EwsPhysicalAddressDictionaryEntryType[] $entry
      */
-    public function __construct(\Ews\StructType\EwsPhysicalAddressDictionaryEntryType $entry = null)
+    public function __construct(array $entry = array())
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return \Ews\StructType\EwsPhysicalAddressDictionaryEntryType|null
+     * @return \Ews\StructType\EwsPhysicalAddressDictionaryEntryType[]|null
      */
     public function getEntry()
     {
@@ -39,12 +39,34 @@ class EwsPhysicalAddressDictionaryType extends AbstractStructBase
     }
     /**
      * Set Entry value
-     * @param \Ews\StructType\EwsPhysicalAddressDictionaryEntryType $entry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhysicalAddressDictionaryEntryType[] $entry
      * @return \Ews\StructType\EwsPhysicalAddressDictionaryType
      */
-    public function setEntry(\Ews\StructType\EwsPhysicalAddressDictionaryEntryType $entry = null)
+    public function setEntry(array $entry = array())
     {
+        foreach ($entry as $physicalAddressDictionaryTypeEntryItem) {
+            // validation for constraint: itemType
+            if (!$physicalAddressDictionaryTypeEntryItem instanceof \Ews\StructType\EwsPhysicalAddressDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsPhysicalAddressDictionaryEntryType, "%s" given', is_object($physicalAddressDictionaryTypeEntryItem) ? get_class($physicalAddressDictionaryTypeEntryItem) : gettype($physicalAddressDictionaryTypeEntryItem)), __LINE__);
+            }
+        }
         $this->Entry = $entry;
+        return $this;
+    }
+    /**
+     * Add item to Entry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPhysicalAddressDictionaryEntryType $item
+     * @return \Ews\StructType\EwsPhysicalAddressDictionaryType
+     */
+    public function addToEntry(\Ews\StructType\EwsPhysicalAddressDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPhysicalAddressDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsPhysicalAddressDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Entry[] = $item;
         return $this;
     }
     /**

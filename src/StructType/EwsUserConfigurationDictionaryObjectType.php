@@ -25,7 +25,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $Value;
     /**
@@ -33,9 +33,9 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * @uses EwsUserConfigurationDictionaryObjectType::setType()
      * @uses EwsUserConfigurationDictionaryObjectType::setValue()
      * @param string $type
-     * @param string $value
+     * @param string[] $value
      */
-    public function __construct($type = null, $value = null)
+    public function __construct($type = null, array $value = array())
     {
         $this
             ->setType($type)
@@ -55,11 +55,13 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid()
      * @uses
      * \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues())), __LINE__);
         }
@@ -68,7 +70,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return string
+     * @return string[]
      */
     public function getValue()
     {
@@ -76,12 +78,34 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     }
     /**
      * Set Value value
-     * @param string $value
+     * @throws \InvalidArgumentException
+     * @param string[] $value
      * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function setValue($value = null)
+    public function setValue(array $value = array())
     {
+        foreach ($value as $userConfigurationDictionaryObjectTypeValueItem) {
+            // validation for constraint: itemType
+            if (!is_string($userConfigurationDictionaryObjectTypeValueItem)) {
+                throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($userConfigurationDictionaryObjectTypeValueItem) ? get_class($userConfigurationDictionaryObjectTypeValueItem) : gettype($userConfigurationDictionaryObjectTypeValueItem)), __LINE__);
+            }
+        }
         $this->Value = $value;
+        return $this;
+    }
+    /**
+     * Add item to Value value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     */
+    public function addToValue($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Value[] = $item;
         return $this;
     }
     /**

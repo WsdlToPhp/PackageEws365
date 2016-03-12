@@ -16,22 +16,22 @@ class EwsEmailAddressDictionaryType extends AbstractStructBase
      * The Entry
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @var \Ews\StructType\EwsEmailAddressDictionaryEntryType[]
      */
     public $Entry;
     /**
      * Constructor method for EmailAddressDictionaryType
      * @uses EwsEmailAddressDictionaryType::setEntry()
-     * @param \Ews\StructType\EwsEmailAddressDictionaryEntryType $entry
+     * @param \Ews\StructType\EwsEmailAddressDictionaryEntryType[] $entry
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressDictionaryEntryType $entry = null)
+    public function __construct(array $entry = array())
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType|null
+     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType[]|null
      */
     public function getEntry()
     {
@@ -39,12 +39,34 @@ class EwsEmailAddressDictionaryType extends AbstractStructBase
     }
     /**
      * Set Entry value
-     * @param \Ews\StructType\EwsEmailAddressDictionaryEntryType $entry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressDictionaryEntryType[] $entry
      * @return \Ews\StructType\EwsEmailAddressDictionaryType
      */
-    public function setEntry(\Ews\StructType\EwsEmailAddressDictionaryEntryType $entry = null)
+    public function setEntry(array $entry = array())
     {
+        foreach ($entry as $emailAddressDictionaryTypeEntryItem) {
+            // validation for constraint: itemType
+            if (!$emailAddressDictionaryTypeEntryItem instanceof \Ews\StructType\EwsEmailAddressDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsEmailAddressDictionaryEntryType, "%s" given', is_object($emailAddressDictionaryTypeEntryItem) ? get_class($emailAddressDictionaryTypeEntryItem) : gettype($emailAddressDictionaryTypeEntryItem)), __LINE__);
+            }
+        }
         $this->Entry = $entry;
+        return $this;
+    }
+    /**
+     * Add item to Entry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsEmailAddressDictionaryEntryType $item
+     * @return \Ews\StructType\EwsEmailAddressDictionaryType
+     */
+    public function addToEntry(\Ews\StructType\EwsEmailAddressDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsEmailAddressDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsEmailAddressDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Entry[] = $item;
         return $this;
     }
     /**

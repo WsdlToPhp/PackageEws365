@@ -97,11 +97,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set CalendarFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $calendarFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setCalendarFolderPermissionLevel($calendarFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($calendarFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $calendarFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -120,11 +122,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set TasksFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $tasksFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setTasksFolderPermissionLevel($tasksFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($tasksFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tasksFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -143,11 +147,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set InboxFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $inboxFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setInboxFolderPermissionLevel($inboxFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($inboxFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $inboxFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -166,11 +172,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set ContactsFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $contactsFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setContactsFolderPermissionLevel($contactsFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($contactsFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactsFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -189,11 +197,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set NotesFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $notesFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setNotesFolderPermissionLevel($notesFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($notesFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $notesFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -212,11 +222,13 @@ class EwsDelegatePermissionsType extends AbstractStructBase
      * Set JournalFolderPermissionLevel value
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $journalFolderPermissionLevel
      * @return \Ews\StructType\EwsDelegatePermissionsType
      */
     public function setJournalFolderPermissionLevel($journalFolderPermissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($journalFolderPermissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $journalFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }

@@ -24,7 +24,7 @@ class EwsSharingInvitation extends AbstractStructBase
      * The Active
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $Active;
     /**
@@ -54,7 +54,7 @@ class EwsSharingInvitation extends AbstractStructBase
      * The ReadOnly
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $ReadOnly;
     /**
@@ -66,11 +66,11 @@ class EwsSharingInvitation extends AbstractStructBase
      * @uses EwsSharingInvitation::setPermissionLevel()
      * @uses EwsSharingInvitation::setReadOnly()
      * @param string $id
-     * @param boolean $active
+     * @param bool $active
      * @param string $emailAddress
      * @param string $displayName
      * @param string $permissionLevel
-     * @param boolean $readOnly
+     * @param bool $readOnly
      */
     public function __construct($id = null, $active = null, $emailAddress = null, $displayName = null, $permissionLevel = null, $readOnly = null)
     {
@@ -97,12 +97,20 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(id) && strlen(id) < 1) || (is_array(id) && count(id) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
     /**
      * Get Active value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getActive()
     {
@@ -110,7 +118,7 @@ class EwsSharingInvitation extends AbstractStructBase
     }
     /**
      * Set Active value
-     * @param boolean $active
+     * @param bool $active
      * @return \Ews\StructType\EwsSharingInvitation
      */
     public function setActive($active = null)
@@ -133,6 +141,14 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(emailAddress) && strlen(emailAddress) < 1) || (is_array(emailAddress) && count(emailAddress) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }
@@ -151,6 +167,14 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(displayName) && strlen(displayName) < 1) || (is_array(displayName) && count(displayName) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -166,11 +190,13 @@ class EwsSharingInvitation extends AbstractStructBase
      * Set PermissionLevel value
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid()
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $permissionLevel
      * @return \Ews\StructType\EwsSharingInvitation
      */
     public function setPermissionLevel($permissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
@@ -179,7 +205,7 @@ class EwsSharingInvitation extends AbstractStructBase
     }
     /**
      * Get ReadOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReadOnly()
     {
@@ -187,7 +213,7 @@ class EwsSharingInvitation extends AbstractStructBase
     }
     /**
      * Set ReadOnly value
-     * @param boolean $readOnly
+     * @param bool $readOnly
      * @return \Ews\StructType\EwsSharingInvitation
      */
     public function setReadOnly($readOnly = null)

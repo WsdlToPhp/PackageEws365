@@ -23,7 +23,7 @@ class EwsSyncFolderItemsResponseMessageType extends EwsResponseMessageType
      * The IncludesLastItemInRange
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IncludesLastItemInRange;
     /**
@@ -39,7 +39,7 @@ class EwsSyncFolderItemsResponseMessageType extends EwsResponseMessageType
      * @uses EwsSyncFolderItemsResponseMessageType::setIncludesLastItemInRange()
      * @uses EwsSyncFolderItemsResponseMessageType::setChanges()
      * @param string $syncState
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @param \Ews\StructType\EwsSyncFolderItemsChangesType $changes
      */
     public function __construct($syncState = null, $includesLastItemInRange = null, \Ews\StructType\EwsSyncFolderItemsChangesType $changes = null)
@@ -64,12 +64,16 @@ class EwsSyncFolderItemsResponseMessageType extends EwsResponseMessageType
      */
     public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }
     /**
      * Get IncludesLastItemInRange value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIncludesLastItemInRange()
     {
@@ -77,7 +81,7 @@ class EwsSyncFolderItemsResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set IncludesLastItemInRange value
-     * @param boolean $includesLastItemInRange
+     * @param bool $includesLastItemInRange
      * @return \Ews\StructType\EwsSyncFolderItemsResponseMessageType
      */
     public function setIncludesLastItemInRange($includesLastItemInRange = null)

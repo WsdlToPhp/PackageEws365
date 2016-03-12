@@ -24,7 +24,7 @@ class EwsPermissionLevelType
      * Constant for value 'PublishingEditor'
      * @return string 'PublishingEditor'
      */
-    const VALUE_PUBLISHINGEDITOR = 'PublishingEditor';
+    const VALUE_PUBLISHING_EDITOR = 'PublishingEditor';
     /**
      * Constant for value 'Editor'
      * @return string 'Editor'
@@ -34,7 +34,7 @@ class EwsPermissionLevelType
      * Constant for value 'PublishingAuthor'
      * @return string 'PublishingAuthor'
      */
-    const VALUE_PUBLISHINGAUTHOR = 'PublishingAuthor';
+    const VALUE_PUBLISHING_AUTHOR = 'PublishingAuthor';
     /**
      * Constant for value 'Author'
      * @return string 'Author'
@@ -44,7 +44,7 @@ class EwsPermissionLevelType
      * Constant for value 'NoneditingAuthor'
      * @return string 'NoneditingAuthor'
      */
-    const VALUE_NONEDITINGAUTHOR = 'NoneditingAuthor';
+    const VALUE_NONEDITING_AUTHOR = 'NoneditingAuthor';
     /**
      * Constant for value 'Reviewer'
      * @return string 'Reviewer'
@@ -74,11 +74,11 @@ class EwsPermissionLevelType
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_OWNER
-     * @uses self::VALUE_PUBLISHINGEDITOR
+     * @uses self::VALUE_PUBLISHING_EDITOR
      * @uses self::VALUE_EDITOR
-     * @uses self::VALUE_PUBLISHINGAUTHOR
+     * @uses self::VALUE_PUBLISHING_AUTHOR
      * @uses self::VALUE_AUTHOR
-     * @uses self::VALUE_NONEDITINGAUTHOR
+     * @uses self::VALUE_NONEDITING_AUTHOR
      * @uses self::VALUE_REVIEWER
      * @uses self::VALUE_CONTRIBUTOR
      * @uses self::VALUE_CUSTOM
@@ -89,11 +89,11 @@ class EwsPermissionLevelType
         return array(
             self::VALUE_NONE,
             self::VALUE_OWNER,
-            self::VALUE_PUBLISHINGEDITOR,
+            self::VALUE_PUBLISHING_EDITOR,
             self::VALUE_EDITOR,
-            self::VALUE_PUBLISHINGAUTHOR,
+            self::VALUE_PUBLISHING_AUTHOR,
             self::VALUE_AUTHOR,
-            self::VALUE_NONEDITINGAUTHOR,
+            self::VALUE_NONEDITING_AUTHOR,
             self::VALUE_REVIEWER,
             self::VALUE_CONTRIBUTOR,
             self::VALUE_CUSTOM,

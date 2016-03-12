@@ -74,6 +74,10 @@ class EwsDistributionListType extends EwsItemType
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -92,6 +96,10 @@ class EwsDistributionListType extends EwsItemType
      */
     public function setFileAs($fileAs = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileAs) && !is_string($fileAs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAs)), __LINE__);
+        }
         $this->FileAs = $fileAs;
         return $this;
     }
@@ -107,11 +115,13 @@ class EwsDistributionListType extends EwsItemType
      * Set ContactSource value
      * @uses \Ews\EnumType\EwsContactSourceType::valueIsValid()
      * @uses \Ews\EnumType\EwsContactSourceType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $contactSource
      * @return \Ews\StructType\EwsDistributionListType
      */
     public function setContactSource($contactSource = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContactSourceType::valueIsValid($contactSource)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactSource, implode(', ', \Ews\EnumType\EwsContactSourceType::getValidValues())), __LINE__);
         }

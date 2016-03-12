@@ -18,7 +18,6 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
      * The LogonType
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Surfaces the various logon types that are supported for conversion
      * @var string
      */
     public $LogonType;
@@ -62,11 +61,13 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
      * Set LogonType value
      * @uses \Ews\EnumType\EwsSpecialLogonTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $logonType
      * @return \Ews\StructType\EwsOpenAsAdminOrSystemServiceType
      */
     public function setLogonType($logonType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSpecialLogonTypeType::valueIsValid($logonType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $logonType, implode(', ', \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues())), __LINE__);
         }
@@ -106,6 +107,10 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
      */
     public function setBudgetType($budgetType = null)
     {
+        // validation for constraint: int
+        if (!is_null($budgetType) && !is_int($budgetType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($budgetType)), __LINE__);
+        }
         $this->BudgetType = $budgetType;
         return $this;
     }

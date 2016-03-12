@@ -17,13 +17,14 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsMailTipsResponseMessageType[]
      */
     public $MailTipsResponseMessageType;
     /**
      * Constructor method for ArrayOfMailTipsResponseMessageType
      * @uses EwsArrayOfMailTipsResponseMessageType::setMailTipsResponseMessageType()
-     * @param array $mailTipsResponseMessageType
+     * @param \Ews\StructType\EwsMailTipsResponseMessageType[]
+     * $mailTipsResponseMessageType
      */
     public function __construct(array $mailTipsResponseMessageType = array())
     {
@@ -32,7 +33,7 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
     }
     /**
      * Get MailTipsResponseMessageType value
-     * @return array
+     * @return \Ews\StructType\EwsMailTipsResponseMessageType[]
      */
     public function getMailTipsResponseMessageType()
     {
@@ -40,12 +41,35 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
     }
     /**
      * Set MailTipsResponseMessageType value
-     * @param array $mailTipsResponseMessageType
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailTipsResponseMessageType[]
+     * $mailTipsResponseMessageType
      * @return \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType
      */
     public function setMailTipsResponseMessageType(array $mailTipsResponseMessageType = array())
     {
+        foreach ($mailTipsResponseMessageType as $arrayOfMailTipsResponseMessageTypeMailTipsResponseMessageTypeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMailTipsResponseMessageTypeMailTipsResponseMessageTypeItem instanceof \Ews\StructType\EwsMailTipsResponseMessageType) {
+                throw new \InvalidArgumentException(sprintf('The MailTipsResponseMessageType property can only contain items of \Ews\StructType\EwsMailTipsResponseMessageType, "%s" given', is_object($arrayOfMailTipsResponseMessageTypeMailTipsResponseMessageTypeItem) ? get_class($arrayOfMailTipsResponseMessageTypeMailTipsResponseMessageTypeItem) : gettype($arrayOfMailTipsResponseMessageTypeMailTipsResponseMessageTypeItem)), __LINE__);
+            }
+        }
         $this->MailTipsResponseMessageType = $mailTipsResponseMessageType;
+        return $this;
+    }
+    /**
+     * Add item to MailTipsResponseMessageType value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsMailTipsResponseMessageType $item
+     * @return \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType
+     */
+    public function addToMailTipsResponseMessageType(\Ews\StructType\EwsMailTipsResponseMessageType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsMailTipsResponseMessageType) {
+            throw new \InvalidArgumentException(sprintf('The MailTipsResponseMessageType property can only contain items of \Ews\StructType\EwsMailTipsResponseMessageType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->MailTipsResponseMessageType[] = $item;
         return $this;
     }
     /**

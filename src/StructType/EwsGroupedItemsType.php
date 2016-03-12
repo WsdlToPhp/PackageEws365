@@ -50,6 +50,10 @@ class EwsGroupedItemsType extends AbstractStructBase
      */
     public function setGroupIndex($groupIndex = null)
     {
+        // validation for constraint: string
+        if (!is_null($groupIndex) && !is_string($groupIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupIndex)), __LINE__);
+        }
         $this->GroupIndex = $groupIndex;
         return $this;
     }

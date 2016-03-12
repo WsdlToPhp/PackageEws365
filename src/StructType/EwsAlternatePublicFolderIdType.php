@@ -46,6 +46,10 @@ class EwsAlternatePublicFolderIdType extends EwsAlternateIdBaseType
      */
     public function setFolderId($folderId = null)
     {
+        // validation for constraint: string
+        if (!is_null($folderId) && !is_string($folderId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($folderId)), __LINE__);
+        }
         $this->FolderId = $folderId;
         return $this;
     }

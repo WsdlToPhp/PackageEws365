@@ -19,17 +19,17 @@ class EwsCalendarPermissionReadAccessType
      * Constant for value 'TimeOnly'
      * @return string 'TimeOnly'
      */
-    const VALUE_TIMEONLY = 'TimeOnly';
+    const VALUE_TIME_ONLY = 'TimeOnly';
     /**
      * Constant for value 'TimeAndSubjectAndLocation'
      * @return string 'TimeAndSubjectAndLocation'
      */
-    const VALUE_TIMEANDSUBJECTANDLOCATION = 'TimeAndSubjectAndLocation';
+    const VALUE_TIME_AND_SUBJECT_AND_LOCATION = 'TimeAndSubjectAndLocation';
     /**
      * Constant for value 'FullDetails'
      * @return string 'FullDetails'
      */
-    const VALUE_FULLDETAILS = 'FullDetails';
+    const VALUE_FULL_DETAILS = 'FullDetails';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -43,18 +43,18 @@ class EwsCalendarPermissionReadAccessType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_TIMEONLY
-     * @uses self::VALUE_TIMEANDSUBJECTANDLOCATION
-     * @uses self::VALUE_FULLDETAILS
+     * @uses self::VALUE_TIME_ONLY
+     * @uses self::VALUE_TIME_AND_SUBJECT_AND_LOCATION
+     * @uses self::VALUE_FULL_DETAILS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_TIMEONLY,
-            self::VALUE_TIMEANDSUBJECTANDLOCATION,
-            self::VALUE_FULLDETAILS,
+            self::VALUE_TIME_ONLY,
+            self::VALUE_TIME_AND_SUBJECT_AND_LOCATION,
+            self::VALUE_FULL_DETAILS,
         );
     }
     /**

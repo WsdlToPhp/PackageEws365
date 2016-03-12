@@ -133,6 +133,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -151,6 +155,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setSatoriId($satoriId = null)
     {
+        // validation for constraint: string
+        if (!is_null($satoriId) && !is_string($satoriId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($satoriId)), __LINE__);
+        }
         $this->SatoriId = $satoriId;
         return $this;
     }
@@ -169,6 +177,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
@@ -187,6 +199,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setDescriptionAttribution($descriptionAttribution = null)
     {
+        // validation for constraint: string
+        if (!is_null($descriptionAttribution) && !is_string($descriptionAttribution)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptionAttribution)), __LINE__);
+        }
         $this->DescriptionAttribution = $descriptionAttribution;
         return $this;
     }
@@ -205,6 +221,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setImageUrl($imageUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($imageUrl) && !is_string($imageUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageUrl)), __LINE__);
+        }
         $this->ImageUrl = $imageUrl;
         return $this;
     }
@@ -223,6 +243,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setImageUrlAttribution($imageUrlAttribution = null)
     {
+        // validation for constraint: string
+        if (!is_null($imageUrlAttribution) && !is_string($imageUrlAttribution)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageUrlAttribution)), __LINE__);
+        }
         $this->ImageUrlAttribution = $imageUrlAttribution;
         return $this;
     }
@@ -241,6 +265,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setYearFound($yearFound = null)
     {
+        // validation for constraint: string
+        if (!is_null($yearFound) && !is_string($yearFound)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yearFound)), __LINE__);
+        }
         $this->YearFound = $yearFound;
         return $this;
     }
@@ -259,6 +287,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setFinanceSymbol($financeSymbol = null)
     {
+        // validation for constraint: string
+        if (!is_null($financeSymbol) && !is_string($financeSymbol)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($financeSymbol)), __LINE__);
+        }
         $this->FinanceSymbol = $financeSymbol;
         return $this;
     }
@@ -277,6 +309,10 @@ class EwsCompanyInsightValue extends EwsInsightValue
      */
     public function setWebsiteUrl($websiteUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($websiteUrl) && !is_string($websiteUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($websiteUrl)), __LINE__);
+        }
         $this->WebsiteUrl = $websiteUrl;
         return $this;
     }

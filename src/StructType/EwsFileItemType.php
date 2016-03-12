@@ -35,7 +35,7 @@ class EwsFileItemType extends EwsItemType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $FileSize;
     /**
@@ -43,7 +43,7 @@ class EwsFileItemType extends EwsItemType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $FileCreatedTime;
     /**
@@ -51,7 +51,7 @@ class EwsFileItemType extends EwsItemType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $FileModifiedTime;
     /**
@@ -87,9 +87,9 @@ class EwsFileItemType extends EwsItemType
      * @uses EwsFileItemType::setFileContexts()
      * @param string $fileName
      * @param string $fileExtension
-     * @param long $fileSize
-     * @param dateTime $fileCreatedTime
-     * @param dateTime $fileModifiedTime
+     * @param int $fileSize
+     * @param string $fileCreatedTime
+     * @param string $fileModifiedTime
      * @param string $storageProviderContext
      * @param string $fileID
      * @param \Ews\ArrayType\EwsArrayOfFileItemContextsType $fileContexts
@@ -121,6 +121,10 @@ class EwsFileItemType extends EwsItemType
      */
     public function setFileName($fileName = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileName) && !is_string($fileName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileName)), __LINE__);
+        }
         $this->FileName = $fileName;
         return $this;
     }
@@ -139,12 +143,16 @@ class EwsFileItemType extends EwsItemType
      */
     public function setFileExtension($fileExtension = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileExtension) && !is_string($fileExtension)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileExtension)), __LINE__);
+        }
         $this->FileExtension = $fileExtension;
         return $this;
     }
     /**
      * Get FileSize value
-     * @return long|null
+     * @return int|null
      */
     public function getFileSize()
     {
@@ -152,17 +160,21 @@ class EwsFileItemType extends EwsItemType
     }
     /**
      * Set FileSize value
-     * @param long $fileSize
+     * @param int $fileSize
      * @return \Ews\StructType\EwsFileItemType
      */
     public function setFileSize($fileSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($fileSize) && !is_int($fileSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($fileSize)), __LINE__);
+        }
         $this->FileSize = $fileSize;
         return $this;
     }
     /**
      * Get FileCreatedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getFileCreatedTime()
     {
@@ -170,17 +182,21 @@ class EwsFileItemType extends EwsItemType
     }
     /**
      * Set FileCreatedTime value
-     * @param dateTime $fileCreatedTime
+     * @param string $fileCreatedTime
      * @return \Ews\StructType\EwsFileItemType
      */
     public function setFileCreatedTime($fileCreatedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileCreatedTime) && !is_string($fileCreatedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileCreatedTime)), __LINE__);
+        }
         $this->FileCreatedTime = $fileCreatedTime;
         return $this;
     }
     /**
      * Get FileModifiedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getFileModifiedTime()
     {
@@ -188,11 +204,15 @@ class EwsFileItemType extends EwsItemType
     }
     /**
      * Set FileModifiedTime value
-     * @param dateTime $fileModifiedTime
+     * @param string $fileModifiedTime
      * @return \Ews\StructType\EwsFileItemType
      */
     public function setFileModifiedTime($fileModifiedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileModifiedTime) && !is_string($fileModifiedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileModifiedTime)), __LINE__);
+        }
         $this->FileModifiedTime = $fileModifiedTime;
         return $this;
     }
@@ -211,6 +231,10 @@ class EwsFileItemType extends EwsItemType
      */
     public function setStorageProviderContext($storageProviderContext = null)
     {
+        // validation for constraint: string
+        if (!is_null($storageProviderContext) && !is_string($storageProviderContext)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($storageProviderContext)), __LINE__);
+        }
         $this->StorageProviderContext = $storageProviderContext;
         return $this;
     }
@@ -229,6 +253,10 @@ class EwsFileItemType extends EwsItemType
      */
     public function setFileID($fileID = null)
     {
+        // validation for constraint: string
+        if (!is_null($fileID) && !is_string($fileID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileID)), __LINE__);
+        }
         $this->FileID = $fileID;
         return $this;
     }

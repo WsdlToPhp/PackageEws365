@@ -58,6 +58,10 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
      */
     public function setMinimumSize($minimumSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($minimumSize) && !is_int($minimumSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($minimumSize)), __LINE__);
+        }
         $this->MinimumSize = $minimumSize;
         return $this;
     }
@@ -76,6 +80,10 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
      */
     public function setMaximumSize($maximumSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($maximumSize) && !is_int($maximumSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumSize)), __LINE__);
+        }
         $this->MaximumSize = $maximumSize;
         return $this;
     }

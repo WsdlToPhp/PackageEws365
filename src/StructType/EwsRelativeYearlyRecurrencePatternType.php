@@ -55,11 +55,13 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Set DaysOfWeek value
      * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
      * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $daysOfWeek
      * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
      */
     public function setDaysOfWeek($daysOfWeek = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($daysOfWeek)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $daysOfWeek, implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
@@ -78,11 +80,13 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Set DayOfWeekIndex value
      * @uses \Ews\EnumType\EwsDayOfWeekIndexType::valueIsValid()
      * @uses \Ews\EnumType\EwsDayOfWeekIndexType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $dayOfWeekIndex
      * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
      */
     public function setDayOfWeekIndex($dayOfWeekIndex = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekIndexType::valueIsValid($dayOfWeekIndex)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dayOfWeekIndex, implode(', ', \Ews\EnumType\EwsDayOfWeekIndexType::getValidValues())), __LINE__);
         }
@@ -101,11 +105,13 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Set Month value
      * @uses \Ews\EnumType\EwsMonthNamesType::valueIsValid()
      * @uses \Ews\EnumType\EwsMonthNamesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $month
      * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
      */
     public function setMonth($month = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMonthNamesType::valueIsValid($month)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $month, implode(', ', \Ews\EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
         }

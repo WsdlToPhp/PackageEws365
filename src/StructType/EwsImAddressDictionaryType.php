@@ -16,22 +16,22 @@ class EwsImAddressDictionaryType extends AbstractStructBase
      * The Entry
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsImAddressDictionaryEntryType
+     * @var \Ews\StructType\EwsImAddressDictionaryEntryType[]
      */
     public $Entry;
     /**
      * Constructor method for ImAddressDictionaryType
      * @uses EwsImAddressDictionaryType::setEntry()
-     * @param \Ews\StructType\EwsImAddressDictionaryEntryType $entry
+     * @param \Ews\StructType\EwsImAddressDictionaryEntryType[] $entry
      */
-    public function __construct(\Ews\StructType\EwsImAddressDictionaryEntryType $entry = null)
+    public function __construct(array $entry = array())
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return \Ews\StructType\EwsImAddressDictionaryEntryType|null
+     * @return \Ews\StructType\EwsImAddressDictionaryEntryType[]|null
      */
     public function getEntry()
     {
@@ -39,12 +39,34 @@ class EwsImAddressDictionaryType extends AbstractStructBase
     }
     /**
      * Set Entry value
-     * @param \Ews\StructType\EwsImAddressDictionaryEntryType $entry
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsImAddressDictionaryEntryType[] $entry
      * @return \Ews\StructType\EwsImAddressDictionaryType
      */
-    public function setEntry(\Ews\StructType\EwsImAddressDictionaryEntryType $entry = null)
+    public function setEntry(array $entry = array())
     {
+        foreach ($entry as $imAddressDictionaryTypeEntryItem) {
+            // validation for constraint: itemType
+            if (!$imAddressDictionaryTypeEntryItem instanceof \Ews\StructType\EwsImAddressDictionaryEntryType) {
+                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsImAddressDictionaryEntryType, "%s" given', is_object($imAddressDictionaryTypeEntryItem) ? get_class($imAddressDictionaryTypeEntryItem) : gettype($imAddressDictionaryTypeEntryItem)), __LINE__);
+            }
+        }
         $this->Entry = $entry;
+        return $this;
+    }
+    /**
+     * Add item to Entry value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsImAddressDictionaryEntryType $item
+     * @return \Ews\StructType\EwsImAddressDictionaryType
+     */
+    public function addToEntry(\Ews\StructType\EwsImAddressDictionaryEntryType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsImAddressDictionaryEntryType) {
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of \Ews\StructType\EwsImAddressDictionaryEntryType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Entry[] = $item;
         return $this;
     }
     /**

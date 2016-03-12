@@ -14,7 +14,7 @@ class EwsEmailPositionType
      * Constant for value 'LatestReply'
      * @return string 'LatestReply'
      */
-    const VALUE_LATESTREPLY = 'LatestReply';
+    const VALUE_LATEST_REPLY = 'LatestReply';
     /**
      * Constant for value 'Other'
      * @return string 'Other'
@@ -42,7 +42,7 @@ class EwsEmailPositionType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_LATESTREPLY
+     * @uses self::VALUE_LATEST_REPLY
      * @uses self::VALUE_OTHER
      * @uses self::VALUE_SUBJECT
      * @uses self::VALUE_SIGNATURE
@@ -51,7 +51,7 @@ class EwsEmailPositionType
     public static function getValidValues()
     {
         return array(
-            self::VALUE_LATESTREPLY,
+            self::VALUE_LATEST_REPLY,
             self::VALUE_OTHER,
             self::VALUE_SUBJECT,
             self::VALUE_SIGNATURE,

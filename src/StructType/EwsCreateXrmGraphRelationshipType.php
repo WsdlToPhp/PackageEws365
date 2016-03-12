@@ -93,6 +93,14 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
      */
     public function setFromEntityId($fromEntityId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($fromEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $fromEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($fromEntityId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($fromEntityId) && !is_string($fromEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fromEntityId)), __LINE__);
+        }
         $this->FromEntityId = $fromEntityId;
         return $this;
     }
@@ -108,11 +116,13 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
      * Set FromEntityType value
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipEntityType::valueIsValid()
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipEntityType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $fromEntityType
      * @return \Ews\StructType\EwsCreateXrmGraphRelationshipType
      */
     public function setFromEntityType($fromEntityType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmGraphRelationshipEntityType::valueIsValid($fromEntityType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fromEntityType, implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipEntityType::getValidValues())), __LINE__);
         }
@@ -134,6 +144,14 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
      */
     public function setToEntityId($toEntityId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($toEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $toEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($toEntityId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($toEntityId) && !is_string($toEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($toEntityId)), __LINE__);
+        }
         $this->ToEntityId = $toEntityId;
         return $this;
     }
@@ -149,11 +167,13 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
      * Set ToEntityType value
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipEntityType::valueIsValid()
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipEntityType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $toEntityType
      * @return \Ews\StructType\EwsCreateXrmGraphRelationshipType
      */
     public function setToEntityType($toEntityType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmGraphRelationshipEntityType::valueIsValid($toEntityType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $toEntityType, implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipEntityType::getValidValues())), __LINE__);
         }
@@ -172,11 +192,13 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
      * Set RelationshipType value
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
      * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $relationshipType
      * @return \Ews\StructType\EwsCreateXrmGraphRelationshipType
      */
     public function setRelationshipType($relationshipType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($relationshipType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $relationshipType, implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
         }

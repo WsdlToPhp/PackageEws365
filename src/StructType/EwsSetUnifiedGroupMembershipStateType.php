@@ -67,11 +67,13 @@ class EwsSetUnifiedGroupMembershipStateType extends EwsUnifiedGroupBaseRequestTy
      * Set Action value
      * @uses \Ews\EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupMembershipActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $action
      * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateType
      */
     public function setAction($action = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid($action)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $action, implode(', ', \Ews\EnumType\EwsUnifiedGroupMembershipActionType::getValidValues())), __LINE__);
         }

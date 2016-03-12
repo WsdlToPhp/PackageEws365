@@ -17,7 +17,6 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -25,7 +24,6 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
      * The Action
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Types of compliance operation action
      * @var string
      */
     public $Action;
@@ -83,11 +81,13 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
      * Set Action value
      * @uses \Ews\EnumType\EwsProcessComplianceOperationActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsProcessComplianceOperationActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $action
      * @return \Ews\StructType\EwsProcessComplianceOperationType
      */
     public function setAction($action = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsProcessComplianceOperationActionType::valueIsValid($action)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $action, implode(', ', \Ews\EnumType\EwsProcessComplianceOperationActionType::getValidValues())), __LINE__);
         }

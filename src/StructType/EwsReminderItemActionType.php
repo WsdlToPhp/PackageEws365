@@ -25,7 +25,6 @@ class EwsReminderItemActionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -65,11 +64,13 @@ class EwsReminderItemActionType extends AbstractStructBase
      * Set ActionType value
      * @uses \Ews\EnumType\EwsReminderActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsReminderActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $actionType
      * @return \Ews\StructType\EwsReminderItemActionType
      */
     public function setActionType($actionType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsReminderActionType::valueIsValid($actionType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionType, implode(', ', \Ews\EnumType\EwsReminderActionType::getValidValues())), __LINE__);
         }
@@ -109,6 +110,10 @@ class EwsReminderItemActionType extends AbstractStructBase
      */
     public function setNewReminderTime($newReminderTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($newReminderTime) && !is_string($newReminderTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($newReminderTime)), __LINE__);
+        }
         $this->NewReminderTime = $newReminderTime;
         return $this;
     }

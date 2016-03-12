@@ -111,6 +111,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -129,6 +133,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -147,6 +155,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -165,6 +177,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setCulture($culture = null)
     {
+        // validation for constraint: string
+        if (!is_null($culture) && !is_string($culture)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+        }
         $this->Culture = $culture;
         return $this;
     }
@@ -183,6 +199,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setTimeZone($timeZone = null)
     {
+        // validation for constraint: string
+        if (!is_null($timeZone) && !is_string($timeZone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZone)), __LINE__);
+        }
         $this->TimeZone = $timeZone;
         return $this;
     }
@@ -201,6 +221,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setReplyToAddress($replyToAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($replyToAddress) && !is_string($replyToAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($replyToAddress)), __LINE__);
+        }
         $this->ReplyToAddress = $replyToAddress;
         return $this;
     }
@@ -219,6 +243,10 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
      */
     public function setBookingServiceName($bookingServiceName = null)
     {
+        // validation for constraint: string
+        if (!is_null($bookingServiceName) && !is_string($bookingServiceName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($bookingServiceName)), __LINE__);
+        }
         $this->BookingServiceName = $bookingServiceName;
         return $this;
     }

@@ -16,7 +16,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * The ReturnFullContactData
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $ReturnFullContactData;
     /**
@@ -52,7 +52,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * @uses EwsResolveNamesType::setUnresolvedEntry()
      * @uses EwsResolveNamesType::setSearchScope()
      * @uses EwsResolveNamesType::setContactDataShape()
-     * @param boolean $returnFullContactData
+     * @param bool $returnFullContactData
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds
      * @param string $unresolvedEntry
      * @param string $searchScope
@@ -69,7 +69,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
     }
     /**
      * Get ReturnFullContactData value
-     * @return boolean
+     * @return bool
      */
     public function getReturnFullContactData()
     {
@@ -77,7 +77,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
     }
     /**
      * Set ReturnFullContactData value
-     * @param boolean $returnFullContactData
+     * @param bool $returnFullContactData
      * @return \Ews\StructType\EwsResolveNamesType
      */
     public function setReturnFullContactData($returnFullContactData = null)
@@ -118,6 +118,14 @@ class EwsResolveNamesType extends EwsBaseRequestType
      */
     public function setUnresolvedEntry($unresolvedEntry = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(unresolvedEntry) && strlen(unresolvedEntry) < 1) || (is_array(unresolvedEntry) && count(unresolvedEntry) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($unresolvedEntry) && !is_string($unresolvedEntry)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($unresolvedEntry)), __LINE__);
+        }
         $this->UnresolvedEntry = $unresolvedEntry;
         return $this;
     }
@@ -133,11 +141,13 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * Set SearchScope value
      * @uses \Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid()
      * @uses \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $searchScope
      * @return \Ews\StructType\EwsResolveNamesType
      */
     public function setSearchScope($searchScope = 'ActiveDirectoryContacts')
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid($searchScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $searchScope, implode(', ', \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues())), __LINE__);
         }
@@ -156,11 +166,13 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * Set ContactDataShape value
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid()
      * @uses \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $contactDataShape
      * @return \Ews\StructType\EwsResolveNamesType
      */
     public function setContactDataShape($contactDataShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($contactDataShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactDataShape, implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }

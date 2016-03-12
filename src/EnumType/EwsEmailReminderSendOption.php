@@ -14,7 +14,7 @@ class EwsEmailReminderSendOption
      * Constant for value 'NotSet'
      * @return string 'NotSet'
      */
-    const VALUE_NOTSET = 'NotSet';
+    const VALUE_NOT_SET = 'NotSet';
     /**
      * Constant for value 'User'
      * @return string 'User'
@@ -24,7 +24,7 @@ class EwsEmailReminderSendOption
      * Constant for value 'AllAttendees'
      * @return string 'AllAttendees'
      */
-    const VALUE_ALLATTENDEES = 'AllAttendees';
+    const VALUE_ALL_ATTENDEES = 'AllAttendees';
     /**
      * Constant for value 'Staff'
      * @return string 'Staff'
@@ -47,9 +47,9 @@ class EwsEmailReminderSendOption
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_NOTSET
+     * @uses self::VALUE_NOT_SET
      * @uses self::VALUE_USER
-     * @uses self::VALUE_ALLATTENDEES
+     * @uses self::VALUE_ALL_ATTENDEES
      * @uses self::VALUE_STAFF
      * @uses self::VALUE_CUSTOMER
      * @return string[]
@@ -57,9 +57,9 @@ class EwsEmailReminderSendOption
     public static function getValidValues()
     {
         return array(
-            self::VALUE_NOTSET,
+            self::VALUE_NOT_SET,
             self::VALUE_USER,
-            self::VALUE_ALLATTENDEES,
+            self::VALUE_ALL_ATTENDEES,
             self::VALUE_STAFF,
             self::VALUE_CUSTOMER,
         );

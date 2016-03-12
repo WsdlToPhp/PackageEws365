@@ -19,7 +19,7 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
     public $UnseenCount;
     /**
      * The LastVisitedTime
-     * @var dateTime
+     * @var string
      */
     public $LastVisitedTime;
     /**
@@ -27,7 +27,7 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
      * @uses EwsUnifiedGroupUnseenChangedChannelEventType::setUnseenCount()
      * @uses EwsUnifiedGroupUnseenChangedChannelEventType::setLastVisitedTime()
      * @param int $unseenCount
-     * @param dateTime $lastVisitedTime
+     * @param string $lastVisitedTime
      */
     public function __construct($unseenCount = null, $lastVisitedTime = null)
     {
@@ -50,12 +50,16 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
      */
     public function setUnseenCount($unseenCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($unseenCount) && !is_int($unseenCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unseenCount)), __LINE__);
+        }
         $this->UnseenCount = $unseenCount;
         return $this;
     }
     /**
      * Get LastVisitedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastVisitedTime()
     {
@@ -63,11 +67,15 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
     }
     /**
      * Set LastVisitedTime value
-     * @param dateTime $lastVisitedTime
+     * @param string $lastVisitedTime
      * @return \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
      */
     public function setLastVisitedTime($lastVisitedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastVisitedTime) && !is_string($lastVisitedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedTime)), __LINE__);
+        }
         $this->LastVisitedTime = $lastVisitedTime;
         return $this;
     }

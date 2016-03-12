@@ -35,7 +35,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $Size;
     /**
@@ -45,7 +45,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
      * @uses EwsKeywordStatisticsSearchResultType::setSize()
      * @param string $keyword
      * @param int $itemHits
-     * @param long $size
+     * @param int $size
      */
     public function __construct($keyword = null, $itemHits = null, $size = null)
     {
@@ -69,6 +69,10 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
      */
     public function setKeyword($keyword = null)
     {
+        // validation for constraint: string
+        if (!is_null($keyword) && !is_string($keyword)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($keyword)), __LINE__);
+        }
         $this->Keyword = $keyword;
         return $this;
     }
@@ -87,12 +91,16 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
      */
     public function setItemHits($itemHits = null)
     {
+        // validation for constraint: int
+        if (!is_null($itemHits) && !is_int($itemHits)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemHits)), __LINE__);
+        }
         $this->ItemHits = $itemHits;
         return $this;
     }
     /**
      * Get Size value
-     * @return long
+     * @return int
      */
     public function getSize()
     {
@@ -100,11 +108,15 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     }
     /**
      * Set Size value
-     * @param long $size
+     * @param int $size
      * @return \Ews\StructType\EwsKeywordStatisticsSearchResultType
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }

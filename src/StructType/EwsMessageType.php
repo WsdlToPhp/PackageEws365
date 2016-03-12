@@ -44,14 +44,14 @@ class EwsMessageType extends EwsItemType
      * The IsReadReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsReadReceiptRequested;
     /**
      * The IsDeliveryReceiptRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDeliveryReceiptRequested;
     /**
@@ -86,14 +86,14 @@ class EwsMessageType extends EwsItemType
      * The IsRead
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRead;
     /**
      * The IsResponseRequested
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsResponseRequested;
     /**
@@ -170,14 +170,14 @@ class EwsMessageType extends EwsItemType
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients
-     * @param boolean $isReadReceiptRequested
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isReadReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @param base64Binary $conversationIndex
      * @param string $conversationTopic
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param string $internetMessageId
-     * @param boolean $isRead
-     * @param boolean $isResponseRequested
+     * @param bool $isRead
+     * @param bool $isResponseRequested
      * @param string $references
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $replyTo
      * @param \Ews\StructType\EwsSingleRecipientType $receivedBy
@@ -283,7 +283,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Get IsReadReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsReadReceiptRequested()
     {
@@ -291,7 +291,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Set IsReadReceiptRequested value
-     * @param boolean $isReadReceiptRequested
+     * @param bool $isReadReceiptRequested
      * @return \Ews\StructType\EwsMessageType
      */
     public function setIsReadReceiptRequested($isReadReceiptRequested = null)
@@ -301,7 +301,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Get IsDeliveryReceiptRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeliveryReceiptRequested()
     {
@@ -309,7 +309,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Set IsDeliveryReceiptRequested value
-     * @param boolean $isDeliveryReceiptRequested
+     * @param bool $isDeliveryReceiptRequested
      * @return \Ews\StructType\EwsMessageType
      */
     public function setIsDeliveryReceiptRequested($isDeliveryReceiptRequested = null)
@@ -350,6 +350,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setConversationTopic($conversationTopic = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationTopic)), __LINE__);
+        }
         $this->ConversationTopic = $conversationTopic;
         return $this;
     }
@@ -386,12 +390,16 @@ class EwsMessageType extends EwsItemType
      */
     public function setInternetMessageId($internetMessageId = null)
     {
+        // validation for constraint: string
+        if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internetMessageId)), __LINE__);
+        }
         $this->InternetMessageId = $internetMessageId;
         return $this;
     }
     /**
      * Get IsRead value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRead()
     {
@@ -399,7 +407,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Set IsRead value
-     * @param boolean $isRead
+     * @param bool $isRead
      * @return \Ews\StructType\EwsMessageType
      */
     public function setIsRead($isRead = null)
@@ -409,7 +417,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Get IsResponseRequested value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsResponseRequested()
     {
@@ -417,7 +425,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Set IsResponseRequested value
-     * @param boolean $isResponseRequested
+     * @param bool $isResponseRequested
      * @return \Ews\StructType\EwsMessageType
      */
     public function setIsResponseRequested($isResponseRequested = null)
@@ -440,6 +448,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setReferences($references = null)
     {
+        // validation for constraint: string
+        if (!is_null($references) && !is_string($references)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($references)), __LINE__);
+        }
         $this->References = $references;
         return $this;
     }

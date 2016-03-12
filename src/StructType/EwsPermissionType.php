@@ -55,11 +55,13 @@ class EwsPermissionType extends EwsBasePermissionType
      * Set PermissionLevel value
      * @uses \Ews\EnumType\EwsPermissionLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsPermissionLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $permissionLevel
      * @return \Ews\StructType\EwsPermissionType
      */
     public function setPermissionLevel($permissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionLevelType::valueIsValid($permissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsPermissionLevelType::getValidValues())), __LINE__);
         }
@@ -78,11 +80,13 @@ class EwsPermissionType extends EwsBasePermissionType
      * Set ReadItems value
      * @uses \Ews\EnumType\EwsPermissionReadAccessType::valueIsValid()
      * @uses \Ews\EnumType\EwsPermissionReadAccessType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $readItems
      * @return \Ews\StructType\EwsPermissionType
      */
     public function setReadItems($readItems = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionReadAccessType::valueIsValid($readItems)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $readItems, implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
         }

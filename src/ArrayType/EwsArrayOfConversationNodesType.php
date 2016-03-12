@@ -14,22 +14,22 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
 {
     /**
      * The ConversationNode
-     * @var array
+     * @var \Ews\StructType\EwsConversationNodeType
      */
     public $ConversationNode;
     /**
      * Constructor method for ArrayOfConversationNodesType
      * @uses EwsArrayOfConversationNodesType::setConversationNode()
-     * @param array $conversationNode
+     * @param \Ews\StructType\EwsConversationNodeType $conversationNode
      */
-    public function __construct(array $conversationNode = array())
+    public function __construct(\Ews\StructType\EwsConversationNodeType $conversationNode = null)
     {
         $this
             ->setConversationNode($conversationNode);
     }
     /**
      * Get ConversationNode value
-     * @return array
+     * @return \Ews\StructType\EwsConversationNodeType|null
      */
     public function getConversationNode()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
     }
     /**
      * Set ConversationNode value
-     * @param array $conversationNode
+     * @param \Ews\StructType\EwsConversationNodeType $conversationNode
      * @return \Ews\ArrayType\EwsArrayOfConversationNodesType
      */
-    public function setConversationNode(array $conversationNode = array())
+    public function setConversationNode(\Ews\StructType\EwsConversationNodeType $conversationNode = null)
     {
         $this->ConversationNode = $conversationNode;
         return $this;

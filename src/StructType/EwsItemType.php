@@ -23,7 +23,6 @@ class EwsItemType extends AbstractStructBase
      * The ItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -31,7 +30,6 @@ class EwsItemType extends AbstractStructBase
      * The ParentFolderId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
@@ -74,7 +72,7 @@ class EwsItemType extends AbstractStructBase
      * The DateTimeReceived
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $DateTimeReceived;
     /**
@@ -109,35 +107,35 @@ class EwsItemType extends AbstractStructBase
      * The IsSubmitted
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsSubmitted;
     /**
      * The IsDraft
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDraft;
     /**
      * The IsFromMe
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsFromMe;
     /**
      * The IsResend
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsResend;
     /**
      * The IsUnmodified
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsUnmodified;
     /**
@@ -151,14 +149,14 @@ class EwsItemType extends AbstractStructBase
      * The DateTimeSent
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $DateTimeSent;
     /**
      * The DateTimeCreated
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $DateTimeCreated;
     /**
@@ -172,21 +170,21 @@ class EwsItemType extends AbstractStructBase
      * The ReminderDueBy
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReminderDueBy;
     /**
      * The ReminderIsSet
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $ReminderIsSet;
     /**
      * The ReminderNextTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReminderNextTime;
     /**
@@ -216,7 +214,7 @@ class EwsItemType extends AbstractStructBase
      * The HasAttachments
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasAttachments;
     /**
@@ -224,15 +222,14 @@ class EwsItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Represents an extended property instance (both its path identifier along with its associated value).
-     * @var \Ews\StructType\EwsExtendedPropertyType
+     * @var \Ews\StructType\EwsExtendedPropertyType[]
      */
     public $ExtendedProperty;
     /**
      * The Culture
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var language
+     * @var string
      */
     public $Culture;
     /**
@@ -253,14 +250,14 @@ class EwsItemType extends AbstractStructBase
      * The LastModifiedTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastModifiedTime;
     /**
      * The IsAssociated
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsAssociated;
     /**
@@ -281,7 +278,6 @@ class EwsItemType extends AbstractStructBase
      * The ConversationId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ConversationId;
@@ -345,7 +341,7 @@ class EwsItemType extends AbstractStructBase
      * The RetentionDate
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $RetentionDate;
     /**
@@ -373,21 +369,21 @@ class EwsItemType extends AbstractStructBase
      * The IsClutter
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsClutter;
     /**
      * The BlockStatus
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $BlockStatus;
     /**
      * The HasBlockedImages
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasBlockedImages;
     /**
@@ -415,7 +411,7 @@ class EwsItemType extends AbstractStructBase
      * The SortKey
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $SortKey;
     /**
@@ -436,7 +432,7 @@ class EwsItemType extends AbstractStructBase
      * The MentionedMe
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MentionedMe;
     /**
@@ -517,34 +513,34 @@ class EwsItemType extends AbstractStructBase
      * @param string $sensitivity
      * @param \Ews\StructType\EwsBodyType $body
      * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
-     * @param dateTime $dateTimeReceived
+     * @param string $dateTimeReceived
      * @param int $size
      * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
      * @param string $importance
      * @param string $inReplyTo
-     * @param boolean $isSubmitted
-     * @param boolean $isDraft
-     * @param boolean $isFromMe
-     * @param boolean $isResend
-     * @param boolean $isUnmodified
+     * @param bool $isSubmitted
+     * @param bool $isDraft
+     * @param bool $isFromMe
+     * @param bool $isResend
+     * @param bool $isUnmodified
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
      * $internetMessageHeaders
-     * @param dateTime $dateTimeSent
-     * @param dateTime $dateTimeCreated
+     * @param string $dateTimeSent
+     * @param string $dateTimeCreated
      * @param \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
-     * @param dateTime $reminderDueBy
-     * @param boolean $reminderIsSet
-     * @param dateTime $reminderNextTime
+     * @param string $reminderDueBy
+     * @param bool $reminderIsSet
+     * @param string $reminderNextTime
      * @param int $reminderMinutesBeforeStart
      * @param string $displayCc
      * @param string $displayTo
-     * @param boolean $hasAttachments
-     * @param \Ews\StructType\EwsExtendedPropertyType $extendedProperty
-     * @param language $culture
+     * @param bool $hasAttachments
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
+     * @param string $culture
      * @param \Ews\StructType\EwsEffectiveRightsType $effectiveRights
      * @param string $lastModifiedName
-     * @param dateTime $lastModifiedTime
-     * @param boolean $isAssociated
+     * @param string $lastModifiedTime
+     * @param bool $isAssociated
      * @param string $webClientReadFormQueryString
      * @param string $webClientEditFormQueryString
      * @param \Ews\StructType\EwsItemIdType $conversationId
@@ -556,25 +552,25 @@ class EwsItemType extends AbstractStructBase
      * @param \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult
      * @param \Ews\StructType\EwsRetentionTagType $policyTag
      * @param \Ews\StructType\EwsRetentionTagType $archiveTag
-     * @param dateTime $retentionDate
+     * @param string $retentionDate
      * @param string $preview
      * @param \Ews\StructType\EwsRightsManagementLicenseDataType
      * $rightsManagementLicenseData
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
      * $predictedActionReasons
-     * @param boolean $isClutter
-     * @param boolean $blockStatus
-     * @param boolean $hasBlockedImages
+     * @param bool $isClutter
+     * @param bool $blockStatus
+     * @param bool $hasBlockedImages
      * @param \Ews\StructType\EwsBodyType $textBody
      * @param string $iconIndex
      * @param base64Binary $searchKey
-     * @param long $sortKey
+     * @param int $sortKey
      * @param \Ews\ArrayType\EwsArrayOfStringsType $hashtags
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $mentions
-     * @param boolean $mentionedMe
+     * @param bool $mentionedMe
      * @param \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
      */
-    public function __construct(\Ews\StructType\EwsMimeContentType $mimeContent = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $itemClass = null, $subject = null, $sensitivity = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $dateTimeReceived = null, $size = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $importance = null, $inReplyTo = null, $isSubmitted = null, $isDraft = null, $isFromMe = null, $isResend = null, $isUnmodified = null, \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, $dateTimeSent = null, $dateTimeCreated = null, \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, $reminderDueBy = null, $reminderIsSet = null, $reminderNextTime = null, $reminderMinutesBeforeStart = null, $displayCc = null, $displayTo = null, $hasAttachments = null, \Ews\StructType\EwsExtendedPropertyType $extendedProperty = null, $culture = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $lastModifiedName = null, $lastModifiedTime = null, $isAssociated = null, $webClientReadFormQueryString = null, $webClientEditFormQueryString = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsBodyType $uniqueBody = null, \Ews\StructType\EwsFlagType $flag = null, base64Binary $storeEntryId = null, base64Binary $instanceKey = null, \Ews\StructType\EwsBodyType $normalizedBody = null, \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, $retentionDate = null, $preview = null, \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, $isClutter = null, $blockStatus = null, $hasBlockedImages = null, \Ews\StructType\EwsBodyType $textBody = null, $iconIndex = null, base64Binary $searchKey = null, $sortKey = null, \Ews\ArrayType\EwsArrayOfStringsType $hashtags = null, \Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null, $mentionedMe = null, \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
+    public function __construct(\Ews\StructType\EwsMimeContentType $mimeContent = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $itemClass = null, $subject = null, $sensitivity = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $dateTimeReceived = null, $size = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $importance = null, $inReplyTo = null, $isSubmitted = null, $isDraft = null, $isFromMe = null, $isResend = null, $isUnmodified = null, \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, $dateTimeSent = null, $dateTimeCreated = null, \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, $reminderDueBy = null, $reminderIsSet = null, $reminderNextTime = null, $reminderMinutesBeforeStart = null, $displayCc = null, $displayTo = null, $hasAttachments = null, array $extendedProperty = array(), $culture = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $lastModifiedName = null, $lastModifiedTime = null, $isAssociated = null, $webClientReadFormQueryString = null, $webClientEditFormQueryString = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsBodyType $uniqueBody = null, \Ews\StructType\EwsFlagType $flag = null, base64Binary $storeEntryId = null, base64Binary $instanceKey = null, \Ews\StructType\EwsBodyType $normalizedBody = null, \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, $retentionDate = null, $preview = null, \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, $isClutter = null, $blockStatus = null, $hasBlockedImages = null, \Ews\StructType\EwsBodyType $textBody = null, $iconIndex = null, base64Binary $searchKey = null, $sortKey = null, \Ews\ArrayType\EwsArrayOfStringsType $hashtags = null, \Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null, $mentionedMe = null, \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
     {
         $this
             ->setMimeContent($mimeContent)
@@ -708,6 +704,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setItemClass($itemClass = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemClass) && !is_string($itemClass)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+        }
         $this->ItemClass = $itemClass;
         return $this;
     }
@@ -726,6 +726,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
@@ -741,11 +745,13 @@ class EwsItemType extends AbstractStructBase
      * Set Sensitivity value
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsSensitivityChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sensitivity
      * @return \Ews\StructType\EwsItemType
      */
     public function setSensitivity($sensitivity = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sensitivity, implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
@@ -790,7 +796,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get DateTimeReceived value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDateTimeReceived()
     {
@@ -798,11 +804,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set DateTimeReceived value
-     * @param dateTime $dateTimeReceived
+     * @param string $dateTimeReceived
      * @return \Ews\StructType\EwsItemType
      */
     public function setDateTimeReceived($dateTimeReceived = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeReceived) && !is_string($dateTimeReceived)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeReceived)), __LINE__);
+        }
         $this->DateTimeReceived = $dateTimeReceived;
         return $this;
     }
@@ -821,6 +831,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }
@@ -854,11 +868,13 @@ class EwsItemType extends AbstractStructBase
      * Set Importance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $importance
      * @return \Ews\StructType\EwsItemType
      */
     public function setImportance($importance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -880,12 +896,16 @@ class EwsItemType extends AbstractStructBase
      */
     public function setInReplyTo($inReplyTo = null)
     {
+        // validation for constraint: string
+        if (!is_null($inReplyTo) && !is_string($inReplyTo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inReplyTo)), __LINE__);
+        }
         $this->InReplyTo = $inReplyTo;
         return $this;
     }
     /**
      * Get IsSubmitted value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsSubmitted()
     {
@@ -893,7 +913,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsSubmitted value
-     * @param boolean $isSubmitted
+     * @param bool $isSubmitted
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsSubmitted($isSubmitted = null)
@@ -903,7 +923,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get IsDraft value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDraft()
     {
@@ -911,7 +931,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsDraft value
-     * @param boolean $isDraft
+     * @param bool $isDraft
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsDraft($isDraft = null)
@@ -921,7 +941,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get IsFromMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsFromMe()
     {
@@ -929,7 +949,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsFromMe value
-     * @param boolean $isFromMe
+     * @param bool $isFromMe
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsFromMe($isFromMe = null)
@@ -939,7 +959,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get IsResend value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsResend()
     {
@@ -947,7 +967,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsResend value
-     * @param boolean $isResend
+     * @param bool $isResend
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsResend($isResend = null)
@@ -957,7 +977,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get IsUnmodified value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsUnmodified()
     {
@@ -965,7 +985,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsUnmodified value
-     * @param boolean $isUnmodified
+     * @param bool $isUnmodified
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsUnmodified($isUnmodified = null)
@@ -994,7 +1014,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get DateTimeSent value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDateTimeSent()
     {
@@ -1002,17 +1022,21 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set DateTimeSent value
-     * @param dateTime $dateTimeSent
+     * @param string $dateTimeSent
      * @return \Ews\StructType\EwsItemType
      */
     public function setDateTimeSent($dateTimeSent = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeSent) && !is_string($dateTimeSent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeSent)), __LINE__);
+        }
         $this->DateTimeSent = $dateTimeSent;
         return $this;
     }
     /**
      * Get DateTimeCreated value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDateTimeCreated()
     {
@@ -1020,11 +1044,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set DateTimeCreated value
-     * @param dateTime $dateTimeCreated
+     * @param string $dateTimeCreated
      * @return \Ews\StructType\EwsItemType
      */
     public function setDateTimeCreated($dateTimeCreated = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTimeCreated) && !is_string($dateTimeCreated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeCreated)), __LINE__);
+        }
         $this->DateTimeCreated = $dateTimeCreated;
         return $this;
     }
@@ -1048,7 +1076,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get ReminderDueBy value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReminderDueBy()
     {
@@ -1056,17 +1084,21 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set ReminderDueBy value
-     * @param dateTime $reminderDueBy
+     * @param string $reminderDueBy
      * @return \Ews\StructType\EwsItemType
      */
     public function setReminderDueBy($reminderDueBy = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderDueBy) && !is_string($reminderDueBy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderDueBy)), __LINE__);
+        }
         $this->ReminderDueBy = $reminderDueBy;
         return $this;
     }
     /**
      * Get ReminderIsSet value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReminderIsSet()
     {
@@ -1074,7 +1106,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set ReminderIsSet value
-     * @param boolean $reminderIsSet
+     * @param bool $reminderIsSet
      * @return \Ews\StructType\EwsItemType
      */
     public function setReminderIsSet($reminderIsSet = null)
@@ -1084,7 +1116,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get ReminderNextTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReminderNextTime()
     {
@@ -1092,11 +1124,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set ReminderNextTime value
-     * @param dateTime $reminderNextTime
+     * @param string $reminderNextTime
      * @return \Ews\StructType\EwsItemType
      */
     public function setReminderNextTime($reminderNextTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderNextTime) && !is_string($reminderNextTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderNextTime)), __LINE__);
+        }
         $this->ReminderNextTime = $reminderNextTime;
         return $this;
     }
@@ -1115,6 +1151,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setReminderMinutesBeforeStart($reminderMinutesBeforeStart = null)
     {
+        // validation for constraint: int
+        if (!is_null($reminderMinutesBeforeStart) && !is_int($reminderMinutesBeforeStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
+        }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
         return $this;
     }
@@ -1133,6 +1173,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setDisplayCc($displayCc = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayCc) && !is_string($displayCc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayCc)), __LINE__);
+        }
         $this->DisplayCc = $displayCc;
         return $this;
     }
@@ -1151,12 +1195,16 @@ class EwsItemType extends AbstractStructBase
      */
     public function setDisplayTo($displayTo = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayTo) && !is_string($displayTo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayTo)), __LINE__);
+        }
         $this->DisplayTo = $displayTo;
         return $this;
     }
     /**
      * Get HasAttachments value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasAttachments()
     {
@@ -1164,7 +1212,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set HasAttachments value
-     * @param boolean $hasAttachments
+     * @param bool $hasAttachments
      * @return \Ews\StructType\EwsItemType
      */
     public function setHasAttachments($hasAttachments = null)
@@ -1174,7 +1222,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get ExtendedProperty value
-     * @return \Ews\StructType\EwsExtendedPropertyType|null
+     * @return \Ews\StructType\EwsExtendedPropertyType[]|null
      */
     public function getExtendedProperty()
     {
@@ -1182,17 +1230,39 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set ExtendedProperty value
-     * @param \Ews\StructType\EwsExtendedPropertyType $extendedProperty
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      * @return \Ews\StructType\EwsItemType
      */
-    public function setExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $extendedProperty = null)
+    public function setExtendedProperty(array $extendedProperty = array())
     {
+        foreach ($extendedProperty as $itemTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$itemTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($itemTypeExtendedPropertyItem) ? get_class($itemTypeExtendedPropertyItem) : gettype($itemTypeExtendedPropertyItem)), __LINE__);
+            }
+        }
         $this->ExtendedProperty = $extendedProperty;
         return $this;
     }
     /**
+     * Add item to ExtendedProperty value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType $item
+     * @return \Ews\StructType\EwsItemType
+     */
+    public function addToExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ExtendedProperty[] = $item;
+        return $this;
+    }
+    /**
      * Get Culture value
-     * @return language|null
+     * @return string|null
      */
     public function getCulture()
     {
@@ -1200,11 +1270,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set Culture value
-     * @param language $culture
+     * @param string $culture
      * @return \Ews\StructType\EwsItemType
      */
     public function setCulture($culture = null)
     {
+        // validation for constraint: string
+        if (!is_null($culture) && !is_string($culture)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+        }
         $this->Culture = $culture;
         return $this;
     }
@@ -1241,12 +1315,16 @@ class EwsItemType extends AbstractStructBase
      */
     public function setLastModifiedName($lastModifiedName = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedName) && !is_string($lastModifiedName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedName)), __LINE__);
+        }
         $this->LastModifiedName = $lastModifiedName;
         return $this;
     }
     /**
      * Get LastModifiedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastModifiedTime()
     {
@@ -1254,17 +1332,21 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set LastModifiedTime value
-     * @param dateTime $lastModifiedTime
+     * @param string $lastModifiedTime
      * @return \Ews\StructType\EwsItemType
      */
     public function setLastModifiedTime($lastModifiedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+        }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
     }
     /**
      * Get IsAssociated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAssociated()
     {
@@ -1272,7 +1354,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsAssociated value
-     * @param boolean $isAssociated
+     * @param bool $isAssociated
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsAssociated($isAssociated = null)
@@ -1295,6 +1377,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setWebClientReadFormQueryString($webClientReadFormQueryString = null)
     {
+        // validation for constraint: string
+        if (!is_null($webClientReadFormQueryString) && !is_string($webClientReadFormQueryString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($webClientReadFormQueryString)), __LINE__);
+        }
         $this->WebClientReadFormQueryString = $webClientReadFormQueryString;
         return $this;
     }
@@ -1313,6 +1399,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setWebClientEditFormQueryString($webClientEditFormQueryString = null)
     {
+        // validation for constraint: string
+        if (!is_null($webClientEditFormQueryString) && !is_string($webClientEditFormQueryString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($webClientEditFormQueryString)), __LINE__);
+        }
         $this->WebClientEditFormQueryString = $webClientEditFormQueryString;
         return $this;
     }
@@ -1480,7 +1570,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get RetentionDate value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getRetentionDate()
     {
@@ -1488,11 +1578,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set RetentionDate value
-     * @param dateTime $retentionDate
+     * @param string $retentionDate
      * @return \Ews\StructType\EwsItemType
      */
     public function setRetentionDate($retentionDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($retentionDate) && !is_string($retentionDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($retentionDate)), __LINE__);
+        }
         $this->RetentionDate = $retentionDate;
         return $this;
     }
@@ -1511,6 +1605,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setPreview($preview = null)
     {
+        // validation for constraint: string
+        if (!is_null($preview) && !is_string($preview)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+        }
         $this->Preview = $preview;
         return $this;
     }
@@ -1554,7 +1652,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get IsClutter value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsClutter()
     {
@@ -1562,7 +1660,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set IsClutter value
-     * @param boolean $isClutter
+     * @param bool $isClutter
      * @return \Ews\StructType\EwsItemType
      */
     public function setIsClutter($isClutter = null)
@@ -1572,7 +1670,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get BlockStatus value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getBlockStatus()
     {
@@ -1580,7 +1678,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set BlockStatus value
-     * @param boolean $blockStatus
+     * @param bool $blockStatus
      * @return \Ews\StructType\EwsItemType
      */
     public function setBlockStatus($blockStatus = null)
@@ -1590,7 +1688,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get HasBlockedImages value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasBlockedImages()
     {
@@ -1598,7 +1696,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set HasBlockedImages value
-     * @param boolean $hasBlockedImages
+     * @param bool $hasBlockedImages
      * @return \Ews\StructType\EwsItemType
      */
     public function setHasBlockedImages($hasBlockedImages = null)
@@ -1636,11 +1734,13 @@ class EwsItemType extends AbstractStructBase
      * Set IconIndex value
      * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
      * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $iconIndex
      * @return \Ews\StructType\EwsItemType
      */
     public function setIconIndex($iconIndex = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $iconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
@@ -1667,7 +1767,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get SortKey value
-     * @return long|null
+     * @return int|null
      */
     public function getSortKey()
     {
@@ -1675,11 +1775,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set SortKey value
-     * @param long $sortKey
+     * @param int $sortKey
      * @return \Ews\StructType\EwsItemType
      */
     public function setSortKey($sortKey = null)
     {
+        // validation for constraint: int
+        if (!is_null($sortKey) && !is_int($sortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sortKey)), __LINE__);
+        }
         $this->SortKey = $sortKey;
         return $this;
     }
@@ -1721,7 +1825,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get MentionedMe value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMentionedMe()
     {
@@ -1729,7 +1833,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set MentionedMe value
-     * @param boolean $mentionedMe
+     * @param bool $mentionedMe
      * @return \Ews\StructType\EwsItemType
      */
     public function setMentionedMe($mentionedMe = null)

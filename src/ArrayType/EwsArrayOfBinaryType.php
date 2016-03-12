@@ -17,13 +17,13 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var base64Binary[]
      */
     public $Base64Binary;
     /**
      * Constructor method for ArrayOfBinaryType
      * @uses EwsArrayOfBinaryType::setBase64Binary()
-     * @param array $base64Binary
+     * @param base64Binary[] $base64Binary
      */
     public function __construct(array $base64Binary = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     }
     /**
      * Get Base64Binary value
-     * @return array
+     * @return base64Binary[]|null
      */
     public function getBase64Binary()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     }
     /**
      * Set Base64Binary value
-     * @param array $base64Binary
+     * @throws \InvalidArgumentException
+     * @param base64Binary[] $base64Binary
      * @return \Ews\ArrayType\EwsArrayOfBinaryType
      */
     public function setBase64Binary(array $base64Binary = array())
     {
+        foreach ($base64Binary as $arrayOfBinaryTypeBase64BinaryItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfBinaryTypeBase64BinaryItem)) {
+                throw new \InvalidArgumentException(sprintf('The Base64Binary property can only contain items of base64Binary, "%s" given', is_object($arrayOfBinaryTypeBase64BinaryItem) ? get_class($arrayOfBinaryTypeBase64BinaryItem) : gettype($arrayOfBinaryTypeBase64BinaryItem)), __LINE__);
+            }
+        }
         $this->Base64Binary = $base64Binary;
+        return $this;
+    }
+    /**
+     * Add item to Base64Binary value
+     * @throws \InvalidArgumentException
+     * @param base64Binary $item
+     * @return \Ews\ArrayType\EwsArrayOfBinaryType
+     */
+    public function addToBase64Binary(base64Binary $item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Base64Binary property can only contain items of base64Binary, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Base64Binary[] = $item;
         return $this;
     }
     /**

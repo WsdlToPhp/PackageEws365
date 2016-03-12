@@ -17,13 +17,13 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsParcelDeliveryEntityType[]
      */
     public $ParcelDelivery;
     /**
      * Constructor method for ArrayOfParcelDeliveryEntitiesType
      * @uses EwsArrayOfParcelDeliveryEntitiesType::setParcelDelivery()
-     * @param array $parcelDelivery
+     * @param \Ews\StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
      */
     public function __construct(array $parcelDelivery = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Get ParcelDelivery value
-     * @return array
+     * @return \Ews\StructType\EwsParcelDeliveryEntityType[]|null
      */
     public function getParcelDelivery()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
     }
     /**
      * Set ParcelDelivery value
-     * @param array $parcelDelivery
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
      * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
      */
     public function setParcelDelivery(array $parcelDelivery = array())
     {
+        foreach ($parcelDelivery as $arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
+                throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of \Ews\StructType\EwsParcelDeliveryEntityType, "%s" given', is_object($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) ? get_class($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) : gettype($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem)), __LINE__);
+            }
+        }
         $this->ParcelDelivery = $parcelDelivery;
+        return $this;
+    }
+    /**
+     * Add item to ParcelDelivery value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsParcelDeliveryEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
+     */
+    public function addToParcelDelivery(\Ews\StructType\EwsParcelDeliveryEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
+            throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of \Ews\StructType\EwsParcelDeliveryEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ParcelDelivery[] = $item;
         return $this;
     }
     /**

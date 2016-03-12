@@ -69,11 +69,13 @@ class EwsGetChannelEventsResponseMessageType extends EwsResponseMessageType
      * Set ConnectionStatus value
      * @uses \Ews\EnumType\EwsConnectionStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsConnectionStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $connectionStatus
      * @return \Ews\StructType\EwsGetChannelEventsResponseMessageType
      */
     public function setConnectionStatus($connectionStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConnectionStatusType::valueIsValid($connectionStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $connectionStatus, implode(', ', \Ews\EnumType\EwsConnectionStatusType::getValidValues())), __LINE__);
         }

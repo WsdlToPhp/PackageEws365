@@ -17,13 +17,13 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsPersonaAttributionType[]
      */
     public $Attribution;
     /**
      * Constructor method for ArrayOfPersonaAttributionsType
      * @uses EwsArrayOfPersonaAttributionsType::setAttribution()
-     * @param array $attribution
+     * @param \Ews\StructType\EwsPersonaAttributionType[] $attribution
      */
     public function __construct(array $attribution = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
     }
     /**
      * Get Attribution value
-     * @return array
+     * @return \Ews\StructType\EwsPersonaAttributionType[]
      */
     public function getAttribution()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
     }
     /**
      * Set Attribution value
-     * @param array $attribution
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPersonaAttributionType[] $attribution
      * @return \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
      */
     public function setAttribution(array $attribution = array())
     {
+        foreach ($attribution as $arrayOfPersonaAttributionsTypeAttributionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfPersonaAttributionsTypeAttributionItem instanceof \Ews\StructType\EwsPersonaAttributionType) {
+                throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of \Ews\StructType\EwsPersonaAttributionType, "%s" given', is_object($arrayOfPersonaAttributionsTypeAttributionItem) ? get_class($arrayOfPersonaAttributionsTypeAttributionItem) : gettype($arrayOfPersonaAttributionsTypeAttributionItem)), __LINE__);
+            }
+        }
         $this->Attribution = $attribution;
+        return $this;
+    }
+    /**
+     * Add item to Attribution value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPersonaAttributionType $item
+     * @return \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
+     */
+    public function addToAttribution(\Ews\StructType\EwsPersonaAttributionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPersonaAttributionType) {
+            throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of \Ews\StructType\EwsPersonaAttributionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Attribution[] = $item;
         return $this;
     }
     /**

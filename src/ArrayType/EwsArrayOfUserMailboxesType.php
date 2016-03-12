@@ -19,14 +19,13 @@ class EwsArrayOfUserMailboxesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * - documentation: User Mailbox.
-     * @var array
+     * @var \Ews\StructType\EwsUserMailboxType[]
      */
     public $UserMailbox;
     /**
      * Constructor method for ArrayOfUserMailboxesType
      * @uses EwsArrayOfUserMailboxesType::setUserMailbox()
-     * @param array $userMailbox
+     * @param \Ews\StructType\EwsUserMailboxType[] $userMailbox
      */
     public function __construct(array $userMailbox = array())
     {
@@ -35,7 +34,7 @@ class EwsArrayOfUserMailboxesType extends AbstractStructArrayBase
     }
     /**
      * Get UserMailbox value
-     * @return array
+     * @return \Ews\StructType\EwsUserMailboxType[]
      */
     public function getUserMailbox()
     {
@@ -43,12 +42,34 @@ class EwsArrayOfUserMailboxesType extends AbstractStructArrayBase
     }
     /**
      * Set UserMailbox value
-     * @param array $userMailbox
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserMailboxType[] $userMailbox
      * @return \Ews\ArrayType\EwsArrayOfUserMailboxesType
      */
     public function setUserMailbox(array $userMailbox = array())
     {
+        foreach ($userMailbox as $arrayOfUserMailboxesTypeUserMailboxItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUserMailboxesTypeUserMailboxItem instanceof \Ews\StructType\EwsUserMailboxType) {
+                throw new \InvalidArgumentException(sprintf('The UserMailbox property can only contain items of \Ews\StructType\EwsUserMailboxType, "%s" given', is_object($arrayOfUserMailboxesTypeUserMailboxItem) ? get_class($arrayOfUserMailboxesTypeUserMailboxItem) : gettype($arrayOfUserMailboxesTypeUserMailboxItem)), __LINE__);
+            }
+        }
         $this->UserMailbox = $userMailbox;
+        return $this;
+    }
+    /**
+     * Add item to UserMailbox value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUserMailboxType $item
+     * @return \Ews\ArrayType\EwsArrayOfUserMailboxesType
+     */
+    public function addToUserMailbox(\Ews\StructType\EwsUserMailboxType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUserMailboxType) {
+            throw new \InvalidArgumentException(sprintf('The UserMailbox property can only contain items of \Ews\StructType\EwsUserMailboxType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->UserMailbox[] = $item;
         return $this;
     }
     /**

@@ -16,14 +16,14 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * The Start
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The End
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
@@ -51,14 +51,14 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * The ProposedStart
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedStart;
     /**
      * The ProposedEnd
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedEnd;
     /**
@@ -78,13 +78,13 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * @uses EwsMeetingResponseMessageType::setProposedStart()
      * @uses EwsMeetingResponseMessageType::setProposedEnd()
      * @uses EwsMeetingResponseMessageType::setEnhancedLocation()
-     * @param dateTime $start
-     * @param dateTime $end
+     * @param string $start
+     * @param string $end
      * @param string $location
      * @param \Ews\StructType\EwsRecurrenceType $recurrence
      * @param string $calendarItemType
-     * @param dateTime $proposedStart
-     * @param dateTime $proposedEnd
+     * @param string $proposedStart
+     * @param string $proposedEnd
      * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
      */
     public function __construct($start = null, $end = null, $location = null, \Ews\StructType\EwsRecurrenceType $recurrence = null, $calendarItemType = null, $proposedStart = null, $proposedEnd = null, \Ews\StructType\EwsEnhancedLocationType $enhancedLocation = null)
@@ -101,7 +101,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -109,17 +109,21 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsMeetingResponseMessageType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -127,11 +131,15 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsMeetingResponseMessageType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }
@@ -150,6 +158,10 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
@@ -186,12 +198,16 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      */
     public function setCalendarItemType($calendarItemType = null)
     {
+        // validation for constraint: string
+        if (!is_null($calendarItemType) && !is_string($calendarItemType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarItemType)), __LINE__);
+        }
         $this->CalendarItemType = $calendarItemType;
         return $this;
     }
     /**
      * Get ProposedStart value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedStart()
     {
@@ -199,17 +215,21 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     }
     /**
      * Set ProposedStart value
-     * @param dateTime $proposedStart
+     * @param string $proposedStart
      * @return \Ews\StructType\EwsMeetingResponseMessageType
      */
     public function setProposedStart($proposedStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedStart) && !is_string($proposedStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedStart)), __LINE__);
+        }
         $this->ProposedStart = $proposedStart;
         return $this;
     }
     /**
      * Get ProposedEnd value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedEnd()
     {
@@ -217,11 +237,15 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     }
     /**
      * Set ProposedEnd value
-     * @param dateTime $proposedEnd
+     * @param string $proposedEnd
      * @return \Ews\StructType\EwsMeetingResponseMessageType
      */
     public function setProposedEnd($proposedEnd = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedEnd)), __LINE__);
+        }
         $this->ProposedEnd = $proposedEnd;
         return $this;
     }

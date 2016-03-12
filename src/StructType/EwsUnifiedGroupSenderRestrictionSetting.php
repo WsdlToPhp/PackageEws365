@@ -64,11 +64,13 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * Set RestrictionAction value
      * @uses \Ews\EnumType\EwsSenderRestrictionActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $restrictionAction
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
      */
     public function setRestrictionAction($restrictionAction = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSenderRestrictionActionType::valueIsValid($restrictionAction)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $restrictionAction, implode(', ', \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues())), __LINE__);
         }
@@ -87,11 +89,13 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * Set Restriction value
      * @uses \Ews\EnumType\EwsSenderRestrictionType::valueIsValid()
      * @uses \Ews\EnumType\EwsSenderRestrictionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $restriction
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
      */
     public function setRestriction($restriction = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSenderRestrictionType::valueIsValid($restriction)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $restriction, implode(', ', \Ews\EnumType\EwsSenderRestrictionType::getValidValues())), __LINE__);
         }

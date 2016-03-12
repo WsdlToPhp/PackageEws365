@@ -17,13 +17,13 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsFlightReservationEntityType[]
      */
     public $FlightReservation;
     /**
      * Constructor method for ArrayOfFlightReservationsType
      * @uses EwsArrayOfFlightReservationsType::setFlightReservation()
-     * @param array $flightReservation
+     * @param \Ews\StructType\EwsFlightReservationEntityType[] $flightReservation
      */
     public function __construct(array $flightReservation = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
     }
     /**
      * Get FlightReservation value
-     * @return array
+     * @return \Ews\StructType\EwsFlightReservationEntityType[]|null
      */
     public function getFlightReservation()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
     }
     /**
      * Set FlightReservation value
-     * @param array $flightReservation
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFlightReservationEntityType[] $flightReservation
      * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType
      */
     public function setFlightReservation(array $flightReservation = array())
     {
+        foreach ($flightReservation as $arrayOfFlightReservationsTypeFlightReservationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFlightReservationsTypeFlightReservationItem instanceof \Ews\StructType\EwsFlightReservationEntityType) {
+                throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of \Ews\StructType\EwsFlightReservationEntityType, "%s" given', is_object($arrayOfFlightReservationsTypeFlightReservationItem) ? get_class($arrayOfFlightReservationsTypeFlightReservationItem) : gettype($arrayOfFlightReservationsTypeFlightReservationItem)), __LINE__);
+            }
+        }
         $this->FlightReservation = $flightReservation;
+        return $this;
+    }
+    /**
+     * Add item to FlightReservation value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFlightReservationEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType
+     */
+    public function addToFlightReservation(\Ews\StructType\EwsFlightReservationEntityType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFlightReservationEntityType) {
+            throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of \Ews\StructType\EwsFlightReservationEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FlightReservation[] = $item;
         return $this;
     }
     /**

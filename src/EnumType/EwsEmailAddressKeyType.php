@@ -14,17 +14,17 @@ class EwsEmailAddressKeyType
      * Constant for value 'EmailAddress1'
      * @return string 'EmailAddress1'
      */
-    const VALUE_EMAILADDRESS1 = 'EmailAddress1';
+    const VALUE_EMAIL_ADDRESS_1 = 'EmailAddress1';
     /**
      * Constant for value 'EmailAddress2'
      * @return string 'EmailAddress2'
      */
-    const VALUE_EMAILADDRESS2 = 'EmailAddress2';
+    const VALUE_EMAIL_ADDRESS_2 = 'EmailAddress2';
     /**
      * Constant for value 'EmailAddress3'
      * @return string 'EmailAddress3'
      */
-    const VALUE_EMAILADDRESS3 = 'EmailAddress3';
+    const VALUE_EMAIL_ADDRESS_3 = 'EmailAddress3';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsEmailAddressKeyType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_EMAILADDRESS1
-     * @uses self::VALUE_EMAILADDRESS2
-     * @uses self::VALUE_EMAILADDRESS3
+     * @uses self::VALUE_EMAIL_ADDRESS_1
+     * @uses self::VALUE_EMAIL_ADDRESS_2
+     * @uses self::VALUE_EMAIL_ADDRESS_3
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_EMAILADDRESS1,
-            self::VALUE_EMAILADDRESS2,
-            self::VALUE_EMAILADDRESS3,
+            self::VALUE_EMAIL_ADDRESS_1,
+            self::VALUE_EMAIL_ADDRESS_2,
+            self::VALUE_EMAIL_ADDRESS_3,
         );
     }
     /**

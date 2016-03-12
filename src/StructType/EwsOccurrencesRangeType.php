@@ -16,14 +16,14 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * The Start
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * The End
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var dateTime
+     * @var string
      */
     public $End;
     /**
@@ -37,7 +37,7 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * The CompareOriginalStartTime
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $CompareOriginalStartTime;
     /**
@@ -46,10 +46,10 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * @uses EwsOccurrencesRangeType::setEnd()
      * @uses EwsOccurrencesRangeType::setCount()
      * @uses EwsOccurrencesRangeType::setCompareOriginalStartTime()
-     * @param dateTime $start
-     * @param dateTime $end
+     * @param string $start
+     * @param string $end
      * @param int $count
-     * @param boolean $compareOriginalStartTime
+     * @param bool $compareOriginalStartTime
      */
     public function __construct($start = null, $end = null, $count = null, $compareOriginalStartTime = null)
     {
@@ -61,7 +61,7 @@ class EwsOccurrencesRangeType extends AbstractStructBase
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -69,17 +69,21 @@ class EwsOccurrencesRangeType extends AbstractStructBase
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsOccurrencesRangeType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }
     /**
      * Get End value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEnd()
     {
@@ -87,11 +91,15 @@ class EwsOccurrencesRangeType extends AbstractStructBase
     }
     /**
      * Set End value
-     * @param dateTime $end
+     * @param string $end
      * @return \Ews\StructType\EwsOccurrencesRangeType
      */
     public function setEnd($end = null)
     {
+        // validation for constraint: string
+        if (!is_null($end) && !is_string($end)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+        }
         $this->End = $end;
         return $this;
     }
@@ -110,12 +118,16 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      */
     public function setCount($count = null)
     {
+        // validation for constraint: int
+        if (!is_null($count) && !is_int($count)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($count)), __LINE__);
+        }
         $this->Count = $count;
         return $this;
     }
     /**
      * Get CompareOriginalStartTime value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCompareOriginalStartTime()
     {
@@ -123,7 +135,7 @@ class EwsOccurrencesRangeType extends AbstractStructBase
     }
     /**
      * Set CompareOriginalStartTime value
-     * @param boolean $compareOriginalStartTime
+     * @param bool $compareOriginalStartTime
      * @return \Ews\StructType\EwsOccurrencesRangeType
      */
     public function setCompareOriginalStartTime($compareOriginalStartTime = null)

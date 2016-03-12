@@ -39,11 +39,13 @@ class EwsSendNotificationResultType extends AbstractStructBase
      * Set SubscriptionStatus value
      * @uses \Ews\EnumType\EwsSubscriptionStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsSubscriptionStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $subscriptionStatus
      * @return \Ews\StructType\EwsSendNotificationResultType
      */
     public function setSubscriptionStatus($subscriptionStatus = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSubscriptionStatusType::valueIsValid($subscriptionStatus)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $subscriptionStatus, implode(', ', \Ews\EnumType\EwsSubscriptionStatusType::getValidValues())), __LINE__);
         }

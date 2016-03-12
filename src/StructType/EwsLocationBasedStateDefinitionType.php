@@ -54,6 +54,10 @@ class EwsLocationBasedStateDefinitionType extends EwsBaseCalendarItemStateDefini
      */
     public function setOrganizerLocation($organizerLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($organizerLocation) && !is_string($organizerLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($organizerLocation)), __LINE__);
+        }
         $this->OrganizerLocation = $organizerLocation;
         return $this;
     }
@@ -72,6 +76,10 @@ class EwsLocationBasedStateDefinitionType extends EwsBaseCalendarItemStateDefini
      */
     public function setAttendeeLocation($attendeeLocation = null)
     {
+        // validation for constraint: string
+        if (!is_null($attendeeLocation) && !is_string($attendeeLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($attendeeLocation)), __LINE__);
+        }
         $this->AttendeeLocation = $attendeeLocation;
         return $this;
     }

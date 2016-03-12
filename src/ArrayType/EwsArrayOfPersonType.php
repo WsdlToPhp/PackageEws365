@@ -14,22 +14,22 @@ class EwsArrayOfPersonType extends AbstractStructArrayBase
 {
     /**
      * The Person
-     * @var array
+     * @var \Ews\StructType\EwsPersonType
      */
     public $Person;
     /**
      * Constructor method for ArrayOfPersonType
      * @uses EwsArrayOfPersonType::setPerson()
-     * @param array $person
+     * @param \Ews\StructType\EwsPersonType $person
      */
-    public function __construct(array $person = array())
+    public function __construct(\Ews\StructType\EwsPersonType $person = null)
     {
         $this
             ->setPerson($person);
     }
     /**
      * Get Person value
-     * @return array
+     * @return \Ews\StructType\EwsPersonType|null
      */
     public function getPerson()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfPersonType extends AbstractStructArrayBase
     }
     /**
      * Set Person value
-     * @param array $person
+     * @param \Ews\StructType\EwsPersonType $person
      * @return \Ews\ArrayType\EwsArrayOfPersonType
      */
-    public function setPerson(array $person = array())
+    public function setPerson(\Ews\StructType\EwsPersonType $person = null)
     {
         $this->Person = $person;
         return $this;

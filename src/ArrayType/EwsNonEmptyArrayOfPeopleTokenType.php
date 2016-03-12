@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsPeopleTokenType[]
      */
     public $PeopleToken;
     /**
      * Constructor method for NonEmptyArrayOfPeopleTokenType
      * @uses EwsNonEmptyArrayOfPeopleTokenType::setPeopleToken()
-     * @param array $peopleToken
+     * @param \Ews\StructType\EwsPeopleTokenType[] $peopleToken
      */
     public function __construct(array $peopleToken = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
     }
     /**
      * Get PeopleToken value
-     * @return array
+     * @return \Ews\StructType\EwsPeopleTokenType[]
      */
     public function getPeopleToken()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
     }
     /**
      * Set PeopleToken value
-     * @param array $peopleToken
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPeopleTokenType[] $peopleToken
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
     public function setPeopleToken(array $peopleToken = array())
     {
+        foreach ($peopleToken as $nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfPeopleTokenTypePeopleTokenItem instanceof \Ews\StructType\EwsPeopleTokenType) {
+                throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of \Ews\StructType\EwsPeopleTokenType, "%s" given', is_object($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) ? get_class($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) : gettype($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem)), __LINE__);
+            }
+        }
         $this->PeopleToken = $peopleToken;
+        return $this;
+    }
+    /**
+     * Add item to PeopleToken value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsPeopleTokenType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     */
+    public function addToPeopleToken(\Ews\StructType\EwsPeopleTokenType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsPeopleTokenType) {
+            throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of \Ews\StructType\EwsPeopleTokenType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->PeopleToken[] = $item;
         return $this;
     }
     /**

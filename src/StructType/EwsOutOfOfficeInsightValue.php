@@ -17,7 +17,7 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
@@ -25,7 +25,7 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
@@ -50,8 +50,8 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * @uses EwsOutOfOfficeInsightValue::setEndTime()
      * @uses EwsOutOfOfficeInsightValue::setMessage()
      * @uses EwsOutOfOfficeInsightValue::setCulture()
-     * @param dateTime $startTime
-     * @param dateTime $endTime
+     * @param string $startTime
+     * @param string $endTime
      * @param string $message
      * @param string $culture
      */
@@ -65,7 +65,7 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
     }
     /**
      * Get StartTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartTime()
     {
@@ -73,17 +73,21 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsOutOfOfficeInsightValue
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndTime()
     {
@@ -91,11 +95,15 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsOutOfOfficeInsightValue
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }
@@ -114,6 +122,10 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      */
     public function setMessage($message = null)
     {
+        // validation for constraint: string
+        if (!is_null($message) && !is_string($message)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($message)), __LINE__);
+        }
         $this->Message = $message;
         return $this;
     }
@@ -132,6 +144,10 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      */
     public function setCulture($culture = null)
     {
+        // validation for constraint: string
+        if (!is_null($culture) && !is_string($culture)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+        }
         $this->Culture = $culture;
         return $this;
     }

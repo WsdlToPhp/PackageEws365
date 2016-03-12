@@ -14,13 +14,13 @@ class EwsDeletedOccurrenceInfoType extends AbstractStructBase
 {
     /**
      * The Start
-     * @var dateTime
+     * @var string
      */
     public $Start;
     /**
      * Constructor method for DeletedOccurrenceInfoType
      * @uses EwsDeletedOccurrenceInfoType::setStart()
-     * @param dateTime $start
+     * @param string $start
      */
     public function __construct($start = null)
     {
@@ -29,7 +29,7 @@ class EwsDeletedOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Get Start value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStart()
     {
@@ -37,11 +37,15 @@ class EwsDeletedOccurrenceInfoType extends AbstractStructBase
     }
     /**
      * Set Start value
-     * @param dateTime $start
+     * @param string $start
      * @return \Ews\StructType\EwsDeletedOccurrenceInfoType
      */
     public function setStart($start = null)
     {
+        // validation for constraint: string
+        if (!is_null($start) && !is_string($start)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+        }
         $this->Start = $start;
         return $this;
     }

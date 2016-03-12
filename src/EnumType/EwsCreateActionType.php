@@ -14,7 +14,7 @@ class EwsCreateActionType
      * Constant for value 'CreateNew'
      * @return string 'CreateNew'
      */
-    const VALUE_CREATENEW = 'CreateNew';
+    const VALUE_CREATE_NEW = 'CreateNew';
     /**
      * Constant for value 'Update'
      * @return string 'Update'
@@ -24,7 +24,7 @@ class EwsCreateActionType
      * Constant for value 'UpdateOrCreate'
      * @return string 'UpdateOrCreate'
      */
-    const VALUE_UPDATEORCREATE = 'UpdateOrCreate';
+    const VALUE_UPDATE_OR_CREATE = 'UpdateOrCreate';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -37,17 +37,17 @@ class EwsCreateActionType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_CREATENEW
+     * @uses self::VALUE_CREATE_NEW
      * @uses self::VALUE_UPDATE
-     * @uses self::VALUE_UPDATEORCREATE
+     * @uses self::VALUE_UPDATE_OR_CREATE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_CREATENEW,
+            self::VALUE_CREATE_NEW,
             self::VALUE_UPDATE,
-            self::VALUE_UPDATEORCREATE,
+            self::VALUE_UPDATE_OR_CREATE,
         );
     }
     /**

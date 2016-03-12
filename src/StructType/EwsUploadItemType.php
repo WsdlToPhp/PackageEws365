@@ -17,7 +17,6 @@ class EwsUploadItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
@@ -41,7 +40,6 @@ class EwsUploadItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -49,7 +47,7 @@ class EwsUploadItemType extends AbstractStructBase
      * The IsAssociated
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsAssociated;
     /**
@@ -63,7 +61,7 @@ class EwsUploadItemType extends AbstractStructBase
      * @param base64Binary $data
      * @param string $createAction
      * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param boolean $isAssociated
+     * @param bool $isAssociated
      */
     public function __construct(\Ews\StructType\EwsFolderIdType $parentFolderId = null, base64Binary $data = null, $createAction = null, \Ews\StructType\EwsItemIdType $itemId = null, $isAssociated = null)
     {
@@ -122,11 +120,13 @@ class EwsUploadItemType extends AbstractStructBase
      * Set CreateAction value
      * @uses \Ews\EnumType\EwsCreateActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsCreateActionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $createAction
      * @return \Ews\StructType\EwsUploadItemType
      */
     public function setCreateAction($createAction = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCreateActionType::valueIsValid($createAction)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $createAction, implode(', ', \Ews\EnumType\EwsCreateActionType::getValidValues())), __LINE__);
         }
@@ -153,7 +153,7 @@ class EwsUploadItemType extends AbstractStructBase
     }
     /**
      * Get IsAssociated value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAssociated()
     {
@@ -161,7 +161,7 @@ class EwsUploadItemType extends AbstractStructBase
     }
     /**
      * Set IsAssociated value
-     * @param boolean $isAssociated
+     * @param bool $isAssociated
      * @return \Ews\StructType\EwsUploadItemType
      */
     public function setIsAssociated($isAssociated = null)

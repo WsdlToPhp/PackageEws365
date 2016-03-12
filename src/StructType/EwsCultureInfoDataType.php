@@ -58,6 +58,10 @@ class EwsCultureInfoDataType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -76,6 +80,10 @@ class EwsCultureInfoDataType extends AbstractStructBase
      */
     public function setNativeName($nativeName = null)
     {
+        // validation for constraint: string
+        if (!is_null($nativeName) && !is_string($nativeName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nativeName)), __LINE__);
+        }
         $this->NativeName = $nativeName;
         return $this;
     }
@@ -94,6 +102,10 @@ class EwsCultureInfoDataType extends AbstractStructBase
      */
     public function setLCID($lCID = null)
     {
+        // validation for constraint: int
+        if (!is_null($lCID) && !is_int($lCID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lCID)), __LINE__);
+        }
         $this->LCID = $lCID;
         return $this;
     }

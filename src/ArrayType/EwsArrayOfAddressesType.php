@@ -17,13 +17,13 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var string[]
      */
     public $Address;
     /**
      * Constructor method for ArrayOfAddressesType
      * @uses EwsArrayOfAddressesType::setAddress()
-     * @param array $address
+     * @param string[] $address
      */
     public function __construct(array $address = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
     }
     /**
      * Get Address value
-     * @return array
+     * @return string[]|null
      */
     public function getAddress()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
     }
     /**
      * Set Address value
-     * @param array $address
+     * @throws \InvalidArgumentException
+     * @param string[] $address
      * @return \Ews\ArrayType\EwsArrayOfAddressesType
      */
     public function setAddress(array $address = array())
     {
+        foreach ($address as $arrayOfAddressesTypeAddressItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfAddressesTypeAddressItem)) {
+                throw new \InvalidArgumentException(sprintf('The Address property can only contain items of string, "%s" given', is_object($arrayOfAddressesTypeAddressItem) ? get_class($arrayOfAddressesTypeAddressItem) : gettype($arrayOfAddressesTypeAddressItem)), __LINE__);
+            }
+        }
         $this->Address = $address;
+        return $this;
+    }
+    /**
+     * Add item to Address value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfAddressesType
+     */
+    public function addToAddress($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Address property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Address[] = $item;
         return $this;
     }
     /**

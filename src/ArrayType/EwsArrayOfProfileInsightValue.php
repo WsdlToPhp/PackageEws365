@@ -17,13 +17,13 @@ class EwsArrayOfProfileInsightValue extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsProfileInsightValue[]
      */
     public $Item;
     /**
      * Constructor method for ArrayOfProfileInsightValue
      * @uses EwsArrayOfProfileInsightValue::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsProfileInsightValue[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfProfileInsightValue extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsProfileInsightValue[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfProfileInsightValue extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsProfileInsightValue[] $item
      * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $arrayOfProfileInsightValueItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfProfileInsightValueItemItem instanceof \Ews\StructType\EwsProfileInsightValue) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsProfileInsightValue, "%s" given', is_object($arrayOfProfileInsightValueItemItem) ? get_class($arrayOfProfileInsightValueItemItem) : gettype($arrayOfProfileInsightValueItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsProfileInsightValue $item
+     * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue
+     */
+    public function addToItem(\Ews\StructType\EwsProfileInsightValue $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsProfileInsightValue) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsProfileInsightValue, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

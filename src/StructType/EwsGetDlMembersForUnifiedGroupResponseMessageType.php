@@ -64,11 +64,13 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
      * Set MembershipType value
      * @uses \Ews\EnumType\EwsGroupMembershipType::valueIsValid()
      * @uses \Ews\EnumType\EwsGroupMembershipType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $membershipType
      * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
      */
     public function setMembershipType($membershipType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsGroupMembershipType::valueIsValid($membershipType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $membershipType, implode(', ', \Ews\EnumType\EwsGroupMembershipType::getValidValues())), __LINE__);
         }
@@ -90,6 +92,10 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
      */
     public function setTotalMembersCount($totalMembersCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalMembersCount) && !is_int($totalMembersCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalMembersCount)), __LINE__);
+        }
         $this->TotalMembersCount = $totalMembersCount;
         return $this;
     }

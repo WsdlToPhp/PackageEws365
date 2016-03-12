@@ -17,7 +17,6 @@ class EwsGetMailTipsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $SendingAs;
@@ -34,7 +33,7 @@ class EwsGetMailTipsType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $MailTipsRequested;
     /**
@@ -44,7 +43,7 @@ class EwsGetMailTipsType extends EwsBaseRequestType
      * @uses EwsGetMailTipsType::setMailTipsRequested()
      * @param \Ews\StructType\EwsEmailAddressType $sendingAs
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $recipients
-     * @param string[] $mailTipsRequested
+     * @param string $mailTipsRequested
      */
     public function __construct(\Ews\StructType\EwsEmailAddressType $sendingAs = null, \Ews\ArrayType\EwsArrayOfRecipientsType $recipients = null, $mailTipsRequested = null)
     {
@@ -91,7 +90,7 @@ class EwsGetMailTipsType extends EwsBaseRequestType
     }
     /**
      * Get MailTipsRequested value
-     * @return string[]
+     * @return string
      */
     public function getMailTipsRequested()
     {
@@ -101,11 +100,13 @@ class EwsGetMailTipsType extends EwsBaseRequestType
      * Set MailTipsRequested value
      * @uses \Ews\EnumType\EwsMailTipTypes::valueIsValid()
      * @uses \Ews\EnumType\EwsMailTipTypes::getValidValues()
-     * @param string[] $mailTipsRequested
+     * @throws \InvalidArgumentException
+     * @param string $mailTipsRequested
      * @return \Ews\StructType\EwsGetMailTipsType
      */
     public function setMailTipsRequested($mailTipsRequested = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailTipTypes::valueIsValid($mailTipsRequested)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailTipsRequested, implode(', ', \Ews\EnumType\EwsMailTipTypes::getValidValues())), __LINE__);
         }

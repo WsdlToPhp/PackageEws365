@@ -19,12 +19,12 @@ class EwsConnectionFailureCauseType
      * Constant for value 'UserBusy'
      * @return string 'UserBusy'
      */
-    const VALUE_USERBUSY = 'UserBusy';
+    const VALUE_USER_BUSY = 'UserBusy';
     /**
      * Constant for value 'NoAnswer'
      * @return string 'NoAnswer'
      */
-    const VALUE_NOANSWER = 'NoAnswer';
+    const VALUE_NO_ANSWER = 'NoAnswer';
     /**
      * Constant for value 'Unavailable'
      * @return string 'Unavailable'
@@ -48,8 +48,8 @@ class EwsConnectionFailureCauseType
     /**
      * Return allowed values
      * @uses self::VALUE_NONE
-     * @uses self::VALUE_USERBUSY
-     * @uses self::VALUE_NOANSWER
+     * @uses self::VALUE_USER_BUSY
+     * @uses self::VALUE_NO_ANSWER
      * @uses self::VALUE_UNAVAILABLE
      * @uses self::VALUE_OTHER
      * @return string[]
@@ -58,8 +58,8 @@ class EwsConnectionFailureCauseType
     {
         return array(
             self::VALUE_NONE,
-            self::VALUE_USERBUSY,
-            self::VALUE_NOANSWER,
+            self::VALUE_USER_BUSY,
+            self::VALUE_NO_ANSWER,
             self::VALUE_UNAVAILABLE,
             self::VALUE_OTHER,
         );

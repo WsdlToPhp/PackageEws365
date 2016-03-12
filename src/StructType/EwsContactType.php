@@ -108,6 +108,10 @@ class EwsContactType extends EwsEntityType
      */
     public function setPersonName($personName = null)
     {
+        // validation for constraint: string
+        if (!is_null($personName) && !is_string($personName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personName)), __LINE__);
+        }
         $this->PersonName = $personName;
         return $this;
     }
@@ -126,6 +130,10 @@ class EwsContactType extends EwsEntityType
      */
     public function setBusinessName($businessName = null)
     {
+        // validation for constraint: string
+        if (!is_null($businessName) && !is_string($businessName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($businessName)), __LINE__);
+        }
         $this->BusinessName = $businessName;
         return $this;
     }
@@ -216,6 +224,10 @@ class EwsContactType extends EwsEntityType
      */
     public function setContactString($contactString = null)
     {
+        // validation for constraint: string
+        if (!is_null($contactString) && !is_string($contactString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contactString)), __LINE__);
+        }
         $this->ContactString = $contactString;
         return $this;
     }

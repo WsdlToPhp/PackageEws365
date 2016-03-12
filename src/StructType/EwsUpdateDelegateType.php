@@ -69,11 +69,13 @@ class EwsUpdateDelegateType extends EwsBaseDelegateType
      * Set DeliverMeetingRequests value
      * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid()
      * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deliverMeetingRequests
      * @return \Ews\StructType\EwsUpdateDelegateType
      */
     public function setDeliverMeetingRequests($deliverMeetingRequests = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid($deliverMeetingRequests)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deliverMeetingRequests, implode(', ', \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues())), __LINE__);
         }

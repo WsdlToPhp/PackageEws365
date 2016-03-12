@@ -16,122 +16,122 @@ class EwsRuleValidationErrorCodeType
      * Constant for value 'ADOperationFailure'
      * @return string 'ADOperationFailure'
      */
-    const VALUE_ADOPERATIONFAILURE = 'ADOperationFailure';
+    const VALUE_ADOPERATION_FAILURE = 'ADOperationFailure';
     /**
      * Constant for value 'ConnectedAccountNotFound'
      * @return string 'ConnectedAccountNotFound'
      */
-    const VALUE_CONNECTEDACCOUNTNOTFOUND = 'ConnectedAccountNotFound';
+    const VALUE_CONNECTED_ACCOUNT_NOT_FOUND = 'ConnectedAccountNotFound';
     /**
      * Constant for value 'CreateWithRuleId'
      * @return string 'CreateWithRuleId'
      */
-    const VALUE_CREATEWITHRULEID = 'CreateWithRuleId';
+    const VALUE_CREATE_WITH_RULE_ID = 'CreateWithRuleId';
     /**
      * Constant for value 'EmptyValueFound'
      * @return string 'EmptyValueFound'
      */
-    const VALUE_EMPTYVALUEFOUND = 'EmptyValueFound';
+    const VALUE_EMPTY_VALUE_FOUND = 'EmptyValueFound';
     /**
      * Constant for value 'DuplicatedPriority'
      * @return string 'DuplicatedPriority'
      */
-    const VALUE_DUPLICATEDPRIORITY = 'DuplicatedPriority';
+    const VALUE_DUPLICATED_PRIORITY = 'DuplicatedPriority';
     /**
      * Constant for value 'DuplicatedOperationOnTheSameRule'
      * @return string 'DuplicatedOperationOnTheSameRule'
      */
-    const VALUE_DUPLICATEDOPERATIONONTHESAMERULE = 'DuplicatedOperationOnTheSameRule';
+    const VALUE_DUPLICATED_OPERATION_ON_THE_SAME_RULE = 'DuplicatedOperationOnTheSameRule';
     /**
      * Constant for value 'FolderDoesNotExist'
      * @return string 'FolderDoesNotExist'
      */
-    const VALUE_FOLDERDOESNOTEXIST = 'FolderDoesNotExist';
+    const VALUE_FOLDER_DOES_NOT_EXIST = 'FolderDoesNotExist';
     /**
      * Constant for value 'InvalidAddress'
      * @return string 'InvalidAddress'
      */
-    const VALUE_INVALIDADDRESS = 'InvalidAddress';
+    const VALUE_INVALID_ADDRESS = 'InvalidAddress';
     /**
      * Constant for value 'InvalidDateRange'
      * @return string 'InvalidDateRange'
      */
-    const VALUE_INVALIDDATERANGE = 'InvalidDateRange';
+    const VALUE_INVALID_DATE_RANGE = 'InvalidDateRange';
     /**
      * Constant for value 'InvalidFolderId'
      * @return string 'InvalidFolderId'
      */
-    const VALUE_INVALIDFOLDERID = 'InvalidFolderId';
+    const VALUE_INVALID_FOLDER_ID = 'InvalidFolderId';
     /**
      * Constant for value 'InvalidSizeRange'
      * @return string 'InvalidSizeRange'
      */
-    const VALUE_INVALIDSIZERANGE = 'InvalidSizeRange';
+    const VALUE_INVALID_SIZE_RANGE = 'InvalidSizeRange';
     /**
      * Constant for value 'InvalidValue'
      * @return string 'InvalidValue'
      */
-    const VALUE_INVALIDVALUE = 'InvalidValue';
+    const VALUE_INVALID_VALUE = 'InvalidValue';
     /**
      * Constant for value 'MessageClassificationNotFound'
      * @return string 'MessageClassificationNotFound'
      */
-    const VALUE_MESSAGECLASSIFICATIONNOTFOUND = 'MessageClassificationNotFound';
+    const VALUE_MESSAGE_CLASSIFICATION_NOT_FOUND = 'MessageClassificationNotFound';
     /**
      * Constant for value 'MissingAction'
      * @return string 'MissingAction'
      */
-    const VALUE_MISSINGACTION = 'MissingAction';
+    const VALUE_MISSING_ACTION = 'MissingAction';
     /**
      * Constant for value 'MissingParameter'
      * @return string 'MissingParameter'
      */
-    const VALUE_MISSINGPARAMETER = 'MissingParameter';
+    const VALUE_MISSING_PARAMETER = 'MissingParameter';
     /**
      * Constant for value 'MissingRangeValue'
      * @return string 'MissingRangeValue'
      */
-    const VALUE_MISSINGRANGEVALUE = 'MissingRangeValue';
+    const VALUE_MISSING_RANGE_VALUE = 'MissingRangeValue';
     /**
      * Constant for value 'NotSettable'
      * @return string 'NotSettable'
      */
-    const VALUE_NOTSETTABLE = 'NotSettable';
+    const VALUE_NOT_SETTABLE = 'NotSettable';
     /**
      * Constant for value 'RecipientDoesNotExist'
      * @return string 'RecipientDoesNotExist'
      */
-    const VALUE_RECIPIENTDOESNOTEXIST = 'RecipientDoesNotExist';
+    const VALUE_RECIPIENT_DOES_NOT_EXIST = 'RecipientDoesNotExist';
     /**
      * Constant for value 'RuleNotFound'
      * @return string 'RuleNotFound'
      */
-    const VALUE_RULENOTFOUND = 'RuleNotFound';
+    const VALUE_RULE_NOT_FOUND = 'RuleNotFound';
     /**
      * Constant for value 'SizeLessThanZero'
      * @return string 'SizeLessThanZero'
      */
-    const VALUE_SIZELESSTHANZERO = 'SizeLessThanZero';
+    const VALUE_SIZE_LESS_THAN_ZERO = 'SizeLessThanZero';
     /**
      * Constant for value 'StringValueTooBig'
      * @return string 'StringValueTooBig'
      */
-    const VALUE_STRINGVALUETOOBIG = 'StringValueTooBig';
+    const VALUE_STRING_VALUE_TOO_BIG = 'StringValueTooBig';
     /**
      * Constant for value 'UnsupportedAddress'
      * @return string 'UnsupportedAddress'
      */
-    const VALUE_UNSUPPORTEDADDRESS = 'UnsupportedAddress';
+    const VALUE_UNSUPPORTED_ADDRESS = 'UnsupportedAddress';
     /**
      * Constant for value 'UnexpectedError'
      * @return string 'UnexpectedError'
      */
-    const VALUE_UNEXPECTEDERROR = 'UnexpectedError';
+    const VALUE_UNEXPECTED_ERROR = 'UnexpectedError';
     /**
      * Constant for value 'UnsupportedRule'
      * @return string 'UnsupportedRule'
      */
-    const VALUE_UNSUPPORTEDRULE = 'UnsupportedRule';
+    const VALUE_UNSUPPORTED_RULE = 'UnsupportedRule';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -144,59 +144,59 @@ class EwsRuleValidationErrorCodeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_ADOPERATIONFAILURE
-     * @uses self::VALUE_CONNECTEDACCOUNTNOTFOUND
-     * @uses self::VALUE_CREATEWITHRULEID
-     * @uses self::VALUE_EMPTYVALUEFOUND
-     * @uses self::VALUE_DUPLICATEDPRIORITY
-     * @uses self::VALUE_DUPLICATEDOPERATIONONTHESAMERULE
-     * @uses self::VALUE_FOLDERDOESNOTEXIST
-     * @uses self::VALUE_INVALIDADDRESS
-     * @uses self::VALUE_INVALIDDATERANGE
-     * @uses self::VALUE_INVALIDFOLDERID
-     * @uses self::VALUE_INVALIDSIZERANGE
-     * @uses self::VALUE_INVALIDVALUE
-     * @uses self::VALUE_MESSAGECLASSIFICATIONNOTFOUND
-     * @uses self::VALUE_MISSINGACTION
-     * @uses self::VALUE_MISSINGPARAMETER
-     * @uses self::VALUE_MISSINGRANGEVALUE
-     * @uses self::VALUE_NOTSETTABLE
-     * @uses self::VALUE_RECIPIENTDOESNOTEXIST
-     * @uses self::VALUE_RULENOTFOUND
-     * @uses self::VALUE_SIZELESSTHANZERO
-     * @uses self::VALUE_STRINGVALUETOOBIG
-     * @uses self::VALUE_UNSUPPORTEDADDRESS
-     * @uses self::VALUE_UNEXPECTEDERROR
-     * @uses self::VALUE_UNSUPPORTEDRULE
+     * @uses self::VALUE_ADOPERATION_FAILURE
+     * @uses self::VALUE_CONNECTED_ACCOUNT_NOT_FOUND
+     * @uses self::VALUE_CREATE_WITH_RULE_ID
+     * @uses self::VALUE_EMPTY_VALUE_FOUND
+     * @uses self::VALUE_DUPLICATED_PRIORITY
+     * @uses self::VALUE_DUPLICATED_OPERATION_ON_THE_SAME_RULE
+     * @uses self::VALUE_FOLDER_DOES_NOT_EXIST
+     * @uses self::VALUE_INVALID_ADDRESS
+     * @uses self::VALUE_INVALID_DATE_RANGE
+     * @uses self::VALUE_INVALID_FOLDER_ID
+     * @uses self::VALUE_INVALID_SIZE_RANGE
+     * @uses self::VALUE_INVALID_VALUE
+     * @uses self::VALUE_MESSAGE_CLASSIFICATION_NOT_FOUND
+     * @uses self::VALUE_MISSING_ACTION
+     * @uses self::VALUE_MISSING_PARAMETER
+     * @uses self::VALUE_MISSING_RANGE_VALUE
+     * @uses self::VALUE_NOT_SETTABLE
+     * @uses self::VALUE_RECIPIENT_DOES_NOT_EXIST
+     * @uses self::VALUE_RULE_NOT_FOUND
+     * @uses self::VALUE_SIZE_LESS_THAN_ZERO
+     * @uses self::VALUE_STRING_VALUE_TOO_BIG
+     * @uses self::VALUE_UNSUPPORTED_ADDRESS
+     * @uses self::VALUE_UNEXPECTED_ERROR
+     * @uses self::VALUE_UNSUPPORTED_RULE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_ADOPERATIONFAILURE,
-            self::VALUE_CONNECTEDACCOUNTNOTFOUND,
-            self::VALUE_CREATEWITHRULEID,
-            self::VALUE_EMPTYVALUEFOUND,
-            self::VALUE_DUPLICATEDPRIORITY,
-            self::VALUE_DUPLICATEDOPERATIONONTHESAMERULE,
-            self::VALUE_FOLDERDOESNOTEXIST,
-            self::VALUE_INVALIDADDRESS,
-            self::VALUE_INVALIDDATERANGE,
-            self::VALUE_INVALIDFOLDERID,
-            self::VALUE_INVALIDSIZERANGE,
-            self::VALUE_INVALIDVALUE,
-            self::VALUE_MESSAGECLASSIFICATIONNOTFOUND,
-            self::VALUE_MISSINGACTION,
-            self::VALUE_MISSINGPARAMETER,
-            self::VALUE_MISSINGRANGEVALUE,
-            self::VALUE_NOTSETTABLE,
-            self::VALUE_RECIPIENTDOESNOTEXIST,
-            self::VALUE_RULENOTFOUND,
-            self::VALUE_SIZELESSTHANZERO,
-            self::VALUE_STRINGVALUETOOBIG,
-            self::VALUE_UNSUPPORTEDADDRESS,
-            self::VALUE_UNEXPECTEDERROR,
-            self::VALUE_UNSUPPORTEDRULE,
+            self::VALUE_ADOPERATION_FAILURE,
+            self::VALUE_CONNECTED_ACCOUNT_NOT_FOUND,
+            self::VALUE_CREATE_WITH_RULE_ID,
+            self::VALUE_EMPTY_VALUE_FOUND,
+            self::VALUE_DUPLICATED_PRIORITY,
+            self::VALUE_DUPLICATED_OPERATION_ON_THE_SAME_RULE,
+            self::VALUE_FOLDER_DOES_NOT_EXIST,
+            self::VALUE_INVALID_ADDRESS,
+            self::VALUE_INVALID_DATE_RANGE,
+            self::VALUE_INVALID_FOLDER_ID,
+            self::VALUE_INVALID_SIZE_RANGE,
+            self::VALUE_INVALID_VALUE,
+            self::VALUE_MESSAGE_CLASSIFICATION_NOT_FOUND,
+            self::VALUE_MISSING_ACTION,
+            self::VALUE_MISSING_PARAMETER,
+            self::VALUE_MISSING_RANGE_VALUE,
+            self::VALUE_NOT_SETTABLE,
+            self::VALUE_RECIPIENT_DOES_NOT_EXIST,
+            self::VALUE_RULE_NOT_FOUND,
+            self::VALUE_SIZE_LESS_THAN_ZERO,
+            self::VALUE_STRING_VALUE_TOO_BIG,
+            self::VALUE_UNSUPPORTED_ADDRESS,
+            self::VALUE_UNEXPECTED_ERROR,
+            self::VALUE_UNSUPPORTED_RULE,
         );
     }
     /**

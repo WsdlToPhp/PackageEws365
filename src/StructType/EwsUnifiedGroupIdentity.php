@@ -53,11 +53,13 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      * Set Type value
      * @uses \Ews\EnumType\EwsUnifiedGroupIdentityType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupIdentityType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsUnifiedGroupIdentity
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupIdentityType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsUnifiedGroupIdentityType::getValidValues())), __LINE__);
         }
@@ -79,6 +81,10 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }

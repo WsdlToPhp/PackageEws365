@@ -30,21 +30,20 @@ class EwsReminderMessageDataType extends AbstractStructBase
      * The StartTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
      * The EndTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
      * The AssociatedCalendarItemId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $AssociatedCalendarItemId;
@@ -57,8 +56,8 @@ class EwsReminderMessageDataType extends AbstractStructBase
      * @uses EwsReminderMessageDataType::setAssociatedCalendarItemId()
      * @param string $reminderText
      * @param string $location
-     * @param dateTime $startTime
-     * @param dateTime $endTime
+     * @param string $startTime
+     * @param string $endTime
      * @param \Ews\StructType\EwsItemIdType $associatedCalendarItemId
      */
     public function __construct($reminderText = null, $location = null, $startTime = null, $endTime = null, \Ews\StructType\EwsItemIdType $associatedCalendarItemId = null)
@@ -85,6 +84,10 @@ class EwsReminderMessageDataType extends AbstractStructBase
      */
     public function setReminderText($reminderText = null)
     {
+        // validation for constraint: string
+        if (!is_null($reminderText) && !is_string($reminderText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderText)), __LINE__);
+        }
         $this->ReminderText = $reminderText;
         return $this;
     }
@@ -103,12 +106,16 @@ class EwsReminderMessageDataType extends AbstractStructBase
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }
     /**
      * Get StartTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartTime()
     {
@@ -116,17 +123,21 @@ class EwsReminderMessageDataType extends AbstractStructBase
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsReminderMessageDataType
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndTime()
     {
@@ -134,11 +145,15 @@ class EwsReminderMessageDataType extends AbstractStructBase
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsReminderMessageDataType
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }

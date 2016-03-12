@@ -29,7 +29,7 @@ class EwsCalendarItemTypeType
      * Constant for value 'RecurringMaster'
      * @return string 'RecurringMaster'
      */
-    const VALUE_RECURRINGMASTER = 'RecurringMaster';
+    const VALUE_RECURRING_MASTER = 'RecurringMaster';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -45,7 +45,7 @@ class EwsCalendarItemTypeType
      * @uses self::VALUE_SINGLE
      * @uses self::VALUE_OCCURRENCE
      * @uses self::VALUE_EXCEPTION
-     * @uses self::VALUE_RECURRINGMASTER
+     * @uses self::VALUE_RECURRING_MASTER
      * @return string[]
      */
     public static function getValidValues()
@@ -54,7 +54,7 @@ class EwsCalendarItemTypeType
             self::VALUE_SINGLE,
             self::VALUE_OCCURRENCE,
             self::VALUE_EXCEPTION,
-            self::VALUE_RECURRINGMASTER,
+            self::VALUE_RECURRING_MASTER,
         );
     }
     /**

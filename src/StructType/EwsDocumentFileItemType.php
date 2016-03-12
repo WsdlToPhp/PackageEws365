@@ -74,6 +74,10 @@ class EwsDocumentFileItemType extends EwsFileItemType
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }

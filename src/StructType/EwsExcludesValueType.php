@@ -45,6 +45,14 @@ class EwsExcludesValueType extends AbstractStructBase
      */
     public function setValue($value = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($value) && !preg_match('/((0x|0X)[0-9A-Fa-f]*)|([0-9]*)/', $value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($value)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($value) && !is_string($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($value)), __LINE__);
+        }
         $this->Value = $value;
         return $this;
     }

@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * The Role
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var string[]
      */
     public $Role;
     /**
      * Constructor method for NonEmptyArrayOfRoleType
      * @uses EwsNonEmptyArrayOfRoleType::setRole()
-     * @param array $role
+     * @param string[] $role
      */
     public function __construct(array $role = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
     }
     /**
      * Get Role value
-     * @return array
+     * @return string[]|null
      */
     public function getRole()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
     }
     /**
      * Set Role value
-     * @param array $role
+     * @throws \InvalidArgumentException
+     * @param string[] $role
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
      */
     public function setRole(array $role = array())
     {
+        foreach ($role as $nonEmptyArrayOfRoleTypeRoleItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfRoleTypeRoleItem)) {
+                throw new \InvalidArgumentException(sprintf('The Role property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfRoleTypeRoleItem) ? get_class($nonEmptyArrayOfRoleTypeRoleItem) : gettype($nonEmptyArrayOfRoleTypeRoleItem)), __LINE__);
+            }
+        }
         $this->Role = $role;
+        return $this;
+    }
+    /**
+     * Add item to Role value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
+     */
+    public function addToRole($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Role property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Role[] = $item;
         return $this;
     }
     /**

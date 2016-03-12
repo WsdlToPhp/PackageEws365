@@ -55,11 +55,13 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
      * Set LobbyBypass value
      * @uses \Ews\EnumType\EwsLobbyBypassType::valueIsValid()
      * @uses \Ews\EnumType\EwsLobbyBypassType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $lobbyBypass
      * @return \Ews\StructType\EwsOnlineMeetingSettingsType
      */
     public function setLobbyBypass($lobbyBypass = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLobbyBypassType::valueIsValid($lobbyBypass)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $lobbyBypass, implode(', ', \Ews\EnumType\EwsLobbyBypassType::getValidValues())), __LINE__);
         }
@@ -78,11 +80,13 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
      * Set AccessLevel value
      * @uses \Ews\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid()
      * @uses \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $accessLevel
      * @return \Ews\StructType\EwsOnlineMeetingSettingsType
      */
     public function setAccessLevel($accessLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid($accessLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $accessLevel, implode(', ', \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues())), __LINE__);
         }
@@ -101,11 +105,13 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
      * Set Presenters value
      * @uses \Ews\EnumType\EwsPresentersType::valueIsValid()
      * @uses \Ews\EnumType\EwsPresentersType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $presenters
      * @return \Ews\StructType\EwsOnlineMeetingSettingsType
      */
     public function setPresenters($presenters = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPresentersType::valueIsValid($presenters)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $presenters, implode(', ', \Ews\EnumType\EwsPresentersType::getValidValues())), __LINE__);
         }

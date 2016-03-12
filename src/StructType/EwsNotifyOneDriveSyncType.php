@@ -37,7 +37,7 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $Timestamp;
     /**
@@ -47,7 +47,7 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
      * @uses EwsNotifyOneDriveSyncType::setTimestamp()
      * @param string $userID
      * @param string $tenantID
-     * @param dateTime $timestamp
+     * @param string $timestamp
      */
     public function __construct($userID = null, $tenantID = null, $timestamp = null)
     {
@@ -71,6 +71,14 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
      */
     public function setUserID($userID = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($userID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($userID)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($userID) && !is_string($userID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userID)), __LINE__);
+        }
         $this->UserID = $userID;
         return $this;
     }
@@ -89,12 +97,20 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
      */
     public function setTenantID($tenantID = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($tenantID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tenantID)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($tenantID) && !is_string($tenantID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tenantID)), __LINE__);
+        }
         $this->TenantID = $tenantID;
         return $this;
     }
     /**
      * Get Timestamp value
-     * @return dateTime
+     * @return string
      */
     public function getTimestamp()
     {
@@ -102,11 +118,15 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
     }
     /**
      * Set Timestamp value
-     * @param dateTime $timestamp
+     * @param string $timestamp
      * @return \Ews\StructType\EwsNotifyOneDriveSyncType
      */
     public function setTimestamp($timestamp = null)
     {
+        // validation for constraint: string
+        if (!is_null($timestamp) && !is_string($timestamp)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timestamp)), __LINE__);
+        }
         $this->Timestamp = $timestamp;
         return $this;
     }

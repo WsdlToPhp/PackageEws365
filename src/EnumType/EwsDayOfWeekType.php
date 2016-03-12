@@ -59,7 +59,7 @@ class EwsDayOfWeekType
      * Constant for value 'WeekendDay'
      * @return string 'WeekendDay'
      */
-    const VALUE_WEEKENDDAY = 'WeekendDay';
+    const VALUE_WEEKEND_DAY = 'WeekendDay';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -81,7 +81,7 @@ class EwsDayOfWeekType
      * @uses self::VALUE_SATURDAY
      * @uses self::VALUE_DAY
      * @uses self::VALUE_WEEKDAY
-     * @uses self::VALUE_WEEKENDDAY
+     * @uses self::VALUE_WEEKEND_DAY
      * @return string[]
      */
     public static function getValidValues()
@@ -96,7 +96,7 @@ class EwsDayOfWeekType
             self::VALUE_SATURDAY,
             self::VALUE_DAY,
             self::VALUE_WEEKDAY,
-            self::VALUE_WEEKENDDAY,
+            self::VALUE_WEEKEND_DAY,
         );
     }
     /**

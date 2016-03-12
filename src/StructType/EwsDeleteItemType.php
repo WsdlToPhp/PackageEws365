@@ -42,7 +42,7 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * The SuppressReadReceipts
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $SuppressReadReceipts;
     /**
@@ -56,7 +56,7 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param string $sendMeetingCancellations
      * @param string $affectedTaskOccurrences
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      */
     public function __construct($deleteType = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $sendMeetingCancellations = null, $affectedTaskOccurrences = null, $suppressReadReceipts = null)
     {
@@ -79,11 +79,13 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * Set DeleteType value
      * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
      * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $deleteType
      * @return \Ews\StructType\EwsDeleteItemType
      */
     public function setDeleteType($deleteType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
@@ -120,11 +122,13 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * Set SendMeetingCancellations value
      * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sendMeetingCancellations
      * @return \Ews\StructType\EwsDeleteItemType
      */
     public function setSendMeetingCancellations($sendMeetingCancellations = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid($sendMeetingCancellations)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendMeetingCancellations, implode(', ', \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
         }
@@ -143,11 +147,13 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * Set AffectedTaskOccurrences value
      * @uses \Ews\EnumType\EwsAffectedTaskOccurrencesType::valueIsValid()
      * @uses \Ews\EnumType\EwsAffectedTaskOccurrencesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $affectedTaskOccurrences
      * @return \Ews\StructType\EwsDeleteItemType
      */
     public function setAffectedTaskOccurrences($affectedTaskOccurrences = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAffectedTaskOccurrencesType::valueIsValid($affectedTaskOccurrences)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $affectedTaskOccurrences, implode(', ', \Ews\EnumType\EwsAffectedTaskOccurrencesType::getValidValues())), __LINE__);
         }
@@ -156,7 +162,7 @@ class EwsDeleteItemType extends EwsBaseRequestType
     }
     /**
      * Get SuppressReadReceipts value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSuppressReadReceipts()
     {
@@ -164,7 +170,7 @@ class EwsDeleteItemType extends EwsBaseRequestType
     }
     /**
      * Set SuppressReadReceipts value
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      * @return \Ews\StructType\EwsDeleteItemType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)

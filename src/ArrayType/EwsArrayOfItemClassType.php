@@ -14,22 +14,22 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
 {
     /**
      * The ItemClass
-     * @var array
+     * @var string
      */
     public $ItemClass;
     /**
      * Constructor method for ArrayOfItemClassType
      * @uses EwsArrayOfItemClassType::setItemClass()
-     * @param array $itemClass
+     * @param string $itemClass
      */
-    public function __construct(array $itemClass = array())
+    public function __construct($itemClass = null)
     {
         $this
             ->setItemClass($itemClass);
     }
     /**
      * Get ItemClass value
-     * @return array
+     * @return string|null
      */
     public function getItemClass()
     {
@@ -37,11 +37,15 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
     }
     /**
      * Set ItemClass value
-     * @param array $itemClass
+     * @param string $itemClass
      * @return \Ews\ArrayType\EwsArrayOfItemClassType
      */
-    public function setItemClass(array $itemClass = array())
+    public function setItemClass($itemClass = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemClass) && !is_string($itemClass)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+        }
         $this->ItemClass = $itemClass;
         return $this;
     }

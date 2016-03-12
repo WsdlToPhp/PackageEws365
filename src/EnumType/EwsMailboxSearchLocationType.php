@@ -14,12 +14,12 @@ class EwsMailboxSearchLocationType
      * Constant for value 'PrimaryOnly'
      * @return string 'PrimaryOnly'
      */
-    const VALUE_PRIMARYONLY = 'PrimaryOnly';
+    const VALUE_PRIMARY_ONLY = 'PrimaryOnly';
     /**
      * Constant for value 'ArchiveOnly'
      * @return string 'ArchiveOnly'
      */
-    const VALUE_ARCHIVEONLY = 'ArchiveOnly';
+    const VALUE_ARCHIVE_ONLY = 'ArchiveOnly';
     /**
      * Constant for value 'All'
      * @return string 'All'
@@ -37,16 +37,16 @@ class EwsMailboxSearchLocationType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_PRIMARYONLY
-     * @uses self::VALUE_ARCHIVEONLY
+     * @uses self::VALUE_PRIMARY_ONLY
+     * @uses self::VALUE_ARCHIVE_ONLY
      * @uses self::VALUE_ALL
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_PRIMARYONLY,
-            self::VALUE_ARCHIVEONLY,
+            self::VALUE_PRIMARY_ONLY,
+            self::VALUE_ARCHIVE_ONLY,
             self::VALUE_ALL,
         );
     }

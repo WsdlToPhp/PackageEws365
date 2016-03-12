@@ -17,13 +17,13 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var string[]
      */
     public $Source;
     /**
      * Constructor method for ArrayOfPeopleQuerySource
      * @uses EwsArrayOfPeopleQuerySource::setSource()
-     * @param array $source
+     * @param string[] $source
      */
     public function __construct(array $source = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
     }
     /**
      * Get Source value
-     * @return array
+     * @return string[]
      */
     public function getSource()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
     }
     /**
      * Set Source value
-     * @param array $source
+     * @throws \InvalidArgumentException
+     * @param string[] $source
      * @return \Ews\ArrayType\EwsArrayOfPeopleQuerySource
      */
     public function setSource(array $source = array())
     {
+        foreach ($source as $arrayOfPeopleQuerySourceSourceItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfPeopleQuerySourceSourceItem)) {
+                throw new \InvalidArgumentException(sprintf('The Source property can only contain items of string, "%s" given', is_object($arrayOfPeopleQuerySourceSourceItem) ? get_class($arrayOfPeopleQuerySourceSourceItem) : gettype($arrayOfPeopleQuerySourceSourceItem)), __LINE__);
+            }
+        }
         $this->Source = $source;
+        return $this;
+    }
+    /**
+     * Add item to Source value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfPeopleQuerySource
+     */
+    public function addToSource($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Source property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Source[] = $item;
         return $this;
     }
     /**

@@ -29,7 +29,7 @@ class EwsSingleLargeArchiveSearchScopeType extends AbstractStructBase
     public $FolderScope;
     /**
      * The IsDeepTraversal
-     * @var boolean
+     * @var bool
      */
     public $IsDeepTraversal;
     /**
@@ -39,7 +39,7 @@ class EwsSingleLargeArchiveSearchScopeType extends AbstractStructBase
      * @uses EwsSingleLargeArchiveSearchScopeType::setIsDeepTraversal()
      * @param string $mailboxGuid
      * @param \Ews\StructType\EwsSearchFolderScopeType $folderScope
-     * @param boolean $isDeepTraversal
+     * @param bool $isDeepTraversal
      */
     public function __construct($mailboxGuid = null, \Ews\StructType\EwsSearchFolderScopeType $folderScope = null, $isDeepTraversal = null)
     {
@@ -63,6 +63,14 @@ class EwsSingleLargeArchiveSearchScopeType extends AbstractStructBase
      */
     public function setMailboxGuid($mailboxGuid = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($mailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $mailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($mailboxGuid)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($mailboxGuid) && !is_string($mailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxGuid)), __LINE__);
+        }
         $this->MailboxGuid = $mailboxGuid;
         return $this;
     }
@@ -86,7 +94,7 @@ class EwsSingleLargeArchiveSearchScopeType extends AbstractStructBase
     }
     /**
      * Get IsDeepTraversal value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeepTraversal()
     {
@@ -94,7 +102,7 @@ class EwsSingleLargeArchiveSearchScopeType extends AbstractStructBase
     }
     /**
      * Set IsDeepTraversal value
-     * @param boolean $isDeepTraversal
+     * @param bool $isDeepTraversal
      * @return \Ews\StructType\EwsSingleLargeArchiveSearchScopeType
      */
     public function setIsDeepTraversal($isDeepTraversal = null)

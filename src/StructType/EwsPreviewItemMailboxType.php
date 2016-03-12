@@ -58,6 +58,10 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      */
     public function setMailboxId($mailboxId = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailboxId) && !is_string($mailboxId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxId)), __LINE__);
+        }
         $this->MailboxId = $mailboxId;
         return $this;
     }
@@ -76,6 +80,10 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      */
     public function setPrimarySmtpAddress($primarySmtpAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+        }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
     }

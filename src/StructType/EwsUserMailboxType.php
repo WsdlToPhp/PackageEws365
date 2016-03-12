@@ -25,7 +25,7 @@ class EwsUserMailboxType extends AbstractStructBase
      * The IsArchive
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $IsArchive;
     /**
@@ -33,7 +33,7 @@ class EwsUserMailboxType extends AbstractStructBase
      * @uses EwsUserMailboxType::setId()
      * @uses EwsUserMailboxType::setIsArchive()
      * @param string $id
-     * @param boolean $isArchive
+     * @param bool $isArchive
      */
     public function __construct($id = null, $isArchive = null)
     {
@@ -56,12 +56,16 @@ class EwsUserMailboxType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
     /**
      * Get IsArchive value
-     * @return boolean
+     * @return bool
      */
     public function getIsArchive()
     {
@@ -69,7 +73,7 @@ class EwsUserMailboxType extends AbstractStructBase
     }
     /**
      * Set IsArchive value
-     * @param boolean $isArchive
+     * @param bool $isArchive
      * @return \Ews\StructType\EwsUserMailboxType
      */
     public function setIsArchive($isArchive = null)

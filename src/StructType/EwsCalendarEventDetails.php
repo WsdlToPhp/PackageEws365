@@ -17,7 +17,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsMeeting;
     /**
@@ -25,7 +25,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsRecurring;
     /**
@@ -33,7 +33,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsException;
     /**
@@ -41,7 +41,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsReminderSet;
     /**
@@ -49,7 +49,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $IsPrivate;
     /**
@@ -86,11 +86,11 @@ class EwsCalendarEventDetails extends AbstractStructBase
      * @uses EwsCalendarEventDetails::setID()
      * @uses EwsCalendarEventDetails::setSubject()
      * @uses EwsCalendarEventDetails::setLocation()
-     * @param boolean $isMeeting
-     * @param boolean $isRecurring
-     * @param boolean $isException
-     * @param boolean $isReminderSet
-     * @param boolean $isPrivate
+     * @param bool $isMeeting
+     * @param bool $isRecurring
+     * @param bool $isException
+     * @param bool $isReminderSet
+     * @param bool $isPrivate
      * @param string $iD
      * @param string $subject
      * @param string $location
@@ -109,7 +109,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Get IsMeeting value
-     * @return boolean
+     * @return bool
      */
     public function getIsMeeting()
     {
@@ -117,7 +117,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Set IsMeeting value
-     * @param boolean $isMeeting
+     * @param bool $isMeeting
      * @return \Ews\StructType\EwsCalendarEventDetails
      */
     public function setIsMeeting($isMeeting = null)
@@ -127,7 +127,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Get IsRecurring value
-     * @return boolean
+     * @return bool
      */
     public function getIsRecurring()
     {
@@ -135,7 +135,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Set IsRecurring value
-     * @param boolean $isRecurring
+     * @param bool $isRecurring
      * @return \Ews\StructType\EwsCalendarEventDetails
      */
     public function setIsRecurring($isRecurring = null)
@@ -145,7 +145,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Get IsException value
-     * @return boolean
+     * @return bool
      */
     public function getIsException()
     {
@@ -153,7 +153,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Set IsException value
-     * @param boolean $isException
+     * @param bool $isException
      * @return \Ews\StructType\EwsCalendarEventDetails
      */
     public function setIsException($isException = null)
@@ -163,7 +163,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Get IsReminderSet value
-     * @return boolean
+     * @return bool
      */
     public function getIsReminderSet()
     {
@@ -171,7 +171,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Set IsReminderSet value
-     * @param boolean $isReminderSet
+     * @param bool $isReminderSet
      * @return \Ews\StructType\EwsCalendarEventDetails
      */
     public function setIsReminderSet($isReminderSet = null)
@@ -181,7 +181,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Get IsPrivate value
-     * @return boolean
+     * @return bool
      */
     public function getIsPrivate()
     {
@@ -189,7 +189,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     }
     /**
      * Set IsPrivate value
-     * @param boolean $isPrivate
+     * @param bool $isPrivate
      * @return \Ews\StructType\EwsCalendarEventDetails
      */
     public function setIsPrivate($isPrivate = null)
@@ -212,6 +212,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setID($iD = null)
     {
+        // validation for constraint: string
+        if (!is_null($iD) && !is_string($iD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+        }
         $this->ID = $iD;
         return $this;
     }
@@ -230,6 +234,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
@@ -248,6 +256,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setLocation($location = null)
     {
+        // validation for constraint: string
+        if (!is_null($location) && !is_string($location)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+        }
         $this->Location = $location;
         return $this;
     }

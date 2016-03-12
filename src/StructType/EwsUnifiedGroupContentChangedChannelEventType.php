@@ -14,8 +14,6 @@ class EwsUnifiedGroupContentChangedChannelEventType extends EwsSubscriptionLevel
 {
     /**
      * The DistinguishedFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a distinguished folder
      * @var \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public $DistinguishedFolderId;

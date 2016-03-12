@@ -17,7 +17,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $ReadFlag;
     /**
@@ -25,7 +25,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var boolean
+     * @var bool
      */
     public $SuppressReadReceipts;
     /**
@@ -38,8 +38,8 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
      * @uses EwsMarkAllItemsAsReadType::setReadFlag()
      * @uses EwsMarkAllItemsAsReadType::setSuppressReadReceipts()
      * @uses EwsMarkAllItemsAsReadType::setFolderIds()
-     * @param boolean $readFlag
-     * @param boolean $suppressReadReceipts
+     * @param bool $readFlag
+     * @param bool $suppressReadReceipts
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
     public function __construct($readFlag = null, $suppressReadReceipts = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
@@ -51,7 +51,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
     }
     /**
      * Get ReadFlag value
-     * @return boolean
+     * @return bool
      */
     public function getReadFlag()
     {
@@ -59,7 +59,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
     }
     /**
      * Set ReadFlag value
-     * @param boolean $readFlag
+     * @param bool $readFlag
      * @return \Ews\StructType\EwsMarkAllItemsAsReadType
      */
     public function setReadFlag($readFlag = null)
@@ -69,7 +69,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
     }
     /**
      * Get SuppressReadReceipts value
-     * @return boolean
+     * @return bool
      */
     public function getSuppressReadReceipts()
     {
@@ -77,7 +77,7 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
     }
     /**
      * Set SuppressReadReceipts value
-     * @param boolean $suppressReadReceipts
+     * @param bool $suppressReadReceipts
      * @return \Ews\StructType\EwsMarkAllItemsAsReadType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)

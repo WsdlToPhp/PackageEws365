@@ -16,12 +16,12 @@ class EwsMapiPropertyTypeType
      * Constant for value 'ApplicationTime'
      * @return string 'ApplicationTime'
      */
-    const VALUE_APPLICATIONTIME = 'ApplicationTime';
+    const VALUE_APPLICATION_TIME = 'ApplicationTime';
     /**
      * Constant for value 'ApplicationTimeArray'
      * @return string 'ApplicationTimeArray'
      */
-    const VALUE_APPLICATIONTIMEARRAY = 'ApplicationTimeArray';
+    const VALUE_APPLICATION_TIME_ARRAY = 'ApplicationTimeArray';
     /**
      * Constant for value 'Binary'
      * @return string 'Binary'
@@ -31,7 +31,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'BinaryArray'
      * @return string 'BinaryArray'
      */
-    const VALUE_BINARYARRAY = 'BinaryArray';
+    const VALUE_BINARY_ARRAY = 'BinaryArray';
     /**
      * Constant for value 'Boolean'
      * @return string 'Boolean'
@@ -56,7 +56,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'CurrencyArray'
      * @return string 'CurrencyArray'
      */
-    const VALUE_CURRENCYARRAY = 'CurrencyArray';
+    const VALUE_CURRENCY_ARRAY = 'CurrencyArray';
     /**
      * Constant for value 'Double'
      * @return string 'Double'
@@ -66,7 +66,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'DoubleArray'
      * @return string 'DoubleArray'
      */
-    const VALUE_DOUBLEARRAY = 'DoubleArray';
+    const VALUE_DOUBLE_ARRAY = 'DoubleArray';
     /**
      * Constant for value 'Error'
      * @return string 'Error'
@@ -81,7 +81,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'FloatArray'
      * @return string 'FloatArray'
      */
-    const VALUE_FLOATARRAY = 'FloatArray';
+    const VALUE_FLOAT_ARRAY = 'FloatArray';
     /**
      * Constant for value 'Integer'
      * @return string 'Integer'
@@ -91,7 +91,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'IntegerArray'
      * @return string 'IntegerArray'
      */
-    const VALUE_INTEGERARRAY = 'IntegerArray';
+    const VALUE_INTEGER_ARRAY = 'IntegerArray';
     /**
      * Constant for value 'Long'
      * @return string 'Long'
@@ -101,7 +101,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'LongArray'
      * @return string 'LongArray'
      */
-    const VALUE_LONGARRAY = 'LongArray';
+    const VALUE_LONG_ARRAY = 'LongArray';
     /**
      * Constant for value 'Null'
      * @return string 'Null'
@@ -116,7 +116,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'ObjectArray'
      * @return string 'ObjectArray'
      */
-    const VALUE_OBJECTARRAY = 'ObjectArray';
+    const VALUE_OBJECT_ARRAY = 'ObjectArray';
     /**
      * Constant for value 'Short'
      * @return string 'Short'
@@ -126,17 +126,17 @@ class EwsMapiPropertyTypeType
      * Constant for value 'ShortArray'
      * @return string 'ShortArray'
      */
-    const VALUE_SHORTARRAY = 'ShortArray';
+    const VALUE_SHORT_ARRAY = 'ShortArray';
     /**
      * Constant for value 'SystemTime'
      * @return string 'SystemTime'
      */
-    const VALUE_SYSTEMTIME = 'SystemTime';
+    const VALUE_SYSTEM_TIME = 'SystemTime';
     /**
      * Constant for value 'SystemTimeArray'
      * @return string 'SystemTimeArray'
      */
-    const VALUE_SYSTEMTIMEARRAY = 'SystemTimeArray';
+    const VALUE_SYSTEM_TIME_ARRAY = 'SystemTimeArray';
     /**
      * Constant for value 'String'
      * @return string 'String'
@@ -146,7 +146,7 @@ class EwsMapiPropertyTypeType
      * Constant for value 'StringArray'
      * @return string 'StringArray'
      */
-    const VALUE_STRINGARRAY = 'StringArray';
+    const VALUE_STRING_ARRAY = 'StringArray';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -159,65 +159,65 @@ class EwsMapiPropertyTypeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_APPLICATIONTIME
-     * @uses self::VALUE_APPLICATIONTIMEARRAY
+     * @uses self::VALUE_APPLICATION_TIME
+     * @uses self::VALUE_APPLICATION_TIME_ARRAY
      * @uses self::VALUE_BINARY
-     * @uses self::VALUE_BINARYARRAY
+     * @uses self::VALUE_BINARY_ARRAY
      * @uses self::VALUE_BOOLEAN
      * @uses self::VALUE_CLSID
      * @uses self::VALUE_CLSIDARRAY
      * @uses self::VALUE_CURRENCY
-     * @uses self::VALUE_CURRENCYARRAY
+     * @uses self::VALUE_CURRENCY_ARRAY
      * @uses self::VALUE_DOUBLE
-     * @uses self::VALUE_DOUBLEARRAY
+     * @uses self::VALUE_DOUBLE_ARRAY
      * @uses self::VALUE_ERROR
      * @uses self::VALUE_FLOAT
-     * @uses self::VALUE_FLOATARRAY
+     * @uses self::VALUE_FLOAT_ARRAY
      * @uses self::VALUE_INTEGER
-     * @uses self::VALUE_INTEGERARRAY
+     * @uses self::VALUE_INTEGER_ARRAY
      * @uses self::VALUE_LONG
-     * @uses self::VALUE_LONGARRAY
+     * @uses self::VALUE_LONG_ARRAY
      * @uses self::VALUE_NULL
      * @uses self::VALUE_OBJECT
-     * @uses self::VALUE_OBJECTARRAY
+     * @uses self::VALUE_OBJECT_ARRAY
      * @uses self::VALUE_SHORT
-     * @uses self::VALUE_SHORTARRAY
-     * @uses self::VALUE_SYSTEMTIME
-     * @uses self::VALUE_SYSTEMTIMEARRAY
+     * @uses self::VALUE_SHORT_ARRAY
+     * @uses self::VALUE_SYSTEM_TIME
+     * @uses self::VALUE_SYSTEM_TIME_ARRAY
      * @uses self::VALUE_STRING
-     * @uses self::VALUE_STRINGARRAY
+     * @uses self::VALUE_STRING_ARRAY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_APPLICATIONTIME,
-            self::VALUE_APPLICATIONTIMEARRAY,
+            self::VALUE_APPLICATION_TIME,
+            self::VALUE_APPLICATION_TIME_ARRAY,
             self::VALUE_BINARY,
-            self::VALUE_BINARYARRAY,
+            self::VALUE_BINARY_ARRAY,
             self::VALUE_BOOLEAN,
             self::VALUE_CLSID,
             self::VALUE_CLSIDARRAY,
             self::VALUE_CURRENCY,
-            self::VALUE_CURRENCYARRAY,
+            self::VALUE_CURRENCY_ARRAY,
             self::VALUE_DOUBLE,
-            self::VALUE_DOUBLEARRAY,
+            self::VALUE_DOUBLE_ARRAY,
             self::VALUE_ERROR,
             self::VALUE_FLOAT,
-            self::VALUE_FLOATARRAY,
+            self::VALUE_FLOAT_ARRAY,
             self::VALUE_INTEGER,
-            self::VALUE_INTEGERARRAY,
+            self::VALUE_INTEGER_ARRAY,
             self::VALUE_LONG,
-            self::VALUE_LONGARRAY,
+            self::VALUE_LONG_ARRAY,
             self::VALUE_NULL,
             self::VALUE_OBJECT,
-            self::VALUE_OBJECTARRAY,
+            self::VALUE_OBJECT_ARRAY,
             self::VALUE_SHORT,
-            self::VALUE_SHORTARRAY,
-            self::VALUE_SYSTEMTIME,
-            self::VALUE_SYSTEMTIMEARRAY,
+            self::VALUE_SHORT_ARRAY,
+            self::VALUE_SYSTEM_TIME,
+            self::VALUE_SYSTEM_TIME_ARRAY,
             self::VALUE_STRING,
-            self::VALUE_STRINGARRAY,
+            self::VALUE_STRING_ARRAY,
         );
     }
     /**

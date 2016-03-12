@@ -16,8 +16,6 @@ class EwsDistinguishedGroupByType extends EwsBaseGroupByType
 {
     /**
      * The StandardGroupBy
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents standard groupings for GroupBy queries.
      * @var string
      */
     public $StandardGroupBy;
@@ -43,11 +41,13 @@ class EwsDistinguishedGroupByType extends EwsBaseGroupByType
      * Set StandardGroupBy value
      * @uses \Ews\EnumType\EwsStandardGroupByType::valueIsValid()
      * @uses \Ews\EnumType\EwsStandardGroupByType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $standardGroupBy
      * @return \Ews\StructType\EwsDistinguishedGroupByType
      */
     public function setStandardGroupBy($standardGroupBy = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsStandardGroupByType::valueIsValid($standardGroupBy)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $standardGroupBy, implode(', ', \Ews\EnumType\EwsStandardGroupByType::getValidValues())), __LINE__);
         }

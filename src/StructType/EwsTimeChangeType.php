@@ -14,7 +14,7 @@ class EwsTimeChangeType extends AbstractStructBase
 {
     /**
      * The Offset
-     * @var duration
+     * @var int
      */
     public $Offset;
     /**
@@ -24,12 +24,12 @@ class EwsTimeChangeType extends AbstractStructBase
     public $RelativeYearlyRecurrence;
     /**
      * The AbsoluteDate
-     * @var date
+     * @var string
      */
     public $AbsoluteDate;
     /**
      * The Time
-     * @var time
+     * @var string
      */
     public $Time;
     /**
@@ -46,14 +46,14 @@ class EwsTimeChangeType extends AbstractStructBase
      * @uses EwsTimeChangeType::setAbsoluteDate()
      * @uses EwsTimeChangeType::setTime()
      * @uses EwsTimeChangeType::setTimeZoneName()
-     * @param duration $offset
+     * @param int $offset
      * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
      * $relativeYearlyRecurrence
-     * @param date $absoluteDate
-     * @param time $time
+     * @param string $absoluteDate
+     * @param string $time
      * @param string $timeZoneName
      */
-    public function __construct($offset = null, \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null, $absoluteDate = null, time $time = null, $timeZoneName = null)
+    public function __construct($offset = null, \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null, $absoluteDate = null, $time = null, $timeZoneName = null)
     {
         $this
             ->setOffset($offset)
@@ -64,7 +64,7 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Get Offset value
-     * @return duration|null
+     * @return int|null
      */
     public function getOffset()
     {
@@ -72,11 +72,15 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Set Offset value
-     * @param duration $offset
+     * @param int $offset
      * @return \Ews\StructType\EwsTimeChangeType
      */
     public function setOffset($offset = null)
     {
+        // validation for constraint: int
+        if (!is_null($offset) && !is_int($offset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offset)), __LINE__);
+        }
         $this->Offset = $offset;
         return $this;
     }
@@ -101,7 +105,7 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Get AbsoluteDate value
-     * @return date|null
+     * @return string|null
      */
     public function getAbsoluteDate()
     {
@@ -109,17 +113,21 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Set AbsoluteDate value
-     * @param date $absoluteDate
+     * @param string $absoluteDate
      * @return \Ews\StructType\EwsTimeChangeType
      */
     public function setAbsoluteDate($absoluteDate = null)
     {
+        // validation for constraint: string
+        if (!is_null($absoluteDate) && !is_string($absoluteDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($absoluteDate)), __LINE__);
+        }
         $this->AbsoluteDate = $absoluteDate;
         return $this;
     }
     /**
      * Get Time value
-     * @return time|null
+     * @return string|null
      */
     public function getTime()
     {
@@ -127,11 +135,15 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Set Time value
-     * @param time $time
+     * @param string $time
      * @return \Ews\StructType\EwsTimeChangeType
      */
-    public function setTime(time $time = null)
+    public function setTime($time = null)
     {
+        // validation for constraint: string
+        if (!is_null($time) && !is_string($time)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($time)), __LINE__);
+        }
         $this->Time = $time;
         return $this;
     }
@@ -150,6 +162,10 @@ class EwsTimeChangeType extends AbstractStructBase
      */
     public function setTimeZoneName($timeZoneName = null)
     {
+        // validation for constraint: string
+        if (!is_null($timeZoneName) && !is_string($timeZoneName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZoneName)), __LINE__);
+        }
         $this->TimeZoneName = $timeZoneName;
         return $this;
     }

@@ -17,7 +17,7 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var long
+     * @var int
      */
     public $TDSuggestionsBatchId;
     /**
@@ -52,7 +52,7 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * @uses EwsSearchSuggestionsType::setTDSuggestionsInstanceId()
      * @uses EwsSearchSuggestionsType::setSuggestions()
      * @uses EwsSearchSuggestionsType::setDiagnosticsData()
-     * @param long $tDSuggestionsBatchId
+     * @param int $tDSuggestionsBatchId
      * @param string $tDSuggestionsInstanceId
      * @param \Ews\StructType\EwsSuggestions $suggestions
      * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
@@ -67,7 +67,7 @@ class EwsSearchSuggestionsType extends AbstractStructBase
     }
     /**
      * Get TDSuggestionsBatchId value
-     * @return long
+     * @return int
      */
     public function getTDSuggestionsBatchId()
     {
@@ -75,11 +75,15 @@ class EwsSearchSuggestionsType extends AbstractStructBase
     }
     /**
      * Set TDSuggestionsBatchId value
-     * @param long $tDSuggestionsBatchId
+     * @param int $tDSuggestionsBatchId
      * @return \Ews\StructType\EwsSearchSuggestionsType
      */
     public function setTDSuggestionsBatchId($tDSuggestionsBatchId = null)
     {
+        // validation for constraint: int
+        if (!is_null($tDSuggestionsBatchId) && !is_int($tDSuggestionsBatchId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDSuggestionsBatchId)), __LINE__);
+        }
         $this->TDSuggestionsBatchId = $tDSuggestionsBatchId;
         return $this;
     }
@@ -98,6 +102,14 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      */
     public function setTDSuggestionsInstanceId($tDSuggestionsInstanceId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($tDSuggestionsInstanceId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tDSuggestionsInstanceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDSuggestionsInstanceId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($tDSuggestionsInstanceId) && !is_string($tDSuggestionsInstanceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tDSuggestionsInstanceId)), __LINE__);
+        }
         $this->TDSuggestionsInstanceId = $tDSuggestionsInstanceId;
         return $this;
     }

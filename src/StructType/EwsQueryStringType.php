@@ -21,21 +21,21 @@ class EwsQueryStringType extends AbstractStructBase
      * The ResetCache
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $ResetCache;
     /**
      * The ReturnHighlightTerms
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $ReturnHighlightTerms;
     /**
      * The ReturnDeletedItems
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $ReturnDeletedItems;
     /**
@@ -45,9 +45,9 @@ class EwsQueryStringType extends AbstractStructBase
      * @uses EwsQueryStringType::setReturnHighlightTerms()
      * @uses EwsQueryStringType::setReturnDeletedItems()
      * @param string $_
-     * @param boolean $resetCache
-     * @param boolean $returnHighlightTerms
-     * @param boolean $returnDeletedItems
+     * @param bool $resetCache
+     * @param bool $returnHighlightTerms
+     * @param bool $returnDeletedItems
      */
     public function __construct($_ = null, $resetCache = null, $returnHighlightTerms = null, $returnDeletedItems = null)
     {
@@ -72,12 +72,16 @@ class EwsQueryStringType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
     /**
      * Get ResetCache value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getResetCache()
     {
@@ -85,7 +89,7 @@ class EwsQueryStringType extends AbstractStructBase
     }
     /**
      * Set ResetCache value
-     * @param boolean $resetCache
+     * @param bool $resetCache
      * @return \Ews\StructType\EwsQueryStringType
      */
     public function setResetCache($resetCache = null)
@@ -95,7 +99,7 @@ class EwsQueryStringType extends AbstractStructBase
     }
     /**
      * Get ReturnHighlightTerms value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReturnHighlightTerms()
     {
@@ -103,7 +107,7 @@ class EwsQueryStringType extends AbstractStructBase
     }
     /**
      * Set ReturnHighlightTerms value
-     * @param boolean $returnHighlightTerms
+     * @param bool $returnHighlightTerms
      * @return \Ews\StructType\EwsQueryStringType
      */
     public function setReturnHighlightTerms($returnHighlightTerms = null)
@@ -113,7 +117,7 @@ class EwsQueryStringType extends AbstractStructBase
     }
     /**
      * Get ReturnDeletedItems value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getReturnDeletedItems()
     {
@@ -121,7 +125,7 @@ class EwsQueryStringType extends AbstractStructBase
     }
     /**
      * Set ReturnDeletedItems value
-     * @param boolean $returnDeletedItems
+     * @param bool $returnDeletedItems
      * @return \Ews\StructType\EwsQueryStringType
      */
     public function setReturnDeletedItems($returnDeletedItems = null)

@@ -14,7 +14,7 @@ class EwsPeriodType extends AbstractStructBase
 {
     /**
      * The Bias
-     * @var duration
+     * @var int
      */
     public $Bias;
     /**
@@ -32,7 +32,7 @@ class EwsPeriodType extends AbstractStructBase
      * @uses EwsPeriodType::setBias()
      * @uses EwsPeriodType::setName()
      * @uses EwsPeriodType::setId()
-     * @param duration $bias
+     * @param int $bias
      * @param string $name
      * @param string $id
      */
@@ -45,7 +45,7 @@ class EwsPeriodType extends AbstractStructBase
     }
     /**
      * Get Bias value
-     * @return duration|null
+     * @return int|null
      */
     public function getBias()
     {
@@ -53,11 +53,15 @@ class EwsPeriodType extends AbstractStructBase
     }
     /**
      * Set Bias value
-     * @param duration $bias
+     * @param int $bias
      * @return \Ews\StructType\EwsPeriodType
      */
     public function setBias($bias = null)
     {
+        // validation for constraint: int
+        if (!is_null($bias) && !is_int($bias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($bias)), __LINE__);
+        }
         $this->Bias = $bias;
         return $this;
     }
@@ -76,6 +80,10 @@ class EwsPeriodType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -94,6 +102,10 @@ class EwsPeriodType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }

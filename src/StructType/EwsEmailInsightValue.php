@@ -41,7 +41,7 @@ class EwsEmailInsightValue extends EwsInsightValue
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $LastEmailDateUtcTicks;
     /**
@@ -80,7 +80,7 @@ class EwsEmailInsightValue extends EwsInsightValue
      * @param string $id
      * @param string $threadId
      * @param string $subject
-     * @param long $lastEmailDateUtcTicks
+     * @param int $lastEmailDateUtcTicks
      * @param string $body
      * @param \Ews\StructType\EwsProfileInsightValue $lastEmailSender
      * @param int $emailsCount
@@ -111,6 +111,10 @@ class EwsEmailInsightValue extends EwsInsightValue
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -129,6 +133,10 @@ class EwsEmailInsightValue extends EwsInsightValue
      */
     public function setThreadId($threadId = null)
     {
+        // validation for constraint: string
+        if (!is_null($threadId) && !is_string($threadId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($threadId)), __LINE__);
+        }
         $this->ThreadId = $threadId;
         return $this;
     }
@@ -147,12 +155,16 @@ class EwsEmailInsightValue extends EwsInsightValue
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
     /**
      * Get LastEmailDateUtcTicks value
-     * @return long|null
+     * @return int|null
      */
     public function getLastEmailDateUtcTicks()
     {
@@ -160,11 +172,15 @@ class EwsEmailInsightValue extends EwsInsightValue
     }
     /**
      * Set LastEmailDateUtcTicks value
-     * @param long $lastEmailDateUtcTicks
+     * @param int $lastEmailDateUtcTicks
      * @return \Ews\StructType\EwsEmailInsightValue
      */
     public function setLastEmailDateUtcTicks($lastEmailDateUtcTicks = null)
     {
+        // validation for constraint: int
+        if (!is_null($lastEmailDateUtcTicks) && !is_int($lastEmailDateUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lastEmailDateUtcTicks)), __LINE__);
+        }
         $this->LastEmailDateUtcTicks = $lastEmailDateUtcTicks;
         return $this;
     }
@@ -183,6 +199,10 @@ class EwsEmailInsightValue extends EwsInsightValue
      */
     public function setBody($body = null)
     {
+        // validation for constraint: string
+        if (!is_null($body) && !is_string($body)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($body)), __LINE__);
+        }
         $this->Body = $body;
         return $this;
     }
@@ -219,6 +239,10 @@ class EwsEmailInsightValue extends EwsInsightValue
      */
     public function setEmailsCount($emailsCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($emailsCount) && !is_int($emailsCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($emailsCount)), __LINE__);
+        }
         $this->EmailsCount = $emailsCount;
         return $this;
     }

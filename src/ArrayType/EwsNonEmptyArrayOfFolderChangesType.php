@@ -16,13 +16,13 @@ class EwsNonEmptyArrayOfFolderChangesType extends AbstractStructArrayBase
      * The FolderChange
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var array
+     * @var \Ews\StructType\EwsFolderChangeType[]
      */
     public $FolderChange;
     /**
      * Constructor method for NonEmptyArrayOfFolderChangesType
      * @uses EwsNonEmptyArrayOfFolderChangesType::setFolderChange()
-     * @param array $folderChange
+     * @param \Ews\StructType\EwsFolderChangeType[] $folderChange
      */
     public function __construct(array $folderChange = array())
     {
@@ -31,7 +31,7 @@ class EwsNonEmptyArrayOfFolderChangesType extends AbstractStructArrayBase
     }
     /**
      * Get FolderChange value
-     * @return array
+     * @return \Ews\StructType\EwsFolderChangeType[]|null
      */
     public function getFolderChange()
     {
@@ -39,12 +39,34 @@ class EwsNonEmptyArrayOfFolderChangesType extends AbstractStructArrayBase
     }
     /**
      * Set FolderChange value
-     * @param array $folderChange
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFolderChangeType[] $folderChange
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType
      */
     public function setFolderChange(array $folderChange = array())
     {
+        foreach ($folderChange as $nonEmptyArrayOfFolderChangesTypeFolderChangeItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfFolderChangesTypeFolderChangeItem instanceof \Ews\StructType\EwsFolderChangeType) {
+                throw new \InvalidArgumentException(sprintf('The FolderChange property can only contain items of \Ews\StructType\EwsFolderChangeType, "%s" given', is_object($nonEmptyArrayOfFolderChangesTypeFolderChangeItem) ? get_class($nonEmptyArrayOfFolderChangesTypeFolderChangeItem) : gettype($nonEmptyArrayOfFolderChangesTypeFolderChangeItem)), __LINE__);
+            }
+        }
         $this->FolderChange = $folderChange;
+        return $this;
+    }
+    /**
+     * Add item to FolderChange value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsFolderChangeType $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType
+     */
+    public function addToFolderChange(\Ews\StructType\EwsFolderChangeType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsFolderChangeType) {
+            throw new \InvalidArgumentException(sprintf('The FolderChange property can only contain items of \Ews\StructType\EwsFolderChangeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->FolderChange[] = $item;
         return $this;
     }
     /**

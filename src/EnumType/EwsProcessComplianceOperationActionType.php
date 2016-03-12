@@ -16,17 +16,17 @@ class EwsProcessComplianceOperationActionType
      * Constant for value 'GetReviewComments'
      * @return string 'GetReviewComments'
      */
-    const VALUE_GETREVIEWCOMMENTS = 'GetReviewComments';
+    const VALUE_GET_REVIEW_COMMENTS = 'GetReviewComments';
     /**
      * Constant for value 'SetReviewComments'
      * @return string 'SetReviewComments'
      */
-    const VALUE_SETREVIEWCOMMENTS = 'SetReviewComments';
+    const VALUE_SET_REVIEW_COMMENTS = 'SetReviewComments';
     /**
      * Constant for value 'SetReviewStatus'
      * @return string 'SetReviewStatus'
      */
-    const VALUE_SETREVIEWSTATUS = 'SetReviewStatus';
+    const VALUE_SET_REVIEW_STATUS = 'SetReviewStatus';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -39,17 +39,17 @@ class EwsProcessComplianceOperationActionType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_GETREVIEWCOMMENTS
-     * @uses self::VALUE_SETREVIEWCOMMENTS
-     * @uses self::VALUE_SETREVIEWSTATUS
+     * @uses self::VALUE_GET_REVIEW_COMMENTS
+     * @uses self::VALUE_SET_REVIEW_COMMENTS
+     * @uses self::VALUE_SET_REVIEW_STATUS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_GETREVIEWCOMMENTS,
-            self::VALUE_SETREVIEWCOMMENTS,
-            self::VALUE_SETREVIEWSTATUS,
+            self::VALUE_GET_REVIEW_COMMENTS,
+            self::VALUE_SET_REVIEW_COMMENTS,
+            self::VALUE_SET_REVIEW_STATUS,
         );
     }
     /**

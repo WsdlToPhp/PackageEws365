@@ -14,24 +14,22 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
-     * @var array
+     * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * Constructor method for ArrayOfBaseItemIdsType
      * @uses EwsArrayOfBaseItemIdsType::setItemId()
-     * @param array $itemId
+     * @param \Ews\StructType\EwsItemIdType $itemId
      */
-    public function __construct(array $itemId = array())
+    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null)
     {
         $this
             ->setItemId($itemId);
     }
     /**
      * Get ItemId value
-     * @return array
+     * @return \Ews\StructType\EwsItemIdType|null
      */
     public function getItemId()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
     }
     /**
      * Set ItemId value
-     * @param array $itemId
+     * @param \Ews\StructType\EwsItemIdType $itemId
      * @return \Ews\ArrayType\EwsArrayOfBaseItemIdsType
      */
-    public function setItemId(array $itemId = array())
+    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
     {
         $this->ItemId = $itemId;
         return $this;

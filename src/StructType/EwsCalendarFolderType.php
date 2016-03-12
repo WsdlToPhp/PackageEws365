@@ -23,7 +23,6 @@ class EwsCalendarFolderType extends EwsBaseFolderType
      * The PermissionSet
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: The set of permissions on a folder
      * @var \Ews\StructType\EwsCalendarPermissionSetType
      */
     public $PermissionSet;
@@ -52,11 +51,13 @@ class EwsCalendarFolderType extends EwsBaseFolderType
      * Set SharingEffectiveRights value
      * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid()
      * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sharingEffectiveRights
      * @return \Ews\StructType\EwsCalendarFolderType
      */
     public function setSharingEffectiveRights($sharingEffectiveRights = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid($sharingEffectiveRights)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sharingEffectiveRights, implode(', ', \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues())), __LINE__);
         }

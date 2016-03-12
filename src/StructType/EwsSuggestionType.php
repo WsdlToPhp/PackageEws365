@@ -33,7 +33,7 @@ class EwsSuggestionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $SuggestionType;
     /**
@@ -51,7 +51,7 @@ class EwsSuggestionType extends AbstractStructBase
     public $TDSuggestionId;
     /**
      * The IsDeletable
-     * @var boolean
+     * @var bool
      */
     public $IsDeletable;
     /**
@@ -64,10 +64,10 @@ class EwsSuggestionType extends AbstractStructBase
      * @uses EwsSuggestionType::setIsDeletable()
      * @param string $suggestedQuery
      * @param string $displayText
-     * @param string[] $suggestionType
+     * @param string $suggestionType
      * @param string $trigger
      * @param int $tDSuggestionId
-     * @param boolean $isDeletable
+     * @param bool $isDeletable
      */
     public function __construct($suggestedQuery = null, $displayText = null, $suggestionType = null, $trigger = null, $tDSuggestionId = null, $isDeletable = null)
     {
@@ -94,6 +94,10 @@ class EwsSuggestionType extends AbstractStructBase
      */
     public function setSuggestedQuery($suggestedQuery = null)
     {
+        // validation for constraint: string
+        if (!is_null($suggestedQuery) && !is_string($suggestedQuery)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($suggestedQuery)), __LINE__);
+        }
         $this->SuggestedQuery = $suggestedQuery;
         return $this;
     }
@@ -112,12 +116,16 @@ class EwsSuggestionType extends AbstractStructBase
      */
     public function setDisplayText($displayText = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayText) && !is_string($displayText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayText)), __LINE__);
+        }
         $this->DisplayText = $displayText;
         return $this;
     }
     /**
      * Get SuggestionType value
-     * @return string[]
+     * @return string
      */
     public function getSuggestionType()
     {
@@ -127,11 +135,13 @@ class EwsSuggestionType extends AbstractStructBase
      * Set SuggestionType value
      * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
-     * @param string[] $suggestionType
+     * @throws \InvalidArgumentException
+     * @param string $suggestionType
      * @return \Ews\StructType\EwsSuggestionType
      */
     public function setSuggestionType($suggestionType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($suggestionType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionType, implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues())), __LINE__);
         }
@@ -153,6 +163,10 @@ class EwsSuggestionType extends AbstractStructBase
      */
     public function setTrigger($trigger = null)
     {
+        // validation for constraint: string
+        if (!is_null($trigger) && !is_string($trigger)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($trigger)), __LINE__);
+        }
         $this->Trigger = $trigger;
         return $this;
     }
@@ -171,12 +185,16 @@ class EwsSuggestionType extends AbstractStructBase
      */
     public function setTDSuggestionId($tDSuggestionId = null)
     {
+        // validation for constraint: int
+        if (!is_null($tDSuggestionId) && !is_int($tDSuggestionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDSuggestionId)), __LINE__);
+        }
         $this->TDSuggestionId = $tDSuggestionId;
         return $this;
     }
     /**
      * Get IsDeletable value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDeletable()
     {
@@ -184,7 +202,7 @@ class EwsSuggestionType extends AbstractStructBase
     }
     /**
      * Set IsDeletable value
-     * @param boolean $isDeletable
+     * @param bool $isDeletable
      * @return \Ews\StructType\EwsSuggestionType
      */
     public function setIsDeletable($isDeletable = null)

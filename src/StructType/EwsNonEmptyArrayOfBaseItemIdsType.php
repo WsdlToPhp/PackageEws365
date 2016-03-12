@@ -14,8 +14,6 @@ class EwsNonEmptyArrayOfBaseItemIdsType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;

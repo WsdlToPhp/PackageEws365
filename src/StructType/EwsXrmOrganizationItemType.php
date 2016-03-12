@@ -66,6 +66,14 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
      */
     public function setXrmOrganizationId($xrmOrganizationId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($xrmOrganizationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmOrganizationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($xrmOrganizationId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($xrmOrganizationId) && !is_string($xrmOrganizationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xrmOrganizationId)), __LINE__);
+        }
         $this->XrmOrganizationId = $xrmOrganizationId;
         return $this;
     }
@@ -84,6 +92,10 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
      */
     public function setXrmContactType($xrmContactType = null)
     {
+        // validation for constraint: int
+        if (!is_null($xrmContactType) && !is_int($xrmContactType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($xrmContactType)), __LINE__);
+        }
         $this->XrmContactType = $xrmContactType;
         return $this;
     }
@@ -102,6 +114,10 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
      */
     public function setXrmCompanySize($xrmCompanySize = null)
     {
+        // validation for constraint: int
+        if (!is_null($xrmCompanySize) && !is_int($xrmCompanySize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($xrmCompanySize)), __LINE__);
+        }
         $this->XrmCompanySize = $xrmCompanySize;
         return $this;
     }

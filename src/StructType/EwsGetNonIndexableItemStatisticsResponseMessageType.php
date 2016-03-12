@@ -20,7 +20,6 @@ class EwsGetNonIndexableItemStatisticsResponseMessageType extends EwsResponseMes
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Array of non indexable item statistics.
      * @var \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
      */
     public $NonIndexableItemStatistics;

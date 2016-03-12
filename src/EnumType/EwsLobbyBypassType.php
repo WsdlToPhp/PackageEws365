@@ -19,7 +19,7 @@ class EwsLobbyBypassType
      * Constant for value 'EnabledForGatewayParticipants'
      * @return string 'EnabledForGatewayParticipants'
      */
-    const VALUE_ENABLEDFORGATEWAYPARTICIPANTS = 'EnabledForGatewayParticipants';
+    const VALUE_ENABLED_FOR_GATEWAY_PARTICIPANTS = 'EnabledForGatewayParticipants';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -33,14 +33,14 @@ class EwsLobbyBypassType
     /**
      * Return allowed values
      * @uses self::VALUE_DISABLED
-     * @uses self::VALUE_ENABLEDFORGATEWAYPARTICIPANTS
+     * @uses self::VALUE_ENABLED_FOR_GATEWAY_PARTICIPANTS
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
             self::VALUE_DISABLED,
-            self::VALUE_ENABLEDFORGATEWAYPARTICIPANTS,
+            self::VALUE_ENABLED_FOR_GATEWAY_PARTICIPANTS,
         );
     }
     /**

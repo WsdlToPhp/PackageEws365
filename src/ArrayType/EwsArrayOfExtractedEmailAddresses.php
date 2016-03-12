@@ -17,13 +17,13 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var string[]
      */
     public $EmailAddress;
     /**
      * Constructor method for ArrayOfExtractedEmailAddresses
      * @uses EwsArrayOfExtractedEmailAddresses::setEmailAddress()
-     * @param array $emailAddress
+     * @param string[] $emailAddress
      */
     public function __construct(array $emailAddress = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
     }
     /**
      * Get EmailAddress value
-     * @return array
+     * @return string[]|null
      */
     public function getEmailAddress()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
     }
     /**
      * Set EmailAddress value
-     * @param array $emailAddress
+     * @throws \InvalidArgumentException
+     * @param string[] $emailAddress
      * @return \Ews\ArrayType\EwsArrayOfExtractedEmailAddresses
      */
     public function setEmailAddress(array $emailAddress = array())
     {
+        foreach ($emailAddress as $arrayOfExtractedEmailAddressesEmailAddressItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfExtractedEmailAddressesEmailAddressItem)) {
+                throw new \InvalidArgumentException(sprintf('The EmailAddress property can only contain items of string, "%s" given', is_object($arrayOfExtractedEmailAddressesEmailAddressItem) ? get_class($arrayOfExtractedEmailAddressesEmailAddressItem) : gettype($arrayOfExtractedEmailAddressesEmailAddressItem)), __LINE__);
+            }
+        }
         $this->EmailAddress = $emailAddress;
+        return $this;
+    }
+    /**
+     * Add item to EmailAddress value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsArrayOfExtractedEmailAddresses
+     */
+    public function addToEmailAddress($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The EmailAddress property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->EmailAddress[] = $item;
         return $this;
     }
     /**

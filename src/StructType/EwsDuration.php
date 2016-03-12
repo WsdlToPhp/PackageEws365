@@ -17,7 +17,7 @@ class EwsDuration extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $StartTime;
     /**
@@ -25,15 +25,15 @@ class EwsDuration extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var dateTime
+     * @var string
      */
     public $EndTime;
     /**
      * Constructor method for Duration
      * @uses EwsDuration::setStartTime()
      * @uses EwsDuration::setEndTime()
-     * @param dateTime $startTime
-     * @param dateTime $endTime
+     * @param string $startTime
+     * @param string $endTime
      */
     public function __construct($startTime = null, $endTime = null)
     {
@@ -43,7 +43,7 @@ class EwsDuration extends AbstractStructBase
     }
     /**
      * Get StartTime value
-     * @return dateTime
+     * @return string
      */
     public function getStartTime()
     {
@@ -51,17 +51,21 @@ class EwsDuration extends AbstractStructBase
     }
     /**
      * Set StartTime value
-     * @param dateTime $startTime
+     * @param string $startTime
      * @return \Ews\StructType\EwsDuration
      */
     public function setStartTime($startTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTime) && !is_string($startTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+        }
         $this->StartTime = $startTime;
         return $this;
     }
     /**
      * Get EndTime value
-     * @return dateTime
+     * @return string
      */
     public function getEndTime()
     {
@@ -69,11 +73,15 @@ class EwsDuration extends AbstractStructBase
     }
     /**
      * Set EndTime value
-     * @param dateTime $endTime
+     * @param string $endTime
      * @return \Ews\StructType\EwsDuration
      */
     public function setEndTime($endTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTime) && !is_string($endTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+        }
         $this->EndTime = $endTime;
         return $this;
     }

@@ -111,6 +111,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -129,6 +133,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setAddress($address = null)
     {
+        // validation for constraint: string
+        if (!is_null($address) && !is_string($address)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+        }
         $this->Address = $address;
         return $this;
     }
@@ -147,6 +155,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setPhone($phone = null)
     {
+        // validation for constraint: string
+        if (!is_null($phone) && !is_string($phone)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phone)), __LINE__);
+        }
         $this->Phone = $phone;
         return $this;
     }
@@ -165,6 +177,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setEmail($email = null)
     {
+        // validation for constraint: string
+        if (!is_null($email) && !is_string($email)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($email)), __LINE__);
+        }
         $this->Email = $email;
         return $this;
     }
@@ -183,6 +199,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setEmailDisplayAs($emailDisplayAs = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailDisplayAs) && !is_string($emailDisplayAs)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailDisplayAs)), __LINE__);
+        }
         $this->EmailDisplayAs = $emailDisplayAs;
         return $this;
     }
@@ -201,6 +221,10 @@ class EwsBusinessInfoType extends AbstractStructBase
      */
     public function setWebsite($website = null)
     {
+        // validation for constraint: string
+        if (!is_null($website) && !is_string($website)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($website)), __LINE__);
+        }
         $this->Website = $website;
         return $this;
     }

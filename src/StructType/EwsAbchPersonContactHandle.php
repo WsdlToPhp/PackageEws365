@@ -67,6 +67,10 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
      */
     public function setSourceId($sourceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($sourceId) && !is_string($sourceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceId)), __LINE__);
+        }
         $this->SourceId = $sourceId;
         return $this;
     }
@@ -85,6 +89,10 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
      */
     public function setObjectId($objectId = null)
     {
+        // validation for constraint: string
+        if (!is_null($objectId) && !is_string($objectId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectId)), __LINE__);
+        }
         $this->ObjectId = $objectId;
         return $this;
     }
@@ -103,6 +111,10 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
      */
     public function setAccountName($accountName = null)
     {
+        // validation for constraint: string
+        if (!is_null($accountName) && !is_string($accountName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+        }
         $this->AccountName = $accountName;
         return $this;
     }

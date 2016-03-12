@@ -14,12 +14,12 @@ class EwsResolveNamesSearchScopeType
      * Constant for value 'ActiveDirectory'
      * @return string 'ActiveDirectory'
      */
-    const VALUE_ACTIVEDIRECTORY = 'ActiveDirectory';
+    const VALUE_ACTIVE_DIRECTORY = 'ActiveDirectory';
     /**
      * Constant for value 'ActiveDirectoryContacts'
      * @return string 'ActiveDirectoryContacts'
      */
-    const VALUE_ACTIVEDIRECTORYCONTACTS = 'ActiveDirectoryContacts';
+    const VALUE_ACTIVE_DIRECTORY_CONTACTS = 'ActiveDirectoryContacts';
     /**
      * Constant for value 'Contacts'
      * @return string 'Contacts'
@@ -29,7 +29,7 @@ class EwsResolveNamesSearchScopeType
      * Constant for value 'ContactsActiveDirectory'
      * @return string 'ContactsActiveDirectory'
      */
-    const VALUE_CONTACTSACTIVEDIRECTORY = 'ContactsActiveDirectory';
+    const VALUE_CONTACTS_ACTIVE_DIRECTORY = 'ContactsActiveDirectory';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -42,19 +42,19 @@ class EwsResolveNamesSearchScopeType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_ACTIVEDIRECTORY
-     * @uses self::VALUE_ACTIVEDIRECTORYCONTACTS
+     * @uses self::VALUE_ACTIVE_DIRECTORY
+     * @uses self::VALUE_ACTIVE_DIRECTORY_CONTACTS
      * @uses self::VALUE_CONTACTS
-     * @uses self::VALUE_CONTACTSACTIVEDIRECTORY
+     * @uses self::VALUE_CONTACTS_ACTIVE_DIRECTORY
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_ACTIVEDIRECTORY,
-            self::VALUE_ACTIVEDIRECTORYCONTACTS,
+            self::VALUE_ACTIVE_DIRECTORY,
+            self::VALUE_ACTIVE_DIRECTORY_CONTACTS,
             self::VALUE_CONTACTS,
-            self::VALUE_CONTACTSACTIVEDIRECTORY,
+            self::VALUE_CONTACTS_ACTIVE_DIRECTORY,
         );
     }
     /**

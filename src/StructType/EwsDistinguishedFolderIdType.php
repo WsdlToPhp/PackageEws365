@@ -18,7 +18,6 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      * The Id
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: URIs for the distinguished folders accessible from a mailbox
      * @var string
      */
     public $Id;
@@ -26,7 +25,6 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      * The Mailbox
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Mailbox;
@@ -65,11 +63,13 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      * Set Id value
      * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid()
      * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $id
      * @return \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public function setId($id = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid($id)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $id, implode(', ', \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
         }
@@ -109,6 +109,10 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      */
     public function setChangeKey($changeKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($changeKey) && !is_string($changeKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+        }
         $this->ChangeKey = $changeKey;
         return $this;
     }

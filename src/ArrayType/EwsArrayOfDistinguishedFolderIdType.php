@@ -14,24 +14,22 @@ class EwsArrayOfDistinguishedFolderIdType extends AbstractStructArrayBase
 {
     /**
      * The DistinguishedFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a distinguished folder
-     * @var array
+     * @var \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public $DistinguishedFolderId;
     /**
      * Constructor method for ArrayOfDistinguishedFolderIdType
      * @uses EwsArrayOfDistinguishedFolderIdType::setDistinguishedFolderId()
-     * @param array $distinguishedFolderId
+     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
      */
-    public function __construct(array $distinguishedFolderId = array())
+    public function __construct(\Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
     {
         $this
             ->setDistinguishedFolderId($distinguishedFolderId);
     }
     /**
      * Get DistinguishedFolderId value
-     * @return array
+     * @return \Ews\StructType\EwsDistinguishedFolderIdType|null
      */
     public function getDistinguishedFolderId()
     {
@@ -39,10 +37,10 @@ class EwsArrayOfDistinguishedFolderIdType extends AbstractStructArrayBase
     }
     /**
      * Set DistinguishedFolderId value
-     * @param array $distinguishedFolderId
+     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
      * @return \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType
      */
-    public function setDistinguishedFolderId(array $distinguishedFolderId = array())
+    public function setDistinguishedFolderId(\Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
     {
         $this->DistinguishedFolderId = $distinguishedFolderId;
         return $this;

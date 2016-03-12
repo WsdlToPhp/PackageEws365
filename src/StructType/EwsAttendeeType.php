@@ -14,8 +14,6 @@ class EwsAttendeeType extends AbstractStructBase
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $Mailbox;
@@ -30,21 +28,21 @@ class EwsAttendeeType extends AbstractStructBase
      * The LastResponseTime
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $LastResponseTime;
     /**
      * The ProposedStart
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedStart;
     /**
      * The ProposedEnd
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedEnd;
     /**
@@ -56,9 +54,9 @@ class EwsAttendeeType extends AbstractStructBase
      * @uses EwsAttendeeType::setProposedEnd()
      * @param \Ews\StructType\EwsEmailAddressType $mailbox
      * @param string $responseType
-     * @param dateTime $lastResponseTime
-     * @param dateTime $proposedStart
-     * @param dateTime $proposedEnd
+     * @param string $lastResponseTime
+     * @param string $proposedStart
+     * @param string $proposedEnd
      */
     public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null, $responseType = null, $lastResponseTime = null, $proposedStart = null, $proposedEnd = null)
     {
@@ -99,11 +97,13 @@ class EwsAttendeeType extends AbstractStructBase
      * Set ResponseType value
      * @uses \Ews\EnumType\EwsResponseTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsResponseTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $responseType
      * @return \Ews\StructType\EwsAttendeeType
      */
     public function setResponseType($responseType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($responseType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseType, implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
@@ -112,7 +112,7 @@ class EwsAttendeeType extends AbstractStructBase
     }
     /**
      * Get LastResponseTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getLastResponseTime()
     {
@@ -120,17 +120,21 @@ class EwsAttendeeType extends AbstractStructBase
     }
     /**
      * Set LastResponseTime value
-     * @param dateTime $lastResponseTime
+     * @param string $lastResponseTime
      * @return \Ews\StructType\EwsAttendeeType
      */
     public function setLastResponseTime($lastResponseTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastResponseTime) && !is_string($lastResponseTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastResponseTime)), __LINE__);
+        }
         $this->LastResponseTime = $lastResponseTime;
         return $this;
     }
     /**
      * Get ProposedStart value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedStart()
     {
@@ -138,17 +142,21 @@ class EwsAttendeeType extends AbstractStructBase
     }
     /**
      * Set ProposedStart value
-     * @param dateTime $proposedStart
+     * @param string $proposedStart
      * @return \Ews\StructType\EwsAttendeeType
      */
     public function setProposedStart($proposedStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedStart) && !is_string($proposedStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedStart)), __LINE__);
+        }
         $this->ProposedStart = $proposedStart;
         return $this;
     }
     /**
      * Get ProposedEnd value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedEnd()
     {
@@ -156,11 +164,15 @@ class EwsAttendeeType extends AbstractStructBase
     }
     /**
      * Set ProposedEnd value
-     * @param dateTime $proposedEnd
+     * @param string $proposedEnd
      * @return \Ews\StructType\EwsAttendeeType
      */
     public function setProposedEnd($proposedEnd = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedEnd)), __LINE__);
+        }
         $this->ProposedEnd = $proposedEnd;
         return $this;
     }

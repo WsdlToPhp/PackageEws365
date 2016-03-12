@@ -14,12 +14,12 @@ class EwsUMCDRFilterByType
      * Constant for value 'FilterByUser'
      * @return string 'FilterByUser'
      */
-    const VALUE_FILTERBYUSER = 'FilterByUser';
+    const VALUE_FILTER_BY_USER = 'FilterByUser';
     /**
      * Constant for value 'FilterByDate'
      * @return string 'FilterByDate'
      */
-    const VALUE_FILTERBYDATE = 'FilterByDate';
+    const VALUE_FILTER_BY_DATE = 'FilterByDate';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsUMCDRFilterByType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_FILTERBYUSER
-     * @uses self::VALUE_FILTERBYDATE
+     * @uses self::VALUE_FILTER_BY_USER
+     * @uses self::VALUE_FILTER_BY_DATE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_FILTERBYUSER,
-            self::VALUE_FILTERBYDATE,
+            self::VALUE_FILTER_BY_USER,
+            self::VALUE_FILTER_BY_DATE,
         );
     }
     /**

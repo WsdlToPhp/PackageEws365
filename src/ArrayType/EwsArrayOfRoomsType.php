@@ -17,13 +17,13 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsRoomType[]
      */
     public $Room;
     /**
      * Constructor method for ArrayOfRoomsType
      * @uses EwsArrayOfRoomsType::setRoom()
-     * @param array $room
+     * @param \Ews\StructType\EwsRoomType[] $room
      */
     public function __construct(array $room = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
     }
     /**
      * Get Room value
-     * @return array
+     * @return \Ews\StructType\EwsRoomType[]|null
      */
     public function getRoom()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
     }
     /**
      * Set Room value
-     * @param array $room
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRoomType[] $room
      * @return \Ews\ArrayType\EwsArrayOfRoomsType
      */
     public function setRoom(array $room = array())
     {
+        foreach ($room as $arrayOfRoomsTypeRoomItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRoomsTypeRoomItem instanceof \Ews\StructType\EwsRoomType) {
+                throw new \InvalidArgumentException(sprintf('The Room property can only contain items of \Ews\StructType\EwsRoomType, "%s" given', is_object($arrayOfRoomsTypeRoomItem) ? get_class($arrayOfRoomsTypeRoomItem) : gettype($arrayOfRoomsTypeRoomItem)), __LINE__);
+            }
+        }
         $this->Room = $room;
+        return $this;
+    }
+    /**
+     * Add item to Room value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRoomType $item
+     * @return \Ews\ArrayType\EwsArrayOfRoomsType
+     */
+    public function addToRoom(\Ews\StructType\EwsRoomType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRoomType) {
+            throw new \InvalidArgumentException(sprintf('The Room property can only contain items of \Ews\StructType\EwsRoomType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Room[] = $item;
         return $this;
     }
     /**

@@ -16,7 +16,7 @@ class EwsSendItemType extends EwsBaseRequestType
      * The SaveItemToFolder
      * Meta informations extracted from the WSDL
      * - use: required
-     * @var boolean
+     * @var bool
      */
     public $SaveItemToFolder;
     /**
@@ -36,7 +36,7 @@ class EwsSendItemType extends EwsBaseRequestType
      * @uses EwsSendItemType::setSaveItemToFolder()
      * @uses EwsSendItemType::setItemIds()
      * @uses EwsSendItemType::setSavedItemFolderId()
-     * @param boolean $saveItemToFolder
+     * @param bool $saveItemToFolder
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId
      */
@@ -49,7 +49,7 @@ class EwsSendItemType extends EwsBaseRequestType
     }
     /**
      * Get SaveItemToFolder value
-     * @return boolean
+     * @return bool
      */
     public function getSaveItemToFolder()
     {
@@ -57,7 +57,7 @@ class EwsSendItemType extends EwsBaseRequestType
     }
     /**
      * Set SaveItemToFolder value
-     * @param boolean $saveItemToFolder
+     * @param bool $saveItemToFolder
      * @return \Ews\StructType\EwsSendItemType
      */
     public function setSaveItemToFolder($saveItemToFolder = null)

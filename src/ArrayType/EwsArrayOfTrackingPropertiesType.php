@@ -14,22 +14,22 @@ class EwsArrayOfTrackingPropertiesType extends AbstractStructArrayBase
 {
     /**
      * The TrackingPropertyType
-     * @var array
+     * @var \Ews\StructType\EwsTrackingPropertyType
      */
     public $TrackingPropertyType;
     /**
      * Constructor method for ArrayOfTrackingPropertiesType
      * @uses EwsArrayOfTrackingPropertiesType::setTrackingPropertyType()
-     * @param array $trackingPropertyType
+     * @param \Ews\StructType\EwsTrackingPropertyType $trackingPropertyType
      */
-    public function __construct(array $trackingPropertyType = array())
+    public function __construct(\Ews\StructType\EwsTrackingPropertyType $trackingPropertyType = null)
     {
         $this
             ->setTrackingPropertyType($trackingPropertyType);
     }
     /**
      * Get TrackingPropertyType value
-     * @return array
+     * @return \Ews\StructType\EwsTrackingPropertyType|null
      */
     public function getTrackingPropertyType()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfTrackingPropertiesType extends AbstractStructArrayBase
     }
     /**
      * Set TrackingPropertyType value
-     * @param array $trackingPropertyType
+     * @param \Ews\StructType\EwsTrackingPropertyType $trackingPropertyType
      * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
      */
-    public function setTrackingPropertyType(array $trackingPropertyType = array())
+    public function setTrackingPropertyType(\Ews\StructType\EwsTrackingPropertyType $trackingPropertyType = null)
     {
         $this->TrackingPropertyType = $trackingPropertyType;
         return $this;

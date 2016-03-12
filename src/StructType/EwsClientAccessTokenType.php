@@ -29,7 +29,7 @@ class EwsClientAccessTokenType extends AbstractStructBase
     public $TokenValue;
     /**
      * The TTL
-     * @var integer
+     * @var int
      */
     public $TTL;
     /**
@@ -41,7 +41,7 @@ class EwsClientAccessTokenType extends AbstractStructBase
      * @param string $id
      * @param string $tokenType
      * @param string $tokenValue
-     * @param integer $tTL
+     * @param int $tTL
      */
     public function __construct($id = null, $tokenType = null, $tokenValue = null, $tTL = null)
     {
@@ -66,6 +66,10 @@ class EwsClientAccessTokenType extends AbstractStructBase
      */
     public function setId($id = null)
     {
+        // validation for constraint: string
+        if (!is_null($id) && !is_string($id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+        }
         $this->Id = $id;
         return $this;
     }
@@ -81,11 +85,13 @@ class EwsClientAccessTokenType extends AbstractStructBase
      * Set TokenType value
      * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $tokenType
      * @return \Ews\StructType\EwsClientAccessTokenType
      */
     public function setTokenType($tokenType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid($tokenType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tokenType, implode(', ', \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues())), __LINE__);
         }
@@ -107,12 +113,16 @@ class EwsClientAccessTokenType extends AbstractStructBase
      */
     public function setTokenValue($tokenValue = null)
     {
+        // validation for constraint: string
+        if (!is_null($tokenValue) && !is_string($tokenValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tokenValue)), __LINE__);
+        }
         $this->TokenValue = $tokenValue;
         return $this;
     }
     /**
      * Get TTL value
-     * @return integer|null
+     * @return int|null
      */
     public function getTTL()
     {
@@ -120,11 +130,15 @@ class EwsClientAccessTokenType extends AbstractStructBase
     }
     /**
      * Set TTL value
-     * @param integer $tTL
+     * @param int $tTL
      * @return \Ews\StructType\EwsClientAccessTokenType
      */
     public function setTTL($tTL = null)
     {
+        // validation for constraint: int
+        if (!is_null($tTL) && !is_int($tTL)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tTL)), __LINE__);
+        }
         $this->TTL = $tTL;
         return $this;
     }

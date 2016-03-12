@@ -14,12 +14,12 @@ class EwsAvailabilityProxyRequestType
      * Constant for value 'CrossSite'
      * @return string 'CrossSite'
      */
-    const VALUE_CROSSSITE = 'CrossSite';
+    const VALUE_CROSS_SITE = 'CrossSite';
     /**
      * Constant for value 'CrossForest'
      * @return string 'CrossForest'
      */
-    const VALUE_CROSSFOREST = 'CrossForest';
+    const VALUE_CROSS_FOREST = 'CrossForest';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -32,15 +32,15 @@ class EwsAvailabilityProxyRequestType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_CROSSSITE
-     * @uses self::VALUE_CROSSFOREST
+     * @uses self::VALUE_CROSS_SITE
+     * @uses self::VALUE_CROSS_FOREST
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_CROSSSITE,
-            self::VALUE_CROSSFOREST,
+            self::VALUE_CROSS_SITE,
+            self::VALUE_CROSS_FOREST,
         );
     }
     /**

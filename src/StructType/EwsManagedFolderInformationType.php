@@ -18,35 +18,35 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      * The CanDelete
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $CanDelete;
     /**
      * The CanRenameOrMove
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $CanRenameOrMove;
     /**
      * The MustDisplayComment
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $MustDisplayComment;
     /**
      * The HasQuota
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasQuota;
     /**
      * The IsManagedFoldersRoot
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsManagedFoldersRoot;
     /**
@@ -96,11 +96,11 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      * @uses EwsManagedFolderInformationType::setStorageQuota()
      * @uses EwsManagedFolderInformationType::setFolderSize()
      * @uses EwsManagedFolderInformationType::setHomePage()
-     * @param boolean $canDelete
-     * @param boolean $canRenameOrMove
-     * @param boolean $mustDisplayComment
-     * @param boolean $hasQuota
-     * @param boolean $isManagedFoldersRoot
+     * @param bool $canDelete
+     * @param bool $canRenameOrMove
+     * @param bool $mustDisplayComment
+     * @param bool $hasQuota
+     * @param bool $isManagedFoldersRoot
      * @param string $managedFolderId
      * @param string $comment
      * @param int $storageQuota
@@ -123,7 +123,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Get CanDelete value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCanDelete()
     {
@@ -131,7 +131,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Set CanDelete value
-     * @param boolean $canDelete
+     * @param bool $canDelete
      * @return \Ews\StructType\EwsManagedFolderInformationType
      */
     public function setCanDelete($canDelete = null)
@@ -141,7 +141,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Get CanRenameOrMove value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getCanRenameOrMove()
     {
@@ -149,7 +149,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Set CanRenameOrMove value
-     * @param boolean $canRenameOrMove
+     * @param bool $canRenameOrMove
      * @return \Ews\StructType\EwsManagedFolderInformationType
      */
     public function setCanRenameOrMove($canRenameOrMove = null)
@@ -159,7 +159,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Get MustDisplayComment value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getMustDisplayComment()
     {
@@ -167,7 +167,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Set MustDisplayComment value
-     * @param boolean $mustDisplayComment
+     * @param bool $mustDisplayComment
      * @return \Ews\StructType\EwsManagedFolderInformationType
      */
     public function setMustDisplayComment($mustDisplayComment = null)
@@ -177,7 +177,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Get HasQuota value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasQuota()
     {
@@ -185,7 +185,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Set HasQuota value
-     * @param boolean $hasQuota
+     * @param bool $hasQuota
      * @return \Ews\StructType\EwsManagedFolderInformationType
      */
     public function setHasQuota($hasQuota = null)
@@ -195,7 +195,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Get IsManagedFoldersRoot value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsManagedFoldersRoot()
     {
@@ -203,7 +203,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     }
     /**
      * Set IsManagedFoldersRoot value
-     * @param boolean $isManagedFoldersRoot
+     * @param bool $isManagedFoldersRoot
      * @return \Ews\StructType\EwsManagedFolderInformationType
      */
     public function setIsManagedFoldersRoot($isManagedFoldersRoot = null)
@@ -226,6 +226,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setManagedFolderId($managedFolderId = null)
     {
+        // validation for constraint: string
+        if (!is_null($managedFolderId) && !is_string($managedFolderId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($managedFolderId)), __LINE__);
+        }
         $this->ManagedFolderId = $managedFolderId;
         return $this;
     }
@@ -244,6 +248,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setComment($comment = null)
     {
+        // validation for constraint: string
+        if (!is_null($comment) && !is_string($comment)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($comment)), __LINE__);
+        }
         $this->Comment = $comment;
         return $this;
     }
@@ -262,6 +270,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setStorageQuota($storageQuota = null)
     {
+        // validation for constraint: int
+        if (!is_null($storageQuota) && !is_int($storageQuota)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($storageQuota)), __LINE__);
+        }
         $this->StorageQuota = $storageQuota;
         return $this;
     }
@@ -280,6 +292,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setFolderSize($folderSize = null)
     {
+        // validation for constraint: int
+        if (!is_null($folderSize) && !is_int($folderSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($folderSize)), __LINE__);
+        }
         $this->FolderSize = $folderSize;
         return $this;
     }
@@ -298,6 +314,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setHomePage($homePage = null)
     {
+        // validation for constraint: string
+        if (!is_null($homePage) && !is_string($homePage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homePage)), __LINE__);
+        }
         $this->HomePage = $homePage;
         return $this;
     }

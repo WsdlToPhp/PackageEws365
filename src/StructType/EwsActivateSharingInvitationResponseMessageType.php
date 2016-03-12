@@ -67,6 +67,14 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
      */
     public function setSuggestedCalendarName($suggestedCalendarName = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(suggestedCalendarName) && strlen(suggestedCalendarName) < 1) || (is_array(suggestedCalendarName) && count(suggestedCalendarName) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($suggestedCalendarName) && !is_string($suggestedCalendarName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($suggestedCalendarName)), __LINE__);
+        }
         $this->SuggestedCalendarName = $suggestedCalendarName;
         return $this;
     }
@@ -82,11 +90,13 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
      * Set PermissionLevel value
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid()
      * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $permissionLevel
      * @return \Ews\StructType\EwsActivateSharingInvitationResponseMessageType
      */
     public function setPermissionLevel($permissionLevel = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
@@ -108,6 +118,14 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
      */
     public function setFolderId($folderId = null)
     {
+        // validation for constraint: minLength
+        if ((is_scalar(folderId) && strlen(folderId) < 1) || (is_array(folderId) && count(folderId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($folderId) && !is_string($folderId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($folderId)), __LINE__);
+        }
         $this->FolderId = $folderId;
         return $this;
     }

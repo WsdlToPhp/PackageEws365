@@ -39,7 +39,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
      * The EnabledOnly
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $EnabledOnly;
     /**
@@ -51,7 +51,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
      * @param string $userId
      * @param \Ews\ArrayType\EwsArrayOfStringsType $userEnabledExtensions
      * @param \Ews\ArrayType\EwsArrayOfStringsType $userDisabledExtensions
-     * @param boolean $enabledOnly
+     * @param bool $enabledOnly
      */
     public function __construct($userId = null, \Ews\ArrayType\EwsArrayOfStringsType $userEnabledExtensions = null, \Ews\ArrayType\EwsArrayOfStringsType $userDisabledExtensions = null, $enabledOnly = null)
     {
@@ -76,6 +76,10 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
      */
     public function setUserId($userId = null)
     {
+        // validation for constraint: string
+        if (!is_null($userId) && !is_string($userId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userId)), __LINE__);
+        }
         $this->UserId = $userId;
         return $this;
     }
@@ -117,7 +121,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     }
     /**
      * Get EnabledOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getEnabledOnly()
     {
@@ -125,7 +129,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     }
     /**
      * Set EnabledOnly value
-     * @param boolean $enabledOnly
+     * @param bool $enabledOnly
      * @return \Ews\StructType\EwsGetClientExtensionUserParametersType
      */
     public function setEnabledOnly($enabledOnly = null)

@@ -25,7 +25,7 @@ class EwsPeopleTokenType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ExpirationDateTime;
     /**
@@ -42,7 +42,7 @@ class EwsPeopleTokenType extends AbstractStructBase
      * @uses EwsPeopleTokenType::setExpirationDateTime()
      * @uses EwsPeopleTokenType::setTokenValue()
      * @param string $tokenSource
-     * @param dateTime $expirationDateTime
+     * @param string $expirationDateTime
      * @param string $tokenValue
      */
     public function __construct($tokenSource = null, $expirationDateTime = null, $tokenValue = null)
@@ -64,11 +64,13 @@ class EwsPeopleTokenType extends AbstractStructBase
      * Set TokenSource value
      * @uses \Ews\EnumType\EwsTokenSourceType::valueIsValid()
      * @uses \Ews\EnumType\EwsTokenSourceType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $tokenSource
      * @return \Ews\StructType\EwsPeopleTokenType
      */
     public function setTokenSource($tokenSource = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTokenSourceType::valueIsValid($tokenSource)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tokenSource, implode(', ', \Ews\EnumType\EwsTokenSourceType::getValidValues())), __LINE__);
         }
@@ -77,7 +79,7 @@ class EwsPeopleTokenType extends AbstractStructBase
     }
     /**
      * Get ExpirationDateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getExpirationDateTime()
     {
@@ -85,11 +87,15 @@ class EwsPeopleTokenType extends AbstractStructBase
     }
     /**
      * Set ExpirationDateTime value
-     * @param dateTime $expirationDateTime
+     * @param string $expirationDateTime
      * @return \Ews\StructType\EwsPeopleTokenType
      */
     public function setExpirationDateTime($expirationDateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($expirationDateTime) && !is_string($expirationDateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expirationDateTime)), __LINE__);
+        }
         $this->ExpirationDateTime = $expirationDateTime;
         return $this;
     }
@@ -108,6 +114,10 @@ class EwsPeopleTokenType extends AbstractStructBase
      */
     public function setTokenValue($tokenValue = null)
     {
+        // validation for constraint: string
+        if (!is_null($tokenValue) && !is_string($tokenValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tokenValue)), __LINE__);
+        }
         $this->TokenValue = $tokenValue;
         return $this;
     }

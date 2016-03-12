@@ -50,6 +50,10 @@ class EwsMeetingLocation extends AbstractStructBase
      */
     public function setEmailAddress($emailAddress = null)
     {
+        // validation for constraint: string
+        if (!is_null($emailAddress) && !is_string($emailAddress)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+        }
         $this->EmailAddress = $emailAddress;
         return $this;
     }
@@ -68,6 +72,10 @@ class EwsMeetingLocation extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }

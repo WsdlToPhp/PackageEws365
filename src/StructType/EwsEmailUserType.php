@@ -54,6 +54,10 @@ class EwsEmailUserType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -72,6 +76,10 @@ class EwsEmailUserType extends AbstractStructBase
      */
     public function setUserId($userId = null)
     {
+        // validation for constraint: string
+        if (!is_null($userId) && !is_string($userId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userId)), __LINE__);
+        }
         $this->UserId = $userId;
         return $this;
     }

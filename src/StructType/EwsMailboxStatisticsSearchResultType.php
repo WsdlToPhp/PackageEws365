@@ -19,7 +19,6 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: User Mailbox.
      * @var \Ews\StructType\EwsUserMailboxType
      */
     public $UserMailbox;
@@ -28,7 +27,6 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Keyword statistics search result.
      * @var \Ews\StructType\EwsKeywordStatisticsSearchResultType
      */
     public $KeywordStatisticsSearchResult;

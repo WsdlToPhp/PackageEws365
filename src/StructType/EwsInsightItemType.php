@@ -17,7 +17,6 @@ class EwsInsightItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -44,7 +43,7 @@ class EwsInsightItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $StartTimeUtc;
     /**
@@ -52,7 +51,7 @@ class EwsInsightItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $EndTimeUtc;
     /**
@@ -110,8 +109,8 @@ class EwsInsightItemType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param string $insightId
      * @param string $type
-     * @param dateTime $startTimeUtc
-     * @param dateTime $endTimeUtc
+     * @param string $startTimeUtc
+     * @param string $endTimeUtc
      * @param string $status
      * @param string $version
      * @param \Ews\ArrayType\EwsArrayOfInsightContextItem $context
@@ -165,6 +164,14 @@ class EwsInsightItemType extends AbstractStructBase
      */
     public function setInsightId($insightId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($insightId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $insightId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($insightId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($insightId) && !is_string($insightId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($insightId)), __LINE__);
+        }
         $this->InsightId = $insightId;
         return $this;
     }
@@ -183,12 +190,16 @@ class EwsInsightItemType extends AbstractStructBase
      */
     public function setType($type = null)
     {
+        // validation for constraint: string
+        if (!is_null($type) && !is_string($type)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
+        }
         $this->Type = $type;
         return $this;
     }
     /**
      * Get StartTimeUtc value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getStartTimeUtc()
     {
@@ -196,17 +207,21 @@ class EwsInsightItemType extends AbstractStructBase
     }
     /**
      * Set StartTimeUtc value
-     * @param dateTime $startTimeUtc
+     * @param string $startTimeUtc
      * @return \Ews\StructType\EwsInsightItemType
      */
     public function setStartTimeUtc($startTimeUtc = null)
     {
+        // validation for constraint: string
+        if (!is_null($startTimeUtc) && !is_string($startTimeUtc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTimeUtc)), __LINE__);
+        }
         $this->StartTimeUtc = $startTimeUtc;
         return $this;
     }
     /**
      * Get EndTimeUtc value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getEndTimeUtc()
     {
@@ -214,11 +229,15 @@ class EwsInsightItemType extends AbstractStructBase
     }
     /**
      * Set EndTimeUtc value
-     * @param dateTime $endTimeUtc
+     * @param string $endTimeUtc
      * @return \Ews\StructType\EwsInsightItemType
      */
     public function setEndTimeUtc($endTimeUtc = null)
     {
+        // validation for constraint: string
+        if (!is_null($endTimeUtc) && !is_string($endTimeUtc)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTimeUtc)), __LINE__);
+        }
         $this->EndTimeUtc = $endTimeUtc;
         return $this;
     }
@@ -234,11 +253,13 @@ class EwsInsightItemType extends AbstractStructBase
      * Set Status value
      * @uses \Ews\EnumType\EwsInsightStatusType::valueIsValid()
      * @uses \Ews\EnumType\EwsInsightStatusType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $status
      * @return \Ews\StructType\EwsInsightItemType
      */
     public function setStatus($status = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsInsightStatusType::valueIsValid($status)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $status, implode(', ', \Ews\EnumType\EwsInsightStatusType::getValidValues())), __LINE__);
         }
@@ -260,6 +281,10 @@ class EwsInsightItemType extends AbstractStructBase
      */
     public function setVersion($version = null)
     {
+        // validation for constraint: string
+        if (!is_null($version) && !is_string($version)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($version)), __LINE__);
+        }
         $this->Version = $version;
         return $this;
     }
@@ -296,6 +321,10 @@ class EwsInsightItemType extends AbstractStructBase
      */
     public function setText($text = null)
     {
+        // validation for constraint: string
+        if (!is_null($text) && !is_string($text)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($text)), __LINE__);
+        }
         $this->Text = $text;
         return $this;
     }

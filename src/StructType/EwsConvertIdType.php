@@ -19,7 +19,6 @@ class EwsConvertIdType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: A non-empty array of alternate Ids.
      * @var \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
     public $SourceIds;
@@ -27,7 +26,6 @@ class EwsConvertIdType extends EwsBaseRequestType
      * The DestinationFormat
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: Surfaces the various id types that are supported for conversion
      * @var string
      */
     public $DestinationFormat;
@@ -74,11 +72,13 @@ class EwsConvertIdType extends EwsBaseRequestType
      * Set DestinationFormat value
      * @uses \Ews\EnumType\EwsIdFormatType::valueIsValid()
      * @uses \Ews\EnumType\EwsIdFormatType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $destinationFormat
      * @return \Ews\StructType\EwsConvertIdType
      */
     public function setDestinationFormat($destinationFormat = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($destinationFormat)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $destinationFormat, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }

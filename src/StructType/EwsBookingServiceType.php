@@ -81,7 +81,7 @@ class EwsBookingServiceType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsDefaultEmailReminderSet;
     /**
@@ -105,7 +105,6 @@ class EwsBookingServiceType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
@@ -131,7 +130,7 @@ class EwsBookingServiceType extends AbstractStructBase
      * @param int $defaultDurationMinutes
      * @param string $defaultEmailReminderText
      * @param int $defaultEmailReminderMinutes
-     * @param boolean $isDefaultEmailReminderSet
+     * @param bool $isDefaultEmailReminderSet
      * @param \Ews\ArrayType\EwsArrayOfItemIdsType $staffPersonIds
      * @param string $serviceId
      * @param \Ews\StructType\EwsItemIdType $itemId
@@ -167,6 +166,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -185,6 +188,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
@@ -221,6 +228,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setInternalNotes($internalNotes = null)
     {
+        // validation for constraint: string
+        if (!is_null($internalNotes) && !is_string($internalNotes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internalNotes)), __LINE__);
+        }
         $this->InternalNotes = $internalNotes;
         return $this;
     }
@@ -236,11 +247,13 @@ class EwsBookingServiceType extends AbstractStructBase
      * Set BookingServiceType value
      * @uses \Ews\EnumType\EwsBookingServiceTypeEnum::valueIsValid()
      * @uses \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $bookingServiceType
      * @return \Ews\StructType\EwsBookingServiceType
      */
     public function setBookingServiceType($bookingServiceType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBookingServiceTypeEnum::valueIsValid($bookingServiceType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bookingServiceType, implode(', ', \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues())), __LINE__);
         }
@@ -262,6 +275,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setDefaultDurationMinutes($defaultDurationMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($defaultDurationMinutes) && !is_int($defaultDurationMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($defaultDurationMinutes)), __LINE__);
+        }
         $this->DefaultDurationMinutes = $defaultDurationMinutes;
         return $this;
     }
@@ -280,6 +297,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setDefaultEmailReminderText($defaultEmailReminderText = null)
     {
+        // validation for constraint: string
+        if (!is_null($defaultEmailReminderText) && !is_string($defaultEmailReminderText)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($defaultEmailReminderText)), __LINE__);
+        }
         $this->DefaultEmailReminderText = $defaultEmailReminderText;
         return $this;
     }
@@ -298,12 +319,16 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setDefaultEmailReminderMinutes($defaultEmailReminderMinutes = null)
     {
+        // validation for constraint: int
+        if (!is_null($defaultEmailReminderMinutes) && !is_int($defaultEmailReminderMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($defaultEmailReminderMinutes)), __LINE__);
+        }
         $this->DefaultEmailReminderMinutes = $defaultEmailReminderMinutes;
         return $this;
     }
     /**
      * Get IsDefaultEmailReminderSet value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsDefaultEmailReminderSet()
     {
@@ -311,7 +336,7 @@ class EwsBookingServiceType extends AbstractStructBase
     }
     /**
      * Set IsDefaultEmailReminderSet value
-     * @param boolean $isDefaultEmailReminderSet
+     * @param bool $isDefaultEmailReminderSet
      * @return \Ews\StructType\EwsBookingServiceType
      */
     public function setIsDefaultEmailReminderSet($isDefaultEmailReminderSet = null)
@@ -352,6 +377,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setServiceId($serviceId = null)
     {
+        // validation for constraint: string
+        if (!is_null($serviceId) && !is_string($serviceId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceId)), __LINE__);
+        }
         $this->ServiceId = $serviceId;
         return $this;
     }

@@ -54,6 +54,10 @@ class EwsVotingOptionDataType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -69,11 +73,13 @@ class EwsVotingOptionDataType extends AbstractStructBase
      * Set SendPrompt value
      * @uses \Ews\EnumType\EwsSendPromptType::valueIsValid()
      * @uses \Ews\EnumType\EwsSendPromptType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $sendPrompt
      * @return \Ews\StructType\EwsVotingOptionDataType
      */
     public function setSendPrompt($sendPrompt = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSendPromptType::valueIsValid($sendPrompt)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendPrompt, implode(', ', \Ews\EnumType\EwsSendPromptType::getValidValues())), __LINE__);
         }

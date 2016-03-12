@@ -14,7 +14,7 @@ class EwsExecuteSearchSortOrderType
      * Constant for value 'DateTime'
      * @return string 'DateTime'
      */
-    const VALUE_DATETIME = 'DateTime';
+    const VALUE_DATE_TIME = 'DateTime';
     /**
      * Constant for value 'Relevance'
      * @return string 'Relevance'
@@ -32,14 +32,14 @@ class EwsExecuteSearchSortOrderType
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_DATETIME
+     * @uses self::VALUE_DATE_TIME
      * @uses self::VALUE_RELEVANCE
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_DATETIME,
+            self::VALUE_DATE_TIME,
             self::VALUE_RELEVANCE,
         );
     }

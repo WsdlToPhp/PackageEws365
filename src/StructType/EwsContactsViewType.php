@@ -54,6 +54,10 @@ class EwsContactsViewType extends EwsBasePagingType
      */
     public function setInitialName($initialName = null)
     {
+        // validation for constraint: string
+        if (!is_null($initialName) && !is_string($initialName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initialName)), __LINE__);
+        }
         $this->InitialName = $initialName;
         return $this;
     }
@@ -72,6 +76,10 @@ class EwsContactsViewType extends EwsBasePagingType
      */
     public function setFinalName($finalName = null)
     {
+        // validation for constraint: string
+        if (!is_null($finalName) && !is_string($finalName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($finalName)), __LINE__);
+        }
         $this->FinalName = $finalName;
         return $this;
     }

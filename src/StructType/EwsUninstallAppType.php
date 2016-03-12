@@ -45,6 +45,10 @@ class EwsUninstallAppType extends EwsBaseRequestType
      */
     public function setID($iD = null)
     {
+        // validation for constraint: string
+        if (!is_null($iD) && !is_string($iD)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+        }
         $this->ID = $iD;
         return $this;
     }

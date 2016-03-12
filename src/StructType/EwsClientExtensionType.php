@@ -32,21 +32,21 @@ class EwsClientExtensionType extends AbstractStructBase
      * The IsAvailable
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsAvailable;
     /**
      * The IsMandatory
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsMandatory;
     /**
      * The IsEnabledByDefault
      * Meta informations extracted from the WSDL
      * - use: optional
-     * @var boolean
+     * @var bool
      */
     public $IsEnabledByDefault;
     /**
@@ -114,9 +114,9 @@ class EwsClientExtensionType extends AbstractStructBase
      * @uses EwsClientExtensionType::setEtoken()
      * @param \Ews\ArrayType\EwsArrayOfStringsType $specificUsers
      * @param base64Binary $manifest
-     * @param boolean $isAvailable
-     * @param boolean $isMandatory
-     * @param boolean $isEnabledByDefault
+     * @param bool $isAvailable
+     * @param bool $isMandatory
+     * @param bool $isEnabledByDefault
      * @param string $providedTo
      * @param string $type
      * @param string $scope
@@ -179,7 +179,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Get IsAvailable value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsAvailable()
     {
@@ -187,7 +187,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Set IsAvailable value
-     * @param boolean $isAvailable
+     * @param bool $isAvailable
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setIsAvailable($isAvailable = null)
@@ -197,7 +197,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Get IsMandatory value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsMandatory()
     {
@@ -205,7 +205,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Set IsMandatory value
-     * @param boolean $isMandatory
+     * @param bool $isMandatory
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setIsMandatory($isMandatory = null)
@@ -215,7 +215,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Get IsEnabledByDefault value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsEnabledByDefault()
     {
@@ -223,7 +223,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Set IsEnabledByDefault value
-     * @param boolean $isEnabledByDefault
+     * @param bool $isEnabledByDefault
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setIsEnabledByDefault($isEnabledByDefault = null)
@@ -243,11 +243,13 @@ class EwsClientExtensionType extends AbstractStructBase
      * Set ProvidedTo value
      * @uses \Ews\EnumType\EwsClientExtensionProvidedToType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientExtensionProvidedToType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $providedTo
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setProvidedTo($providedTo = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionProvidedToType::valueIsValid($providedTo)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $providedTo, implode(', ', \Ews\EnumType\EwsClientExtensionProvidedToType::getValidValues())), __LINE__);
         }
@@ -266,11 +268,13 @@ class EwsClientExtensionType extends AbstractStructBase
      * Set Type value
      * @uses \Ews\EnumType\EwsClientExtensionTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientExtensionTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setType($type = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionTypeType::valueIsValid($type)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsClientExtensionTypeType::getValidValues())), __LINE__);
         }
@@ -289,11 +293,13 @@ class EwsClientExtensionType extends AbstractStructBase
      * Set Scope value
      * @uses \Ews\EnumType\EwsClientExtensionScopeType::valueIsValid()
      * @uses \Ews\EnumType\EwsClientExtensionScopeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $scope
      * @return \Ews\StructType\EwsClientExtensionType
      */
     public function setScope($scope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionScopeType::valueIsValid($scope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $scope, implode(', ', \Ews\EnumType\EwsClientExtensionScopeType::getValidValues())), __LINE__);
         }
@@ -315,6 +321,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setMarketplaceAssetId($marketplaceAssetId = null)
     {
+        // validation for constraint: string
+        if (!is_null($marketplaceAssetId) && !is_string($marketplaceAssetId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($marketplaceAssetId)), __LINE__);
+        }
         $this->MarketplaceAssetId = $marketplaceAssetId;
         return $this;
     }
@@ -333,6 +343,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setMarketplaceContentMarket($marketplaceContentMarket = null)
     {
+        // validation for constraint: string
+        if (!is_null($marketplaceContentMarket) && !is_string($marketplaceContentMarket)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($marketplaceContentMarket)), __LINE__);
+        }
         $this->MarketplaceContentMarket = $marketplaceContentMarket;
         return $this;
     }
@@ -351,6 +365,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setAppStatus($appStatus = null)
     {
+        // validation for constraint: string
+        if (!is_null($appStatus) && !is_string($appStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appStatus)), __LINE__);
+        }
         $this->AppStatus = $appStatus;
         return $this;
     }
@@ -369,6 +387,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setEtoken($etoken = null)
     {
+        // validation for constraint: string
+        if (!is_null($etoken) && !is_string($etoken)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($etoken)), __LINE__);
+        }
         $this->Etoken = $etoken;
         return $this;
     }

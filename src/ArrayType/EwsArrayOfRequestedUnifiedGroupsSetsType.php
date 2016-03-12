@@ -19,14 +19,14 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Represents a set of unified groups in a GetUserUnifiedGroup request
-     * @var array
+     * @var \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]
      */
     public $RequestedUnifiedGroupsSet;
     /**
      * Constructor method for ArrayOfRequestedUnifiedGroupsSetsType
      * @uses EwsArrayOfRequestedUnifiedGroupsSetsType::setRequestedUnifiedGroupsSet()
-     * @param array $requestedUnifiedGroupsSet
+     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]
+     * $requestedUnifiedGroupsSet
      */
     public function __construct(array $requestedUnifiedGroupsSet = array())
     {
@@ -35,7 +35,7 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
     }
     /**
      * Get RequestedUnifiedGroupsSet value
-     * @return array
+     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]|null
      */
     public function getRequestedUnifiedGroupsSet()
     {
@@ -43,12 +43,35 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
     }
     /**
      * Set RequestedUnifiedGroupsSet value
-     * @param array $requestedUnifiedGroupsSet
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]
+     * $requestedUnifiedGroupsSet
      * @return \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
      */
     public function setRequestedUnifiedGroupsSet(array $requestedUnifiedGroupsSet = array())
     {
+        foreach ($requestedUnifiedGroupsSet as $arrayOfRequestedUnifiedGroupsSetsTypeRequestedUnifiedGroupsSetItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRequestedUnifiedGroupsSetsTypeRequestedUnifiedGroupsSetItem instanceof \Ews\StructType\EwsRequestedUnifiedGroupsSetType) {
+                throw new \InvalidArgumentException(sprintf('The RequestedUnifiedGroupsSet property can only contain items of \Ews\StructType\EwsRequestedUnifiedGroupsSetType, "%s" given', is_object($arrayOfRequestedUnifiedGroupsSetsTypeRequestedUnifiedGroupsSetItem) ? get_class($arrayOfRequestedUnifiedGroupsSetsTypeRequestedUnifiedGroupsSetItem) : gettype($arrayOfRequestedUnifiedGroupsSetsTypeRequestedUnifiedGroupsSetItem)), __LINE__);
+            }
+        }
         $this->RequestedUnifiedGroupsSet = $requestedUnifiedGroupsSet;
+        return $this;
+    }
+    /**
+     * Add item to RequestedUnifiedGroupsSet value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType $item
+     * @return \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
+     */
+    public function addToRequestedUnifiedGroupsSet(\Ews\StructType\EwsRequestedUnifiedGroupsSetType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsRequestedUnifiedGroupsSetType) {
+            throw new \InvalidArgumentException(sprintf('The RequestedUnifiedGroupsSet property can only contain items of \Ews\StructType\EwsRequestedUnifiedGroupsSetType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->RequestedUnifiedGroupsSet[] = $item;
         return $this;
     }
     /**

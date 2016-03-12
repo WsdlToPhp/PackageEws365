@@ -17,13 +17,13 @@ class EwsNonEmptyArrayOfUnifiedGroupIdentityType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * @var \Ews\StructType\EwsUnifiedGroupIdentity[]
      */
     public $GroupIdentity;
     /**
      * Constructor method for NonEmptyArrayOfUnifiedGroupIdentityType
      * @uses EwsNonEmptyArrayOfUnifiedGroupIdentityType::setGroupIdentity()
-     * @param array $groupIdentity
+     * @param \Ews\StructType\EwsUnifiedGroupIdentity[] $groupIdentity
      */
     public function __construct(array $groupIdentity = array())
     {
@@ -32,7 +32,7 @@ class EwsNonEmptyArrayOfUnifiedGroupIdentityType extends AbstractStructArrayBase
     }
     /**
      * Get GroupIdentity value
-     * @return array
+     * @return \Ews\StructType\EwsUnifiedGroupIdentity[]
      */
     public function getGroupIdentity()
     {
@@ -40,12 +40,34 @@ class EwsNonEmptyArrayOfUnifiedGroupIdentityType extends AbstractStructArrayBase
     }
     /**
      * Set GroupIdentity value
-     * @param array $groupIdentity
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupIdentity[] $groupIdentity
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
      */
     public function setGroupIdentity(array $groupIdentity = array())
     {
+        foreach ($groupIdentity as $nonEmptyArrayOfUnifiedGroupIdentityTypeGroupIdentityItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfUnifiedGroupIdentityTypeGroupIdentityItem instanceof \Ews\StructType\EwsUnifiedGroupIdentity) {
+                throw new \InvalidArgumentException(sprintf('The GroupIdentity property can only contain items of \Ews\StructType\EwsUnifiedGroupIdentity, "%s" given', is_object($nonEmptyArrayOfUnifiedGroupIdentityTypeGroupIdentityItem) ? get_class($nonEmptyArrayOfUnifiedGroupIdentityTypeGroupIdentityItem) : gettype($nonEmptyArrayOfUnifiedGroupIdentityTypeGroupIdentityItem)), __LINE__);
+            }
+        }
         $this->GroupIdentity = $groupIdentity;
+        return $this;
+    }
+    /**
+     * Add item to GroupIdentity value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsUnifiedGroupIdentity $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
+     */
+    public function addToGroupIdentity(\Ews\StructType\EwsUnifiedGroupIdentity $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupIdentity) {
+            throw new \InvalidArgumentException(sprintf('The GroupIdentity property can only contain items of \Ews\StructType\EwsUnifiedGroupIdentity, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->GroupIdentity[] = $item;
         return $this;
     }
     /**

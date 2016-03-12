@@ -33,7 +33,7 @@ class EwsInsightFiltersType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $KeyInsightsOnly;
     /**
@@ -43,7 +43,7 @@ class EwsInsightFiltersType extends AbstractStructBase
      * @uses EwsInsightFiltersType::setKeyInsightsOnly()
      * @param int $count
      * @param \Ews\ArrayType\EwsArrayOfStringsType $types
-     * @param boolean $keyInsightsOnly
+     * @param bool $keyInsightsOnly
      */
     public function __construct($count = null, \Ews\ArrayType\EwsArrayOfStringsType $types = null, $keyInsightsOnly = null)
     {
@@ -67,6 +67,10 @@ class EwsInsightFiltersType extends AbstractStructBase
      */
     public function setCount($count = null)
     {
+        // validation for constraint: int
+        if (!is_null($count) && !is_int($count)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($count)), __LINE__);
+        }
         $this->Count = $count;
         return $this;
     }
@@ -90,7 +94,7 @@ class EwsInsightFiltersType extends AbstractStructBase
     }
     /**
      * Get KeyInsightsOnly value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getKeyInsightsOnly()
     {
@@ -98,7 +102,7 @@ class EwsInsightFiltersType extends AbstractStructBase
     }
     /**
      * Set KeyInsightsOnly value
-     * @param boolean $keyInsightsOnly
+     * @param bool $keyInsightsOnly
      * @return \Ews\StructType\EwsInsightFiltersType
      */
     public function setKeyInsightsOnly($keyInsightsOnly = null)

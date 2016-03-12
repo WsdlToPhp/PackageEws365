@@ -36,7 +36,7 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
     public $Description;
     /**
      * The AutoSubscribeNewMembers
-     * @var boolean
+     * @var bool
      */
     public $AutoSubscribeNewMembers;
     /**
@@ -56,7 +56,7 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      * @param string $alias
      * @param string $accessType
      * @param string $description
-     * @param boolean $autoSubscribeNewMembers
+     * @param bool $autoSubscribeNewMembers
      * @param string $cultureName
      */
     public function __construct($name = null, $alias = null, $accessType = null, $description = null, $autoSubscribeNewMembers = null, $cultureName = null)
@@ -84,6 +84,10 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -102,6 +106,10 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      */
     public function setAlias($alias = null)
     {
+        // validation for constraint: string
+        if (!is_null($alias) && !is_string($alias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+        }
         $this->Alias = $alias;
         return $this;
     }
@@ -117,11 +125,13 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      * Set AccessType value
      * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $accessType
      * @return \Ews\StructType\EwsCreateUnifiedGroupType
      */
     public function setAccessType($accessType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $accessType, implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
@@ -143,12 +153,16 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      */
     public function setDescription($description = null)
     {
+        // validation for constraint: string
+        if (!is_null($description) && !is_string($description)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+        }
         $this->Description = $description;
         return $this;
     }
     /**
      * Get AutoSubscribeNewMembers value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getAutoSubscribeNewMembers()
     {
@@ -156,7 +170,7 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
     }
     /**
      * Set AutoSubscribeNewMembers value
-     * @param boolean $autoSubscribeNewMembers
+     * @param bool $autoSubscribeNewMembers
      * @return \Ews\StructType\EwsCreateUnifiedGroupType
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
@@ -179,6 +193,10 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      */
     public function setCultureName($cultureName = null)
     {
+        // validation for constraint: string
+        if (!is_null($cultureName) && !is_string($cultureName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($cultureName)), __LINE__);
+        }
         $this->CultureName = $cultureName;
         return $this;
     }

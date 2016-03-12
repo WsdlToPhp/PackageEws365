@@ -14,22 +14,22 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
 {
     /**
      * The CalendarItem
-     * @var array
+     * @var \Ews\StructType\EwsCalendarItemType
      */
     public $CalendarItem;
     /**
      * Constructor method for ArrayOfCalendarItemsType
      * @uses EwsArrayOfCalendarItemsType::setCalendarItem()
-     * @param array $calendarItem
+     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
      */
-    public function __construct(array $calendarItem = array())
+    public function __construct(\Ews\StructType\EwsCalendarItemType $calendarItem = null)
     {
         $this
             ->setCalendarItem($calendarItem);
     }
     /**
      * Get CalendarItem value
-     * @return array
+     * @return \Ews\StructType\EwsCalendarItemType|null
      */
     public function getCalendarItem()
     {
@@ -37,10 +37,10 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
     }
     /**
      * Set CalendarItem value
-     * @param array $calendarItem
+     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
      * @return \Ews\ArrayType\EwsArrayOfCalendarItemsType
      */
-    public function setCalendarItem(array $calendarItem = array())
+    public function setCalendarItem(\Ews\StructType\EwsCalendarItemType $calendarItem = null)
     {
         $this->CalendarItem = $calendarItem;
         return $this;

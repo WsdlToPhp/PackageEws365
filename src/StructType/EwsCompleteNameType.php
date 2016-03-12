@@ -134,6 +134,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setTitle($title = null)
     {
+        // validation for constraint: string
+        if (!is_null($title) && !is_string($title)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+        }
         $this->Title = $title;
         return $this;
     }
@@ -152,6 +156,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setFirstName($firstName = null)
     {
+        // validation for constraint: string
+        if (!is_null($firstName) && !is_string($firstName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstName)), __LINE__);
+        }
         $this->FirstName = $firstName;
         return $this;
     }
@@ -170,6 +178,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setMiddleName($middleName = null)
     {
+        // validation for constraint: string
+        if (!is_null($middleName) && !is_string($middleName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($middleName)), __LINE__);
+        }
         $this->MiddleName = $middleName;
         return $this;
     }
@@ -188,6 +200,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setLastName($lastName = null)
     {
+        // validation for constraint: string
+        if (!is_null($lastName) && !is_string($lastName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastName)), __LINE__);
+        }
         $this->LastName = $lastName;
         return $this;
     }
@@ -206,6 +222,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setSuffix($suffix = null)
     {
+        // validation for constraint: string
+        if (!is_null($suffix) && !is_string($suffix)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($suffix)), __LINE__);
+        }
         $this->Suffix = $suffix;
         return $this;
     }
@@ -224,6 +244,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setInitials($initials = null)
     {
+        // validation for constraint: string
+        if (!is_null($initials) && !is_string($initials)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initials)), __LINE__);
+        }
         $this->Initials = $initials;
         return $this;
     }
@@ -242,6 +266,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setFullName($fullName = null)
     {
+        // validation for constraint: string
+        if (!is_null($fullName) && !is_string($fullName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+        }
         $this->FullName = $fullName;
         return $this;
     }
@@ -260,6 +288,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setNickname($nickname = null)
     {
+        // validation for constraint: string
+        if (!is_null($nickname) && !is_string($nickname)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nickname)), __LINE__);
+        }
         $this->Nickname = $nickname;
         return $this;
     }
@@ -278,6 +310,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setYomiFirstName($yomiFirstName = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiFirstName) && !is_string($yomiFirstName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiFirstName)), __LINE__);
+        }
         $this->YomiFirstName = $yomiFirstName;
         return $this;
     }
@@ -296,6 +332,10 @@ class EwsCompleteNameType extends AbstractStructBase
      */
     public function setYomiLastName($yomiLastName = null)
     {
+        // validation for constraint: string
+        if (!is_null($yomiLastName) && !is_string($yomiLastName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiLastName)), __LINE__);
+        }
         $this->YomiLastName = $yomiLastName;
         return $this;
     }

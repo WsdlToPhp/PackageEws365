@@ -14,13 +14,13 @@ class EwsAbsoluteDateTransitionType extends EwsTransitionType
 {
     /**
      * The DateTime
-     * @var dateTime
+     * @var string
      */
     public $DateTime;
     /**
      * Constructor method for AbsoluteDateTransitionType
      * @uses EwsAbsoluteDateTransitionType::setDateTime()
-     * @param dateTime $dateTime
+     * @param string $dateTime
      */
     public function __construct($dateTime = null)
     {
@@ -29,7 +29,7 @@ class EwsAbsoluteDateTransitionType extends EwsTransitionType
     }
     /**
      * Get DateTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getDateTime()
     {
@@ -37,11 +37,15 @@ class EwsAbsoluteDateTransitionType extends EwsTransitionType
     }
     /**
      * Set DateTime value
-     * @param dateTime $dateTime
+     * @param string $dateTime
      * @return \Ews\StructType\EwsAbsoluteDateTransitionType
      */
     public function setDateTime($dateTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($dateTime) && !is_string($dateTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTime)), __LINE__);
+        }
         $this->DateTime = $dateTime;
         return $this;
     }

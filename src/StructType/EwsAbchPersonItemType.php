@@ -116,6 +116,10 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setAntiLinkInfo($antiLinkInfo = null)
     {
+        // validation for constraint: string
+        if (!is_null($antiLinkInfo) && !is_string($antiLinkInfo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($antiLinkInfo)), __LINE__);
+        }
         $this->AntiLinkInfo = $antiLinkInfo;
         return $this;
     }
@@ -134,6 +138,14 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setPersonId($personId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($personId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $personId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($personId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($personId) && !is_string($personId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personId)), __LINE__);
+        }
         $this->PersonId = $personId;
         return $this;
     }
@@ -188,6 +200,10 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setRelevanceOrder1($relevanceOrder1 = null)
     {
+        // validation for constraint: string
+        if (!is_null($relevanceOrder1) && !is_string($relevanceOrder1)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($relevanceOrder1)), __LINE__);
+        }
         $this->RelevanceOrder1 = $relevanceOrder1;
         return $this;
     }
@@ -206,6 +222,10 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setRelevanceOrder2($relevanceOrder2 = null)
     {
+        // validation for constraint: string
+        if (!is_null($relevanceOrder2) && !is_string($relevanceOrder2)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($relevanceOrder2)), __LINE__);
+        }
         $this->RelevanceOrder2 = $relevanceOrder2;
         return $this;
     }
@@ -224,6 +244,10 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setTrustLevel($trustLevel = null)
     {
+        // validation for constraint: int
+        if (!is_null($trustLevel) && !is_int($trustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($trustLevel)), __LINE__);
+        }
         $this->TrustLevel = $trustLevel;
         return $this;
     }
@@ -242,6 +266,10 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setFavoriteOrder($favoriteOrder = null)
     {
+        // validation for constraint: int
+        if (!is_null($favoriteOrder) && !is_int($favoriteOrder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($favoriteOrder)), __LINE__);
+        }
         $this->FavoriteOrder = $favoriteOrder;
         return $this;
     }

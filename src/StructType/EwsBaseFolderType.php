@@ -16,7 +16,6 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * The FolderId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
@@ -24,7 +23,6 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * The ParentFolderId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
@@ -61,15 +59,13 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * - documentation: Represents an extended property instance (both its path identifier along with its associated value).
-     * @var \Ews\StructType\EwsExtendedPropertyType
+     * @var \Ews\StructType\EwsExtendedPropertyType[]
      */
     public $ExtendedProperty;
     /**
      * The ManagedFolderInformation
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Compound property for Managed Folder related information for Managed Folders.
      * @var \Ews\StructType\EwsManagedFolderInformationType
      */
     public $ManagedFolderInformation;
@@ -84,7 +80,6 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * The DistinguishedFolderId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: URIs for the distinguished folders accessible from a mailbox
      * @var string
      */
     public $DistinguishedFolderId;
@@ -130,7 +125,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * @param string $displayName
      * @param int $totalCount
      * @param int $childFolderCount
-     * @param \Ews\StructType\EwsExtendedPropertyType $extendedProperty
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      * @param \Ews\StructType\EwsManagedFolderInformationType $managedFolderInformation
      * @param \Ews\StructType\EwsEffectiveRightsType $effectiveRights
      * @param string $distinguishedFolderId
@@ -138,7 +133,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * @param \Ews\StructType\EwsRetentionTagType $archiveTag
      * @param \Ews\ArrayType\EwsArrayOfStringsType $replicaList
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $folderClass = null, $displayName = null, $totalCount = null, $childFolderCount = null, \Ews\StructType\EwsExtendedPropertyType $extendedProperty = null, \Ews\StructType\EwsManagedFolderInformationType $managedFolderInformation = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $distinguishedFolderId = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, \Ews\ArrayType\EwsArrayOfStringsType $replicaList = null)
+    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $folderClass = null, $displayName = null, $totalCount = null, $childFolderCount = null, array $extendedProperty = array(), \Ews\StructType\EwsManagedFolderInformationType $managedFolderInformation = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $distinguishedFolderId = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, \Ews\ArrayType\EwsArrayOfStringsType $replicaList = null)
     {
         $this
             ->setFolderId($folderId)
@@ -206,6 +201,10 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      */
     public function setFolderClass($folderClass = null)
     {
+        // validation for constraint: string
+        if (!is_null($folderClass) && !is_string($folderClass)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($folderClass)), __LINE__);
+        }
         $this->FolderClass = $folderClass;
         return $this;
     }
@@ -224,6 +223,10 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
+        // validation for constraint: string
+        if (!is_null($displayName) && !is_string($displayName)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+        }
         $this->DisplayName = $displayName;
         return $this;
     }
@@ -242,6 +245,10 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      */
     public function setTotalCount($totalCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($totalCount) && !is_int($totalCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalCount)), __LINE__);
+        }
         $this->TotalCount = $totalCount;
         return $this;
     }
@@ -260,12 +267,16 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      */
     public function setChildFolderCount($childFolderCount = null)
     {
+        // validation for constraint: int
+        if (!is_null($childFolderCount) && !is_int($childFolderCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($childFolderCount)), __LINE__);
+        }
         $this->ChildFolderCount = $childFolderCount;
         return $this;
     }
     /**
      * Get ExtendedProperty value
-     * @return \Ews\StructType\EwsExtendedPropertyType|null
+     * @return \Ews\StructType\EwsExtendedPropertyType[]|null
      */
     public function getExtendedProperty()
     {
@@ -273,12 +284,34 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     }
     /**
      * Set ExtendedProperty value
-     * @param \Ews\StructType\EwsExtendedPropertyType $extendedProperty
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      * @return \Ews\StructType\EwsBaseFolderType
      */
-    public function setExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $extendedProperty = null)
+    public function setExtendedProperty(array $extendedProperty = array())
     {
+        foreach ($extendedProperty as $baseFolderTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$baseFolderTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($baseFolderTypeExtendedPropertyItem) ? get_class($baseFolderTypeExtendedPropertyItem) : gettype($baseFolderTypeExtendedPropertyItem)), __LINE__);
+            }
+        }
         $this->ExtendedProperty = $extendedProperty;
+        return $this;
+    }
+    /**
+     * Add item to ExtendedProperty value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsExtendedPropertyType $item
+     * @return \Ews\StructType\EwsBaseFolderType
+     */
+    public function addToExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ExtendedProperty[] = $item;
         return $this;
     }
     /**
@@ -329,11 +362,13 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      * Set DistinguishedFolderId value
      * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid()
      * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $distinguishedFolderId
      * @return \Ews\StructType\EwsBaseFolderType
      */
     public function setDistinguishedFolderId($distinguishedFolderId = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid($distinguishedFolderId)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $distinguishedFolderId, implode(', ', \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
         }

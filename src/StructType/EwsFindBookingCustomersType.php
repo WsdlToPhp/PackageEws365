@@ -33,7 +33,6 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;
@@ -42,7 +41,6 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $AggregationRestriction;
@@ -67,7 +65,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SearchPeopleSuggestionIndex;
     /**
@@ -103,7 +101,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      * @param \Ews\StructType\EwsRestrictionType $aggregationRestriction
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType $sortOrder
      * @param string $queryString
-     * @param boolean $searchPeopleSuggestionIndex
+     * @param bool $searchPeopleSuggestionIndex
      * @param string $topicQueryString
      * @param \Ews\ArrayType\EwsArrayOfContextProperty $context
      */
@@ -225,12 +223,16 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      */
     public function setQueryString($queryString = null)
     {
+        // validation for constraint: string
+        if (!is_null($queryString) && !is_string($queryString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($queryString)), __LINE__);
+        }
         $this->QueryString = $queryString;
         return $this;
     }
     /**
      * Get SearchPeopleSuggestionIndex value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSearchPeopleSuggestionIndex()
     {
@@ -238,7 +240,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     }
     /**
      * Set SearchPeopleSuggestionIndex value
-     * @param boolean $searchPeopleSuggestionIndex
+     * @param bool $searchPeopleSuggestionIndex
      * @return \Ews\StructType\EwsFindBookingCustomersType
      */
     public function setSearchPeopleSuggestionIndex($searchPeopleSuggestionIndex = null)
@@ -261,6 +263,10 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
      */
     public function setTopicQueryString($topicQueryString = null)
     {
+        // validation for constraint: string
+        if (!is_null($topicQueryString) && !is_string($topicQueryString)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($topicQueryString)), __LINE__);
+        }
         $this->TopicQueryString = $topicQueryString;
         return $this;
     }

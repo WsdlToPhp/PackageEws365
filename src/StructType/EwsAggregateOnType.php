@@ -18,7 +18,6 @@ class EwsAggregateOnType extends AbstractStructBase
      * The Aggregate
      * Meta informations extracted from the WSDL
      * - use: required
-     * - documentation: This max/min evaluation is applied to the field specified within the group by instance for EACH item within that group. This determines which item from each group is to be selected as the representative for that group.
      * @var string
      */
     public $Aggregate;
@@ -34,9 +33,6 @@ class EwsAggregateOnType extends AbstractStructBase
     public $IndexedFieldURI;
     /**
      * The ExtendedFieldURI
-     * Meta informations extracted from the WSDL
-     * - documentation: Represents an extended property. Note that there are only a couple of valid attribute combinations. Note that all occurances require the PropertyType attribute. 1. (DistinguishedPropertySetId || PropertySetId) + (PropertyName ||
-     * Property Id) 2. PropertyTag
      * @var \Ews\StructType\EwsPathToExtendedFieldType
      */
     public $ExtendedFieldURI;
@@ -71,11 +67,13 @@ class EwsAggregateOnType extends AbstractStructBase
      * Set Aggregate value
      * @uses \Ews\EnumType\EwsAggregateType::valueIsValid()
      * @uses \Ews\EnumType\EwsAggregateType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $aggregate
      * @return \Ews\StructType\EwsAggregateOnType
      */
     public function setAggregate($aggregate = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAggregateType::valueIsValid($aggregate)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $aggregate, implode(', ', \Ews\EnumType\EwsAggregateType::getValidValues())), __LINE__);
         }

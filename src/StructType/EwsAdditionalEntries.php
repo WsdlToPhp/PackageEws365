@@ -17,22 +17,22 @@ class EwsAdditionalEntries extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var string
+     * @var string[]
      */
     public $Entry;
     /**
      * Constructor method for AdditionalEntries
      * @uses EwsAdditionalEntries::setEntry()
-     * @param string $entry
+     * @param string[] $entry
      */
-    public function __construct($entry = null)
+    public function __construct(array $entry = array())
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return string|null
+     * @return string[]|null
      */
     public function getEntry()
     {
@@ -40,12 +40,34 @@ class EwsAdditionalEntries extends AbstractStructBase
     }
     /**
      * Set Entry value
-     * @param string $entry
+     * @throws \InvalidArgumentException
+     * @param string[] $entry
      * @return \Ews\StructType\EwsAdditionalEntries
      */
-    public function setEntry($entry = null)
+    public function setEntry(array $entry = array())
     {
+        foreach ($entry as $additionalEntriesEntryItem) {
+            // validation for constraint: itemType
+            if (!is_string($additionalEntriesEntryItem)) {
+                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of string, "%s" given', is_object($additionalEntriesEntryItem) ? get_class($additionalEntriesEntryItem) : gettype($additionalEntriesEntryItem)), __LINE__);
+            }
+        }
         $this->Entry = $entry;
+        return $this;
+    }
+    /**
+     * Add item to Entry value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\StructType\EwsAdditionalEntries
+     */
+    public function addToEntry($item)
+    {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Entry[] = $item;
         return $this;
     }
     /**

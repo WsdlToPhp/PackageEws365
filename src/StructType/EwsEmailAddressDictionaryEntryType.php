@@ -79,11 +79,13 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      * Set Key value
      * @uses \Ews\EnumType\EwsEmailAddressKeyType::valueIsValid()
      * @uses \Ews\EnumType\EwsEmailAddressKeyType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $key
      * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
      */
     public function setKey($key = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEmailAddressKeyType::valueIsValid($key)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $key, implode(', ', \Ews\EnumType\EwsEmailAddressKeyType::getValidValues())), __LINE__);
         }
@@ -105,6 +107,10 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      */
     public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }
@@ -123,6 +129,10 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setName($name = null)
     {
+        // validation for constraint: string
+        if (!is_null($name) && !is_string($name)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+        }
         $this->Name = $name;
         return $this;
     }
@@ -141,6 +151,10 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setRoutingType($routingType = null)
     {
+        // validation for constraint: string
+        if (!is_null($routingType) && !is_string($routingType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($routingType)), __LINE__);
+        }
         $this->RoutingType = $routingType;
         return $this;
     }
@@ -156,11 +170,13 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      * Set MailboxType value
      * @uses \Ews\EnumType\EwsMailboxTypeType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $mailboxType
      * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
      */
     public function setMailboxType($mailboxType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxType, implode(', ', \Ews\EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
         }

@@ -17,13 +17,13 @@ class EwsArrayOfGroupedItemsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsGroupedItemsType[]
      */
     public $GroupedItems;
     /**
      * Constructor method for ArrayOfGroupedItemsType
      * @uses EwsArrayOfGroupedItemsType::setGroupedItems()
-     * @param array $groupedItems
+     * @param \Ews\StructType\EwsGroupedItemsType[] $groupedItems
      */
     public function __construct(array $groupedItems = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfGroupedItemsType extends AbstractStructArrayBase
     }
     /**
      * Get GroupedItems value
-     * @return array
+     * @return \Ews\StructType\EwsGroupedItemsType[]|null
      */
     public function getGroupedItems()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfGroupedItemsType extends AbstractStructArrayBase
     }
     /**
      * Set GroupedItems value
-     * @param array $groupedItems
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsGroupedItemsType[] $groupedItems
      * @return \Ews\ArrayType\EwsArrayOfGroupedItemsType
      */
     public function setGroupedItems(array $groupedItems = array())
     {
+        foreach ($groupedItems as $arrayOfGroupedItemsTypeGroupedItemsItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfGroupedItemsTypeGroupedItemsItem instanceof \Ews\StructType\EwsGroupedItemsType) {
+                throw new \InvalidArgumentException(sprintf('The GroupedItems property can only contain items of \Ews\StructType\EwsGroupedItemsType, "%s" given', is_object($arrayOfGroupedItemsTypeGroupedItemsItem) ? get_class($arrayOfGroupedItemsTypeGroupedItemsItem) : gettype($arrayOfGroupedItemsTypeGroupedItemsItem)), __LINE__);
+            }
+        }
         $this->GroupedItems = $groupedItems;
+        return $this;
+    }
+    /**
+     * Add item to GroupedItems value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsGroupedItemsType $item
+     * @return \Ews\ArrayType\EwsArrayOfGroupedItemsType
+     */
+    public function addToGroupedItems(\Ews\StructType\EwsGroupedItemsType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsGroupedItemsType) {
+            throw new \InvalidArgumentException(sprintf('The GroupedItems property can only contain items of \Ews\StructType\EwsGroupedItemsType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->GroupedItems[] = $item;
         return $this;
     }
     /**

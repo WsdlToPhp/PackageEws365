@@ -23,14 +23,14 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
      * The IsRequired
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsRequired;
     /**
      * The SuggestLocation
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $SuggestLocation;
     /**
@@ -39,8 +39,8 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
      * @uses EwsFindMeetingTimesLocationConstraints::setIsRequired()
      * @uses EwsFindMeetingTimesLocationConstraints::setSuggestLocation()
      * @param \Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries
-     * @param boolean $isRequired
-     * @param boolean $suggestLocation
+     * @param bool $isRequired
+     * @param bool $suggestLocation
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries = null, $isRequired = null, $suggestLocation = null)
     {
@@ -69,7 +69,7 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     }
     /**
      * Get IsRequired value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsRequired()
     {
@@ -77,7 +77,7 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     }
     /**
      * Set IsRequired value
-     * @param boolean $isRequired
+     * @param bool $isRequired
      * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
      */
     public function setIsRequired($isRequired = null)
@@ -87,7 +87,7 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     }
     /**
      * Get SuggestLocation value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getSuggestLocation()
     {
@@ -95,7 +95,7 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     }
     /**
      * Set SuggestLocation value
-     * @param boolean $suggestLocation
+     * @param bool $suggestLocation
      * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
      */
     public function setSuggestLocation($suggestLocation = null)

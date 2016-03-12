@@ -19,7 +19,7 @@ class EwsUnifiedGroupActionResultType
      * Constant for value 'SuccessDelayed'
      * @return string 'SuccessDelayed'
      */
-    const VALUE_SUCCESSDELAYED = 'SuccessDelayed';
+    const VALUE_SUCCESS_DELAYED = 'SuccessDelayed';
     /**
      * Constant for value 'Unauthorized'
      * @return string 'Unauthorized'
@@ -38,7 +38,7 @@ class EwsUnifiedGroupActionResultType
     /**
      * Return allowed values
      * @uses self::VALUE_SUCCESS
-     * @uses self::VALUE_SUCCESSDELAYED
+     * @uses self::VALUE_SUCCESS_DELAYED
      * @uses self::VALUE_UNAUTHORIZED
      * @return string[]
      */
@@ -46,7 +46,7 @@ class EwsUnifiedGroupActionResultType
     {
         return array(
             self::VALUE_SUCCESS,
-            self::VALUE_SUCCESSDELAYED,
+            self::VALUE_SUCCESS_DELAYED,
             self::VALUE_UNAUTHORIZED,
         );
     }

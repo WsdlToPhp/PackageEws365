@@ -41,11 +41,13 @@ class EwsGetUnifiedGroupDetailsType extends EwsUnifiedGroupBaseRequestType
      * Set GroupDetailsResponseShape value
      * @uses \Ews\EnumType\EwsUnifiedGroupDetailsResponseShapeType::valueIsValid()
      * @uses \Ews\EnumType\EwsUnifiedGroupDetailsResponseShapeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $groupDetailsResponseShape
      * @return \Ews\StructType\EwsGetUnifiedGroupDetailsType
      */
     public function setGroupDetailsResponseShape($groupDetailsResponseShape = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupDetailsResponseShapeType::valueIsValid($groupDetailsResponseShape)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupDetailsResponseShape, implode(', ', \Ews\EnumType\EwsUnifiedGroupDetailsResponseShapeType::getValidValues())), __LINE__);
         }

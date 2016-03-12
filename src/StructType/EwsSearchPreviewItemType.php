@@ -19,7 +19,6 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $Id;
@@ -28,7 +27,6 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Mailbox information for each preview item.
      * @var \Ews\StructType\EwsPreviewItemMailboxType
      */
     public $Mailbox;
@@ -37,7 +35,6 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ParentId;
@@ -110,7 +107,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $CreatedTime;
     /**
@@ -118,7 +115,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ReceivedTime;
     /**
@@ -126,7 +123,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $SentTime;
     /**
@@ -142,7 +139,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var long
+     * @var int
      */
     public $Size;
     /**
@@ -166,7 +163,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $Read;
     /**
@@ -174,7 +171,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $HasAttachment;
     /**
@@ -219,15 +216,15 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients
-     * @param dateTime $createdTime
-     * @param dateTime $receivedTime
-     * @param dateTime $sentTime
+     * @param string $createdTime
+     * @param string $receivedTime
+     * @param string $sentTime
      * @param string $subject
-     * @param long $size
+     * @param int $size
      * @param string $preview
      * @param string $importance
-     * @param boolean $read
-     * @param boolean $hasAttachment
+     * @param bool $read
+     * @param bool $hasAttachment
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties
      */
     public function __construct(\Ews\StructType\EwsItemIdType $id = null, \Ews\StructType\EwsPreviewItemMailboxType $mailbox = null, \Ews\StructType\EwsItemIdType $parentId = null, $itemClass = null, $uniqueHash = null, $sortValue = null, $owaLink = null, $sender = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients = null, $createdTime = null, $receivedTime = null, $sentTime = null, $subject = null, $size = null, $preview = null, $importance = null, $read = null, $hasAttachment = null, \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties = null)
@@ -324,6 +321,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setItemClass($itemClass = null)
     {
+        // validation for constraint: string
+        if (!is_null($itemClass) && !is_string($itemClass)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+        }
         $this->ItemClass = $itemClass;
         return $this;
     }
@@ -342,6 +343,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setUniqueHash($uniqueHash = null)
     {
+        // validation for constraint: string
+        if (!is_null($uniqueHash) && !is_string($uniqueHash)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uniqueHash)), __LINE__);
+        }
         $this->UniqueHash = $uniqueHash;
         return $this;
     }
@@ -360,6 +365,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setSortValue($sortValue = null)
     {
+        // validation for constraint: string
+        if (!is_null($sortValue) && !is_string($sortValue)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortValue)), __LINE__);
+        }
         $this->SortValue = $sortValue;
         return $this;
     }
@@ -378,6 +387,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setOwaLink($owaLink = null)
     {
+        // validation for constraint: string
+        if (!is_null($owaLink) && !is_string($owaLink)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($owaLink)), __LINE__);
+        }
         $this->OwaLink = $owaLink;
         return $this;
     }
@@ -396,6 +409,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setSender($sender = null)
     {
+        // validation for constraint: string
+        if (!is_null($sender) && !is_string($sender)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sender)), __LINE__);
+        }
         $this->Sender = $sender;
         return $this;
     }
@@ -455,7 +472,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Get CreatedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getCreatedTime()
     {
@@ -463,17 +480,21 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set CreatedTime value
-     * @param dateTime $createdTime
+     * @param string $createdTime
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setCreatedTime($createdTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($createdTime) && !is_string($createdTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdTime)), __LINE__);
+        }
         $this->CreatedTime = $createdTime;
         return $this;
     }
     /**
      * Get ReceivedTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getReceivedTime()
     {
@@ -481,17 +502,21 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set ReceivedTime value
-     * @param dateTime $receivedTime
+     * @param string $receivedTime
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setReceivedTime($receivedTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($receivedTime) && !is_string($receivedTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($receivedTime)), __LINE__);
+        }
         $this->ReceivedTime = $receivedTime;
         return $this;
     }
     /**
      * Get SentTime value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getSentTime()
     {
@@ -499,11 +524,15 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set SentTime value
-     * @param dateTime $sentTime
+     * @param string $sentTime
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setSentTime($sentTime = null)
     {
+        // validation for constraint: string
+        if (!is_null($sentTime) && !is_string($sentTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sentTime)), __LINE__);
+        }
         $this->SentTime = $sentTime;
         return $this;
     }
@@ -522,12 +551,16 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setSubject($subject = null)
     {
+        // validation for constraint: string
+        if (!is_null($subject) && !is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+        }
         $this->Subject = $subject;
         return $this;
     }
     /**
      * Get Size value
-     * @return long|null
+     * @return int|null
      */
     public function getSize()
     {
@@ -535,11 +568,15 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set Size value
-     * @param long $size
+     * @param int $size
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setSize($size = null)
     {
+        // validation for constraint: int
+        if (!is_null($size) && !is_int($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        }
         $this->Size = $size;
         return $this;
     }
@@ -558,6 +595,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setPreview($preview = null)
     {
+        // validation for constraint: string
+        if (!is_null($preview) && !is_string($preview)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+        }
         $this->Preview = $preview;
         return $this;
     }
@@ -573,11 +614,13 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Set Importance value
      * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
      * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $importance
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setImportance($importance = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
@@ -586,7 +629,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Get Read value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getRead()
     {
@@ -594,7 +637,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set Read value
-     * @param boolean $read
+     * @param bool $read
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setRead($read = null)
@@ -604,7 +647,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Get HasAttachment value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getHasAttachment()
     {
@@ -612,7 +655,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Set HasAttachment value
-     * @param boolean $hasAttachment
+     * @param bool $hasAttachment
      * @return \Ews\StructType\EwsSearchPreviewItemType
      */
     public function setHasAttachment($hasAttachment = null)

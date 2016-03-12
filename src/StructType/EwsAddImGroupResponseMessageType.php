@@ -16,7 +16,6 @@ class EwsAddImGroupResponseMessageType extends EwsResponseMessageType
      * The ImGroup
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: A Group on the ImContactList, with one or more members
      * @var \Ews\StructType\EwsImGroupType
      */
     public $ImGroup;

@@ -14,22 +14,22 @@ class EwsNonEmptyArrayOfNotificationEventTypesType extends AbstractStructArrayBa
 {
     /**
      * The EventType
-     * @var array
+     * @var string
      */
     public $EventType;
     /**
      * Constructor method for NonEmptyArrayOfNotificationEventTypesType
      * @uses EwsNonEmptyArrayOfNotificationEventTypesType::setEventType()
-     * @param array $eventType
+     * @param string $eventType
      */
-    public function __construct(array $eventType = array())
+    public function __construct($eventType = null)
     {
         $this
             ->setEventType($eventType);
     }
     /**
      * Get EventType value
-     * @return array
+     * @return string|null
      */
     public function getEventType()
     {
@@ -37,11 +37,15 @@ class EwsNonEmptyArrayOfNotificationEventTypesType extends AbstractStructArrayBa
     }
     /**
      * Set EventType value
-     * @param array $eventType
+     * @param string $eventType
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType
      */
-    public function setEventType(array $eventType = array())
+    public function setEventType($eventType = null)
     {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsNotificationEventTypeType::valueIsValid($eventType)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $eventType, implode(', ', \Ews\EnumType\EwsNotificationEventTypeType::getValidValues())), __LINE__);
+        }
         $this->EventType = $eventType;
         return $this;
     }
@@ -95,13 +99,17 @@ class EwsNonEmptyArrayOfNotificationEventTypesType extends AbstractStructArrayBa
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
+     * @throws \InvalidArgumentException
      * @uses \Ews\EnumType\EwsNotificationEventTypeType::valueIsValid()
      * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType|bool
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType
      */
     public function add($item)
     {
-        return \Ews\EnumType\EwsNotificationEventTypeType::valueIsValid($item) ? parent::add($item) : false;
+        if (!\Ews\EnumType\EwsNotificationEventTypeType::valueIsValid($item)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsNotificationEventTypeType::getValidValues())), __LINE__);
+        }
+        return parent::add($item);
     }
     /**
      * Returns the attribute name

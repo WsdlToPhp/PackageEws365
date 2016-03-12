@@ -37,7 +37,7 @@ class EwsDeleteSearchSuggestion extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $SuggestionTypes;
     /**
@@ -47,7 +47,7 @@ class EwsDeleteSearchSuggestion extends EwsBaseRequestType
      * @uses EwsDeleteSearchSuggestion::setSuggestionTypes()
      * @param string $searchSessionId
      * @param string $query
-     * @param string[] $suggestionTypes
+     * @param string $suggestionTypes
      */
     public function __construct($searchSessionId = null, $query = null, $suggestionTypes = null)
     {
@@ -71,6 +71,14 @@ class EwsDeleteSearchSuggestion extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
+        // validation for constraint: pattern
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+        }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
@@ -89,12 +97,16 @@ class EwsDeleteSearchSuggestion extends EwsBaseRequestType
      */
     public function setQuery($query = null)
     {
+        // validation for constraint: string
+        if (!is_null($query) && !is_string($query)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+        }
         $this->Query = $query;
         return $this;
     }
     /**
      * Get SuggestionTypes value
-     * @return string[]
+     * @return string
      */
     public function getSuggestionTypes()
     {
@@ -104,11 +116,13 @@ class EwsDeleteSearchSuggestion extends EwsBaseRequestType
      * Set SuggestionTypes value
      * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
-     * @param string[] $suggestionTypes
+     * @throws \InvalidArgumentException
+     * @param string $suggestionTypes
      * @return \Ews\StructType\EwsDeleteSearchSuggestion
      */
     public function setSuggestionTypes($suggestionTypes = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($suggestionTypes)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionTypes, implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues())), __LINE__);
         }

@@ -17,13 +17,13 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsCDRDataType[]
      */
     public $CDRData;
     /**
      * Constructor method for ArrayOfUMCallDataRecordsType
      * @uses EwsArrayOfUMCallDataRecordsType::setCDRData()
-     * @param array $cDRData
+     * @param \Ews\StructType\EwsCDRDataType[] $cDRData
      */
     public function __construct(array $cDRData = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
     }
     /**
      * Get CDRData value
-     * @return array
+     * @return \Ews\StructType\EwsCDRDataType[]|null
      */
     public function getCDRData()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
     }
     /**
      * Set CDRData value
-     * @param array $cDRData
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCDRDataType[] $cDRData
      * @return \Ews\ArrayType\EwsArrayOfUMCallDataRecordsType
      */
     public function setCDRData(array $cDRData = array())
     {
+        foreach ($cDRData as $arrayOfUMCallDataRecordsTypeCDRDataItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUMCallDataRecordsTypeCDRDataItem instanceof \Ews\StructType\EwsCDRDataType) {
+                throw new \InvalidArgumentException(sprintf('The CDRData property can only contain items of \Ews\StructType\EwsCDRDataType, "%s" given', is_object($arrayOfUMCallDataRecordsTypeCDRDataItem) ? get_class($arrayOfUMCallDataRecordsTypeCDRDataItem) : gettype($arrayOfUMCallDataRecordsTypeCDRDataItem)), __LINE__);
+            }
+        }
         $this->CDRData = $cDRData;
+        return $this;
+    }
+    /**
+     * Add item to CDRData value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsCDRDataType $item
+     * @return \Ews\ArrayType\EwsArrayOfUMCallDataRecordsType
+     */
+    public function addToCDRData(\Ews\StructType\EwsCDRDataType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsCDRDataType) {
+            throw new \InvalidArgumentException(sprintf('The CDRData property can only contain items of \Ews\StructType\EwsCDRDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->CDRData[] = $item;
         return $this;
     }
     /**

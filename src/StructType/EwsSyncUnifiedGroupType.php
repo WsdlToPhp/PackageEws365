@@ -45,6 +45,10 @@ class EwsSyncUnifiedGroupType extends EwsBaseRequestType
      */
     public function setRequest($request = null)
     {
+        // validation for constraint: string
+        if (!is_null($request) && !is_string($request)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($request)), __LINE__);
+        }
         $this->Request = $request;
         return $this;
     }

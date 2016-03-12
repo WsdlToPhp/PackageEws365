@@ -17,7 +17,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $GroupsEnabled;
     /**
@@ -25,7 +25,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $GroupCreationEnabled;
     /**
@@ -33,7 +33,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var boolean
+     * @var bool
      */
     public $IsUnifiedGroupsAddressListPresent;
     /**
@@ -80,9 +80,9 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setBrowseGroupsUrl()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupsTargetDomain()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupsGuidelinesLink()
-     * @param boolean $groupsEnabled
-     * @param boolean $groupCreationEnabled
-     * @param boolean $isUnifiedGroupsAddressListPresent
+     * @param bool $groupsEnabled
+     * @param bool $groupCreationEnabled
+     * @param bool $isUnifiedGroupsAddressListPresent
      * @param string $editGroupOwaTemplateUrl
      * @param string $browseGroupsUrl
      * @param string $groupsTargetDomain
@@ -101,7 +101,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Get GroupsEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getGroupsEnabled()
     {
@@ -109,7 +109,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Set GroupsEnabled value
-     * @param boolean $groupsEnabled
+     * @param bool $groupsEnabled
      * @return \Ews\StructType\EwsGetUnifiedGroupsSettingsResponseMessageType
      */
     public function setGroupsEnabled($groupsEnabled = null)
@@ -119,7 +119,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Get GroupCreationEnabled value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getGroupCreationEnabled()
     {
@@ -127,7 +127,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Set GroupCreationEnabled value
-     * @param boolean $groupCreationEnabled
+     * @param bool $groupCreationEnabled
      * @return \Ews\StructType\EwsGetUnifiedGroupsSettingsResponseMessageType
      */
     public function setGroupCreationEnabled($groupCreationEnabled = null)
@@ -137,7 +137,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Get IsUnifiedGroupsAddressListPresent value
-     * @return boolean|null
+     * @return bool|null
      */
     public function getIsUnifiedGroupsAddressListPresent()
     {
@@ -145,7 +145,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Set IsUnifiedGroupsAddressListPresent value
-     * @param boolean $isUnifiedGroupsAddressListPresent
+     * @param bool $isUnifiedGroupsAddressListPresent
      * @return \Ews\StructType\EwsGetUnifiedGroupsSettingsResponseMessageType
      */
     public function setIsUnifiedGroupsAddressListPresent($isUnifiedGroupsAddressListPresent = null)
@@ -168,6 +168,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setEditGroupOwaTemplateUrl($editGroupOwaTemplateUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($editGroupOwaTemplateUrl) && !is_string($editGroupOwaTemplateUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($editGroupOwaTemplateUrl)), __LINE__);
+        }
         $this->EditGroupOwaTemplateUrl = $editGroupOwaTemplateUrl;
         return $this;
     }
@@ -186,6 +190,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setBrowseGroupsUrl($browseGroupsUrl = null)
     {
+        // validation for constraint: string
+        if (!is_null($browseGroupsUrl) && !is_string($browseGroupsUrl)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($browseGroupsUrl)), __LINE__);
+        }
         $this->BrowseGroupsUrl = $browseGroupsUrl;
         return $this;
     }
@@ -204,6 +212,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setGroupsTargetDomain($groupsTargetDomain = null)
     {
+        // validation for constraint: string
+        if (!is_null($groupsTargetDomain) && !is_string($groupsTargetDomain)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupsTargetDomain)), __LINE__);
+        }
         $this->GroupsTargetDomain = $groupsTargetDomain;
         return $this;
     }
@@ -222,6 +234,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setGroupsGuidelinesLink($groupsGuidelinesLink = null)
     {
+        // validation for constraint: string
+        if (!is_null($groupsGuidelinesLink) && !is_string($groupsGuidelinesLink)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupsGuidelinesLink)), __LINE__);
+        }
         $this->GroupsGuidelinesLink = $groupsGuidelinesLink;
         return $this;
     }

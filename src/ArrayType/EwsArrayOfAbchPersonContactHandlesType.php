@@ -17,13 +17,13 @@ class EwsArrayOfAbchPersonContactHandlesType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsAbchPersonContactHandle[]
      */
     public $ContactHandle;
     /**
      * Constructor method for ArrayOfAbchPersonContactHandlesType
      * @uses EwsArrayOfAbchPersonContactHandlesType::setContactHandle()
-     * @param array $contactHandle
+     * @param \Ews\StructType\EwsAbchPersonContactHandle[] $contactHandle
      */
     public function __construct(array $contactHandle = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAbchPersonContactHandlesType extends AbstractStructArrayBase
     }
     /**
      * Get ContactHandle value
-     * @return array
+     * @return \Ews\StructType\EwsAbchPersonContactHandle[]|null
      */
     public function getContactHandle()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfAbchPersonContactHandlesType extends AbstractStructArrayBase
     }
     /**
      * Set ContactHandle value
-     * @param array $contactHandle
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAbchPersonContactHandle[] $contactHandle
      * @return \Ews\ArrayType\EwsArrayOfAbchPersonContactHandlesType
      */
     public function setContactHandle(array $contactHandle = array())
     {
+        foreach ($contactHandle as $arrayOfAbchPersonContactHandlesTypeContactHandleItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAbchPersonContactHandlesTypeContactHandleItem instanceof \Ews\StructType\EwsAbchPersonContactHandle) {
+                throw new \InvalidArgumentException(sprintf('The ContactHandle property can only contain items of \Ews\StructType\EwsAbchPersonContactHandle, "%s" given', is_object($arrayOfAbchPersonContactHandlesTypeContactHandleItem) ? get_class($arrayOfAbchPersonContactHandlesTypeContactHandleItem) : gettype($arrayOfAbchPersonContactHandlesTypeContactHandleItem)), __LINE__);
+            }
+        }
         $this->ContactHandle = $contactHandle;
+        return $this;
+    }
+    /**
+     * Add item to ContactHandle value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsAbchPersonContactHandle $item
+     * @return \Ews\ArrayType\EwsArrayOfAbchPersonContactHandlesType
+     */
+    public function addToContactHandle(\Ews\StructType\EwsAbchPersonContactHandle $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsAbchPersonContactHandle) {
+            throw new \InvalidArgumentException(sprintf('The ContactHandle property can only contain items of \Ews\StructType\EwsAbchPersonContactHandle, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->ContactHandle[] = $item;
         return $this;
     }
     /**

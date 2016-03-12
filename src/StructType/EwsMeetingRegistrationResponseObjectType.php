@@ -16,22 +16,22 @@ class EwsMeetingRegistrationResponseObjectType extends EwsWellKnownResponseObjec
      * The ProposedStart
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedStart;
     /**
      * The ProposedEnd
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var dateTime
+     * @var string
      */
     public $ProposedEnd;
     /**
      * Constructor method for MeetingRegistrationResponseObjectType
      * @uses EwsMeetingRegistrationResponseObjectType::setProposedStart()
      * @uses EwsMeetingRegistrationResponseObjectType::setProposedEnd()
-     * @param dateTime $proposedStart
-     * @param dateTime $proposedEnd
+     * @param string $proposedStart
+     * @param string $proposedEnd
      */
     public function __construct($proposedStart = null, $proposedEnd = null)
     {
@@ -41,7 +41,7 @@ class EwsMeetingRegistrationResponseObjectType extends EwsWellKnownResponseObjec
     }
     /**
      * Get ProposedStart value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedStart()
     {
@@ -49,17 +49,21 @@ class EwsMeetingRegistrationResponseObjectType extends EwsWellKnownResponseObjec
     }
     /**
      * Set ProposedStart value
-     * @param dateTime $proposedStart
+     * @param string $proposedStart
      * @return \Ews\StructType\EwsMeetingRegistrationResponseObjectType
      */
     public function setProposedStart($proposedStart = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedStart) && !is_string($proposedStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedStart)), __LINE__);
+        }
         $this->ProposedStart = $proposedStart;
         return $this;
     }
     /**
      * Get ProposedEnd value
-     * @return dateTime|null
+     * @return string|null
      */
     public function getProposedEnd()
     {
@@ -67,11 +71,15 @@ class EwsMeetingRegistrationResponseObjectType extends EwsWellKnownResponseObjec
     }
     /**
      * Set ProposedEnd value
-     * @param dateTime $proposedEnd
+     * @param string $proposedEnd
      * @return \Ews\StructType\EwsMeetingRegistrationResponseObjectType
      */
     public function setProposedEnd($proposedEnd = null)
     {
+        // validation for constraint: string
+        if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedEnd)), __LINE__);
+        }
         $this->ProposedEnd = $proposedEnd;
         return $this;
     }

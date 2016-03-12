@@ -17,13 +17,13 @@ class EwsBaseAvailabilityCalendarViewType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $FreeBusyViewType;
     /**
      * Constructor method for BaseAvailabilityCalendarViewType
      * @uses EwsBaseAvailabilityCalendarViewType::setFreeBusyViewType()
-     * @param string[] $freeBusyViewType
+     * @param string $freeBusyViewType
      */
     public function __construct($freeBusyViewType = null)
     {
@@ -32,7 +32,7 @@ class EwsBaseAvailabilityCalendarViewType extends AbstractStructBase
     }
     /**
      * Get FreeBusyViewType value
-     * @return string[]
+     * @return string
      */
     public function getFreeBusyViewType()
     {
@@ -42,11 +42,13 @@ class EwsBaseAvailabilityCalendarViewType extends AbstractStructBase
      * Set FreeBusyViewType value
      * @uses \Ews\EnumType\EwsFreeBusyViewType::valueIsValid()
      * @uses \Ews\EnumType\EwsFreeBusyViewType::getValidValues()
-     * @param string[] $freeBusyViewType
+     * @throws \InvalidArgumentException
+     * @param string $freeBusyViewType
      * @return \Ews\StructType\EwsBaseAvailabilityCalendarViewType
      */
     public function setFreeBusyViewType($freeBusyViewType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($freeBusyViewType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $freeBusyViewType, implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues())), __LINE__);
         }

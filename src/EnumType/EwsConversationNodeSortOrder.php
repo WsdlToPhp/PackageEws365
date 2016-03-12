@@ -14,22 +14,22 @@ class EwsConversationNodeSortOrder
      * Constant for value 'TreeOrderAscending'
      * @return string 'TreeOrderAscending'
      */
-    const VALUE_TREEORDERASCENDING = 'TreeOrderAscending';
+    const VALUE_TREE_ORDER_ASCENDING = 'TreeOrderAscending';
     /**
      * Constant for value 'TreeOrderDescending'
      * @return string 'TreeOrderDescending'
      */
-    const VALUE_TREEORDERDESCENDING = 'TreeOrderDescending';
+    const VALUE_TREE_ORDER_DESCENDING = 'TreeOrderDescending';
     /**
      * Constant for value 'DateOrderAscending'
      * @return string 'DateOrderAscending'
      */
-    const VALUE_DATEORDERASCENDING = 'DateOrderAscending';
+    const VALUE_DATE_ORDER_ASCENDING = 'DateOrderAscending';
     /**
      * Constant for value 'DateOrderDescending'
      * @return string 'DateOrderDescending'
      */
-    const VALUE_DATEORDERDESCENDING = 'DateOrderDescending';
+    const VALUE_DATE_ORDER_DESCENDING = 'DateOrderDescending';
     /**
      * Return true if value is allowed
      * @uses self::getValidValues()
@@ -42,19 +42,19 @@ class EwsConversationNodeSortOrder
     }
     /**
      * Return allowed values
-     * @uses self::VALUE_TREEORDERASCENDING
-     * @uses self::VALUE_TREEORDERDESCENDING
-     * @uses self::VALUE_DATEORDERASCENDING
-     * @uses self::VALUE_DATEORDERDESCENDING
+     * @uses self::VALUE_TREE_ORDER_ASCENDING
+     * @uses self::VALUE_TREE_ORDER_DESCENDING
+     * @uses self::VALUE_DATE_ORDER_ASCENDING
+     * @uses self::VALUE_DATE_ORDER_DESCENDING
      * @return string[]
      */
     public static function getValidValues()
     {
         return array(
-            self::VALUE_TREEORDERASCENDING,
-            self::VALUE_TREEORDERDESCENDING,
-            self::VALUE_DATEORDERASCENDING,
-            self::VALUE_DATEORDERDESCENDING,
+            self::VALUE_TREE_ORDER_ASCENDING,
+            self::VALUE_TREE_ORDER_DESCENDING,
+            self::VALUE_DATE_ORDER_ASCENDING,
+            self::VALUE_DATE_ORDER_DESCENDING,
         );
     }
     /**

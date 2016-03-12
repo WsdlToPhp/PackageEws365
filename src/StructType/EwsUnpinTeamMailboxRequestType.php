@@ -14,8 +14,6 @@ class EwsUnpinTeamMailboxRequestType extends EwsBaseRequestType
 {
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved email address
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $EmailAddress;

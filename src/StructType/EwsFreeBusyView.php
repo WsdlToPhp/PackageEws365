@@ -17,7 +17,7 @@ class EwsFreeBusyView extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
     public $FreeBusyViewType;
     /**
@@ -50,7 +50,7 @@ class EwsFreeBusyView extends AbstractStructBase
      * @uses EwsFreeBusyView::setMergedFreeBusy()
      * @uses EwsFreeBusyView::setCalendarEventArray()
      * @uses EwsFreeBusyView::setWorkingHours()
-     * @param string[] $freeBusyViewType
+     * @param string $freeBusyViewType
      * @param string $mergedFreeBusy
      * @param \Ews\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray
      * @param \Ews\StructType\EwsWorkingHours $workingHours
@@ -65,7 +65,7 @@ class EwsFreeBusyView extends AbstractStructBase
     }
     /**
      * Get FreeBusyViewType value
-     * @return string[]
+     * @return string
      */
     public function getFreeBusyViewType()
     {
@@ -75,11 +75,13 @@ class EwsFreeBusyView extends AbstractStructBase
      * Set FreeBusyViewType value
      * @uses \Ews\EnumType\EwsFreeBusyViewType::valueIsValid()
      * @uses \Ews\EnumType\EwsFreeBusyViewType::getValidValues()
-     * @param string[] $freeBusyViewType
+     * @throws \InvalidArgumentException
+     * @param string $freeBusyViewType
      * @return \Ews\StructType\EwsFreeBusyView
      */
     public function setFreeBusyViewType($freeBusyViewType = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($freeBusyViewType)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $freeBusyViewType, implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues())), __LINE__);
         }
@@ -101,6 +103,10 @@ class EwsFreeBusyView extends AbstractStructBase
      */
     public function setMergedFreeBusy($mergedFreeBusy = null)
     {
+        // validation for constraint: string
+        if (!is_null($mergedFreeBusy) && !is_string($mergedFreeBusy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mergedFreeBusy)), __LINE__);
+        }
         $this->MergedFreeBusy = $mergedFreeBusy;
         return $this;
     }

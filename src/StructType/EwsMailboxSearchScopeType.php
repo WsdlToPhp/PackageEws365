@@ -36,7 +36,6 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * - maxOccurs: 1
      * - minOccurs: 0
      * - nillable: false
-     * - documentation: Array of extended attributes of a target mailbox
      * @var \Ews\ArrayType\EwsArrayOfExtendedAttributesType
      */
     public $ExtendedAttributes;
@@ -71,6 +70,10 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      */
     public function setMailbox($mailbox = null)
     {
+        // validation for constraint: string
+        if (!is_null($mailbox) && !is_string($mailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+        }
         $this->Mailbox = $mailbox;
         return $this;
     }
@@ -86,11 +89,13 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * Set SearchScope value
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
      * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $searchScope
      * @return \Ews\StructType\EwsMailboxSearchScopeType
      */
     public function setSearchScope($searchScope = null)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($searchScope)) {
             throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $searchScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }

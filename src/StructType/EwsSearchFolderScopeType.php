@@ -14,15 +14,11 @@ class EwsSearchFolderScopeType extends AbstractStructBase
 {
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * The WellKnownFolder
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a distinguished folder
      * @var \Ews\StructType\EwsDistinguishedFolderIdType
      */
     public $WellKnownFolder;

@@ -17,13 +17,13 @@ class EwsArrayOfJobInsightValue extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var array
+     * @var \Ews\StructType\EwsJobInsightValue[]
      */
     public $Item;
     /**
      * Constructor method for ArrayOfJobInsightValue
      * @uses EwsArrayOfJobInsightValue::setItem()
-     * @param array $item
+     * @param \Ews\StructType\EwsJobInsightValue[] $item
      */
     public function __construct(array $item = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfJobInsightValue extends AbstractStructArrayBase
     }
     /**
      * Get Item value
-     * @return array
+     * @return \Ews\StructType\EwsJobInsightValue[]|null
      */
     public function getItem()
     {
@@ -40,12 +40,34 @@ class EwsArrayOfJobInsightValue extends AbstractStructArrayBase
     }
     /**
      * Set Item value
-     * @param array $item
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsJobInsightValue[] $item
      * @return \Ews\ArrayType\EwsArrayOfJobInsightValue
      */
     public function setItem(array $item = array())
     {
+        foreach ($item as $arrayOfJobInsightValueItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfJobInsightValueItemItem instanceof \Ews\StructType\EwsJobInsightValue) {
+                throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsJobInsightValue, "%s" given', is_object($arrayOfJobInsightValueItemItem) ? get_class($arrayOfJobInsightValueItemItem) : gettype($arrayOfJobInsightValueItemItem)), __LINE__);
+            }
+        }
         $this->Item = $item;
+        return $this;
+    }
+    /**
+     * Add item to Item value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsJobInsightValue $item
+     * @return \Ews\ArrayType\EwsArrayOfJobInsightValue
+     */
+    public function addToItem(\Ews\StructType\EwsJobInsightValue $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsJobInsightValue) {
+            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of \Ews\StructType\EwsJobInsightValue, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Item[] = $item;
         return $this;
     }
     /**

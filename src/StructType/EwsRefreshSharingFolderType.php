@@ -14,8 +14,6 @@ class EwsRefreshSharingFolderType extends EwsBaseRequestType
 {
     /**
      * The SharingFolderId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved folder
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $SharingFolderId;

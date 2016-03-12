@@ -17,13 +17,14 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var array
+     * - minLength: 1
+     * @var string[]
      */
     public $SubscriptionId;
     /**
      * Constructor method for NonEmptyArrayOfSubscriptionIdsType
      * @uses EwsNonEmptyArrayOfSubscriptionIdsType::setSubscriptionId()
-     * @param array $subscriptionId
+     * @param string[] $subscriptionId
      */
     public function __construct(array $subscriptionId = array())
     {
@@ -32,7 +33,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     }
     /**
      * Get SubscriptionId value
-     * @return array
+     * @return string[]
      */
     public function getSubscriptionId()
     {
@@ -40,18 +41,48 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     }
     /**
      * Set SubscriptionId value
-     * @param array $subscriptionId
+     * @throws \InvalidArgumentException
+     * @param string[] $subscriptionId
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
      */
     public function setSubscriptionId(array $subscriptionId = array())
     {
+        // validation for constraint: minLength
+        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        foreach ($subscriptionId as $nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem)) {
+                throw new \InvalidArgumentException(sprintf('The SubscriptionId property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) ? get_class($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) : gettype($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem)), __LINE__);
+            }
+        }
         $this->SubscriptionId = $subscriptionId;
+        return $this;
+    }
+    /**
+     * Add item to SubscriptionId value
+     * @throws \InvalidArgumentException
+     * @param string $item
+     * @return \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
+     */
+    public function addToSubscriptionId($item)
+    {
+        // validation for constraint: minLength
+        if ((is_scalar(item) && strlen(item) < 1) || (is_array(item) && count(item) < 1)) {
+            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        }
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new \InvalidArgumentException(sprintf('The SubscriptionId property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->SubscriptionId[] = $item;
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return NonEmptyStringType
+     * @return string
      */
     public function current()
     {
@@ -61,7 +92,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return NonEmptyStringType
+     * @return string
      */
     public function item($index)
     {
@@ -70,7 +101,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return NonEmptyStringType
+     * @return string
      */
     public function first()
     {
@@ -79,7 +110,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return NonEmptyStringType
+     * @return string
      */
     public function last()
     {
@@ -89,7 +120,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return NonEmptyStringType
+     * @return string
      */
     public function offsetGet($offset)
     {

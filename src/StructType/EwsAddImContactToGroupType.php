@@ -14,8 +14,6 @@ class EwsAddImContactToGroupType extends EwsBaseRequestType
 {
     /**
      * The ContactId
-     * Meta informations extracted from the WSDL
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ContactId;
@@ -23,7 +21,6 @@ class EwsAddImContactToGroupType extends EwsBaseRequestType
      * The GroupId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * - documentation: Identifier for a fully resolved item
      * @var \Ews\StructType\EwsItemIdType
      */
     public $GroupId;
