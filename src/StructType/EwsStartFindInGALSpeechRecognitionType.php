@@ -85,7 +85,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
     public function setCulture($culture = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(culture) && strlen(culture) < 1) || (is_array(culture) && count(culture) < 1)) {
+        if ((is_scalar($culture) && strlen($culture) < 1) || (is_array($culture) && count($culture) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -111,7 +111,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
     public function setTimeZone($timeZone = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(timeZone) && strlen(timeZone) < 1) || (is_array(timeZone) && count(timeZone) < 1)) {
+        if ((is_scalar($timeZone) && strlen($timeZone) < 1) || (is_array($timeZone) && count($timeZone) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -137,8 +137,8 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
     public function setUserObjectGuid($userObjectGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($userObjectGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userObjectGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($userObjectGuid)), __LINE__);
+        if (is_scalar($userObjectGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userObjectGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($userObjectGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($userObjectGuid) && !is_string($userObjectGuid)) {
@@ -163,8 +163,8 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
     public function setTenantGuid($tenantGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($tenantGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tenantGuid)), __LINE__);
+        if (is_scalar($tenantGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($tenantGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($tenantGuid) && !is_string($tenantGuid)) {

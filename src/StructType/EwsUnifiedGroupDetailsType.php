@@ -68,8 +68,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      * @uses EwsUnifiedGroupDetailsType::setOwnerCount()
      * @uses EwsUnifiedGroupDetailsType::setDescription()
      * @uses EwsUnifiedGroupDetailsType::setExternalDirectoryObjectId()
-     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType
-     * $userGroupRelationship
+     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
      * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources
      * @param \Ews\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings
      * @param int $ownerCount
@@ -96,8 +95,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     }
     /**
      * Set UserGroupRelationship value
-     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType
-     * $userGroupRelationship
+     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
      * @return \Ews\StructType\EwsUnifiedGroupDetailsType
      */
     public function setUserGroupRelationship(\Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship = null)

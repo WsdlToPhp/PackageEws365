@@ -57,7 +57,7 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
     public function setSubscriptionId($subscriptionId = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+        if ((is_scalar($subscriptionId) && strlen($subscriptionId) < 1) || (is_array($subscriptionId) && count($subscriptionId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -83,7 +83,7 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
     public function setWatermark($watermark = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(watermark) && strlen(watermark) < 1) || (is_array(watermark) && count(watermark) < 1)) {
+        if ((is_scalar($watermark) && strlen($watermark) < 1) || (is_array($watermark) && count($watermark) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

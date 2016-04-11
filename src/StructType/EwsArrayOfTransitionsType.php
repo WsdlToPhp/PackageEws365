@@ -6,9 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArrayOfTransitionsType StructType
- * Meta informations extracted from the WSDL
- * - maxOccurs: unbounded
- * - ref: t:Transition
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -17,7 +14,10 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
 {
     /**
      * The Transition
-     * @var \Ews\StructType\EwsTransitionType
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - ref: t:Transition
+     * @var \Ews\StructType\EwsTransitionType[]
      */
     public $Transition;
     /**
@@ -29,10 +29,10 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
      * Constructor method for ArrayOfTransitionsType
      * @uses EwsArrayOfTransitionsType::setTransition()
      * @uses EwsArrayOfTransitionsType::setId()
-     * @param \Ews\StructType\EwsTransitionType $transition
+     * @param \Ews\StructType\EwsTransitionType[] $transition
      * @param string $id
      */
-    public function __construct(\Ews\StructType\EwsTransitionType $transition = null, $id = null)
+    public function __construct(array $transition = array(), $id = null)
     {
         $this
             ->setTransition($transition)
@@ -40,7 +40,7 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
     }
     /**
      * Get Transition value
-     * @return \Ews\StructType\EwsTransitionType|null
+     * @return \Ews\StructType\EwsTransitionType[]|null
      */
     public function getTransition()
     {
@@ -48,12 +48,34 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
     }
     /**
      * Set Transition value
-     * @param \Ews\StructType\EwsTransitionType $transition
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsTransitionType[] $transition
      * @return \Ews\StructType\EwsArrayOfTransitionsType
      */
-    public function setTransition(\Ews\StructType\EwsTransitionType $transition = null)
+    public function setTransition(array $transition = array())
     {
+        foreach ($transition as $arrayOfTransitionsTypeTransitionItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfTransitionsTypeTransitionItem instanceof \Ews\StructType\EwsTransitionType) {
+                throw new \InvalidArgumentException(sprintf('The Transition property can only contain items of \Ews\StructType\EwsTransitionType, "%s" given', is_object($arrayOfTransitionsTypeTransitionItem) ? get_class($arrayOfTransitionsTypeTransitionItem) : gettype($arrayOfTransitionsTypeTransitionItem)), __LINE__);
+            }
+        }
         $this->Transition = $transition;
+        return $this;
+    }
+    /**
+     * Add item to Transition value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsTransitionType $item
+     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     */
+    public function addToTransition(\Ews\StructType\EwsTransitionType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsTransitionType) {
+            throw new \InvalidArgumentException(sprintf('The Transition property can only contain items of \Ews\StructType\EwsTransitionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->Transition[] = $item;
         return $this;
     }
     /**

@@ -101,8 +101,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * @param int $searchRequestId
      * @param string $kqlQuery
      * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope
-     * @param \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType
-     * $distinguishedFolderScope
+     * @param \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope
      * @param bool $isDeepTraversal
      * @param bool $waitOnSearchResults
      */
@@ -263,8 +262,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     }
     /**
      * Set DistinguishedFolderScope value
-     * @param \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType
-     * $distinguishedFolderScope
+     * @param \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
     public function setDistinguishedFolderScope(\Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope = null)

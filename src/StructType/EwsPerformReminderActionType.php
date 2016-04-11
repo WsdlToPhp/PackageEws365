@@ -23,8 +23,7 @@ class EwsPerformReminderActionType extends EwsBaseRequestType
     /**
      * Constructor method for PerformReminderActionType
      * @uses EwsPerformReminderActionType::setReminderItemActions()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
-     * $reminderItemActions
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions = null)
     {
@@ -41,8 +40,7 @@ class EwsPerformReminderActionType extends EwsBaseRequestType
     }
     /**
      * Set ReminderItemActions value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
-     * $reminderItemActions
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
      * @return \Ews\StructType\EwsPerformReminderActionType
      */
     public function setReminderItemActions(\Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions = null)

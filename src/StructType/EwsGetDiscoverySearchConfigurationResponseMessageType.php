@@ -22,11 +22,8 @@ class EwsGetDiscoverySearchConfigurationResponseMessageType extends EwsResponseM
     public $DiscoverySearchConfigurations;
     /**
      * Constructor method for GetDiscoverySearchConfigurationResponseMessageType
-     * @uses
-     * EwsGetDiscoverySearchConfigurationResponseMessageType::setDiscoverySearchConfigu
-     * rations()
-     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
-     * $discoverySearchConfigurations
+     * @uses EwsGetDiscoverySearchConfigurationResponseMessageType::setDiscoverySearchConfigurations()
+     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null)
     {
@@ -43,8 +40,7 @@ class EwsGetDiscoverySearchConfigurationResponseMessageType extends EwsResponseM
     }
     /**
      * Set DiscoverySearchConfigurations value
-     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
-     * $discoverySearchConfigurations
+     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
      * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
      */
     public function setDiscoverySearchConfigurations(\Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null)

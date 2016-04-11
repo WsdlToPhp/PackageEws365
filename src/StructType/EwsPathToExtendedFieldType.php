@@ -152,8 +152,8 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
     public function setPropertySetId($propertySetId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($propertySetId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $propertySetId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertySetId)), __LINE__);
+        if (is_scalar($propertySetId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $propertySetId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($propertySetId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($propertySetId) && !is_string($propertySetId)) {
@@ -178,8 +178,8 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
     public function setPropertyTag($propertyTag = null)
     {
         // validation for constraint: pattern
-        if (!is_null($propertyTag) && !preg_match('/(0x|0X)[0-9A-Fa-f]{1,4}/', $propertyTag)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertyTag)), __LINE__);
+        if (is_scalar($propertyTag) && !preg_match('/(0x|0X)[0-9A-Fa-f]{1,4}/', $propertyTag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "(0x|0X)[0-9A-Fa-f]{1,4}", "%s" given', var_export($propertyTag, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($propertyTag) && !is_string($propertyTag)) {

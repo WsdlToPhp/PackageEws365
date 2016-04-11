@@ -105,8 +105,7 @@ class EwsFindItemType extends EwsBaseRequestType
      * @param \Ews\StructType\EwsItemResponseShapeType $itemShape
      * @param \Ews\StructType\EwsIndexedPageViewType $indexedPageItemView
      * @param \Ews\StructType\EwsFractionalPageViewType $fractionalPageItemView
-     * @param \Ews\StructType\EwsSeekToConditionPageViewType
-     * $seekToConditionPageItemView
+     * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @param \Ews\StructType\EwsCalendarViewType $calendarView
      * @param \Ews\StructType\EwsContactsViewType $contactsView
      * @param \Ews\StructType\EwsGroupByType $groupBy
@@ -222,8 +221,7 @@ class EwsFindItemType extends EwsBaseRequestType
     }
     /**
      * Set SeekToConditionPageItemView value
-     * @param \Ews\StructType\EwsSeekToConditionPageViewType
-     * $seekToConditionPageItemView
+     * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setSeekToConditionPageItemView(\Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView = null)

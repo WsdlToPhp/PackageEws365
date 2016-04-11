@@ -523,8 +523,7 @@ class EwsItemType extends AbstractStructBase
      * @param bool $isFromMe
      * @param bool $isResend
      * @param bool $isUnmodified
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
-     * $internetMessageHeaders
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
      * @param string $dateTimeSent
      * @param string $dateTimeCreated
      * @param \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
@@ -554,10 +553,8 @@ class EwsItemType extends AbstractStructBase
      * @param \Ews\StructType\EwsRetentionTagType $archiveTag
      * @param string $retentionDate
      * @param string $preview
-     * @param \Ews\StructType\EwsRightsManagementLicenseDataType
-     * $rightsManagementLicenseData
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
-     * $predictedActionReasons
+     * @param \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
      * @param bool $isClutter
      * @param bool $blockStatus
      * @param bool $hasBlockedImages
@@ -1003,8 +1000,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set InternetMessageHeaders value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
-     * $internetMessageHeaders
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
      * @return \Ews\StructType\EwsItemType
      */
     public function setInternetMessageHeaders(\Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null)
@@ -1622,8 +1618,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set RightsManagementLicenseData value
-     * @param \Ews\StructType\EwsRightsManagementLicenseDataType
-     * $rightsManagementLicenseData
+     * @param \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
      * @return \Ews\StructType\EwsItemType
      */
     public function setRightsManagementLicenseData(\Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null)
@@ -1641,8 +1636,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set PredictedActionReasons value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
-     * $predictedActionReasons
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
      * @return \Ews\StructType\EwsItemType
      */
     public function setPredictedActionReasons(\Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null)

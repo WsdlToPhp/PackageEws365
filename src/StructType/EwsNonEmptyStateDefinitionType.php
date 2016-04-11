@@ -32,12 +32,9 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * @uses EwsNonEmptyStateDefinitionType::setDeletedOccurrenceStateDefinition()
      * @uses EwsNonEmptyStateDefinitionType::setDeleteFromFolderStateDefinition()
      * @uses EwsNonEmptyStateDefinitionType::setLocationBasedStateDefinition()
-     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
-     * $deletedOccurrenceStateDefinition
-     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType
-     * $deleteFromFolderStateDefinition
-     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType
-     * $locationBasedStateDefinition
+     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
+     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
+     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
      */
     public function __construct(\Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null, \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null, \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null)
     {
@@ -56,8 +53,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
     }
     /**
      * Set DeletedOccurrenceStateDefinition value
-     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
-     * $deletedOccurrenceStateDefinition
+     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
      * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
      */
     public function setDeletedOccurrenceStateDefinition(\Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null)
@@ -75,8 +71,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
     }
     /**
      * Set DeleteFromFolderStateDefinition value
-     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType
-     * $deleteFromFolderStateDefinition
+     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
      * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
      */
     public function setDeleteFromFolderStateDefinition(\Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null)
@@ -94,8 +89,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
     }
     /**
      * Set LocationBasedStateDefinition value
-     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType
-     * $locationBasedStateDefinition
+     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
      * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
      */
     public function setLocationBasedStateDefinition(\Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null)

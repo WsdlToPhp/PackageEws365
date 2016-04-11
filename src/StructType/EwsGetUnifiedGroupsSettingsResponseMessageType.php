@@ -72,11 +72,8 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      * Constructor method for GetUnifiedGroupsSettingsResponseMessageType
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupsEnabled()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupCreationEnabled()
-     * @uses
-     * EwsGetUnifiedGroupsSettingsResponseMessageType::setIsUnifiedGroupsAddressListPre
-     * sent()
-     * @uses
-     * EwsGetUnifiedGroupsSettingsResponseMessageType::setEditGroupOwaTemplateUrl()
+     * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setIsUnifiedGroupsAddressListPresent()
+     * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setEditGroupOwaTemplateUrl()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setBrowseGroupsUrl()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupsTargetDomain()
      * @uses EwsGetUnifiedGroupsSettingsResponseMessageType::setGroupsGuidelinesLink()

@@ -14,7 +14,7 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
 {
     /**
      * The DaysOfWeek
-     * @var DayOfWeekType[]
+     * @var string
      */
     public $DaysOfWeek;
     /**
@@ -28,7 +28,7 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
      * Constructor method for WeeklyRecurrencePatternType
      * @uses EwsWeeklyRecurrencePatternType::setDaysOfWeek()
      * @uses EwsWeeklyRecurrencePatternType::setFirstDayOfWeek()
-     * @param DayOfWeekType[] $daysOfWeek
+     * @param string $daysOfWeek
      * @param string $firstDayOfWeek
      */
     public function __construct($daysOfWeek = null, $firstDayOfWeek = null)
@@ -39,7 +39,7 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
     }
     /**
      * Get DaysOfWeek value
-     * @return DayOfWeekType[]|null
+     * @return string|null
      */
     public function getDaysOfWeek()
     {
@@ -47,11 +47,15 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
     }
     /**
      * Set DaysOfWeek value
-     * @param DayOfWeekType[] $daysOfWeek
+     * @param string $daysOfWeek
      * @return \Ews\StructType\EwsWeeklyRecurrencePatternType
      */
     public function setDaysOfWeek($daysOfWeek = null)
     {
+        // validation for constraint: string
+        if (!is_null($daysOfWeek) && !is_string($daysOfWeek)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($daysOfWeek)), __LINE__);
+        }
         $this->DaysOfWeek = $daysOfWeek;
         return $this;
     }

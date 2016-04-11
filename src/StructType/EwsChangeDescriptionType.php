@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ChangeDescriptionType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:Path
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ abstract class EwsChangeDescriptionType extends AbstractStructBase
 {
     /**
      * The Path
+     * Meta informations extracted from the WSDL
+     * - ref: t:Path
      * @var \Ews\StructType\EwsBasePathToElementType
      */
     public $Path;

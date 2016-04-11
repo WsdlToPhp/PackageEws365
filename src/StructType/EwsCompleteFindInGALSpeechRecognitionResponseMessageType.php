@@ -23,8 +23,7 @@ class EwsCompleteFindInGALSpeechRecognitionResponseMessageType extends EwsRespon
     public $RecognitionResult;
     /**
      * Constructor method for CompleteFindInGALSpeechRecognitionResponseMessageType
-     * @uses
-     * EwsCompleteFindInGALSpeechRecognitionResponseMessageType::setRecognitionResult()
+     * @uses EwsCompleteFindInGALSpeechRecognitionResponseMessageType::setRecognitionResult()
      * @param \Ews\StructType\EwsRecognitionResultType $recognitionResult
      */
     public function __construct(\Ews\StructType\EwsRecognitionResultType $recognitionResult = null)

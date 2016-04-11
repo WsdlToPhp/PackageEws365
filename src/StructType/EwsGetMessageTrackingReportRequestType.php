@@ -103,7 +103,7 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     public function setScope($scope = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(scope) && strlen(scope) < 1) || (is_array(scope) && count(scope) < 1)) {
+        if ((is_scalar($scope) && strlen($scope) < 1) || (is_array($scope) && count($scope) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -172,7 +172,7 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     public function setMessageTrackingReportId($messageTrackingReportId = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(messageTrackingReportId) && strlen(messageTrackingReportId) < 1) || (is_array(messageTrackingReportId) && count(messageTrackingReportId) < 1)) {
+        if ((is_scalar($messageTrackingReportId) && strlen($messageTrackingReportId) < 1) || (is_array($messageTrackingReportId) && count($messageTrackingReportId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

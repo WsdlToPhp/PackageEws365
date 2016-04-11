@@ -22,8 +22,7 @@ class EwsUpdateBookingServiceResponseMessageType extends EwsResponseMessageType
     public $UpdatedBookingServiceItemId;
     /**
      * Constructor method for UpdateBookingServiceResponseMessageType
-     * @uses
-     * EwsUpdateBookingServiceResponseMessageType::setUpdatedBookingServiceItemId()
+     * @uses EwsUpdateBookingServiceResponseMessageType::setUpdatedBookingServiceItemId()
      * @param \Ews\StructType\EwsItemIdType $updatedBookingServiceItemId
      */
     public function __construct(\Ews\StructType\EwsItemIdType $updatedBookingServiceItemId = null)

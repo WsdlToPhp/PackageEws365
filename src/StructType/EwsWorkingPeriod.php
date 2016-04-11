@@ -17,7 +17,7 @@ class EwsWorkingPeriod extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var DayOfWeekType[]
+     * @var string
      */
     public $DayOfWeek;
     /**
@@ -41,7 +41,7 @@ class EwsWorkingPeriod extends AbstractStructBase
      * @uses EwsWorkingPeriod::setDayOfWeek()
      * @uses EwsWorkingPeriod::setStartTimeInMinutes()
      * @uses EwsWorkingPeriod::setEndTimeInMinutes()
-     * @param DayOfWeekType[] $dayOfWeek
+     * @param string $dayOfWeek
      * @param int $startTimeInMinutes
      * @param int $endTimeInMinutes
      */
@@ -54,7 +54,7 @@ class EwsWorkingPeriod extends AbstractStructBase
     }
     /**
      * Get DayOfWeek value
-     * @return DayOfWeekType[]
+     * @return string
      */
     public function getDayOfWeek()
     {
@@ -62,11 +62,15 @@ class EwsWorkingPeriod extends AbstractStructBase
     }
     /**
      * Set DayOfWeek value
-     * @param DayOfWeekType[] $dayOfWeek
+     * @param string $dayOfWeek
      * @return \Ews\StructType\EwsWorkingPeriod
      */
     public function setDayOfWeek($dayOfWeek = null)
     {
+        // validation for constraint: string
+        if (!is_null($dayOfWeek) && !is_string($dayOfWeek)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dayOfWeek)), __LINE__);
+        }
         $this->DayOfWeek = $dayOfWeek;
         return $this;
     }

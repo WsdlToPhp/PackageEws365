@@ -23,11 +23,8 @@ class EwsGetMeetingParticipantAvailabilityResponseMessageType extends EwsRespons
     public $MeetingParticipantAvailabilities;
     /**
      * Constructor method for GetMeetingParticipantAvailabilityResponseMessageType
-     * @uses
-     * EwsGetMeetingParticipantAvailabilityResponseMessageType::setMeetingParticipantAv
-     * ailabilities()
-     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
-     * $meetingParticipantAvailabilities
+     * @uses EwsGetMeetingParticipantAvailabilityResponseMessageType::setMeetingParticipantAvailabilities()
+     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities = null)
     {
@@ -44,8 +41,7 @@ class EwsGetMeetingParticipantAvailabilityResponseMessageType extends EwsRespons
     }
     /**
      * Set MeetingParticipantAvailabilities value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
-     * $meetingParticipantAvailabilities
+     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
      * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityResponseMessageType
      */
     public function setMeetingParticipantAvailabilities(\Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities = null)

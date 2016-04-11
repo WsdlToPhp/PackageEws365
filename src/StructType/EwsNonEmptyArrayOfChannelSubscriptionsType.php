@@ -34,26 +34,14 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     public $NewSocialActivityAddedSubscription;
     /**
      * Constructor method for NonEmptyArrayOfChannelSubscriptionsType
-     * @uses
-     * EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupUnseenChangedSubscrip
-     * tion()
-     * @uses
-     * EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupContentChangedSubscri
-     * ption()
-     * @uses
-     * EwsNonEmptyArrayOfChannelSubscriptionsType::setUserMembershipChangedSubscription
-     * ()
-     * @uses
-     * EwsNonEmptyArrayOfChannelSubscriptionsType::setNewSocialActivityAddedSubscriptio
-     * n()
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType
-     * $unifiedGroupUnseenChangedSubscription
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType
-     * $unifiedGroupContentChangedSubscription
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType
-     * $userMembershipChangedSubscription
-     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType
-     * $newSocialActivityAddedSubscription
+     * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupUnseenChangedSubscription()
+     * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupContentChangedSubscription()
+     * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUserMembershipChangedSubscription()
+     * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setNewSocialActivityAddedSubscription()
+     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
+     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
+     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
+     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
      */
     public function __construct(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null, \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null, \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null, \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null)
     {
@@ -73,8 +61,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Set UnifiedGroupUnseenChangedSubscription value
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType
-     * $unifiedGroupUnseenChangedSubscription
+     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
     public function setUnifiedGroupUnseenChangedSubscription(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null)
@@ -84,8 +71,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Get UnifiedGroupContentChangedSubscription value
-     * @return
-     * \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType|null
+     * @return \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType|null
      */
     public function getUnifiedGroupContentChangedSubscription()
     {
@@ -93,8 +79,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Set UnifiedGroupContentChangedSubscription value
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType
-     * $unifiedGroupContentChangedSubscription
+     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
     public function setUnifiedGroupContentChangedSubscription(\Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null)
@@ -112,8 +97,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Set UserMembershipChangedSubscription value
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType
-     * $userMembershipChangedSubscription
+     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
     public function setUserMembershipChangedSubscription(\Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null)
@@ -131,8 +115,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Set NewSocialActivityAddedSubscription value
-     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType
-     * $newSocialActivityAddedSubscription
+     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
     public function setNewSocialActivityAddedSubscription(\Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null)

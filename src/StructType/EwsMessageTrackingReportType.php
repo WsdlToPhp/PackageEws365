@@ -73,8 +73,7 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * @param string $subject
      * @param string $submitTime
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
-     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType
-     * $recipientTrackingEvents
+     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
      * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
      */
     public function __construct(\Ews\StructType\EwsEmailAddressType $sender = null, \Ews\StructType\EwsEmailAddressType $purportedSender = null, $subject = null, $submitTime = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null, \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
@@ -196,8 +195,7 @@ class EwsMessageTrackingReportType extends AbstractStructBase
     }
     /**
      * Set RecipientTrackingEvents value
-     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType
-     * $recipientTrackingEvents
+     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
      * @return \Ews\StructType\EwsMessageTrackingReportType
      */
     public function setRecipientTrackingEvents(\Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null)

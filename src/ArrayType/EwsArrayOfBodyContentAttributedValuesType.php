@@ -23,8 +23,7 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfBodyContentAttributedValuesType
      * @uses EwsArrayOfBodyContentAttributedValuesType::setBodyContentAttributedValue()
-     * @param \Ews\StructType\EwsBodyContentAttributedValueType[]
-     * $bodyContentAttributedValue
+     * @param \Ews\StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
      */
     public function __construct(array $bodyContentAttributedValue = array())
     {
@@ -42,8 +41,7 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     /**
      * Set BodyContentAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBodyContentAttributedValueType[]
-     * $bodyContentAttributedValue
+     * @param \Ews\StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
      */
     public function setBodyContentAttributedValue(array $bodyContentAttributedValue = array())

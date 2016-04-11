@@ -75,7 +75,7 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
     public function setTelUriAddress($telUriAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(telUriAddress) && strlen(telUriAddress) < 1) || (is_array(telUriAddress) && count(telUriAddress) < 1)) {
+        if ((is_scalar($telUriAddress) && strlen($telUriAddress) < 1) || (is_array($telUriAddress) && count($telUriAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -101,7 +101,7 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
     public function setImContactSipUriAddress($imContactSipUriAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(imContactSipUriAddress) && strlen(imContactSipUriAddress) < 1) || (is_array(imContactSipUriAddress) && count(imContactSipUriAddress) < 1)) {
+        if ((is_scalar($imContactSipUriAddress) && strlen($imContactSipUriAddress) < 1) || (is_array($imContactSipUriAddress) && count($imContactSipUriAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -127,7 +127,7 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
     public function setImTelephoneNumber($imTelephoneNumber = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(imTelephoneNumber) && strlen(imTelephoneNumber) < 1) || (is_array(imTelephoneNumber) && count(imTelephoneNumber) < 1)) {
+        if ((is_scalar($imTelephoneNumber) && strlen($imTelephoneNumber) < 1) || (is_array($imTelephoneNumber) && count($imTelephoneNumber) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

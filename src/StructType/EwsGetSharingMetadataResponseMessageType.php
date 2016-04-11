@@ -24,12 +24,9 @@ class EwsGetSharingMetadataResponseMessageType extends EwsResponseMessageType
     public $InvalidRecipients;
     /**
      * Constructor method for GetSharingMetadataResponseMessageType
-     * @uses
-     * EwsGetSharingMetadataResponseMessageType::setEncryptedSharedFolderDataCollection
-     * ()
+     * @uses EwsGetSharingMetadataResponseMessageType::setEncryptedSharedFolderDataCollection()
      * @uses EwsGetSharingMetadataResponseMessageType::setInvalidRecipients()
-     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
-     * $encryptedSharedFolderDataCollection
+     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
      * @param \Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null, \Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients = null)
@@ -48,8 +45,7 @@ class EwsGetSharingMetadataResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set EncryptedSharedFolderDataCollection value
-     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
-     * $encryptedSharedFolderDataCollection
+     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
      * @return \Ews\StructType\EwsGetSharingMetadataResponseMessageType
      */
     public function setEncryptedSharedFolderDataCollection(\Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null)

@@ -51,10 +51,8 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     }
     /**
      * Set Type value
-     * @uses
-     * \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid()
-     * @uses
-     * \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues()
+     * @uses \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid()
+     * @uses \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues()
      * @throws \InvalidArgumentException
      * @param string $type
      * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType

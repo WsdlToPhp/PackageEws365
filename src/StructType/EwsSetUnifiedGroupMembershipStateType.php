@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupMembershipStateType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:Action
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -21,6 +19,8 @@ class EwsSetUnifiedGroupMembershipStateType extends EwsUnifiedGroupBaseRequestTy
     public $Members;
     /**
      * The Action
+     * Meta informations extracted from the WSDL
+     * - ref: t:Action
      * @var string
      */
     public $Action;

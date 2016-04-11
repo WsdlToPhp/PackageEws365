@@ -6,9 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ReplyBody StructType
- * Meta informations extracted from the WSDL
- * - ref: xml:lang
- * - use: optional
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -25,6 +22,9 @@ class EwsReplyBody extends AbstractStructBase
     public $Message;
     /**
      * The lang
+     * Meta informations extracted from the WSDL
+     * - ref: xml:lang
+     * - use: optional
      * @var UNKNOWN
      */
     public $lang;

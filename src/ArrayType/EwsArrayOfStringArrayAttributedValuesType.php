@@ -23,8 +23,7 @@ class EwsArrayOfStringArrayAttributedValuesType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfStringArrayAttributedValuesType
      * @uses EwsArrayOfStringArrayAttributedValuesType::setStringArrayAttributedValue()
-     * @param \Ews\StructType\EwsStringArrayAttributedValueType[]
-     * $stringArrayAttributedValue
+     * @param \Ews\StructType\EwsStringArrayAttributedValueType[] $stringArrayAttributedValue
      */
     public function __construct(array $stringArrayAttributedValue = array())
     {
@@ -42,8 +41,7 @@ class EwsArrayOfStringArrayAttributedValuesType extends AbstractStructArrayBase
     /**
      * Set StringArrayAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsStringArrayAttributedValueType[]
-     * $stringArrayAttributedValue
+     * @param \Ews\StructType\EwsStringArrayAttributedValueType[] $stringArrayAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType
      */
     public function setStringArrayAttributedValue(array $stringArrayAttributedValue = array())

@@ -23,8 +23,7 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfPhoneNumberAttributedValuesType
      * @uses EwsArrayOfPhoneNumberAttributedValuesType::setPhoneNumberAttributedValue()
-     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[]
-     * $phoneNumberAttributedValue
+     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
      */
     public function __construct(array $phoneNumberAttributedValue = array())
     {
@@ -42,8 +41,7 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
     /**
      * Set PhoneNumberAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[]
-     * $phoneNumberAttributedValue
+     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public function setPhoneNumberAttributedValue(array $phoneNumberAttributedValue = array())

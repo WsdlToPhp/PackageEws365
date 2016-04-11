@@ -25,8 +25,7 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfRequestedUnifiedGroupsSetsType
      * @uses EwsArrayOfRequestedUnifiedGroupsSetsType::setRequestedUnifiedGroupsSet()
-     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]
-     * $requestedUnifiedGroupsSet
+     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[] $requestedUnifiedGroupsSet
      */
     public function __construct(array $requestedUnifiedGroupsSet = array())
     {
@@ -44,8 +43,7 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
     /**
      * Set RequestedUnifiedGroupsSet value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[]
-     * $requestedUnifiedGroupsSet
+     * @param \Ews\StructType\EwsRequestedUnifiedGroupsSetType[] $requestedUnifiedGroupsSet
      * @return \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
      */
     public function setRequestedUnifiedGroupsSet(array $requestedUnifiedGroupsSet = array())

@@ -23,8 +23,7 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
     /**
      * Constructor method for UserConfigurationDictionaryType
      * @uses EwsUserConfigurationDictionaryType::setDictionaryEntry()
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
-     * $dictionaryEntry
+     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
      */
     public function __construct(array $dictionaryEntry = array())
     {
@@ -42,8 +41,7 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
     /**
      * Set DictionaryEntry value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
-     * $dictionaryEntry
+     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
      * @return \Ews\StructType\EwsUserConfigurationDictionaryType
      */
     public function setDictionaryEntry(array $dictionaryEntry = array())

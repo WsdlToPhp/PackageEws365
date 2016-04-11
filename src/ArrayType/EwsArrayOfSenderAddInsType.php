@@ -19,8 +19,7 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfSenderAddInsType
      * @uses EwsArrayOfSenderAddInsType::setMicrosoft_OutlookServices_SenderApp()
-     * @param \Ews\StructType\EwsSenderAddInEntityType[]
-     * $microsoft_OutlookServices_SenderApp
+     * @param \Ews\StructType\EwsSenderAddInEntityType[] $microsoft_OutlookServices_SenderApp
      */
     public function __construct(array $microsoft_OutlookServices_SenderApp = array())
     {

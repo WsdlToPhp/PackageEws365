@@ -896,29 +896,24 @@ class EwsPersonaType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $businessPhoneNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $businessPhoneNumbers2
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $assistantPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $organizationMainPhones
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $tTYTDDPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
      * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2
@@ -929,11 +924,9 @@ class EwsPersonaType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
-     * $businessAddresses
+     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
      * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
-     * $otherAddresses
+     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames
@@ -947,8 +940,7 @@ class EwsPersonaType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays
      * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations
-     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
-     * $extendedProperties
+     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
      */
     public function __construct(\Ews\StructType\EwsItemIdType $personaId = null, $personaType = null, $personaObjectStatus = null, $creationTime = null, \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies = null, $displayNameFirstLastSortKey = null, $displayNameLastFirstSortKey = null, $companyNameSortKey = null, $homeCitySortKey = null, $workCitySortKey = null, $displayNameFirstLastHeader = null, $displayNameLastFirstHeader = null, $displayName = null, $displayNameFirstLast = null, $displayNameLastFirst = null, $fileAs = null, $fileAsId = null, $displayNamePrefix = null, $givenName = null, $middleName = null, $surname = null, $generation = null, $nickname = null, $yomiCompanyName = null, $yomiFirstName = null, $yomiLastName = null, $title = null, $department = null, $companyName = null, $location = null, \Ews\StructType\EwsEmailAddressType $emailAddress = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses = null, \Ews\StructType\EwsPersonaPhoneNumberType $phoneNumber = null, $imAddress = null, $homeCity = null, $workCity = null, $relevanceScore = null, $rankingWeight = null, \Ews\ArrayType\EwsArrayOfFolderIdType $folderIds = null, \Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $surnames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $generations = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $initials = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1 = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2 = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3 = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2 = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3 = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $managers = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $professions = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames = null, \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $schools = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations = null, \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null)
     {
@@ -2144,8 +2136,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set BusinessPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $businessPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setBusinessPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null)
@@ -2163,8 +2154,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set BusinessPhoneNumbers2 value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $businessPhoneNumbers2
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setBusinessPhoneNumbers2(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null)
@@ -2254,8 +2244,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set AssistantPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $assistantPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setAssistantPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null)
@@ -2327,8 +2316,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set OrganizationMainPhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $organizationMainPhones
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setOrganizationMainPhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null)
@@ -2454,8 +2442,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set TTYTDDPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     * $tTYTDDPhoneNumbers
+     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setTTYTDDPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null)
@@ -2653,8 +2640,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set BusinessAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
-     * $businessAddresses
+     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setBusinessAddresses(\Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null)
@@ -2690,8 +2676,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set OtherAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
-     * $otherAddresses
+     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setOtherAddresses(\Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null)
@@ -2943,8 +2928,7 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Set ExtendedProperties value
-     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
-     * $extendedProperties
+     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
      * @return \Ews\StructType\EwsPersonaType
      */
     public function setExtendedProperties(\Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null)

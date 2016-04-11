@@ -22,11 +22,8 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
     public $ExtendedPropertyAttributedValue;
     /**
      * Constructor method for ArrayOfExtendedPropertyAttributedValueType
-     * @uses
-     * EwsArrayOfExtendedPropertyAttributedValueType::setExtendedPropertyAttributedValu
-     * e()
-     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[]
-     * $extendedPropertyAttributedValue
+     * @uses EwsArrayOfExtendedPropertyAttributedValueType::setExtendedPropertyAttributedValue()
+     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[] $extendedPropertyAttributedValue
      */
     public function __construct(array $extendedPropertyAttributedValue = array())
     {
@@ -44,8 +41,7 @@ class EwsArrayOfExtendedPropertyAttributedValueType extends AbstractStructArrayB
     /**
      * Set ExtendedPropertyAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[]
-     * $extendedPropertyAttributedValue
+     * @param \Ews\StructType\EwsExtendedPropertyAttributedValueType[] $extendedPropertyAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
      */
     public function setExtendedPropertyAttributedValue(array $extendedPropertyAttributedValue = array())

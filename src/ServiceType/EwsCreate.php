@@ -215,9 +215,7 @@ class EwsCreate extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsCreateAttachmentResponseType|\Ews\StructType\EwsCreateFolderPathResponseType|\Ews\StructType\EwsCreateFolderResponseType|\Ews\StructType\EwsCreateItemResponseType|\Ews\StructType\EwsCreateManagedFolderResponseType|\Ews\StructType\E
-     * wsCreateUserConfigurationResponseType
+     * @return \Ews\StructType\EwsCreateAttachmentResponseType|\Ews\StructType\EwsCreateFolderPathResponseType|\Ews\StructType\EwsCreateFolderResponseType|\Ews\StructType\EwsCreateItemResponseType|\Ews\StructType\EwsCreateManagedFolderResponseType|\Ews\StructType\EwsCreateUserConfigurationResponseType
      */
     public function getResult()
     {

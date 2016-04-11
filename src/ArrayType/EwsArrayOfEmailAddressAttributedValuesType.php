@@ -22,10 +22,8 @@ class EwsArrayOfEmailAddressAttributedValuesType extends AbstractStructArrayBase
     public $EmailAddressAttributedValue;
     /**
      * Constructor method for ArrayOfEmailAddressAttributedValuesType
-     * @uses
-     * EwsArrayOfEmailAddressAttributedValuesType::setEmailAddressAttributedValue()
-     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[]
-     * $emailAddressAttributedValue
+     * @uses EwsArrayOfEmailAddressAttributedValuesType::setEmailAddressAttributedValue()
+     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[] $emailAddressAttributedValue
      */
     public function __construct(array $emailAddressAttributedValue = array())
     {
@@ -43,8 +41,7 @@ class EwsArrayOfEmailAddressAttributedValuesType extends AbstractStructArrayBase
     /**
      * Set EmailAddressAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[]
-     * $emailAddressAttributedValue
+     * @param \Ews\StructType\EwsEmailAddressAttributedValueType[] $emailAddressAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
      */
     public function setEmailAddressAttributedValue(array $emailAddressAttributedValue = array())

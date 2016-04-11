@@ -136,8 +136,7 @@ class EwsRuleActionsType extends AbstractStructBase
      * @param \Ews\ArrayType\EwsArrayOfStringsType $assignCategories
      * @param \Ews\StructType\EwsTargetFolderIdType $copyToFolder
      * @param bool $delete
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType
-     * $forwardAsAttachmentToRecipients
+     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
      * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
      * @param string $markImportance
      * @param bool $markAsRead
@@ -229,8 +228,7 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Set ForwardAsAttachmentToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType
-     * $forwardAsAttachmentToRecipients
+     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
      * @return \Ews\StructType\EwsRuleActionsType
      */
     public function setForwardAsAttachmentToRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null)

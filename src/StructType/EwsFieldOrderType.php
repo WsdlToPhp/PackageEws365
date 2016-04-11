@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FieldOrderType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:Path
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -23,6 +21,8 @@ class EwsFieldOrderType extends AbstractStructBase
     public $Order;
     /**
      * The Path
+     * Meta informations extracted from the WSDL
+     * - ref: t:Path
      * @var \Ews\StructType\EwsBasePathToElementType
      */
     public $Path;

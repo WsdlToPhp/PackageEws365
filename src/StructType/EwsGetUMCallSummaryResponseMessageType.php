@@ -22,8 +22,7 @@ class EwsGetUMCallSummaryResponseMessageType extends EwsResponseMessageType
     /**
      * Constructor method for GetUMCallSummaryResponseMessageType
      * @uses EwsGetUMCallSummaryResponseMessageType::setUMReportRawCountersCollection()
-     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
-     * $uMReportRawCountersCollection
+     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null)
     {
@@ -40,8 +39,7 @@ class EwsGetUMCallSummaryResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set UMReportRawCountersCollection value
-     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
-     * $uMReportRawCountersCollection
+     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
      * @return \Ews\StructType\EwsGetUMCallSummaryResponseMessageType
      */
     public function setUMReportRawCountersCollection(\Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null)

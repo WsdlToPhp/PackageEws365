@@ -130,8 +130,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      * @param string $sensitivity
      * @param \Ews\StructType\EwsBodyType $body
      * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
-     * $internetMessageHeaders
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
      * @param \Ews\StructType\EwsSingleRecipientType $sender
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients
@@ -253,8 +252,7 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
     }
     /**
      * Set InternetMessageHeaders value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
-     * $internetMessageHeaders
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
      * @return \Ews\StructType\EwsWellKnownResponseObjectType
      */
     public function setInternetMessageHeaders(\Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null)

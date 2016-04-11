@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateUnifiedGroupResponseMessageType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:ErrorCode
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,11 +14,15 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The GroupIdentity
+     * Meta informations extracted from the WSDL
+     * - ref: t:GroupIdentity
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
      */
     public $GroupIdentity;
     /**
      * The ErrorCode
+     * Meta informations extracted from the WSDL
+     * - ref: t:ErrorCode
      * @var string
      */
     public $ErrorCode;

@@ -249,7 +249,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public function setServer($server = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(server) && strlen(server) < 1) || (is_array(server) && count(server) < 1)) {
+        if ((is_scalar($server) && strlen($server) < 1) || (is_array($server) && count($server) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -333,7 +333,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public function setUniquePathId($uniquePathId = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(uniquePathId) && strlen(uniquePathId) < 1) || (is_array(uniquePathId) && count(uniquePathId) < 1)) {
+        if ((is_scalar($uniquePathId) && strlen($uniquePathId) < 1) || (is_array($uniquePathId) && count($uniquePathId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -359,7 +359,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public function setRootAddress($rootAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(rootAddress) && strlen(rootAddress) < 1) || (is_array(rootAddress) && count(rootAddress) < 1)) {
+        if ((is_scalar($rootAddress) && strlen($rootAddress) < 1) || (is_array($rootAddress) && count($rootAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

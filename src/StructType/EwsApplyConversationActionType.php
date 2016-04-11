@@ -20,8 +20,7 @@ class EwsApplyConversationActionType extends EwsBaseRequestType
     /**
      * Constructor method for ApplyConversationActionType
      * @uses EwsApplyConversationActionType::setConversationActions()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
-     * $conversationActions
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null)
     {
@@ -38,8 +37,7 @@ class EwsApplyConversationActionType extends EwsBaseRequestType
     }
     /**
      * Set ConversationActions value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
-     * $conversationActions
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
      * @return \Ews\StructType\EwsApplyConversationActionType
      */
     public function setConversationActions(\Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null)

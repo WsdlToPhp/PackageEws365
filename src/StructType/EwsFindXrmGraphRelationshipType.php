@@ -59,8 +59,8 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
     public function setLinkedEntityId($linkedEntityId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($linkedEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $linkedEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($linkedEntityId)), __LINE__);
+        if (is_scalar($linkedEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $linkedEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($linkedEntityId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($linkedEntityId) && !is_string($linkedEntityId)) {

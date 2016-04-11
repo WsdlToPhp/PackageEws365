@@ -7,8 +7,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SetUnifiedGroupMembershipStateResponseMessageType
  * StructType
- * Meta informations extracted from the WSDL
- * - ref: t:GroupActionResultType
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -17,6 +15,8 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
 {
     /**
      * The GroupActionResultType
+     * Meta informations extracted from the WSDL
+     * - ref: t:GroupActionResultType
      * @var string
      */
     public $GroupActionResultType;
@@ -38,8 +38,7 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
     public $FailedMembers;
     /**
      * Constructor method for SetUnifiedGroupMembershipStateResponseMessageType
-     * @uses
-     * EwsSetUnifiedGroupMembershipStateResponseMessageType::setGroupActionResultType()
+     * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setGroupActionResultType()
      * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setInvalidMembers()
      * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setFailedMembers()
      * @param string $groupActionResultType

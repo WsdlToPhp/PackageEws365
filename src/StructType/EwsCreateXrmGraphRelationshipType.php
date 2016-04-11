@@ -94,8 +94,8 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
     public function setFromEntityId($fromEntityId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($fromEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $fromEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($fromEntityId)), __LINE__);
+        if (is_scalar($fromEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $fromEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($fromEntityId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($fromEntityId) && !is_string($fromEntityId)) {
@@ -145,8 +145,8 @@ class EwsCreateXrmGraphRelationshipType extends EwsBaseRequestType
     public function setToEntityId($toEntityId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($toEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $toEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($toEntityId)), __LINE__);
+        if (is_scalar($toEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $toEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($toEntityId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($toEntityId) && !is_string($toEntityId)) {

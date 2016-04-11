@@ -22,10 +22,8 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
     public $PostalAddressAttributedValue;
     /**
      * Constructor method for ArrayOfPostalAddressAttributedValuesType
-     * @uses
-     * EwsArrayOfPostalAddressAttributedValuesType::setPostalAddressAttributedValue()
-     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[]
-     * $postalAddressAttributedValue
+     * @uses EwsArrayOfPostalAddressAttributedValuesType::setPostalAddressAttributedValue()
+     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
      */
     public function __construct(array $postalAddressAttributedValue = array())
     {
@@ -43,8 +41,7 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
     /**
      * Set PostalAddressAttributedValue value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[]
-     * $postalAddressAttributedValue
+     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
      * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
      */
     public function setPostalAddressAttributedValue(array $postalAddressAttributedValue = array())

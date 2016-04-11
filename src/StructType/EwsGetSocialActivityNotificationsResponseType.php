@@ -23,8 +23,7 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
     /**
      * Constructor method for GetSocialActivityNotificationsResponseType
      * @uses EwsGetSocialActivityNotificationsResponseType::setAggregatedNotification()
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
-     * $aggregatedNotification
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[] $aggregatedNotification
      */
     public function __construct(array $aggregatedNotification = array())
     {
@@ -42,8 +41,7 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
     /**
      * Set AggregatedNotification value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
-     * $aggregatedNotification
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[] $aggregatedNotification
      * @return \Ews\StructType\EwsGetSocialActivityNotificationsResponseType
      */
     public function setAggregatedNotification(array $aggregatedNotification = array())

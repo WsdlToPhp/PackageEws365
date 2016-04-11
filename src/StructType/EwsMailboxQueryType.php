@@ -35,8 +35,7 @@ class EwsMailboxQueryType extends AbstractStructBase
      * @uses EwsMailboxQueryType::setQuery()
      * @uses EwsMailboxQueryType::setMailboxSearchScopes()
      * @param string $query
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
-     * $mailboxSearchScopes
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
      */
     public function __construct($query = null, \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes = null)
     {
@@ -76,8 +75,7 @@ class EwsMailboxQueryType extends AbstractStructBase
     }
     /**
      * Set MailboxSearchScopes value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
-     * $mailboxSearchScopes
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
      * @return \Ews\StructType\EwsMailboxQueryType
      */
     public function setMailboxSearchScopes(\Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes = null)

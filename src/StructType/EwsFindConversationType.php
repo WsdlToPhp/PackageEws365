@@ -87,8 +87,7 @@ class EwsFindConversationType extends EwsBaseRequestType
      * @uses EwsFindConversationType::setViewFilter()
      * @param \Ews\StructType\EwsTargetFolderIdType $parentFolderId
      * @param \Ews\StructType\EwsIndexedPageViewType $indexedPageItemView
-     * @param \Ews\StructType\EwsSeekToConditionPageViewType
-     * $seekToConditionPageItemView
+     * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType $sortOrder
      * @param string $mailboxScope
      * @param \Ews\StructType\EwsQueryStringType $queryString
@@ -155,8 +154,7 @@ class EwsFindConversationType extends EwsBaseRequestType
     }
     /**
      * Set SeekToConditionPageItemView value
-     * @param \Ews\StructType\EwsSeekToConditionPageViewType
-     * $seekToConditionPageItemView
+     * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setSeekToConditionPageItemView(\Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView = null)

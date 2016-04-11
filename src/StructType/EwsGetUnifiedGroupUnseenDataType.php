@@ -23,8 +23,7 @@ class EwsGetUnifiedGroupUnseenDataType extends EwsBaseRequestType
     /**
      * Constructor method for GetUnifiedGroupUnseenDataType
      * @uses EwsGetUnifiedGroupUnseenDataType::setGroupIdentities()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
-     * $groupIdentities
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities = null)
     {
@@ -41,8 +40,7 @@ class EwsGetUnifiedGroupUnseenDataType extends EwsBaseRequestType
     }
     /**
      * Set GroupIdentities value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
-     * $groupIdentities
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
      * @return \Ews\StructType\EwsGetUnifiedGroupUnseenDataType
      */
     public function setGroupIdentities(\Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities = null)

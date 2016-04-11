@@ -46,8 +46,8 @@ abstract class EwsChannelSubscriptionBaseType extends AbstractStructBase
     public function setSubscriptionId($subscriptionId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($subscriptionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $subscriptionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($subscriptionId)), __LINE__);
+        if (is_scalar($subscriptionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $subscriptionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($subscriptionId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($subscriptionId) && !is_string($subscriptionId)) {

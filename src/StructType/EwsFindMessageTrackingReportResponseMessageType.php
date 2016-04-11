@@ -50,15 +50,12 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
     /**
      * Constructor method for FindMessageTrackingReportResponseMessageType
      * @uses EwsFindMessageTrackingReportResponseMessageType::setDiagnostics()
-     * @uses
-     * EwsFindMessageTrackingReportResponseMessageType::setMessageTrackingSearchResults
-     * ()
+     * @uses EwsFindMessageTrackingReportResponseMessageType::setMessageTrackingSearchResults()
      * @uses EwsFindMessageTrackingReportResponseMessageType::setExecutedSearchScope()
      * @uses EwsFindMessageTrackingReportResponseMessageType::setErrors()
      * @uses EwsFindMessageTrackingReportResponseMessageType::setProperties()
      * @param \Ews\ArrayType\EwsArrayOfStringsType $diagnostics
-     * @param \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
-     * $messageTrackingSearchResults
+     * @param \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType $messageTrackingSearchResults
      * @param string $executedSearchScope
      * @param \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors
      * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
@@ -100,8 +97,7 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
     }
     /**
      * Set MessageTrackingSearchResults value
-     * @param \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
-     * $messageTrackingSearchResults
+     * @param \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType $messageTrackingSearchResults
      * @return \Ews\StructType\EwsFindMessageTrackingReportResponseMessageType
      */
     public function setMessageTrackingSearchResults(\Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType $messageTrackingSearchResults = null)

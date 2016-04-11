@@ -23,11 +23,8 @@ class EwsGetConsumerCalendarSharedInformationResponseMessageType extends EwsResp
     public $ConsumerCalendarSharedInformation;
     /**
      * Constructor method for GetConsumerCalendarSharedInformationResponseMessageType
-     * @uses
-     * EwsGetConsumerCalendarSharedInformationResponseMessageType::setConsumerCalendarS
-     * haredInformation()
-     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation
-     * $consumerCalendarSharedInformation
+     * @uses EwsGetConsumerCalendarSharedInformationResponseMessageType::setConsumerCalendarSharedInformation()
+     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
      */
     public function __construct(\Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation = null)
     {
@@ -44,10 +41,8 @@ class EwsGetConsumerCalendarSharedInformationResponseMessageType extends EwsResp
     }
     /**
      * Set ConsumerCalendarSharedInformation value
-     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation
-     * $consumerCalendarSharedInformation
-     * @return
-     * \Ews\StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
+     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
+     * @return \Ews\StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
      */
     public function setConsumerCalendarSharedInformation(\Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation = null)
     {
@@ -60,8 +55,7 @@ class EwsGetConsumerCalendarSharedInformationResponseMessageType extends EwsResp
      * @see AbstractStructBase::__set_state()
      * @uses AbstractStructBase::__set_state()
      * @param array $array the exported values
-     * @return
-     * \Ews\StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
+     * @return \Ews\StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
      */
     public static function __set_state(array $array)
     {

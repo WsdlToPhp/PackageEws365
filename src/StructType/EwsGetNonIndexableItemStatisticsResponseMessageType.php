@@ -25,11 +25,8 @@ class EwsGetNonIndexableItemStatisticsResponseMessageType extends EwsResponseMes
     public $NonIndexableItemStatistics;
     /**
      * Constructor method for GetNonIndexableItemStatisticsResponseMessageType
-     * @uses
-     * EwsGetNonIndexableItemStatisticsResponseMessageType::setNonIndexableItemStatisti
-     * cs()
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
-     * $nonIndexableItemStatistics
+     * @uses EwsGetNonIndexableItemStatisticsResponseMessageType::setNonIndexableItemStatistics()
+     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null)
     {
@@ -46,8 +43,7 @@ class EwsGetNonIndexableItemStatisticsResponseMessageType extends EwsResponseMes
     }
     /**
      * Set NonIndexableItemStatistics value
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
-     * $nonIndexableItemStatistics
+     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
      * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
      */
     public function setNonIndexableItemStatistics(\Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null)

@@ -122,8 +122,7 @@ class EwsMeetingInstanceType extends AbstractStructBase
      * @param string $meadata
      * @param string $tag
      * @param string $parentGoid
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
-     * $participantActivities
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivities
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivities
      */
     public function __construct($id = null, $changeKey = null, $version = null, $joinUrl = null, $dateTimeCreated = null, $dateTimeModified = null, $meadata = null, $tag = null, $parentGoid = null, \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivities = null, \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivities = null)
@@ -349,8 +348,7 @@ class EwsMeetingInstanceType extends AbstractStructBase
     }
     /**
      * Set ParticipantActivities value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
-     * $participantActivities
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivities
      * @return \Ews\StructType\EwsMeetingInstanceType
      */
     public function setParticipantActivities(\Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivities = null)

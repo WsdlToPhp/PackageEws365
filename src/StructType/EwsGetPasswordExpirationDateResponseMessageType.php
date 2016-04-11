@@ -19,8 +19,7 @@ class EwsGetPasswordExpirationDateResponseMessageType extends EwsResponseMessage
     public $PasswordExpirationDate;
     /**
      * Constructor method for GetPasswordExpirationDateResponseMessageType
-     * @uses
-     * EwsGetPasswordExpirationDateResponseMessageType::setPasswordExpirationDate()
+     * @uses EwsGetPasswordExpirationDateResponseMessageType::setPasswordExpirationDate()
      * @param string $passwordExpirationDate
      */
     public function __construct($passwordExpirationDate = null)

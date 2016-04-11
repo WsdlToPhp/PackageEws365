@@ -20,8 +20,7 @@ class EwsArrayOfEncryptedSharedFolderDataType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfEncryptedSharedFolderDataType
      * @uses EwsArrayOfEncryptedSharedFolderDataType::setEncryptedSharedFolderData()
-     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType
-     * $encryptedSharedFolderData
+     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData
      */
     public function __construct(\Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData = null)
     {
@@ -38,8 +37,7 @@ class EwsArrayOfEncryptedSharedFolderDataType extends AbstractStructArrayBase
     }
     /**
      * Set EncryptedSharedFolderData value
-     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType
-     * $encryptedSharedFolderData
+     * @param \Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData
      * @return \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
      */
     public function setEncryptedSharedFolderData(\Ews\StructType\EwsEncryptedSharedFolderDataType $encryptedSharedFolderData = null)

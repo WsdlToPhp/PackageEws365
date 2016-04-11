@@ -48,8 +48,7 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
      * @uses EwsSerializedSecurityContextType::setPrimarySmtpAddress()
      * @param string $userSid
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType $groupSids
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
-     * $restrictedGroupSids
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType $restrictedGroupSids
      * @param string $primarySmtpAddress
      */
     public function __construct($userSid = null, \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType $groupSids = null, \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType $restrictedGroupSids = null, $primarySmtpAddress = null)
@@ -110,8 +109,7 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
     }
     /**
      * Set RestrictedGroupSids value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
-     * $restrictedGroupSids
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType $restrictedGroupSids
      * @return \Ews\StructType\EwsSerializedSecurityContextType
      */
     public function setRestrictedGroupSids(\Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType $restrictedGroupSids = null)

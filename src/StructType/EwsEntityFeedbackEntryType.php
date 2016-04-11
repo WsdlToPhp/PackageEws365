@@ -202,8 +202,8 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public function setClientSessionId($clientSessionId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($clientSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $clientSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($clientSessionId)), __LINE__);
+        if (is_scalar($clientSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $clientSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($clientSessionId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($clientSessionId) && !is_string($clientSessionId)) {

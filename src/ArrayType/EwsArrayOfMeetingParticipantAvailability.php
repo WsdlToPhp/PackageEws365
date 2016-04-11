@@ -21,10 +21,8 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     public $MeetingParticipantAvailability;
     /**
      * Constructor method for ArrayOfMeetingParticipantAvailability
-     * @uses
-     * EwsArrayOfMeetingParticipantAvailability::setMeetingParticipantAvailability()
-     * @param \Ews\StructType\EwsMeetingParticipantAvailability[]
-     * $meetingParticipantAvailability
+     * @uses EwsArrayOfMeetingParticipantAvailability::setMeetingParticipantAvailability()
+     * @param \Ews\StructType\EwsMeetingParticipantAvailability[] $meetingParticipantAvailability
      */
     public function __construct(array $meetingParticipantAvailability = array())
     {
@@ -42,8 +40,7 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     /**
      * Set MeetingParticipantAvailability value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingParticipantAvailability[]
-     * $meetingParticipantAvailability
+     * @param \Ews\StructType\EwsMeetingParticipantAvailability[] $meetingParticipantAvailability
      * @return \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
      */
     public function setMeetingParticipantAvailability(array $meetingParticipantAvailability = array())
