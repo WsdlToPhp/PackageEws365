@@ -228,9 +228,7 @@ class EwsUpdate extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsUpdateDelegateResponseMessageType|\Ews\StructType\EwsUpdateFolderResponseType|\Ews\StructType\EwsUpdateInboxRulesResponseType|\Ews\StructType\EwsUpdateItemInRecoverableItemsResponseType|\Ews\StructType\EwsUpdateItemResponseType|\Ew
-     * s\StructType\EwsUpdateUserConfigurationResponseType
+     * @return \Ews\StructType\EwsUpdateDelegateResponseMessageType|\Ews\StructType\EwsUpdateFolderResponseType|\Ews\StructType\EwsUpdateInboxRulesResponseType|\Ews\StructType\EwsUpdateItemInRecoverableItemsResponseType|\Ews\StructType\EwsUpdateItemResponseType|\Ews\StructType\EwsUpdateUserConfigurationResponseType
      */
     public function getResult()
     {

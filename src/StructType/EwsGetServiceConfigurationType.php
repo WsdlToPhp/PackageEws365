@@ -43,8 +43,7 @@ class EwsGetServiceConfigurationType extends EwsBaseRequestType
      * @uses EwsGetServiceConfigurationType::setConfigurationRequestDetails()
      * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration
      * @param \Ews\StructType\EwsEmailAddressType $actingAs
-     * @param \Ews\StructType\EwsConfigurationRequestDetailsType
-     * $configurationRequestDetails
+     * @param \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration = null, \Ews\StructType\EwsEmailAddressType $actingAs = null, \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null)
     {
@@ -99,8 +98,7 @@ class EwsGetServiceConfigurationType extends EwsBaseRequestType
     }
     /**
      * Set ConfigurationRequestDetails value
-     * @param \Ews\StructType\EwsConfigurationRequestDetailsType
-     * $configurationRequestDetails
+     * @param \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
      * @return \Ews\StructType\EwsGetServiceConfigurationType
      */
     public function setConfigurationRequestDetails(\Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null)

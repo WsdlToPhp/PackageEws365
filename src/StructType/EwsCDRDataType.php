@@ -358,8 +358,8 @@ class EwsCDRDataType extends AbstractStructBase
     public function setGatewayGuid($gatewayGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($gatewayGuid)), __LINE__);
+        if (is_scalar($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($gatewayGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($gatewayGuid) && !is_string($gatewayGuid)) {
@@ -494,8 +494,8 @@ class EwsCDRDataType extends AbstractStructBase
     public function setDialPlanGuid($dialPlanGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($dialPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dialPlanGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dialPlanGuid)), __LINE__);
+        if (is_scalar($dialPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dialPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($dialPlanGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($dialPlanGuid) && !is_string($dialPlanGuid)) {

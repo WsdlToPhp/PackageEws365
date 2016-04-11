@@ -25,8 +25,7 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfNonIndexableItemStatisticsType
      * @uses EwsArrayOfNonIndexableItemStatisticsType::setNonIndexableItemStatistic()
-     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[]
-     * $nonIndexableItemStatistic
+     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[] $nonIndexableItemStatistic
      */
     public function __construct(array $nonIndexableItemStatistic = array())
     {
@@ -44,8 +43,7 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     /**
      * Set NonIndexableItemStatistic value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[]
-     * $nonIndexableItemStatistic
+     * @param \Ews\StructType\EwsNonIndexableItemStatisticType[] $nonIndexableItemStatistic
      * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
      */
     public function setNonIndexableItemStatistic(array $nonIndexableItemStatistic = array())

@@ -135,8 +135,7 @@ class EwsRemove extends SoapClientBase
      * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
      * @param \Ews\StructType\EwsRemoveDistributionGroupFromImListType $request
-     * @return
-     * \Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|bool
+     * @return \Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|bool
      */
     public function RemoveDistributionGroupFromImList(\Ews\StructType\EwsRemoveDistributionGroupFromImListType $request)
     {
@@ -175,9 +174,7 @@ class EwsRemove extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsRemoveContactFromImListResponseMessageType|\Ews\StructType\EwsRemoveDelegateResponseMessageType|\Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|\Ews\StructType\EwsRemoveImContactFromGroupResponseMessageType|
-     * \Ews\StructType\EwsRemoveImGroupResponseMessageType
+     * @return \Ews\StructType\EwsRemoveContactFromImListResponseMessageType|\Ews\StructType\EwsRemoveDelegateResponseMessageType|\Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|\Ews\StructType\EwsRemoveImContactFromGroupResponseMessageType|\Ews\StructType\EwsRemoveImGroupResponseMessageType
      */
     public function getResult()
     {

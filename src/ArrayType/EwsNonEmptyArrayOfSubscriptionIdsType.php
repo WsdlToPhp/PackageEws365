@@ -48,7 +48,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     public function setSubscriptionId(array $subscriptionId = array())
     {
         // validation for constraint: minLength
-        if ((is_scalar(subscriptionId) && strlen(subscriptionId) < 1) || (is_array(subscriptionId) && count(subscriptionId) < 1)) {
+        if ((is_scalar($subscriptionId) && strlen($subscriptionId) < 1) || (is_array($subscriptionId) && count($subscriptionId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         foreach ($subscriptionId as $nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) {
@@ -69,7 +69,7 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     public function addToSubscriptionId($item)
     {
         // validation for constraint: minLength
-        if ((is_scalar(item) && strlen(item) < 1) || (is_array(item) && count(item) < 1)) {
+        if ((is_scalar($item) && strlen($item) < 1) || (is_array($item) && count($item) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: itemType

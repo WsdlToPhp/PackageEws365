@@ -21,8 +21,7 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
     public $RestrictedGroupIdentifier;
     /**
      * Constructor method for NonEmptyArrayOfRestrictedGroupIdentifiersType
-     * @uses
-     * EwsNonEmptyArrayOfRestrictedGroupIdentifiersType::setRestrictedGroupIdentifier()
+     * @uses EwsNonEmptyArrayOfRestrictedGroupIdentifiersType::setRestrictedGroupIdentifier()
      * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
      */
     public function __construct(array $restrictedGroupIdentifier = array())

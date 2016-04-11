@@ -23,8 +23,7 @@ class EwsArrayOfAggregatedSocialNotifications extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfAggregatedSocialNotifications
      * @uses EwsArrayOfAggregatedSocialNotifications::setAggregatedNotification()
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
-     * $aggregatedNotification
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[] $aggregatedNotification
      */
     public function __construct(array $aggregatedNotification = array())
     {
@@ -42,8 +41,7 @@ class EwsArrayOfAggregatedSocialNotifications extends AbstractStructArrayBase
     /**
      * Set AggregatedNotification value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
-     * $aggregatedNotification
+     * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[] $aggregatedNotification
      * @return \Ews\ArrayType\EwsArrayOfAggregatedSocialNotifications
      */
     public function setAggregatedNotification(array $aggregatedNotification = array())

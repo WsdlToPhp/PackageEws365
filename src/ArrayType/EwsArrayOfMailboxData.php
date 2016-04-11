@@ -58,7 +58,7 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
                 throw new \InvalidArgumentException(sprintf('The MailboxData property can only contain items of \Ews\StructType\EwsMailboxData, "%s" given', is_object($arrayOfMailboxDataMailboxDataItem) ? get_class($arrayOfMailboxDataMailboxDataItem) : gettype($arrayOfMailboxDataMailboxDataItem)), __LINE__);
             }
         }
-        if (is_null($mailboxData)) {
+        if (is_null($mailboxData) || (is_array($mailboxData) && empty($mailboxData))) {
             unset($this->MailboxData);
         } else {
             $this->MailboxData = $mailboxData;

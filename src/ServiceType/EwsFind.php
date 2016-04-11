@@ -264,9 +264,7 @@ class EwsFind extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsFindAvailableMeetingTimesResponseMessageType|\Ews\StructType\EwsFindConversationResponseMessageType|\Ews\StructType\EwsFindFolderResponseType|\Ews\StructType\EwsFindItemResponseType|\Ews\StructType\EwsFindMeetingTimeCandidatesRespo
-     * nseMessageType|\Ews\StructType\EwsFindMessageTrackingReportResponseMessageType|\Ews\StructType\EwsFindPeopleResponseMessageType
+     * @return \Ews\StructType\EwsFindAvailableMeetingTimesResponseMessageType|\Ews\StructType\EwsFindConversationResponseMessageType|\Ews\StructType\EwsFindFolderResponseType|\Ews\StructType\EwsFindItemResponseType|\Ews\StructType\EwsFindMeetingTimeCandidatesResponseMessageType|\Ews\StructType\EwsFindMessageTrackingReportResponseMessageType|\Ews\StructType\EwsFindPeopleResponseMessageType
      */
     public function getResult()
     {

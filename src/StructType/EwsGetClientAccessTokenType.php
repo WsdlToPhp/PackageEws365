@@ -23,8 +23,7 @@ class EwsGetClientAccessTokenType extends EwsBaseRequestType
     /**
      * Constructor method for GetClientAccessTokenType
      * @uses EwsGetClientAccessTokenType::setTokenRequests()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
-     * $tokenRequests
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests = null)
     {
@@ -41,8 +40,7 @@ class EwsGetClientAccessTokenType extends EwsBaseRequestType
     }
     /**
      * Set TokenRequests value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
-     * $tokenRequests
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
      * @return \Ews\StructType\EwsGetClientAccessTokenType
      */
     public function setTokenRequests(\Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests = null)

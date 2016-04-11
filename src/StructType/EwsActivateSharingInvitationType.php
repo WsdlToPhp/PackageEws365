@@ -46,7 +46,7 @@ class EwsActivateSharingInvitationType extends EwsBaseSharingInvitationRequestTy
     public function setEmailAddressInInvitation($emailAddressInInvitation = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(emailAddressInInvitation) && strlen(emailAddressInInvitation) < 1) || (is_array(emailAddressInInvitation) && count(emailAddressInInvitation) < 1)) {
+        if ((is_scalar($emailAddressInInvitation) && strlen($emailAddressInInvitation) < 1) || (is_array($emailAddressInInvitation) && count($emailAddressInInvitation) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

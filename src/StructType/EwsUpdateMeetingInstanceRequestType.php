@@ -52,10 +52,8 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
      * @uses EwsUpdateMeetingInstanceRequestType::setParticipantActivitiesToAdd()
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsMeetingInstanceType $meetingInstance
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
-     * $contentActivitiesToAdd
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
-     * $participantActivitiesToAdd
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsMeetingInstanceType $meetingInstance = null, \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null, \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null)
     {
@@ -111,8 +109,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     }
     /**
      * Set ContentActivitiesToAdd value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
-     * $contentActivitiesToAdd
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
      * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
      */
     public function setContentActivitiesToAdd(\Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null)
@@ -130,8 +127,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     }
     /**
      * Set ParticipantActivitiesToAdd value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
-     * $participantActivitiesToAdd
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
      * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
      */
     public function setParticipantActivitiesToAdd(\Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null)

@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NotType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:SearchExpression
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ class EwsNotType extends EwsSearchExpressionType
 {
     /**
      * The SearchExpression
+     * Meta informations extracted from the WSDL
+     * - ref: t:SearchExpression
      * @var \Ews\StructType\EwsSearchExpressionType
      */
     public $SearchExpression;

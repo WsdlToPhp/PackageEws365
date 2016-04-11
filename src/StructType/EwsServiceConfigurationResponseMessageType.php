@@ -47,19 +47,13 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     /**
      * Constructor method for ServiceConfigurationResponseMessageType
      * @uses EwsServiceConfigurationResponseMessageType::setMailTipsConfiguration()
-     * @uses
-     * EwsServiceConfigurationResponseMessageType::setUnifiedMessagingConfiguration()
-     * @uses
-     * EwsServiceConfigurationResponseMessageType::setProtectionRulesConfiguration()
-     * @uses
-     * EwsServiceConfigurationResponseMessageType::setPolicyNudgeRulesConfiguration()
+     * @uses EwsServiceConfigurationResponseMessageType::setUnifiedMessagingConfiguration()
+     * @uses EwsServiceConfigurationResponseMessageType::setProtectionRulesConfiguration()
+     * @uses EwsServiceConfigurationResponseMessageType::setPolicyNudgeRulesConfiguration()
      * @param \Ews\StructType\EwsMailTipsServiceConfiguration $mailTipsConfiguration
-     * @param \Ews\StructType\EwsUnifiedMessageServiceConfiguration
-     * $unifiedMessagingConfiguration
-     * @param \Ews\StructType\EwsProtectionRulesServiceConfiguration
-     * $protectionRulesConfiguration
-     * @param \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration
-     * $policyNudgeRulesConfiguration
+     * @param \Ews\StructType\EwsUnifiedMessageServiceConfiguration $unifiedMessagingConfiguration
+     * @param \Ews\StructType\EwsProtectionRulesServiceConfiguration $protectionRulesConfiguration
+     * @param \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration $policyNudgeRulesConfiguration
      */
     public function __construct(\Ews\StructType\EwsMailTipsServiceConfiguration $mailTipsConfiguration = null, \Ews\StructType\EwsUnifiedMessageServiceConfiguration $unifiedMessagingConfiguration = null, \Ews\StructType\EwsProtectionRulesServiceConfiguration $protectionRulesConfiguration = null, \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration $policyNudgeRulesConfiguration = null)
     {
@@ -97,8 +91,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set UnifiedMessagingConfiguration value
-     * @param \Ews\StructType\EwsUnifiedMessageServiceConfiguration
-     * $unifiedMessagingConfiguration
+     * @param \Ews\StructType\EwsUnifiedMessageServiceConfiguration $unifiedMessagingConfiguration
      * @return \Ews\StructType\EwsServiceConfigurationResponseMessageType
      */
     public function setUnifiedMessagingConfiguration(\Ews\StructType\EwsUnifiedMessageServiceConfiguration $unifiedMessagingConfiguration = null)
@@ -116,8 +109,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set ProtectionRulesConfiguration value
-     * @param \Ews\StructType\EwsProtectionRulesServiceConfiguration
-     * $protectionRulesConfiguration
+     * @param \Ews\StructType\EwsProtectionRulesServiceConfiguration $protectionRulesConfiguration
      * @return \Ews\StructType\EwsServiceConfigurationResponseMessageType
      */
     public function setProtectionRulesConfiguration(\Ews\StructType\EwsProtectionRulesServiceConfiguration $protectionRulesConfiguration = null)
@@ -135,8 +127,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set PolicyNudgeRulesConfiguration value
-     * @param \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration
-     * $policyNudgeRulesConfiguration
+     * @param \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration $policyNudgeRulesConfiguration
      * @return \Ews\StructType\EwsServiceConfigurationResponseMessageType
      */
     public function setPolicyNudgeRulesConfiguration(\Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration $policyNudgeRulesConfiguration = null)

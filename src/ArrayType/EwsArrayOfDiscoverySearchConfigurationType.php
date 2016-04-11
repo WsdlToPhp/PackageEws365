@@ -24,10 +24,8 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
     public $DiscoverySearchConfiguration;
     /**
      * Constructor method for ArrayOfDiscoverySearchConfigurationType
-     * @uses
-     * EwsArrayOfDiscoverySearchConfigurationType::setDiscoverySearchConfiguration()
-     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[]
-     * $discoverySearchConfiguration
+     * @uses EwsArrayOfDiscoverySearchConfigurationType::setDiscoverySearchConfiguration()
+     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[] $discoverySearchConfiguration
      */
     public function __construct(array $discoverySearchConfiguration = array())
     {
@@ -45,8 +43,7 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
     /**
      * Set DiscoverySearchConfiguration value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[]
-     * $discoverySearchConfiguration
+     * @param \Ews\StructType\EwsDiscoverySearchConfigurationType[] $discoverySearchConfiguration
      * @return \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
      */
     public function setDiscoverySearchConfiguration(array $discoverySearchConfiguration = array())

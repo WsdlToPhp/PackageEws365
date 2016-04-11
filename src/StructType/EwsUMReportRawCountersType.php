@@ -123,8 +123,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
      * @param int $voiceMailCalls
      * @param int $totalCalls
      * @param string $date
-     * @param \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
-     * $audioMetricsAverages
+     * @param \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType $audioMetricsAverages
      */
     public function __construct($autoAttendantCalls = null, $failedCalls = null, $faxCalls = null, $missedCalls = null, $otherCalls = null, $outboundCalls = null, $subscriberAccessCalls = null, $voiceMailCalls = null, $totalCalls = null, $date = null, \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType $audioMetricsAverages = null)
     {
@@ -371,8 +370,7 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     }
     /**
      * Set AudioMetricsAverages value
-     * @param \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
-     * $audioMetricsAverages
+     * @param \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType $audioMetricsAverages
      * @return \Ews\StructType\EwsUMReportRawCountersType
      */
     public function setAudioMetricsAverages(\Ews\StructType\EwsUMReportAudioMetricsAverageCountersType $audioMetricsAverages = null)

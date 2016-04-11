@@ -68,7 +68,7 @@ class EwsGetSharingFolderType extends EwsBaseRequestType
     public function setSmtpAddress($smtpAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+        if ((is_scalar($smtpAddress) && strlen($smtpAddress) < 1) || (is_array($smtpAddress) && count($smtpAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -119,7 +119,7 @@ class EwsGetSharingFolderType extends EwsBaseRequestType
     public function setSharedFolderId($sharedFolderId = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(sharedFolderId) && strlen(sharedFolderId) < 1) || (is_array(sharedFolderId) && count(sharedFolderId) < 1)) {
+        if ((is_scalar($sharedFolderId) && strlen($sharedFolderId) < 1) || (is_array($sharedFolderId) && count($sharedFolderId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

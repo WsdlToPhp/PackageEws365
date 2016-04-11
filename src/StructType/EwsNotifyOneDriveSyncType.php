@@ -72,8 +72,8 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
     public function setUserID($userID = null)
     {
         // validation for constraint: pattern
-        if (!is_null($userID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($userID)), __LINE__);
+        if (is_scalar($userID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($userID, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($userID) && !is_string($userID)) {
@@ -98,8 +98,8 @@ class EwsNotifyOneDriveSyncType extends EwsBaseRequestType
     public function setTenantID($tenantID = null)
     {
         // validation for constraint: pattern
-        if (!is_null($tenantID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tenantID)), __LINE__);
+        if (is_scalar($tenantID) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($tenantID, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($tenantID) && !is_string($tenantID)) {

@@ -413,8 +413,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @uses EwsArrayOfResponseMessagesType::setDeleteItemResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetItemResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setUpdateItemResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setUpdateItemInRecoverableItemsResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setUpdateItemInRecoverableItemsResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setSendItemResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setDeleteFolderResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setEmptyFolderResponseMessage()
@@ -435,10 +434,8 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @uses EwsArrayOfResponseMessagesType::setGetAppManifestsResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetClientExtensionResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setSetClientExtensionResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetEncryptionConfigurationResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setSetEncryptionConfigurationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setGetEncryptionConfigurationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setSetEncryptionConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetOMEConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setSetOMEConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setFindItemResponseMessage()
@@ -463,184 +460,113 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @uses EwsArrayOfResponseMessagesType::setGetSharingMetadataResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setRefreshSharingFolderResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetSharingFolderResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setCreateUserConfigurationResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setDeleteUserConfigurationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setCreateUserConfigurationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setDeleteUserConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetUserConfigurationResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setUpdateUserConfigurationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setUpdateUserConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetRoomListsResponse()
      * @uses EwsArrayOfResponseMessagesType::setGetRoomsResponse()
      * @uses EwsArrayOfResponseMessagesType::setGetRemindersResponse()
      * @uses EwsArrayOfResponseMessagesType::setPerformReminderActionResponse()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setApplyConversationActionResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setFindMailboxStatisticsByKeywordsResponseMessag
-     * e()
+     * @uses EwsArrayOfResponseMessagesType::setApplyConversationActionResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setFindMailboxStatisticsByKeywordsResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetSearchableMailboxesResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setSearchMailboxesResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetDiscoverySearchConfigurationResponseMessag
-     * e()
+     * @uses EwsArrayOfResponseMessagesType::setGetDiscoverySearchConfigurationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetHoldOnMailboxesResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setSetHoldOnMailboxesResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetNonIndexableItemStatisticsResponseMessage(
-     * )
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetNonIndexableItemDetailsResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setGetNonIndexableItemStatisticsResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setGetNonIndexableItemDetailsResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setFindPeopleResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetPasswordExpirationDateResponse()
      * @uses EwsArrayOfResponseMessagesType::setGetPersonaResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetConversationItemsResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetUserRetentionPolicyTagsResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setGetUserRetentionPolicyTagsResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetUserPhotoResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setMarkAsJunkResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setUpdateMailboxAssociationResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setUpdateMailboxAssociationResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setUpdateGroupMailboxResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setPostModernGroupItemResponseMessage()
-     * @uses
-     * EwsArrayOfResponseMessagesType::setGetUnifiedGroupUnseenDataResponseMessage()
+     * @uses EwsArrayOfResponseMessagesType::setGetUnifiedGroupUnseenDataResponseMessage()
      * @param \Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage
-     * @param \Ews\StructType\EwsDeleteItemResponseMessageType
-     * $deleteItemResponseMessage
+     * @param \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
      * @param \Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage
-     * @param \Ews\StructType\EwsUpdateItemResponseMessageType
-     * $updateItemResponseMessage
-     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
-     * $updateItemInRecoverableItemsResponseMessage
+     * @param \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
+     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $sendItemResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $getFolderResponseMessage
-     * @param \Ews\StructType\EwsFindFolderResponseMessageType
-     * $findFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $updateFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $moveFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $copyFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createFolderPathResponseMessage
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType
-     * $createAttachmentResponseMessage
-     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType
-     * $deleteAttachmentResponseMessage
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType
-     * $getAttachmentResponseMessage
-     * @param \Ews\StructType\EwsUploadItemsResponseMessageType
-     * $uploadItemsResponseMessage
-     * @param \Ews\StructType\EwsExportItemsResponseMessageType
-     * $exportItemsResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
+     * @param \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
+     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
+     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
+     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
+     * @param \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
+     * @param \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage
-     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType
-     * $getClientAccessTokenResponseMessage
+     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $getEncryptionConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $setEncryptionConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $getOMEConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $setOMEConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
      * @param \Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage
      * @param \Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType
-     * $archiveItemResponseMessage
+     * @param \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
      * @param \Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage
-     * @param \Ews\StructType\EwsResolveNamesResponseMessageType
-     * $resolveNamesResponseMessage
+     * @param \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
      * @param \Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage
-     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType
-     * $getServerTimeZonesResponseMessage
+     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
      * @param \Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage
-     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType
-     * $getStreamingEventsResponseMessage
+     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
      * @param \Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage
-     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType
-     * $getChannelEventsResponseMessage
-     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType
-     * $channelSubscribeResponseMessage
+     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
+     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage
-     * @param \Ews\StructType\EwsSendNotificationResponseMessageType
-     * $sendNotificationResponseMessage
-     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType
-     * $syncFolderHierarchyResponseMessage
-     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType
-     * $syncFolderItemsResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createManagedFolderResponseMessage
+     * @param \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
+     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
+     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
      * @param \Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage
-     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType
-     * $getSharingMetadataResponseMessage
-     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType
-     * $refreshSharingFolderResponseMessage
-     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType
-     * $getSharingFolderResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $createUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $deleteUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType
-     * $getUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $updateUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
+     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
+     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
      * @param \Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse
      * @param \Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse
      * @param \Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse
-     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType
-     * $performReminderActionResponse
-     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType
-     * $applyConversationActionResponseMessage
-     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
-     * $findMailboxStatisticsByKeywordsResponseMessage
-     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
-     * $getSearchableMailboxesResponseMessage
-     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType
-     * $searchMailboxesResponseMessage
-     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
-     * $getDiscoverySearchConfigurationResponseMessage
-     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType
-     * $getHoldOnMailboxesResponseMessage
-     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType
-     * $setHoldOnMailboxesResponseMessage
-     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
-     * $getNonIndexableItemStatisticsResponseMessage
-     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
-     * $getNonIndexableItemDetailsResponseMessage
-     * @param \Ews\StructType\EwsFindPeopleResponseMessageType
-     * $findPeopleResponseMessage
-     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType
-     * $getPasswordExpirationDateResponse
-     * @param \Ews\StructType\EwsGetPersonaResponseMessageType
-     * $getPersonaResponseMessage
-     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType
-     * $getConversationItemsResponseMessage
-     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
-     * $getUserRetentionPolicyTagsResponseMessage
-     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType
-     * $getUserPhotoResponseMessage
-     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType
-     * $markAsJunkResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $updateMailboxAssociationResponseMessage
+     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
+     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
+     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
+     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
+     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
+     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
+     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
+     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
+     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
+     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
+     * @param \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
+     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
+     * @param \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
+     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
+     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
+     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
+     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
      * @param \Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $postModernGroupItemResponseMessage
-     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
-     * $getUnifiedGroupUnseenDataResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
+     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
      */
     public function __construct(\Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage = null, \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage = null, \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null, \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $sendItemResponseMessage = null, \Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage = null, \Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null, \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null, \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null, \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null, \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null, \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null, \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage = null, \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null, \Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage = null, \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null, \Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage = null, \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null, \Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage = null, \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null, \Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage = null, \Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage = null, \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null, \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null, \Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage = null, \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null, \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null, \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null, \Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage = null, \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null, \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null, \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null, \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null, \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null, \Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse = null, \Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse = null, \Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse = null, \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null, \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null, \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null, \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null, \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null, \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null, \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null, \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null, \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null, \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null, \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null, \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null, \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null, \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null, \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null, \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null, \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage = null, \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null, \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null)
     {
@@ -753,8 +679,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set DeleteItemResponseMessage value
-     * @param \Ews\StructType\EwsDeleteItemResponseMessageType
-     * $deleteItemResponseMessage
+     * @param \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setDeleteItemResponseMessage(\Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null)
@@ -790,8 +715,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UpdateItemResponseMessage value
-     * @param \Ews\StructType\EwsUpdateItemResponseMessageType
-     * $updateItemResponseMessage
+     * @param \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUpdateItemResponseMessage(\Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null)
@@ -809,8 +733,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UpdateItemInRecoverableItemsResponseMessage value
-     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
-     * $updateItemInRecoverableItemsResponseMessage
+     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUpdateItemInRecoverableItemsResponseMessage(\Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null)
@@ -882,8 +805,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CreateFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCreateFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null)
@@ -901,8 +823,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $getFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null)
@@ -920,8 +841,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set FindFolderResponseMessage value
-     * @param \Ews\StructType\EwsFindFolderResponseMessageType
-     * $findFolderResponseMessage
+     * @param \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setFindFolderResponseMessage(\Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null)
@@ -939,8 +859,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UpdateFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $updateFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUpdateFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null)
@@ -958,8 +877,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set MoveFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $moveFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setMoveFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null)
@@ -977,8 +895,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CopyFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $copyFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCopyFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null)
@@ -996,8 +913,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CreateFolderPathResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createFolderPathResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCreateFolderPathResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null)
@@ -1015,8 +931,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CreateAttachmentResponseMessage value
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType
-     * $createAttachmentResponseMessage
+     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCreateAttachmentResponseMessage(\Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null)
@@ -1034,8 +949,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set DeleteAttachmentResponseMessage value
-     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType
-     * $deleteAttachmentResponseMessage
+     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setDeleteAttachmentResponseMessage(\Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null)
@@ -1053,8 +967,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetAttachmentResponseMessage value
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType
-     * $getAttachmentResponseMessage
+     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetAttachmentResponseMessage(\Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null)
@@ -1072,8 +985,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UploadItemsResponseMessage value
-     * @param \Ews\StructType\EwsUploadItemsResponseMessageType
-     * $uploadItemsResponseMessage
+     * @param \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUploadItemsResponseMessage(\Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null)
@@ -1091,8 +1003,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set ExportItemsResponseMessage value
-     * @param \Ews\StructType\EwsExportItemsResponseMessageType
-     * $exportItemsResponseMessage
+     * @param \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setExportItemsResponseMessage(\Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null)
@@ -1128,8 +1039,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetClientAccessTokenResponseMessage value
-     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType
-     * $getClientAccessTokenResponseMessage
+     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetClientAccessTokenResponseMessage(\Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null)
@@ -1201,8 +1111,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetEncryptionConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $getEncryptionConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetEncryptionConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null)
@@ -1220,8 +1129,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SetEncryptionConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $setEncryptionConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSetEncryptionConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null)
@@ -1239,8 +1147,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetOMEConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $getOMEConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetOMEConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null)
@@ -1258,8 +1165,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SetOMEConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $setOMEConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSetOMEConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null)
@@ -1313,8 +1219,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set ArchiveItemResponseMessage value
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType
-     * $archiveItemResponseMessage
+     * @param \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setArchiveItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null)
@@ -1350,8 +1255,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set ResolveNamesResponseMessage value
-     * @param \Ews\StructType\EwsResolveNamesResponseMessageType
-     * $resolveNamesResponseMessage
+     * @param \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setResolveNamesResponseMessage(\Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null)
@@ -1387,8 +1291,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetServerTimeZonesResponseMessage value
-     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType
-     * $getServerTimeZonesResponseMessage
+     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetServerTimeZonesResponseMessage(\Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null)
@@ -1424,8 +1327,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetStreamingEventsResponseMessage value
-     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType
-     * $getStreamingEventsResponseMessage
+     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetStreamingEventsResponseMessage(\Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null)
@@ -1479,8 +1381,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetChannelEventsResponseMessage value
-     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType
-     * $getChannelEventsResponseMessage
+     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetChannelEventsResponseMessage(\Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null)
@@ -1498,8 +1399,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set ChannelSubscribeResponseMessage value
-     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType
-     * $channelSubscribeResponseMessage
+     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setChannelSubscribeResponseMessage(\Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null)
@@ -1535,8 +1435,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SendNotificationResponseMessage value
-     * @param \Ews\StructType\EwsSendNotificationResponseMessageType
-     * $sendNotificationResponseMessage
+     * @param \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSendNotificationResponseMessage(\Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null)
@@ -1554,8 +1453,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SyncFolderHierarchyResponseMessage value
-     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType
-     * $syncFolderHierarchyResponseMessage
+     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSyncFolderHierarchyResponseMessage(\Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null)
@@ -1573,8 +1471,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SyncFolderItemsResponseMessage value
-     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType
-     * $syncFolderItemsResponseMessage
+     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSyncFolderItemsResponseMessage(\Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null)
@@ -1592,8 +1489,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CreateManagedFolderResponseMessage value
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType
-     * $createManagedFolderResponseMessage
+     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCreateManagedFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null)
@@ -1629,8 +1525,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetSharingMetadataResponseMessage value
-     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType
-     * $getSharingMetadataResponseMessage
+     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetSharingMetadataResponseMessage(\Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null)
@@ -1648,8 +1543,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set RefreshSharingFolderResponseMessage value
-     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType
-     * $refreshSharingFolderResponseMessage
+     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setRefreshSharingFolderResponseMessage(\Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null)
@@ -1667,8 +1561,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetSharingFolderResponseMessage value
-     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType
-     * $getSharingFolderResponseMessage
+     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetSharingFolderResponseMessage(\Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null)
@@ -1686,8 +1579,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set CreateUserConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $createUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setCreateUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null)
@@ -1705,8 +1597,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set DeleteUserConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $deleteUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setDeleteUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null)
@@ -1724,8 +1615,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetUserConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType
-     * $getUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetUserConfigurationResponseMessage(\Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null)
@@ -1743,8 +1633,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UpdateUserConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $updateUserConfigurationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUpdateUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null)
@@ -1816,8 +1705,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set PerformReminderActionResponse value
-     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType
-     * $performReminderActionResponse
+     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setPerformReminderActionResponse(\Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null)
@@ -1835,8 +1723,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set ApplyConversationActionResponseMessage value
-     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType
-     * $applyConversationActionResponseMessage
+     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setApplyConversationActionResponseMessage(\Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null)
@@ -1846,8 +1733,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Get FindMailboxStatisticsByKeywordsResponseMessage value
-     * @return
-     * \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType|null
+     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType|null
      */
     public function getFindMailboxStatisticsByKeywordsResponseMessage()
     {
@@ -1855,8 +1741,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set FindMailboxStatisticsByKeywordsResponseMessage value
-     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
-     * $findMailboxStatisticsByKeywordsResponseMessage
+     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setFindMailboxStatisticsByKeywordsResponseMessage(\Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null)
@@ -1874,8 +1759,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetSearchableMailboxesResponseMessage value
-     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
-     * $getSearchableMailboxesResponseMessage
+     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetSearchableMailboxesResponseMessage(\Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null)
@@ -1893,8 +1777,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SearchMailboxesResponseMessage value
-     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType
-     * $searchMailboxesResponseMessage
+     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSearchMailboxesResponseMessage(\Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null)
@@ -1904,8 +1787,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Get GetDiscoverySearchConfigurationResponseMessage value
-     * @return
-     * \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|null
+     * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|null
      */
     public function getGetDiscoverySearchConfigurationResponseMessage()
     {
@@ -1913,8 +1795,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetDiscoverySearchConfigurationResponseMessage value
-     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
-     * $getDiscoverySearchConfigurationResponseMessage
+     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetDiscoverySearchConfigurationResponseMessage(\Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null)
@@ -1932,8 +1813,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetHoldOnMailboxesResponseMessage value
-     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType
-     * $getHoldOnMailboxesResponseMessage
+     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetHoldOnMailboxesResponseMessage(\Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null)
@@ -1951,8 +1831,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set SetHoldOnMailboxesResponseMessage value
-     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType
-     * $setHoldOnMailboxesResponseMessage
+     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setSetHoldOnMailboxesResponseMessage(\Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null)
@@ -1970,8 +1849,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetNonIndexableItemStatisticsResponseMessage value
-     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
-     * $getNonIndexableItemStatisticsResponseMessage
+     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetNonIndexableItemStatisticsResponseMessage(\Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null)
@@ -1989,8 +1867,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetNonIndexableItemDetailsResponseMessage value
-     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
-     * $getNonIndexableItemDetailsResponseMessage
+     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetNonIndexableItemDetailsResponseMessage(\Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null)
@@ -2008,8 +1885,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set FindPeopleResponseMessage value
-     * @param \Ews\StructType\EwsFindPeopleResponseMessageType
-     * $findPeopleResponseMessage
+     * @param \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setFindPeopleResponseMessage(\Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null)
@@ -2027,8 +1903,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetPasswordExpirationDateResponse value
-     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType
-     * $getPasswordExpirationDateResponse
+     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetPasswordExpirationDateResponse(\Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null)
@@ -2046,8 +1921,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetPersonaResponseMessage value
-     * @param \Ews\StructType\EwsGetPersonaResponseMessageType
-     * $getPersonaResponseMessage
+     * @param \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetPersonaResponseMessage(\Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null)
@@ -2065,8 +1939,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetConversationItemsResponseMessage value
-     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType
-     * $getConversationItemsResponseMessage
+     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetConversationItemsResponseMessage(\Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null)
@@ -2084,8 +1957,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetUserRetentionPolicyTagsResponseMessage value
-     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
-     * $getUserRetentionPolicyTagsResponseMessage
+     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetUserRetentionPolicyTagsResponseMessage(\Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null)
@@ -2103,8 +1975,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetUserPhotoResponseMessage value
-     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType
-     * $getUserPhotoResponseMessage
+     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetUserPhotoResponseMessage(\Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null)
@@ -2122,8 +1993,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set MarkAsJunkResponseMessage value
-     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType
-     * $markAsJunkResponseMessage
+     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setMarkAsJunkResponseMessage(\Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null)
@@ -2141,8 +2011,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set UpdateMailboxAssociationResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $updateMailboxAssociationResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setUpdateMailboxAssociationResponseMessage(\Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null)
@@ -2178,8 +2047,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set PostModernGroupItemResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType
-     * $postModernGroupItemResponseMessage
+     * @param \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setPostModernGroupItemResponseMessage(\Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null)
@@ -2197,8 +2065,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Set GetUnifiedGroupUnseenDataResponseMessage value
-     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
-     * $getUnifiedGroupUnseenDataResponseMessage
+     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
      * @return \Ews\StructType\EwsArrayOfResponseMessagesType
      */
     public function setGetUnifiedGroupUnseenDataResponseMessage(\Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null)

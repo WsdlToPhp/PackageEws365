@@ -7,9 +7,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for GetUserOofSettingsResponse StructType
  * Meta informations extracted from the WSDL
- * - maxOccurs: 1
- * - minOccurs: 0
- * - ref: t:OofSettings
  * - type: tns:GetUserOofSettingsResponse
  * @package Ews
  * @subpackage Structs
@@ -27,6 +24,10 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     public $ResponseMessage;
     /**
      * The OofSettings
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 0
+     * - ref: t:OofSettings
      * @var \Ews\StructType\EwsUserOofSettings
      */
     public $OofSettings;

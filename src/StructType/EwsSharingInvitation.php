@@ -98,7 +98,7 @@ class EwsSharingInvitation extends AbstractStructBase
     public function setId($id = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(id) && strlen(id) < 1) || (is_array(id) && count(id) < 1)) {
+        if ((is_scalar($id) && strlen($id) < 1) || (is_array($id) && count($id) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -142,7 +142,7 @@ class EwsSharingInvitation extends AbstractStructBase
     public function setEmailAddress($emailAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(emailAddress) && strlen(emailAddress) < 1) || (is_array(emailAddress) && count(emailAddress) < 1)) {
+        if ((is_scalar($emailAddress) && strlen($emailAddress) < 1) || (is_array($emailAddress) && count($emailAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -168,7 +168,7 @@ class EwsSharingInvitation extends AbstractStructBase
     public function setDisplayName($displayName = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(displayName) && strlen(displayName) < 1) || (is_array(displayName) && count(displayName) < 1)) {
+        if ((is_scalar($displayName) && strlen($displayName) < 1) || (is_array($displayName) && count($displayName) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

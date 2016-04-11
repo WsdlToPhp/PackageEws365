@@ -19,10 +19,8 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
     public $ArrayOfTrackingPropertiesType;
     /**
      * Constructor method for ArrayOfArraysOfTrackingPropertiesType
-     * @uses
-     * EwsArrayOfArraysOfTrackingPropertiesType::setArrayOfTrackingPropertiesType()
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
-     * $arrayOfTrackingPropertiesType
+     * @uses EwsArrayOfArraysOfTrackingPropertiesType::setArrayOfTrackingPropertiesType()
+     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null)
     {
@@ -39,8 +37,7 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
     }
     /**
      * Set ArrayOfTrackingPropertiesType value
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
-     * $arrayOfTrackingPropertiesType
+     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
      * @return \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
      */
     public function setArrayOfTrackingPropertiesType(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null)

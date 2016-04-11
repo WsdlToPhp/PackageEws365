@@ -211,9 +211,7 @@ class EwsSet extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType|\Ews\StructType\EwsSetImGroupResponseMessageType|\Ews\StructType\EwsSetImListMigrationCompletedResponseMessageType|\Ews\StructType\EwsSetTeamMailboxResponseMessageType|\Ews\StructType\EwsSetUse
-     * rOofSettingsResponse|\Ews\StructType\EwsSetUserPhotoResponseMessageType
+     * @return \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType|\Ews\StructType\EwsSetImGroupResponseMessageType|\Ews\StructType\EwsSetImListMigrationCompletedResponseMessageType|\Ews\StructType\EwsSetTeamMailboxResponseMessageType|\Ews\StructType\EwsSetUserOofSettingsResponse|\Ews\StructType\EwsSetUserPhotoResponseMessageType
      */
     public function getResult()
     {

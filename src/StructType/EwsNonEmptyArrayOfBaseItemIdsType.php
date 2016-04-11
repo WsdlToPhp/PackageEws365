@@ -41,8 +41,7 @@ class EwsNonEmptyArrayOfBaseItemIdsType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId
      * @param \Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId
-     * @param \Ews\StructType\EwsRecurringMasterItemIdRangesType
-     * $recurringMasterItemIdRanges
+     * @param \Ews\StructType\EwsRecurringMasterItemIdRangesType $recurringMasterItemIdRanges
      */
     public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId = null, \Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId = null, \Ews\StructType\EwsRecurringMasterItemIdRangesType $recurringMasterItemIdRanges = null)
     {
@@ -116,8 +115,7 @@ class EwsNonEmptyArrayOfBaseItemIdsType extends AbstractStructBase
     }
     /**
      * Set RecurringMasterItemIdRanges value
-     * @param \Ews\StructType\EwsRecurringMasterItemIdRangesType
-     * $recurringMasterItemIdRanges
+     * @param \Ews\StructType\EwsRecurringMasterItemIdRangesType $recurringMasterItemIdRanges
      * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
     public function setRecurringMasterItemIdRanges(\Ews\StructType\EwsRecurringMasterItemIdRangesType $recurringMasterItemIdRanges = null)

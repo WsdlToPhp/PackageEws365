@@ -32,8 +32,7 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
      * Constructor method for GetUserUnifiedGroupsType
      * @uses EwsGetUserUnifiedGroupsType::setRequestedGroupsSets()
      * @uses EwsGetUserUnifiedGroupsType::setUserSmtpAddress()
-     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
-     * $requestedGroupsSets
+     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
      * @param string $userSmtpAddress
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null, $userSmtpAddress = null)
@@ -52,8 +51,7 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
     }
     /**
      * Set RequestedGroupsSets value
-     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
-     * $requestedGroupsSets
+     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
      * @return \Ews\StructType\EwsGetUserUnifiedGroupsType
      */
     public function setRequestedGroupsSets(\Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null)

@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FieldURIOrConstantType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:Path
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
 {
     /**
      * The Path
+     * Meta informations extracted from the WSDL
+     * - ref: t:Path
      * @var \Ews\StructType\EwsBasePathToElementType
      */
     public $Path;

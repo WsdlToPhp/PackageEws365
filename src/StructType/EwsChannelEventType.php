@@ -76,8 +76,8 @@ abstract class EwsChannelEventType extends AbstractStructBase
     public function setNotificationId($notificationId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($notificationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $notificationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($notificationId)), __LINE__);
+        if (is_scalar($notificationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $notificationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($notificationId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($notificationId) && !is_string($notificationId)) {

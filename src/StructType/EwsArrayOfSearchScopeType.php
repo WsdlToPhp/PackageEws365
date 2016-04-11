@@ -77,15 +77,13 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
      * @uses EwsArrayOfSearchScopeType::setSingleGroupSearchScope()
      * @uses EwsArrayOfSearchScopeType::setOneDriveSearchScope()
      * @uses EwsArrayOfSearchScopeType::setSingleLargeArchiveSearchScope()
-     * @param \Ews\StructType\EwsPrimaryMailboxSearchScopeType
-     * $primaryMailboxSearchScope
+     * @param \Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope
      * @param \Ews\StructType\EwsLargeArchiveSearchScopeType $largeArchiveSearchScope
      * @param \Ews\StructType\EwsGroupSearchScopeType $groupSearchScope
      * @param \Ews\StructType\EwsCustomSearchScopeType[] $customSearchScope
      * @param \Ews\StructType\EwsSingleGroupSearchScopeType $singleGroupSearchScope
      * @param \Ews\StructType\EwsOneDriveSearchScopeType $oneDriveSearchScope
-     * @param \Ews\StructType\EwsSingleLargeArchiveSearchScopeType
-     * $singleLargeArchiveSearchScope
+     * @param \Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope
      */
     public function __construct(\Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope = null, \Ews\StructType\EwsLargeArchiveSearchScopeType $largeArchiveSearchScope = null, \Ews\StructType\EwsGroupSearchScopeType $groupSearchScope = null, array $customSearchScope = array(), \Ews\StructType\EwsSingleGroupSearchScopeType $singleGroupSearchScope = null, \Ews\StructType\EwsOneDriveSearchScopeType $oneDriveSearchScope = null, \Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope = null)
     {
@@ -108,8 +106,7 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
     }
     /**
      * Set PrimaryMailboxSearchScope value
-     * @param \Ews\StructType\EwsPrimaryMailboxSearchScopeType
-     * $primaryMailboxSearchScope
+     * @param \Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope
      * @return \Ews\StructType\EwsArrayOfSearchScopeType
      */
     public function setPrimaryMailboxSearchScope(\Ews\StructType\EwsPrimaryMailboxSearchScopeType $primaryMailboxSearchScope = null)
@@ -239,8 +236,7 @@ class EwsArrayOfSearchScopeType extends AbstractStructBase
     }
     /**
      * Set SingleLargeArchiveSearchScope value
-     * @param \Ews\StructType\EwsSingleLargeArchiveSearchScopeType
-     * $singleLargeArchiveSearchScope
+     * @param \Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope
      * @return \Ews\StructType\EwsArrayOfSearchScopeType
      */
     public function setSingleLargeArchiveSearchScope(\Ews\StructType\EwsSingleLargeArchiveSearchScopeType $singleLargeArchiveSearchScope = null)

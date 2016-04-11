@@ -35,8 +35,7 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
      * @uses EwsMailboxStatisticsSearchResultType::setUserMailbox()
      * @uses EwsMailboxStatisticsSearchResultType::setKeywordStatisticsSearchResult()
      * @param \Ews\StructType\EwsUserMailboxType $userMailbox
-     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType
-     * $keywordStatisticsSearchResult
+     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
      */
     public function __construct(\Ews\StructType\EwsUserMailboxType $userMailbox = null, \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null)
     {
@@ -72,8 +71,7 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
     }
     /**
      * Set KeywordStatisticsSearchResult value
-     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType
-     * $keywordStatisticsSearchResult
+     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
      * @return \Ews\StructType\EwsMailboxStatisticsSearchResultType
      */
     public function setKeywordStatisticsSearchResult(\Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null)

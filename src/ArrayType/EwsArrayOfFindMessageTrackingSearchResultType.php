@@ -19,10 +19,8 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
     public $MessageTrackingSearchResult;
     /**
      * Constructor method for ArrayOfFindMessageTrackingSearchResultType
-     * @uses
-     * EwsArrayOfFindMessageTrackingSearchResultType::setMessageTrackingSearchResult()
-     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType
-     * $messageTrackingSearchResult
+     * @uses EwsArrayOfFindMessageTrackingSearchResultType::setMessageTrackingSearchResult()
+     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
      */
     public function __construct(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
     {
@@ -39,8 +37,7 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
     }
     /**
      * Set MessageTrackingSearchResult value
-     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType
-     * $messageTrackingSearchResult
+     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
      * @return \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
      */
     public function setMessageTrackingSearchResult(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)

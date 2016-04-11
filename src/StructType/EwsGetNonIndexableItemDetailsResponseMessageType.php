@@ -23,11 +23,8 @@ class EwsGetNonIndexableItemDetailsResponseMessageType extends EwsResponseMessag
     public $NonIndexableItemDetailsResult;
     /**
      * Constructor method for GetNonIndexableItemDetailsResponseMessageType
-     * @uses
-     * EwsGetNonIndexableItemDetailsResponseMessageType::setNonIndexableItemDetailsResu
-     * lt()
-     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType
-     * $nonIndexableItemDetailsResult
+     * @uses EwsGetNonIndexableItemDetailsResponseMessageType::setNonIndexableItemDetailsResult()
+     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
      */
     public function __construct(\Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null)
     {
@@ -44,8 +41,7 @@ class EwsGetNonIndexableItemDetailsResponseMessageType extends EwsResponseMessag
     }
     /**
      * Set NonIndexableItemDetailsResult value
-     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType
-     * $nonIndexableItemDetailsResult
+     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
      * @return \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
      */
     public function setNonIndexableItemDetailsResult(\Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null)

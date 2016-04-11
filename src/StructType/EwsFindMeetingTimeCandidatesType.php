@@ -46,10 +46,8 @@ class EwsFindMeetingTimeCandidatesType extends EwsBaseRequestType
      * @uses EwsFindMeetingTimeCandidatesType::setLocationConstraints()
      * @uses EwsFindMeetingTimeCandidatesType::setSearchConstraints()
      * @uses EwsFindMeetingTimeCandidatesType::setConstraints()
-     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints
-     * $attendeeConstraints
-     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints
-     * $locationConstraints
+     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
+     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
      * @param \Ews\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints
      * @param \Ews\StructType\EwsFindMeetingTimesConstraints $constraints
      */
@@ -71,8 +69,7 @@ class EwsFindMeetingTimeCandidatesType extends EwsBaseRequestType
     }
     /**
      * Set AttendeeConstraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints
-     * $attendeeConstraints
+     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
      * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
      */
     public function setAttendeeConstraints(\Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints = null)
@@ -90,8 +87,7 @@ class EwsFindMeetingTimeCandidatesType extends EwsBaseRequestType
     }
     /**
      * Set LocationConstraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints
-     * $locationConstraints
+     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
      * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
      */
     public function setLocationConstraints(\Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints = null)

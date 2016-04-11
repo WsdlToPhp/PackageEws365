@@ -7,9 +7,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SetUserOofSettingsRequest StructType
  * Meta informations extracted from the WSDL
- * - maxOccurs: 1
- * - minOccurs: 1
- * - ref: t:UserOofSettings
  * - type: tns:SetUserOofSettingsRequest
  * @package Ews
  * @subpackage Structs
@@ -19,11 +16,19 @@ class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
 {
     /**
      * The Mailbox
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 1
+     * - ref: t:Mailbox
      * @var \Ews\StructType\EwsEmailAddress
      */
     public $Mailbox;
     /**
      * The UserOofSettings
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 1
+     * - ref: t:UserOofSettings
      * @var \Ews\StructType\EwsUserOofSettings
      */
     public $UserOofSettings;
@@ -42,7 +47,7 @@ class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddress|null
+     * @return \Ews\StructType\EwsEmailAddress
      */
     public function getMailbox()
     {
@@ -60,7 +65,7 @@ class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
     }
     /**
      * Get UserOofSettings value
-     * @return \Ews\StructType\EwsUserOofSettings|null
+     * @return \Ews\StructType\EwsUserOofSettings
      */
     public function getUserOofSettings()
     {

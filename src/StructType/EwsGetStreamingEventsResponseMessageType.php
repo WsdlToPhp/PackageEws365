@@ -39,8 +39,7 @@ class EwsGetStreamingEventsResponseMessageType extends EwsResponseMessageType
      * @uses EwsGetStreamingEventsResponseMessageType::setErrorSubscriptionIds()
      * @uses EwsGetStreamingEventsResponseMessageType::setConnectionStatus()
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
-     * $errorSubscriptionIds
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
      * @param string $connectionStatus
      */
     public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications = null, \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null, $connectionStatus = null)
@@ -78,8 +77,7 @@ class EwsGetStreamingEventsResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set ErrorSubscriptionIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
-     * $errorSubscriptionIds
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
      * @return \Ews\StructType\EwsGetStreamingEventsResponseMessageType
      */
     public function setErrorSubscriptionIds(\Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null)

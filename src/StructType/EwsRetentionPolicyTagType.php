@@ -160,8 +160,8 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public function setRetentionId($retentionId = null)
     {
         // validation for constraint: pattern
-        if (!is_null($retentionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $retentionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($retentionId)), __LINE__);
+        if (is_scalar($retentionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $retentionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($retentionId, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($retentionId) && !is_string($retentionId)) {

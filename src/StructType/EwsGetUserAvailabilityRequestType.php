@@ -6,10 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserAvailabilityRequestType StructType
- * Meta informations extracted from the WSDL
- * - maxOccurs: 1
- * - minOccurs: 0
- * - ref: t:SuggestionsViewOptions
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -18,6 +14,10 @@ class EwsGetUserAvailabilityRequestType extends EwsBaseRequestType
 {
     /**
      * The TimeZone
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 0
+     * - ref: t:TimeZone
      * @var \Ews\StructType\EwsSerializableTimeZone
      */
     public $TimeZone;
@@ -28,11 +28,19 @@ class EwsGetUserAvailabilityRequestType extends EwsBaseRequestType
     public $MailboxDataArray;
     /**
      * The FreeBusyViewOptions
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 0
+     * - ref: t:FreeBusyViewOptions
      * @var \Ews\StructType\EwsFreeBusyViewOptionsType
      */
     public $FreeBusyViewOptions;
     /**
      * The SuggestionsViewOptions
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: 1
+     * - minOccurs: 0
+     * - ref: t:SuggestionsViewOptions
      * @var \Ews\StructType\EwsSuggestionsViewOptionsType
      */
     public $SuggestionsViewOptions;

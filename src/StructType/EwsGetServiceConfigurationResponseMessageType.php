@@ -23,8 +23,7 @@ class EwsGetServiceConfigurationResponseMessageType extends EwsResponseMessageTy
     /**
      * Constructor method for GetServiceConfigurationResponseMessageType
      * @uses EwsGetServiceConfigurationResponseMessageType::setResponseMessages()
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
-     * $responseMessages
+     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null)
     {
@@ -41,8 +40,7 @@ class EwsGetServiceConfigurationResponseMessageType extends EwsResponseMessageTy
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
-     * $responseMessages
+     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
      * @return \Ews\StructType\EwsGetServiceConfigurationResponseMessageType
      */
     public function setResponseMessages(\Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null)

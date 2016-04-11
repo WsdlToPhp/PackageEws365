@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupBaseRequestType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:GroupIdentity
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ abstract class EwsUnifiedGroupBaseRequestType extends EwsBaseRequestType
 {
     /**
      * The GroupIdentity
+     * Meta informations extracted from the WSDL
+     * - ref: t:GroupIdentity
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
      */
     public $GroupIdentity;

@@ -198,9 +198,7 @@ class EwsAdd extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsAddDelegateResponseMessageType|\Ews\StructType\EwsAddDistributionGroupToImListResponseMessageType|\Ews\StructType\EwsAddImContactToGroupResponseMessageType|\Ews\StructType\EwsAddImGroupResponseMessageType|\Ews\StructType\EwsAddNewI
-     * mContactToGroupResponseMessageType|\Ews\StructType\EwsAddNewTelUriContactToGroupResponseMessageType
+     * @return \Ews\StructType\EwsAddDelegateResponseMessageType|\Ews\StructType\EwsAddDistributionGroupToImListResponseMessageType|\Ews\StructType\EwsAddImContactToGroupResponseMessageType|\Ews\StructType\EwsAddImGroupResponseMessageType|\Ews\StructType\EwsAddNewImContactToGroupResponseMessageType|\Ews\StructType\EwsAddNewTelUriContactToGroupResponseMessageType
      */
     public function getResult()
     {

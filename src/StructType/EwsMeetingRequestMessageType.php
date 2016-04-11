@@ -428,8 +428,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * @param \Ews\StructType\EwsOccurrenceInfoType $firstOccurrence
      * @param \Ews\StructType\EwsOccurrenceInfoType $lastOccurrence
      * @param \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType
-     * $deletedOccurrences
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
      * @param \Ews\StructType\EwsTimeZoneType $meetingTimeZone
      * @param \Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone
      * @param \Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone
@@ -1165,8 +1164,7 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     }
     /**
      * Set DeletedOccurrences value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType
-     * $deletedOccurrences
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
      * @return \Ews\StructType\EwsMeetingRequestMessageType
      */
     public function setDeletedOccurrences(\Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences = null)

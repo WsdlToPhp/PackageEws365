@@ -48,7 +48,7 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
     public function setValue(array $value = array())
     {
         // validation for constraint: minLength
-        if ((is_scalar(value) && strlen(value) < 1) || (is_array(value) && count(value) < 1)) {
+        if ((is_scalar($value) && strlen($value) < 1) || (is_array($value) && count($value) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         foreach ($value as $protectionRuleSenderDepartmentsTypeValueItem) {
@@ -69,7 +69,7 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
     public function addToValue($item)
     {
         // validation for constraint: minLength
-        if ((is_scalar(item) && strlen(item) < 1) || (is_array(item) && count(item) < 1)) {
+        if ((is_scalar($item) && strlen($item) < 1) || (is_array($item) && count($item) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: itemType

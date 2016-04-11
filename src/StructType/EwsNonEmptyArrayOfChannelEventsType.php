@@ -63,20 +63,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @uses EwsNonEmptyArrayOfChannelEventsType::setUserMembershipChangedEvent()
      * @uses EwsNonEmptyArrayOfChannelEventsType::setNewSocialActivityAddedEvent()
      * @param \Ews\StructType\EwsChannelStatusEventType $channelStatusEvent
-     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType
-     * $channelEventDroppedEvent
-     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType
-     * $subscriptionEventDroppedEvent
-     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType
-     * $subscriptionRenewFailedEvent
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
-     * $unifiedGroupUnseenChangedEvent
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType
-     * $unifiedGroupContentChangedEvent
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType
-     * $userMembershipChangedEvent
-     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType
-     * $newSocialActivityAddedEvent
+     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
+     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
+     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
+     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
+     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
+     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
+     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
      */
     public function __construct(\Ews\StructType\EwsChannelStatusEventType $channelStatusEvent = null, \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null, \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null, \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null, \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null, \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null, \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null, \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null)
     {
@@ -118,8 +111,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set ChannelEventDroppedEvent value
-     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType
-     * $channelEventDroppedEvent
+     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setChannelEventDroppedEvent(\Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null)
@@ -137,8 +129,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set SubscriptionEventDroppedEvent value
-     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType
-     * $subscriptionEventDroppedEvent
+     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setSubscriptionEventDroppedEvent(\Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null)
@@ -156,8 +147,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set SubscriptionRenewFailedEvent value
-     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType
-     * $subscriptionRenewFailedEvent
+     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setSubscriptionRenewFailedEvent(\Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null)
@@ -175,8 +165,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set UnifiedGroupUnseenChangedEvent value
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
-     * $unifiedGroupUnseenChangedEvent
+     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setUnifiedGroupUnseenChangedEvent(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null)
@@ -194,8 +183,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set UnifiedGroupContentChangedEvent value
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType
-     * $unifiedGroupContentChangedEvent
+     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setUnifiedGroupContentChangedEvent(\Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null)
@@ -213,8 +201,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set UserMembershipChangedEvent value
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType
-     * $userMembershipChangedEvent
+     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setUserMembershipChangedEvent(\Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null)
@@ -232,8 +219,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Set NewSocialActivityAddedEvent value
-     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType
-     * $newSocialActivityAddedEvent
+     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
      * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
      */
     public function setNewSocialActivityAddedEvent(\Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null)

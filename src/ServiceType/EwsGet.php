@@ -321,8 +321,7 @@ class EwsGet extends SoapClientBase
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsGetUserAvailabilityRequestType
-     * $getUserAvailabilityRequest
+     * @param \Ews\StructType\EwsGetUserAvailabilityRequestType $getUserAvailabilityRequest
      * @return \Ews\StructType\EwsGetUserAvailabilityResponseType|bool
      */
     public function GetUserAvailability(\Ews\StructType\EwsGetUserAvailabilityRequestType $getUserAvailabilityRequest)
@@ -660,8 +659,7 @@ class EwsGet extends SoapClientBase
      * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
      * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationType $request
-     * @return
-     * \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|bool
+     * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|bool
      */
     public function GetDiscoverySearchConfiguration(\Ews\StructType\EwsGetDiscoverySearchConfigurationType $request)
     {
@@ -916,15 +914,7 @@ class EwsGet extends SoapClientBase
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return
-     * \Ews\StructType\EwsGetAppManifestsResponseType|\Ews\StructType\EwsGetAppMarketplaceUrlResponseMessageType|\Ews\StructType\EwsGetAttachmentResponseType|\Ews\StructType\EwsGetClientAccessTokenResponseType|\Ews\StructType\EwsGetConversationItemsResponse
-     * Type|\Ews\StructType\EwsGetDelegateResponseMessageType|\Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|\Ews\StructType\EwsGetEventsResponseType|\Ews\StructType\EwsGetFolderResponseType|\Ews\StructType\EwsGetHoldOnMailboxesRespon
-     * seMessageType|\Ews\StructType\EwsGetImItemListResponseMessageType|\Ews\StructType\EwsGetImItemsResponseMessageType|\Ews\StructType\EwsGetInboxRulesResponseType|\Ews\StructType\EwsGetItemResponseType|\Ews\StructType\EwsGetMailTipsResponseMessageType|\
-     * Ews\StructType\EwsGetMessageTrackingReportResponseMessageType|\Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType|\Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType|\Ews\StructType\EwsGetPasswordExpirationDateResponseMes
-     * sageType|\Ews\StructType\EwsGetPersonaResponseMessageType|\Ews\StructType\EwsGetPhoneCallInformationResponseMessageType|\Ews\StructType\EwsGetRoomListsResponseMessageType|\Ews\StructType\EwsGetRoomsResponseMessageType|\Ews\StructType\EwsGetSearchable
-     * MailboxesResponseMessageType|\Ews\StructType\EwsGetServerTimeZonesResponseType|\Ews\StructType\EwsGetServiceConfigurationResponseMessageType|\Ews\StructType\EwsGetSharingFolderResponseMessageType|\Ews\StructType\EwsGetSharingMetadataResponseMessageTy
-     * pe|\Ews\StructType\EwsGetStreamingEventsResponseType|\Ews\StructType\EwsGetUserAvailabilityResponseType|\Ews\StructType\EwsGetUserConfigurationResponseType|\Ews\StructType\EwsGetUserOofSettingsResponse|\Ews\StructType\EwsGetUserPhotoResponseMessageTy
-     * pe|\Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
+     * @return \Ews\StructType\EwsGetAppManifestsResponseType|\Ews\StructType\EwsGetAppMarketplaceUrlResponseMessageType|\Ews\StructType\EwsGetAttachmentResponseType|\Ews\StructType\EwsGetClientAccessTokenResponseType|\Ews\StructType\EwsGetConversationItemsResponseType|\Ews\StructType\EwsGetDelegateResponseMessageType|\Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|\Ews\StructType\EwsGetEventsResponseType|\Ews\StructType\EwsGetFolderResponseType|\Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType|\Ews\StructType\EwsGetImItemListResponseMessageType|\Ews\StructType\EwsGetImItemsResponseMessageType|\Ews\StructType\EwsGetInboxRulesResponseType|\Ews\StructType\EwsGetItemResponseType|\Ews\StructType\EwsGetMailTipsResponseMessageType|\Ews\StructType\EwsGetMessageTrackingReportResponseMessageType|\Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType|\Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType|\Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType|\Ews\StructType\EwsGetPersonaResponseMessageType|\Ews\StructType\EwsGetPhoneCallInformationResponseMessageType|\Ews\StructType\EwsGetRoomListsResponseMessageType|\Ews\StructType\EwsGetRoomsResponseMessageType|\Ews\StructType\EwsGetSearchableMailboxesResponseMessageType|\Ews\StructType\EwsGetServerTimeZonesResponseType|\Ews\StructType\EwsGetServiceConfigurationResponseMessageType|\Ews\StructType\EwsGetSharingFolderResponseMessageType|\Ews\StructType\EwsGetSharingMetadataResponseMessageType|\Ews\StructType\EwsGetStreamingEventsResponseType|\Ews\StructType\EwsGetUserAvailabilityResponseType|\Ews\StructType\EwsGetUserConfigurationResponseType|\Ews\StructType\EwsGetUserOofSettingsResponse|\Ews\StructType\EwsGetUserPhotoResponseMessageType|\Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
      */
     public function getResult()
     {

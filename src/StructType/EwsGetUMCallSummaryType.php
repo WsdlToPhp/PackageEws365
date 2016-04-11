@@ -72,8 +72,8 @@ class EwsGetUMCallSummaryType extends EwsBaseRequestType
     public function setDailPlanGuid($dailPlanGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($dailPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dailPlanGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dailPlanGuid)), __LINE__);
+        if (is_scalar($dailPlanGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $dailPlanGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($dailPlanGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($dailPlanGuid) && !is_string($dailPlanGuid)) {
@@ -98,8 +98,8 @@ class EwsGetUMCallSummaryType extends EwsBaseRequestType
     public function setGatewayGuid($gatewayGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($gatewayGuid)), __LINE__);
+        if (is_scalar($gatewayGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $gatewayGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($gatewayGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($gatewayGuid) && !is_string($gatewayGuid)) {

@@ -36,8 +36,7 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * @uses EwsNonEmptyArrayOfAlternateIdsType::setAlternatePublicFolderItemId()
      * @param \Ews\StructType\EwsAlternateIdType $alternateId
      * @param \Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId
-     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType
-     * $alternatePublicFolderItemId
+     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
      */
     public function __construct(\Ews\StructType\EwsAlternateIdType $alternateId = null, \Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId = null, \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null)
     {
@@ -92,8 +91,7 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
     }
     /**
      * Set AlternatePublicFolderItemId value
-     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType
-     * $alternatePublicFolderItemId
+     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
      * @return \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
     public function setAlternatePublicFolderItemId(\Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null)

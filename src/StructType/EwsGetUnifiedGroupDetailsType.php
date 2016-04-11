@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupDetailsType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:GroupDetailsResponseShape
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ class EwsGetUnifiedGroupDetailsType extends EwsUnifiedGroupBaseRequestType
 {
     /**
      * The GroupDetailsResponseShape
+     * Meta informations extracted from the WSDL
+     * - ref: t:GroupDetailsResponseShape
      * @var string
      */
     public $GroupDetailsResponseShape;

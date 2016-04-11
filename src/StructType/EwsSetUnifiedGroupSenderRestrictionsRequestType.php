@@ -40,14 +40,10 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
      * Constructor method for SetUnifiedGroupSenderRestrictionsRequestType
      * @uses EwsSetUnifiedGroupSenderRestrictionsRequestType::setGroupIdentity()
      * @uses EwsSetUnifiedGroupSenderRestrictionsRequestType::setRestrictionSettings()
-     * @uses
-     * EwsSetUnifiedGroupSenderRestrictionsRequestType::setUnifiedGroupSenderRestrictio
-     * nsSettings()
+     * @uses EwsSetUnifiedGroupSenderRestrictionsRequestType::setUnifiedGroupSenderRestrictionsSettings()
      * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
-     * $restrictionSettings
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
-     * $unifiedGroupSenderRestrictionsSettings
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
      */
     public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings = null)
     {
@@ -84,8 +80,7 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     }
     /**
      * Set RestrictionSettings value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
-     * $restrictionSettings
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
      * @return \Ews\StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
      */
     public function setRestrictionSettings(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings = null)
@@ -103,8 +98,7 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     }
     /**
      * Set UnifiedGroupSenderRestrictionsSettings value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
-     * $unifiedGroupSenderRestrictionsSettings
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
      * @return \Ews\StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
      */
     public function setUnifiedGroupSenderRestrictionsSettings(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings = null)

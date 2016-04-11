@@ -50,14 +50,10 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
      * @uses EwsUnifiedGroupSenderRestrictionsType::setRejectedSenders()
      * @uses EwsUnifiedGroupSenderRestrictionsType::setAllowedDistributionLists()
      * @uses EwsUnifiedGroupSenderRestrictionsType::setRejectedDistributionLists()
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $allowedSenders
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $rejectedSenders
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $allowedDistributionLists
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $rejectedDistributionLists
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null)
     {
@@ -77,8 +73,7 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
     }
     /**
      * Set AllowedSenders value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $allowedSenders
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public function setAllowedSenders(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null)
@@ -96,8 +91,7 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
     }
     /**
      * Set RejectedSenders value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $rejectedSenders
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public function setRejectedSenders(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null)
@@ -115,8 +109,7 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
     }
     /**
      * Set AllowedDistributionLists value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $allowedDistributionLists
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public function setAllowedDistributionLists(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null)
@@ -134,8 +127,7 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
     }
     /**
      * Set RejectedDistributionLists value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     * $rejectedDistributionLists
+     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
      * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public function setRejectedDistributionLists(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null)

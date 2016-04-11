@@ -23,8 +23,7 @@ abstract class EwsBaseDelegateResponseMessageType extends EwsResponseMessageType
     /**
      * Constructor method for BaseDelegateResponseMessageType
      * @uses EwsBaseDelegateResponseMessageType::setResponseMessages()
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
-     * $responseMessages
+     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null)
     {
@@ -41,8 +40,7 @@ abstract class EwsBaseDelegateResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
-     * $responseMessages
+     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
      * @return \Ews\StructType\EwsBaseDelegateResponseMessageType
      */
     public function setResponseMessages(\Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null)

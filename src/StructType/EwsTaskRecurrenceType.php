@@ -92,14 +92,10 @@ class EwsTaskRecurrenceType extends AbstractStructBase
      * @uses EwsTaskRecurrenceType::setNoEndRecurrence()
      * @uses EwsTaskRecurrenceType::setEndDateRecurrence()
      * @uses EwsTaskRecurrenceType::setNumberedRecurrence()
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
-     * $relativeYearlyRecurrence
-     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
-     * $absoluteYearlyRecurrence
-     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType
-     * $relativeMonthlyRecurrence
-     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType
-     * $absoluteMonthlyRecurrence
+     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
+     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
+     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
+     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
      * @param \Ews\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence
      * @param \Ews\StructType\EwsDailyRecurrencePatternType $dailyRecurrence
      * @param \Ews\StructType\EwsDailyRegeneratingPatternType $dailyRegeneration
@@ -137,8 +133,7 @@ class EwsTaskRecurrenceType extends AbstractStructBase
     }
     /**
      * Set RelativeYearlyRecurrence value
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
-     * $relativeYearlyRecurrence
+     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
      * @return \Ews\StructType\EwsTaskRecurrenceType
      */
     public function setRelativeYearlyRecurrence(\Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null)
@@ -156,8 +151,7 @@ class EwsTaskRecurrenceType extends AbstractStructBase
     }
     /**
      * Set AbsoluteYearlyRecurrence value
-     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
-     * $absoluteYearlyRecurrence
+     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
      * @return \Ews\StructType\EwsTaskRecurrenceType
      */
     public function setAbsoluteYearlyRecurrence(\Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence = null)
@@ -175,8 +169,7 @@ class EwsTaskRecurrenceType extends AbstractStructBase
     }
     /**
      * Set RelativeMonthlyRecurrence value
-     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType
-     * $relativeMonthlyRecurrence
+     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
      * @return \Ews\StructType\EwsTaskRecurrenceType
      */
     public function setRelativeMonthlyRecurrence(\Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence = null)
@@ -194,8 +187,7 @@ class EwsTaskRecurrenceType extends AbstractStructBase
     }
     /**
      * Set AbsoluteMonthlyRecurrence value
-     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType
-     * $absoluteMonthlyRecurrence
+     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
      * @return \Ews\StructType\EwsTaskRecurrenceType
      */
     public function setAbsoluteMonthlyRecurrence(\Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence = null)

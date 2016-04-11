@@ -126,8 +126,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     public $ContentExpiryDate;
     /**
      * Constructor method for RightsManagementLicenseDataType
-     * @uses
-     * EwsRightsManagementLicenseDataType::setRightsManagedMessageDecryptionStatus()
+     * @uses EwsRightsManagementLicenseDataType::setRightsManagedMessageDecryptionStatus()
      * @uses EwsRightsManagementLicenseDataType::setRmsTemplateId()
      * @uses EwsRightsManagementLicenseDataType::setTemplateName()
      * @uses EwsRightsManagementLicenseDataType::setTemplateDescription()

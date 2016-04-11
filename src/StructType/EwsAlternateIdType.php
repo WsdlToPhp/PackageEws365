@@ -90,7 +90,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
     public function setMailbox($mailbox = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(mailbox) && strlen(mailbox) < 1) || (is_array(mailbox) && count(mailbox) < 1)) {
+        if ((is_scalar($mailbox) && strlen($mailbox) < 1) || (is_array($mailbox) && count($mailbox) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

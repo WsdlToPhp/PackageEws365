@@ -22,11 +22,8 @@ class EwsFindMailboxStatisticsByKeywordsResponseMessageType extends EwsResponseM
     public $MailboxStatisticsSearchResult;
     /**
      * Constructor method for FindMailboxStatisticsByKeywordsResponseMessageType
-     * @uses
-     * EwsFindMailboxStatisticsByKeywordsResponseMessageType::setMailboxStatisticsSearc
-     * hResult()
-     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType
-     * $mailboxStatisticsSearchResult
+     * @uses EwsFindMailboxStatisticsByKeywordsResponseMessageType::setMailboxStatisticsSearchResult()
+     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
      */
     public function __construct(\Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null)
     {
@@ -43,8 +40,7 @@ class EwsFindMailboxStatisticsByKeywordsResponseMessageType extends EwsResponseM
     }
     /**
      * Set MailboxStatisticsSearchResult value
-     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType
-     * $mailboxStatisticsSearchResult
+     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
      * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
      */
     public function setMailboxStatisticsSearchResult(\Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null)

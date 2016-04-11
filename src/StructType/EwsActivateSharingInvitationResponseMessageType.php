@@ -37,8 +37,7 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
     public $FolderId;
     /**
      * Constructor method for ActivateSharingInvitationResponseMessageType
-     * @uses
-     * EwsActivateSharingInvitationResponseMessageType::setSuggestedCalendarName()
+     * @uses EwsActivateSharingInvitationResponseMessageType::setSuggestedCalendarName()
      * @uses EwsActivateSharingInvitationResponseMessageType::setPermissionLevel()
      * @uses EwsActivateSharingInvitationResponseMessageType::setFolderId()
      * @param string $suggestedCalendarName
@@ -68,7 +67,7 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
     public function setSuggestedCalendarName($suggestedCalendarName = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(suggestedCalendarName) && strlen(suggestedCalendarName) < 1) || (is_array(suggestedCalendarName) && count(suggestedCalendarName) < 1)) {
+        if ((is_scalar($suggestedCalendarName) && strlen($suggestedCalendarName) < 1) || (is_array($suggestedCalendarName) && count($suggestedCalendarName) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -119,7 +118,7 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
     public function setFolderId($folderId = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(folderId) && strlen(folderId) < 1) || (is_array(folderId) && count(folderId) < 1)) {
+        if ((is_scalar($folderId) && strlen($folderId) < 1) || (is_array($folderId) && count($folderId) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

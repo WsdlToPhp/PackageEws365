@@ -22,8 +22,7 @@ class EwsFindMeetingTimeCandidatesResponseMessageType extends EwsResponseMessage
     public $MeetingTimeCandidates;
     /**
      * Constructor method for FindMeetingTimeCandidatesResponseMessageType
-     * @uses
-     * EwsFindMeetingTimeCandidatesResponseMessageType::setMeetingTimeCandidates()
+     * @uses EwsFindMeetingTimeCandidatesResponseMessageType::setMeetingTimeCandidates()
      * @param \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates = null)

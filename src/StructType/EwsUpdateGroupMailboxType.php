@@ -169,7 +169,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public function setGroupSmtpAddress($groupSmtpAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(groupSmtpAddress) && strlen(groupSmtpAddress) < 1) || (is_array(groupSmtpAddress) && count(groupSmtpAddress) < 1)) {
+        if ((is_scalar($groupSmtpAddress) && strlen($groupSmtpAddress) < 1) || (is_array($groupSmtpAddress) && count($groupSmtpAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -220,7 +220,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public function setExecutingUserSmtpAddress($executingUserSmtpAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(executingUserSmtpAddress) && strlen(executingUserSmtpAddress) < 1) || (is_array(executingUserSmtpAddress) && count(executingUserSmtpAddress) < 1)) {
+        if ((is_scalar($executingUserSmtpAddress) && strlen($executingUserSmtpAddress) < 1) || (is_array($executingUserSmtpAddress) && count($executingUserSmtpAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

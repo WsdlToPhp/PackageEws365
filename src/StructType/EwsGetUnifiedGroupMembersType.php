@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupMembersType StructType
- * Meta informations extracted from the WSDL
- * - ref: t:MembersSortOrder
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,16 +14,22 @@ class EwsGetUnifiedGroupMembersType extends EwsUnifiedGroupBaseRequestType
 {
     /**
      * The GroupMembersResponseShape
+     * Meta informations extracted from the WSDL
+     * - ref: t:GroupMembersResponseShape
      * @var string
      */
     public $GroupMembersResponseShape;
     /**
      * The MembersPaging
+     * Meta informations extracted from the WSDL
+     * - ref: t:MembersPaging
      * @var \Ews\StructType\EwsBasePagingType
      */
     public $MembersPaging;
     /**
      * The MembersSortOrder
+     * Meta informations extracted from the WSDL
+     * - ref: t:MembersSortOrder
      * @var string
      */
     public $MembersSortOrder;

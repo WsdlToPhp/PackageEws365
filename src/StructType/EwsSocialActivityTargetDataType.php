@@ -174,8 +174,8 @@ class EwsSocialActivityTargetDataType extends AbstractStructBase
     public function setTargetMailboxGuid($targetMailboxGuid = null)
     {
         // validation for constraint: pattern
-        if (!is_null($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+        if (is_scalar($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($targetMailboxGuid, true)), __LINE__);
         }
         // validation for constraint: string
         if (!is_null($targetMailboxGuid) && !is_string($targetMailboxGuid)) {

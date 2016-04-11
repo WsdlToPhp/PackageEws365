@@ -6,8 +6,6 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfPathsToElementType ArrayType
- * Meta informations extracted from the WSDL
- * - ref: t:Path
  * @package Ews
  * @subpackage Arrays
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -16,6 +14,8 @@ class EwsNonEmptyArrayOfPathsToElementType extends AbstractStructArrayBase
 {
     /**
      * The Path
+     * Meta informations extracted from the WSDL
+     * - ref: t:Path
      * @var \Ews\StructType\EwsBasePathToElementType
      */
     public $Path;

@@ -54,12 +54,9 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
      * @uses EwsArrayOfAttendeeConflictData::setIndividualAttendeeConflictData()
      * @uses EwsArrayOfAttendeeConflictData::setTooBigGroupAttendeeConflictData()
      * @uses EwsArrayOfAttendeeConflictData::setGroupAttendeeConflictData()
-     * @param \Ews\StructType\EwsUnknownAttendeeConflictData
-     * $unknownAttendeeConflictData
-     * @param \Ews\StructType\EwsIndividualAttendeeConflictData
-     * $individualAttendeeConflictData
-     * @param \Ews\StructType\EwsTooBigGroupAttendeeConflictData
-     * $tooBigGroupAttendeeConflictData
+     * @param \Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData
+     * @param \Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData
+     * @param \Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData
      * @param \Ews\StructType\EwsGroupAttendeeConflictData $groupAttendeeConflictData
      */
     public function __construct(\Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData = null, \Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData = null, \Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData = null, \Ews\StructType\EwsGroupAttendeeConflictData $groupAttendeeConflictData = null)
@@ -80,8 +77,7 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     }
     /**
      * Set UnknownAttendeeConflictData value
-     * @param \Ews\StructType\EwsUnknownAttendeeConflictData
-     * $unknownAttendeeConflictData
+     * @param \Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setUnknownAttendeeConflictData(\Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData = null)
@@ -99,8 +95,7 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     }
     /**
      * Set IndividualAttendeeConflictData value
-     * @param \Ews\StructType\EwsIndividualAttendeeConflictData
-     * $individualAttendeeConflictData
+     * @param \Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setIndividualAttendeeConflictData(\Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData = null)
@@ -118,8 +113,7 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     }
     /**
      * Set TooBigGroupAttendeeConflictData value
-     * @param \Ews\StructType\EwsTooBigGroupAttendeeConflictData
-     * $tooBigGroupAttendeeConflictData
+     * @param \Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setTooBigGroupAttendeeConflictData(\Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData = null)

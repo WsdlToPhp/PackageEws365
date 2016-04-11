@@ -22,11 +22,8 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
     public $ServiceConfigurationResponseMessageType;
     /**
      * Constructor method for ArrayOfServiceConfigurationResponseMessageType
-     * @uses
-     * EwsArrayOfServiceConfigurationResponseMessageType::setServiceConfigurationRespon
-     * seMessageType()
-     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
-     * $serviceConfigurationResponseMessageType
+     * @uses EwsArrayOfServiceConfigurationResponseMessageType::setServiceConfigurationResponseMessageType()
+     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[] $serviceConfigurationResponseMessageType
      */
     public function __construct(array $serviceConfigurationResponseMessageType = array())
     {
@@ -44,8 +41,7 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
     /**
      * Set ServiceConfigurationResponseMessageType value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[]
-     * $serviceConfigurationResponseMessageType
+     * @param \Ews\StructType\EwsServiceConfigurationResponseMessageType[] $serviceConfigurationResponseMessageType
      * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
      */
     public function setServiceConfigurationResponseMessageType(array $serviceConfigurationResponseMessageType = array())

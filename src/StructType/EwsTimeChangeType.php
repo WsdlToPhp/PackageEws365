@@ -47,8 +47,7 @@ class EwsTimeChangeType extends AbstractStructBase
      * @uses EwsTimeChangeType::setTime()
      * @uses EwsTimeChangeType::setTimeZoneName()
      * @param int $offset
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
-     * $relativeYearlyRecurrence
+     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
      * @param string $absoluteDate
      * @param string $time
      * @param string $timeZoneName
@@ -94,8 +93,7 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Set RelativeYearlyRecurrence value
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
-     * $relativeYearlyRecurrence
+     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
      * @return \Ews\StructType\EwsTimeChangeType
      */
     public function setRelativeYearlyRecurrence(\Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null)

@@ -55,7 +55,7 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
     public function setSmtpAddress($smtpAddress = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(smtpAddress) && strlen(smtpAddress) < 1) || (is_array(smtpAddress) && count(smtpAddress) < 1)) {
+        if ((is_scalar($smtpAddress) && strlen($smtpAddress) < 1) || (is_array($smtpAddress) && count($smtpAddress) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string
@@ -81,7 +81,7 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
     public function setDisplayName($displayName = null)
     {
         // validation for constraint: minLength
-        if ((is_scalar(displayName) && strlen(displayName) < 1) || (is_array(displayName) && count(displayName) < 1)) {
+        if ((is_scalar($displayName) && strlen($displayName) < 1) || (is_array($displayName) && count($displayName) < 1)) {
             throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
         }
         // validation for constraint: string

@@ -34,8 +34,7 @@ class EwsSubscribeType extends EwsBaseRequestType
      * @uses EwsSubscribeType::setStreamingSubscriptionRequest()
      * @param \Ews\StructType\EwsPullSubscriptionRequestType $pullSubscriptionRequest
      * @param \Ews\StructType\EwsPushSubscriptionRequestType $pushSubscriptionRequest
-     * @param \Ews\StructType\EwsStreamingSubscriptionRequestType
-     * $streamingSubscriptionRequest
+     * @param \Ews\StructType\EwsStreamingSubscriptionRequestType $streamingSubscriptionRequest
      */
     public function __construct(\Ews\StructType\EwsPullSubscriptionRequestType $pullSubscriptionRequest = null, \Ews\StructType\EwsPushSubscriptionRequestType $pushSubscriptionRequest = null, \Ews\StructType\EwsStreamingSubscriptionRequestType $streamingSubscriptionRequest = null)
     {
@@ -90,8 +89,7 @@ class EwsSubscribeType extends EwsBaseRequestType
     }
     /**
      * Set StreamingSubscriptionRequest value
-     * @param \Ews\StructType\EwsStreamingSubscriptionRequestType
-     * $streamingSubscriptionRequest
+     * @param \Ews\StructType\EwsStreamingSubscriptionRequestType $streamingSubscriptionRequest
      * @return \Ews\StructType\EwsSubscribeType
      */
     public function setStreamingSubscriptionRequest(\Ews\StructType\EwsStreamingSubscriptionRequestType $streamingSubscriptionRequest = null)

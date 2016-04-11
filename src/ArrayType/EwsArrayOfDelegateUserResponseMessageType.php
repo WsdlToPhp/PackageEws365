@@ -22,10 +22,8 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
     public $DelegateUserResponseMessageType;
     /**
      * Constructor method for ArrayOfDelegateUserResponseMessageType
-     * @uses
-     * EwsArrayOfDelegateUserResponseMessageType::setDelegateUserResponseMessageType()
-     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[]
-     * $delegateUserResponseMessageType
+     * @uses EwsArrayOfDelegateUserResponseMessageType::setDelegateUserResponseMessageType()
+     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
      */
     public function __construct(array $delegateUserResponseMessageType = array())
     {
@@ -43,8 +41,7 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
     /**
      * Set DelegateUserResponseMessageType value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[]
-     * $delegateUserResponseMessageType
+     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
      * @return \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
      */
     public function setDelegateUserResponseMessageType(array $delegateUserResponseMessageType = array())

@@ -31,10 +31,8 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
     public $SenderRestrictions;
     /**
      * Constructor method for GetUnifiedGroupSenderRestrictionsResponseMessageType
-     * @uses
-     * EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setGroupIdentity()
-     * @uses
-     * EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setSenderRestrictions()
+     * @uses EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setGroupIdentity()
+     * @uses EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setSenderRestrictions()
      * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
      * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions
      */

@@ -70,8 +70,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $BurstLossDuration;
     /**
      * Constructor method for UMReportAudioMetricsAverageCountersType
-     * @uses
-     * EwsUMReportAudioMetricsAverageCountersType::setTotalAudioQualityCallsSampled()
+     * @uses EwsUMReportAudioMetricsAverageCountersType::setTotalAudioQualityCallsSampled()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setNMOS()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setNMOSDegradation()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setJitter()

@@ -64,12 +64,8 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     /**
      * Constructor method for GetUMSubscriberCallAnsweringDataResponseMessageType
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsOOF()
-     * @uses
-     * EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsTranscriptionEnable
-     * dInMailboxConfig()
-     * @uses
-     * EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsMailboxQuotaExceede
-     * d()
+     * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsTranscriptionEnabledInMailboxConfig()
+     * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsMailboxQuotaExceeded()
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setTaskTimedOut()
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setGreeting()
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setGreetingName()

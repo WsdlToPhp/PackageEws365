@@ -33,8 +33,7 @@ class EwsPreviewItemResponseShapeType extends AbstractStructBase
      * @uses EwsPreviewItemResponseShapeType::setBaseShape()
      * @uses EwsPreviewItemResponseShapeType::setAdditionalProperties()
      * @param string $baseShape
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType
-     * $additionalProperties
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType $additionalProperties
      */
     public function __construct($baseShape = null, \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType $additionalProperties = null)
     {
@@ -77,8 +76,7 @@ class EwsPreviewItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType
-     * $additionalProperties
+     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType $additionalProperties
      * @return \Ews\StructType\EwsPreviewItemResponseShapeType
      */
     public function setAdditionalProperties(\Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType $additionalProperties = null)

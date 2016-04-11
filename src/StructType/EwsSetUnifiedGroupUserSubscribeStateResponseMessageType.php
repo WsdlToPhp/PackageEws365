@@ -7,8 +7,6 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 /**
  * This class stands for SetUnifiedGroupUserSubscribeStateResponseMessageType
  * StructType
- * Meta informations extracted from the WSDL
- * - ref: t:IsSubscribed
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
@@ -17,6 +15,8 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
 {
     /**
      * The IsSubscribed
+     * Meta informations extracted from the WSDL
+     * - ref: t:IsSubscribed
      * @var bool
      */
     public $IsSubscribed;

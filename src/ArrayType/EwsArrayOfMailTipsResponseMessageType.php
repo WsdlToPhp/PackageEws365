@@ -23,8 +23,7 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
     /**
      * Constructor method for ArrayOfMailTipsResponseMessageType
      * @uses EwsArrayOfMailTipsResponseMessageType::setMailTipsResponseMessageType()
-     * @param \Ews\StructType\EwsMailTipsResponseMessageType[]
-     * $mailTipsResponseMessageType
+     * @param \Ews\StructType\EwsMailTipsResponseMessageType[] $mailTipsResponseMessageType
      */
     public function __construct(array $mailTipsResponseMessageType = array())
     {
@@ -42,8 +41,7 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
     /**
      * Set MailTipsResponseMessageType value
      * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailTipsResponseMessageType[]
-     * $mailTipsResponseMessageType
+     * @param \Ews\StructType\EwsMailTipsResponseMessageType[] $mailTipsResponseMessageType
      * @return \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType
      */
     public function setMailTipsResponseMessageType(array $mailTipsResponseMessageType = array())
