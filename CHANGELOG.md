@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.0.6
+- Update generated classes using latest generator version (classmap, integer validations)
+
 ## 0.0.5
 - update generated classes using latest generator version, fixes broken code on parameter value test, fix autocompletion
 
