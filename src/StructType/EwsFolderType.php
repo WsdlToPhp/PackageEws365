@@ -73,8 +73,8 @@ class EwsFolderType extends EwsBaseFolderType
     public function setUnreadCount($unreadCount = null)
     {
         // validation for constraint: int
-        if (!is_null($unreadCount) && !is_int($unreadCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unreadCount)), __LINE__);
+        if (!is_null($unreadCount) && !is_numeric($unreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
         return $this;

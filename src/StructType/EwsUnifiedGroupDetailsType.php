@@ -155,8 +155,8 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public function setOwnerCount($ownerCount = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerCount) && !is_int($ownerCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerCount)), __LINE__);
+        if (!is_null($ownerCount) && !is_numeric($ownerCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerCount)), __LINE__);
         }
         $this->OwnerCount = $ownerCount;
         return $this;

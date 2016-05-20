@@ -57,8 +57,8 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
     public function setErrorCount($errorCount = null)
     {
         // validation for constraint: int
-        if (!is_null($errorCount) && !is_int($errorCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($errorCount)), __LINE__);
+        if (!is_null($errorCount) && !is_numeric($errorCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($errorCount)), __LINE__);
         }
         $this->ErrorCount = $errorCount;
         return $this;

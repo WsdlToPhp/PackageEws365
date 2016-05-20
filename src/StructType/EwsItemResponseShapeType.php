@@ -371,8 +371,8 @@ class EwsItemResponseShapeType extends AbstractStructBase
     public function setMaximumBodySize($maximumBodySize = null)
     {
         // validation for constraint: int
-        if (!is_null($maximumBodySize) && !is_int($maximumBodySize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumBodySize)), __LINE__);
+        if (!is_null($maximumBodySize) && !is_numeric($maximumBodySize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maximumBodySize)), __LINE__);
         }
         $this->MaximumBodySize = $maximumBodySize;
         return $this;

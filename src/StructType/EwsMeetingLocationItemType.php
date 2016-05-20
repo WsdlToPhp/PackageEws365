@@ -185,8 +185,8 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public function setCapacity($capacity = null)
     {
         // validation for constraint: int
-        if (!is_null($capacity) && !is_int($capacity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($capacity)), __LINE__);
+        if (!is_null($capacity) && !is_numeric($capacity)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($capacity)), __LINE__);
         }
         $this->Capacity = $capacity;
         return $this;

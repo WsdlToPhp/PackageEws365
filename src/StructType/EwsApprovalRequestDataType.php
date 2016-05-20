@@ -93,8 +93,8 @@ class EwsApprovalRequestDataType extends AbstractStructBase
     public function setApprovalDecision($approvalDecision = null)
     {
         // validation for constraint: int
-        if (!is_null($approvalDecision) && !is_int($approvalDecision)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($approvalDecision)), __LINE__);
+        if (!is_null($approvalDecision) && !is_numeric($approvalDecision)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($approvalDecision)), __LINE__);
         }
         $this->ApprovalDecision = $approvalDecision;
         return $this;

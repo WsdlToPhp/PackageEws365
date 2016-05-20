@@ -65,8 +65,8 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
     public function setStatusFrequency($statusFrequency = null)
     {
         // validation for constraint: int
-        if (!is_null($statusFrequency) && !is_int($statusFrequency)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($statusFrequency)), __LINE__);
+        if (!is_null($statusFrequency) && !is_numeric($statusFrequency)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($statusFrequency)), __LINE__);
         }
         $this->StatusFrequency = $statusFrequency;
         return $this;

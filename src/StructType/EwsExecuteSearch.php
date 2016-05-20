@@ -393,8 +393,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setResultRowCount($resultRowCount = null)
     {
         // validation for constraint: int
-        if (!is_null($resultRowCount) && !is_int($resultRowCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($resultRowCount)), __LINE__);
+        if (!is_null($resultRowCount) && !is_numeric($resultRowCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($resultRowCount)), __LINE__);
         }
         $this->ResultRowCount = $resultRowCount;
         return $this;
@@ -415,8 +415,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setResultRowOffset($resultRowOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($resultRowOffset) && !is_int($resultRowOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($resultRowOffset)), __LINE__);
+        if (!is_null($resultRowOffset) && !is_numeric($resultRowOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($resultRowOffset)), __LINE__);
         }
         $this->ResultRowOffset = $resultRowOffset;
         return $this;
@@ -437,8 +437,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxResultsCountHint($maxResultsCountHint = null)
     {
         // validation for constraint: int
-        if (!is_null($maxResultsCountHint) && !is_int($maxResultsCountHint)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxResultsCountHint)), __LINE__);
+        if (!is_null($maxResultsCountHint) && !is_numeric($maxResultsCountHint)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxResultsCountHint)), __LINE__);
         }
         $this->MaxResultsCountHint = $maxResultsCountHint;
         return $this;
@@ -459,8 +459,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxPreviewLength($maxPreviewLength = null)
     {
         // validation for constraint: int
-        if (!is_null($maxPreviewLength) && !is_int($maxPreviewLength)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxPreviewLength)), __LINE__);
+        if (!is_null($maxPreviewLength) && !is_numeric($maxPreviewLength)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxPreviewLength)), __LINE__);
         }
         $this->MaxPreviewLength = $maxPreviewLength;
         return $this;
@@ -517,8 +517,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxRefinersCountPerRefinerType($maxRefinersCountPerRefinerType = null)
     {
         // validation for constraint: int
-        if (!is_null($maxRefinersCountPerRefinerType) && !is_int($maxRefinersCountPerRefinerType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxRefinersCountPerRefinerType)), __LINE__);
+        if (!is_null($maxRefinersCountPerRefinerType) && !is_numeric($maxRefinersCountPerRefinerType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxRefinersCountPerRefinerType)), __LINE__);
         }
         $this->MaxRefinersCountPerRefinerType = $maxRefinersCountPerRefinerType;
         return $this;

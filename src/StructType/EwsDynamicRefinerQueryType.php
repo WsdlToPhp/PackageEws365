@@ -79,8 +79,8 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
     public function setTDRefinerId($tDRefinerId = null)
     {
         // validation for constraint: int
-        if (!is_null($tDRefinerId) && !is_int($tDRefinerId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDRefinerId)), __LINE__);
+        if (!is_null($tDRefinerId) && !is_numeric($tDRefinerId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($tDRefinerId)), __LINE__);
         }
         $this->TDRefinerId = $tDRefinerId;
         return $this;

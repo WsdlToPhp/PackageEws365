@@ -108,8 +108,8 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
     public function setBudgetType($budgetType = null)
     {
         // validation for constraint: int
-        if (!is_null($budgetType) && !is_int($budgetType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($budgetType)), __LINE__);
+        if (!is_null($budgetType) && !is_numeric($budgetType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($budgetType)), __LINE__);
         }
         $this->BudgetType = $budgetType;
         return $this;

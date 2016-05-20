@@ -79,8 +79,8 @@ class EwsSkillInsightValue extends EwsInsightValue
     public function setStrength($strength = null)
     {
         // validation for constraint: int
-        if (!is_null($strength) && !is_int($strength)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($strength)), __LINE__);
+        if (!is_null($strength) && !is_numeric($strength)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($strength)), __LINE__);
         }
         $this->Strength = $strength;
         return $this;

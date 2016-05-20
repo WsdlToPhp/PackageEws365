@@ -125,8 +125,8 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
     public function setItemCount($itemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($itemCount) && !is_int($itemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        if (!is_null($itemCount) && !is_numeric($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
         return $this;
@@ -147,8 +147,8 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_int($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !is_numeric($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;

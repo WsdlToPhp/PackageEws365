@@ -195,8 +195,8 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     public function setRightsManagedMessageDecryptionStatus($rightsManagedMessageDecryptionStatus = null)
     {
         // validation for constraint: int
-        if (!is_null($rightsManagedMessageDecryptionStatus) && !is_int($rightsManagedMessageDecryptionStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($rightsManagedMessageDecryptionStatus)), __LINE__);
+        if (!is_null($rightsManagedMessageDecryptionStatus) && !is_numeric($rightsManagedMessageDecryptionStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($rightsManagedMessageDecryptionStatus)), __LINE__);
         }
         $this->RightsManagedMessageDecryptionStatus = $rightsManagedMessageDecryptionStatus;
         return $this;

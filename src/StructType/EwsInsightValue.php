@@ -79,8 +79,8 @@ class EwsInsightValue extends AbstractStructBase
     public function setUpdatedUtcTicks($updatedUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($updatedUtcTicks) && !is_int($updatedUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($updatedUtcTicks)), __LINE__);
+        if (!is_null($updatedUtcTicks) && !is_numeric($updatedUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($updatedUtcTicks)), __LINE__);
         }
         $this->UpdatedUtcTicks = $updatedUtcTicks;
         return $this;

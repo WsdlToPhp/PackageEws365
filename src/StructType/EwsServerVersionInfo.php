@@ -85,8 +85,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMajorVersion($majorVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($majorVersion) && !is_int($majorVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($majorVersion)), __LINE__);
+        if (!is_null($majorVersion) && !is_numeric($majorVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($majorVersion)), __LINE__);
         }
         $this->MajorVersion = $majorVersion;
         return $this;
@@ -107,8 +107,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMinorVersion($minorVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($minorVersion) && !is_int($minorVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($minorVersion)), __LINE__);
+        if (!is_null($minorVersion) && !is_numeric($minorVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($minorVersion)), __LINE__);
         }
         $this->MinorVersion = $minorVersion;
         return $this;
@@ -129,8 +129,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMajorBuildNumber($majorBuildNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($majorBuildNumber) && !is_int($majorBuildNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($majorBuildNumber)), __LINE__);
+        if (!is_null($majorBuildNumber) && !is_numeric($majorBuildNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($majorBuildNumber)), __LINE__);
         }
         $this->MajorBuildNumber = $majorBuildNumber;
         return $this;
@@ -151,8 +151,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMinorBuildNumber($minorBuildNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($minorBuildNumber) && !is_int($minorBuildNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($minorBuildNumber)), __LINE__);
+        if (!is_null($minorBuildNumber) && !is_numeric($minorBuildNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($minorBuildNumber)), __LINE__);
         }
         $this->MinorBuildNumber = $minorBuildNumber;
         return $this;

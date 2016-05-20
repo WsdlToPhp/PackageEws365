@@ -51,8 +51,8 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
     public function setDayOfMonth($dayOfMonth = null)
     {
         // validation for constraint: int
-        if (!is_null($dayOfMonth) && !is_int($dayOfMonth)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dayOfMonth)), __LINE__);
+        if (!is_null($dayOfMonth) && !is_numeric($dayOfMonth)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($dayOfMonth)), __LINE__);
         }
         $this->DayOfMonth = $dayOfMonth;
         return $this;

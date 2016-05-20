@@ -111,8 +111,8 @@ class EwsFindConversationResponseMessageType extends EwsResponseMessageType
     public function setTotalConversationsInView($totalConversationsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalConversationsInView) && !is_int($totalConversationsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalConversationsInView)), __LINE__);
+        if (!is_null($totalConversationsInView) && !is_numeric($totalConversationsInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalConversationsInView)), __LINE__);
         }
         $this->TotalConversationsInView = $totalConversationsInView;
         return $this;
@@ -133,8 +133,8 @@ class EwsFindConversationResponseMessageType extends EwsResponseMessageType
     public function setIndexedOffset($indexedOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedOffset) && !is_int($indexedOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($indexedOffset)), __LINE__);
+        if (!is_null($indexedOffset) && !is_numeric($indexedOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedOffset)), __LINE__);
         }
         $this->IndexedOffset = $indexedOffset;
         return $this;

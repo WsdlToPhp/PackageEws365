@@ -356,8 +356,8 @@ class EwsXrmDealType extends AbstractStructBase
     public function setProbability($probability = null)
     {
         // validation for constraint: int
-        if (!is_null($probability) && !is_int($probability)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($probability)), __LINE__);
+        if (!is_null($probability) && !is_numeric($probability)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($probability)), __LINE__);
         }
         $this->Probability = $probability;
         return $this;

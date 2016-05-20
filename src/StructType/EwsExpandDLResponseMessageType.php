@@ -103,8 +103,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedPagingOffset) && !is_int($indexedPagingOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        if (!is_null($indexedPagingOffset) && !is_numeric($indexedPagingOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedPagingOffset)), __LINE__);
         }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
@@ -125,8 +125,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setNumeratorOffset($numeratorOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($numeratorOffset) && !is_int($numeratorOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numeratorOffset)), __LINE__);
+        if (!is_null($numeratorOffset) && !is_numeric($numeratorOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numeratorOffset)), __LINE__);
         }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
@@ -147,8 +147,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
         // validation for constraint: int
-        if (!is_null($absoluteDenominator) && !is_int($absoluteDenominator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        if (!is_null($absoluteDenominator) && !is_numeric($absoluteDenominator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($absoluteDenominator)), __LINE__);
         }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
@@ -187,8 +187,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setTotalItemsInView($totalItemsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalItemsInView) && !is_int($totalItemsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalItemsInView)), __LINE__);
+        if (!is_null($totalItemsInView) && !is_numeric($totalItemsInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalItemsInView)), __LINE__);
         }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;

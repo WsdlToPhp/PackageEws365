@@ -255,8 +255,8 @@ class EwsTaskType extends EwsItemType
     public function setActualWork($actualWork = null)
     {
         // validation for constraint: int
-        if (!is_null($actualWork) && !is_int($actualWork)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($actualWork)), __LINE__);
+        if (!is_null($actualWork) && !is_numeric($actualWork)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($actualWork)), __LINE__);
         }
         $this->ActualWork = $actualWork;
         return $this;
@@ -321,8 +321,8 @@ class EwsTaskType extends EwsItemType
     public function setChangeCount($changeCount = null)
     {
         // validation for constraint: int
-        if (!is_null($changeCount) && !is_int($changeCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($changeCount)), __LINE__);
+        if (!is_null($changeCount) && !is_numeric($changeCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($changeCount)), __LINE__);
         }
         $this->ChangeCount = $changeCount;
         return $this;
@@ -470,8 +470,8 @@ class EwsTaskType extends EwsItemType
     public function setIsAssignmentEditable($isAssignmentEditable = null)
     {
         // validation for constraint: int
-        if (!is_null($isAssignmentEditable) && !is_int($isAssignmentEditable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($isAssignmentEditable)), __LINE__);
+        if (!is_null($isAssignmentEditable) && !is_numeric($isAssignmentEditable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($isAssignmentEditable)), __LINE__);
         }
         $this->IsAssignmentEditable = $isAssignmentEditable;
         return $this;
@@ -695,8 +695,8 @@ class EwsTaskType extends EwsItemType
     public function setTotalWork($totalWork = null)
     {
         // validation for constraint: int
-        if (!is_null($totalWork) && !is_int($totalWork)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalWork)), __LINE__);
+        if (!is_null($totalWork) && !is_numeric($totalWork)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalWork)), __LINE__);
         }
         $this->TotalWork = $totalWork;
         return $this;

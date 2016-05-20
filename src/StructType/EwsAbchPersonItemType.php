@@ -245,8 +245,8 @@ class EwsAbchPersonItemType extends EwsItemType
     public function setTrustLevel($trustLevel = null)
     {
         // validation for constraint: int
-        if (!is_null($trustLevel) && !is_int($trustLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($trustLevel)), __LINE__);
+        if (!is_null($trustLevel) && !is_numeric($trustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($trustLevel)), __LINE__);
         }
         $this->TrustLevel = $trustLevel;
         return $this;
@@ -267,8 +267,8 @@ class EwsAbchPersonItemType extends EwsItemType
     public function setFavoriteOrder($favoriteOrder = null)
     {
         // validation for constraint: int
-        if (!is_null($favoriteOrder) && !is_int($favoriteOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($favoriteOrder)), __LINE__);
+        if (!is_null($favoriteOrder) && !is_numeric($favoriteOrder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($favoriteOrder)), __LINE__);
         }
         $this->FavoriteOrder = $favoriteOrder;
         return $this;

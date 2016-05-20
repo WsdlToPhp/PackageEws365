@@ -1832,8 +1832,8 @@ class EwsPersonaType extends AbstractStructBase
     public function setRelevanceScore($relevanceScore = null)
     {
         // validation for constraint: int
-        if (!is_null($relevanceScore) && !is_int($relevanceScore)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($relevanceScore)), __LINE__);
+        if (!is_null($relevanceScore) && !is_numeric($relevanceScore)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($relevanceScore)), __LINE__);
         }
         $this->RelevanceScore = $relevanceScore;
         return $this;

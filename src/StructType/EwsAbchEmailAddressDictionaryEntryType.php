@@ -140,8 +140,8 @@ class EwsAbchEmailAddressDictionaryEntryType extends AbstractStructBase
     public function setCapabilities($capabilities = null)
     {
         // validation for constraint: int
-        if (!is_null($capabilities) && !is_int($capabilities)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($capabilities)), __LINE__);
+        if (!is_null($capabilities) && !is_numeric($capabilities)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($capabilities)), __LINE__);
         }
         $this->Capabilities = $capabilities;
         return $this;

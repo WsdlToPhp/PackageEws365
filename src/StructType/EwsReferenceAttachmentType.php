@@ -222,8 +222,8 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
     public function setPermissionType($permissionType = null)
     {
         // validation for constraint: int
-        if (!is_null($permissionType) && !is_int($permissionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($permissionType)), __LINE__);
+        if (!is_null($permissionType) && !is_numeric($permissionType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($permissionType)), __LINE__);
         }
         $this->PermissionType = $permissionType;
         return $this;

@@ -129,8 +129,8 @@ class EwsInboxReminderType extends AbstractStructBase
     public function setReminderOffset($reminderOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($reminderOffset) && !is_int($reminderOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($reminderOffset)), __LINE__);
+        if (!is_null($reminderOffset) && !is_numeric($reminderOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($reminderOffset)), __LINE__);
         }
         $this->ReminderOffset = $reminderOffset;
         return $this;

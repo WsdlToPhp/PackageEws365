@@ -170,8 +170,8 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
     public function setOffset($offset = null)
     {
         // validation for constraint: int
-        if (!is_null($offset) && !is_int($offset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offset)), __LINE__);
+        if (!is_null($offset) && !is_numeric($offset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
         return $this;
@@ -192,8 +192,8 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
     public function setNumberOfRecords($numberOfRecords = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfRecords) && !is_int($numberOfRecords)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfRecords)), __LINE__);
+        if (!is_null($numberOfRecords) && !is_numeric($numberOfRecords)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfRecords)), __LINE__);
         }
         $this->NumberOfRecords = $numberOfRecords;
         return $this;

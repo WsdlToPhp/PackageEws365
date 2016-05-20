@@ -89,8 +89,8 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     public function setSequenceNumber($sequenceNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($sequenceNumber) && !is_int($sequenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sequenceNumber)), __LINE__);
+        if (!is_null($sequenceNumber) && !is_numeric($sequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sequenceNumber)), __LINE__);
         }
         $this->SequenceNumber = $sequenceNumber;
         return $this;
@@ -111,8 +111,8 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     public function setActionDelay($actionDelay = null)
     {
         // validation for constraint: int
-        if (!is_null($actionDelay) && !is_int($actionDelay)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($actionDelay)), __LINE__);
+        if (!is_null($actionDelay) && !is_numeric($actionDelay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($actionDelay)), __LINE__);
         }
         $this->ActionDelay = $actionDelay;
         return $this;

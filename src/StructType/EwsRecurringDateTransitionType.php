@@ -43,8 +43,8 @@ class EwsRecurringDateTransitionType extends EwsRecurringTimeTransitionType
     public function setDay($day = null)
     {
         // validation for constraint: int
-        if (!is_null($day) && !is_int($day)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($day)), __LINE__);
+        if (!is_null($day) && !is_numeric($day)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($day)), __LINE__);
         }
         $this->Day = $day;
         return $this;

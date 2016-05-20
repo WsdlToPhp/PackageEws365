@@ -246,8 +246,8 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     public function setTotalCount($totalCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalCount) && !is_int($totalCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalCount)), __LINE__);
+        if (!is_null($totalCount) && !is_numeric($totalCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalCount)), __LINE__);
         }
         $this->TotalCount = $totalCount;
         return $this;
@@ -268,8 +268,8 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     public function setChildFolderCount($childFolderCount = null)
     {
         // validation for constraint: int
-        if (!is_null($childFolderCount) && !is_int($childFolderCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($childFolderCount)), __LINE__);
+        if (!is_null($childFolderCount) && !is_numeric($childFolderCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($childFolderCount)), __LINE__);
         }
         $this->ChildFolderCount = $childFolderCount;
         return $this;

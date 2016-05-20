@@ -51,8 +51,8 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
     public function setTimeOffset($timeOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($timeOffset) && !is_int($timeOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($timeOffset)), __LINE__);
+        if (!is_null($timeOffset) && !is_numeric($timeOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($timeOffset)), __LINE__);
         }
         $this->TimeOffset = $timeOffset;
         return $this;
@@ -73,8 +73,8 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
     public function setMonth($month = null)
     {
         // validation for constraint: int
-        if (!is_null($month) && !is_int($month)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($month)), __LINE__);
+        if (!is_null($month) && !is_numeric($month)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($month)), __LINE__);
         }
         $this->Month = $month;
         return $this;

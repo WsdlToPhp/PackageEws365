@@ -156,8 +156,8 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     public function setGroupsLimit($groupsLimit = null)
     {
         // validation for constraint: int
-        if (!is_null($groupsLimit) && !is_int($groupsLimit)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($groupsLimit)), __LINE__);
+        if (!is_null($groupsLimit) && !is_numeric($groupsLimit)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($groupsLimit)), __LINE__);
         }
         $this->GroupsLimit = $groupsLimit;
         return $this;

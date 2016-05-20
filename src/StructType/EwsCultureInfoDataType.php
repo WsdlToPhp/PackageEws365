@@ -103,8 +103,8 @@ class EwsCultureInfoDataType extends AbstractStructBase
     public function setLCID($lCID = null)
     {
         // validation for constraint: int
-        if (!is_null($lCID) && !is_int($lCID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lCID)), __LINE__);
+        if (!is_null($lCID) && !is_numeric($lCID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($lCID)), __LINE__);
         }
         $this->LCID = $lCID;
         return $this;

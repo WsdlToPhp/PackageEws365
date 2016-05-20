@@ -166,8 +166,8 @@ class EwsFileItemType extends EwsItemType
     public function setFileSize($fileSize = null)
     {
         // validation for constraint: int
-        if (!is_null($fileSize) && !is_int($fileSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($fileSize)), __LINE__);
+        if (!is_null($fileSize) && !is_numeric($fileSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($fileSize)), __LINE__);
         }
         $this->FileSize = $fileSize;
         return $this;

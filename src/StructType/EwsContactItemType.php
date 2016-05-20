@@ -1846,8 +1846,8 @@ class EwsContactItemType extends EwsItemType
     public function setContactShortId($contactShortId = null)
     {
         // validation for constraint: int
-        if (!is_null($contactShortId) && !is_int($contactShortId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($contactShortId)), __LINE__);
+        if (!is_null($contactShortId) && !is_numeric($contactShortId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($contactShortId)), __LINE__);
         }
         $this->ContactShortId = $contactShortId;
         return $this;
@@ -1952,8 +1952,8 @@ class EwsContactItemType extends EwsItemType
     public function setPassportId($passportId = null)
     {
         // validation for constraint: int
-        if (!is_null($passportId) && !is_int($passportId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($passportId)), __LINE__);
+        if (!is_null($passportId) && !is_numeric($passportId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($passportId)), __LINE__);
         }
         $this->PassportId = $passportId;
         return $this;
@@ -2014,8 +2014,8 @@ class EwsContactItemType extends EwsItemType
     public function setTrustLevel($trustLevel = null)
     {
         // validation for constraint: int
-        if (!is_null($trustLevel) && !is_int($trustLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($trustLevel)), __LINE__);
+        if (!is_null($trustLevel) && !is_numeric($trustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($trustLevel)), __LINE__);
         }
         $this->TrustLevel = $trustLevel;
         return $this;
@@ -2076,8 +2076,8 @@ class EwsContactItemType extends EwsItemType
     public function setCid($cid = null)
     {
         // validation for constraint: int
-        if (!is_null($cid) && !is_int($cid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($cid)), __LINE__);
+        if (!is_null($cid) && !is_numeric($cid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($cid)), __LINE__);
         }
         $this->Cid = $cid;
         return $this;
@@ -2470,8 +2470,8 @@ class EwsContactItemType extends EwsItemType
     public function setPresenceTrustLevel($presenceTrustLevel = null)
     {
         // validation for constraint: int
-        if (!is_null($presenceTrustLevel) && !is_int($presenceTrustLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($presenceTrustLevel)), __LINE__);
+        if (!is_null($presenceTrustLevel) && !is_numeric($presenceTrustLevel)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($presenceTrustLevel)), __LINE__);
         }
         $this->PresenceTrustLevel = $presenceTrustLevel;
         return $this;

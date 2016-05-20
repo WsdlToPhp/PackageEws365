@@ -136,8 +136,8 @@ class EwsClientAccessTokenType extends AbstractStructBase
     public function setTTL($tTL = null)
     {
         // validation for constraint: int
-        if (!is_null($tTL) && !is_int($tTL)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tTL)), __LINE__);
+        if (!is_null($tTL) && !is_numeric($tTL)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($tTL)), __LINE__);
         }
         $this->TTL = $tTL;
         return $this;

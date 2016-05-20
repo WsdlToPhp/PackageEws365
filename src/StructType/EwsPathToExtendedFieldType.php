@@ -226,8 +226,8 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
     public function setPropertyId($propertyId = null)
     {
         // validation for constraint: int
-        if (!is_null($propertyId) && !is_int($propertyId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($propertyId)), __LINE__);
+        if (!is_null($propertyId) && !is_numeric($propertyId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($propertyId)), __LINE__);
         }
         $this->PropertyId = $propertyId;
         return $this;

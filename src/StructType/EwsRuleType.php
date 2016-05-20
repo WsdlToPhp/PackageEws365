@@ -158,8 +158,8 @@ class EwsRuleType extends AbstractStructBase
     public function setPriority($priority = null)
     {
         // validation for constraint: int
-        if (!is_null($priority) && !is_int($priority)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($priority)), __LINE__);
+        if (!is_null($priority) && !is_numeric($priority)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($priority)), __LINE__);
         }
         $this->Priority = $priority;
         return $this;

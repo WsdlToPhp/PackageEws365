@@ -101,8 +101,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setBias($bias = null)
     {
         // validation for constraint: int
-        if (!is_null($bias) && !is_int($bias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($bias)), __LINE__);
+        if (!is_null($bias) && !is_numeric($bias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
         return $this;
@@ -145,8 +145,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setDayOrder($dayOrder = null)
     {
         // validation for constraint: int
-        if (!is_null($dayOrder) && !is_int($dayOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($dayOrder)), __LINE__);
+        if (!is_null($dayOrder) && !is_numeric($dayOrder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($dayOrder)), __LINE__);
         }
         $this->DayOrder = $dayOrder;
         return $this;
@@ -167,8 +167,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setMonth($month = null)
     {
         // validation for constraint: int
-        if (!is_null($month) && !is_int($month)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($month)), __LINE__);
+        if (!is_null($month) && !is_numeric($month)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($month)), __LINE__);
         }
         $this->Month = $month;
         return $this;

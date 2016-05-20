@@ -101,8 +101,8 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
     public function setStepTime($stepTime = null)
     {
         // validation for constraint: int
-        if (!is_null($stepTime) && !is_int($stepTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($stepTime)), __LINE__);
+        if (!is_null($stepTime) && !is_numeric($stepTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($stepTime)), __LINE__);
         }
         $this->StepTime = $stepTime;
         return $this;

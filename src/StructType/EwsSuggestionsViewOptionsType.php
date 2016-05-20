@@ -141,8 +141,8 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     public function setGoodThreshold($goodThreshold = null)
     {
         // validation for constraint: int
-        if (!is_null($goodThreshold) && !is_int($goodThreshold)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($goodThreshold)), __LINE__);
+        if (!is_null($goodThreshold) && !is_numeric($goodThreshold)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($goodThreshold)), __LINE__);
         }
         $this->GoodThreshold = $goodThreshold;
         return $this;
@@ -163,8 +163,8 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     public function setMaximumResultsByDay($maximumResultsByDay = null)
     {
         // validation for constraint: int
-        if (!is_null($maximumResultsByDay) && !is_int($maximumResultsByDay)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumResultsByDay)), __LINE__);
+        if (!is_null($maximumResultsByDay) && !is_numeric($maximumResultsByDay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maximumResultsByDay)), __LINE__);
         }
         $this->MaximumResultsByDay = $maximumResultsByDay;
         return $this;
@@ -185,8 +185,8 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     public function setMaximumNonWorkHourResultsByDay($maximumNonWorkHourResultsByDay = null)
     {
         // validation for constraint: int
-        if (!is_null($maximumNonWorkHourResultsByDay) && !is_int($maximumNonWorkHourResultsByDay)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maximumNonWorkHourResultsByDay)), __LINE__);
+        if (!is_null($maximumNonWorkHourResultsByDay) && !is_numeric($maximumNonWorkHourResultsByDay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maximumNonWorkHourResultsByDay)), __LINE__);
         }
         $this->MaximumNonWorkHourResultsByDay = $maximumNonWorkHourResultsByDay;
         return $this;
@@ -207,8 +207,8 @@ class EwsSuggestionsViewOptionsType extends AbstractStructBase
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        if (!is_null($meetingDurationInMinutes) && !is_numeric($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;

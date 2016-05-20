@@ -275,8 +275,8 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public function setEntrySequenceNumber($entrySequenceNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($entrySequenceNumber) && !is_int($entrySequenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($entrySequenceNumber)), __LINE__);
+        if (!is_null($entrySequenceNumber) && !is_numeric($entrySequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($entrySequenceNumber)), __LINE__);
         }
         $this->EntrySequenceNumber = $entrySequenceNumber;
         return $this;

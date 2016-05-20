@@ -46,8 +46,8 @@ class EwsPullSubscriptionRequestType extends EwsBaseSubscriptionRequestType
     public function setTimeout($timeout = null)
     {
         // validation for constraint: int
-        if (!is_null($timeout) && !is_int($timeout)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($timeout)), __LINE__);
+        if (!is_null($timeout) && !is_numeric($timeout)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($timeout)), __LINE__);
         }
         $this->Timeout = $timeout;
         return $this;

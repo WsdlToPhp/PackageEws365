@@ -105,8 +105,8 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
     public function setTotalNumberOfPeopleInView($totalNumberOfPeopleInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalNumberOfPeopleInView) && !is_int($totalNumberOfPeopleInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalNumberOfPeopleInView)), __LINE__);
+        if (!is_null($totalNumberOfPeopleInView) && !is_numeric($totalNumberOfPeopleInView)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalNumberOfPeopleInView)), __LINE__);
         }
         $this->TotalNumberOfPeopleInView = $totalNumberOfPeopleInView;
         return $this;
@@ -127,8 +127,8 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
     public function setFirstMatchingRowIndex($firstMatchingRowIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($firstMatchingRowIndex) && !is_int($firstMatchingRowIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($firstMatchingRowIndex)), __LINE__);
+        if (!is_null($firstMatchingRowIndex) && !is_numeric($firstMatchingRowIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($firstMatchingRowIndex)), __LINE__);
         }
         $this->FirstMatchingRowIndex = $firstMatchingRowIndex;
         return $this;
@@ -149,8 +149,8 @@ class EwsFindPeopleResponseMessageType extends EwsResponseMessageType
     public function setFirstLoadedRowIndex($firstLoadedRowIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($firstLoadedRowIndex) && !is_int($firstLoadedRowIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($firstLoadedRowIndex)), __LINE__);
+        if (!is_null($firstLoadedRowIndex) && !is_numeric($firstLoadedRowIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($firstLoadedRowIndex)), __LINE__);
         }
         $this->FirstLoadedRowIndex = $firstLoadedRowIndex;
         return $this;

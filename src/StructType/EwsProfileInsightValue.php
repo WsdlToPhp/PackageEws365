@@ -233,8 +233,8 @@ class EwsProfileInsightValue extends EwsInsightValue
     public function setJoinedUtcTicks($joinedUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($joinedUtcTicks) && !is_int($joinedUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($joinedUtcTicks)), __LINE__);
+        if (!is_null($joinedUtcTicks) && !is_numeric($joinedUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($joinedUtcTicks)), __LINE__);
         }
         $this->JoinedUtcTicks = $joinedUtcTicks;
         return $this;

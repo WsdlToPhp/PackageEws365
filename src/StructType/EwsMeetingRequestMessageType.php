@@ -908,8 +908,8 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     public function setConflictingMeetingCount($conflictingMeetingCount = null)
     {
         // validation for constraint: int
-        if (!is_null($conflictingMeetingCount) && !is_int($conflictingMeetingCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($conflictingMeetingCount)), __LINE__);
+        if (!is_null($conflictingMeetingCount) && !is_numeric($conflictingMeetingCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($conflictingMeetingCount)), __LINE__);
         }
         $this->ConflictingMeetingCount = $conflictingMeetingCount;
         return $this;
@@ -930,8 +930,8 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     public function setAdjacentMeetingCount($adjacentMeetingCount = null)
     {
         // validation for constraint: int
-        if (!is_null($adjacentMeetingCount) && !is_int($adjacentMeetingCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($adjacentMeetingCount)), __LINE__);
+        if (!is_null($adjacentMeetingCount) && !is_numeric($adjacentMeetingCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($adjacentMeetingCount)), __LINE__);
         }
         $this->AdjacentMeetingCount = $adjacentMeetingCount;
         return $this;
@@ -1054,8 +1054,8 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     public function setAppointmentSequenceNumber($appointmentSequenceNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($appointmentSequenceNumber) && !is_int($appointmentSequenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($appointmentSequenceNumber)), __LINE__);
+        if (!is_null($appointmentSequenceNumber) && !is_numeric($appointmentSequenceNumber)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($appointmentSequenceNumber)), __LINE__);
         }
         $this->AppointmentSequenceNumber = $appointmentSequenceNumber;
         return $this;
@@ -1076,8 +1076,8 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     public function setAppointmentState($appointmentState = null)
     {
         // validation for constraint: int
-        if (!is_null($appointmentState) && !is_int($appointmentState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($appointmentState)), __LINE__);
+        if (!is_null($appointmentState) && !is_numeric($appointmentState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($appointmentState)), __LINE__);
         }
         $this->AppointmentState = $appointmentState;
         return $this;
@@ -1242,8 +1242,8 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
     public function setConferenceType($conferenceType = null)
     {
         // validation for constraint: int
-        if (!is_null($conferenceType) && !is_int($conferenceType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($conferenceType)), __LINE__);
+        if (!is_null($conferenceType) && !is_numeric($conferenceType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($conferenceType)), __LINE__);
         }
         $this->ConferenceType = $conferenceType;
         return $this;

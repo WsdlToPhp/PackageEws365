@@ -83,8 +83,8 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        if (!is_null($meetingDurationInMinutes) && !is_numeric($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
