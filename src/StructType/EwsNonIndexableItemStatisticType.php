@@ -92,8 +92,8 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
     public function setItemCount($itemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($itemCount) && !is_int($itemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        if (!is_null($itemCount) && !is_numeric($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
         return $this;

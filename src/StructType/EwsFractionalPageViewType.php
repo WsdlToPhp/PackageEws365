@@ -55,8 +55,8 @@ class EwsFractionalPageViewType extends EwsBasePagingType
     public function setNumerator($numerator = null)
     {
         // validation for constraint: int
-        if (!is_null($numerator) && !is_int($numerator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numerator)), __LINE__);
+        if (!is_null($numerator) && !is_numeric($numerator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numerator)), __LINE__);
         }
         $this->Numerator = $numerator;
         return $this;
@@ -77,8 +77,8 @@ class EwsFractionalPageViewType extends EwsBasePagingType
     public function setDenominator($denominator = null)
     {
         // validation for constraint: int
-        if (!is_null($denominator) && !is_int($denominator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($denominator)), __LINE__);
+        if (!is_null($denominator) && !is_numeric($denominator)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($denominator)), __LINE__);
         }
         $this->Denominator = $denominator;
         return $this;

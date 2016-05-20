@@ -178,8 +178,8 @@ class EwsEmailInsightValue extends EwsInsightValue
     public function setLastEmailDateUtcTicks($lastEmailDateUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($lastEmailDateUtcTicks) && !is_int($lastEmailDateUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lastEmailDateUtcTicks)), __LINE__);
+        if (!is_null($lastEmailDateUtcTicks) && !is_numeric($lastEmailDateUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($lastEmailDateUtcTicks)), __LINE__);
         }
         $this->LastEmailDateUtcTicks = $lastEmailDateUtcTicks;
         return $this;
@@ -240,8 +240,8 @@ class EwsEmailInsightValue extends EwsInsightValue
     public function setEmailsCount($emailsCount = null)
     {
         // validation for constraint: int
-        if (!is_null($emailsCount) && !is_int($emailsCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($emailsCount)), __LINE__);
+        if (!is_null($emailsCount) && !is_numeric($emailsCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($emailsCount)), __LINE__);
         }
         $this->EmailsCount = $emailsCount;
         return $this;

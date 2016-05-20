@@ -123,8 +123,8 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public function setSearchRequestId($searchRequestId = null)
     {
         // validation for constraint: int
-        if (!is_null($searchRequestId) && !is_int($searchRequestId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchRequestId)), __LINE__);
+        if (!is_null($searchRequestId) && !is_numeric($searchRequestId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchRequestId)), __LINE__);
         }
         $this->SearchRequestId = $searchRequestId;
         return $this;

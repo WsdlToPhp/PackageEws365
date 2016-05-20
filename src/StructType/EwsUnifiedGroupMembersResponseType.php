@@ -57,8 +57,8 @@ class EwsUnifiedGroupMembersResponseType extends AbstractStructBase
     public function setTotalCount($totalCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalCount) && !is_int($totalCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalCount)), __LINE__);
+        if (!is_null($totalCount) && !is_numeric($totalCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalCount)), __LINE__);
         }
         $this->TotalCount = $totalCount;
         return $this;

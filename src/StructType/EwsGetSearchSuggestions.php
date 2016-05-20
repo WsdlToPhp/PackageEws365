@@ -185,8 +185,8 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     public function setMaxSuggestionsCountPerSuggestionType($maxSuggestionsCountPerSuggestionType = null)
     {
         // validation for constraint: int
-        if (!is_null($maxSuggestionsCountPerSuggestionType) && !is_int($maxSuggestionsCountPerSuggestionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
+        if (!is_null($maxSuggestionsCountPerSuggestionType) && !is_numeric($maxSuggestionsCountPerSuggestionType)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
         }
         $this->MaxSuggestionsCountPerSuggestionType = $maxSuggestionsCountPerSuggestionType;
         return $this;

@@ -87,8 +87,8 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
     public function setInstanceIndex($instanceIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($instanceIndex) && !is_int($instanceIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($instanceIndex)), __LINE__);
+        if (!is_null($instanceIndex) && !is_numeric($instanceIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($instanceIndex)), __LINE__);
         }
         $this->InstanceIndex = $instanceIndex;
         return $this;

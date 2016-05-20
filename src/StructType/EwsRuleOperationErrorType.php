@@ -57,8 +57,8 @@ class EwsRuleOperationErrorType extends AbstractStructBase
     public function setOperationIndex($operationIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($operationIndex) && !is_int($operationIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($operationIndex)), __LINE__);
+        if (!is_null($operationIndex) && !is_numeric($operationIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($operationIndex)), __LINE__);
         }
         $this->OperationIndex = $operationIndex;
         return $this;

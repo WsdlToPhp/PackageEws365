@@ -69,8 +69,8 @@ class EwsTimeZoneType extends AbstractStructBase
     public function setBaseOffset($baseOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($baseOffset) && !is_int($baseOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($baseOffset)), __LINE__);
+        if (!is_null($baseOffset) && !is_numeric($baseOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($baseOffset)), __LINE__);
         }
         $this->BaseOffset = $baseOffset;
         return $this;

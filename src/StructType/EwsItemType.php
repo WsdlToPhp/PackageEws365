@@ -829,8 +829,8 @@ class EwsItemType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_int($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !is_numeric($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -1148,8 +1148,8 @@ class EwsItemType extends AbstractStructBase
     public function setReminderMinutesBeforeStart($reminderMinutesBeforeStart = null)
     {
         // validation for constraint: int
-        if (!is_null($reminderMinutesBeforeStart) && !is_int($reminderMinutesBeforeStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
+        if (!is_null($reminderMinutesBeforeStart) && !is_numeric($reminderMinutesBeforeStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
         }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
         return $this;
@@ -1775,8 +1775,8 @@ class EwsItemType extends AbstractStructBase
     public function setSortKey($sortKey = null)
     {
         // validation for constraint: int
-        if (!is_null($sortKey) && !is_int($sortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sortKey)), __LINE__);
+        if (!is_null($sortKey) && !is_numeric($sortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
         return $this;

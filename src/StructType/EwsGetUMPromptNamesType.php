@@ -85,8 +85,8 @@ class EwsGetUMPromptNamesType extends EwsBaseRequestType
     public function setHoursElapsedSinceLastModified($hoursElapsedSinceLastModified = null)
     {
         // validation for constraint: int
-        if (!is_null($hoursElapsedSinceLastModified) && !is_int($hoursElapsedSinceLastModified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($hoursElapsedSinceLastModified)), __LINE__);
+        if (!is_null($hoursElapsedSinceLastModified) && !is_numeric($hoursElapsedSinceLastModified)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($hoursElapsedSinceLastModified)), __LINE__);
         }
         $this->HoursElapsedSinceLastModified = $hoursElapsedSinceLastModified;
         return $this;

@@ -112,8 +112,8 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public function setTotalAudioQualityCallsSampled($totalAudioQualityCallsSampled = null)
     {
         // validation for constraint: int
-        if (!is_null($totalAudioQualityCallsSampled) && !is_int($totalAudioQualityCallsSampled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalAudioQualityCallsSampled)), __LINE__);
+        if (!is_null($totalAudioQualityCallsSampled) && !is_numeric($totalAudioQualityCallsSampled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalAudioQualityCallsSampled)), __LINE__);
         }
         $this->TotalAudioQualityCallsSampled = $totalAudioQualityCallsSampled;
         return $this;

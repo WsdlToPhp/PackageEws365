@@ -72,8 +72,8 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
     public function setConnectionTimeout($connectionTimeout = null)
     {
         // validation for constraint: int
-        if (!is_null($connectionTimeout) && !is_int($connectionTimeout)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($connectionTimeout)), __LINE__);
+        if (!is_null($connectionTimeout) && !is_numeric($connectionTimeout)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($connectionTimeout)), __LINE__);
         }
         $this->ConnectionTimeout = $connectionTimeout;
         return $this;

@@ -167,8 +167,8 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public function setCategoryColor($categoryColor = null)
     {
         // validation for constraint: int
-        if (!is_null($categoryColor) && !is_int($categoryColor)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($categoryColor)), __LINE__);
+        if (!is_null($categoryColor) && !is_numeric($categoryColor)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($categoryColor)), __LINE__);
         }
         $this->CategoryColor = $categoryColor;
         return $this;

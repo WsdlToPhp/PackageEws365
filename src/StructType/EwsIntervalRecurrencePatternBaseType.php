@@ -43,8 +43,8 @@ abstract class EwsIntervalRecurrencePatternBaseType extends EwsRecurrencePattern
     public function setInterval($interval = null)
     {
         // validation for constraint: int
-        if (!is_null($interval) && !is_int($interval)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($interval)), __LINE__);
+        if (!is_null($interval) && !is_numeric($interval)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($interval)), __LINE__);
         }
         $this->Interval = $interval;
         return $this;

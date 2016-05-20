@@ -276,8 +276,8 @@ class EwsBookingServiceType extends AbstractStructBase
     public function setDefaultDurationMinutes($defaultDurationMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($defaultDurationMinutes) && !is_int($defaultDurationMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($defaultDurationMinutes)), __LINE__);
+        if (!is_null($defaultDurationMinutes) && !is_numeric($defaultDurationMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($defaultDurationMinutes)), __LINE__);
         }
         $this->DefaultDurationMinutes = $defaultDurationMinutes;
         return $this;
@@ -320,8 +320,8 @@ class EwsBookingServiceType extends AbstractStructBase
     public function setDefaultEmailReminderMinutes($defaultEmailReminderMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($defaultEmailReminderMinutes) && !is_int($defaultEmailReminderMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($defaultEmailReminderMinutes)), __LINE__);
+        if (!is_null($defaultEmailReminderMinutes) && !is_numeric($defaultEmailReminderMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($defaultEmailReminderMinutes)), __LINE__);
         }
         $this->DefaultEmailReminderMinutes = $defaultEmailReminderMinutes;
         return $this;

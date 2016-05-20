@@ -93,8 +93,8 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     public function setTotalMembersCount($totalMembersCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalMembersCount) && !is_int($totalMembersCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalMembersCount)), __LINE__);
+        if (!is_null($totalMembersCount) && !is_numeric($totalMembersCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalMembersCount)), __LINE__);
         }
         $this->TotalMembersCount = $totalMembersCount;
         return $this;

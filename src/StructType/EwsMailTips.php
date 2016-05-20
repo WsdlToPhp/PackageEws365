@@ -268,8 +268,8 @@ class EwsMailTips extends AbstractStructBase
     public function setTotalMemberCount($totalMemberCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalMemberCount) && !is_int($totalMemberCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalMemberCount)), __LINE__);
+        if (!is_null($totalMemberCount) && !is_numeric($totalMemberCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalMemberCount)), __LINE__);
         }
         $this->TotalMemberCount = $totalMemberCount;
         return $this;
@@ -290,8 +290,8 @@ class EwsMailTips extends AbstractStructBase
     public function setExternalMemberCount($externalMemberCount = null)
     {
         // validation for constraint: int
-        if (!is_null($externalMemberCount) && !is_int($externalMemberCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($externalMemberCount)), __LINE__);
+        if (!is_null($externalMemberCount) && !is_numeric($externalMemberCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($externalMemberCount)), __LINE__);
         }
         $this->ExternalMemberCount = $externalMemberCount;
         return $this;
@@ -312,8 +312,8 @@ class EwsMailTips extends AbstractStructBase
     public function setMaxMessageSize($maxMessageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($maxMessageSize) && !is_int($maxMessageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxMessageSize)), __LINE__);
+        if (!is_null($maxMessageSize) && !is_numeric($maxMessageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxMessageSize)), __LINE__);
         }
         $this->MaxMessageSize = $maxMessageSize;
         return $this;
@@ -388,8 +388,8 @@ class EwsMailTips extends AbstractStructBase
     public function setScope($scope = null)
     {
         // validation for constraint: int
-        if (!is_null($scope) && !is_int($scope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($scope)), __LINE__);
+        if (!is_null($scope) && !is_numeric($scope)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($scope)), __LINE__);
         }
         $this->Scope = $scope;
         return $this;

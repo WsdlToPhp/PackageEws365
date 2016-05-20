@@ -156,8 +156,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setAutoAttendantCalls($autoAttendantCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($autoAttendantCalls) && !is_int($autoAttendantCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($autoAttendantCalls)), __LINE__);
+        if (!is_null($autoAttendantCalls) && !is_numeric($autoAttendantCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($autoAttendantCalls)), __LINE__);
         }
         $this->AutoAttendantCalls = $autoAttendantCalls;
         return $this;
@@ -178,8 +178,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setFailedCalls($failedCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($failedCalls) && !is_int($failedCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($failedCalls)), __LINE__);
+        if (!is_null($failedCalls) && !is_numeric($failedCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($failedCalls)), __LINE__);
         }
         $this->FailedCalls = $failedCalls;
         return $this;
@@ -200,8 +200,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setFaxCalls($faxCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($faxCalls) && !is_int($faxCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($faxCalls)), __LINE__);
+        if (!is_null($faxCalls) && !is_numeric($faxCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($faxCalls)), __LINE__);
         }
         $this->FaxCalls = $faxCalls;
         return $this;
@@ -222,8 +222,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setMissedCalls($missedCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($missedCalls) && !is_int($missedCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($missedCalls)), __LINE__);
+        if (!is_null($missedCalls) && !is_numeric($missedCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($missedCalls)), __LINE__);
         }
         $this->MissedCalls = $missedCalls;
         return $this;
@@ -244,8 +244,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setOtherCalls($otherCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($otherCalls) && !is_int($otherCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($otherCalls)), __LINE__);
+        if (!is_null($otherCalls) && !is_numeric($otherCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($otherCalls)), __LINE__);
         }
         $this->OtherCalls = $otherCalls;
         return $this;
@@ -266,8 +266,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setOutboundCalls($outboundCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($outboundCalls) && !is_int($outboundCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($outboundCalls)), __LINE__);
+        if (!is_null($outboundCalls) && !is_numeric($outboundCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($outboundCalls)), __LINE__);
         }
         $this->OutboundCalls = $outboundCalls;
         return $this;
@@ -288,8 +288,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setSubscriberAccessCalls($subscriberAccessCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($subscriberAccessCalls) && !is_int($subscriberAccessCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($subscriberAccessCalls)), __LINE__);
+        if (!is_null($subscriberAccessCalls) && !is_numeric($subscriberAccessCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($subscriberAccessCalls)), __LINE__);
         }
         $this->SubscriberAccessCalls = $subscriberAccessCalls;
         return $this;
@@ -310,8 +310,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setVoiceMailCalls($voiceMailCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($voiceMailCalls) && !is_int($voiceMailCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($voiceMailCalls)), __LINE__);
+        if (!is_null($voiceMailCalls) && !is_numeric($voiceMailCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($voiceMailCalls)), __LINE__);
         }
         $this->VoiceMailCalls = $voiceMailCalls;
         return $this;
@@ -332,8 +332,8 @@ class EwsUMReportRawCountersType extends AbstractStructBase
     public function setTotalCalls($totalCalls = null)
     {
         // validation for constraint: int
-        if (!is_null($totalCalls) && !is_int($totalCalls)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalCalls)), __LINE__);
+        if (!is_null($totalCalls) && !is_numeric($totalCalls)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalCalls)), __LINE__);
         }
         $this->TotalCalls = $totalCalls;
         return $this;

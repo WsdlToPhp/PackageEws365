@@ -141,8 +141,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setMaxRecipientsPerGetMailTipsRequest($maxRecipientsPerGetMailTipsRequest = null)
     {
         // validation for constraint: int
-        if (!is_null($maxRecipientsPerGetMailTipsRequest) && !is_int($maxRecipientsPerGetMailTipsRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxRecipientsPerGetMailTipsRequest)), __LINE__);
+        if (!is_null($maxRecipientsPerGetMailTipsRequest) && !is_numeric($maxRecipientsPerGetMailTipsRequest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxRecipientsPerGetMailTipsRequest)), __LINE__);
         }
         $this->MaxRecipientsPerGetMailTipsRequest = $maxRecipientsPerGetMailTipsRequest;
         return $this;
@@ -163,8 +163,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setMaxMessageSize($maxMessageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($maxMessageSize) && !is_int($maxMessageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxMessageSize)), __LINE__);
+        if (!is_null($maxMessageSize) && !is_numeric($maxMessageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxMessageSize)), __LINE__);
         }
         $this->MaxMessageSize = $maxMessageSize;
         return $this;
@@ -185,8 +185,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setLargeAudienceThreshold($largeAudienceThreshold = null)
     {
         // validation for constraint: int
-        if (!is_null($largeAudienceThreshold) && !is_int($largeAudienceThreshold)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($largeAudienceThreshold)), __LINE__);
+        if (!is_null($largeAudienceThreshold) && !is_numeric($largeAudienceThreshold)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($largeAudienceThreshold)), __LINE__);
         }
         $this->LargeAudienceThreshold = $largeAudienceThreshold;
         return $this;
@@ -261,8 +261,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setLargeAudienceCap($largeAudienceCap = null)
     {
         // validation for constraint: int
-        if (!is_null($largeAudienceCap) && !is_int($largeAudienceCap)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($largeAudienceCap)), __LINE__);
+        if (!is_null($largeAudienceCap) && !is_numeric($largeAudienceCap)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($largeAudienceCap)), __LINE__);
         }
         $this->LargeAudienceCap = $largeAudienceCap;
         return $this;

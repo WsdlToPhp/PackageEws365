@@ -749,8 +749,8 @@ class EwsConversationType extends AbstractStructBase
     public function setMessageCount($messageCount = null)
     {
         // validation for constraint: int
-        if (!is_null($messageCount) && !is_int($messageCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($messageCount)), __LINE__);
+        if (!is_null($messageCount) && !is_numeric($messageCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($messageCount)), __LINE__);
         }
         $this->MessageCount = $messageCount;
         return $this;
@@ -771,8 +771,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalMessageCount($globalMessageCount = null)
     {
         // validation for constraint: int
-        if (!is_null($globalMessageCount) && !is_int($globalMessageCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalMessageCount)), __LINE__);
+        if (!is_null($globalMessageCount) && !is_numeric($globalMessageCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalMessageCount)), __LINE__);
         }
         $this->GlobalMessageCount = $globalMessageCount;
         return $this;
@@ -793,8 +793,8 @@ class EwsConversationType extends AbstractStructBase
     public function setUnreadCount($unreadCount = null)
     {
         // validation for constraint: int
-        if (!is_null($unreadCount) && !is_int($unreadCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unreadCount)), __LINE__);
+        if (!is_null($unreadCount) && !is_numeric($unreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
         return $this;
@@ -815,8 +815,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalUnreadCount($globalUnreadCount = null)
     {
         // validation for constraint: int
-        if (!is_null($globalUnreadCount) && !is_int($globalUnreadCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalUnreadCount)), __LINE__);
+        if (!is_null($globalUnreadCount) && !is_numeric($globalUnreadCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalUnreadCount)), __LINE__);
         }
         $this->GlobalUnreadCount = $globalUnreadCount;
         return $this;
@@ -837,8 +837,8 @@ class EwsConversationType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_int($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !is_numeric($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -859,8 +859,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalSize($globalSize = null)
     {
         // validation for constraint: int
-        if (!is_null($globalSize) && !is_int($globalSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($globalSize)), __LINE__);
+        if (!is_null($globalSize) && !is_numeric($globalSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalSize)), __LINE__);
         }
         $this->GlobalSize = $globalSize;
         return $this;
@@ -1194,8 +1194,8 @@ class EwsConversationType extends AbstractStructBase
     public function setSortKey($sortKey = null)
     {
         // validation for constraint: int
-        if (!is_null($sortKey) && !is_int($sortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sortKey)), __LINE__);
+        if (!is_null($sortKey) && !is_numeric($sortKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
         return $this;

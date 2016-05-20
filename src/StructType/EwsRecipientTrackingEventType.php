@@ -275,8 +275,8 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public function setInternalId($internalId = null)
     {
         // validation for constraint: int
-        if (!is_null($internalId) && !is_int($internalId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($internalId)), __LINE__);
+        if (!is_null($internalId) && !is_numeric($internalId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($internalId)), __LINE__);
         }
         $this->InternalId = $internalId;
         return $this;

@@ -190,8 +190,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setItemCount($itemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($itemCount) && !is_int($itemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemCount)), __LINE__);
+        if (!is_null($itemCount) && !is_numeric($itemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
         return $this;
@@ -212,8 +212,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_int($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !is_numeric($size)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -234,8 +234,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setPageItemCount($pageItemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($pageItemCount) && !is_int($pageItemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageItemCount)), __LINE__);
+        if (!is_null($pageItemCount) && !is_numeric($pageItemCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageItemCount)), __LINE__);
         }
         $this->PageItemCount = $pageItemCount;
         return $this;
@@ -256,8 +256,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setPageItemSize($pageItemSize = null)
     {
         // validation for constraint: int
-        if (!is_null($pageItemSize) && !is_int($pageItemSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageItemSize)), __LINE__);
+        if (!is_null($pageItemSize) && !is_numeric($pageItemSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageItemSize)), __LINE__);
         }
         $this->PageItemSize = $pageItemSize;
         return $this;

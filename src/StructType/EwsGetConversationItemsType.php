@@ -154,8 +154,8 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public function setMaxItemsToReturn($maxItemsToReturn = null)
     {
         // validation for constraint: int
-        if (!is_null($maxItemsToReturn) && !is_int($maxItemsToReturn)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxItemsToReturn)), __LINE__);
+        if (!is_null($maxItemsToReturn) && !is_numeric($maxItemsToReturn)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxItemsToReturn)), __LINE__);
         }
         $this->MaxItemsToReturn = $maxItemsToReturn;
         return $this;

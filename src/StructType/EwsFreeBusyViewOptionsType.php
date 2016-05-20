@@ -86,8 +86,8 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
     public function setMergedFreeBusyIntervalInMinutes($mergedFreeBusyIntervalInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($mergedFreeBusyIntervalInMinutes) && !is_int($mergedFreeBusyIntervalInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($mergedFreeBusyIntervalInMinutes)), __LINE__);
+        if (!is_null($mergedFreeBusyIntervalInMinutes) && !is_numeric($mergedFreeBusyIntervalInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($mergedFreeBusyIntervalInMinutes)), __LINE__);
         }
         $this->MergedFreeBusyIntervalInMinutes = $mergedFreeBusyIntervalInMinutes;
         return $this;

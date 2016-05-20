@@ -157,8 +157,8 @@ class EwsResponseMessageType extends AbstractStructBase
     public function setDescriptiveLinkKey($descriptiveLinkKey = null)
     {
         // validation for constraint: int
-        if (!is_null($descriptiveLinkKey) && !is_int($descriptiveLinkKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($descriptiveLinkKey)), __LINE__);
+        if (!is_null($descriptiveLinkKey) && !is_numeric($descriptiveLinkKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($descriptiveLinkKey)), __LINE__);
         }
         $this->DescriptiveLinkKey = $descriptiveLinkKey;
         return $this;

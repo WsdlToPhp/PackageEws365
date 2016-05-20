@@ -101,8 +101,8 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     public function setSearchWindowDuration($searchWindowDuration = null)
     {
         // validation for constraint: int
-        if (!is_null($searchWindowDuration) && !is_int($searchWindowDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($searchWindowDuration)), __LINE__);
+        if (!is_null($searchWindowDuration) && !is_numeric($searchWindowDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchWindowDuration)), __LINE__);
         }
         $this->SearchWindowDuration = $searchWindowDuration;
         return $this;
@@ -123,8 +123,8 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($meetingDurationInMinutes) && !is_int($meetingDurationInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        if (!is_null($meetingDurationInMinutes) && !is_numeric($meetingDurationInMinutes)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;

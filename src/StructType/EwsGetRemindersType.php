@@ -125,8 +125,8 @@ class EwsGetRemindersType extends EwsBaseRequestType
     public function setMaxItems($maxItems = null)
     {
         // validation for constraint: int
-        if (!is_null($maxItems) && !is_int($maxItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxItems)), __LINE__);
+        if (!is_null($maxItems) && !is_numeric($maxItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxItems)), __LINE__);
         }
         $this->MaxItems = $maxItems;
         return $this;

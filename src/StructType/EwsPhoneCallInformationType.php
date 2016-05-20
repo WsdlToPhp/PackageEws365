@@ -151,8 +151,8 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     public function setSIPResponseCode($sIPResponseCode = null)
     {
         // validation for constraint: int
-        if (!is_null($sIPResponseCode) && !is_int($sIPResponseCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($sIPResponseCode)), __LINE__);
+        if (!is_null($sIPResponseCode) && !is_numeric($sIPResponseCode)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sIPResponseCode)), __LINE__);
         }
         $this->SIPResponseCode = $sIPResponseCode;
         return $this;

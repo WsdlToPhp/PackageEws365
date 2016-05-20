@@ -45,8 +45,8 @@ abstract class EwsBasePagingType extends AbstractStructBase
     public function setMaxEntriesReturned($maxEntriesReturned = null)
     {
         // validation for constraint: int
-        if (!is_null($maxEntriesReturned) && !is_int($maxEntriesReturned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxEntriesReturned)), __LINE__);
+        if (!is_null($maxEntriesReturned) && !is_numeric($maxEntriesReturned)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxEntriesReturned)), __LINE__);
         }
         $this->MaxEntriesReturned = $maxEntriesReturned;
         return $this;

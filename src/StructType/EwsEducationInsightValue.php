@@ -123,8 +123,8 @@ class EwsEducationInsightValue extends EwsInsightValue
     public function setStartUtcTicks($startUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($startUtcTicks) && !is_int($startUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($startUtcTicks)), __LINE__);
+        if (!is_null($startUtcTicks) && !is_numeric($startUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startUtcTicks)), __LINE__);
         }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
@@ -145,8 +145,8 @@ class EwsEducationInsightValue extends EwsInsightValue
     public function setEndUtcTicks($endUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($endUtcTicks) && !is_int($endUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($endUtcTicks)), __LINE__);
+        if (!is_null($endUtcTicks) && !is_numeric($endUtcTicks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endUtcTicks)), __LINE__);
         }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;

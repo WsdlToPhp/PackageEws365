@@ -75,8 +75,8 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
     public function setMembersCountLimit($membersCountLimit = null)
     {
         // validation for constraint: int
-        if (!is_null($membersCountLimit) && !is_int($membersCountLimit)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($membersCountLimit)), __LINE__);
+        if (!is_null($membersCountLimit) && !is_numeric($membersCountLimit)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($membersCountLimit)), __LINE__);
         }
         $this->MembersCountLimit = $membersCountLimit;
         return $this;

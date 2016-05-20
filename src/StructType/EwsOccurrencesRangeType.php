@@ -119,8 +119,8 @@ class EwsOccurrencesRangeType extends AbstractStructBase
     public function setCount($count = null)
     {
         // validation for constraint: int
-        if (!is_null($count) && !is_int($count)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($count)), __LINE__);
+        if (!is_null($count) && !is_numeric($count)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($count)), __LINE__);
         }
         $this->Count = $count;
         return $this;

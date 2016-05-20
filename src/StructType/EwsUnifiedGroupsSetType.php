@@ -95,8 +95,8 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     public function setTotalGroups($totalGroups = null)
     {
         // validation for constraint: int
-        if (!is_null($totalGroups) && !is_int($totalGroups)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($totalGroups)), __LINE__);
+        if (!is_null($totalGroups) && !is_numeric($totalGroups)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalGroups)), __LINE__);
         }
         $this->TotalGroups = $totalGroups;
         return $this;

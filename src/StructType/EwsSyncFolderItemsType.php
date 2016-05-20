@@ -133,8 +133,8 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
     public function setMaxChangesReturned($maxChangesReturned = null)
     {
         // validation for constraint: int
-        if (!is_null($maxChangesReturned) && !is_int($maxChangesReturned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($maxChangesReturned)), __LINE__);
+        if (!is_null($maxChangesReturned) && !is_numeric($maxChangesReturned)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxChangesReturned)), __LINE__);
         }
         $this->MaxChangesReturned = $maxChangesReturned;
         return $this;

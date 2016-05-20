@@ -259,8 +259,8 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public function setAttemptCount($attemptCount = null)
     {
         // validation for constraint: int
-        if (!is_null($attemptCount) && !is_int($attemptCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($attemptCount)), __LINE__);
+        if (!is_null($attemptCount) && !is_numeric($attemptCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($attemptCount)), __LINE__);
         }
         $this->AttemptCount = $attemptCount;
         return $this;

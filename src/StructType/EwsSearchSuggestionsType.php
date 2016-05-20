@@ -81,8 +81,8 @@ class EwsSearchSuggestionsType extends AbstractStructBase
     public function setTDSuggestionsBatchId($tDSuggestionsBatchId = null)
     {
         // validation for constraint: int
-        if (!is_null($tDSuggestionsBatchId) && !is_int($tDSuggestionsBatchId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDSuggestionsBatchId)), __LINE__);
+        if (!is_null($tDSuggestionsBatchId) && !is_numeric($tDSuggestionsBatchId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($tDSuggestionsBatchId)), __LINE__);
         }
         $this->TDSuggestionsBatchId = $tDSuggestionsBatchId;
         return $this;

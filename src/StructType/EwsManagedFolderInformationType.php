@@ -271,8 +271,8 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     public function setStorageQuota($storageQuota = null)
     {
         // validation for constraint: int
-        if (!is_null($storageQuota) && !is_int($storageQuota)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($storageQuota)), __LINE__);
+        if (!is_null($storageQuota) && !is_numeric($storageQuota)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($storageQuota)), __LINE__);
         }
         $this->StorageQuota = $storageQuota;
         return $this;
@@ -293,8 +293,8 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     public function setFolderSize($folderSize = null)
     {
         // validation for constraint: int
-        if (!is_null($folderSize) && !is_int($folderSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($folderSize)), __LINE__);
+        if (!is_null($folderSize) && !is_numeric($folderSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($folderSize)), __LINE__);
         }
         $this->FolderSize = $folderSize;
         return $this;

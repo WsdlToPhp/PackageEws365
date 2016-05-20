@@ -186,8 +186,8 @@ class EwsSuggestionType extends AbstractStructBase
     public function setTDSuggestionId($tDSuggestionId = null)
     {
         // validation for constraint: int
-        if (!is_null($tDSuggestionId) && !is_int($tDSuggestionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($tDSuggestionId)), __LINE__);
+        if (!is_null($tDSuggestionId) && !is_numeric($tDSuggestionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($tDSuggestionId)), __LINE__);
         }
         $this->TDSuggestionId = $tDSuggestionId;
         return $this;

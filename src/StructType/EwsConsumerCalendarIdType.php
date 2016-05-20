@@ -69,8 +69,8 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     public function setOwnerPuid($ownerPuid = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerPuid) && !is_int($ownerPuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerPuid)), __LINE__);
+        if (!is_null($ownerPuid) && !is_numeric($ownerPuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerPuid)), __LINE__);
         }
         $this->OwnerPuid = $ownerPuid;
         return $this;
@@ -117,8 +117,8 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     public function setOwnerCid($ownerCid = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerCid) && !is_int($ownerCid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($ownerCid)), __LINE__);
+        if (!is_null($ownerCid) && !is_numeric($ownerCid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerCid)), __LINE__);
         }
         $this->OwnerCid = $ownerCid;
         return $this;

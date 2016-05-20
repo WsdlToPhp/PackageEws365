@@ -119,8 +119,8 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     public function setScore($score = null)
     {
         // validation for constraint: int
-        if (!is_null($score) && !is_int($score)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($score)), __LINE__);
+        if (!is_null($score) && !is_numeric($score)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($score)), __LINE__);
         }
         $this->Score = $score;
         return $this;

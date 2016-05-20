@@ -105,8 +105,8 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     public function setPageSize($pageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($pageSize) && !is_int($pageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($pageSize)), __LINE__);
+        if (!is_null($pageSize) && !is_numeric($pageSize)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
         return $this;

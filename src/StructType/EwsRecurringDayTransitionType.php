@@ -76,8 +76,8 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
     public function setOccurrence($occurrence = null)
     {
         // validation for constraint: int
-        if (!is_null($occurrence) && !is_int($occurrence)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($occurrence)), __LINE__);
+        if (!is_null($occurrence) && !is_numeric($occurrence)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($occurrence)), __LINE__);
         }
         $this->Occurrence = $occurrence;
         return $this;

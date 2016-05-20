@@ -345,8 +345,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setDomainId($domainId = null)
     {
         // validation for constraint: int
-        if (!is_null($domainId) && !is_int($domainId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($domainId)), __LINE__);
+        if (!is_null($domainId) && !is_numeric($domainId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($domainId)), __LINE__);
         }
         $this->DomainId = $domainId;
         return $this;
@@ -433,8 +433,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setSettings($settings = null)
     {
         // validation for constraint: int
-        if (!is_null($settings) && !is_int($settings)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($settings)), __LINE__);
+        if (!is_null($settings) && !is_numeric($settings)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($settings)), __LINE__);
         }
         $this->Settings = $settings;
         return $this;
@@ -649,8 +649,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setErrorOffers($errorOffers = null)
     {
         // validation for constraint: int
-        if (!is_null($errorOffers) && !is_int($errorOffers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($errorOffers)), __LINE__);
+        if (!is_null($errorOffers) && !is_numeric($errorOffers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($errorOffers)), __LINE__);
         }
         $this->ErrorOffers = $errorOffers;
         return $this;
@@ -693,8 +693,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setLastVersionSaved($lastVersionSaved = null)
     {
         // validation for constraint: int
-        if (!is_null($lastVersionSaved) && !is_int($lastVersionSaved)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($lastVersionSaved)), __LINE__);
+        if (!is_null($lastVersionSaved) && !is_numeric($lastVersionSaved)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($lastVersionSaved)), __LINE__);
         }
         $this->LastVersionSaved = $lastVersionSaved;
         return $this;
@@ -737,8 +737,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setOffers($offers = null)
     {
         // validation for constraint: int
-        if (!is_null($offers) && !is_int($offers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($offers)), __LINE__);
+        if (!is_null($offers) && !is_numeric($offers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($offers)), __LINE__);
         }
         $this->Offers = $offers;
         return $this;
@@ -847,8 +847,8 @@ class EwsNetworkItemType extends EwsItemType
     public function setRejectedOffers($rejectedOffers = null)
     {
         // validation for constraint: int
-        if (!is_null($rejectedOffers) && !is_int($rejectedOffers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($rejectedOffers)), __LINE__);
+        if (!is_null($rejectedOffers) && !is_numeric($rejectedOffers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($rejectedOffers)), __LINE__);
         }
         $this->RejectedOffers = $rejectedOffers;
         return $this;

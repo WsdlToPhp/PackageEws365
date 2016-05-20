@@ -79,8 +79,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembers($numberOfMembers = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembers) && !is_int($numberOfMembers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfMembers)), __LINE__);
+        if (!is_null($numberOfMembers) && !is_numeric($numberOfMembers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembers)), __LINE__);
         }
         $this->NumberOfMembers = $numberOfMembers;
         return $this;
@@ -101,8 +101,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersAvailable($numberOfMembersAvailable = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersAvailable) && !is_int($numberOfMembersAvailable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfMembersAvailable)), __LINE__);
+        if (!is_null($numberOfMembersAvailable) && !is_numeric($numberOfMembersAvailable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersAvailable)), __LINE__);
         }
         $this->NumberOfMembersAvailable = $numberOfMembersAvailable;
         return $this;
@@ -123,8 +123,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersWithConflict($numberOfMembersWithConflict = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersWithConflict) && !is_int($numberOfMembersWithConflict)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfMembersWithConflict)), __LINE__);
+        if (!is_null($numberOfMembersWithConflict) && !is_numeric($numberOfMembersWithConflict)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersWithConflict)), __LINE__);
         }
         $this->NumberOfMembersWithConflict = $numberOfMembersWithConflict;
         return $this;
@@ -145,8 +145,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersWithNoData($numberOfMembersWithNoData = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersWithNoData) && !is_int($numberOfMembersWithNoData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($numberOfMembersWithNoData)), __LINE__);
+        if (!is_null($numberOfMembersWithNoData) && !is_numeric($numberOfMembersWithNoData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersWithNoData)), __LINE__);
         }
         $this->NumberOfMembersWithNoData = $numberOfMembersWithNoData;
         return $this;

@@ -108,8 +108,8 @@ class EwsClientIntentType extends AbstractStructBase
     public function setIntent($intent = null)
     {
         // validation for constraint: int
-        if (!is_null($intent) && !is_int($intent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($intent)), __LINE__);
+        if (!is_null($intent) && !is_numeric($intent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($intent)), __LINE__);
         }
         $this->Intent = $intent;
         return $this;
@@ -130,8 +130,8 @@ class EwsClientIntentType extends AbstractStructBase
     public function setItemVersion($itemVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($itemVersion) && !is_int($itemVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($itemVersion)), __LINE__);
+        if (!is_null($itemVersion) && !is_numeric($itemVersion)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemVersion)), __LINE__);
         }
         $this->ItemVersion = $itemVersion;
         return $this;

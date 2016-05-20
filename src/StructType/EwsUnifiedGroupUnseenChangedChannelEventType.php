@@ -51,8 +51,8 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
     public function setUnseenCount($unseenCount = null)
     {
         // validation for constraint: int
-        if (!is_null($unseenCount) && !is_int($unseenCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($unseenCount)), __LINE__);
+        if (!is_null($unseenCount) && !is_numeric($unseenCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($unseenCount)), __LINE__);
         }
         $this->UnseenCount = $unseenCount;
         return $this;

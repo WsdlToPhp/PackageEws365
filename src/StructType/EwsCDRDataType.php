@@ -336,8 +336,8 @@ class EwsCDRDataType extends AbstractStructBase
     public function setCallDuration($callDuration = null)
     {
         // validation for constraint: int
-        if (!is_null($callDuration) && !is_int($callDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($callDuration)), __LINE__);
+        if (!is_null($callDuration) && !is_numeric($callDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($callDuration)), __LINE__);
         }
         $this->CallDuration = $callDuration;
         return $this;

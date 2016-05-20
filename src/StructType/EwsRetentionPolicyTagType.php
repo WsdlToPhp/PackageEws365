@@ -186,8 +186,8 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public function setRetentionPeriod($retentionPeriod = null)
     {
         // validation for constraint: int
-        if (!is_null($retentionPeriod) && !is_int($retentionPeriod)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide an int, "%s" given', gettype($retentionPeriod)), __LINE__);
+        if (!is_null($retentionPeriod) && !is_numeric($retentionPeriod)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($retentionPeriod)), __LINE__);
         }
         $this->RetentionPeriod = $retentionPeriod;
         return $this;
