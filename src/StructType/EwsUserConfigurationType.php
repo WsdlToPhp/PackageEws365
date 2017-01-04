@@ -41,7 +41,7 @@ class EwsUserConfigurationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $XmlData;
     /**
@@ -49,7 +49,7 @@ class EwsUserConfigurationType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $BinaryData;
     /**
@@ -62,10 +62,10 @@ class EwsUserConfigurationType extends AbstractStructBase
      * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary
-     * @param base64Binary $xmlData
-     * @param base64Binary $binaryData
+     * @param string $xmlData
+     * @param string $binaryData
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary = null, base64Binary $xmlData = null, base64Binary $binaryData = null)
+    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary = null, $xmlData = null, $binaryData = null)
     {
         $this
             ->setUserConfigurationName($userConfigurationName)
@@ -130,7 +130,7 @@ class EwsUserConfigurationType extends AbstractStructBase
     }
     /**
      * Get XmlData value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getXmlData()
     {
@@ -138,17 +138,21 @@ class EwsUserConfigurationType extends AbstractStructBase
     }
     /**
      * Set XmlData value
-     * @param base64Binary $xmlData
+     * @param string $xmlData
      * @return \Ews\StructType\EwsUserConfigurationType
      */
-    public function setXmlData(base64Binary $xmlData = null)
+    public function setXmlData($xmlData = null)
     {
+        // validation for constraint: string
+        if (!is_null($xmlData) && !is_string($xmlData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xmlData)), __LINE__);
+        }
         $this->XmlData = $xmlData;
         return $this;
     }
     /**
      * Get BinaryData value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getBinaryData()
     {
@@ -156,11 +160,15 @@ class EwsUserConfigurationType extends AbstractStructBase
     }
     /**
      * Set BinaryData value
-     * @param base64Binary $binaryData
+     * @param string $binaryData
      * @return \Ews\StructType\EwsUserConfigurationType
      */
-    public function setBinaryData(base64Binary $binaryData = null)
+    public function setBinaryData($binaryData = null)
     {
+        // validation for constraint: string
+        if (!is_null($binaryData) && !is_string($binaryData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($binaryData)), __LINE__);
+        }
         $this->BinaryData = $binaryData;
         return $this;
     }

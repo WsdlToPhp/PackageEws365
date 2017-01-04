@@ -299,14 +299,14 @@ class EwsItemType extends AbstractStructBase
      * The StoreEntryId
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $StoreEntryId;
     /**
      * The InstanceKey
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $InstanceKey;
     /**
@@ -404,7 +404,7 @@ class EwsItemType extends AbstractStructBase
      * The SearchKey
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $SearchKey;
     /**
@@ -545,8 +545,8 @@ class EwsItemType extends AbstractStructBase
      * @param \Ews\StructType\EwsItemIdType $conversationId
      * @param \Ews\StructType\EwsBodyType $uniqueBody
      * @param \Ews\StructType\EwsFlagType $flag
-     * @param base64Binary $storeEntryId
-     * @param base64Binary $instanceKey
+     * @param string $storeEntryId
+     * @param string $instanceKey
      * @param \Ews\StructType\EwsBodyType $normalizedBody
      * @param \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult
      * @param \Ews\StructType\EwsRetentionTagType $policyTag
@@ -560,14 +560,14 @@ class EwsItemType extends AbstractStructBase
      * @param bool $hasBlockedImages
      * @param \Ews\StructType\EwsBodyType $textBody
      * @param string $iconIndex
-     * @param base64Binary $searchKey
+     * @param string $searchKey
      * @param int $sortKey
      * @param \Ews\ArrayType\EwsArrayOfStringsType $hashtags
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $mentions
      * @param bool $mentionedMe
      * @param \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
      */
-    public function __construct(\Ews\StructType\EwsMimeContentType $mimeContent = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $itemClass = null, $subject = null, $sensitivity = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $dateTimeReceived = null, $size = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $importance = null, $inReplyTo = null, $isSubmitted = null, $isDraft = null, $isFromMe = null, $isResend = null, $isUnmodified = null, \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, $dateTimeSent = null, $dateTimeCreated = null, \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, $reminderDueBy = null, $reminderIsSet = null, $reminderNextTime = null, $reminderMinutesBeforeStart = null, $displayCc = null, $displayTo = null, $hasAttachments = null, array $extendedProperty = array(), $culture = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $lastModifiedName = null, $lastModifiedTime = null, $isAssociated = null, $webClientReadFormQueryString = null, $webClientEditFormQueryString = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsBodyType $uniqueBody = null, \Ews\StructType\EwsFlagType $flag = null, base64Binary $storeEntryId = null, base64Binary $instanceKey = null, \Ews\StructType\EwsBodyType $normalizedBody = null, \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, $retentionDate = null, $preview = null, \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, $isClutter = null, $blockStatus = null, $hasBlockedImages = null, \Ews\StructType\EwsBodyType $textBody = null, $iconIndex = null, base64Binary $searchKey = null, $sortKey = null, \Ews\ArrayType\EwsArrayOfStringsType $hashtags = null, \Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null, $mentionedMe = null, \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
+    public function __construct(\Ews\StructType\EwsMimeContentType $mimeContent = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $itemClass = null, $subject = null, $sensitivity = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $dateTimeReceived = null, $size = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $importance = null, $inReplyTo = null, $isSubmitted = null, $isDraft = null, $isFromMe = null, $isResend = null, $isUnmodified = null, \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, $dateTimeSent = null, $dateTimeCreated = null, \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, $reminderDueBy = null, $reminderIsSet = null, $reminderNextTime = null, $reminderMinutesBeforeStart = null, $displayCc = null, $displayTo = null, $hasAttachments = null, array $extendedProperty = array(), $culture = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $lastModifiedName = null, $lastModifiedTime = null, $isAssociated = null, $webClientReadFormQueryString = null, $webClientEditFormQueryString = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsBodyType $uniqueBody = null, \Ews\StructType\EwsFlagType $flag = null, $storeEntryId = null, $instanceKey = null, \Ews\StructType\EwsBodyType $normalizedBody = null, \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, $retentionDate = null, $preview = null, \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, $isClutter = null, $blockStatus = null, $hasBlockedImages = null, \Ews\StructType\EwsBodyType $textBody = null, $iconIndex = null, $searchKey = null, $sortKey = null, \Ews\ArrayType\EwsArrayOfStringsType $hashtags = null, \Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null, $mentionedMe = null, \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
     {
         $this
             ->setMimeContent($mimeContent)
@@ -1458,7 +1458,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get StoreEntryId value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getStoreEntryId()
     {
@@ -1466,17 +1466,21 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set StoreEntryId value
-     * @param base64Binary $storeEntryId
+     * @param string $storeEntryId
      * @return \Ews\StructType\EwsItemType
      */
-    public function setStoreEntryId(base64Binary $storeEntryId = null)
+    public function setStoreEntryId($storeEntryId = null)
     {
+        // validation for constraint: string
+        if (!is_null($storeEntryId) && !is_string($storeEntryId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($storeEntryId)), __LINE__);
+        }
         $this->StoreEntryId = $storeEntryId;
         return $this;
     }
     /**
      * Get InstanceKey value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getInstanceKey()
     {
@@ -1484,11 +1488,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set InstanceKey value
-     * @param base64Binary $instanceKey
+     * @param string $instanceKey
      * @return \Ews\StructType\EwsItemType
      */
-    public function setInstanceKey(base64Binary $instanceKey = null)
+    public function setInstanceKey($instanceKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($instanceKey) && !is_string($instanceKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instanceKey)), __LINE__);
+        }
         $this->InstanceKey = $instanceKey;
         return $this;
     }
@@ -1743,7 +1751,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get SearchKey value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getSearchKey()
     {
@@ -1751,11 +1759,15 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set SearchKey value
-     * @param base64Binary $searchKey
+     * @param string $searchKey
      * @return \Ews\StructType\EwsItemType
      */
-    public function setSearchKey(base64Binary $searchKey = null)
+    public function setSearchKey($searchKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($searchKey) && !is_string($searchKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchKey)), __LINE__);
+        }
         $this->SearchKey = $searchKey;
         return $this;
     }

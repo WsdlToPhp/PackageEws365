@@ -14,7 +14,7 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
 {
     /**
      * The TimeOffset
-     * @var int
+     * @var string
      */
     public $TimeOffset;
     /**
@@ -26,7 +26,7 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
      * Constructor method for RecurringTimeTransitionType
      * @uses EwsRecurringTimeTransitionType::setTimeOffset()
      * @uses EwsRecurringTimeTransitionType::setMonth()
-     * @param int $timeOffset
+     * @param string $timeOffset
      * @param int $month
      */
     public function __construct($timeOffset = null, $month = null)
@@ -37,7 +37,7 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
     }
     /**
      * Get TimeOffset value
-     * @return int|null
+     * @return string|null
      */
     public function getTimeOffset()
     {
@@ -45,14 +45,14 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
     }
     /**
      * Set TimeOffset value
-     * @param int $timeOffset
+     * @param string $timeOffset
      * @return \Ews\StructType\EwsRecurringTimeTransitionType
      */
     public function setTimeOffset($timeOffset = null)
     {
-        // validation for constraint: int
-        if (!is_null($timeOffset) && !is_numeric($timeOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($timeOffset)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($timeOffset) && !is_string($timeOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeOffset)), __LINE__);
         }
         $this->TimeOffset = $timeOffset;
         return $this;

@@ -32,7 +32,7 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $Data;
     /**
@@ -42,9 +42,9 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
      * @uses EwsProcessComplianceOperationType::setData()
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param string $action
-     * @param base64Binary $data
+     * @param string $data
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $action = null, base64Binary $data = null)
+    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $action = null, $data = null)
     {
         $this
             ->setItemId($itemId)
@@ -96,7 +96,7 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
     }
     /**
      * Get Data value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getData()
     {
@@ -104,11 +104,15 @@ class EwsProcessComplianceOperationType extends EwsBaseRequestType
     }
     /**
      * Set Data value
-     * @param base64Binary $data
+     * @param string $data
      * @return \Ews\StructType\EwsProcessComplianceOperationType
      */
-    public function setData(base64Binary $data = null)
+    public function setData($data = null)
     {
+        // validation for constraint: string
+        if (!is_null($data) && !is_string($data)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($data)), __LINE__);
+        }
         $this->Data = $data;
         return $this;
     }

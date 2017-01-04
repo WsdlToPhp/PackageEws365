@@ -17,13 +17,13 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var base64Binary[]
+     * @var string[]
      */
     public $Manifest;
     /**
      * Constructor method for ArrayOfAppManifestsType
      * @uses EwsArrayOfAppManifestsType::setManifest()
-     * @param base64Binary[] $manifest
+     * @param string[] $manifest
      */
     public function __construct(array $manifest = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     }
     /**
      * Get Manifest value
-     * @return base64Binary[]|null
+     * @return string[]|null
      */
     public function getManifest()
     {
@@ -41,7 +41,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     /**
      * Set Manifest value
      * @throws \InvalidArgumentException
-     * @param base64Binary[] $manifest
+     * @param string[] $manifest
      * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
      */
     public function setManifest(array $manifest = array())
@@ -58,10 +58,10 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     /**
      * Add item to Manifest value
      * @throws \InvalidArgumentException
-     * @param base64Binary $item
+     * @param string $item
      * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
      */
-    public function addToManifest(base64Binary $item)
+    public function addToManifest($item)
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
@@ -73,7 +73,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function current()
     {
@@ -83,7 +83,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return base64Binary|null
+     * @return string|null
      */
     public function item($index)
     {
@@ -92,7 +92,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function first()
     {
@@ -101,7 +101,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function last()
     {
@@ -111,7 +111,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return base64Binary|null
+     * @return string|null
      */
     public function offsetGet($offset)
     {

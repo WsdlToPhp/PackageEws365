@@ -25,7 +25,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var int
+     * @var string
      */
     public $SearchWindowDuration;
     /**
@@ -51,7 +51,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
      * @uses EwsGetMeetingParticipantAvailabilityType::setMeetingDurationInMinutes()
      * @uses EwsGetMeetingParticipantAvailabilityType::setActivityDomain()
      * @param string $searchWindowStart
-     * @param int $searchWindowDuration
+     * @param string $searchWindowDuration
      * @param int $meetingDurationInMinutes
      * @param string $activityDomain
      */
@@ -87,7 +87,7 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     }
     /**
      * Get SearchWindowDuration value
-     * @return int
+     * @return string
      */
     public function getSearchWindowDuration()
     {
@@ -95,14 +95,14 @@ class EwsGetMeetingParticipantAvailabilityType extends EwsBaseRequestType
     }
     /**
      * Set SearchWindowDuration value
-     * @param int $searchWindowDuration
+     * @param string $searchWindowDuration
      * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityType
      */
     public function setSearchWindowDuration($searchWindowDuration = null)
     {
-        // validation for constraint: int
-        if (!is_null($searchWindowDuration) && !is_numeric($searchWindowDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchWindowDuration)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($searchWindowDuration) && !is_string($searchWindowDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchWindowDuration)), __LINE__);
         }
         $this->SearchWindowDuration = $searchWindowDuration;
         return $this;

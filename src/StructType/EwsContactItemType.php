@@ -275,7 +275,7 @@ class EwsContactItemType extends EwsItemType
      * The Photo
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $Photo;
     /**
@@ -717,7 +717,7 @@ class EwsContactItemType extends EwsItemType
      * @param string $phoneticLastName
      * @param string $alias
      * @param string $notes
-     * @param base64Binary $photo
+     * @param string $photo
      * @param \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate
      * @param \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate
      * @param string $directoryId
@@ -764,7 +764,7 @@ class EwsContactItemType extends EwsItemType
      * @param string $partnerNetworkProfilePhotoUrl
      * @param string $partnerNetworkThumbnailPhotoUrl
      */
-    public function __construct($fileAs = null, $fileAsMapping = null, $displayName = null, $givenName = null, $initials = null, $middleName = null, $nickname = null, \Ews\StructType\EwsCompleteNameType $completeName = null, $companyName = null, \Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses = null, \Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null, \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null, \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null, $assistantName = null, $birthday = null, $businessHomePage = null, \Ews\ArrayType\EwsArrayOfStringsType $children = null, \Ews\ArrayType\EwsArrayOfStringsType $companies = null, $contactSource = null, $department = null, $generation = null, \Ews\StructType\EwsImAddressDictionaryType $imAddresses = null, $jobTitle = null, $manager = null, $mileage = null, $officeLocation = null, $postalAddressIndex = null, $profession = null, $spouseName = null, $surname = null, $weddingAnniversary = null, $hasPicture = null, $phoneticFullName = null, $phoneticFirstName = null, $phoneticLastName = null, $alias = null, $notes = null, base64Binary $photo = null, \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null, \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null, $directoryId = null, \Ews\StructType\EwsSingleRecipientType $managerMailbox = null, \Ews\ArrayType\EwsArrayOfRecipientsType $directReports = null, $accountName = null, $isAutoUpdateDisabled = null, $isMessengerEnabled = null, $comment = null, $contactShortId = null, $contactType = null, $gender = null, $isHidden = null, $objectId = null, $passportId = null, $isPrivate = null, $sourceId = null, $trustLevel = null, $createdBy = null, \Ews\StructType\EwsContactUrlDictionaryType $urls = null, $cid = null, $skypeAuthCertificate = null, $skypeContext = null, $skypeId = null, $skypeRelationship = null, $yomiNickname = null, $xboxLiveTag = null, $inviteFree = null, $hidePresenceAndProfile = null, $isPendingOutbound = null, $supportGroupFeeds = null, $userTileHash = null, $unifiedInbox = null, \Ews\ArrayType\EwsArrayOfStringsType $mris = null, $wlid = null, $abchContactId = null, $notInBirthdayCalendar = null, $shellContactType = null, $imMri = null, $presenceTrustLevel = null, $otherMri = null, $profileLastChanged = null, $mobileIMEnabled = null, $partnerNetworkProfilePhotoUrl = null, $partnerNetworkThumbnailPhotoUrl = null)
+    public function __construct($fileAs = null, $fileAsMapping = null, $displayName = null, $givenName = null, $initials = null, $middleName = null, $nickname = null, \Ews\StructType\EwsCompleteNameType $completeName = null, $companyName = null, \Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses = null, \Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null, \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null, \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null, $assistantName = null, $birthday = null, $businessHomePage = null, \Ews\ArrayType\EwsArrayOfStringsType $children = null, \Ews\ArrayType\EwsArrayOfStringsType $companies = null, $contactSource = null, $department = null, $generation = null, \Ews\StructType\EwsImAddressDictionaryType $imAddresses = null, $jobTitle = null, $manager = null, $mileage = null, $officeLocation = null, $postalAddressIndex = null, $profession = null, $spouseName = null, $surname = null, $weddingAnniversary = null, $hasPicture = null, $phoneticFullName = null, $phoneticFirstName = null, $phoneticLastName = null, $alias = null, $notes = null, $photo = null, \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null, \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null, $directoryId = null, \Ews\StructType\EwsSingleRecipientType $managerMailbox = null, \Ews\ArrayType\EwsArrayOfRecipientsType $directReports = null, $accountName = null, $isAutoUpdateDisabled = null, $isMessengerEnabled = null, $comment = null, $contactShortId = null, $contactType = null, $gender = null, $isHidden = null, $objectId = null, $passportId = null, $isPrivate = null, $sourceId = null, $trustLevel = null, $createdBy = null, \Ews\StructType\EwsContactUrlDictionaryType $urls = null, $cid = null, $skypeAuthCertificate = null, $skypeContext = null, $skypeId = null, $skypeRelationship = null, $yomiNickname = null, $xboxLiveTag = null, $inviteFree = null, $hidePresenceAndProfile = null, $isPendingOutbound = null, $supportGroupFeeds = null, $userTileHash = null, $unifiedInbox = null, \Ews\ArrayType\EwsArrayOfStringsType $mris = null, $wlid = null, $abchContactId = null, $notInBirthdayCalendar = null, $shellContactType = null, $imMri = null, $presenceTrustLevel = null, $otherMri = null, $profileLastChanged = null, $mobileIMEnabled = null, $partnerNetworkProfilePhotoUrl = null, $partnerNetworkThumbnailPhotoUrl = null)
     {
         $this
             ->setFileAs($fileAs)
@@ -1640,7 +1640,7 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Get Photo value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getPhoto()
     {
@@ -1648,11 +1648,15 @@ class EwsContactItemType extends EwsItemType
     }
     /**
      * Set Photo value
-     * @param base64Binary $photo
+     * @param string $photo
      * @return \Ews\StructType\EwsContactItemType
      */
-    public function setPhoto(base64Binary $photo = null)
+    public function setPhoto($photo = null)
     {
+        // validation for constraint: string
+        if (!is_null($photo) && !is_string($photo)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($photo)), __LINE__);
+        }
         $this->Photo = $photo;
         return $this;
     }

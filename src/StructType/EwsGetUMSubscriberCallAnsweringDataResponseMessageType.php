@@ -50,7 +50,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $Greeting;
     /**
@@ -73,10 +73,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * @param string $isTranscriptionEnabledInMailboxConfig
      * @param bool $isMailboxQuotaExceeded
      * @param bool $taskTimedOut
-     * @param base64Binary $greeting
+     * @param string $greeting
      * @param string $greetingName
      */
-    public function __construct($isOOF = null, $isTranscriptionEnabledInMailboxConfig = null, $isMailboxQuotaExceeded = null, $taskTimedOut = null, base64Binary $greeting = null, $greetingName = null)
+    public function __construct($isOOF = null, $isTranscriptionEnabledInMailboxConfig = null, $isMailboxQuotaExceeded = null, $taskTimedOut = null, $greeting = null, $greetingName = null)
     {
         $this
             ->setIsOOF($isOOF)
@@ -167,7 +167,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Get Greeting value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getGreeting()
     {
@@ -175,11 +175,15 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
     }
     /**
      * Set Greeting value
-     * @param base64Binary $greeting
+     * @param string $greeting
      * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setGreeting(base64Binary $greeting = null)
+    public function setGreeting($greeting = null)
     {
+        // validation for constraint: string
+        if (!is_null($greeting) && !is_string($greeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($greeting)), __LINE__);
+        }
         $this->Greeting = $greeting;
         return $this;
     }

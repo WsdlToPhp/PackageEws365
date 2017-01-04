@@ -219,7 +219,7 @@ class EwsConversationType extends AbstractStructBase
      * The InstanceKey
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $InstanceKey;
     /**
@@ -363,7 +363,7 @@ class EwsConversationType extends AbstractStructBase
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
      * @param string $lastModifiedTime
-     * @param base64Binary $instanceKey
+     * @param string $instanceKey
      * @param string $preview
      * @param string $mailboxScope
      * @param string $iconIndex
@@ -375,7 +375,7 @@ class EwsConversationType extends AbstractStructBase
      * @param bool $mentionedMe
      * @param bool $globalMentionedMe
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $conversationTopic = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null, $lastDeliveryTime = null, $globalLastDeliveryTime = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, \Ews\ArrayType\EwsArrayOfStringsType $globalCategories = null, $flagStatus = null, $globalFlagStatus = null, $hasAttachments = null, $globalHasAttachments = null, $messageCount = null, $globalMessageCount = null, $unreadCount = null, $globalUnreadCount = null, $size = null, $globalSize = null, \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses = null, \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null, $importance = null, $globalImportance = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null, $lastModifiedTime = null, base64Binary $instanceKey = null, $preview = null, $mailboxScope = null, $iconIndex = null, $globalIconIndex = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null, $hasIrm = null, $globalHasIrm = null, $sortKey = null, $mentionedMe = null, $globalMentionedMe = null)
+    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $conversationTopic = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null, $lastDeliveryTime = null, $globalLastDeliveryTime = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, \Ews\ArrayType\EwsArrayOfStringsType $globalCategories = null, $flagStatus = null, $globalFlagStatus = null, $hasAttachments = null, $globalHasAttachments = null, $messageCount = null, $globalMessageCount = null, $unreadCount = null, $globalUnreadCount = null, $size = null, $globalSize = null, \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses = null, \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null, $importance = null, $globalImportance = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null, $lastModifiedTime = null, $instanceKey = null, $preview = null, $mailboxScope = null, $iconIndex = null, $globalIconIndex = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null, $hasIrm = null, $globalHasIrm = null, $sortKey = null, $mentionedMe = null, $globalMentionedMe = null)
     {
         $this
             ->setConversationId($conversationId)
@@ -1011,7 +1011,7 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get InstanceKey value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getInstanceKey()
     {
@@ -1019,11 +1019,15 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Set InstanceKey value
-     * @param base64Binary $instanceKey
+     * @param string $instanceKey
      * @return \Ews\StructType\EwsConversationType
      */
-    public function setInstanceKey(base64Binary $instanceKey = null)
+    public function setInstanceKey($instanceKey = null)
     {
+        // validation for constraint: string
+        if (!is_null($instanceKey) && !is_string($instanceKey)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instanceKey)), __LINE__);
+        }
         $this->InstanceKey = $instanceKey;
         return $this;
     }

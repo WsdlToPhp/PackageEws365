@@ -16,7 +16,7 @@ class EwsPostItemType extends EwsItemType
      * The ConversationIndex
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $ConversationIndex;
     /**
@@ -78,7 +78,7 @@ class EwsPostItemType extends EwsItemType
      * @uses EwsPostItemType::setPostedTime()
      * @uses EwsPostItemType::setReferences()
      * @uses EwsPostItemType::setSender()
-     * @param base64Binary $conversationIndex
+     * @param string $conversationIndex
      * @param string $conversationTopic
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param string $internetMessageId
@@ -87,7 +87,7 @@ class EwsPostItemType extends EwsItemType
      * @param string $references
      * @param \Ews\StructType\EwsSingleRecipientType $sender
      */
-    public function __construct(base64Binary $conversationIndex = null, $conversationTopic = null, \Ews\StructType\EwsSingleRecipientType $from = null, $internetMessageId = null, $isRead = null, $postedTime = null, $references = null, \Ews\StructType\EwsSingleRecipientType $sender = null)
+    public function __construct($conversationIndex = null, $conversationTopic = null, \Ews\StructType\EwsSingleRecipientType $from = null, $internetMessageId = null, $isRead = null, $postedTime = null, $references = null, \Ews\StructType\EwsSingleRecipientType $sender = null)
     {
         $this
             ->setConversationIndex($conversationIndex)
@@ -101,7 +101,7 @@ class EwsPostItemType extends EwsItemType
     }
     /**
      * Get ConversationIndex value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getConversationIndex()
     {
@@ -109,11 +109,15 @@ class EwsPostItemType extends EwsItemType
     }
     /**
      * Set ConversationIndex value
-     * @param base64Binary $conversationIndex
+     * @param string $conversationIndex
      * @return \Ews\StructType\EwsPostItemType
      */
-    public function setConversationIndex(base64Binary $conversationIndex = null)
+    public function setConversationIndex($conversationIndex = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationIndex) && !is_string($conversationIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationIndex)), __LINE__);
+        }
         $this->ConversationIndex = $conversationIndex;
         return $this;
     }

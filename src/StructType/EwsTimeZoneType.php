@@ -14,7 +14,7 @@ class EwsTimeZoneType extends AbstractStructBase
 {
     /**
      * The BaseOffset
-     * @var int
+     * @var string
      */
     public $BaseOffset;
     /**
@@ -40,7 +40,7 @@ class EwsTimeZoneType extends AbstractStructBase
      * @uses EwsTimeZoneType::setStandard()
      * @uses EwsTimeZoneType::setDaylight()
      * @uses EwsTimeZoneType::setTimeZoneName()
-     * @param int $baseOffset
+     * @param string $baseOffset
      * @param \Ews\StructType\EwsTimeChangeType $standard
      * @param \Ews\StructType\EwsTimeChangeType $daylight
      * @param string $timeZoneName
@@ -55,7 +55,7 @@ class EwsTimeZoneType extends AbstractStructBase
     }
     /**
      * Get BaseOffset value
-     * @return int|null
+     * @return string|null
      */
     public function getBaseOffset()
     {
@@ -63,14 +63,14 @@ class EwsTimeZoneType extends AbstractStructBase
     }
     /**
      * Set BaseOffset value
-     * @param int $baseOffset
+     * @param string $baseOffset
      * @return \Ews\StructType\EwsTimeZoneType
      */
     public function setBaseOffset($baseOffset = null)
     {
-        // validation for constraint: int
-        if (!is_null($baseOffset) && !is_numeric($baseOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($baseOffset)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($baseOffset) && !is_string($baseOffset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($baseOffset)), __LINE__);
         }
         $this->BaseOffset = $baseOffset;
         return $this;
