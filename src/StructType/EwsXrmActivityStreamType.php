@@ -41,7 +41,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $SourceUser;
     /**
@@ -116,7 +116,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * @param string $id
      * @param string $clientSessionId
      * @param string $eventTime
-     * @param base64Binary $sourceUser
+     * @param string $sourceUser
      * @param string $actionVerb
      * @param string $subtype
      * @param \Ews\ArrayType\EwsArrayOfStringsType $targetEntities
@@ -125,7 +125,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * @param string $modifiedProperties
      * @param string $additionalActivityDetails
      */
-    public function __construct($id = null, $clientSessionId = null, $eventTime = null, base64Binary $sourceUser = null, $actionVerb = null, $subtype = null, \Ews\ArrayType\EwsArrayOfStringsType $targetEntities = null, \Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null, $flags = null, $modifiedProperties = null, $additionalActivityDetails = null)
+    public function __construct($id = null, $clientSessionId = null, $eventTime = null, $sourceUser = null, $actionVerb = null, $subtype = null, \Ews\ArrayType\EwsArrayOfStringsType $targetEntities = null, \Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null, $flags = null, $modifiedProperties = null, $additionalActivityDetails = null)
     {
         $this
             ->setId($id)
@@ -208,7 +208,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     }
     /**
      * Get SourceUser value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getSourceUser()
     {
@@ -216,11 +216,15 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     }
     /**
      * Set SourceUser value
-     * @param base64Binary $sourceUser
+     * @param string $sourceUser
      * @return \Ews\StructType\EwsXrmActivityStreamType
      */
-    public function setSourceUser(base64Binary $sourceUser = null)
+    public function setSourceUser($sourceUser = null)
     {
+        // validation for constraint: string
+        if (!is_null($sourceUser) && !is_string($sourceUser)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceUser)), __LINE__);
+        }
         $this->SourceUser = $sourceUser;
         return $this;
     }

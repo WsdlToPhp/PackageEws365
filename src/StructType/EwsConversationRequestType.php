@@ -25,7 +25,7 @@ class EwsConversationRequestType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $SyncState;
     /**
@@ -33,9 +33,9 @@ class EwsConversationRequestType extends AbstractStructBase
      * @uses EwsConversationRequestType::setConversationId()
      * @uses EwsConversationRequestType::setSyncState()
      * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @param base64Binary $syncState
+     * @param string $syncState
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, base64Binary $syncState = null)
+    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $syncState = null)
     {
         $this
             ->setConversationId($conversationId)
@@ -61,7 +61,7 @@ class EwsConversationRequestType extends AbstractStructBase
     }
     /**
      * Get SyncState value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getSyncState()
     {
@@ -69,11 +69,15 @@ class EwsConversationRequestType extends AbstractStructBase
     }
     /**
      * Set SyncState value
-     * @param base64Binary $syncState
+     * @param string $syncState
      * @return \Ews\StructType\EwsConversationRequestType
      */
-    public function setSyncState(base64Binary $syncState = null)
+    public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }

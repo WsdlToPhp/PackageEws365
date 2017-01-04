@@ -17,22 +17,22 @@ class EwsGetUMPromptResponseMessageType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $AudioData;
     /**
      * Constructor method for GetUMPromptResponseMessageType
      * @uses EwsGetUMPromptResponseMessageType::setAudioData()
-     * @param base64Binary $audioData
+     * @param string $audioData
      */
-    public function __construct(base64Binary $audioData = null)
+    public function __construct($audioData = null)
     {
         $this
             ->setAudioData($audioData);
     }
     /**
      * Get AudioData value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getAudioData()
     {
@@ -40,11 +40,15 @@ class EwsGetUMPromptResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set AudioData value
-     * @param base64Binary $audioData
+     * @param string $audioData
      * @return \Ews\StructType\EwsGetUMPromptResponseMessageType
      */
-    public function setAudioData(base64Binary $audioData = null)
+    public function setAudioData($audioData = null)
     {
+        // validation for constraint: string
+        if (!is_null($audioData) && !is_string($audioData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($audioData)), __LINE__);
+        }
         $this->AudioData = $audioData;
         return $this;
     }

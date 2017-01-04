@@ -25,7 +25,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $PictureData;
     /**
@@ -33,9 +33,9 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * @uses EwsGetUserPhotoResponseMessageType::setHasChanged()
      * @uses EwsGetUserPhotoResponseMessageType::setPictureData()
      * @param bool $hasChanged
-     * @param base64Binary $pictureData
+     * @param string $pictureData
      */
-    public function __construct($hasChanged = null, base64Binary $pictureData = null)
+    public function __construct($hasChanged = null, $pictureData = null)
     {
         $this
             ->setHasChanged($hasChanged)
@@ -61,7 +61,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get PictureData value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getPictureData()
     {
@@ -69,11 +69,15 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Set PictureData value
-     * @param base64Binary $pictureData
+     * @param string $pictureData
      * @return \Ews\StructType\EwsGetUserPhotoResponseMessageType
      */
-    public function setPictureData(base64Binary $pictureData = null)
+    public function setPictureData($pictureData = null)
     {
+        // validation for constraint: string
+        if (!is_null($pictureData) && !is_string($pictureData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pictureData)), __LINE__);
+        }
         $this->PictureData = $pictureData;
         return $this;
     }

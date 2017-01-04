@@ -16,22 +16,22 @@ class EwsProxySecurityContextType extends AbstractStructBase
 {
     /**
      * The _
-     * @var base64Binary
+     * @var string
      */
     public $_;
     /**
      * Constructor method for ProxySecurityContextType
      * @uses EwsProxySecurityContextType::set_()
-     * @param base64Binary $_
+     * @param string $_
      */
-    public function __construct(base64Binary $_ = null)
+    public function __construct($_ = null)
     {
         $this
             ->set_($_);
     }
     /**
      * Get _ value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function get_()
     {
@@ -39,11 +39,15 @@ class EwsProxySecurityContextType extends AbstractStructBase
     }
     /**
      * Set _ value
-     * @param base64Binary $_
+     * @param string $_
      * @return \Ews\StructType\EwsProxySecurityContextType
      */
-    public function set_(base64Binary $_ = null)
+    public function set_($_ = null)
     {
+        // validation for constraint: string
+        if (!is_null($_) && !is_string($_)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+        }
         $this->_ = $_;
         return $this;
     }

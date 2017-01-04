@@ -212,7 +212,7 @@ class EwsNetworkItemType extends EwsItemType
      * The SourceEntryID
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $SourceEntryID;
     /**
@@ -290,11 +290,11 @@ class EwsNetworkItemType extends EwsItemType
      * @param string $tokenRefreshLastAttempted
      * @param string $tokenRefreshLastCompleted
      * @param string $psaState
-     * @param base64Binary $sourceEntryID
+     * @param string $sourceEntryID
      * @param string $accountName
      * @param string $lastSync
      */
-    public function __construct($domainId = null, $domainTag = null, $userTileUrl = null, $profileUrl = null, $settings = null, $isDefault = null, $autoLinkError = null, $autoLinkSuccess = null, $userEmail = null, $clientPublishSecret = null, $clientToken = null, $clientToken2 = null, $contactSyncError = null, $contactSyncSuccess = null, $errorOffers = null, $firstAuthErrorDates = null, $lastVersionSaved = null, $lastWelcomeContact = null, $offers = null, $psaLastChanged = null, $refreshToken2 = null, $refreshTokenExpiry2 = null, $sessionHandle = null, $rejectedOffers = null, $syncEnabled = null, $tokenRefreshLastAttempted = null, $tokenRefreshLastCompleted = null, $psaState = null, base64Binary $sourceEntryID = null, $accountName = null, $lastSync = null)
+    public function __construct($domainId = null, $domainTag = null, $userTileUrl = null, $profileUrl = null, $settings = null, $isDefault = null, $autoLinkError = null, $autoLinkSuccess = null, $userEmail = null, $clientPublishSecret = null, $clientToken = null, $clientToken2 = null, $contactSyncError = null, $contactSyncSuccess = null, $errorOffers = null, $firstAuthErrorDates = null, $lastVersionSaved = null, $lastWelcomeContact = null, $offers = null, $psaLastChanged = null, $refreshToken2 = null, $refreshTokenExpiry2 = null, $sessionHandle = null, $rejectedOffers = null, $syncEnabled = null, $tokenRefreshLastAttempted = null, $tokenRefreshLastCompleted = null, $psaState = null, $sourceEntryID = null, $accountName = null, $lastSync = null)
     {
         $this
             ->setDomainId($domainId)
@@ -939,7 +939,7 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Get SourceEntryID value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getSourceEntryID()
     {
@@ -947,11 +947,15 @@ class EwsNetworkItemType extends EwsItemType
     }
     /**
      * Set SourceEntryID value
-     * @param base64Binary $sourceEntryID
+     * @param string $sourceEntryID
      * @return \Ews\StructType\EwsNetworkItemType
      */
-    public function setSourceEntryID(base64Binary $sourceEntryID = null)
+    public function setSourceEntryID($sourceEntryID = null)
     {
+        // validation for constraint: string
+        if (!is_null($sourceEntryID) && !is_string($sourceEntryID)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceEntryID)), __LINE__);
+        }
         $this->SourceEntryID = $sourceEntryID;
         return $this;
     }

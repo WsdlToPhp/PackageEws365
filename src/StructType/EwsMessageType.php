@@ -58,7 +58,7 @@ class EwsMessageType extends EwsItemType
      * The ConversationIndex
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $ConversationIndex;
     /**
@@ -172,7 +172,7 @@ class EwsMessageType extends EwsItemType
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients
      * @param bool $isReadReceiptRequested
      * @param bool $isDeliveryReceiptRequested
-     * @param base64Binary $conversationIndex
+     * @param string $conversationIndex
      * @param string $conversationTopic
      * @param \Ews\StructType\EwsSingleRecipientType $from
      * @param string $internetMessageId
@@ -186,7 +186,7 @@ class EwsMessageType extends EwsItemType
      * @param \Ews\StructType\EwsVotingInformationType $votingInformation
      * @param \Ews\StructType\EwsReminderMessageDataType $reminderMessageData
      */
-    public function __construct(\Ews\StructType\EwsSingleRecipientType $sender = null, \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients = null, $isReadReceiptRequested = null, $isDeliveryReceiptRequested = null, base64Binary $conversationIndex = null, $conversationTopic = null, \Ews\StructType\EwsSingleRecipientType $from = null, $internetMessageId = null, $isRead = null, $isResponseRequested = null, $references = null, \Ews\ArrayType\EwsArrayOfRecipientsType $replyTo = null, \Ews\StructType\EwsSingleRecipientType $receivedBy = null, \Ews\StructType\EwsSingleRecipientType $receivedRepresenting = null, \Ews\StructType\EwsApprovalRequestDataType $approvalRequestData = null, \Ews\StructType\EwsVotingInformationType $votingInformation = null, \Ews\StructType\EwsReminderMessageDataType $reminderMessageData = null)
+    public function __construct(\Ews\StructType\EwsSingleRecipientType $sender = null, \Ews\ArrayType\EwsArrayOfRecipientsType $toRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientsType $ccRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientsType $bccRecipients = null, $isReadReceiptRequested = null, $isDeliveryReceiptRequested = null, $conversationIndex = null, $conversationTopic = null, \Ews\StructType\EwsSingleRecipientType $from = null, $internetMessageId = null, $isRead = null, $isResponseRequested = null, $references = null, \Ews\ArrayType\EwsArrayOfRecipientsType $replyTo = null, \Ews\StructType\EwsSingleRecipientType $receivedBy = null, \Ews\StructType\EwsSingleRecipientType $receivedRepresenting = null, \Ews\StructType\EwsApprovalRequestDataType $approvalRequestData = null, \Ews\StructType\EwsVotingInformationType $votingInformation = null, \Ews\StructType\EwsReminderMessageDataType $reminderMessageData = null)
     {
         $this
             ->setSender($sender)
@@ -319,7 +319,7 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Get ConversationIndex value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getConversationIndex()
     {
@@ -327,11 +327,15 @@ class EwsMessageType extends EwsItemType
     }
     /**
      * Set ConversationIndex value
-     * @param base64Binary $conversationIndex
+     * @param string $conversationIndex
      * @return \Ews\StructType\EwsMessageType
      */
-    public function setConversationIndex(base64Binary $conversationIndex = null)
+    public function setConversationIndex($conversationIndex = null)
     {
+        // validation for constraint: string
+        if (!is_null($conversationIndex) && !is_string($conversationIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationIndex)), __LINE__);
+        }
         $this->ConversationIndex = $conversationIndex;
         return $this;
     }

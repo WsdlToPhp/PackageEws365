@@ -17,22 +17,22 @@ class EwsRouteComplaintResponseMessageType extends EwsBaseResponseMessageType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var base64Binary
+     * @var string
      */
     public $Data;
     /**
      * Constructor method for RouteComplaintResponseMessageType
      * @uses EwsRouteComplaintResponseMessageType::setData()
-     * @param base64Binary $data
+     * @param string $data
      */
-    public function __construct(base64Binary $data = null)
+    public function __construct($data = null)
     {
         $this
             ->setData($data);
     }
     /**
      * Get Data value
-     * @return base64Binary
+     * @return string
      */
     public function getData()
     {
@@ -40,11 +40,15 @@ class EwsRouteComplaintResponseMessageType extends EwsBaseResponseMessageType
     }
     /**
      * Set Data value
-     * @param base64Binary $data
+     * @param string $data
      * @return \Ews\StructType\EwsRouteComplaintResponseMessageType
      */
-    public function setData(base64Binary $data = null)
+    public function setData($data = null)
     {
+        // validation for constraint: string
+        if (!is_null($data) && !is_string($data)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($data)), __LINE__);
+        }
         $this->Data = $data;
         return $this;
     }

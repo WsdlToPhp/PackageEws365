@@ -14,7 +14,7 @@ class EwsTimeChangeType extends AbstractStructBase
 {
     /**
      * The Offset
-     * @var int
+     * @var string
      */
     public $Offset;
     /**
@@ -46,7 +46,7 @@ class EwsTimeChangeType extends AbstractStructBase
      * @uses EwsTimeChangeType::setAbsoluteDate()
      * @uses EwsTimeChangeType::setTime()
      * @uses EwsTimeChangeType::setTimeZoneName()
-     * @param int $offset
+     * @param string $offset
      * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
      * @param string $absoluteDate
      * @param string $time
@@ -63,7 +63,7 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Get Offset value
-     * @return int|null
+     * @return string|null
      */
     public function getOffset()
     {
@@ -71,14 +71,14 @@ class EwsTimeChangeType extends AbstractStructBase
     }
     /**
      * Set Offset value
-     * @param int $offset
+     * @param string $offset
      * @return \Ews\StructType\EwsTimeChangeType
      */
     public function setOffset($offset = null)
     {
-        // validation for constraint: int
-        if (!is_null($offset) && !is_numeric($offset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($offset)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($offset) && !is_string($offset)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
         return $this;

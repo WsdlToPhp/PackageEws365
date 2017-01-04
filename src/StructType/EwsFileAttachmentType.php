@@ -25,7 +25,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $Content;
     /**
@@ -33,9 +33,9 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * @uses EwsFileAttachmentType::setIsContactPhoto()
      * @uses EwsFileAttachmentType::setContent()
      * @param bool $isContactPhoto
-     * @param base64Binary $content
+     * @param string $content
      */
-    public function __construct($isContactPhoto = null, base64Binary $content = null)
+    public function __construct($isContactPhoto = null, $content = null)
     {
         $this
             ->setIsContactPhoto($isContactPhoto)
@@ -61,7 +61,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
     }
     /**
      * Get Content value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getContent()
     {
@@ -69,11 +69,15 @@ class EwsFileAttachmentType extends EwsAttachmentType
     }
     /**
      * Set Content value
-     * @param base64Binary $content
+     * @param string $content
      * @return \Ews\StructType\EwsFileAttachmentType
      */
-    public function setContent(base64Binary $content = null)
+    public function setContent($content = null)
     {
+        // validation for constraint: string
+        if (!is_null($content) && !is_string($content)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($content)), __LINE__);
+        }
         $this->Content = $content;
         return $this;
     }

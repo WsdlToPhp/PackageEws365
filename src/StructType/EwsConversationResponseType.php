@@ -25,7 +25,7 @@ class EwsConversationResponseType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $SyncState;
     /**
@@ -42,10 +42,10 @@ class EwsConversationResponseType extends AbstractStructBase
      * @uses EwsConversationResponseType::setSyncState()
      * @uses EwsConversationResponseType::setConversationNodes()
      * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @param base64Binary $syncState
+     * @param string $syncState
      * @param \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, base64Binary $syncState = null, \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null)
+    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $syncState = null, \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null)
     {
         $this
             ->setConversationId($conversationId)
@@ -72,7 +72,7 @@ class EwsConversationResponseType extends AbstractStructBase
     }
     /**
      * Get SyncState value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getSyncState()
     {
@@ -80,11 +80,15 @@ class EwsConversationResponseType extends AbstractStructBase
     }
     /**
      * Set SyncState value
-     * @param base64Binary $syncState
+     * @param string $syncState
      * @return \Ews\StructType\EwsConversationResponseType
      */
-    public function setSyncState(base64Binary $syncState = null)
+    public function setSyncState($syncState = null)
     {
+        // validation for constraint: string
+        if (!is_null($syncState) && !is_string($syncState)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+        }
         $this->SyncState = $syncState;
         return $this;
     }

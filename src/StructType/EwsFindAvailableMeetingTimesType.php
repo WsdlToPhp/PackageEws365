@@ -26,7 +26,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     public $SearchWindowStart;
     /**
      * The SearchWindowDuration
-     * @var int
+     * @var string
      */
     public $SearchWindowDuration;
     /**
@@ -68,7 +68,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
      * @uses EwsFindAvailableMeetingTimesType::setActivityDomain()
      * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $attendees
      * @param string $searchWindowStart
-     * @param int $searchWindowDuration
+     * @param string $searchWindowDuration
      * @param int $meetingDurationInMinutes
      * @param string $location
      * @param int $maxCandidates
@@ -127,7 +127,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     }
     /**
      * Get SearchWindowDuration value
-     * @return int|null
+     * @return string|null
      */
     public function getSearchWindowDuration()
     {
@@ -135,14 +135,14 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     }
     /**
      * Set SearchWindowDuration value
-     * @param int $searchWindowDuration
+     * @param string $searchWindowDuration
      * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
      */
     public function setSearchWindowDuration($searchWindowDuration = null)
     {
-        // validation for constraint: int
-        if (!is_null($searchWindowDuration) && !is_numeric($searchWindowDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchWindowDuration)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($searchWindowDuration) && !is_string($searchWindowDuration)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchWindowDuration)), __LINE__);
         }
         $this->SearchWindowDuration = $searchWindowDuration;
         return $this;

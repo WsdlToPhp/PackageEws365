@@ -17,13 +17,13 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var base64Binary[]
+     * @var string[]
      */
     public $Base64Binary;
     /**
      * Constructor method for ArrayOfBinaryType
      * @uses EwsArrayOfBinaryType::setBase64Binary()
-     * @param base64Binary[] $base64Binary
+     * @param string[] $base64Binary
      */
     public function __construct(array $base64Binary = array())
     {
@@ -32,7 +32,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     }
     /**
      * Get Base64Binary value
-     * @return base64Binary[]|null
+     * @return string[]|null
      */
     public function getBase64Binary()
     {
@@ -41,7 +41,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     /**
      * Set Base64Binary value
      * @throws \InvalidArgumentException
-     * @param base64Binary[] $base64Binary
+     * @param string[] $base64Binary
      * @return \Ews\ArrayType\EwsArrayOfBinaryType
      */
     public function setBase64Binary(array $base64Binary = array())
@@ -58,10 +58,10 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     /**
      * Add item to Base64Binary value
      * @throws \InvalidArgumentException
-     * @param base64Binary $item
+     * @param string $item
      * @return \Ews\ArrayType\EwsArrayOfBinaryType
      */
-    public function addToBase64Binary(base64Binary $item)
+    public function addToBase64Binary($item)
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
@@ -73,7 +73,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function current()
     {
@@ -83,7 +83,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return base64Binary|null
+     * @return string|null
      */
     public function item($index)
     {
@@ -92,7 +92,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function first()
     {
@@ -101,7 +101,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return base64Binary|null
+     * @return string|null
      */
     public function last()
     {
@@ -111,7 +111,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return base64Binary|null
+     * @return string|null
      */
     public function offsetGet($offset)
     {

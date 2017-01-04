@@ -25,7 +25,7 @@ class EwsUploadItemType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var base64Binary
+     * @var string
      */
     public $Data;
     /**
@@ -58,12 +58,12 @@ class EwsUploadItemType extends AbstractStructBase
      * @uses EwsUploadItemType::setItemId()
      * @uses EwsUploadItemType::setIsAssociated()
      * @param \Ews\StructType\EwsFolderIdType $parentFolderId
-     * @param base64Binary $data
+     * @param string $data
      * @param string $createAction
      * @param \Ews\StructType\EwsItemIdType $itemId
      * @param bool $isAssociated
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $parentFolderId = null, base64Binary $data = null, $createAction = null, \Ews\StructType\EwsItemIdType $itemId = null, $isAssociated = null)
+    public function __construct(\Ews\StructType\EwsFolderIdType $parentFolderId = null, $data = null, $createAction = null, \Ews\StructType\EwsItemIdType $itemId = null, $isAssociated = null)
     {
         $this
             ->setParentFolderId($parentFolderId)
@@ -92,7 +92,7 @@ class EwsUploadItemType extends AbstractStructBase
     }
     /**
      * Get Data value
-     * @return base64Binary
+     * @return string
      */
     public function getData()
     {
@@ -100,11 +100,15 @@ class EwsUploadItemType extends AbstractStructBase
     }
     /**
      * Set Data value
-     * @param base64Binary $data
+     * @param string $data
      * @return \Ews\StructType\EwsUploadItemType
      */
-    public function setData(base64Binary $data = null)
+    public function setData($data = null)
     {
+        // validation for constraint: string
+        if (!is_null($data) && !is_string($data)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($data)), __LINE__);
+        }
         $this->Data = $data;
         return $this;
     }

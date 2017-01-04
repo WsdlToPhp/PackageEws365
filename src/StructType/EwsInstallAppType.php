@@ -17,22 +17,22 @@ class EwsInstallAppType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var base64Binary
+     * @var string
      */
     public $Manifest;
     /**
      * Constructor method for InstallAppType
      * @uses EwsInstallAppType::setManifest()
-     * @param base64Binary $manifest
+     * @param string $manifest
      */
-    public function __construct(base64Binary $manifest = null)
+    public function __construct($manifest = null)
     {
         $this
             ->setManifest($manifest);
     }
     /**
      * Get Manifest value
-     * @return base64Binary
+     * @return string
      */
     public function getManifest()
     {
@@ -40,11 +40,15 @@ class EwsInstallAppType extends EwsBaseRequestType
     }
     /**
      * Set Manifest value
-     * @param base64Binary $manifest
+     * @param string $manifest
      * @return \Ews\StructType\EwsInstallAppType
      */
-    public function setManifest(base64Binary $manifest = null)
+    public function setManifest($manifest = null)
     {
+        // validation for constraint: string
+        if (!is_null($manifest) && !is_string($manifest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($manifest)), __LINE__);
+        }
         $this->Manifest = $manifest;
         return $this;
     }

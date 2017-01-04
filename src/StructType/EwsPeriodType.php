@@ -14,7 +14,7 @@ class EwsPeriodType extends AbstractStructBase
 {
     /**
      * The Bias
-     * @var int
+     * @var string
      */
     public $Bias;
     /**
@@ -32,7 +32,7 @@ class EwsPeriodType extends AbstractStructBase
      * @uses EwsPeriodType::setBias()
      * @uses EwsPeriodType::setName()
      * @uses EwsPeriodType::setId()
-     * @param int $bias
+     * @param string $bias
      * @param string $name
      * @param string $id
      */
@@ -45,7 +45,7 @@ class EwsPeriodType extends AbstractStructBase
     }
     /**
      * Get Bias value
-     * @return int|null
+     * @return string|null
      */
     public function getBias()
     {
@@ -53,14 +53,14 @@ class EwsPeriodType extends AbstractStructBase
     }
     /**
      * Set Bias value
-     * @param int $bias
+     * @param string $bias
      * @return \Ews\StructType\EwsPeriodType
      */
     public function setBias($bias = null)
     {
-        // validation for constraint: int
-        if (!is_null($bias) && !is_numeric($bias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($bias)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($bias) && !is_string($bias)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
         return $this;

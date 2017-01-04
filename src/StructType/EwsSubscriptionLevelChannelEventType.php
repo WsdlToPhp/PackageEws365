@@ -28,7 +28,7 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
      * The ActionDelay
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var string
      */
     public $ActionDelay;
     /**
@@ -38,7 +38,7 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
      * @uses EwsSubscriptionLevelChannelEventType::setActionDelay()
      * @param string $subscriptionId
      * @param int $sequenceNumber
-     * @param int $actionDelay
+     * @param string $actionDelay
      */
     public function __construct($subscriptionId = null, $sequenceNumber = null, $actionDelay = null)
     {
@@ -97,7 +97,7 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Get ActionDelay value
-     * @return int|null
+     * @return string|null
      */
     public function getActionDelay()
     {
@@ -105,14 +105,14 @@ abstract class EwsSubscriptionLevelChannelEventType extends EwsChannelEventType
     }
     /**
      * Set ActionDelay value
-     * @param int $actionDelay
+     * @param string $actionDelay
      * @return \Ews\StructType\EwsSubscriptionLevelChannelEventType
      */
     public function setActionDelay($actionDelay = null)
     {
-        // validation for constraint: int
-        if (!is_null($actionDelay) && !is_numeric($actionDelay)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($actionDelay)), __LINE__);
+        // validation for constraint: string
+        if (!is_null($actionDelay) && !is_string($actionDelay)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($actionDelay)), __LINE__);
         }
         $this->ActionDelay = $actionDelay;
         return $this;

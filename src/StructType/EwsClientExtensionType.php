@@ -25,7 +25,7 @@ class EwsClientExtensionType extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var base64Binary
+     * @var string
      */
     public $Manifest;
     /**
@@ -113,7 +113,7 @@ class EwsClientExtensionType extends AbstractStructBase
      * @uses EwsClientExtensionType::setAppStatus()
      * @uses EwsClientExtensionType::setEtoken()
      * @param \Ews\ArrayType\EwsArrayOfStringsType $specificUsers
-     * @param base64Binary $manifest
+     * @param string $manifest
      * @param bool $isAvailable
      * @param bool $isMandatory
      * @param bool $isEnabledByDefault
@@ -125,7 +125,7 @@ class EwsClientExtensionType extends AbstractStructBase
      * @param string $appStatus
      * @param string $etoken
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $specificUsers = null, base64Binary $manifest = null, $isAvailable = null, $isMandatory = null, $isEnabledByDefault = null, $providedTo = null, $type = null, $scope = null, $marketplaceAssetId = null, $marketplaceContentMarket = null, $appStatus = null, $etoken = null)
+    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $specificUsers = null, $manifest = null, $isAvailable = null, $isMandatory = null, $isEnabledByDefault = null, $providedTo = null, $type = null, $scope = null, $marketplaceAssetId = null, $marketplaceContentMarket = null, $appStatus = null, $etoken = null)
     {
         $this
             ->setSpecificUsers($specificUsers)
@@ -161,7 +161,7 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Get Manifest value
-     * @return base64Binary|null
+     * @return string|null
      */
     public function getManifest()
     {
@@ -169,11 +169,15 @@ class EwsClientExtensionType extends AbstractStructBase
     }
     /**
      * Set Manifest value
-     * @param base64Binary $manifest
+     * @param string $manifest
      * @return \Ews\StructType\EwsClientExtensionType
      */
-    public function setManifest(base64Binary $manifest = null)
+    public function setManifest($manifest = null)
     {
+        // validation for constraint: string
+        if (!is_null($manifest) && !is_string($manifest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($manifest)), __LINE__);
+        }
         $this->Manifest = $manifest;
         return $this;
     }

@@ -25,7 +25,7 @@ class EwsCompleteFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var base64Binary
+     * @var string
      */
     public $AudioData;
     /**
@@ -33,9 +33,9 @@ class EwsCompleteFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * @uses EwsCompleteFindInGALSpeechRecognitionType::setRecognitionId()
      * @uses EwsCompleteFindInGALSpeechRecognitionType::setAudioData()
      * @param \Ews\StructType\EwsRecognitionIdType $recognitionId
-     * @param base64Binary $audioData
+     * @param string $audioData
      */
-    public function __construct(\Ews\StructType\EwsRecognitionIdType $recognitionId = null, base64Binary $audioData = null)
+    public function __construct(\Ews\StructType\EwsRecognitionIdType $recognitionId = null, $audioData = null)
     {
         $this
             ->setRecognitionId($recognitionId)
@@ -61,7 +61,7 @@ class EwsCompleteFindInGALSpeechRecognitionType extends EwsBaseRequestType
     }
     /**
      * Get AudioData value
-     * @return base64Binary
+     * @return string
      */
     public function getAudioData()
     {
@@ -69,11 +69,15 @@ class EwsCompleteFindInGALSpeechRecognitionType extends EwsBaseRequestType
     }
     /**
      * Set AudioData value
-     * @param base64Binary $audioData
+     * @param string $audioData
      * @return \Ews\StructType\EwsCompleteFindInGALSpeechRecognitionType
      */
-    public function setAudioData(base64Binary $audioData = null)
+    public function setAudioData($audioData = null)
     {
+        // validation for constraint: string
+        if (!is_null($audioData) && !is_string($audioData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($audioData)), __LINE__);
+        }
         $this->AudioData = $audioData;
         return $this;
     }

@@ -35,7 +35,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * Meta informations extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var base64Binary
+     * @var string
      */
     public $AudioData;
     /**
@@ -45,9 +45,9 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * @uses EwsCreateUMPromptType::setAudioData()
      * @param string $configurationObject
      * @param string $promptName
-     * @param base64Binary $audioData
+     * @param string $audioData
      */
-    public function __construct($configurationObject = null, $promptName = null, base64Binary $audioData = null)
+    public function __construct($configurationObject = null, $promptName = null, $audioData = null)
     {
         $this
             ->setConfigurationObject($configurationObject)
@@ -104,7 +104,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
     }
     /**
      * Get AudioData value
-     * @return base64Binary
+     * @return string
      */
     public function getAudioData()
     {
@@ -112,11 +112,15 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
     }
     /**
      * Set AudioData value
-     * @param base64Binary $audioData
+     * @param string $audioData
      * @return \Ews\StructType\EwsCreateUMPromptType
      */
-    public function setAudioData(base64Binary $audioData = null)
+    public function setAudioData($audioData = null)
     {
+        // validation for constraint: string
+        if (!is_null($audioData) && !is_string($audioData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($audioData)), __LINE__);
+        }
         $this->AudioData = $audioData;
         return $this;
     }
