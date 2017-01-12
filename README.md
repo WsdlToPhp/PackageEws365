@@ -23,18 +23,7 @@ $ git clone https://github.com/WsdlToPhp/PackageEws365.git package-ews365
 $ cd package-ews365
 $ ./generate.sh
 ```
-After generating the package, don't forget to edit the generated [composer.json](composer.json) file in order to update the psr-4 autoloading:
-```json
-"psr-4": {
-    "Ews\\": "./src/",
-    "SoapClient\\": "./SoapClient/"
-}
-```
-Then run:
-```bash
-$ composer update
-```
- To learn how to customize the generated package, please read the PackageGenerator's [README](https://github.com/WsdlToPhp/PackageGenerator/blob/master/README.md).
+To learn how to customize the generated package, please read the PackageGenerator's [README](https://github.com/WsdlToPhp/PackageGenerator/blob/master/README.md).
 
 # How to use the generated package?
 
