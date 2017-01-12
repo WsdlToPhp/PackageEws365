@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.0.8
+- Minor readme update
+
 ## 0.0.7
 - Update generated classes using latest generator version (base64Binary handling, composer-settings option)
 
