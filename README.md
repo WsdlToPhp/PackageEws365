@@ -18,6 +18,7 @@ The complete list of operations is available at the [Office Dev Center](https://
         - [GetServerTimeZones](samples/GetServerTimeZones.php)
         - [FindInboxItems](samples/FindInboxItems.php)
         - [FindContactItems](samples/FindContactItems.php)
+        - [FindCalendarItems](samples/FindCalendarItems.php)
 - [Need support or having a question?](#need-support-or-having-a-question)
 
 # Generating again the package
@@ -47,6 +48,7 @@ Sample scripts are available under the [samples](samples) folder:
 - [GetServerTimeZones](samples/GetServerTimeZones.php)
 - [FindInboxItems](samples/FindInboxItems.php)
 - [FindContactItems](samples/FindContactItems.php)
+- [FindCalendarItems](samples/FindCalendarItems.php)
 
 # Need support or having a question?
 We can help you understand how to use it and how to customize it. Feel free to contact us at contact@wsdltophp.com.
