@@ -1,3 +1,4 @@
 wsdltophp.phar
 vendor
 composer.lock
+samples/_*.php
