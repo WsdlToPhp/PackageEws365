@@ -50,7 +50,7 @@ $find->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchange
  * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
  */
 $itemType = new EwsFindItemType();
-$itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_DEFAULT);
+$itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_ALL_PROPERTIES);
 $itemType
     ->setItemShape($itemShape)
     ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_INBOX)))
