@@ -79,12 +79,17 @@ if ($result !== false) {
      * ... etc
      */
     foreach($result->getResponseMessages()->getFindItemResponseMessage() as $message) {
-        foreach($message->getRootFolder()->getItems()->getMessage() as $item) {
-            echo PHP_EOL . sprintf('Message from "%s <%s>" with subject "%s" sent at "%s"',
-                $item->getFrom()->getMailbox()->getName(),
-                $item->getFrom()->getMailbox()->getEmailAddress(),
-                $item->getSubject(),
-                $item->getDateTimeSent());
+        $messages = $message->getRootFolder()->getItems()->getMessage();
+        if (is_array($messages)) {
+            foreach($messages as $item) {
+                echo PHP_EOL . sprintf('Message from "%s <%s>" with subject "%s" sent at "%s"',
+                    $item->getFrom()->getMailbox()->getName(),
+                    $item->getFrom()->getMailbox()->getEmailAddress(),
+                    $item->getSubject(),
+                    $item->getDateTimeSent());
+            }
+        } else {
+            echo PHP_EOL . 'No message found';
         }
         echo  PHP_EOL;
     }
