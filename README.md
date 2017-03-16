@@ -7,6 +7,8 @@
 # PackageEws365
 This package has been generated from the [Office 365 Exchange Web Services](wsdl/services.wsdl) WSDL using the [PackageGenerator](https://github.com/WsdlToPhp/PackageGenerator) project.
 
+The complete list of operations is available at the [Office Dev Center](https://msdn.microsoft.com/fr-fr/library/office/bb409286(v=exchg.150).aspx).
+
 # Summary
 - [Generating again the package](#generating-again-the-package)
 - [How to use the generated package?](#how-to-use-the-generated-package)
@@ -41,6 +43,7 @@ Start looking into the auto-generated [tutorial.php](tutorial.php) file. This fi
 Sample scripts are available under the [samples](samples) folder:
 
 - [GetServerTimeZones](samples/GetServerTimeZones.php)
+- [FindInboxItems](samples/FindInboxItems.php)
 
 # Need support or having a question?
 We can help you understand how to use it and how to customize it. Feel free to contact us at contact@wsdltophp.com.
