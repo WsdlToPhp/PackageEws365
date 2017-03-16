@@ -16,6 +16,7 @@ The complete list of operations is available at the [Office Dev Center](https://
     - [Learn from the tutorial](#learn-from-the-tutorial)
     - [Start from the samples](#start-from-the-samples)
         - [GetServerTimeZones](samples/GetServerTimeZones.php)
+        - [FindInboxItems](samples/FindInboxItems.php)
 - [Need support or having a question?](#need-support-or-having-a-question)
 
 # Generating again the package
