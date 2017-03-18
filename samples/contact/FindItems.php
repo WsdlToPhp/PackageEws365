@@ -2,7 +2,7 @@
 /**
  * Composer autoload
  */
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Used classes
@@ -32,7 +32,7 @@ define('EWS_WS_PASSWORD', '************');
  * Minimal options in order to instanciate the ServiceType named Get
  */
 $options = array(
-    AbstractSoapClientBase::WSDL_URL => __DIR__ . '/../wsdl/services.wsdl',
+    AbstractSoapClientBase::WSDL_URL => __DIR__ . '/../../wsdl/services.wsdl',
     AbstractSoapClientBase::WSDL_CLASSMAP => EwsClassMap::get(),
     AbstractSoapClientBase::WSDL_LOGIN => EWS_WS_LOGIN,
     AbstractSoapClientBase::WSDL_PASSWORD => EWS_WS_PASSWORD,

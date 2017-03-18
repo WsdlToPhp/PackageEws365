@@ -43,13 +43,13 @@ Sample scripts are available under the [samples](samples) folder:
 
 - [GetServerTimeZones](samples/GetServerTimeZones.php)
 - [Inbox](samples/inbox)
-    - [FindInboxItems](samples/inbox/FindItems.php)
+    - [FindItems](samples/inbox/FindItems.php)
 - [Contact](samples/contact)
-    - [FindContactItems](samples/contact/FindItems.php)
+    - [FindItems](samples/contact/FindItems.php)
 - [Calendar](samples/calendar)
-    - [FindCalendarItems](samples/calendar/FindItems.php)
+    - [FindItems](samples/calendar/FindItems.php)
 - [Task](samples/task)
-    - [FindTaskItems](samples/task/FindItems.php)
+    - [FindItems](samples/task/FindItems.php)
 
 # Need support or having a question?
 We can help you understand how to use it and how to customize it. Feel free to contact us at contact@wsdltophp.com.
