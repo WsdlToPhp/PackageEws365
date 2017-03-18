@@ -47,7 +47,7 @@ $find = new \Ews\ServiceType\EwsFind($options);
  */
 $find->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
- * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
+ * Send the request
  */
 $itemType = new EwsFindItemType();
 $itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_ALL_PROPERTIES);
@@ -67,12 +67,9 @@ if (false) {
     echo 'Headers Response: ' . $find->getLastResponseHeaders() . "\r\n";
 }
 
-/**
- * Sample call for GetServerTimeZones operation/method
-*/
 if ($result !== false) {
     /**
-     * Display the Inbox messages if there is at least one:
+     * Display the Calendar items if there is at least one:
      *
      * Event with subject "***" starts at "2017-03-15T08:00:00-06:00" and ends at "2017-03-15T08:30:00-06:00" with timezone "(UTC-07:00) Mountain Time (US & Canada)"
      * Event with subject "***" starts at "2017-03-15T08:00:00-06:00" and ends at "2017-03-15T08:30:00-06:00" with timezone "(UTC-07:00) Mountain Time (US & Canada)"

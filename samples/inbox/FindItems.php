@@ -47,13 +47,13 @@ $find = new \Ews\ServiceType\EwsFind($options);
  */
 $find->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
- * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
+ * Send the request
  */
 $itemType = new EwsFindItemType();
 $itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_ALL_PROPERTIES);
 $itemType
     ->setItemShape($itemShape)
-    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_TASKS)))
+    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_INBOX)))
     ->setTraversal(EwsItemQueryTraversalType::VALUE_SHALLOW);
 $result = $find->FindItem($itemType);
 
@@ -67,28 +67,26 @@ if (false) {
     echo 'Headers Response: ' . $find->getLastResponseHeaders() . "\r\n";
 }
 
-/**
- * Sample call for GetServerTimeZones operation/method
-*/
 if ($result !== false) {
     /**
-     * Display the Inbox messages if there is at least one:
+     * Display the Inbox items if there is at least one:
      *
-     * Task with subject "******************" that must be done at "2017-03-15T06:00:00Z" is "NotStarted"
-     * Task with subject "******************" that must be done at "2017-03-15T06:00:00Z" is "NotStarted"
+     * Message from "{name} <{email}>" with subject "{subject}" sent at "2017-02-03T20:51:20Z"
+     * Message from "{name} <{email}>" with subject "{subject}" sent at "2017-02-02T17:48:25Z"
      * ... etc
      */
     foreach($result->getResponseMessages()->getFindItemResponseMessage() as $message) {
-        $tasks = $message->getRootFolder()->getItems()->getTask();
-        if(is_array($tasks)) {
-            foreach($tasks as $item) {
-               echo PHP_EOL . sprintf('Task with subject "%s" that must be done at "%s" is "%s"',
+        $messages = $message->getRootFolder()->getItems()->getMessage();
+        if (is_array($messages)) {
+            foreach($messages as $item) {
+                echo PHP_EOL . sprintf('Message from "%s <%s>" with subject "%s" sent at "%s"',
+                    $item->getFrom()->getMailbox()->getName(),
+                    $item->getFrom()->getMailbox()->getEmailAddress(),
                     $item->getSubject(),
-                    $item->getDueDate(),
-                    $item->getStatus());
+                    $item->getDateTimeSent());
             }
         } else {
-            echo PHP_EOL . 'No task found';
+            echo PHP_EOL . 'No message found';
         }
         echo  PHP_EOL;
     }

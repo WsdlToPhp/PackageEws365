@@ -47,13 +47,13 @@ $find = new \Ews\ServiceType\EwsFind($options);
  */
 $find->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
- * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
+ * Send the request
  */
 $itemType = new EwsFindItemType();
 $itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_ALL_PROPERTIES);
 $itemType
     ->setItemShape($itemShape)
-    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_INBOX)))
+    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_CONTACTS)))
     ->setTraversal(EwsItemQueryTraversalType::VALUE_SHALLOW);
 $result = $find->FindItem($itemType);
 
@@ -67,29 +67,26 @@ if (false) {
     echo 'Headers Response: ' . $find->getLastResponseHeaders() . "\r\n";
 }
 
-/**
- * Sample call for FindItem operation/method
-*/
 if ($result !== false) {
     /**
-     * Display the Inbox messages if there is at least one:
+     * Display the Contact items if there is at least one:
      *
-     * Message from "{name} <{email}>" with subject "{subject}" sent at "2017-02-03T20:51:20Z"
-     * Message from "{name} <{email}>" with subject "{subject}" sent at "2017-02-02T17:48:25Z"
+     * Contact "{firstName} {lastName} <{email}>"
+     * Contact "{firstName} {lastName} <{email}>"
      * ... etc
      */
     foreach($result->getResponseMessages()->getFindItemResponseMessage() as $message) {
-        $messages = $message->getRootFolder()->getItems()->getMessage();
-        if (is_array($messages)) {
-            foreach($messages as $item) {
-                echo PHP_EOL . sprintf('Message from "%s <%s>" with subject "%s" sent at "%s"',
-                    $item->getFrom()->getMailbox()->getName(),
-                    $item->getFrom()->getMailbox()->getEmailAddress(),
-                    $item->getSubject(),
-                    $item->getDateTimeSent());
+        $contacts = $message->getRootFolder()->getItems()->getContact();
+        if(is_array($contacts)) {
+            foreach($contacts as $item) {
+                $addresses = $item->getEmailAddresses()->getEntry();
+                echo PHP_EOL . sprintf('Contact "%s %s <%s>"',
+                    $item->getCompleteName()->getFirstName(),
+                    $item->getCompleteName()->getLastName(),
+                    is_array($addresses) ? array_shift($addresses)->get_() : '');
             }
         } else {
-            echo PHP_EOL . 'No message found';
+            echo PHP_EOL . 'No contact found';
         }
         echo  PHP_EOL;
     }

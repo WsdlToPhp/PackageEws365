@@ -47,13 +47,13 @@ $find = new \Ews\ServiceType\EwsFind($options);
  */
 $find->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
- * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
+ * Send the request
  */
 $itemType = new EwsFindItemType();
 $itemShape = new EwsItemResponseShapeType(EwsDefaultShapeNamesType::VALUE_ALL_PROPERTIES);
 $itemType
     ->setItemShape($itemShape)
-    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_CONTACTS)))
+    ->setParentFolderIds(new EwsNonEmptyArrayOfBaseFolderIdsType(null, new EwsDistinguishedFolderIdType(EwsDistinguishedFolderIdNameType::VALUE_TASKS)))
     ->setTraversal(EwsItemQueryTraversalType::VALUE_SHALLOW);
 $result = $find->FindItem($itemType);
 
@@ -67,29 +67,25 @@ if (false) {
     echo 'Headers Response: ' . $find->getLastResponseHeaders() . "\r\n";
 }
 
-/**
- * Sample call for GetServerTimeZones operation/method
-*/
 if ($result !== false) {
     /**
-     * Display the Inbox messages if there is at least one:
+     * Display the Tasks items if there is at least one:
      *
-     * Contact "{firstName} {lastName} <{email}>"
-     * Contact "{firstName} {lastName} <{email}>"
+     * Task with subject "******************" that must be done at "2017-03-15T06:00:00Z" is "NotStarted"
+     * Task with subject "******************" that must be done at "2017-03-15T06:00:00Z" is "NotStarted"
      * ... etc
      */
     foreach($result->getResponseMessages()->getFindItemResponseMessage() as $message) {
-        $contacts = $message->getRootFolder()->getItems()->getContact();
-        if(is_array($contacts)) {
-            foreach($contacts as $item) {
-                $addresses = $item->getEmailAddresses()->getEntry();
-                echo PHP_EOL . sprintf('Contact "%s %s <%s>"',
-                    $item->getCompleteName()->getFirstName(),
-                    $item->getCompleteName()->getLastName(),
-                    is_array($addresses) ? array_shift($addresses)->get_() : '');
+        $tasks = $message->getRootFolder()->getItems()->getTask();
+        if(is_array($tasks)) {
+            foreach($tasks as $item) {
+               echo PHP_EOL . sprintf('Task with subject "%s" that must be done at "%s" is "%s"',
+                    $item->getSubject(),
+                    $item->getDueDate(),
+                    $item->getStatus());
             }
         } else {
-            echo PHP_EOL . 'No contact found';
+            echo PHP_EOL . 'No task found';
         }
         echo  PHP_EOL;
     }
