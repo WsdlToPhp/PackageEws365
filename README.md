@@ -15,15 +15,6 @@ The complete list of operations is available at the [Office Dev Center](https://
     - [Install the project](#install-the-project)
     - [Learn from the tutorial](#learn-from-the-tutorial)
     - [Start from the samples](#start-from-the-samples)
-        - [GetServerTimeZones](samples/GetServerTimeZones.php)
-        - [Inbox](samples/inbox)
-            - [FindInboxItems](samples/inbox/FindItems.php)
-        - [Contact](samples/contact)
-            - [FindContactItems](samples/contact/FindItems.php)
-        - [Calendar](samples/calendar)
-            - [FindCalendarItems](samples/calendar/FindItems.php)
-        - [Task](samples/task)
-            - [FindTaskItems](samples/task/FindItems.php)
 - [Need support or having a question?](#need-support-or-having-a-question)
 
 # Generating again the package
