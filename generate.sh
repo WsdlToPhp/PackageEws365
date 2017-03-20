@@ -15,17 +15,18 @@ rm -rf  $DEST/src/ \
 
 # package informations
 php wsdltophp.phar generate:package \
-    --urlorpath=$DEST"/wsdl/services.wsdl" \
+    --urlorpath=$DEST"/wsdl/services.updated.wsdl" \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews365" \
     --composer-settings="autoload.psr-4.SoapClient\:./SoapClient/" \
+    --composer-settings="require-dev.wsdltophp/packagegenerator:~2.0" \
     --addcomments="author:WsdlToPhp <contact@wsdltophp.com>" \
     --soapclient="\SoapClient\SoapClientBase" \
     --prefix="Ews";
 
 # generate package
 php wsdltophp.phar generate:package \
-    --urlorpath=$DEST"/wsdl/services.wsdl" \
+    --urlorpath=$DEST"/wsdl/services.updated.wsdl" \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews365" \
     --composer-settings="autoload.psr-4.SoapClient\:./SoapClient/" \
