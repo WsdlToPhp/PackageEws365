@@ -64,7 +64,7 @@ class EwsClassMap
             'PathToIndexedFieldType' => '\\Ews\\StructType\\EwsPathToIndexedFieldType',
             'PathToExceptionFieldType' => '\\Ews\\StructType\\EwsPathToExceptionFieldType',
             'PathToExtendedFieldType' => '\\Ews\\StructType\\EwsPathToExtendedFieldType',
-            'NonEmptyArrayOfPathsToElementType' => '\\Ews\\ArrayType\\EwsNonEmptyArrayOfPathsToElementType',
+            'NonEmptyArrayOfPathsToElementType' => '\\Ews\\StructType\\EwsNonEmptyArrayOfPathsToElementType',
             'NonEmptyArrayOfPropertyValuesType' => '\\Ews\\ArrayType\\EwsNonEmptyArrayOfPropertyValuesType',
             'NonEmptyArrayOfExtendedPropertyType' => '\\Ews\\ArrayType\\EwsNonEmptyArrayOfExtendedPropertyType',
             'ExtendedPropertyType' => '\\Ews\\StructType\\EwsExtendedPropertyType',

@@ -13,13 +13,20 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class EwsArrayOfTransitionsType extends AbstractStructBase
 {
     /**
-     * The Transition
-     * Meta informations extracted from the WSDL
-     * - maxOccurs: unbounded
-     * - ref: t:Transition
-     * @var \Ews\StructType\EwsTransitionType[]
+     * The AbsoluteDateTransition
+     * @var \Ews\StructType\EwsAbsoluteDateTransitionType
      */
-    public $Transition;
+    public $AbsoluteDateTransition;
+    /**
+     * The RecurringDayTransition
+     * @var \Ews\StructType\EwsRecurringDayTransitionType
+     */
+    public $RecurringDayTransition;
+    /**
+     * The RecurringDateTransition
+     * @var \Ews\StructType\EwsRecurringDateTransitionType
+     */
+    public $RecurringDateTransition;
     /**
      * The Id
      * @var string
@@ -27,55 +34,75 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
     public $Id;
     /**
      * Constructor method for ArrayOfTransitionsType
-     * @uses EwsArrayOfTransitionsType::setTransition()
+     * @uses EwsArrayOfTransitionsType::setAbsoluteDateTransition()
+     * @uses EwsArrayOfTransitionsType::setRecurringDayTransition()
+     * @uses EwsArrayOfTransitionsType::setRecurringDateTransition()
      * @uses EwsArrayOfTransitionsType::setId()
-     * @param \Ews\StructType\EwsTransitionType[] $transition
+     * @param \Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
+     * @param \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition
+     * @param \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition
      * @param string $id
      */
-    public function __construct(array $transition = array(), $id = null)
+    public function __construct(\Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null, \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null, \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null, $id = null)
     {
         $this
-            ->setTransition($transition)
+            ->setAbsoluteDateTransition($absoluteDateTransition)
+            ->setRecurringDayTransition($recurringDayTransition)
+            ->setRecurringDateTransition($recurringDateTransition)
             ->setId($id);
     }
     /**
-     * Get Transition value
-     * @return \Ews\StructType\EwsTransitionType[]|null
+     * Get AbsoluteDateTransition value
+     * @return \Ews\StructType\EwsAbsoluteDateTransitionType|null
      */
-    public function getTransition()
+    public function getAbsoluteDateTransition()
     {
-        return $this->Transition;
+        return $this->AbsoluteDateTransition;
     }
     /**
-     * Set Transition value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTransitionType[] $transition
+     * Set AbsoluteDateTransition value
+     * @param \Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
      * @return \Ews\StructType\EwsArrayOfTransitionsType
      */
-    public function setTransition(array $transition = array())
+    public function setAbsoluteDateTransition(\Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null)
     {
-        foreach ($transition as $arrayOfTransitionsTypeTransitionItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfTransitionsTypeTransitionItem instanceof \Ews\StructType\EwsTransitionType) {
-                throw new \InvalidArgumentException(sprintf('The Transition property can only contain items of \Ews\StructType\EwsTransitionType, "%s" given', is_object($arrayOfTransitionsTypeTransitionItem) ? get_class($arrayOfTransitionsTypeTransitionItem) : gettype($arrayOfTransitionsTypeTransitionItem)), __LINE__);
-            }
-        }
-        $this->Transition = $transition;
+        $this->AbsoluteDateTransition = $absoluteDateTransition;
         return $this;
     }
     /**
-     * Add item to Transition value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTransitionType $item
+     * Get RecurringDayTransition value
+     * @return \Ews\StructType\EwsRecurringDayTransitionType|null
+     */
+    public function getRecurringDayTransition()
+    {
+        return $this->RecurringDayTransition;
+    }
+    /**
+     * Set RecurringDayTransition value
+     * @param \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition
      * @return \Ews\StructType\EwsArrayOfTransitionsType
      */
-    public function addToTransition(\Ews\StructType\EwsTransitionType $item)
+    public function setRecurringDayTransition(\Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null)
     {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsTransitionType) {
-            throw new \InvalidArgumentException(sprintf('The Transition property can only contain items of \Ews\StructType\EwsTransitionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
-        }
-        $this->Transition[] = $item;
+        $this->RecurringDayTransition = $recurringDayTransition;
+        return $this;
+    }
+    /**
+     * Get RecurringDateTransition value
+     * @return \Ews\StructType\EwsRecurringDateTransitionType|null
+     */
+    public function getRecurringDateTransition()
+    {
+        return $this->RecurringDateTransition;
+    }
+    /**
+     * Set RecurringDateTransition value
+     * @param \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition
+     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     */
+    public function setRecurringDateTransition(\Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null)
+    {
+        $this->RecurringDateTransition = $recurringDateTransition;
         return $this;
     }
     /**

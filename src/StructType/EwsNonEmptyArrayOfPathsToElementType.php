@@ -5,18 +5,13 @@ namespace Ews\StructType;
 use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
- * This class stands for FieldURIOrConstantType StructType
+ * This class stands for NonEmptyArrayOfPathsToElementType StructType
  * @package Ews
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsFieldURIOrConstantType extends AbstractStructBase
+class EwsNonEmptyArrayOfPathsToElementType extends AbstractStructBase
 {
-    /**
-     * The Constant
-     * @var \Ews\StructType\EwsConstantValueType
-     */
-    public $Constant;
     /**
      * The FieldURI
      * @var \Ews\StructType\EwsPathToUnindexedFieldType
@@ -33,41 +28,20 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
      */
     public $ExtendedFieldURI;
     /**
-     * Constructor method for FieldURIOrConstantType
-     * @uses EwsFieldURIOrConstantType::setConstant()
-     * @uses EwsFieldURIOrConstantType::setFieldURI()
-     * @uses EwsFieldURIOrConstantType::setIndexedFieldURI()
-     * @uses EwsFieldURIOrConstantType::setExtendedFieldURI()
-     * @param \Ews\StructType\EwsConstantValueType $constant
+     * Constructor method for NonEmptyArrayOfPathsToElementType
+     * @uses EwsNonEmptyArrayOfPathsToElementType::setFieldURI()
+     * @uses EwsNonEmptyArrayOfPathsToElementType::setIndexedFieldURI()
+     * @uses EwsNonEmptyArrayOfPathsToElementType::setExtendedFieldURI()
      * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
      * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
      * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
      */
-    public function __construct(\Ews\StructType\EwsConstantValueType $constant = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function __construct(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
         $this
-            ->setConstant($constant)
             ->setFieldURI($fieldURI)
             ->setIndexedFieldURI($indexedFieldURI)
             ->setExtendedFieldURI($extendedFieldURI);
-    }
-    /**
-     * Get Constant value
-     * @return \Ews\StructType\EwsConstantValueType|null
-     */
-    public function getConstant()
-    {
-        return $this->Constant;
-    }
-    /**
-     * Set Constant value
-     * @param \Ews\StructType\EwsConstantValueType $constant
-     * @return \Ews\StructType\EwsFieldURIOrConstantType
-     */
-    public function setConstant(\Ews\StructType\EwsConstantValueType $constant = null)
-    {
-        $this->Constant = $constant;
-        return $this;
     }
     /**
      * Get FieldURI value
@@ -80,7 +54,7 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
     /**
      * Set FieldURI value
      * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
-     * @return \Ews\StructType\EwsFieldURIOrConstantType
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
     {
@@ -98,7 +72,7 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
     /**
      * Set IndexedFieldURI value
      * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
-     * @return \Ews\StructType\EwsFieldURIOrConstantType
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
     {
@@ -116,7 +90,7 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
     /**
      * Set ExtendedFieldURI value
      * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
-     * @return \Ews\StructType\EwsFieldURIOrConstantType
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
@@ -129,7 +103,7 @@ class EwsFieldURIOrConstantType extends AbstractStructBase
      * @see AbstractStructBase::__set_state()
      * @uses AbstractStructBase::__set_state()
      * @param array $array the exported values
-     * @return \Ews\StructType\EwsFieldURIOrConstantType
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public static function __set_state(array $array)
     {

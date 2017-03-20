@@ -13,17 +13,25 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class EwsContainsExpressionType extends EwsSearchExpressionType
 {
     /**
-     * The Path
-     * Meta informations extracted from the WSDL
-     * - ref: t:Path
-     * @var \Ews\StructType\EwsBasePathToElementType
-     */
-    public $Path;
-    /**
      * The Constant
      * @var \Ews\StructType\EwsConstantValueType
      */
     public $Constant;
+    /**
+     * The FieldURI
+     * @var \Ews\StructType\EwsPathToUnindexedFieldType
+     */
+    public $FieldURI;
+    /**
+     * The IndexedFieldURI
+     * @var \Ews\StructType\EwsPathToIndexedFieldType
+     */
+    public $IndexedFieldURI;
+    /**
+     * The ExtendedFieldURI
+     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     */
+    public $ExtendedFieldURI;
     /**
      * The ContainmentMode
      * Meta informations extracted from the WSDL
@@ -40,40 +48,28 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     public $ContainmentComparison;
     /**
      * Constructor method for ContainsExpressionType
-     * @uses EwsContainsExpressionType::setPath()
      * @uses EwsContainsExpressionType::setConstant()
+     * @uses EwsContainsExpressionType::setFieldURI()
+     * @uses EwsContainsExpressionType::setIndexedFieldURI()
+     * @uses EwsContainsExpressionType::setExtendedFieldURI()
      * @uses EwsContainsExpressionType::setContainmentMode()
      * @uses EwsContainsExpressionType::setContainmentComparison()
-     * @param \Ews\StructType\EwsBasePathToElementType $path
      * @param \Ews\StructType\EwsConstantValueType $constant
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
      * @param string $containmentMode
      * @param string $containmentComparison
      */
-    public function __construct(\Ews\StructType\EwsBasePathToElementType $path = null, \Ews\StructType\EwsConstantValueType $constant = null, $containmentMode = null, $containmentComparison = null)
+    public function __construct(\Ews\StructType\EwsConstantValueType $constant = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null, $containmentMode = null, $containmentComparison = null)
     {
         $this
-            ->setPath($path)
             ->setConstant($constant)
+            ->setFieldURI($fieldURI)
+            ->setIndexedFieldURI($indexedFieldURI)
+            ->setExtendedFieldURI($extendedFieldURI)
             ->setContainmentMode($containmentMode)
             ->setContainmentComparison($containmentComparison);
-    }
-    /**
-     * Get Path value
-     * @return \Ews\StructType\EwsBasePathToElementType|null
-     */
-    public function getPath()
-    {
-        return $this->Path;
-    }
-    /**
-     * Set Path value
-     * @param \Ews\StructType\EwsBasePathToElementType $path
-     * @return \Ews\StructType\EwsContainsExpressionType
-     */
-    public function setPath(\Ews\StructType\EwsBasePathToElementType $path = null)
-    {
-        $this->Path = $path;
-        return $this;
     }
     /**
      * Get Constant value
@@ -91,6 +87,60 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     public function setConstant(\Ews\StructType\EwsConstantValueType $constant = null)
     {
         $this->Constant = $constant;
+        return $this;
+    }
+    /**
+     * Get FieldURI value
+     * @return \Ews\StructType\EwsPathToUnindexedFieldType|null
+     */
+    public function getFieldURI()
+    {
+        return $this->FieldURI;
+    }
+    /**
+     * Set FieldURI value
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @return \Ews\StructType\EwsContainsExpressionType
+     */
+    public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
+    {
+        $this->FieldURI = $fieldURI;
+        return $this;
+    }
+    /**
+     * Get IndexedFieldURI value
+     * @return \Ews\StructType\EwsPathToIndexedFieldType|null
+     */
+    public function getIndexedFieldURI()
+    {
+        return $this->IndexedFieldURI;
+    }
+    /**
+     * Set IndexedFieldURI value
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @return \Ews\StructType\EwsContainsExpressionType
+     */
+    public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
+    {
+        $this->IndexedFieldURI = $indexedFieldURI;
+        return $this;
+    }
+    /**
+     * Get ExtendedFieldURI value
+     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     */
+    public function getExtendedFieldURI()
+    {
+        return $this->ExtendedFieldURI;
+    }
+    /**
+     * Set ExtendedFieldURI value
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \Ews\StructType\EwsContainsExpressionType
+     */
+    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    {
+        $this->ExtendedFieldURI = $extendedFieldURI;
         return $this;
     }
     /**

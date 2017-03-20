@@ -13,47 +13,43 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 class EwsExcludesType extends EwsSearchExpressionType
 {
     /**
-     * The Path
-     * Meta informations extracted from the WSDL
-     * - ref: t:Path
-     * @var \Ews\StructType\EwsBasePathToElementType
-     */
-    public $Path;
-    /**
      * The Bitmask
      * @var \Ews\StructType\EwsExcludesValueType
      */
     public $Bitmask;
     /**
-     * Constructor method for ExcludesType
-     * @uses EwsExcludesType::setPath()
-     * @uses EwsExcludesType::setBitmask()
-     * @param \Ews\StructType\EwsBasePathToElementType $path
-     * @param \Ews\StructType\EwsExcludesValueType $bitmask
+     * The FieldURI
+     * @var \Ews\StructType\EwsPathToUnindexedFieldType
      */
-    public function __construct(\Ews\StructType\EwsBasePathToElementType $path = null, \Ews\StructType\EwsExcludesValueType $bitmask = null)
+    public $FieldURI;
+    /**
+     * The IndexedFieldURI
+     * @var \Ews\StructType\EwsPathToIndexedFieldType
+     */
+    public $IndexedFieldURI;
+    /**
+     * The ExtendedFieldURI
+     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     */
+    public $ExtendedFieldURI;
+    /**
+     * Constructor method for ExcludesType
+     * @uses EwsExcludesType::setBitmask()
+     * @uses EwsExcludesType::setFieldURI()
+     * @uses EwsExcludesType::setIndexedFieldURI()
+     * @uses EwsExcludesType::setExtendedFieldURI()
+     * @param \Ews\StructType\EwsExcludesValueType $bitmask
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     */
+    public function __construct(\Ews\StructType\EwsExcludesValueType $bitmask = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
         $this
-            ->setPath($path)
-            ->setBitmask($bitmask);
-    }
-    /**
-     * Get Path value
-     * @return \Ews\StructType\EwsBasePathToElementType|null
-     */
-    public function getPath()
-    {
-        return $this->Path;
-    }
-    /**
-     * Set Path value
-     * @param \Ews\StructType\EwsBasePathToElementType $path
-     * @return \Ews\StructType\EwsExcludesType
-     */
-    public function setPath(\Ews\StructType\EwsBasePathToElementType $path = null)
-    {
-        $this->Path = $path;
-        return $this;
+            ->setBitmask($bitmask)
+            ->setFieldURI($fieldURI)
+            ->setIndexedFieldURI($indexedFieldURI)
+            ->setExtendedFieldURI($extendedFieldURI);
     }
     /**
      * Get Bitmask value
@@ -71,6 +67,60 @@ class EwsExcludesType extends EwsSearchExpressionType
     public function setBitmask(\Ews\StructType\EwsExcludesValueType $bitmask = null)
     {
         $this->Bitmask = $bitmask;
+        return $this;
+    }
+    /**
+     * Get FieldURI value
+     * @return \Ews\StructType\EwsPathToUnindexedFieldType|null
+     */
+    public function getFieldURI()
+    {
+        return $this->FieldURI;
+    }
+    /**
+     * Set FieldURI value
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @return \Ews\StructType\EwsExcludesType
+     */
+    public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
+    {
+        $this->FieldURI = $fieldURI;
+        return $this;
+    }
+    /**
+     * Get IndexedFieldURI value
+     * @return \Ews\StructType\EwsPathToIndexedFieldType|null
+     */
+    public function getIndexedFieldURI()
+    {
+        return $this->IndexedFieldURI;
+    }
+    /**
+     * Set IndexedFieldURI value
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @return \Ews\StructType\EwsExcludesType
+     */
+    public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
+    {
+        $this->IndexedFieldURI = $indexedFieldURI;
+        return $this;
+    }
+    /**
+     * Get ExtendedFieldURI value
+     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     */
+    public function getExtendedFieldURI()
+    {
+        return $this->ExtendedFieldURI;
+    }
+    /**
+     * Set ExtendedFieldURI value
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \Ews\StructType\EwsExcludesType
+     */
+    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    {
+        $this->ExtendedFieldURI = $extendedFieldURI;
         return $this;
     }
     /**
