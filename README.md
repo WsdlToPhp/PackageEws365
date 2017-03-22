@@ -53,6 +53,7 @@ Sample scripts are available under the [samples](samples) folder:
     - [FindItems](samples/calendar/FindItems.php)
     - [GetItem](samples/calendar/GetItem.php)
 - [Task](samples/task)
+    - [CreateItem](samples/task/CreateItem.php)
     - [FindItems](samples/task/FindItems.php)
     - [GetItem](samples/task/GetItem.php)
 
