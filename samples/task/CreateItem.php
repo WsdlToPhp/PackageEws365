@@ -16,6 +16,7 @@ use Ews\EnumType\EwsDistinguishedFolderIdNameType;
 use Ews\StructType\EwsNonEmptyArrayOfAllItemsType;
 use Ews\StructType\EwsTaskType;
 use Ews\EwsClassMap;
+use Ews\StructType\EwsBodyType;
 /**
  * Your Office 365 login, like {id}@{id}.onmicrosoft.com
  */
@@ -48,6 +49,7 @@ $items = new EwsNonEmptyArrayOfAllItemsType();
 $task = new EwsTaskType();
 $dueDate = new \DateTime('today + 5 day');
 $task->setDueDate($dueDate->format('Y-m-d\TH:i:s\Z'))
+    ->setBody(new EwsBodyType(EwsBodyTypeType::VALUE_TEXT, 'This task is very important, please do it as soon as possible'))
     ->setSubject('Sample task created with EWS')
     ->setReminderDueBy($dueDate->sub(new \DateInterval('PT1H'))
     ->format('Y-m-d\TH:i:s\Z'))
