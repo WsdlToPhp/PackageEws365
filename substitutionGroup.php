@@ -6,8 +6,8 @@
  * Then run: php substitutionGroup.php
  * Then regenerate the package: ./generate.sh
  *
- * This script show the usage of the classes contained by the packagegenerator project which are very useful.
- * In addition, it shows that we can pretty easeily manipulate an update any schema.
+ * This script shows the usage of the very useful classes contained by the PackageGenerator project.
+ * In addition, it shows that we can easily manipulate and update any schema.
  */
 
 require_once 'vendor/autoload.php';
