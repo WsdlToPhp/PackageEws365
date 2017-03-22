@@ -25,7 +25,7 @@ class EwsReplyBody extends AbstractStructBase
      * Meta informations extracted from the WSDL
      * - ref: xml:lang
      * - use: optional
-     * @var UNKNOWN
+     * @var string
      */
     public $lang;
     /**
@@ -33,9 +33,9 @@ class EwsReplyBody extends AbstractStructBase
      * @uses EwsReplyBody::setMessage()
      * @uses EwsReplyBody::setLang()
      * @param string $message
-     * @param UNKNOWN $lang
+     * @param string $lang
      */
-    public function __construct($message = null, UNKNOWN $lang = null)
+    public function __construct($message = null, $lang = null)
     {
         $this
             ->setMessage($message)
@@ -65,7 +65,7 @@ class EwsReplyBody extends AbstractStructBase
     }
     /**
      * Get lang value
-     * @return UNKNOWN|null
+     * @return string|null
      */
     public function getLang()
     {
@@ -73,11 +73,15 @@ class EwsReplyBody extends AbstractStructBase
     }
     /**
      * Set lang value
-     * @param UNKNOWN $lang
+     * @param string $lang
      * @return \Ews\StructType\EwsReplyBody
      */
-    public function setLang(UNKNOWN $lang = null)
+    public function setLang($lang = null)
     {
+        // validation for constraint: string
+        if (!is_null($lang) && !is_string($lang)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lang)), __LINE__);
+        }
         $this->lang = $lang;
         return $this;
     }
