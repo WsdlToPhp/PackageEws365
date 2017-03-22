@@ -44,6 +44,7 @@ Sample scripts are available under the [samples](samples) folder:
 - [GetServerTimeZones](samples/GetServerTimeZones.php)
 - [Inbox](samples/inbox)
     - [FindItems](samples/inbox/FindItems.php)
+    - [FindUnreadItems](samples/inbox/FindUnreadItems.php)
     - [GetItem](samples/inbox/GetItem.php)
 - [Contact](samples/contact)
     - [FindItems](samples/contact/FindItems.php)
