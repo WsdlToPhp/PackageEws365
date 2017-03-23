@@ -38,6 +38,7 @@ $options = array(
  * Instanciation of the ServiceType get that gather all the operations beginnig with "get".
  */
 $create = new \Ews\ServiceType\EwsCreate($options);
+$create->setLocation('https://pod51036.outlook.com/ews/Exchange.asmx');
 /**
  * Configure the SoapHeader, each header's method begins with "setSoapHeader".
  */
