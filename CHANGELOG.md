@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.0.0
+- Create update schema as substitutionGroup attribute is not handled by the native PHP SoapClient class
+- Update generated classes thanks to PackageGenerator fixed issues
+- Working samples have been added
+- Implement a method into the SoapClient class in order to remove useless empty request tags
+
 ## 0.0.8
 - Minor readme update
 
