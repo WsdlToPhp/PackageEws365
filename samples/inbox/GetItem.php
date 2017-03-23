@@ -20,7 +20,7 @@ use Ews\StructType\EwsItemIdType;
 use Ews\StructType\EwsContactItemType;
 
 /**
- * Your Office 365 login, like {id}@{id}.onmicrosoft.com
+ * Your Office 365 login
  */
 define('EWS_WS_LOGIN', '***************************');
 /**
@@ -32,7 +32,7 @@ define('EWS_WS_PASSWORD', '*************');
  * Minimal options in order to instanciate the ServiceType named Get
  */
 $options = array(
-    AbstractSoapClientBase::WSDL_URL => __DIR__ . '/../../wsdl/services.wsdl',
+    AbstractSoapClientBase::WSDL_URL => __DIR__ . '/../../wsdl/services.updated.wsdl',
     AbstractSoapClientBase::WSDL_CLASSMAP => EwsClassMap::get(),
     AbstractSoapClientBase::WSDL_LOGIN => EWS_WS_LOGIN,
     AbstractSoapClientBase::WSDL_PASSWORD => EWS_WS_PASSWORD,
@@ -42,6 +42,7 @@ $options = array(
  * Instanciation of the ServiceType get that gather all the operations beginnig with "get".
  */
 $get = new \Ews\ServiceType\EwsGet($options);
+$get->setLocation('https://pod51036.outlook.com/ews/Exchange.asmx');
 /**
  * Configure the SoapHeader, each header's method begins with "setSoapHeader".
  */

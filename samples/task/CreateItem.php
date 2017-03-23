@@ -18,7 +18,7 @@ use Ews\StructType\EwsTaskType;
 use Ews\EwsClassMap;
 use Ews\StructType\EwsBodyType;
 /**
- * Your Office 365 login, like {id}@{id}.onmicrosoft.com
+ * Your Office 365 login
  */
 define('EWS_WS_LOGIN', '***************************');
 /**

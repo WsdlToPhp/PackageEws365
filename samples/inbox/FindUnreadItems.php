@@ -26,7 +26,7 @@ use Ews\StructType\EwsPathToUnindexedFieldType;
 use Ews\EnumType\EwsUnindexedFieldURIType;
 
 /**
- * Your Office 365 login, like {id}@{id}.onmicrosoft.com
+ * Your Office 365 login
  */
 define('EWS_WS_LOGIN', '***************************');
 /**
@@ -49,6 +49,7 @@ $options = array(
  * Instanciation of the ServiceType get that gather all the operations beginnig with "get".
  */
 $find = new \Ews\ServiceType\EwsFind($options);
+$find->setLocation('https://pod51036.outlook.com/ews/Exchange.asmx');
 /**
  * Configure the SoapHeader, each header's method begins with "setSoapHeader".
  */

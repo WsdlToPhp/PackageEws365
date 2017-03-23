@@ -14,7 +14,7 @@ use Ews\StructType\EwsRequestServerVersion;
 use Ews\StructType\EwsGetServerTimeZonesType;
 
 /**
- * Your Office 365 login, like {id}@{id}.onmicrosoft.com
+ * Your Office 365 login
  */
 define('EWS_WS_LOGIN', '');
 /**
