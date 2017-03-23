@@ -17,6 +17,7 @@ use Ews\StructType\EwsNonEmptyArrayOfAllItemsType;
 use Ews\StructType\EwsTaskType;
 use Ews\EwsClassMap;
 use Ews\StructType\EwsBodyType;
+use Ews\EnumType\EwsBodyTypeType;
 /**
  * Your Office 365 login
  */
