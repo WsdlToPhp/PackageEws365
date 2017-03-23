@@ -97,7 +97,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
+     * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
     /**
@@ -125,9 +125,9 @@ class EwsItemResponseShapeType extends AbstractStructBase
      * @param bool $blockExternalImages
      * @param bool $addBlankTargetToLinks
      * @param int $maximumBodySize
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
-    public function __construct($baseShape = null, $includeMimeContent = null, $bodyType = null, $uniqueBodyType = null, $normalizedBodyType = null, $filterHtmlContent = null, $convertHtmlCodePageToUTF8 = null, $inlineImageUrlTemplate = null, $blockExternalImages = null, $addBlankTargetToLinks = null, $maximumBodySize = null, \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function __construct($baseShape = null, $includeMimeContent = null, $bodyType = null, $uniqueBodyType = null, $normalizedBodyType = null, $filterHtmlContent = null, $convertHtmlCodePageToUTF8 = null, $inlineImageUrlTemplate = null, $blockExternalImages = null, $addBlankTargetToLinks = null, $maximumBodySize = null, \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this
             ->setBaseShape($baseShape)
@@ -379,7 +379,7 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Get AdditionalProperties value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType|null
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
     public function getAdditionalProperties()
     {
@@ -387,10 +387,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      * @return \Ews\StructType\EwsItemResponseShapeType
      */
-    public function setAdditionalProperties(\Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function setAdditionalProperties(\Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this->AdditionalProperties = $additionalProperties;
         return $this;

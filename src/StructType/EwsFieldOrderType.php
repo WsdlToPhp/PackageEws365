@@ -20,24 +20,38 @@ class EwsFieldOrderType extends AbstractStructBase
      */
     public $Order;
     /**
-     * The Path
-     * Meta informations extracted from the WSDL
-     * - ref: t:Path
-     * @var \Ews\StructType\EwsBasePathToElementType
+     * The FieldURI
+     * @var \Ews\StructType\EwsPathToUnindexedFieldType
      */
-    public $Path;
+    public $FieldURI;
+    /**
+     * The IndexedFieldURI
+     * @var \Ews\StructType\EwsPathToIndexedFieldType
+     */
+    public $IndexedFieldURI;
+    /**
+     * The ExtendedFieldURI
+     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     */
+    public $ExtendedFieldURI;
     /**
      * Constructor method for FieldOrderType
      * @uses EwsFieldOrderType::setOrder()
-     * @uses EwsFieldOrderType::setPath()
+     * @uses EwsFieldOrderType::setFieldURI()
+     * @uses EwsFieldOrderType::setIndexedFieldURI()
+     * @uses EwsFieldOrderType::setExtendedFieldURI()
      * @param string $order
-     * @param \Ews\StructType\EwsBasePathToElementType $path
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
      */
-    public function __construct($order = null, \Ews\StructType\EwsBasePathToElementType $path = null)
+    public function __construct($order = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
         $this
             ->setOrder($order)
-            ->setPath($path);
+            ->setFieldURI($fieldURI)
+            ->setIndexedFieldURI($indexedFieldURI)
+            ->setExtendedFieldURI($extendedFieldURI);
     }
     /**
      * Get Order value
@@ -65,21 +79,57 @@ class EwsFieldOrderType extends AbstractStructBase
         return $this;
     }
     /**
-     * Get Path value
-     * @return \Ews\StructType\EwsBasePathToElementType|null
+     * Get FieldURI value
+     * @return \Ews\StructType\EwsPathToUnindexedFieldType|null
      */
-    public function getPath()
+    public function getFieldURI()
     {
-        return $this->Path;
+        return $this->FieldURI;
     }
     /**
-     * Set Path value
-     * @param \Ews\StructType\EwsBasePathToElementType $path
+     * Set FieldURI value
+     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
      * @return \Ews\StructType\EwsFieldOrderType
      */
-    public function setPath(\Ews\StructType\EwsBasePathToElementType $path = null)
+    public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
     {
-        $this->Path = $path;
+        $this->FieldURI = $fieldURI;
+        return $this;
+    }
+    /**
+     * Get IndexedFieldURI value
+     * @return \Ews\StructType\EwsPathToIndexedFieldType|null
+     */
+    public function getIndexedFieldURI()
+    {
+        return $this->IndexedFieldURI;
+    }
+    /**
+     * Set IndexedFieldURI value
+     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @return \Ews\StructType\EwsFieldOrderType
+     */
+    public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
+    {
+        $this->IndexedFieldURI = $indexedFieldURI;
+        return $this;
+    }
+    /**
+     * Get ExtendedFieldURI value
+     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     */
+    public function getExtendedFieldURI()
+    {
+        return $this->ExtendedFieldURI;
+    }
+    /**
+     * Set ExtendedFieldURI value
+     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \Ews\StructType\EwsFieldOrderType
+     */
+    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    {
+        $this->ExtendedFieldURI = $extendedFieldURI;
         return $this;
     }
     /**

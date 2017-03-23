@@ -7,13 +7,14 @@
 # PackageEws365
 This package has been generated from the [Office 365 Exchange Web Services](wsdl/services.wsdl) WSDL using the [PackageGenerator](https://github.com/WsdlToPhp/PackageGenerator) project.
 
+The complete list of operations is available at the [Office Dev Center](https://msdn.microsoft.com/fr-fr/library/office/bb409286(v=exchg.150).aspx).
+
 # Summary
 - [Generating again the package](#generating-again-the-package)
 - [How to use the generated package?](#how-to-use-the-generated-package)
     - [Install the project](#install-the-project)
     - [Learn from the tutorial](#learn-from-the-tutorial)
     - [Start from the samples](#start-from-the-samples)
-        - [GetServerTimeZones](samples/GetServerTimeZones.php)
 - [Need support or having a question?](#need-support-or-having-a-question)
 
 # Generating again the package
@@ -37,10 +38,36 @@ $ composer update
 ## Learn from the tutorial
 Start looking into the auto-generated [tutorial.php](tutorial.php) file. This file contains the starting code to use this package. In addition it contains all the operations provided by the Exchange Web Services and the way to call them.
 
+## Determine your Office 365 endpoint action location
+Determining the Office 365 endpoint action location can be tricky so below is indicated 2 ways to do it. This location must be defined in the `setLocation` call into the sample files.
+The default location has been defined so it might work fine with you too. If not, you should try determining it. If you don't understand, don't hesitate to contact me at contact@wsdltophp.com. 
+
+### Manually from the endpoint itself
+You should be able to get the endpoint action location from the services.wsdl by opening your browser and browsing to [outlook.office365.com/EWS/Exchange.asmx](https://outlook.office365.com/EWS/Exchange.asmx).
+You must enter your Office 365 credentials then it should display a page where it indicates something such as `svcutil.exe https://**.outlook.com/EWS/Services.wsdl`.
+This is in the `https://**.outlook.com/EWS/Services.wsdl` that you can find at the end the endpoint action location such as `<soap:address location="**https://outlook.office365.com/EWS/Exchange.asmx**" />`.
+
+### From your Office 365 account
+Following this [Tech Blog article](http://blog.skysoft-is.com/?p=78), I simply used the endpoint location action indicated in the article as https://pod51036.outlook.com/ews/services.wsdl and it worked :).
+
 ## Start from the samples
 Sample scripts are available under the [samples](samples) folder:
 
 - [GetServerTimeZones](samples/GetServerTimeZones.php)
+- [Inbox](samples/inbox)
+    - [FindItems](samples/inbox/FindItems.php)
+    - [FindUnreadItems](samples/inbox/FindUnreadItems.php)
+    - [GetItem](samples/inbox/GetItem.php)
+- [Contact](samples/contact)
+    - [FindItems](samples/contact/FindItems.php)
+    - [GetItem](samples/contact/GetItem.php)
+- [Calendar](samples/calendar)
+    - [FindItems](samples/calendar/FindItems.php)
+    - [GetItem](samples/calendar/GetItem.php)
+- [Task](samples/task)
+    - [CreateItem](samples/task/CreateItem.php)
+    - [FindItems](samples/task/FindItems.php)
+    - [GetItem](samples/task/GetItem.php)
 
 # Need support or having a question?
 We can help you understand how to use it and how to customize it. Feel free to contact us at contact@wsdltophp.com.

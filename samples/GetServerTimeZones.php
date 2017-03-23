@@ -10,9 +10,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 use Ews\EnumType\EwsExchangeVersionType;
 use Ews\EwsClassMap;
+use Ews\StructType\EwsRequestServerVersion;
+use Ews\StructType\EwsGetServerTimeZonesType;
 
 /**
- * Your Office 365 login, like {id}@{id}.onmicrosoft.com
+ * Your Office 365 login
  */
 define('EWS_WS_LOGIN', '');
 /**
@@ -37,11 +39,11 @@ $get = new \Ews\ServiceType\EwsGet($options);
 /**
  * Configure the SoapHeader, each header's method begins with "setSoapHeader".
  */
-$get->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
+$get->setSoapHeaderRequestServerVersion(new EwsRequestServerVersion(EwsExchangeVersionType::VALUE_EXCHANGE_2013_SP_1));
 /**
- * Send the request, you can customize the request by modifiying the new \Ews\StructType\EwsGetServerTimeZonesType() instance
+ * Send the request, you can customize the request by modifiying the new EwsGetServerTimeZonesType() instance
  */
-$result = $get->GetServerTimeZones(new \Ews\StructType\EwsGetServerTimeZonesType());
+$result = $get->GetServerTimeZones(new EwsGetServerTimeZonesType());
 
 /**
  * Debug informations provided by the utility methods

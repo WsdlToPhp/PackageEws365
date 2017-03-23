@@ -38,7 +38,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
+     * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
     /**
@@ -50,9 +50,9 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * @param bool $includeMimeContent
      * @param string $bodyType
      * @param bool $filterHtmlContent
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
-    public function __construct($includeMimeContent = null, $bodyType = null, $filterHtmlContent = null, \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function __construct($includeMimeContent = null, $bodyType = null, $filterHtmlContent = null, \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this
             ->setIncludeMimeContent($includeMimeContent)
@@ -123,7 +123,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Get AdditionalProperties value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType|null
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
     public function getAdditionalProperties()
     {
@@ -131,10 +131,10 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      * @return \Ews\StructType\EwsAttachmentResponseShapeType
      */
-    public function setAdditionalProperties(\Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function setAdditionalProperties(\Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this->AdditionalProperties = $additionalProperties;
         return $this;

@@ -14,6 +14,10 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
 {
     /**
      * The Microsoft_OutlookServices_SenderApp
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - minOccurs: 0
+     * @var \Ews\StructType\EwsSenderAddInEntityType[]
      */
     public $Microsoft_OutlookServices_SenderApp;
     /**
@@ -27,16 +31,17 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
             ->setMicrosoft_OutlookServices_SenderApp($microsoft_OutlookServices_SenderApp);
     }
     /**
-     * Get microsoft_OutlookServices_SenderApp value
-     * @return microsoft_OutlookServices_SenderApp
+     * Get Microsoft_OutlookServices_SenderApp value
+     * @return \Ews\StructType\EwsSenderAddInEntityType[]|null
      */
     public function getMicrosoft_OutlookServices_SenderApp()
     {
         return $this->{'Microsoft.OutlookServices.SenderApp'};
     }
     /**
-     * Set microsoft_OutlookServices_SenderApp value
-     * @param microsoft_OutlookServices_SenderApp $microsoft_OutlookServices_SenderApp
+     * Set Microsoft_OutlookServices_SenderApp value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSenderAddInEntityType[] $microsoft_OutlookServices_SenderApp
      * @return \Ews\ArrayType\EwsArrayOfSenderAddInsType
      */
     public function setMicrosoft_OutlookServices_SenderApp(array $microsoft_OutlookServices_SenderApp = array())

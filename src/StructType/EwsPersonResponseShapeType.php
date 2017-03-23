@@ -21,7 +21,7 @@ class EwsPersonResponseShapeType extends AbstractStructBase
      * The AdditionalProperties
      * Meta informations extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType
+     * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
     public $AdditionalProperties;
     /**
@@ -29,9 +29,9 @@ class EwsPersonResponseShapeType extends AbstractStructBase
      * @uses EwsPersonResponseShapeType::setBaseShape()
      * @uses EwsPersonResponseShapeType::setAdditionalProperties()
      * @param string $baseShape
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
-    public function __construct($baseShape = null, \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function __construct($baseShape = null, \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this
             ->setBaseShape($baseShape)
@@ -64,7 +64,7 @@ class EwsPersonResponseShapeType extends AbstractStructBase
     }
     /**
      * Get AdditionalProperties value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType|null
+     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
     public function getAdditionalProperties()
     {
@@ -72,10 +72,10 @@ class EwsPersonResponseShapeType extends AbstractStructBase
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      * @return \Ews\StructType\EwsPersonResponseShapeType
      */
-    public function setAdditionalProperties(\Ews\ArrayType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function setAdditionalProperties(\Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this->AdditionalProperties = $additionalProperties;
         return $this;
