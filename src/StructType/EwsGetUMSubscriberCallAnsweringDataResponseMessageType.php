@@ -101,6 +101,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      */
     public function setIsOOF($isOOF = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOOF) && !is_bool($isOOF)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOOF)), __LINE__);
+        }
         $this->IsOOF = $isOOF;
         return $this;
     }
@@ -144,6 +148,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      */
     public function setIsMailboxQuotaExceeded($isMailboxQuotaExceeded = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMailboxQuotaExceeded) && !is_bool($isMailboxQuotaExceeded)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMailboxQuotaExceeded)), __LINE__);
+        }
         $this->IsMailboxQuotaExceeded = $isMailboxQuotaExceeded;
         return $this;
     }
@@ -162,6 +170,10 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      */
     public function setTaskTimedOut($taskTimedOut = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($taskTimedOut) && !is_bool($taskTimedOut)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($taskTimedOut)), __LINE__);
+        }
         $this->TaskTimedOut = $taskTimedOut;
         return $this;
     }

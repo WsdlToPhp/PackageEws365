@@ -94,6 +94,10 @@ class EwsChangeHighlightsType extends AbstractStructBase
      */
     public function setHasLocationChanged($hasLocationChanged = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasLocationChanged) && !is_bool($hasLocationChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasLocationChanged)), __LINE__);
+        }
         $this->HasLocationChanged = $hasLocationChanged;
         return $this;
     }
@@ -134,6 +138,10 @@ class EwsChangeHighlightsType extends AbstractStructBase
      */
     public function setHasStartTimeChanged($hasStartTimeChanged = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasStartTimeChanged) && !is_bool($hasStartTimeChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasStartTimeChanged)), __LINE__);
+        }
         $this->HasStartTimeChanged = $hasStartTimeChanged;
         return $this;
     }
@@ -174,6 +182,10 @@ class EwsChangeHighlightsType extends AbstractStructBase
      */
     public function setHasEndTimeChanged($hasEndTimeChanged = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasEndTimeChanged) && !is_bool($hasEndTimeChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasEndTimeChanged)), __LINE__);
+        }
         $this->HasEndTimeChanged = $hasEndTimeChanged;
         return $this;
     }

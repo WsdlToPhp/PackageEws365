@@ -122,6 +122,10 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
      */
     public function setMailTipsEnabled($mailTipsEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mailTipsEnabled) && !is_bool($mailTipsEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mailTipsEnabled)), __LINE__);
+        }
         $this->MailTipsEnabled = $mailTipsEnabled;
         return $this;
     }
@@ -206,6 +210,10 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
      */
     public function setShowExternalRecipientCount($showExternalRecipientCount = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($showExternalRecipientCount) && !is_bool($showExternalRecipientCount)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($showExternalRecipientCount)), __LINE__);
+        }
         $this->ShowExternalRecipientCount = $showExternalRecipientCount;
         return $this;
     }
@@ -242,6 +250,10 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
      */
     public function setPolicyTipsEnabled($policyTipsEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($policyTipsEnabled) && !is_bool($policyTipsEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($policyTipsEnabled)), __LINE__);
+        }
         $this->PolicyTipsEnabled = $policyTipsEnabled;
         return $this;
     }

@@ -72,6 +72,10 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
      */
     public function setReturnFullTimeZoneData($returnFullTimeZoneData = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnFullTimeZoneData) && !is_bool($returnFullTimeZoneData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnFullTimeZoneData)), __LINE__);
+        }
         $this->ReturnFullTimeZoneData = $returnFullTimeZoneData;
         return $this;
     }

@@ -40,6 +40,8 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     }
     /**
      * Set Reminder value
+     * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
+     * @uses \Ews\EnumType\EwsReminderType::getValidValues()
      * @throws \InvalidArgumentException
      * @param string[] $reminder
      * @return \Ews\ArrayType\EwsArrayOfRemindersType

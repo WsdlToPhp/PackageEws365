@@ -69,6 +69,10 @@ class EwsUnifiedGroupType extends EwsUnifiedGroupBaseType
      */
     public function setIsFavorite($isFavorite = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFavorite) && !is_bool($isFavorite)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFavorite)), __LINE__);
+        }
         $this->IsFavorite = $isFavorite;
         return $this;
     }

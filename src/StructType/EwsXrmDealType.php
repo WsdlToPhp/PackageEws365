@@ -509,6 +509,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setIsReminderSet($isReminderSet = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isReminderSet) && !is_bool($isReminderSet)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReminderSet)), __LINE__);
+        }
         $this->IsReminderSet = $isReminderSet;
         return $this;
     }

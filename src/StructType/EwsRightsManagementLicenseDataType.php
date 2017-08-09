@@ -282,6 +282,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setEditAllowed($editAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($editAllowed) && !is_bool($editAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($editAllowed)), __LINE__);
+        }
         $this->EditAllowed = $editAllowed;
         return $this;
     }
@@ -300,6 +304,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setReplyAllowed($replyAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($replyAllowed) && !is_bool($replyAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($replyAllowed)), __LINE__);
+        }
         $this->ReplyAllowed = $replyAllowed;
         return $this;
     }
@@ -318,6 +326,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setReplyAllAllowed($replyAllAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($replyAllAllowed) && !is_bool($replyAllAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($replyAllAllowed)), __LINE__);
+        }
         $this->ReplyAllAllowed = $replyAllAllowed;
         return $this;
     }
@@ -336,6 +348,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setForwardAllowed($forwardAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($forwardAllowed) && !is_bool($forwardAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($forwardAllowed)), __LINE__);
+        }
         $this->ForwardAllowed = $forwardAllowed;
         return $this;
     }
@@ -354,6 +370,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setModifyRecipientsAllowed($modifyRecipientsAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($modifyRecipientsAllowed) && !is_bool($modifyRecipientsAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($modifyRecipientsAllowed)), __LINE__);
+        }
         $this->ModifyRecipientsAllowed = $modifyRecipientsAllowed;
         return $this;
     }
@@ -372,6 +392,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setExtractAllowed($extractAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($extractAllowed) && !is_bool($extractAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($extractAllowed)), __LINE__);
+        }
         $this->ExtractAllowed = $extractAllowed;
         return $this;
     }
@@ -390,6 +414,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setPrintAllowed($printAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($printAllowed) && !is_bool($printAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($printAllowed)), __LINE__);
+        }
         $this->PrintAllowed = $printAllowed;
         return $this;
     }
@@ -408,6 +436,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setExportAllowed($exportAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($exportAllowed) && !is_bool($exportAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($exportAllowed)), __LINE__);
+        }
         $this->ExportAllowed = $exportAllowed;
         return $this;
     }
@@ -426,6 +458,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setProgrammaticAccessAllowed($programmaticAccessAllowed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($programmaticAccessAllowed) && !is_bool($programmaticAccessAllowed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($programmaticAccessAllowed)), __LINE__);
+        }
         $this->ProgrammaticAccessAllowed = $programmaticAccessAllowed;
         return $this;
     }
@@ -444,6 +480,10 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
      */
     public function setIsOwner($isOwner = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOwner) && !is_bool($isOwner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOwner)), __LINE__);
+        }
         $this->IsOwner = $isOwner;
         return $this;
     }

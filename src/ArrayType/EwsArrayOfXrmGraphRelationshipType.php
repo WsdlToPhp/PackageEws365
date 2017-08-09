@@ -40,6 +40,8 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
     }
     /**
      * Set XrmGraphRelationshipType value
+     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
+     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()
      * @throws \InvalidArgumentException
      * @param string[] $xrmGraphRelationshipType
      * @return \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType

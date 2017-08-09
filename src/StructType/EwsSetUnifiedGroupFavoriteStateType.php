@@ -45,6 +45,10 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
      */
     public function setIsFavoriteUnifiedGroup($isFavoriteUnifiedGroup = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFavoriteUnifiedGroup) && !is_bool($isFavoriteUnifiedGroup)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFavoriteUnifiedGroup)), __LINE__);
+        }
         $this->IsFavoriteUnifiedGroup = $isFavoriteUnifiedGroup;
         return $this;
     }

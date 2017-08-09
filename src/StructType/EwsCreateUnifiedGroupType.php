@@ -175,6 +175,10 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($autoSubscribeNewMembers) && !is_bool($autoSubscribeNewMembers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($autoSubscribeNewMembers)), __LINE__);
+        }
         $this->AutoSubscribeNewMembers = $autoSubscribeNewMembers;
         return $this;
     }

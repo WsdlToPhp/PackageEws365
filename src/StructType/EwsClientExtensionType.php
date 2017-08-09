@@ -196,6 +196,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setIsAvailable($isAvailable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAvailable) && !is_bool($isAvailable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAvailable)), __LINE__);
+        }
         $this->IsAvailable = $isAvailable;
         return $this;
     }
@@ -214,6 +218,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setIsMandatory($isMandatory = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMandatory) && !is_bool($isMandatory)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMandatory)), __LINE__);
+        }
         $this->IsMandatory = $isMandatory;
         return $this;
     }
@@ -232,6 +240,10 @@ class EwsClientExtensionType extends AbstractStructBase
      */
     public function setIsEnabledByDefault($isEnabledByDefault = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isEnabledByDefault) && !is_bool($isEnabledByDefault)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEnabledByDefault)), __LINE__);
+        }
         $this->IsEnabledByDefault = $isEnabledByDefault;
         return $this;
     }

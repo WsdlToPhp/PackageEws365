@@ -107,6 +107,10 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
      */
     public function setRemoveOutlookRuleBlob($removeOutlookRuleBlob = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($removeOutlookRuleBlob) && !is_bool($removeOutlookRuleBlob)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($removeOutlookRuleBlob)), __LINE__);
+        }
         $this->RemoveOutlookRuleBlob = $removeOutlookRuleBlob;
         return $this;
     }

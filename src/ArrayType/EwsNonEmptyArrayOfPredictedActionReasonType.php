@@ -39,6 +39,8 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
     }
     /**
      * Set PredictedActionReason value
+     * @uses \Ews\EnumType\EwsPredictedActionReasonType::valueIsValid()
+     * @uses \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()
      * @throws \InvalidArgumentException
      * @param string[] $predictedActionReason
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType

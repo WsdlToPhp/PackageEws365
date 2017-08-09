@@ -243,6 +243,10 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      */
     public function setAttachmentIsFolder($attachmentIsFolder = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($attachmentIsFolder) && !is_bool($attachmentIsFolder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($attachmentIsFolder)), __LINE__);
+        }
         $this->AttachmentIsFolder = $attachmentIsFolder;
         return $this;
     }

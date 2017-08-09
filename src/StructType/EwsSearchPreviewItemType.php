@@ -642,6 +642,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setRead($read = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($read) && !is_bool($read)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($read)), __LINE__);
+        }
         $this->Read = $read;
         return $this;
     }
@@ -660,6 +664,10 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      */
     public function setHasAttachment($hasAttachment = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasAttachment) && !is_bool($hasAttachment)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachment)), __LINE__);
+        }
         $this->HasAttachment = $hasAttachment;
         return $this;
     }

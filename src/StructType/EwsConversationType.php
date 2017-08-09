@@ -712,6 +712,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setHasAttachments($hasAttachments = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+        }
         $this->HasAttachments = $hasAttachments;
         return $this;
     }
@@ -730,6 +734,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalHasAttachments($globalHasAttachments = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($globalHasAttachments) && !is_bool($globalHasAttachments)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalHasAttachments)), __LINE__);
+        }
         $this->GlobalHasAttachments = $globalHasAttachments;
         return $this;
     }
@@ -1161,6 +1169,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setHasIrm($hasIrm = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasIrm) && !is_bool($hasIrm)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasIrm)), __LINE__);
+        }
         $this->HasIrm = $hasIrm;
         return $this;
     }
@@ -1179,6 +1191,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalHasIrm($globalHasIrm = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($globalHasIrm) && !is_bool($globalHasIrm)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalHasIrm)), __LINE__);
+        }
         $this->GlobalHasIrm = $globalHasIrm;
         return $this;
     }
@@ -1219,6 +1235,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setMentionedMe($mentionedMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mentionedMe)), __LINE__);
+        }
         $this->MentionedMe = $mentionedMe;
         return $this;
     }
@@ -1237,6 +1257,10 @@ class EwsConversationType extends AbstractStructBase
      */
     public function setGlobalMentionedMe($globalMentionedMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($globalMentionedMe) && !is_bool($globalMentionedMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalMentionedMe)), __LINE__);
+        }
         $this->GlobalMentionedMe = $globalMentionedMe;
         return $this;
     }

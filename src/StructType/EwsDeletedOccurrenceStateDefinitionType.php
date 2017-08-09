@@ -76,6 +76,10 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
      */
     public function setIsOccurrencePresent($isOccurrencePresent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOccurrencePresent) && !is_bool($isOccurrencePresent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOccurrencePresent)), __LINE__);
+        }
         $this->IsOccurrencePresent = $isOccurrencePresent;
         return $this;
     }

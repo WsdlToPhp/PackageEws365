@@ -42,6 +42,10 @@ class EwsSetImListMigrationCompletedType extends EwsBaseRequestType
      */
     public function setImListMigrationCompleted($imListMigrationCompleted = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($imListMigrationCompleted) && !is_bool($imListMigrationCompleted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($imListMigrationCompleted)), __LINE__);
+        }
         $this->ImListMigrationCompleted = $imListMigrationCompleted;
         return $this;
     }

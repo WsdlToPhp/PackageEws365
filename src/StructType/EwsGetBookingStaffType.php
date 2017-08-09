@@ -45,6 +45,10 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
      */
     public function setRefreshStaffList($refreshStaffList = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($refreshStaffList) && !is_bool($refreshStaffList)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($refreshStaffList)), __LINE__);
+        }
         $this->RefreshStaffList = $refreshStaffList;
         return $this;
     }

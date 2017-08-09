@@ -200,6 +200,10 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setIsPartiallyIndexed($isPartiallyIndexed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPartiallyIndexed) && !is_bool($isPartiallyIndexed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPartiallyIndexed)), __LINE__);
+        }
         $this->IsPartiallyIndexed = $isPartiallyIndexed;
         return $this;
     }
@@ -218,6 +222,10 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      */
     public function setIsPermanentFailure($isPermanentFailure = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPermanentFailure) && !is_bool($isPermanentFailure)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPermanentFailure)), __LINE__);
+        }
         $this->IsPermanentFailure = $isPermanentFailure;
         return $this;
     }

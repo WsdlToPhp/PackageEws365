@@ -142,6 +142,10 @@ class EwsMeetingMessageType extends EwsMessageType
      */
     public function setIsDelegated($isDelegated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDelegated) && !is_bool($isDelegated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDelegated)), __LINE__);
+        }
         $this->IsDelegated = $isDelegated;
         return $this;
     }
@@ -160,6 +164,10 @@ class EwsMeetingMessageType extends EwsMessageType
      */
     public function setIsOutOfDate($isOutOfDate = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOutOfDate) && !is_bool($isOutOfDate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOutOfDate)), __LINE__);
+        }
         $this->IsOutOfDate = $isOutOfDate;
         return $this;
     }
@@ -178,6 +186,10 @@ class EwsMeetingMessageType extends EwsMessageType
      */
     public function setHasBeenProcessed($hasBeenProcessed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasBeenProcessed) && !is_bool($hasBeenProcessed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasBeenProcessed)), __LINE__);
+        }
         $this->HasBeenProcessed = $hasBeenProcessed;
         return $this;
     }
@@ -287,6 +299,10 @@ class EwsMeetingMessageType extends EwsMessageType
      */
     public function setIsOrganizer($isOrganizer = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOrganizer) && !is_bool($isOrganizer)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOrganizer)), __LINE__);
+        }
         $this->IsOrganizer = $isOrganizer;
         return $this;
     }

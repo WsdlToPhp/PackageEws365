@@ -107,6 +107,10 @@ class EwsInsightFiltersType extends AbstractStructBase
      */
     public function setKeyInsightsOnly($keyInsightsOnly = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($keyInsightsOnly) && !is_bool($keyInsightsOnly)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($keyInsightsOnly)), __LINE__);
+        }
         $this->KeyInsightsOnly = $keyInsightsOnly;
         return $this;
     }

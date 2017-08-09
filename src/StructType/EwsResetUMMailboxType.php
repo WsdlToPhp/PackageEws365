@@ -45,6 +45,10 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
      */
     public function setKeepProperties($keepProperties = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($keepProperties) && !is_bool($keepProperties)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($keepProperties)), __LINE__);
+        }
         $this->KeepProperties = $keepProperties;
         return $this;
     }

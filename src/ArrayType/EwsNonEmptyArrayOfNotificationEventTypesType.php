@@ -37,6 +37,9 @@ class EwsNonEmptyArrayOfNotificationEventTypesType extends AbstractStructArrayBa
     }
     /**
      * Set EventType value
+     * @uses \Ews\EnumType\EwsNotificationEventTypeType::valueIsValid()
+     * @uses \Ews\EnumType\EwsNotificationEventTypeType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $eventType
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType
      */

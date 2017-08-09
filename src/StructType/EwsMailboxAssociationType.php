@@ -147,6 +147,10 @@ class EwsMailboxAssociationType extends AbstractStructBase
      */
     public function setIsMember($isMember = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMember) && !is_bool($isMember)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+        }
         $this->IsMember = $isMember;
         return $this;
     }
@@ -187,6 +191,10 @@ class EwsMailboxAssociationType extends AbstractStructBase
      */
     public function setIsPin($isPin = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPin) && !is_bool($isPin)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPin)), __LINE__);
+        }
         $this->IsPin = $isPin;
         return $this;
     }

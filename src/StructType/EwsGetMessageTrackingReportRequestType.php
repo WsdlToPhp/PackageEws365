@@ -197,6 +197,10 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setReturnQueueEvents($returnQueueEvents = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnQueueEvents) && !is_bool($returnQueueEvents)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnQueueEvents)), __LINE__);
+        }
         $this->ReturnQueueEvents = $returnQueueEvents;
         return $this;
     }

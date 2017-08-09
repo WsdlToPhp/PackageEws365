@@ -100,6 +100,10 @@ class EwsSuggestion extends AbstractStructBase
      */
     public function setIsWorkTime($isWorkTime = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isWorkTime) && !is_bool($isWorkTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isWorkTime)), __LINE__);
+        }
         $this->IsWorkTime = $isWorkTime;
         return $this;
     }

@@ -134,6 +134,10 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
      */
     public function setEnabledOnly($enabledOnly = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($enabledOnly) && !is_bool($enabledOnly)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($enabledOnly)), __LINE__);
+        }
         $this->EnabledOnly = $enabledOnly;
         return $this;
     }

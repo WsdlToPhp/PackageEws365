@@ -79,25 +79,31 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Sets the DateTimePrecision SoapHeader param
+     * @uses \Ews\EnumType\EwsDateTimePrecisionType::valueIsValid()
+     * @uses \Ews\EnumType\EwsDateTimePrecisionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\EnumType\EwsDateTimePrecisionType $dateTimePrecision
+     * @param string $dateTimePrecision
      * @param string $nameSpace
      * @param bool $mustUnderstand
      * @param string $actor
      * @return bool
      */
-    public function setSoapHeaderDateTimePrecision(\Ews\EnumType\EwsDateTimePrecisionType $dateTimePrecision, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderDateTimePrecision($dateTimePrecision, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
     {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dateTimePrecision, implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
+        }
         return $this->setSoapHeader($nameSpace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named FindFolder
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -118,12 +124,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindItem
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType,
-     * \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required, required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -144,10 +148,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindMessageTrackingReport
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -168,10 +172,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindConversation
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -192,10 +196,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindPeople
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -216,10 +220,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindAvailableMeetingTimes
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -240,10 +244,10 @@ class EwsFind extends SoapClientBase
     /**
      * Method to call the operation originally named FindMeetingTimeCandidates
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

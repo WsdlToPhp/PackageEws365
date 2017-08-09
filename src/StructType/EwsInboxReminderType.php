@@ -172,6 +172,10 @@ class EwsInboxReminderType extends AbstractStructBase
      */
     public function setIsOrganizerReminder($isOrganizerReminder = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOrganizerReminder) && !is_bool($isOrganizerReminder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOrganizerReminder)), __LINE__);
+        }
         $this->IsOrganizerReminder = $isOrganizerReminder;
         return $this;
     }

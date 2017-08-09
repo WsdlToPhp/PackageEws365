@@ -285,6 +285,10 @@ class EwsFindPeopleType extends EwsBaseRequestType
      */
     public function setSearchPeopleSuggestionIndex($searchPeopleSuggestionIndex = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($searchPeopleSuggestionIndex) && !is_bool($searchPeopleSuggestionIndex)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchPeopleSuggestionIndex)), __LINE__);
+        }
         $this->SearchPeopleSuggestionIndex = $searchPeopleSuggestionIndex;
         return $this;
     }

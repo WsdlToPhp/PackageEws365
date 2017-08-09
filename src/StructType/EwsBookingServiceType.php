@@ -341,6 +341,10 @@ class EwsBookingServiceType extends AbstractStructBase
      */
     public function setIsDefaultEmailReminderSet($isDefaultEmailReminderSet = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDefaultEmailReminderSet) && !is_bool($isDefaultEmailReminderSet)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDefaultEmailReminderSet)), __LINE__);
+        }
         $this->IsDefaultEmailReminderSet = $isDefaultEmailReminderSet;
         return $this;
     }

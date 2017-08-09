@@ -271,6 +271,10 @@ class EwsConversationActionType extends AbstractStructBase
      */
     public function setProcessRightAway($processRightAway = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($processRightAway) && !is_bool($processRightAway)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($processRightAway)), __LINE__);
+        }
         $this->ProcessRightAway = $processRightAway;
         return $this;
     }
@@ -325,6 +329,10 @@ class EwsConversationActionType extends AbstractStructBase
      */
     public function setEnableAlwaysDelete($enableAlwaysDelete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($enableAlwaysDelete) && !is_bool($enableAlwaysDelete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($enableAlwaysDelete)), __LINE__);
+        }
         $this->EnableAlwaysDelete = $enableAlwaysDelete;
         return $this;
     }
@@ -343,6 +351,10 @@ class EwsConversationActionType extends AbstractStructBase
      */
     public function setIsRead($isRead = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRead) && !is_bool($isRead)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRead)), __LINE__);
+        }
         $this->IsRead = $isRead;
         return $this;
     }
@@ -451,6 +463,10 @@ class EwsConversationActionType extends AbstractStructBase
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressReadReceipts)), __LINE__);
+        }
         $this->SuppressReadReceipts = $suppressReadReceipts;
         return $this;
     }

@@ -42,6 +42,10 @@ class EwsChannelStatusEventType extends EwsChannelEventType
      */
     public function setIsNew($isNew = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isNew) && !is_bool($isNew)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isNew)), __LINE__);
+        }
         $this->IsNew = $isNew;
         return $this;
     }

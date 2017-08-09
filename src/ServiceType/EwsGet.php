@@ -79,24 +79,31 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Sets the DateTimePrecision SoapHeader param
+     * @uses \Ews\EnumType\EwsDateTimePrecisionType::valueIsValid()
+     * @uses \Ews\EnumType\EwsDateTimePrecisionType::getValidValues()
+     * @throws \InvalidArgumentException
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\EnumType\EwsDateTimePrecisionType $dateTimePrecision
+     * @param string $dateTimePrecision
      * @param string $nameSpace
      * @param bool $mustUnderstand
      * @param string $actor
      * @return bool
      */
-    public function setSoapHeaderDateTimePrecision(\Ews\EnumType\EwsDateTimePrecisionType $dateTimePrecision, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderDateTimePrecision($dateTimePrecision, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
     {
+        // validation for constraint: enumeration
+        if (!\Ews\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
+            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dateTimePrecision, implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
+        }
         return $this->setSoapHeader($nameSpace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named GetServerTimeZones
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -117,11 +124,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetFolder
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -142,10 +148,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetEvents
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -166,10 +172,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetStreamingEvents
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -190,12 +196,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetItem
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType,
-     * \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required, required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -216,11 +220,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetAttachment
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
-     * - SOAPHeaders : required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
+     * - SOAPHeaders: required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -241,10 +244,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetClientAccessToken
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -265,10 +268,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetDelegate
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -289,10 +292,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetUserConfiguration
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -313,10 +316,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetUserAvailability
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, TimeZoneContext, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, TimeZoneContext, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -337,10 +340,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetUserOofSettings
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -361,10 +364,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetServiceConfiguration
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, RequestServerVersion, MailboxCulture
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, RequestServerVersion, MailboxCulture
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -385,10 +388,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetMailTips
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, MailboxCulture
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, MailboxCulture
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -409,10 +412,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetPhoneCallInformation
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -433,10 +436,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetSharingMetadata
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -457,10 +460,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetSharingFolder
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -481,10 +484,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetRoomLists
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -505,10 +508,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetRooms
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -529,10 +532,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetMessageTrackingReport
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -553,10 +556,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetConversationItems
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -577,10 +580,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetPersona
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -601,11 +604,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetInboxRules
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
-     * - SOAPHeaders : required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
+     * - SOAPHeaders: required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -626,10 +628,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetPasswordExpirationDate
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -650,10 +652,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetDiscoverySearchConfiguration
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -674,10 +676,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetSearchableMailboxes
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -698,10 +700,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetHoldOnMailboxes
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -722,10 +724,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetNonIndexableItemStatistics
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -746,10 +748,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetNonIndexableItemDetails
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -770,10 +772,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetAppManifests
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -794,10 +796,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetImItemList
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -818,10 +820,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetImItems
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -842,10 +844,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetUserRetentionPolicyTags
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -866,10 +868,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetAppMarketplaceUrl
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -890,10 +892,10 @@ class EwsGet extends SoapClientBase
     /**
      * Method to call the operation originally named GetUserPhoto
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

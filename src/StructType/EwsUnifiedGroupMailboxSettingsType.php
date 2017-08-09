@@ -56,6 +56,10 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      */
     public function setExternalSendersEnabled($externalSendersEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($externalSendersEnabled) && !is_bool($externalSendersEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($externalSendersEnabled)), __LINE__);
+        }
         $this->ExternalSendersEnabled = $externalSendersEnabled;
         return $this;
     }
@@ -74,6 +78,10 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($autoSubscribeNewMembers) && !is_bool($autoSubscribeNewMembers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($autoSubscribeNewMembers)), __LINE__);
+        }
         $this->AutoSubscribeNewMembers = $autoSubscribeNewMembers;
         return $this;
     }

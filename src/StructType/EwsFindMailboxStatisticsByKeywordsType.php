@@ -302,6 +302,10 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      */
     public function setSearchDumpster($searchDumpster = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($searchDumpster) && !is_bool($searchDumpster)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchDumpster)), __LINE__);
+        }
         $this->SearchDumpster = $searchDumpster;
         return $this;
     }
@@ -320,6 +324,10 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      */
     public function setIncludePersonalArchive($includePersonalArchive = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includePersonalArchive) && !is_bool($includePersonalArchive)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includePersonalArchive)), __LINE__);
+        }
         $this->IncludePersonalArchive = $includePersonalArchive;
         return $this;
     }
@@ -338,6 +346,10 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      */
     public function setIncludeUnsearchableItems($includeUnsearchableItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeUnsearchableItems) && !is_bool($includeUnsearchableItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeUnsearchableItems)), __LINE__);
+        }
         $this->IncludeUnsearchableItems = $includeUnsearchableItems;
         return $this;
     }

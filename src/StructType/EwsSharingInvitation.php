@@ -123,6 +123,10 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setActive($active = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($active) && !is_bool($active)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($active)), __LINE__);
+        }
         $this->Active = $active;
         return $this;
     }
@@ -218,6 +222,10 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setReadOnly($readOnly = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($readOnly) && !is_bool($readOnly)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($readOnly)), __LINE__);
+        }
         $this->ReadOnly = $readOnly;
         return $this;
     }

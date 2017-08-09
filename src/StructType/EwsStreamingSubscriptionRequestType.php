@@ -98,6 +98,10 @@ class EwsStreamingSubscriptionRequestType extends AbstractStructBase
      */
     public function setSubscribeToAllFolders($subscribeToAllFolders = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($subscribeToAllFolders) && !is_bool($subscribeToAllFolders)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($subscribeToAllFolders)), __LINE__);
+        }
         $this->SubscribeToAllFolders = $subscribeToAllFolders;
         return $this;
     }

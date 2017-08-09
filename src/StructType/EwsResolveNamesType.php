@@ -82,6 +82,10 @@ class EwsResolveNamesType extends EwsBaseRequestType
      */
     public function setReturnFullContactData($returnFullContactData = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnFullContactData) && !is_bool($returnFullContactData)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnFullContactData)), __LINE__);
+        }
         $this->ReturnFullContactData = $returnFullContactData;
         return $this;
     }

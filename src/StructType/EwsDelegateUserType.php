@@ -114,6 +114,10 @@ class EwsDelegateUserType extends AbstractStructBase
      */
     public function setReceiveCopiesOfMeetingMessages($receiveCopiesOfMeetingMessages = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($receiveCopiesOfMeetingMessages) && !is_bool($receiveCopiesOfMeetingMessages)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($receiveCopiesOfMeetingMessages)), __LINE__);
+        }
         $this->ReceiveCopiesOfMeetingMessages = $receiveCopiesOfMeetingMessages;
         return $this;
     }
@@ -132,6 +136,10 @@ class EwsDelegateUserType extends AbstractStructBase
      */
     public function setViewPrivateItems($viewPrivateItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($viewPrivateItems) && !is_bool($viewPrivateItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($viewPrivateItems)), __LINE__);
+        }
         $this->ViewPrivateItems = $viewPrivateItems;
         return $this;
     }

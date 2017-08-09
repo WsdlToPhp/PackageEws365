@@ -173,6 +173,10 @@ class EwsPersonaAttributionType extends AbstractStructBase
      */
     public function setIsWritable($isWritable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isWritable) && !is_bool($isWritable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isWritable)), __LINE__);
+        }
         $this->IsWritable = $isWritable;
         return $this;
     }
@@ -191,6 +195,10 @@ class EwsPersonaAttributionType extends AbstractStructBase
      */
     public function setIsQuickContact($isQuickContact = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isQuickContact) && !is_bool($isQuickContact)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isQuickContact)), __LINE__);
+        }
         $this->IsQuickContact = $isQuickContact;
         return $this;
     }
@@ -209,6 +217,10 @@ class EwsPersonaAttributionType extends AbstractStructBase
      */
     public function setIsHidden($isHidden = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isHidden) && !is_bool($isHidden)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isHidden)), __LINE__);
+        }
         $this->IsHidden = $isHidden;
         return $this;
     }

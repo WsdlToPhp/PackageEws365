@@ -37,6 +37,9 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
     }
     /**
      * Set ConfigurationName value
+     * @uses \Ews\EnumType\EwsServiceConfigurationType::valueIsValid()
+     * @uses \Ews\EnumType\EwsServiceConfigurationType::getValidValues()
+     * @throws \InvalidArgumentException
      * @param string $configurationName
      * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
      */

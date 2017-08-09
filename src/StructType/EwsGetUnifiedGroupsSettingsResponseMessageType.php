@@ -111,6 +111,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setGroupsEnabled($groupsEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($groupsEnabled) && !is_bool($groupsEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($groupsEnabled)), __LINE__);
+        }
         $this->GroupsEnabled = $groupsEnabled;
         return $this;
     }
@@ -129,6 +133,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setGroupCreationEnabled($groupCreationEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($groupCreationEnabled) && !is_bool($groupCreationEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($groupCreationEnabled)), __LINE__);
+        }
         $this->GroupCreationEnabled = $groupCreationEnabled;
         return $this;
     }
@@ -147,6 +155,10 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
      */
     public function setIsUnifiedGroupsAddressListPresent($isUnifiedGroupsAddressListPresent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isUnifiedGroupsAddressListPresent) && !is_bool($isUnifiedGroupsAddressListPresent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUnifiedGroupsAddressListPresent)), __LINE__);
+        }
         $this->IsUnifiedGroupsAddressListPresent = $isUnifiedGroupsAddressListPresent;
         return $this;
     }

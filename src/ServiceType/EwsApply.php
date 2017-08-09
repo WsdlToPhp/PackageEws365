@@ -41,10 +41,10 @@ class EwsApply extends SoapClientBase
     /**
      * Method to call the operation originally named ApplyConversationAction
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ExchangeImpersonation
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

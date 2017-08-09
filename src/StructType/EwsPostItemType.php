@@ -198,6 +198,10 @@ class EwsPostItemType extends EwsItemType
      */
     public function setIsRead($isRead = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRead) && !is_bool($isRead)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRead)), __LINE__);
+        }
         $this->IsRead = $isRead;
         return $this;
     }

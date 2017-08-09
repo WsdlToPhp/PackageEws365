@@ -94,6 +94,10 @@ class EwsQueryStringType extends AbstractStructBase
      */
     public function setResetCache($resetCache = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($resetCache) && !is_bool($resetCache)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($resetCache)), __LINE__);
+        }
         $this->ResetCache = $resetCache;
         return $this;
     }
@@ -112,6 +116,10 @@ class EwsQueryStringType extends AbstractStructBase
      */
     public function setReturnHighlightTerms($returnHighlightTerms = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnHighlightTerms) && !is_bool($returnHighlightTerms)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnHighlightTerms)), __LINE__);
+        }
         $this->ReturnHighlightTerms = $returnHighlightTerms;
         return $this;
     }
@@ -130,6 +138,10 @@ class EwsQueryStringType extends AbstractStructBase
      */
     public function setReturnDeletedItems($returnDeletedItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnDeletedItems) && !is_bool($returnDeletedItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnDeletedItems)), __LINE__);
+        }
         $this->ReturnDeletedItems = $returnDeletedItems;
         return $this;
     }

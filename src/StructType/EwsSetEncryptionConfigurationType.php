@@ -177,6 +177,10 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
      */
     public function setOTPEnabled($oTPEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($oTPEnabled) && !is_bool($oTPEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($oTPEnabled)), __LINE__);
+        }
         $this->OTPEnabled = $oTPEnabled;
         return $this;
     }

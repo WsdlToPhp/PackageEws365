@@ -235,6 +235,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setIncludeNonIndexableItems($includeNonIndexableItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeNonIndexableItems) && !is_bool($includeNonIndexableItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeNonIndexableItems)), __LINE__);
+        }
         $this->IncludeNonIndexableItems = $includeNonIndexableItems;
         return $this;
     }
@@ -253,6 +257,10 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
      */
     public function setDeduplication($deduplication = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($deduplication) && !is_bool($deduplication)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deduplication)), __LINE__);
+        }
         $this->Deduplication = $deduplication;
         return $this;
     }

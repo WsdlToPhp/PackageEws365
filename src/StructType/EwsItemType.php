@@ -193,7 +193,7 @@ class EwsItemType extends AbstractStructBase
      * - minOccurs: 0
      * - maxInclusive: 1525252321
      * - minInclusive: 1525252321
-     * @var int
+     * @var string
      */
     public $ReminderMinutesBeforeStart;
     /**
@@ -530,7 +530,7 @@ class EwsItemType extends AbstractStructBase
      * @param string $reminderDueBy
      * @param bool $reminderIsSet
      * @param string $reminderNextTime
-     * @param int $reminderMinutesBeforeStart
+     * @param string $reminderMinutesBeforeStart
      * @param string $displayCc
      * @param string $displayTo
      * @param bool $hasAttachments
@@ -915,6 +915,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsSubmitted($isSubmitted = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isSubmitted) && !is_bool($isSubmitted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSubmitted)), __LINE__);
+        }
         $this->IsSubmitted = $isSubmitted;
         return $this;
     }
@@ -933,6 +937,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsDraft($isDraft = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDraft) && !is_bool($isDraft)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDraft)), __LINE__);
+        }
         $this->IsDraft = $isDraft;
         return $this;
     }
@@ -951,6 +959,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsFromMe($isFromMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFromMe) && !is_bool($isFromMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFromMe)), __LINE__);
+        }
         $this->IsFromMe = $isFromMe;
         return $this;
     }
@@ -969,6 +981,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsResend($isResend = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isResend) && !is_bool($isResend)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isResend)), __LINE__);
+        }
         $this->IsResend = $isResend;
         return $this;
     }
@@ -987,6 +1003,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsUnmodified($isUnmodified = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isUnmodified) && !is_bool($isUnmodified)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUnmodified)), __LINE__);
+        }
         $this->IsUnmodified = $isUnmodified;
         return $this;
     }
@@ -1107,6 +1127,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setReminderIsSet($reminderIsSet = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($reminderIsSet) && !is_bool($reminderIsSet)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($reminderIsSet)), __LINE__);
+        }
         $this->ReminderIsSet = $reminderIsSet;
         return $this;
     }
@@ -1134,7 +1158,7 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get ReminderMinutesBeforeStart value
-     * @return int|null
+     * @return string|null
      */
     public function getReminderMinutesBeforeStart()
     {
@@ -1142,14 +1166,22 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Set ReminderMinutesBeforeStart value
-     * @param int $reminderMinutesBeforeStart
+     * @param string $reminderMinutesBeforeStart
      * @return \Ews\StructType\EwsItemType
      */
     public function setReminderMinutesBeforeStart($reminderMinutesBeforeStart = null)
     {
-        // validation for constraint: int
-        if (!is_null($reminderMinutesBeforeStart) && !is_numeric($reminderMinutesBeforeStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
+        // validation for constraint: maxInclusive
+        if ($reminderMinutesBeforeStart > 1525252321) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1525252321, "%s" given', $reminderMinutesBeforeStart), __LINE__);
+        }
+        // validation for constraint: minInclusive
+        if ($reminderMinutesBeforeStart < 1525252321) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1525252321, "%s" given', $reminderMinutesBeforeStart), __LINE__);
+        }
+        // validation for constraint: string
+        if (!is_null($reminderMinutesBeforeStart) && !is_string($reminderMinutesBeforeStart)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
         }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
         return $this;
@@ -1213,6 +1245,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setHasAttachments($hasAttachments = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+        }
         $this->HasAttachments = $hasAttachments;
         return $this;
     }
@@ -1355,6 +1391,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsAssociated($isAssociated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAssociated) && !is_bool($isAssociated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAssociated)), __LINE__);
+        }
         $this->IsAssociated = $isAssociated;
         return $this;
     }
@@ -1667,6 +1707,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setIsClutter($isClutter = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isClutter) && !is_bool($isClutter)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isClutter)), __LINE__);
+        }
         $this->IsClutter = $isClutter;
         return $this;
     }
@@ -1685,6 +1729,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setBlockStatus($blockStatus = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($blockStatus) && !is_bool($blockStatus)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($blockStatus)), __LINE__);
+        }
         $this->BlockStatus = $blockStatus;
         return $this;
     }
@@ -1703,6 +1751,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setHasBlockedImages($hasBlockedImages = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasBlockedImages) && !is_bool($hasBlockedImages)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasBlockedImages)), __LINE__);
+        }
         $this->HasBlockedImages = $hasBlockedImages;
         return $this;
     }
@@ -1844,6 +1896,10 @@ class EwsItemType extends AbstractStructBase
      */
     public function setMentionedMe($mentionedMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mentionedMe)), __LINE__);
+        }
         $this->MentionedMe = $mentionedMe;
         return $this;
     }

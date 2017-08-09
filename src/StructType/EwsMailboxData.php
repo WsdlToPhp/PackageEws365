@@ -110,6 +110,10 @@ class EwsMailboxData extends AbstractStructBase
      */
     public function setExcludeConflicts($excludeConflicts = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($excludeConflicts) && !is_bool($excludeConflicts)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($excludeConflicts)), __LINE__);
+        }
         $this->ExcludeConflicts = $excludeConflicts;
         return $this;
     }

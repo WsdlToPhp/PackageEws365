@@ -71,6 +71,14 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
      */
     public function setConnectionTimeout($connectionTimeout = null)
     {
+        // validation for constraint: maxInclusive
+        if ($connectionTimeout > 30) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 30, "%s" given', $connectionTimeout), __LINE__);
+        }
+        // validation for constraint: minInclusive
+        if ($connectionTimeout < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $connectionTimeout), __LINE__);
+        }
         // validation for constraint: int
         if (!is_null($connectionTimeout) && !is_numeric($connectionTimeout)) {
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($connectionTimeout)), __LINE__);

@@ -144,6 +144,10 @@ class EwsProtectionRuleType extends AbstractStructBase
      */
     public function setUserOverridable($userOverridable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($userOverridable) && !is_bool($userOverridable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($userOverridable)), __LINE__);
+        }
         $this->UserOverridable = $userOverridable;
         return $this;
     }

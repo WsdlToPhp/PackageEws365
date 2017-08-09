@@ -109,6 +109,10 @@ class EwsBodyType extends AbstractStructBase
      */
     public function setIsTruncated($isTruncated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isTruncated) && !is_bool($isTruncated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isTruncated)), __LINE__);
+        }
         $this->IsTruncated = $isTruncated;
         return $this;
     }

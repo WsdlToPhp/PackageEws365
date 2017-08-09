@@ -74,6 +74,10 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
      */
     public function setIsOwner($isOwner = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOwner) && !is_bool($isOwner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOwner)), __LINE__);
+        }
         $this->IsOwner = $isOwner;
         return $this;
     }

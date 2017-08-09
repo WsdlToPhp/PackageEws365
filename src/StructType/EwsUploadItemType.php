@@ -170,6 +170,10 @@ class EwsUploadItemType extends AbstractStructBase
      */
     public function setIsAssociated($isAssociated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAssociated) && !is_bool($isAssociated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAssociated)), __LINE__);
+        }
         $this->IsAssociated = $isAssociated;
         return $this;
     }

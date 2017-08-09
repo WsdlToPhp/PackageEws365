@@ -67,6 +67,10 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      */
     public function setIsAliasUnique($isAliasUnique = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAliasUnique) && !is_bool($isAliasUnique)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAliasUnique)), __LINE__);
+        }
         $this->IsAliasUnique = $isAliasUnique;
         return $this;
     }

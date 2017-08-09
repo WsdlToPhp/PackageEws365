@@ -155,6 +155,10 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setIsSeen($isSeen = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isSeen) && !is_bool($isSeen)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSeen)), __LINE__);
+        }
         $this->IsSeen = $isSeen;
         return $this;
     }

@@ -56,6 +56,10 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      */
     public function setOutlookRuleBlobExists($outlookRuleBlobExists = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($outlookRuleBlobExists) && !is_bool($outlookRuleBlobExists)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($outlookRuleBlobExists)), __LINE__);
+        }
         $this->OutlookRuleBlobExists = $outlookRuleBlobExists;
         return $this;
     }

@@ -142,6 +142,10 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      */
     public function setCanCreateItems($canCreateItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($canCreateItems) && !is_bool($canCreateItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canCreateItems)), __LINE__);
+        }
         $this->CanCreateItems = $canCreateItems;
         return $this;
     }
@@ -160,6 +164,10 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      */
     public function setCanCreateSubFolders($canCreateSubFolders = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($canCreateSubFolders) && !is_bool($canCreateSubFolders)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canCreateSubFolders)), __LINE__);
+        }
         $this->CanCreateSubFolders = $canCreateSubFolders;
         return $this;
     }
@@ -178,6 +186,10 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      */
     public function setIsFolderOwner($isFolderOwner = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFolderOwner) && !is_bool($isFolderOwner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderOwner)), __LINE__);
+        }
         $this->IsFolderOwner = $isFolderOwner;
         return $this;
     }
@@ -196,6 +208,10 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      */
     public function setIsFolderVisible($isFolderVisible = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFolderVisible) && !is_bool($isFolderVisible)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderVisible)), __LINE__);
+        }
         $this->IsFolderVisible = $isFolderVisible;
         return $this;
     }
@@ -214,6 +230,10 @@ abstract class EwsBasePermissionType extends AbstractStructBase
      */
     public function setIsFolderContact($isFolderContact = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFolderContact) && !is_bool($isFolderContact)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderContact)), __LINE__);
+        }
         $this->IsFolderContact = $isFolderContact;
         return $this;
     }

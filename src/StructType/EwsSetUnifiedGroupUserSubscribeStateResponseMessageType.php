@@ -45,6 +45,10 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
      */
     public function setIsSubscribed($isSubscribed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSubscribed)), __LINE__);
+        }
         $this->IsSubscribed = $isSubscribed;
         return $this;
     }

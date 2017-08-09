@@ -173,6 +173,10 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      */
     public function setSearchArchiveOnly($searchArchiveOnly = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($searchArchiveOnly) && !is_bool($searchArchiveOnly)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchArchiveOnly)), __LINE__);
+        }
         $this->SearchArchiveOnly = $searchArchiveOnly;
         return $this;
     }

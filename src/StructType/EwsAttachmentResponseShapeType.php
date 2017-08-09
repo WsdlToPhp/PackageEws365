@@ -75,6 +75,10 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      */
     public function setIncludeMimeContent($includeMimeContent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeMimeContent) && !is_bool($includeMimeContent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeMimeContent)), __LINE__);
+        }
         $this->IncludeMimeContent = $includeMimeContent;
         return $this;
     }
@@ -118,6 +122,10 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      */
     public function setFilterHtmlContent($filterHtmlContent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($filterHtmlContent) && !is_bool($filterHtmlContent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($filterHtmlContent)), __LINE__);
+        }
         $this->FilterHtmlContent = $filterHtmlContent;
         return $this;
     }
