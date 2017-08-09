@@ -312,6 +312,10 @@ class EwsBookingStaffMemberType extends AbstractStructBase
      */
     public function setUseBusinessHours($useBusinessHours = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($useBusinessHours) && !is_bool($useBusinessHours)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($useBusinessHours)), __LINE__);
+        }
         $this->UseBusinessHours = $useBusinessHours;
         return $this;
     }

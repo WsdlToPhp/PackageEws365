@@ -64,6 +64,10 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
      */
     public function setReadFlag($readFlag = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($readFlag) && !is_bool($readFlag)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($readFlag)), __LINE__);
+        }
         $this->ReadFlag = $readFlag;
         return $this;
     }
@@ -82,6 +86,10 @@ class EwsMarkAllItemsAsReadType extends EwsBaseRequestType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressReadReceipts)), __LINE__);
+        }
         $this->SuppressReadReceipts = $suppressReadReceipts;
         return $this;
     }

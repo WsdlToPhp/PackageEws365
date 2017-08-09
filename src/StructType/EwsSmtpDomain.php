@@ -76,6 +76,10 @@ class EwsSmtpDomain extends AbstractStructBase
      */
     public function setIncludeSubdomains($includeSubdomains = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeSubdomains) && !is_bool($includeSubdomains)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeSubdomains)), __LINE__);
+        }
         $this->IncludeSubdomains = $includeSubdomains;
         return $this;
     }

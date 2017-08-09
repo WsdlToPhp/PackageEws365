@@ -454,6 +454,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setIsDefault($isDefault = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDefault) && !is_bool($isDefault)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDefault)), __LINE__);
+        }
         $this->IsDefault = $isDefault;
         return $this;
     }
@@ -868,6 +872,10 @@ class EwsNetworkItemType extends EwsItemType
      */
     public function setSyncEnabled($syncEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($syncEnabled) && !is_bool($syncEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($syncEnabled)), __LINE__);
+        }
         $this->SyncEnabled = $syncEnabled;
         return $this;
     }

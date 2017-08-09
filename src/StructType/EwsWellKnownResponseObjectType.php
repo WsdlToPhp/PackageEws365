@@ -347,6 +347,10 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      */
     public function setIsReadReceiptRequested($isReadReceiptRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isReadReceiptRequested) && !is_bool($isReadReceiptRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceiptRequested)), __LINE__);
+        }
         $this->IsReadReceiptRequested = $isReadReceiptRequested;
         return $this;
     }
@@ -365,6 +369,10 @@ class EwsWellKnownResponseObjectType extends EwsResponseObjectType
      */
     public function setIsDeliveryReceiptRequested($isDeliveryReceiptRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDeliveryReceiptRequested) && !is_bool($isDeliveryReceiptRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeliveryReceiptRequested)), __LINE__);
+        }
         $this->IsDeliveryReceiptRequested = $isDeliveryReceiptRequested;
         return $this;
     }

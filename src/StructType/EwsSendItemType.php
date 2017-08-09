@@ -62,6 +62,10 @@ class EwsSendItemType extends EwsBaseRequestType
      */
     public function setSaveItemToFolder($saveItemToFolder = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($saveItemToFolder) && !is_bool($saveItemToFolder)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($saveItemToFolder)), __LINE__);
+        }
         $this->SaveItemToFolder = $saveItemToFolder;
         return $this;
     }

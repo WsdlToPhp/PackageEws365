@@ -227,6 +227,10 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
      */
     public function setDeduplication($deduplication = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($deduplication) && !is_bool($deduplication)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deduplication)), __LINE__);
+        }
         $this->Deduplication = $deduplication;
         return $this;
     }

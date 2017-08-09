@@ -144,6 +144,10 @@ class EwsSearchResultsType extends AbstractStructBase
      */
     public function setMoreResultsAvailable($moreResultsAvailable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($moreResultsAvailable) && !is_bool($moreResultsAvailable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moreResultsAvailable)), __LINE__);
+        }
         $this->MoreResultsAvailable = $moreResultsAvailable;
         return $this;
     }

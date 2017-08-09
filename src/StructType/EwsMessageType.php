@@ -296,6 +296,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setIsReadReceiptRequested($isReadReceiptRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isReadReceiptRequested) && !is_bool($isReadReceiptRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceiptRequested)), __LINE__);
+        }
         $this->IsReadReceiptRequested = $isReadReceiptRequested;
         return $this;
     }
@@ -314,6 +318,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setIsDeliveryReceiptRequested($isDeliveryReceiptRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDeliveryReceiptRequested) && !is_bool($isDeliveryReceiptRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeliveryReceiptRequested)), __LINE__);
+        }
         $this->IsDeliveryReceiptRequested = $isDeliveryReceiptRequested;
         return $this;
     }
@@ -416,6 +424,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setIsRead($isRead = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRead) && !is_bool($isRead)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRead)), __LINE__);
+        }
         $this->IsRead = $isRead;
         return $this;
     }
@@ -434,6 +446,10 @@ class EwsMessageType extends EwsItemType
      */
     public function setIsResponseRequested($isResponseRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isResponseRequested) && !is_bool($isResponseRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isResponseRequested)), __LINE__);
+        }
         $this->IsResponseRequested = $isResponseRequested;
         return $this;
     }

@@ -163,6 +163,10 @@ class EwsSearchableMailboxType extends AbstractStructBase
      */
     public function setIsExternalMailbox($isExternalMailbox = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isExternalMailbox) && !is_bool($isExternalMailbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isExternalMailbox)), __LINE__);
+        }
         $this->IsExternalMailbox = $isExternalMailbox;
         return $this;
     }
@@ -225,6 +229,10 @@ class EwsSearchableMailboxType extends AbstractStructBase
      */
     public function setIsMembershipGroup($isMembershipGroup = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMembershipGroup) && !is_bool($isMembershipGroup)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMembershipGroup)), __LINE__);
+        }
         $this->IsMembershipGroup = $isMembershipGroup;
         return $this;
     }

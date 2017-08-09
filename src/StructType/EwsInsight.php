@@ -198,6 +198,10 @@ class EwsInsight extends AbstractStructBase
      */
     public function setRequiresToken($requiresToken = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($requiresToken) && !is_bool($requiresToken)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($requiresToken)), __LINE__);
+        }
         $this->RequiresToken = $requiresToken;
         return $this;
     }

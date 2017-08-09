@@ -28,10 +28,10 @@ class EwsUninstall extends SoapClientBase
     /**
      * Method to call the operation originally named UninstallApp
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required
+     * - SOAPHeaderNames: RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

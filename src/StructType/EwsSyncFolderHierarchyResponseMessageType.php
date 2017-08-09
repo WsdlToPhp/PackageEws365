@@ -86,6 +86,10 @@ class EwsSyncFolderHierarchyResponseMessageType extends EwsResponseMessageType
      */
     public function setIncludesLastFolderInRange($includesLastFolderInRange = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includesLastFolderInRange) && !is_bool($includesLastFolderInRange)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includesLastFolderInRange)), __LINE__);
+        }
         $this->IncludesLastFolderInRange = $includesLastFolderInRange;
         return $this;
     }

@@ -123,6 +123,10 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
      */
     public function setIsMember($isMember = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMember) && !is_bool($isMember)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+        }
         $this->IsMember = $isMember;
         return $this;
     }
@@ -185,6 +189,10 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
      */
     public function setIsFavorite($isFavorite = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isFavorite) && !is_bool($isFavorite)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFavorite)), __LINE__);
+        }
         $this->IsFavorite = $isFavorite;
         return $this;
     }

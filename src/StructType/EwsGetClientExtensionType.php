@@ -103,6 +103,10 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
      */
     public function setIsDebug($isDebug = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDebug) && !is_bool($isDebug)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDebug)), __LINE__);
+        }
         $this->IsDebug = $isDebug;
         return $this;
     }

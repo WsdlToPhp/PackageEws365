@@ -55,6 +55,10 @@ class EwsGetDelegateType extends EwsBaseDelegateType
      */
     public function setIncludePermissions($includePermissions = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includePermissions) && !is_bool($includePermissions)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includePermissions)), __LINE__);
+        }
         $this->IncludePermissions = $includePermissions;
         return $this;
     }

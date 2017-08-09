@@ -122,6 +122,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setIsMeeting($isMeeting = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMeeting) && !is_bool($isMeeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeeting)), __LINE__);
+        }
         $this->IsMeeting = $isMeeting;
         return $this;
     }
@@ -140,6 +144,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setIsRecurring($isRecurring = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRecurring) && !is_bool($isRecurring)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+        }
         $this->IsRecurring = $isRecurring;
         return $this;
     }
@@ -158,6 +166,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setIsException($isException = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isException) && !is_bool($isException)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isException)), __LINE__);
+        }
         $this->IsException = $isException;
         return $this;
     }
@@ -176,6 +188,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setIsReminderSet($isReminderSet = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isReminderSet) && !is_bool($isReminderSet)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReminderSet)), __LINE__);
+        }
         $this->IsReminderSet = $isReminderSet;
         return $this;
     }
@@ -194,6 +210,10 @@ class EwsCalendarEventDetails extends AbstractStructBase
      */
     public function setIsPrivate($isPrivate = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPrivate) && !is_bool($isPrivate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPrivate)), __LINE__);
+        }
         $this->IsPrivate = $isPrivate;
         return $this;
     }

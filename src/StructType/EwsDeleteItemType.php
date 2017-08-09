@@ -175,6 +175,10 @@ class EwsDeleteItemType extends EwsBaseRequestType
      */
     public function setSuppressReadReceipts($suppressReadReceipts = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressReadReceipts)), __LINE__);
+        }
         $this->SuppressReadReceipts = $suppressReadReceipts;
         return $this;
     }

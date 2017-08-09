@@ -626,6 +626,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setIsAllDayEvent($isAllDayEvent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAllDayEvent) && !is_bool($isAllDayEvent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAllDayEvent)), __LINE__);
+        }
         $this->IsAllDayEvent = $isAllDayEvent;
         return $this;
     }
@@ -713,6 +717,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setIsMeeting($isMeeting = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMeeting) && !is_bool($isMeeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeeting)), __LINE__);
+        }
         $this->IsMeeting = $isMeeting;
         return $this;
     }
@@ -731,6 +739,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setIsCancelled($isCancelled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isCancelled) && !is_bool($isCancelled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isCancelled)), __LINE__);
+        }
         $this->IsCancelled = $isCancelled;
         return $this;
     }
@@ -749,6 +761,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setIsRecurring($isRecurring = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRecurring) && !is_bool($isRecurring)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+        }
         $this->IsRecurring = $isRecurring;
         return $this;
     }
@@ -767,6 +783,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setMeetingRequestWasSent($meetingRequestWasSent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($meetingRequestWasSent) && !is_bool($meetingRequestWasSent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($meetingRequestWasSent)), __LINE__);
+        }
         $this->MeetingRequestWasSent = $meetingRequestWasSent;
         return $this;
     }
@@ -1263,6 +1283,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setAllowNewTimeProposal($allowNewTimeProposal = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($allowNewTimeProposal) && !is_bool($allowNewTimeProposal)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($allowNewTimeProposal)), __LINE__);
+        }
         $this->AllowNewTimeProposal = $allowNewTimeProposal;
         return $this;
     }
@@ -1281,6 +1305,10 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      */
     public function setIsOnlineMeeting($isOnlineMeeting = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOnlineMeeting) && !is_bool($isOnlineMeeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOnlineMeeting)), __LINE__);
+        }
         $this->IsOnlineMeeting = $isOnlineMeeting;
         return $this;
     }

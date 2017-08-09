@@ -1525,6 +1525,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setHasPicture($hasPicture = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasPicture) && !is_bool($hasPicture)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasPicture)), __LINE__);
+        }
         $this->HasPicture = $hasPicture;
         return $this;
     }
@@ -1791,6 +1795,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setIsAutoUpdateDisabled($isAutoUpdateDisabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAutoUpdateDisabled) && !is_bool($isAutoUpdateDisabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAutoUpdateDisabled)), __LINE__);
+        }
         $this->IsAutoUpdateDisabled = $isAutoUpdateDisabled;
         return $this;
     }
@@ -1809,6 +1817,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setIsMessengerEnabled($isMessengerEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMessengerEnabled) && !is_bool($isMessengerEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMessengerEnabled)), __LINE__);
+        }
         $this->IsMessengerEnabled = $isMessengerEnabled;
         return $this;
     }
@@ -1915,6 +1927,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setIsHidden($isHidden = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isHidden) && !is_bool($isHidden)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isHidden)), __LINE__);
+        }
         $this->IsHidden = $isHidden;
         return $this;
     }
@@ -1977,6 +1993,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setIsPrivate($isPrivate = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPrivate) && !is_bool($isPrivate)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPrivate)), __LINE__);
+        }
         $this->IsPrivate = $isPrivate;
         return $this;
     }
@@ -2233,6 +2253,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setInviteFree($inviteFree = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($inviteFree) && !is_bool($inviteFree)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($inviteFree)), __LINE__);
+        }
         $this->InviteFree = $inviteFree;
         return $this;
     }
@@ -2251,6 +2275,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setHidePresenceAndProfile($hidePresenceAndProfile = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hidePresenceAndProfile) && !is_bool($hidePresenceAndProfile)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hidePresenceAndProfile)), __LINE__);
+        }
         $this->HidePresenceAndProfile = $hidePresenceAndProfile;
         return $this;
     }
@@ -2269,6 +2297,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setIsPendingOutbound($isPendingOutbound = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPendingOutbound) && !is_bool($isPendingOutbound)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPendingOutbound)), __LINE__);
+        }
         $this->IsPendingOutbound = $isPendingOutbound;
         return $this;
     }
@@ -2287,6 +2319,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setSupportGroupFeeds($supportGroupFeeds = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($supportGroupFeeds) && !is_bool($supportGroupFeeds)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($supportGroupFeeds)), __LINE__);
+        }
         $this->SupportGroupFeeds = $supportGroupFeeds;
         return $this;
     }
@@ -2327,6 +2363,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setUnifiedInbox($unifiedInbox = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($unifiedInbox) && !is_bool($unifiedInbox)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($unifiedInbox)), __LINE__);
+        }
         $this->UnifiedInbox = $unifiedInbox;
         return $this;
     }
@@ -2411,6 +2451,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setNotInBirthdayCalendar($notInBirthdayCalendar = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($notInBirthdayCalendar) && !is_bool($notInBirthdayCalendar)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($notInBirthdayCalendar)), __LINE__);
+        }
         $this->NotInBirthdayCalendar = $notInBirthdayCalendar;
         return $this;
     }
@@ -2539,6 +2583,10 @@ class EwsContactItemType extends EwsItemType
      */
     public function setMobileIMEnabled($mobileIMEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mobileIMEnabled) && !is_bool($mobileIMEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mobileIMEnabled)), __LINE__);
+        }
         $this->MobileIMEnabled = $mobileIMEnabled;
         return $this;
     }

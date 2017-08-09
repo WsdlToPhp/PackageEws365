@@ -45,6 +45,10 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
      */
     public function setWasSuccessful($wasSuccessful = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($wasSuccessful) && !is_bool($wasSuccessful)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($wasSuccessful)), __LINE__);
+        }
         $this->WasSuccessful = $wasSuccessful;
         return $this;
     }

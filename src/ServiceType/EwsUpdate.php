@@ -80,11 +80,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateFolder
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
-     * - SOAPHeaders : required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
+     * - SOAPHeaders: required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -105,11 +104,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateItem
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
-     * - SOAPHeaders : required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
+     * - SOAPHeaders: required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -130,11 +128,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateItemInRecoverableItems
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -155,10 +152,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateDelegate
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -179,10 +176,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateUserConfiguration
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -203,11 +200,10 @@ class EwsUpdate extends SoapClientBase
     /**
      * Method to call the operation originally named UpdateInboxRules
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types,
-     * http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
-     * - SOAPHeaders : required, required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
+     * - SOAPHeaders: required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

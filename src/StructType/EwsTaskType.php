@@ -491,6 +491,10 @@ class EwsTaskType extends EwsItemType
      */
     public function setIsComplete($isComplete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isComplete) && !is_bool($isComplete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isComplete)), __LINE__);
+        }
         $this->IsComplete = $isComplete;
         return $this;
     }
@@ -509,6 +513,10 @@ class EwsTaskType extends EwsItemType
      */
     public function setIsRecurring($isRecurring = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRecurring) && !is_bool($isRecurring)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+        }
         $this->IsRecurring = $isRecurring;
         return $this;
     }
@@ -527,6 +535,10 @@ class EwsTaskType extends EwsItemType
      */
     public function setIsTeamTask($isTeamTask = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isTeamTask) && !is_bool($isTeamTask)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isTeamTask)), __LINE__);
+        }
         $this->IsTeamTask = $isTeamTask;
         return $this;
     }

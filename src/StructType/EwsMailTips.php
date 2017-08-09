@@ -227,6 +227,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setMailboxFull($mailboxFull = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mailboxFull) && !is_bool($mailboxFull)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mailboxFull)), __LINE__);
+        }
         $this->MailboxFull = $mailboxFull;
         return $this;
     }
@@ -333,6 +337,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setDeliveryRestricted($deliveryRestricted = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($deliveryRestricted) && !is_bool($deliveryRestricted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deliveryRestricted)), __LINE__);
+        }
         $this->DeliveryRestricted = $deliveryRestricted;
         return $this;
     }
@@ -351,6 +359,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setIsModerated($isModerated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isModerated) && !is_bool($isModerated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isModerated)), __LINE__);
+        }
         $this->IsModerated = $isModerated;
         return $this;
     }
@@ -369,6 +381,10 @@ class EwsMailTips extends AbstractStructBase
      */
     public function setInvalidRecipient($invalidRecipient = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($invalidRecipient) && !is_bool($invalidRecipient)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($invalidRecipient)), __LINE__);
+        }
         $this->InvalidRecipient = $invalidRecipient;
         return $this;
     }

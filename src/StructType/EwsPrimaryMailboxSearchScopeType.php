@@ -74,6 +74,10 @@ class EwsPrimaryMailboxSearchScopeType extends AbstractStructBase
      */
     public function setIsDeepTraversal($isDeepTraversal = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDeepTraversal) && !is_bool($isDeepTraversal)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeepTraversal)), __LINE__);
+        }
         $this->IsDeepTraversal = $isDeepTraversal;
         return $this;
     }

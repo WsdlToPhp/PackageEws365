@@ -41,10 +41,10 @@ class EwsSearch extends SoapClientBase
     /**
      * Method to call the operation originally named SearchMailboxes
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : RequestServerVersion, ManagementRole
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: RequestServerVersion, ManagementRole
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

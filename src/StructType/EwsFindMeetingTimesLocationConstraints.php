@@ -82,6 +82,10 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
      */
     public function setIsRequired($isRequired = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRequired) && !is_bool($isRequired)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRequired)), __LINE__);
+        }
         $this->IsRequired = $isRequired;
         return $this;
     }
@@ -100,6 +104,10 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
      */
     public function setSuggestLocation($suggestLocation = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suggestLocation) && !is_bool($suggestLocation)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suggestLocation)), __LINE__);
+        }
         $this->SuggestLocation = $suggestLocation;
         return $this;
     }

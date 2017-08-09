@@ -71,6 +71,10 @@ class EwsLikeItemType extends EwsBaseRequestType
      */
     public function setIsUnlike($isUnlike = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isUnlike) && !is_bool($isUnlike)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUnlike)), __LINE__);
+        }
         $this->IsUnlike = $isUnlike;
         return $this;
     }

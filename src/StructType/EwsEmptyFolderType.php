@@ -87,6 +87,10 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      */
     public function setDeleteSubFolders($deleteSubFolders = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($deleteSubFolders) && !is_bool($deleteSubFolders)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deleteSubFolders)), __LINE__);
+        }
         $this->DeleteSubFolders = $deleteSubFolders;
         return $this;
     }

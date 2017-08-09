@@ -121,6 +121,10 @@ class EwsAbchEmailAddressDictionaryEntryType extends AbstractStructBase
      */
     public function setIsMessengerEnabled($isMessengerEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMessengerEnabled) && !is_bool($isMessengerEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMessengerEnabled)), __LINE__);
+        }
         $this->IsMessengerEnabled = $isMessengerEnabled;
         return $this;
     }

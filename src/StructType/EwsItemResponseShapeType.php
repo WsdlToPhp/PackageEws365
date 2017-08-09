@@ -183,6 +183,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setIncludeMimeContent($includeMimeContent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeMimeContent) && !is_bool($includeMimeContent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeMimeContent)), __LINE__);
+        }
         $this->IncludeMimeContent = $includeMimeContent;
         return $this;
     }
@@ -276,6 +280,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setFilterHtmlContent($filterHtmlContent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($filterHtmlContent) && !is_bool($filterHtmlContent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($filterHtmlContent)), __LINE__);
+        }
         $this->FilterHtmlContent = $filterHtmlContent;
         return $this;
     }
@@ -294,6 +302,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setConvertHtmlCodePageToUTF8($convertHtmlCodePageToUTF8 = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($convertHtmlCodePageToUTF8) && !is_bool($convertHtmlCodePageToUTF8)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($convertHtmlCodePageToUTF8)), __LINE__);
+        }
         $this->ConvertHtmlCodePageToUTF8 = $convertHtmlCodePageToUTF8;
         return $this;
     }
@@ -334,6 +346,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setBlockExternalImages($blockExternalImages = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($blockExternalImages) && !is_bool($blockExternalImages)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($blockExternalImages)), __LINE__);
+        }
         $this->BlockExternalImages = $blockExternalImages;
         return $this;
     }
@@ -352,6 +368,10 @@ class EwsItemResponseShapeType extends AbstractStructBase
      */
     public function setAddBlankTargetToLinks($addBlankTargetToLinks = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($addBlankTargetToLinks) && !is_bool($addBlankTargetToLinks)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($addBlankTargetToLinks)), __LINE__);
+        }
         $this->AddBlankTargetToLinks = $addBlankTargetToLinks;
         return $this;
     }

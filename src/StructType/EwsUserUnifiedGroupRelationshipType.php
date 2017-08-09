@@ -67,6 +67,10 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      */
     public function setIsMember($isMember = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMember) && !is_bool($isMember)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+        }
         $this->IsMember = $isMember;
         return $this;
     }
@@ -85,6 +89,10 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      */
     public function setIsOwner($isOwner = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOwner) && !is_bool($isOwner)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOwner)), __LINE__);
+        }
         $this->IsOwner = $isOwner;
         return $this;
     }
@@ -103,6 +111,10 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      */
     public function setIsSubscribed($isSubscribed = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSubscribed)), __LINE__);
+        }
         $this->IsSubscribed = $isSubscribed;
         return $this;
     }

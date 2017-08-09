@@ -597,6 +597,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setHasAttachments($hasAttachments = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+        }
         $this->HasAttachments = $hasAttachments;
         return $this;
     }
@@ -640,6 +644,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsApprovalRequest($isApprovalRequest = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isApprovalRequest) && !is_bool($isApprovalRequest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isApprovalRequest)), __LINE__);
+        }
         $this->IsApprovalRequest = $isApprovalRequest;
         return $this;
     }
@@ -658,6 +666,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsAutomaticForward($isAutomaticForward = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAutomaticForward) && !is_bool($isAutomaticForward)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAutomaticForward)), __LINE__);
+        }
         $this->IsAutomaticForward = $isAutomaticForward;
         return $this;
     }
@@ -676,6 +688,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsAutomaticReply($isAutomaticReply = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAutomaticReply) && !is_bool($isAutomaticReply)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAutomaticReply)), __LINE__);
+        }
         $this->IsAutomaticReply = $isAutomaticReply;
         return $this;
     }
@@ -694,6 +710,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsEncrypted($isEncrypted = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isEncrypted) && !is_bool($isEncrypted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEncrypted)), __LINE__);
+        }
         $this->IsEncrypted = $isEncrypted;
         return $this;
     }
@@ -712,6 +732,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsMeetingRequest($isMeetingRequest = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMeetingRequest) && !is_bool($isMeetingRequest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeetingRequest)), __LINE__);
+        }
         $this->IsMeetingRequest = $isMeetingRequest;
         return $this;
     }
@@ -730,6 +754,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsMeetingResponse($isMeetingResponse = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMeetingResponse) && !is_bool($isMeetingResponse)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeetingResponse)), __LINE__);
+        }
         $this->IsMeetingResponse = $isMeetingResponse;
         return $this;
     }
@@ -748,6 +776,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsNDR($isNDR = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isNDR) && !is_bool($isNDR)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isNDR)), __LINE__);
+        }
         $this->IsNDR = $isNDR;
         return $this;
     }
@@ -766,6 +798,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsPermissionControlled($isPermissionControlled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isPermissionControlled) && !is_bool($isPermissionControlled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPermissionControlled)), __LINE__);
+        }
         $this->IsPermissionControlled = $isPermissionControlled;
         return $this;
     }
@@ -784,6 +820,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsReadReceipt($isReadReceipt = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isReadReceipt) && !is_bool($isReadReceipt)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceipt)), __LINE__);
+        }
         $this->IsReadReceipt = $isReadReceipt;
         return $this;
     }
@@ -802,6 +842,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsSigned($isSigned = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isSigned) && !is_bool($isSigned)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSigned)), __LINE__);
+        }
         $this->IsSigned = $isSigned;
         return $this;
     }
@@ -820,6 +864,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setIsVoicemail($isVoicemail = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isVoicemail) && !is_bool($isVoicemail)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isVoicemail)), __LINE__);
+        }
         $this->IsVoicemail = $isVoicemail;
         return $this;
     }
@@ -874,6 +922,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setNotSentToMe($notSentToMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($notSentToMe) && !is_bool($notSentToMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($notSentToMe)), __LINE__);
+        }
         $this->NotSentToMe = $notSentToMe;
         return $this;
     }
@@ -892,6 +944,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setSentCcMe($sentCcMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($sentCcMe) && !is_bool($sentCcMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentCcMe)), __LINE__);
+        }
         $this->SentCcMe = $sentCcMe;
         return $this;
     }
@@ -910,6 +966,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setSentOnlyToMe($sentOnlyToMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($sentOnlyToMe) && !is_bool($sentOnlyToMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentOnlyToMe)), __LINE__);
+        }
         $this->SentOnlyToMe = $sentOnlyToMe;
         return $this;
     }
@@ -946,6 +1006,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setSentToMe($sentToMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($sentToMe) && !is_bool($sentToMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentToMe)), __LINE__);
+        }
         $this->SentToMe = $sentToMe;
         return $this;
     }
@@ -964,6 +1028,10 @@ class EwsRulePredicatesType extends AbstractStructBase
      */
     public function setSentToOrCcMe($sentToOrCcMe = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($sentToOrCcMe) && !is_bool($sentToOrCcMe)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentToOrCcMe)), __LINE__);
+        }
         $this->SentToOrCcMe = $sentToOrCcMe;
         return $this;
     }

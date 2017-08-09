@@ -56,6 +56,10 @@ class EwsFileAttachmentType extends EwsAttachmentType
      */
     public function setIsContactPhoto($isContactPhoto = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isContactPhoto) && !is_bool($isContactPhoto)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isContactPhoto)), __LINE__);
+        }
         $this->IsContactPhoto = $isContactPhoto;
         return $this;
     }

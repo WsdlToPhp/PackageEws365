@@ -151,6 +151,10 @@ class EwsClientIntentType extends AbstractStructBase
      */
     public function setWouldRepair($wouldRepair = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($wouldRepair) && !is_bool($wouldRepair)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($wouldRepair)), __LINE__);
+        }
         $this->WouldRepair = $wouldRepair;
         return $this;
     }

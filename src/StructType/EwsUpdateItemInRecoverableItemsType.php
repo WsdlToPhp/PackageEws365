@@ -126,6 +126,10 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
      */
     public function setMakeItemImmutable($makeItemImmutable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($makeItemImmutable) && !is_bool($makeItemImmutable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($makeItemImmutable)), __LINE__);
+        }
         $this->MakeItemImmutable = $makeItemImmutable;
         return $this;
     }

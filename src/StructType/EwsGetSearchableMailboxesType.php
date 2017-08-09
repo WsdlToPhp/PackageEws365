@@ -78,6 +78,10 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      */
     public function setExpandGroupMembership($expandGroupMembership = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($expandGroupMembership) && !is_bool($expandGroupMembership)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($expandGroupMembership)), __LINE__);
+        }
         $this->ExpandGroupMembership = $expandGroupMembership;
         return $this;
     }

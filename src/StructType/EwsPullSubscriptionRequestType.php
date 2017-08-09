@@ -45,6 +45,14 @@ class EwsPullSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setTimeout($timeout = null)
     {
+        // validation for constraint: maxInclusive
+        if ($timeout > 1440) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1440, "%s" given', $timeout), __LINE__);
+        }
+        // validation for constraint: minInclusive
+        if ($timeout < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $timeout), __LINE__);
+        }
         // validation for constraint: int
         if (!is_null($timeout) && !is_numeric($timeout)) {
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($timeout)), __LINE__);

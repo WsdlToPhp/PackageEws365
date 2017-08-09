@@ -67,6 +67,10 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      */
     public function setUmEnabled($umEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($umEnabled) && !is_bool($umEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($umEnabled)), __LINE__);
+        }
         $this->UmEnabled = $umEnabled;
         return $this;
     }
@@ -107,6 +111,10 @@ class EwsUnifiedMessageServiceConfiguration extends EwsServiceConfiguration
      */
     public function setPlayOnPhoneEnabled($playOnPhoneEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($playOnPhoneEnabled) && !is_bool($playOnPhoneEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($playOnPhoneEnabled)), __LINE__);
+        }
         $this->PlayOnPhoneEnabled = $playOnPhoneEnabled;
         return $this;
     }

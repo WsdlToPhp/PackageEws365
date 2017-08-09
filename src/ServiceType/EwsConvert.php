@@ -41,10 +41,10 @@ class EwsConvert extends SoapClientBase
     /**
      * Method to call the operation originally named ConvertId
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

@@ -166,6 +166,10 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      */
     public function setSuggestionsPrimer($suggestionsPrimer = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suggestionsPrimer) && !is_bool($suggestionsPrimer)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suggestionsPrimer)), __LINE__);
+        }
         $this->SuggestionsPrimer = $suggestionsPrimer;
         return $this;
     }

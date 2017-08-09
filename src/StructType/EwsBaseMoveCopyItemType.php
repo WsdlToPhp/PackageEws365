@@ -97,6 +97,10 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
      */
     public function setReturnNewItemIds($returnNewItemIds = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($returnNewItemIds) && !is_bool($returnNewItemIds)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnNewItemIds)), __LINE__);
+        }
         $this->ReturnNewItemIds = $returnNewItemIds;
         return $this;
     }

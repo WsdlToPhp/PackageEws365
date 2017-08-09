@@ -215,6 +215,10 @@ class EwsRuleActionsType extends AbstractStructBase
      */
     public function setDelete($delete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($delete) && !is_bool($delete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($delete)), __LINE__);
+        }
         $this->Delete = $delete;
         return $this;
     }
@@ -294,6 +298,10 @@ class EwsRuleActionsType extends AbstractStructBase
      */
     public function setMarkAsRead($markAsRead = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($markAsRead) && !is_bool($markAsRead)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($markAsRead)), __LINE__);
+        }
         $this->MarkAsRead = $markAsRead;
         return $this;
     }
@@ -330,6 +338,10 @@ class EwsRuleActionsType extends AbstractStructBase
      */
     public function setPermanentDelete($permanentDelete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($permanentDelete) && !is_bool($permanentDelete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($permanentDelete)), __LINE__);
+        }
         $this->PermanentDelete = $permanentDelete;
         return $this;
     }
@@ -402,6 +414,10 @@ class EwsRuleActionsType extends AbstractStructBase
      */
     public function setStopProcessingRules($stopProcessingRules = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($stopProcessingRules) && !is_bool($stopProcessingRules)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($stopProcessingRules)), __LINE__);
+        }
         $this->StopProcessingRules = $stopProcessingRules;
         return $this;
     }

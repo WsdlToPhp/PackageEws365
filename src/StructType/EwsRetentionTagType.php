@@ -58,6 +58,10 @@ class EwsRetentionTagType extends AbstractStructBase
      */
     public function setIsExplicit($isExplicit = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isExplicit) && !is_bool($isExplicit)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isExplicit)), __LINE__);
+        }
         $this->IsExplicit = $isExplicit;
         return $this;
     }

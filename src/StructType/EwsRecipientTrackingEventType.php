@@ -296,6 +296,10 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setBccRecipient($bccRecipient = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($bccRecipient) && !is_bool($bccRecipient)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($bccRecipient)), __LINE__);
+        }
         $this->BccRecipient = $bccRecipient;
         return $this;
     }
@@ -314,6 +318,10 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setHiddenRecipient($hiddenRecipient = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hiddenRecipient) && !is_bool($hiddenRecipient)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hiddenRecipient)), __LINE__);
+        }
         $this->HiddenRecipient = $hiddenRecipient;
         return $this;
     }

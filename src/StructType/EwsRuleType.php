@@ -179,6 +179,10 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setIsEnabled($isEnabled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isEnabled) && !is_bool($isEnabled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEnabled)), __LINE__);
+        }
         $this->IsEnabled = $isEnabled;
         return $this;
     }
@@ -219,6 +223,10 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setIsNotSupported($isNotSupported = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isNotSupported) && !is_bool($isNotSupported)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isNotSupported)), __LINE__);
+        }
         $this->IsNotSupported = $isNotSupported;
         return $this;
     }
@@ -237,6 +245,10 @@ class EwsRuleType extends AbstractStructBase
      */
     public function setIsInError($isInError = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isInError) && !is_bool($isInError)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isInError)), __LINE__);
+        }
         $this->IsInError = $isInError;
         return $this;
     }

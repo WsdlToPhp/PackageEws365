@@ -42,6 +42,8 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     }
     /**
      * Set SearchItemKind value
+     * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
+     * @uses \Ews\EnumType\EwsSearchItemKindType::getValidValues()
      * @throws \InvalidArgumentException
      * @param string[] $searchItemKind
      * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType

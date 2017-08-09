@@ -89,6 +89,10 @@ class EwsPinInfoType extends AbstractStructBase
      */
     public function setIsValid($isValid = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isValid) && !is_bool($isValid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isValid)), __LINE__);
+        }
         $this->IsValid = $isValid;
         return $this;
     }
@@ -107,6 +111,10 @@ class EwsPinInfoType extends AbstractStructBase
      */
     public function setPinExpired($pinExpired = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($pinExpired) && !is_bool($pinExpired)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($pinExpired)), __LINE__);
+        }
         $this->PinExpired = $pinExpired;
         return $this;
     }
@@ -125,6 +133,10 @@ class EwsPinInfoType extends AbstractStructBase
      */
     public function setLockedOut($lockedOut = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($lockedOut) && !is_bool($lockedOut)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($lockedOut)), __LINE__);
+        }
         $this->LockedOut = $lockedOut;
         return $this;
     }
@@ -143,6 +155,10 @@ class EwsPinInfoType extends AbstractStructBase
      */
     public function setFirstTimeUser($firstTimeUser = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($firstTimeUser) && !is_bool($firstTimeUser)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($firstTimeUser)), __LINE__);
+        }
         $this->FirstTimeUser = $firstTimeUser;
         return $this;
     }

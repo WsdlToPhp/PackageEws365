@@ -54,10 +54,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddDelegate
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -78,10 +78,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddNewImContactToGroup
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -102,10 +102,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddNewTelUriContactToGroup
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -126,10 +126,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddImContactToGroup
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -150,10 +150,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddImGroup
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()
@@ -174,10 +174,10 @@ class EwsAdd extends SoapClientBase
     /**
      * Method to call the operation originally named AddDistributionGroupToImList
      * Meta informations extracted from the WSDL
-     * - SOAPHeaderNames : ExchangeImpersonation, MailboxCulture, RequestServerVersion
-     * - SOAPHeaderNamespaces : http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes : \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
-     * - SOAPHeaders : required, required, required
+     * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
+     * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
+     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
      * @uses SoapClientBase::getResult()

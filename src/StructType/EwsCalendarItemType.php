@@ -704,6 +704,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsAllDayEvent($isAllDayEvent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isAllDayEvent) && !is_bool($isAllDayEvent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAllDayEvent)), __LINE__);
+        }
         $this->IsAllDayEvent = $isAllDayEvent;
         return $this;
     }
@@ -791,6 +795,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsMeeting($isMeeting = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isMeeting) && !is_bool($isMeeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeeting)), __LINE__);
+        }
         $this->IsMeeting = $isMeeting;
         return $this;
     }
@@ -809,6 +817,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsCancelled($isCancelled = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isCancelled) && !is_bool($isCancelled)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isCancelled)), __LINE__);
+        }
         $this->IsCancelled = $isCancelled;
         return $this;
     }
@@ -827,6 +839,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsRecurring($isRecurring = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isRecurring) && !is_bool($isRecurring)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+        }
         $this->IsRecurring = $isRecurring;
         return $this;
     }
@@ -845,6 +861,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setMeetingRequestWasSent($meetingRequestWasSent = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($meetingRequestWasSent) && !is_bool($meetingRequestWasSent)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($meetingRequestWasSent)), __LINE__);
+        }
         $this->MeetingRequestWasSent = $meetingRequestWasSent;
         return $this;
     }
@@ -863,6 +883,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsResponseRequested($isResponseRequested = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isResponseRequested) && !is_bool($isResponseRequested)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isResponseRequested)), __LINE__);
+        }
         $this->IsResponseRequested = $isResponseRequested;
         return $this;
     }
@@ -1377,6 +1401,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setAllowNewTimeProposal($allowNewTimeProposal = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($allowNewTimeProposal) && !is_bool($allowNewTimeProposal)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($allowNewTimeProposal)), __LINE__);
+        }
         $this->AllowNewTimeProposal = $allowNewTimeProposal;
         return $this;
     }
@@ -1395,6 +1423,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsOnlineMeeting($isOnlineMeeting = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOnlineMeeting) && !is_bool($isOnlineMeeting)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOnlineMeeting)), __LINE__);
+        }
         $this->IsOnlineMeeting = $isOnlineMeeting;
         return $this;
     }
@@ -1628,6 +1660,10 @@ class EwsCalendarItemType extends EwsItemType
      */
     public function setIsOrganizer($isOrganizer = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isOrganizer) && !is_bool($isOrganizer)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOrganizer)), __LINE__);
+        }
         $this->IsOrganizer = $isOrganizer;
         return $this;
     }

@@ -136,6 +136,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setCanDelete($canDelete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($canDelete) && !is_bool($canDelete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canDelete)), __LINE__);
+        }
         $this->CanDelete = $canDelete;
         return $this;
     }
@@ -154,6 +158,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setCanRenameOrMove($canRenameOrMove = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($canRenameOrMove) && !is_bool($canRenameOrMove)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canRenameOrMove)), __LINE__);
+        }
         $this->CanRenameOrMove = $canRenameOrMove;
         return $this;
     }
@@ -172,6 +180,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setMustDisplayComment($mustDisplayComment = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($mustDisplayComment) && !is_bool($mustDisplayComment)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mustDisplayComment)), __LINE__);
+        }
         $this->MustDisplayComment = $mustDisplayComment;
         return $this;
     }
@@ -190,6 +202,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setHasQuota($hasQuota = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasQuota) && !is_bool($hasQuota)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasQuota)), __LINE__);
+        }
         $this->HasQuota = $hasQuota;
         return $this;
     }
@@ -208,6 +224,10 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      */
     public function setIsManagedFoldersRoot($isManagedFoldersRoot = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isManagedFoldersRoot) && !is_bool($isManagedFoldersRoot)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isManagedFoldersRoot)), __LINE__);
+        }
         $this->IsManagedFoldersRoot = $isManagedFoldersRoot;
         return $this;
     }

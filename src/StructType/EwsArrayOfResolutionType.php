@@ -191,6 +191,10 @@ class EwsArrayOfResolutionType extends AbstractStructBase
      */
     public function setIncludesLastItemInRange($includesLastItemInRange = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includesLastItemInRange) && !is_bool($includesLastItemInRange)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includesLastItemInRange)), __LINE__);
+        }
         $this->IncludesLastItemInRange = $includesLastItemInRange;
         return $this;
     }

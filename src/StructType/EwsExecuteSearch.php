@@ -498,6 +498,10 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setRetrieveRefiners($retrieveRefiners = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($retrieveRefiners) && !is_bool($retrieveRefiners)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retrieveRefiners)), __LINE__);
+        }
         $this->RetrieveRefiners = $retrieveRefiners;
         return $this;
     }
@@ -606,6 +610,10 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setIncludeDeleted($includeDeleted = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($includeDeleted) && !is_bool($includeDeleted)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeDeleted)), __LINE__);
+        }
         $this->IncludeDeleted = $includeDeleted;
         return $this;
     }

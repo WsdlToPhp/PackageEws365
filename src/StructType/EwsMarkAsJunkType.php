@@ -83,6 +83,10 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
      */
     public function setIsJunk($isJunk = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isJunk) && !is_bool($isJunk)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isJunk)), __LINE__);
+        }
         $this->IsJunk = $isJunk;
         return $this;
     }
@@ -101,6 +105,10 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
      */
     public function setMoveItem($moveItem = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($moveItem) && !is_bool($moveItem)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moveItem)), __LINE__);
+        }
         $this->MoveItem = $moveItem;
         return $this;
     }

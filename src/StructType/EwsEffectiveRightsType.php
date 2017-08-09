@@ -93,6 +93,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setCreateAssociated($createAssociated = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($createAssociated) && !is_bool($createAssociated)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createAssociated)), __LINE__);
+        }
         $this->CreateAssociated = $createAssociated;
         return $this;
     }
@@ -111,6 +115,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setCreateContents($createContents = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($createContents) && !is_bool($createContents)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createContents)), __LINE__);
+        }
         $this->CreateContents = $createContents;
         return $this;
     }
@@ -129,6 +137,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setCreateHierarchy($createHierarchy = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($createHierarchy) && !is_bool($createHierarchy)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createHierarchy)), __LINE__);
+        }
         $this->CreateHierarchy = $createHierarchy;
         return $this;
     }
@@ -147,6 +159,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setDelete($delete = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($delete) && !is_bool($delete)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($delete)), __LINE__);
+        }
         $this->Delete = $delete;
         return $this;
     }
@@ -165,6 +181,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setModify($modify = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($modify) && !is_bool($modify)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($modify)), __LINE__);
+        }
         $this->Modify = $modify;
         return $this;
     }
@@ -183,6 +203,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setRead($read = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($read) && !is_bool($read)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($read)), __LINE__);
+        }
         $this->Read = $read;
         return $this;
     }
@@ -201,6 +225,10 @@ class EwsEffectiveRightsType extends AbstractStructBase
      */
     public function setViewPrivateItems($viewPrivateItems = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($viewPrivateItems) && !is_bool($viewPrivateItems)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($viewPrivateItems)), __LINE__);
+        }
         $this->ViewPrivateItems = $viewPrivateItems;
         return $this;
     }

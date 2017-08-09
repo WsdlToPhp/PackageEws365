@@ -257,6 +257,10 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
      */
     public function setIsVisible($isVisible = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isVisible) && !is_bool($isVisible)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isVisible)), __LINE__);
+        }
         $this->IsVisible = $isVisible;
         return $this;
     }
@@ -275,6 +279,10 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
      */
     public function setOptedInto($optedInto = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($optedInto) && !is_bool($optedInto)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($optedInto)), __LINE__);
+        }
         $this->OptedInto = $optedInto;
         return $this;
     }
@@ -293,6 +301,10 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
      */
     public function setIsArchive($isArchive = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isArchive) && !is_bool($isArchive)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isArchive)), __LINE__);
+        }
         $this->IsArchive = $isArchive;
         return $this;
     }

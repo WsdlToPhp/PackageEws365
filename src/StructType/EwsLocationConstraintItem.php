@@ -76,6 +76,10 @@ class EwsLocationConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      */
     public function setResolveAvailability($resolveAvailability = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($resolveAvailability) && !is_bool($resolveAvailability)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($resolveAvailability)), __LINE__);
+        }
         $this->ResolveAvailability = $resolveAvailability;
         return $this;
     }

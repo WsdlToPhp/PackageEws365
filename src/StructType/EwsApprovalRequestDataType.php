@@ -74,6 +74,10 @@ class EwsApprovalRequestDataType extends AbstractStructBase
      */
     public function setIsUndecidedApprovalRequest($isUndecidedApprovalRequest = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isUndecidedApprovalRequest) && !is_bool($isUndecidedApprovalRequest)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUndecidedApprovalRequest)), __LINE__);
+        }
         $this->IsUndecidedApprovalRequest = $isUndecidedApprovalRequest;
         return $this;
     }

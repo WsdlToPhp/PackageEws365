@@ -64,6 +64,14 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setStatusFrequency($statusFrequency = null)
     {
+        // validation for constraint: maxInclusive
+        if ($statusFrequency > 1440) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1440, "%s" given', $statusFrequency), __LINE__);
+        }
+        // validation for constraint: minInclusive
+        if ($statusFrequency < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $statusFrequency), __LINE__);
+        }
         // validation for constraint: int
         if (!is_null($statusFrequency) && !is_numeric($statusFrequency)) {
             throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($statusFrequency)), __LINE__);

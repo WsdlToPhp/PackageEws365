@@ -140,6 +140,10 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      */
     public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($autoSubscribeNewMembers) && !is_bool($autoSubscribeNewMembers)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($autoSubscribeNewMembers)), __LINE__);
+        }
         $this->AutoSubscribeNewMembers = $autoSubscribeNewMembers;
         return $this;
     }
@@ -158,6 +162,10 @@ class EwsUpdateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      */
     public function setSenderAuthenticationRequired($senderAuthenticationRequired = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($senderAuthenticationRequired) && !is_bool($senderAuthenticationRequired)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($senderAuthenticationRequired)), __LINE__);
+        }
         $this->SenderAuthenticationRequired = $senderAuthenticationRequired;
         return $this;
     }

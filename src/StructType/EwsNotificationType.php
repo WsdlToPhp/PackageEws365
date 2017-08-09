@@ -181,6 +181,10 @@ class EwsNotificationType extends AbstractStructBase
      */
     public function setMoreEvents($moreEvents = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($moreEvents) && !is_bool($moreEvents)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moreEvents)), __LINE__);
+        }
         $this->MoreEvents = $moreEvents;
         return $this;
     }

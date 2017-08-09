@@ -207,6 +207,10 @@ class EwsSuggestionType extends AbstractStructBase
      */
     public function setIsDeletable($isDeletable = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isDeletable) && !is_bool($isDeletable)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeletable)), __LINE__);
+        }
         $this->IsDeletable = $isDeletable;
         return $this;
     }

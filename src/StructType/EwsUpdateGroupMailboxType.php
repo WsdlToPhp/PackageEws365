@@ -364,6 +364,10 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      */
     public function setCalendarMemberReadOnly($calendarMemberReadOnly = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($calendarMemberReadOnly) && !is_bool($calendarMemberReadOnly)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($calendarMemberReadOnly)), __LINE__);
+        }
         $this->CalendarMemberReadOnly = $calendarMemberReadOnly;
         return $this;
     }
@@ -382,6 +386,10 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      */
     public function setSuppressWarmupMessage($suppressWarmupMessage = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($suppressWarmupMessage) && !is_bool($suppressWarmupMessage)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressWarmupMessage)), __LINE__);
+        }
         $this->SuppressWarmupMessage = $suppressWarmupMessage;
         return $this;
     }
@@ -400,6 +408,10 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      */
     public function setAllowOnlyMembersToPost($allowOnlyMembersToPost = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($allowOnlyMembersToPost) && !is_bool($allowOnlyMembersToPost)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($allowOnlyMembersToPost)), __LINE__);
+        }
         $this->AllowOnlyMembersToPost = $allowOnlyMembersToPost;
         return $this;
     }

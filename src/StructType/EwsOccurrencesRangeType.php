@@ -140,6 +140,10 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      */
     public function setCompareOriginalStartTime($compareOriginalStartTime = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($compareOriginalStartTime) && !is_bool($compareOriginalStartTime)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($compareOriginalStartTime)), __LINE__);
+        }
         $this->CompareOriginalStartTime = $compareOriginalStartTime;
         return $this;
     }

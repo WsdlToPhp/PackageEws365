@@ -272,6 +272,10 @@ class EwsAttachmentType extends AbstractStructBase
      */
     public function setIsInline($isInline = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($isInline) && !is_bool($isInline)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isInline)), __LINE__);
+        }
         $this->IsInline = $isInline;
         return $this;
     }

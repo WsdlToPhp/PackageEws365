@@ -56,6 +56,10 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      */
     public function setHasChanged($hasChanged = null)
     {
+        // validation for constraint: boolean
+        if (!is_null($hasChanged) && !is_bool($hasChanged)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasChanged)), __LINE__);
+        }
         $this->HasChanged = $hasChanged;
         return $this;
     }
