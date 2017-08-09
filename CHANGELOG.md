@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.0
+- Update generated classes thanks to PackageGenerator release [2.8.0](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/2.8.0)
+
 ## 1.0.0
 - Create update schema as substitutionGroup attribute is not handled by the native PHP SoapClient class
 - Update generated classes thanks to PackageGenerator fixed issues
