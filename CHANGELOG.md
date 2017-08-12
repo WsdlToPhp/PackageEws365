@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.1
+- Update generated classes thanks to PackageGenerator release [2.8.1](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/2.8.1)
+
 ## 1.1.0
 - Update generated classes thanks to PackageGenerator release [2.8.0](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/2.8.0)
 
