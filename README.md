@@ -3,6 +3,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209/badge.svg)](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209)
 [![StyleCI](https://styleci.io/repos/41913278/shield)](https://styleci.io/repos/41913278)
 [![Total Downloads](https://poser.pugx.org/wsdltophp/package-ews365/downloads)](https://packagist.org/packages/wsdltophp/package-ews365)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fca54b99-a6f2-4ed8-97c7-cb1cbe437c66/mini.png)](https://insight.sensiolabs.com/projects/fca54b99-a6f2-4ed8-97c7-cb1cbe437c66)
 
 # PackageEws365
 This package has been generated from the [Office 365 Exchange Web Services](wsdl/services.wsdl) WSDL using the [PackageGenerator](https://github.com/WsdlToPhp/PackageGenerator) project.
