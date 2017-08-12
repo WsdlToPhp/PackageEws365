@@ -51,7 +51,7 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
         $invalidValues = array();
         foreach ($reminder as $arrayOfRemindersTypeReminderItem) {
             if (!\Ews\EnumType\EwsReminderType::valueIsValid($arrayOfRemindersTypeReminderItem)) {
-                $invalidValues[] = var_export($arrayOfRemindersTypeReminderItem);
+                $invalidValues[] = var_export($arrayOfRemindersTypeReminderItem, true);
             }
         }
         if (!empty($invalidValues)) {

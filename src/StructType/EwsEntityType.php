@@ -51,7 +51,7 @@ class EwsEntityType extends AbstractStructBase
         $invalidValues = array();
         foreach ($position as $entityTypePositionItem) {
             if (!\Ews\EnumType\EwsEmailPositionType::valueIsValid($entityTypePositionItem)) {
-                $invalidValues[] = var_export($entityTypePositionItem);
+                $invalidValues[] = var_export($entityTypePositionItem, true);
             }
         }
         if (!empty($invalidValues)) {

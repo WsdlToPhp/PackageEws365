@@ -50,7 +50,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
         $invalidValues = array();
         foreach ($predictedActionReason as $nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) {
             if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem)) {
-                $invalidValues[] = var_export($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem);
+                $invalidValues[] = var_export($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem, true);
             }
         }
         if (!empty($invalidValues)) {

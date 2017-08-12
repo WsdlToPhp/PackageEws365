@@ -53,7 +53,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
         $invalidValues = array();
         foreach ($searchItemKind as $arrayOfSearchItemKindsTypeSearchItemKindItem) {
             if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
-                $invalidValues[] = var_export($arrayOfSearchItemKindsTypeSearchItemKindItem);
+                $invalidValues[] = var_export($arrayOfSearchItemKindsTypeSearchItemKindItem, true);
             }
         }
         if (!empty($invalidValues)) {

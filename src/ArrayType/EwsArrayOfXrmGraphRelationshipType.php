@@ -51,7 +51,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
         $invalidValues = array();
         foreach ($xrmGraphRelationshipType as $arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem) {
             if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem)) {
-                $invalidValues[] = var_export($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem);
+                $invalidValues[] = var_export($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem, true);
             }
         }
         if (!empty($invalidValues)) {
