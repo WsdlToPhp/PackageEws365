@@ -14,7 +14,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
 {
     /**
      * The CategoryName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $CategoryName;
     /**
      * The CategoryColor
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -30,7 +30,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $CategoryColor;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $DisplayName;
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $SmtpAddress;
     /**
      * The Phone
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $Phone;
     /**
      * The Initials
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $Initials;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -70,7 +70,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $ItemId;
     /**
      * The PersonId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -78,7 +78,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $PersonId;
     /**
      * The UseBusinessHours
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -86,7 +86,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public $UseBusinessHours;
     /**
      * The WorkingHours
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfWorkHours
@@ -146,7 +146,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($categoryName) && !is_string($categoryName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($categoryName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($categoryName, true), gettype($categoryName)), __LINE__);
         }
         $this->CategoryName = $categoryName;
         return $this;
@@ -167,8 +167,8 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     public function setCategoryColor($categoryColor = null)
     {
         // validation for constraint: int
-        if (!is_null($categoryColor) && !is_numeric($categoryColor)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($categoryColor)), __LINE__);
+        if (!is_null($categoryColor) && !(is_int($categoryColor) || ctype_digit($categoryColor))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($categoryColor, true), gettype($categoryColor)), __LINE__);
         }
         $this->CategoryColor = $categoryColor;
         return $this;
@@ -190,7 +190,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -212,7 +212,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
@@ -234,7 +234,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($phone) && !is_string($phone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phone)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phone, true), gettype($phone)), __LINE__);
         }
         $this->Phone = $phone;
         return $this;
@@ -256,7 +256,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($initials) && !is_string($initials)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initials)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initials, true), gettype($initials)), __LINE__);
         }
         $this->Initials = $initials;
         return $this;
@@ -314,7 +314,7 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($useBusinessHours) && !is_bool($useBusinessHours)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($useBusinessHours)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($useBusinessHours, true), gettype($useBusinessHours)), __LINE__);
         }
         $this->UseBusinessHours = $useBusinessHours;
         return $this;
@@ -336,25 +336,5 @@ class EwsBookingStaffMemberType extends AbstractStructBase
     {
         $this->WorkingHours = $workingHours;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBookingStaffMemberType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

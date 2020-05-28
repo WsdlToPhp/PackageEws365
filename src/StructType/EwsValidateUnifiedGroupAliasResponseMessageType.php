@@ -14,7 +14,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
 {
     /**
      * The IsAliasUnique
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -22,7 +22,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     public $IsAliasUnique;
     /**
      * The Alias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     public $Alias;
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -69,7 +69,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     {
         // validation for constraint: boolean
         if (!is_null($isAliasUnique) && !is_bool($isAliasUnique)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAliasUnique)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAliasUnique, true), gettype($isAliasUnique)), __LINE__);
         }
         $this->IsAliasUnique = $isAliasUnique;
         return $this;
@@ -91,7 +91,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
         return $this;
@@ -113,29 +113,9 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsValidateUnifiedGroupAliasResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

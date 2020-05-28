@@ -14,7 +14,7 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
 {
     /**
      * The AttendeeAvailability
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAttendeeAvailability[]
@@ -39,6 +39,28 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
         return $this->AttendeeAvailability;
     }
     /**
+     * This method is responsible for validating the values passed to the setAttendeeAvailability method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setAttendeeAvailability method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateAttendeeAvailabilityForArrayConstraintsFromSetAttendeeAvailability(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAttendeeAvailabilityAttendeeAvailabilityItem instanceof \Ews\StructType\EwsAttendeeAvailability) {
+                $invalidValues[] = is_object($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) ? get_class($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) : sprintf('%s(%s)', gettype($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem), var_export($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The AttendeeAvailability property can only contain items of type \Ews\StructType\EwsAttendeeAvailability, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set AttendeeAvailability value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsAttendeeAvailability[] $attendeeAvailability
@@ -46,11 +68,9 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
      */
     public function setAttendeeAvailability(array $attendeeAvailability = array())
     {
-        foreach ($attendeeAvailability as $arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfAttendeeAvailabilityAttendeeAvailabilityItem instanceof \Ews\StructType\EwsAttendeeAvailability) {
-                throw new \InvalidArgumentException(sprintf('The AttendeeAvailability property can only contain items of \Ews\StructType\EwsAttendeeAvailability, "%s" given', is_object($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) ? get_class($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem) : gettype($arrayOfAttendeeAvailabilityAttendeeAvailabilityItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($attendeeAvailabilityArrayErrorMessage = self::validateAttendeeAvailabilityForArrayConstraintsFromSetAttendeeAvailability($attendeeAvailability))) {
+            throw new \InvalidArgumentException($attendeeAvailabilityArrayErrorMessage, __LINE__);
         }
         $this->AttendeeAvailability = $attendeeAvailability;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsAttendeeAvailability) {
-            throw new \InvalidArgumentException(sprintf('The AttendeeAvailability property can only contain items of \Ews\StructType\EwsAttendeeAvailability, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The AttendeeAvailability property can only contain items of type \Ews\StructType\EwsAttendeeAvailability, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->AttendeeAvailability[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfAttendeeAvailability extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'AttendeeAvailability';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfAttendeeAvailability
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
 {
     /**
      * The PersonShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPersonResponseShapeType
@@ -22,7 +22,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     public $PersonShape;
     /**
      * The EmailAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -30,7 +30,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     public $EmailAddresses;
     /**
      * The InsightFilters
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsInsightFiltersType
@@ -38,7 +38,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     public $InsightFilters;
     /**
      * The AppId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     public $AppId;
     /**
      * The PeopleTokens
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
@@ -145,7 +145,7 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($appId) && !is_string($appId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appId, true), gettype($appId)), __LINE__);
         }
         $this->AppId = $appId;
         return $this;
@@ -167,25 +167,5 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     {
         $this->PeopleTokens = $peopleTokens;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

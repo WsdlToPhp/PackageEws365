@@ -14,7 +14,7 @@ class EwsUserProfilePicture extends EwsInsightValue
 {
     /**
      * The Blob
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     public $Blob;
     /**
      * The PhotoSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     public $PhotoSize;
     /**
      * The Url
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     public $Url;
     /**
      * The ImageType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +80,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($blob) && !is_string($blob)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($blob)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($blob, true), gettype($blob)), __LINE__);
         }
         $this->Blob = $blob;
         return $this;
@@ -102,7 +102,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($photoSize) && !is_string($photoSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($photoSize)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($photoSize, true), gettype($photoSize)), __LINE__);
         }
         $this->PhotoSize = $photoSize;
         return $this;
@@ -124,7 +124,7 @@ class EwsUserProfilePicture extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($url) && !is_string($url)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($url)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($url, true), gettype($url)), __LINE__);
         }
         $this->Url = $url;
         return $this;
@@ -146,29 +146,9 @@ class EwsUserProfilePicture extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($imageType) && !is_string($imageType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageType, true), gettype($imageType)), __LINE__);
         }
         $this->ImageType = $imageType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserProfilePicture
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
 {
     /**
      * The FlightReservation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFlightReservationEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
         return $this->FlightReservation;
     }
     /**
+     * This method is responsible for validating the values passed to the setFlightReservation method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFlightReservation method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFlightReservationForArrayConstraintsFromSetFlightReservation(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfFlightReservationsTypeFlightReservationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFlightReservationsTypeFlightReservationItem instanceof \Ews\StructType\EwsFlightReservationEntityType) {
+                $invalidValues[] = is_object($arrayOfFlightReservationsTypeFlightReservationItem) ? get_class($arrayOfFlightReservationsTypeFlightReservationItem) : sprintf('%s(%s)', gettype($arrayOfFlightReservationsTypeFlightReservationItem), var_export($arrayOfFlightReservationsTypeFlightReservationItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The FlightReservation property can only contain items of type \Ews\StructType\EwsFlightReservationEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set FlightReservation value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFlightReservationEntityType[] $flightReservation
@@ -46,11 +68,9 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      */
     public function setFlightReservation(array $flightReservation = array())
     {
-        foreach ($flightReservation as $arrayOfFlightReservationsTypeFlightReservationItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfFlightReservationsTypeFlightReservationItem instanceof \Ews\StructType\EwsFlightReservationEntityType) {
-                throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of \Ews\StructType\EwsFlightReservationEntityType, "%s" given', is_object($arrayOfFlightReservationsTypeFlightReservationItem) ? get_class($arrayOfFlightReservationsTypeFlightReservationItem) : gettype($arrayOfFlightReservationsTypeFlightReservationItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($flightReservationArrayErrorMessage = self::validateFlightReservationForArrayConstraintsFromSetFlightReservation($flightReservation))) {
+            throw new \InvalidArgumentException($flightReservationArrayErrorMessage, __LINE__);
         }
         $this->FlightReservation = $flightReservation;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsFlightReservationEntityType) {
-            throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of \Ews\StructType\EwsFlightReservationEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of type \Ews\StructType\EwsFlightReservationEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->FlightReservation[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'FlightReservation';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

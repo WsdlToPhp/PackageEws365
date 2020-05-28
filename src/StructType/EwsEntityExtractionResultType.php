@@ -14,7 +14,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
 {
     /**
      * The Addresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfAddressEntitiesType
@@ -22,7 +22,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $Addresses;
     /**
      * The MeetingSuggestions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
@@ -30,7 +30,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $MeetingSuggestions;
     /**
      * The TaskSuggestions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
@@ -38,7 +38,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $TaskSuggestions;
     /**
      * The EmailAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType
@@ -46,7 +46,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $EmailAddresses;
     /**
      * The Contacts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfContactsType
@@ -54,7 +54,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $Contacts;
     /**
      * The Urls
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUrlEntitiesType
@@ -62,7 +62,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $Urls;
     /**
      * The PhoneNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneEntitiesType
@@ -70,7 +70,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $PhoneNumbers;
     /**
      * The ParcelDeliveries
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
@@ -78,7 +78,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $ParcelDeliveries;
     /**
      * The FlightReservations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfFlightReservationsType
@@ -86,7 +86,7 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     public $FlightReservations;
     /**
      * The SenderAddIns
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSenderAddInsType
@@ -308,25 +308,5 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     {
         $this->SenderAddIns = $senderAddIns;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEntityExtractionResultType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

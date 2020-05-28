@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MonthNamesType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMonthNamesType
+class EwsMonthNamesType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'January'
@@ -71,16 +73,6 @@ class EwsMonthNamesType
      */
     const VALUE_DECEMBER = 'December';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_JANUARY
      * @uses self::VALUE_FEBRUARY
@@ -112,13 +104,5 @@ class EwsMonthNamesType
             self::VALUE_NOVEMBER,
             self::VALUE_DECEMBER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

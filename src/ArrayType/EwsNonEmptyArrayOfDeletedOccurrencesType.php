@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfDeletedOccurrencesType extends AbstractStructArrayBase
 {
     /**
      * The DeletedOccurrence
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsDeletedOccurrenceInfoType[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfDeletedOccurrencesType extends AbstractStructArrayBase
         return $this->DeletedOccurrence;
     }
     /**
+     * This method is responsible for validating the values passed to the setDeletedOccurrence method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setDeletedOccurrence method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateDeletedOccurrenceForArrayConstraintsFromSetDeletedOccurrence(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem instanceof \Ews\StructType\EwsDeletedOccurrenceInfoType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) ? get_class($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem), var_export($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The DeletedOccurrence property can only contain items of type \Ews\StructType\EwsDeletedOccurrenceInfoType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set DeletedOccurrence value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsDeletedOccurrenceInfoType[] $deletedOccurrence
@@ -45,11 +67,9 @@ class EwsNonEmptyArrayOfDeletedOccurrencesType extends AbstractStructArrayBase
      */
     public function setDeletedOccurrence(array $deletedOccurrence = array())
     {
-        foreach ($deletedOccurrence as $nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem instanceof \Ews\StructType\EwsDeletedOccurrenceInfoType) {
-                throw new \InvalidArgumentException(sprintf('The DeletedOccurrence property can only contain items of \Ews\StructType\EwsDeletedOccurrenceInfoType, "%s" given', is_object($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) ? get_class($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem) : gettype($nonEmptyArrayOfDeletedOccurrencesTypeDeletedOccurrenceItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($deletedOccurrenceArrayErrorMessage = self::validateDeletedOccurrenceForArrayConstraintsFromSetDeletedOccurrence($deletedOccurrence))) {
+            throw new \InvalidArgumentException($deletedOccurrenceArrayErrorMessage, __LINE__);
         }
         $this->DeletedOccurrence = $deletedOccurrence;
         return $this;
@@ -64,7 +84,7 @@ class EwsNonEmptyArrayOfDeletedOccurrencesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsDeletedOccurrenceInfoType) {
-            throw new \InvalidArgumentException(sprintf('The DeletedOccurrence property can only contain items of \Ews\StructType\EwsDeletedOccurrenceInfoType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The DeletedOccurrence property can only contain items of type \Ews\StructType\EwsDeletedOccurrenceInfoType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->DeletedOccurrence[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsNonEmptyArrayOfDeletedOccurrencesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'DeletedOccurrence';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

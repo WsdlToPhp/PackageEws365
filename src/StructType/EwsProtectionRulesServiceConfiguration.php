@@ -14,7 +14,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
 {
     /**
      * The Rules
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfProtectionRulesType
@@ -22,7 +22,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     public $Rules;
     /**
      * The InternalDomains
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsSmtpDomainList
@@ -30,9 +30,11 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     public $InternalDomains;
     /**
      * The RefreshInterval
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:int
+     * - minInclusive: 1
      * - use: required
-     * @var string
+     * @var int
      */
     public $RefreshInterval;
     /**
@@ -42,7 +44,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
      * @uses EwsProtectionRulesServiceConfiguration::setRefreshInterval()
      * @param \Ews\ArrayType\EwsArrayOfProtectionRulesType $rules
      * @param \Ews\StructType\EwsSmtpDomainList $internalDomains
-     * @param string $refreshInterval
+     * @param int $refreshInterval
      */
     public function __construct(\Ews\ArrayType\EwsArrayOfProtectionRulesType $rules = null, \Ews\StructType\EwsSmtpDomainList $internalDomains = null, $refreshInterval = null)
     {
@@ -89,7 +91,7 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Get RefreshInterval value
-     * @return string
+     * @return int
      */
     public function getRefreshInterval()
     {
@@ -97,36 +99,20 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Set RefreshInterval value
-     * @param string $refreshInterval
+     * @param int $refreshInterval
      * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
      */
     public function setRefreshInterval($refreshInterval = null)
     {
-        // validation for constraint: string
-        if (!is_null($refreshInterval) && !is_string($refreshInterval)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refreshInterval)), __LINE__);
+        // validation for constraint: int
+        if (!is_null($refreshInterval) && !(is_int($refreshInterval) || ctype_digit($refreshInterval))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($refreshInterval, true), gettype($refreshInterval)), __LINE__);
+        }
+        // validation for constraint: minInclusive(1)
+        if (!is_null($refreshInterval) && $refreshInterval < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($refreshInterval, true)), __LINE__);
         }
         $this->RefreshInterval = $refreshInterval;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

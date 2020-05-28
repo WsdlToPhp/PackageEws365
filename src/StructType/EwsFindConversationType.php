@@ -14,31 +14,39 @@ class EwsFindConversationType extends EwsBaseRequestType
 {
     /**
      * The ParentFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\StructType\EwsTargetFolderIdType
      */
     public $ParentFolderId;
     /**
      * The IndexedPageItemView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | SeekToConditionPageItemView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsIndexedPageViewType
      */
     public $IndexedPageItemView;
     /**
      * The SeekToConditionPageItemView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | SeekToConditionPageItemView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsSeekToConditionPageViewType
      */
     public $SeekToConditionPageItemView;
     /**
      * The SortOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
      */
     public $SortOrder;
     /**
      * The MailboxScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +54,7 @@ class EwsFindConversationType extends EwsBaseRequestType
     public $MailboxScope;
     /**
      * The QueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsQueryStringType
@@ -54,7 +62,7 @@ class EwsFindConversationType extends EwsBaseRequestType
     public $QueryString;
     /**
      * The ConversationShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsConversationResponseShapeType
@@ -62,14 +70,14 @@ class EwsFindConversationType extends EwsBaseRequestType
     public $ConversationShape;
     /**
      * The Traversal
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $Traversal;
     /**
      * The ViewFilter
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -132,16 +140,55 @@ class EwsFindConversationType extends EwsBaseRequestType
      */
     public function getIndexedPageItemView()
     {
-        return $this->IndexedPageItemView;
+        return isset($this->IndexedPageItemView) ? $this->IndexedPageItemView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setIndexedPageItemView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setIndexedPageItemView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateIndexedPageItemViewForChoiceConstraintsFromSetIndexedPageItemView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'SeekToConditionPageItemView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property IndexedPageItemView can\'t be set as the property %s is already set. Only one property must be set among these properties: IndexedPageItemView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set IndexedPageItemView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsIndexedPageViewType $indexedPageItemView
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setIndexedPageItemView(\Ews\StructType\EwsIndexedPageViewType $indexedPageItemView = null)
     {
-        $this->IndexedPageItemView = $indexedPageItemView;
+        // validation for constraint: choice(IndexedPageItemView, SeekToConditionPageItemView)
+        if ('' !== ($indexedPageItemViewChoiceErrorMessage = self::validateIndexedPageItemViewForChoiceConstraintsFromSetIndexedPageItemView($indexedPageItemView))) {
+            throw new \InvalidArgumentException($indexedPageItemViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($indexedPageItemView) || (is_array($indexedPageItemView) && empty($indexedPageItemView))) {
+            unset($this->IndexedPageItemView);
+        } else {
+            $this->IndexedPageItemView = $indexedPageItemView;
+        }
         return $this;
     }
     /**
@@ -150,16 +197,55 @@ class EwsFindConversationType extends EwsBaseRequestType
      */
     public function getSeekToConditionPageItemView()
     {
-        return $this->SeekToConditionPageItemView;
+        return isset($this->SeekToConditionPageItemView) ? $this->SeekToConditionPageItemView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setSeekToConditionPageItemView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSeekToConditionPageItemView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateSeekToConditionPageItemViewForChoiceConstraintsFromSetSeekToConditionPageItemView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageItemView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property SeekToConditionPageItemView can\'t be set as the property %s is already set. Only one property must be set among these properties: SeekToConditionPageItemView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set SeekToConditionPageItemView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @return \Ews\StructType\EwsFindConversationType
      */
     public function setSeekToConditionPageItemView(\Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView = null)
     {
-        $this->SeekToConditionPageItemView = $seekToConditionPageItemView;
+        // validation for constraint: choice(IndexedPageItemView, SeekToConditionPageItemView)
+        if ('' !== ($seekToConditionPageItemViewChoiceErrorMessage = self::validateSeekToConditionPageItemViewForChoiceConstraintsFromSetSeekToConditionPageItemView($seekToConditionPageItemView))) {
+            throw new \InvalidArgumentException($seekToConditionPageItemViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($seekToConditionPageItemView) || (is_array($seekToConditionPageItemView) && empty($seekToConditionPageItemView))) {
+            unset($this->SeekToConditionPageItemView);
+        } else {
+            $this->SeekToConditionPageItemView = $seekToConditionPageItemView;
+        }
         return $this;
     }
     /**
@@ -200,7 +286,7 @@ class EwsFindConversationType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->MailboxScope = $mailboxScope;
         return $this;
@@ -261,7 +347,7 @@ class EwsFindConversationType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationQueryTraversalType::valueIsValid($traversal)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsConversationQueryTraversalType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConversationQueryTraversalType', is_array($traversal) ? implode(', ', $traversal) : var_export($traversal, true), implode(', ', \Ews\EnumType\EwsConversationQueryTraversalType::getValidValues())), __LINE__);
         }
         $this->Traversal = $traversal;
         return $this;
@@ -286,29 +372,9 @@ class EwsFindConversationType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsViewFilterType::valueIsValid($viewFilter)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $viewFilter, implode(', ', \Ews\EnumType\EwsViewFilterType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsViewFilterType', is_array($viewFilter) ? implode(', ', $viewFilter) : var_export($viewFilter, true), implode(', ', \Ews\EnumType\EwsViewFilterType::getValidValues())), __LINE__);
         }
         $this->ViewFilter = $viewFilter;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindConversationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

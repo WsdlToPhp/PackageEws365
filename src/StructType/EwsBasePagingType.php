@@ -14,7 +14,7 @@ abstract class EwsBasePagingType extends AbstractStructBase
 {
     /**
      * The MaxEntriesReturned
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
@@ -45,30 +45,10 @@ abstract class EwsBasePagingType extends AbstractStructBase
     public function setMaxEntriesReturned($maxEntriesReturned = null)
     {
         // validation for constraint: int
-        if (!is_null($maxEntriesReturned) && !is_numeric($maxEntriesReturned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxEntriesReturned)), __LINE__);
+        if (!is_null($maxEntriesReturned) && !(is_int($maxEntriesReturned) || ctype_digit($maxEntriesReturned))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxEntriesReturned, true), gettype($maxEntriesReturned)), __LINE__);
         }
         $this->MaxEntriesReturned = $maxEntriesReturned;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBasePagingType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

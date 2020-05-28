@@ -14,7 +14,8 @@ class EwsPullSubscriptionRequestType extends EwsBaseSubscriptionRequestType
 {
     /**
      * The Timeout
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:int
      * - maxInclusive: 1440
      * - minInclusive: 1
      * @var int
@@ -45,39 +46,19 @@ class EwsPullSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setTimeout($timeout = null)
     {
-        // validation for constraint: maxInclusive
-        if ($timeout > 1440) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1440, "%s" given', $timeout), __LINE__);
-        }
-        // validation for constraint: minInclusive
-        if ($timeout < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $timeout), __LINE__);
-        }
         // validation for constraint: int
-        if (!is_null($timeout) && !is_numeric($timeout)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($timeout)), __LINE__);
+        if (!is_null($timeout) && !(is_int($timeout) || ctype_digit($timeout))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($timeout, true), gettype($timeout)), __LINE__);
+        }
+        // validation for constraint: maxInclusive(1440)
+        if (!is_null($timeout) && $timeout > 1440) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 1440', var_export($timeout, true)), __LINE__);
+        }
+        // validation for constraint: minInclusive(1)
+        if (!is_null($timeout) && $timeout < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($timeout, true)), __LINE__);
         }
         $this->Timeout = $timeout;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPullSubscriptionRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

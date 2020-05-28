@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SearchItemKindType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSearchItemKindType
+class EwsSearchItemKindType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Email'
@@ -71,16 +73,6 @@ class EwsSearchItemKindType
      */
     const VALUE_RSSFEEDS = 'Rssfeeds';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_EMAIL
      * @uses self::VALUE_MEETINGS
@@ -112,13 +104,5 @@ class EwsSearchItemKindType
             self::VALUE_POSTS,
             self::VALUE_RSSFEEDS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

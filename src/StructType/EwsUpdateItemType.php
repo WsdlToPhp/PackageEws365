@@ -14,14 +14,14 @@ class EwsUpdateItemType extends EwsBaseRequestType
 {
     /**
      * The ConflictResolution
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $ConflictResolution;
     /**
      * The SavedItemFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
      */
@@ -33,21 +33,21 @@ class EwsUpdateItemType extends EwsBaseRequestType
     public $ItemChanges;
     /**
      * The MessageDisposition
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $MessageDisposition;
     /**
      * The SendMeetingInvitationsOrCancellations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $SendMeetingInvitationsOrCancellations;
     /**
      * The SuppressReadReceipts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -97,7 +97,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConflictResolutionType::valueIsValid($conflictResolution)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $conflictResolution, implode(', ', \Ews\EnumType\EwsConflictResolutionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConflictResolutionType', is_array($conflictResolution) ? implode(', ', $conflictResolution) : var_export($conflictResolution, true), implode(', ', \Ews\EnumType\EwsConflictResolutionType::getValidValues())), __LINE__);
         }
         $this->ConflictResolution = $conflictResolution;
         return $this;
@@ -158,7 +158,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $messageDisposition, implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMessageDispositionType', is_array($messageDisposition) ? implode(', ', $messageDisposition) : var_export($messageDisposition, true), implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
         }
         $this->MessageDisposition = $messageDisposition;
         return $this;
@@ -183,7 +183,7 @@ class EwsUpdateItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid($sendMeetingInvitationsOrCancellations)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendMeetingInvitationsOrCancellations, implode(', ', \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarItemUpdateOperationType', is_array($sendMeetingInvitationsOrCancellations) ? implode(', ', $sendMeetingInvitationsOrCancellations) : var_export($sendMeetingInvitationsOrCancellations, true), implode(', ', \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues())), __LINE__);
         }
         $this->SendMeetingInvitationsOrCancellations = $sendMeetingInvitationsOrCancellations;
         return $this;
@@ -205,29 +205,9 @@ class EwsUpdateItemType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressReadReceipts)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
         }
         $this->SuppressReadReceipts = $suppressReadReceipts;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUpdateItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
 {
     /**
      * The IsMeeting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -22,7 +22,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $IsMeeting;
     /**
      * The IsRecurring
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -30,7 +30,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $IsRecurring;
     /**
      * The IsException
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -38,7 +38,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $IsException;
     /**
      * The IsReminderSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -46,7 +46,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $IsReminderSet;
     /**
      * The IsPrivate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -54,7 +54,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $IsPrivate;
     /**
      * The ID
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $ID;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     public $Subject;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -124,7 +124,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMeeting) && !is_bool($isMeeting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeeting)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeeting, true), gettype($isMeeting)), __LINE__);
         }
         $this->IsMeeting = $isMeeting;
         return $this;
@@ -146,7 +146,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isRecurring) && !is_bool($isRecurring)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRecurring, true), gettype($isRecurring)), __LINE__);
         }
         $this->IsRecurring = $isRecurring;
         return $this;
@@ -168,7 +168,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isException) && !is_bool($isException)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isException)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isException, true), gettype($isException)), __LINE__);
         }
         $this->IsException = $isException;
         return $this;
@@ -190,7 +190,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isReminderSet) && !is_bool($isReminderSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReminderSet)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReminderSet, true), gettype($isReminderSet)), __LINE__);
         }
         $this->IsReminderSet = $isReminderSet;
         return $this;
@@ -212,7 +212,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isPrivate) && !is_bool($isPrivate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPrivate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPrivate, true), gettype($isPrivate)), __LINE__);
         }
         $this->IsPrivate = $isPrivate;
         return $this;
@@ -234,7 +234,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($iD) && !is_string($iD)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($iD)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($iD, true), gettype($iD)), __LINE__);
         }
         $this->ID = $iD;
         return $this;
@@ -256,7 +256,7 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -278,29 +278,9 @@ class EwsCalendarEventDetails extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsCalendarEventDetails
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

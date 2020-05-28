@@ -14,16 +14,16 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
 {
     /**
      * The UserConfigurationName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUserConfigurationNameType
      */
     public $UserConfigurationName;
     /**
      * The UserConfigurationProperties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $UserConfigurationProperties;
     /**
@@ -31,9 +31,9 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
      * @uses EwsGetUserConfigurationType::setUserConfigurationName()
      * @uses EwsGetUserConfigurationType::setUserConfigurationProperties()
      * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
-     * @param string $userConfigurationProperties
+     * @param string[] $userConfigurationProperties
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, $userConfigurationProperties = null)
+    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, array $userConfigurationProperties = array())
     {
         $this
             ->setUserConfigurationName($userConfigurationName)
@@ -59,47 +59,49 @@ class EwsGetUserConfigurationType extends EwsBaseRequestType
     }
     /**
      * Get UserConfigurationProperties value
-     * @return string
+     * @return string[]
      */
     public function getUserConfigurationProperties()
     {
         return $this->UserConfigurationProperties;
     }
     /**
+     * This method is responsible for validating the values passed to the setUserConfigurationProperties method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setUserConfigurationProperties method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateUserConfigurationPropertiesForArrayConstraintsFromSetUserConfigurationProperties(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $getUserConfigurationTypeUserConfigurationPropertiesItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsUserConfigurationPropertyType::valueIsValid($getUserConfigurationTypeUserConfigurationPropertiesItem)) {
+                $invalidValues[] = is_object($getUserConfigurationTypeUserConfigurationPropertiesItem) ? get_class($getUserConfigurationTypeUserConfigurationPropertiesItem) : sprintf('%s(%s)', gettype($getUserConfigurationTypeUserConfigurationPropertiesItem), var_export($getUserConfigurationTypeUserConfigurationPropertiesItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserConfigurationPropertyType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsUserConfigurationPropertyType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set UserConfigurationProperties value
      * @uses \Ews\EnumType\EwsUserConfigurationPropertyType::valueIsValid()
      * @uses \Ews\EnumType\EwsUserConfigurationPropertyType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $userConfigurationProperties
+     * @param string[] $userConfigurationProperties
      * @return \Ews\StructType\EwsGetUserConfigurationType
      */
-    public function setUserConfigurationProperties($userConfigurationProperties = null)
+    public function setUserConfigurationProperties(array $userConfigurationProperties = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUserConfigurationPropertyType::valueIsValid($userConfigurationProperties)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $userConfigurationProperties, implode(', ', \Ews\EnumType\EwsUserConfigurationPropertyType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($userConfigurationPropertiesArrayErrorMessage = self::validateUserConfigurationPropertiesForArrayConstraintsFromSetUserConfigurationProperties($userConfigurationProperties))) {
+            throw new \InvalidArgumentException($userConfigurationPropertiesArrayErrorMessage, __LINE__);
         }
-        $this->UserConfigurationProperties = $userConfigurationProperties;
+        $this->UserConfigurationProperties = is_array($userConfigurationProperties) ? implode(' ', $userConfigurationProperties) : null;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetUserConfigurationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

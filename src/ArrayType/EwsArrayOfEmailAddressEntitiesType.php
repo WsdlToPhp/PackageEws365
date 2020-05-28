@@ -14,7 +14,7 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
 {
     /**
      * The EmailAddressEntity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEmailAddressEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
         return $this->EmailAddressEntity;
     }
     /**
+     * This method is responsible for validating the values passed to the setEmailAddressEntity method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setEmailAddressEntity method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateEmailAddressEntityForArrayConstraintsFromSetEmailAddressEntity(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem instanceof \Ews\StructType\EwsEmailAddressEntityType) {
+                $invalidValues[] = is_object($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) ? get_class($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) : sprintf('%s(%s)', gettype($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem), var_export($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The EmailAddressEntity property can only contain items of type \Ews\StructType\EwsEmailAddressEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set EmailAddressEntity value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsEmailAddressEntityType[] $emailAddressEntity
@@ -46,11 +68,9 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
      */
     public function setEmailAddressEntity(array $emailAddressEntity = array())
     {
-        foreach ($emailAddressEntity as $arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem instanceof \Ews\StructType\EwsEmailAddressEntityType) {
-                throw new \InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of \Ews\StructType\EwsEmailAddressEntityType, "%s" given', is_object($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) ? get_class($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem) : gettype($arrayOfEmailAddressEntitiesTypeEmailAddressEntityItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($emailAddressEntityArrayErrorMessage = self::validateEmailAddressEntityForArrayConstraintsFromSetEmailAddressEntity($emailAddressEntity))) {
+            throw new \InvalidArgumentException($emailAddressEntityArrayErrorMessage, __LINE__);
         }
         $this->EmailAddressEntity = $emailAddressEntity;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsEmailAddressEntityType) {
-            throw new \InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of \Ews\StructType\EwsEmailAddressEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of type \Ews\StructType\EwsEmailAddressEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->EmailAddressEntity[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'EmailAddressEntity';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

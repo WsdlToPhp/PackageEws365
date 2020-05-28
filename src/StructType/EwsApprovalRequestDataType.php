@@ -14,28 +14,28 @@ class EwsApprovalRequestDataType extends AbstractStructBase
 {
     /**
      * The IsUndecidedApprovalRequest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsUndecidedApprovalRequest;
     /**
      * The ApprovalDecision
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $ApprovalDecision;
     /**
      * The ApprovalDecisionMaker
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ApprovalDecisionMaker;
     /**
      * The ApprovalDecisionTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -76,7 +76,7 @@ class EwsApprovalRequestDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isUndecidedApprovalRequest) && !is_bool($isUndecidedApprovalRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUndecidedApprovalRequest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUndecidedApprovalRequest, true), gettype($isUndecidedApprovalRequest)), __LINE__);
         }
         $this->IsUndecidedApprovalRequest = $isUndecidedApprovalRequest;
         return $this;
@@ -97,8 +97,8 @@ class EwsApprovalRequestDataType extends AbstractStructBase
     public function setApprovalDecision($approvalDecision = null)
     {
         // validation for constraint: int
-        if (!is_null($approvalDecision) && !is_numeric($approvalDecision)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($approvalDecision)), __LINE__);
+        if (!is_null($approvalDecision) && !(is_int($approvalDecision) || ctype_digit($approvalDecision))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($approvalDecision, true), gettype($approvalDecision)), __LINE__);
         }
         $this->ApprovalDecision = $approvalDecision;
         return $this;
@@ -120,7 +120,7 @@ class EwsApprovalRequestDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($approvalDecisionMaker) && !is_string($approvalDecisionMaker)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($approvalDecisionMaker)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionMaker, true), gettype($approvalDecisionMaker)), __LINE__);
         }
         $this->ApprovalDecisionMaker = $approvalDecisionMaker;
         return $this;
@@ -142,29 +142,9 @@ class EwsApprovalRequestDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($approvalDecisionTime) && !is_string($approvalDecisionTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($approvalDecisionTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionTime, true), gettype($approvalDecisionTime)), __LINE__);
         }
         $this->ApprovalDecisionTime = $approvalDecisionTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsApprovalRequestDataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

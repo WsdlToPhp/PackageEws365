@@ -14,14 +14,14 @@ class EwsProtectionRuleActionType extends AbstractStructBase
 {
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $Name;
     /**
      * The Argument
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProtectionRuleArgumentType[]
@@ -60,7 +60,7 @@ class EwsProtectionRuleActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsProtectionRuleActionKindType::valueIsValid($name)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $name, implode(', ', \Ews\EnumType\EwsProtectionRuleActionKindType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsProtectionRuleActionKindType', is_array($name) ? implode(', ', $name) : var_export($name, true), implode(', ', \Ews\EnumType\EwsProtectionRuleActionKindType::getValidValues())), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -74,6 +74,28 @@ class EwsProtectionRuleActionType extends AbstractStructBase
         return $this->Argument;
     }
     /**
+     * This method is responsible for validating the values passed to the setArgument method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setArgument method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateArgumentForArrayConstraintsFromSetArgument(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $protectionRuleActionTypeArgumentItem) {
+            // validation for constraint: itemType
+            if (!$protectionRuleActionTypeArgumentItem instanceof \Ews\StructType\EwsProtectionRuleArgumentType) {
+                $invalidValues[] = is_object($protectionRuleActionTypeArgumentItem) ? get_class($protectionRuleActionTypeArgumentItem) : sprintf('%s(%s)', gettype($protectionRuleActionTypeArgumentItem), var_export($protectionRuleActionTypeArgumentItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Argument property can only contain items of type \Ews\StructType\EwsProtectionRuleArgumentType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Argument value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsProtectionRuleArgumentType[] $argument
@@ -81,11 +103,9 @@ class EwsProtectionRuleActionType extends AbstractStructBase
      */
     public function setArgument(array $argument = array())
     {
-        foreach ($argument as $protectionRuleActionTypeArgumentItem) {
-            // validation for constraint: itemType
-            if (!$protectionRuleActionTypeArgumentItem instanceof \Ews\StructType\EwsProtectionRuleArgumentType) {
-                throw new \InvalidArgumentException(sprintf('The Argument property can only contain items of \Ews\StructType\EwsProtectionRuleArgumentType, "%s" given', is_object($protectionRuleActionTypeArgumentItem) ? get_class($protectionRuleActionTypeArgumentItem) : gettype($protectionRuleActionTypeArgumentItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($argumentArrayErrorMessage = self::validateArgumentForArrayConstraintsFromSetArgument($argument))) {
+            throw new \InvalidArgumentException($argumentArrayErrorMessage, __LINE__);
         }
         $this->Argument = $argument;
         return $this;
@@ -100,29 +120,9 @@ class EwsProtectionRuleActionType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsProtectionRuleArgumentType) {
-            throw new \InvalidArgumentException(sprintf('The Argument property can only contain items of \Ews\StructType\EwsProtectionRuleArgumentType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Argument property can only contain items of type \Ews\StructType\EwsProtectionRuleArgumentType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Argument[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsProtectionRuleActionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,14 +14,14 @@ class EwsTaskSuggestionType extends EwsEntityType
 {
     /**
      * The TaskString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $TaskString;
     /**
      * The Assignees
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailUsersType
@@ -57,7 +57,7 @@ class EwsTaskSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($taskString) && !is_string($taskString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($taskString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($taskString, true), gettype($taskString)), __LINE__);
         }
         $this->TaskString = $taskString;
         return $this;
@@ -79,25 +79,5 @@ class EwsTaskSuggestionType extends EwsEntityType
     {
         $this->Assignees = $assignees;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsTaskSuggestionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

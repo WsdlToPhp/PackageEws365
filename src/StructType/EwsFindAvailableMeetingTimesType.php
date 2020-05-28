@@ -14,7 +14,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
 {
     /**
      * The Attendees
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
      */
@@ -31,28 +31,28 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     public $SearchWindowDuration;
     /**
      * The MeetingDurationInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $MeetingDurationInMinutes;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Location;
     /**
      * The MaxCandidates
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $MaxCandidates;
     /**
      * The ActivityDomain
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -120,7 +120,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($searchWindowStart) && !is_string($searchWindowStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchWindowStart)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowStart, true), gettype($searchWindowStart)), __LINE__);
         }
         $this->SearchWindowStart = $searchWindowStart;
         return $this;
@@ -142,7 +142,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($searchWindowDuration) && !is_string($searchWindowDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchWindowDuration)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowDuration, true), gettype($searchWindowDuration)), __LINE__);
         }
         $this->SearchWindowDuration = $searchWindowDuration;
         return $this;
@@ -163,8 +163,8 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($meetingDurationInMinutes) && !is_numeric($meetingDurationInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        if (!is_null($meetingDurationInMinutes) && !(is_int($meetingDurationInMinutes) || ctype_digit($meetingDurationInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($meetingDurationInMinutes, true), gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
@@ -186,7 +186,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -207,8 +207,8 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     public function setMaxCandidates($maxCandidates = null)
     {
         // validation for constraint: int
-        if (!is_null($maxCandidates) && !is_numeric($maxCandidates)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxCandidates)), __LINE__);
+        if (!is_null($maxCandidates) && !(is_int($maxCandidates) || ctype_digit($maxCandidates))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxCandidates, true), gettype($maxCandidates)), __LINE__);
         }
         $this->MaxCandidates = $maxCandidates;
         return $this;
@@ -233,29 +233,9 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $activityDomain, implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsActivityDomainType', is_array($activityDomain) ? implode(', ', $activityDomain) : var_export($activityDomain, true), implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
         }
         $this->ActivityDomain = $activityDomain;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

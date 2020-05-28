@@ -10,32 +10,32 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsPostReplyItemBaseType extends EwsResponseObjectType
+class EwsPostReplyItemBaseType extends AbstractStructBase
 {
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Subject;
     /**
      * The Body
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $Body;
     /**
      * The ReferenceItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ReferenceItemId;
     /**
      * The ObjectName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: prohibited
      * @var string
      */
@@ -76,7 +76,7 @@ class EwsPostReplyItemBaseType extends EwsResponseObjectType
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -134,29 +134,9 @@ class EwsPostReplyItemBaseType extends EwsResponseObjectType
     {
         // validation for constraint: string
         if (!is_null($objectName) && !is_string($objectName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
         }
         $this->ObjectName = $objectName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPostReplyItemBaseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

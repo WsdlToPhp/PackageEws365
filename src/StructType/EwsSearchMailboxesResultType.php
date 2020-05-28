@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchMailboxesResultType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Mailboxes search result.
  * @package Ews
  * @subpackage Structs
@@ -16,77 +16,77 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
 {
     /**
      * The SearchQueries
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
     public $SearchQueries;
     /**
      * The ResultType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
     public $ResultType;
     /**
      * The ItemCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var int
      */
     public $ItemCount;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var int
      */
     public $Size;
     /**
      * The PageItemCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var int
      */
     public $PageItemCount;
     /**
      * The PageItemSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var int
      */
     public $PageItemSize;
     /**
      * The KeywordStats
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType
      */
     public $KeywordStats;
     /**
      * The Items
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
      */
     public $Items;
     /**
      * The FailedMailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
     public $FailedMailboxes;
     /**
      * The Refiners
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSearchRefinerItemsType
      */
     public $Refiners;
     /**
      * The MailboxStats
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfMailboxStatisticsItemsType
      */
@@ -169,7 +169,7 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultType::valueIsValid($resultType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchResultType', is_array($resultType) ? implode(', ', $resultType) : var_export($resultType, true), implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
         }
         $this->ResultType = $resultType;
         return $this;
@@ -190,8 +190,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setItemCount($itemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($itemCount) && !is_numeric($itemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemCount)), __LINE__);
+        if (!is_null($itemCount) && !(is_int($itemCount) || ctype_digit($itemCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemCount, true), gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
         return $this;
@@ -212,8 +212,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -234,8 +234,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setPageItemCount($pageItemCount = null)
     {
         // validation for constraint: int
-        if (!is_null($pageItemCount) && !is_numeric($pageItemCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageItemCount)), __LINE__);
+        if (!is_null($pageItemCount) && !(is_int($pageItemCount) || ctype_digit($pageItemCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageItemCount, true), gettype($pageItemCount)), __LINE__);
         }
         $this->PageItemCount = $pageItemCount;
         return $this;
@@ -256,8 +256,8 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     public function setPageItemSize($pageItemSize = null)
     {
         // validation for constraint: int
-        if (!is_null($pageItemSize) && !is_numeric($pageItemSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageItemSize)), __LINE__);
+        if (!is_null($pageItemSize) && !(is_int($pageItemSize) || ctype_digit($pageItemSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageItemSize, true), gettype($pageItemSize)), __LINE__);
         }
         $this->PageItemSize = $pageItemSize;
         return $this;
@@ -351,25 +351,5 @@ class EwsSearchMailboxesResultType extends AbstractStructBase
     {
         $this->MailboxStats = $mailboxStats;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchMailboxesResultType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

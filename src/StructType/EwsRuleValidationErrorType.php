@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleValidationErrorType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents a single validation error on a particular rule property value, predicate property value or action property value
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
 {
     /**
      * The FieldURI
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     public $FieldURI;
     /**
      * The ErrorCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     public $ErrorCode;
     /**
      * The ErrorMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -40,7 +40,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     public $ErrorMessage;
     /**
      * The FieldValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -85,7 +85,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRuleFieldURIType::valueIsValid($fieldURI)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsRuleFieldURIType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRuleFieldURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \Ews\EnumType\EwsRuleFieldURIType::getValidValues())), __LINE__);
         }
         $this->FieldURI = $fieldURI;
         return $this;
@@ -110,7 +110,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRuleValidationErrorCodeType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRuleValidationErrorCodeType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
         return $this;
@@ -132,7 +132,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorMessage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         $this->ErrorMessage = $errorMessage;
         return $this;
@@ -154,29 +154,9 @@ class EwsRuleValidationErrorType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fieldValue) && !is_string($fieldValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fieldValue)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fieldValue, true), gettype($fieldValue)), __LINE__);
         }
         $this->FieldValue = $fieldValue;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRuleValidationErrorType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

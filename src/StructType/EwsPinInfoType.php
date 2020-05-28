@@ -14,7 +14,7 @@ class EwsPinInfoType extends AbstractStructBase
 {
     /**
      * The IsValid
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -22,7 +22,7 @@ class EwsPinInfoType extends AbstractStructBase
     public $IsValid;
     /**
      * The PinExpired
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -30,7 +30,7 @@ class EwsPinInfoType extends AbstractStructBase
     public $PinExpired;
     /**
      * The LockedOut
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -38,7 +38,7 @@ class EwsPinInfoType extends AbstractStructBase
     public $LockedOut;
     /**
      * The FirstTimeUser
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -46,7 +46,7 @@ class EwsPinInfoType extends AbstractStructBase
     public $FirstTimeUser;
     /**
      * The PIN
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -91,7 +91,7 @@ class EwsPinInfoType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isValid) && !is_bool($isValid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isValid)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isValid, true), gettype($isValid)), __LINE__);
         }
         $this->IsValid = $isValid;
         return $this;
@@ -113,7 +113,7 @@ class EwsPinInfoType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($pinExpired) && !is_bool($pinExpired)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($pinExpired)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($pinExpired, true), gettype($pinExpired)), __LINE__);
         }
         $this->PinExpired = $pinExpired;
         return $this;
@@ -135,7 +135,7 @@ class EwsPinInfoType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($lockedOut) && !is_bool($lockedOut)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($lockedOut)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($lockedOut, true), gettype($lockedOut)), __LINE__);
         }
         $this->LockedOut = $lockedOut;
         return $this;
@@ -157,7 +157,7 @@ class EwsPinInfoType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($firstTimeUser) && !is_bool($firstTimeUser)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($firstTimeUser)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($firstTimeUser, true), gettype($firstTimeUser)), __LINE__);
         }
         $this->FirstTimeUser = $firstTimeUser;
         return $this;
@@ -179,29 +179,9 @@ class EwsPinInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($pIN) && !is_string($pIN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pIN)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pIN, true), gettype($pIN)), __LINE__);
         }
         $this->PIN = $pIN;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPinInfoType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

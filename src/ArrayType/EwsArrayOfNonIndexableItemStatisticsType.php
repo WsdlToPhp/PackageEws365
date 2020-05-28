@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfNonIndexableItemStatisticsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of non indexable item statistics.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
 {
     /**
      * The NonIndexableItemStatistic
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonIndexableItemStatisticType[]
@@ -41,6 +41,28 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
         return $this->NonIndexableItemStatistic;
     }
     /**
+     * This method is responsible for validating the values passed to the setNonIndexableItemStatistic method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setNonIndexableItemStatistic method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateNonIndexableItemStatisticForArrayConstraintsFromSetNonIndexableItemStatistic(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem instanceof \Ews\StructType\EwsNonIndexableItemStatisticType) {
+                $invalidValues[] = is_object($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) ? get_class($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) : sprintf('%s(%s)', gettype($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem), var_export($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The NonIndexableItemStatistic property can only contain items of type \Ews\StructType\EwsNonIndexableItemStatisticType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set NonIndexableItemStatistic value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsNonIndexableItemStatisticType[] $nonIndexableItemStatistic
@@ -48,11 +70,9 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
      */
     public function setNonIndexableItemStatistic(array $nonIndexableItemStatistic = array())
     {
-        foreach ($nonIndexableItemStatistic as $arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem instanceof \Ews\StructType\EwsNonIndexableItemStatisticType) {
-                throw new \InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of \Ews\StructType\EwsNonIndexableItemStatisticType, "%s" given', is_object($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) ? get_class($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem) : gettype($arrayOfNonIndexableItemStatisticsTypeNonIndexableItemStatisticItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($nonIndexableItemStatisticArrayErrorMessage = self::validateNonIndexableItemStatisticForArrayConstraintsFromSetNonIndexableItemStatistic($nonIndexableItemStatistic))) {
+            throw new \InvalidArgumentException($nonIndexableItemStatisticArrayErrorMessage, __LINE__);
         }
         $this->NonIndexableItemStatistic = $nonIndexableItemStatistic;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsNonIndexableItemStatisticType) {
-            throw new \InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of \Ews\StructType\EwsNonIndexableItemStatisticType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of type \Ews\StructType\EwsNonIndexableItemStatisticType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->NonIndexableItemStatistic[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'NonIndexableItemStatistic';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

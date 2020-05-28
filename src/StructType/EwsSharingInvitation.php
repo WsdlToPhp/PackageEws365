@@ -14,45 +14,48 @@ class EwsSharingInvitation extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
-     * - use: optional
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: optional
      * @var string
      */
     public $Id;
     /**
      * The Active
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $Active;
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
-     * - use: optional
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: optional
      * @var string
      */
     public $EmailAddress;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
-     * - use: optional
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: optional
      * @var string
      */
     public $DisplayName;
     /**
      * The PermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $PermissionLevel;
     /**
      * The ReadOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -97,13 +100,13 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setId($id = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($id) && strlen($id) < 1) || (is_array($id) && count($id) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($id) && mb_strlen($id) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -125,7 +128,7 @@ class EwsSharingInvitation extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($active) && !is_bool($active)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($active)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($active, true), gettype($active)), __LINE__);
         }
         $this->Active = $active;
         return $this;
@@ -145,13 +148,13 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setEmailAddress($emailAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($emailAddress) && strlen($emailAddress) < 1) || (is_array($emailAddress) && count($emailAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($emailAddress) && mb_strlen($emailAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
         return $this;
@@ -171,13 +174,13 @@ class EwsSharingInvitation extends AbstractStructBase
      */
     public function setDisplayName($displayName = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($displayName) && strlen($displayName) < 1) || (is_array($displayName) && count($displayName) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($displayName) && mb_strlen($displayName) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -202,7 +205,7 @@ class EwsSharingInvitation extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSharingInvitationPermissionLevel', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
         $this->PermissionLevel = $permissionLevel;
         return $this;
@@ -224,29 +227,9 @@ class EwsSharingInvitation extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($readOnly) && !is_bool($readOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($readOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($readOnly, true), gettype($readOnly)), __LINE__);
         }
         $this->ReadOnly = $readOnly;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSharingInvitation
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

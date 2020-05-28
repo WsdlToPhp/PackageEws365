@@ -14,7 +14,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
 {
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public $DisplayName;
     /**
      * The PostalAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsPersonaPostalAddressType
@@ -30,7 +30,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public $PostalAddress;
     /**
      * The StartTimeInUTC
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -38,7 +38,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public $StartTimeInUTC;
     /**
      * The Source
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -46,7 +46,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public $Source;
     /**
      * The Capacity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -54,7 +54,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public $Capacity;
     /**
      * The Score
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -102,7 +102,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -142,7 +142,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($startTimeInUTC) && !is_string($startTimeInUTC)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTimeInUTC)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeInUTC, true), gettype($startTimeInUTC)), __LINE__);
         }
         $this->StartTimeInUTC = $startTimeInUTC;
         return $this;
@@ -164,7 +164,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($source) && !is_string($source)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($source)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($source, true), gettype($source)), __LINE__);
         }
         $this->Source = $source;
         return $this;
@@ -185,8 +185,8 @@ class EwsMeetingLocationItemType extends AbstractStructBase
     public function setCapacity($capacity = null)
     {
         // validation for constraint: int
-        if (!is_null($capacity) && !is_numeric($capacity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($capacity)), __LINE__);
+        if (!is_null($capacity) && !(is_int($capacity) || ctype_digit($capacity))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($capacity, true), gettype($capacity)), __LINE__);
         }
         $this->Capacity = $capacity;
         return $this;
@@ -206,27 +206,11 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      */
     public function setScore($score = null)
     {
+        // validation for constraint: float
+        if (!is_null($score) && !(is_float($score) || is_numeric($score))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($score, true), gettype($score)), __LINE__);
+        }
         $this->Score = $score;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingLocationItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

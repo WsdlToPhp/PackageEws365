@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MailTipTypes EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMailTipTypes
+class EwsMailTipTypes extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'All'
@@ -66,16 +68,6 @@ class EwsMailTipTypes
      */
     const VALUE_SCOPE = 'Scope';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ALL
      * @uses self::VALUE_OUT_OF_OFFICE_MESSAGE
@@ -105,13 +97,5 @@ class EwsMailTipTypes
             self::VALUE_INVALID_RECIPIENT,
             self::VALUE_SCOPE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

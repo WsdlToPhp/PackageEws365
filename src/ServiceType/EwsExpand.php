@@ -53,7 +53,7 @@ class EwsExpand extends SoapClientBase
     }
     /**
      * Method to call the operation originally named ExpandDL
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsExpand extends SoapClientBase
     public function ExpandDL(\Ews\StructType\EwsExpandDLType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->ExpandDL($request));
+            $this->setResult($this->getSoapClient()->ExpandDL($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -83,13 +83,5 @@ class EwsExpand extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

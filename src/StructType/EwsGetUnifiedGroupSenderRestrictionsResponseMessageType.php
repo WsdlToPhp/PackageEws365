@@ -15,7 +15,7 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
 {
     /**
      * The GroupIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
@@ -23,7 +23,7 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
     public $GroupIdentity;
     /**
      * The SenderRestrictions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
@@ -77,25 +77,5 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
     {
         $this->SenderRestrictions = $senderRestrictions;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetUnifiedGroupSenderRestrictionsResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

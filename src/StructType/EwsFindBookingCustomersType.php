@@ -14,7 +14,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
 {
     /**
      * The IndexedPageItemView
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsIndexedPageViewType
@@ -22,7 +22,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $IndexedPageItemView;
     /**
      * The PersonaShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPersonaResponseShapeType
@@ -30,7 +30,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $PersonaShape;
     /**
      * The Restriction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRestrictionType
@@ -38,7 +38,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $Restriction;
     /**
      * The AggregationRestriction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRestrictionType
@@ -46,7 +46,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $AggregationRestriction;
     /**
      * The SortOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
@@ -54,7 +54,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $SortOrder;
     /**
      * The QueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $QueryString;
     /**
      * The SearchPeopleSuggestionIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -70,7 +70,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $SearchPeopleSuggestionIndex;
     /**
      * The TopicQueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -78,7 +78,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     public $TopicQueryString;
     /**
      * The Context
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfContextProperty
@@ -225,7 +225,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     {
         // validation for constraint: string
         if (!is_null($queryString) && !is_string($queryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($queryString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($queryString, true), gettype($queryString)), __LINE__);
         }
         $this->QueryString = $queryString;
         return $this;
@@ -247,7 +247,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     {
         // validation for constraint: boolean
         if (!is_null($searchPeopleSuggestionIndex) && !is_bool($searchPeopleSuggestionIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchPeopleSuggestionIndex)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchPeopleSuggestionIndex, true), gettype($searchPeopleSuggestionIndex)), __LINE__);
         }
         $this->SearchPeopleSuggestionIndex = $searchPeopleSuggestionIndex;
         return $this;
@@ -269,7 +269,7 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     {
         // validation for constraint: string
         if (!is_null($topicQueryString) && !is_string($topicQueryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($topicQueryString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($topicQueryString, true), gettype($topicQueryString)), __LINE__);
         }
         $this->TopicQueryString = $topicQueryString;
         return $this;
@@ -291,25 +291,5 @@ class EwsFindBookingCustomersType extends EwsBaseBookingRequestType
     {
         $this->Context = $context;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindBookingCustomersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

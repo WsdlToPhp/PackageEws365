@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for LegacyFreeBusyType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsLegacyFreeBusyType
+class EwsLegacyFreeBusyType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Free'
@@ -41,16 +43,6 @@ class EwsLegacyFreeBusyType
      */
     const VALUE_NO_DATA = 'NoData';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_FREE
      * @uses self::VALUE_TENTATIVE
@@ -70,13 +62,5 @@ class EwsLegacyFreeBusyType
             self::VALUE_WORKING_ELSEWHERE,
             self::VALUE_NO_DATA,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

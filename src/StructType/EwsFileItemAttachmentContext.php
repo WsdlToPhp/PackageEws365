@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FileItemAttachmentContext StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Attachment file search result properties.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
 {
     /**
      * The ItemReferenceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -24,7 +24,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $ItemReferenceId;
     /**
      * The ReferenceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -32,7 +32,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $ReferenceId;
     /**
      * The Sender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
@@ -40,7 +40,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $Sender;
     /**
      * The DisplayTo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +48,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $DisplayTo;
     /**
      * The DisplayCc
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +56,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $DisplayCc;
     /**
      * The DisplayBcc
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,7 +64,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $DisplayBcc;
     /**
      * The ReceivedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -72,7 +72,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $ReceivedTime;
     /**
      * The Importance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +80,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     public $Importance;
     /**
      * The ItemPath
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -137,7 +137,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($itemReferenceId) && !is_string($itemReferenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemReferenceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemReferenceId, true), gettype($itemReferenceId)), __LINE__);
         }
         $this->ItemReferenceId = $itemReferenceId;
         return $this;
@@ -159,7 +159,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($referenceId) && !is_string($referenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($referenceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($referenceId, true), gettype($referenceId)), __LINE__);
         }
         $this->ReferenceId = $referenceId;
         return $this;
@@ -199,7 +199,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($displayTo) && !is_string($displayTo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayTo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayTo, true), gettype($displayTo)), __LINE__);
         }
         $this->DisplayTo = $displayTo;
         return $this;
@@ -221,7 +221,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($displayCc) && !is_string($displayCc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayCc)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayCc, true), gettype($displayCc)), __LINE__);
         }
         $this->DisplayCc = $displayCc;
         return $this;
@@ -243,7 +243,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($displayBcc) && !is_string($displayBcc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayBcc)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayBcc, true), gettype($displayBcc)), __LINE__);
         }
         $this->DisplayBcc = $displayBcc;
         return $this;
@@ -265,7 +265,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($receivedTime) && !is_string($receivedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($receivedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($receivedTime, true), gettype($receivedTime)), __LINE__);
         }
         $this->ReceivedTime = $receivedTime;
         return $this;
@@ -290,7 +290,7 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
         return $this;
@@ -312,29 +312,9 @@ class EwsFileItemAttachmentContext extends EwsFileItemContext
     {
         // validation for constraint: string
         if (!is_null($itemPath) && !is_string($itemPath)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemPath)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemPath, true), gettype($itemPath)), __LINE__);
         }
         $this->ItemPath = $itemPath;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFileItemAttachmentContext
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

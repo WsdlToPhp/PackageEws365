@@ -14,7 +14,7 @@ class EwsSearchResultsType extends AbstractStructBase
 {
     /**
      * The MoreResultsAvailable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -22,7 +22,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $MoreResultsAvailable;
     /**
      * The RefinerTelemetryBatchId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,7 +30,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $RefinerTelemetryBatchId;
     /**
      * The Items
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItems
@@ -38,7 +38,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $Items;
     /**
      * The Conversations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsConversations
@@ -46,7 +46,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $Conversations;
     /**
      * The People
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPeople
@@ -54,7 +54,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $People;
     /**
      * The SearchRefiners
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSearchRefiners
@@ -62,7 +62,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $SearchRefiners;
     /**
      * The DiagnosticsData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSearchDiagnosticsType
@@ -70,7 +70,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $DiagnosticsData;
     /**
      * The SearchResultsCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -78,7 +78,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $SearchResultsCount;
     /**
      * The TotalResultsCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -86,7 +86,7 @@ class EwsSearchResultsType extends AbstractStructBase
     public $TotalResultsCount;
     /**
      * The SearchTerms
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -146,7 +146,7 @@ class EwsSearchResultsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($moreResultsAvailable) && !is_bool($moreResultsAvailable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moreResultsAvailable)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($moreResultsAvailable, true), gettype($moreResultsAvailable)), __LINE__);
         }
         $this->MoreResultsAvailable = $moreResultsAvailable;
         return $this;
@@ -167,8 +167,8 @@ class EwsSearchResultsType extends AbstractStructBase
     public function setRefinerTelemetryBatchId($refinerTelemetryBatchId = null)
     {
         // validation for constraint: int
-        if (!is_null($refinerTelemetryBatchId) && !is_numeric($refinerTelemetryBatchId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($refinerTelemetryBatchId)), __LINE__);
+        if (!is_null($refinerTelemetryBatchId) && !(is_int($refinerTelemetryBatchId) || ctype_digit($refinerTelemetryBatchId))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($refinerTelemetryBatchId, true), gettype($refinerTelemetryBatchId)), __LINE__);
         }
         $this->RefinerTelemetryBatchId = $refinerTelemetryBatchId;
         return $this;
@@ -279,8 +279,8 @@ class EwsSearchResultsType extends AbstractStructBase
     public function setSearchResultsCount($searchResultsCount = null)
     {
         // validation for constraint: int
-        if (!is_null($searchResultsCount) && !is_numeric($searchResultsCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchResultsCount)), __LINE__);
+        if (!is_null($searchResultsCount) && !(is_int($searchResultsCount) || ctype_digit($searchResultsCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($searchResultsCount, true), gettype($searchResultsCount)), __LINE__);
         }
         $this->SearchResultsCount = $searchResultsCount;
         return $this;
@@ -301,8 +301,8 @@ class EwsSearchResultsType extends AbstractStructBase
     public function setTotalResultsCount($totalResultsCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalResultsCount) && !is_numeric($totalResultsCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalResultsCount)), __LINE__);
+        if (!is_null($totalResultsCount) && !(is_int($totalResultsCount) || ctype_digit($totalResultsCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalResultsCount, true), gettype($totalResultsCount)), __LINE__);
         }
         $this->TotalResultsCount = $totalResultsCount;
         return $this;
@@ -324,25 +324,5 @@ class EwsSearchResultsType extends AbstractStructBase
     {
         $this->SearchTerms = $searchTerms;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchResultsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

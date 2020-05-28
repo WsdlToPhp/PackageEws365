@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for CompleteActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsCompleteActionType
+class EwsCompleteActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Commit'
@@ -21,16 +23,6 @@ class EwsCompleteActionType
      */
     const VALUE_ABANDON = 'Abandon';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_COMMIT
      * @uses self::VALUE_ABANDON
@@ -42,13 +34,5 @@ class EwsCompleteActionType
             self::VALUE_COMMIT,
             self::VALUE_ABANDON,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

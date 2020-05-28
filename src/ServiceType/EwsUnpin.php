@@ -27,7 +27,7 @@ class EwsUnpin extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UnpinTeamMailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -42,7 +42,7 @@ class EwsUnpin extends SoapClientBase
     public function UnpinTeamMailbox(\Ews\StructType\EwsUnpinTeamMailboxRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UnpinTeamMailbox($request));
+            $this->setResult($this->getSoapClient()->UnpinTeamMailbox($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -57,13 +57,5 @@ class EwsUnpin extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

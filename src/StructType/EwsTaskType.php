@@ -14,154 +14,154 @@ class EwsTaskType extends EwsItemType
 {
     /**
      * The ActualWork
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $ActualWork;
     /**
      * The AssignedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $AssignedTime;
     /**
      * The BillingInformation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $BillingInformation;
     /**
      * The ChangeCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $ChangeCount;
     /**
      * The Companies
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Companies;
     /**
      * The CompleteDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $CompleteDate;
     /**
      * The Contacts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Contacts;
     /**
      * The DelegationState
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DelegationState;
     /**
      * The Delegator
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Delegator;
     /**
      * The DueDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DueDate;
     /**
      * The IsAssignmentEditable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $IsAssignmentEditable;
     /**
      * The IsComplete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsComplete;
     /**
      * The IsRecurring
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsRecurring;
     /**
      * The IsTeamTask
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsTeamTask;
     /**
      * The Mileage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Mileage;
     /**
      * The Owner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Owner;
     /**
      * The PercentComplete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var float
      */
     public $PercentComplete;
     /**
      * The Recurrence
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTaskRecurrenceType
      */
     public $Recurrence;
     /**
      * The StartDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StartDate;
     /**
      * The Status
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Status;
     /**
      * The StatusDescription
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StatusDescription;
     /**
      * The TotalWork
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
@@ -255,8 +255,8 @@ class EwsTaskType extends EwsItemType
     public function setActualWork($actualWork = null)
     {
         // validation for constraint: int
-        if (!is_null($actualWork) && !is_numeric($actualWork)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($actualWork)), __LINE__);
+        if (!is_null($actualWork) && !(is_int($actualWork) || ctype_digit($actualWork))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($actualWork, true), gettype($actualWork)), __LINE__);
         }
         $this->ActualWork = $actualWork;
         return $this;
@@ -278,7 +278,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($assignedTime) && !is_string($assignedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($assignedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($assignedTime, true), gettype($assignedTime)), __LINE__);
         }
         $this->AssignedTime = $assignedTime;
         return $this;
@@ -300,7 +300,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($billingInformation) && !is_string($billingInformation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($billingInformation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($billingInformation, true), gettype($billingInformation)), __LINE__);
         }
         $this->BillingInformation = $billingInformation;
         return $this;
@@ -321,8 +321,8 @@ class EwsTaskType extends EwsItemType
     public function setChangeCount($changeCount = null)
     {
         // validation for constraint: int
-        if (!is_null($changeCount) && !is_numeric($changeCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($changeCount)), __LINE__);
+        if (!is_null($changeCount) && !(is_int($changeCount) || ctype_digit($changeCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($changeCount, true), gettype($changeCount)), __LINE__);
         }
         $this->ChangeCount = $changeCount;
         return $this;
@@ -362,7 +362,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($completeDate) && !is_string($completeDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($completeDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($completeDate, true), gettype($completeDate)), __LINE__);
         }
         $this->CompleteDate = $completeDate;
         return $this;
@@ -405,7 +405,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTaskDelegateStateType::valueIsValid($delegationState)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $delegationState, implode(', ', \Ews\EnumType\EwsTaskDelegateStateType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTaskDelegateStateType', is_array($delegationState) ? implode(', ', $delegationState) : var_export($delegationState, true), implode(', ', \Ews\EnumType\EwsTaskDelegateStateType::getValidValues())), __LINE__);
         }
         $this->DelegationState = $delegationState;
         return $this;
@@ -427,7 +427,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($delegator) && !is_string($delegator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($delegator)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($delegator, true), gettype($delegator)), __LINE__);
         }
         $this->Delegator = $delegator;
         return $this;
@@ -449,7 +449,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($dueDate) && !is_string($dueDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dueDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dueDate, true), gettype($dueDate)), __LINE__);
         }
         $this->DueDate = $dueDate;
         return $this;
@@ -470,8 +470,8 @@ class EwsTaskType extends EwsItemType
     public function setIsAssignmentEditable($isAssignmentEditable = null)
     {
         // validation for constraint: int
-        if (!is_null($isAssignmentEditable) && !is_numeric($isAssignmentEditable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($isAssignmentEditable)), __LINE__);
+        if (!is_null($isAssignmentEditable) && !(is_int($isAssignmentEditable) || ctype_digit($isAssignmentEditable))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($isAssignmentEditable, true), gettype($isAssignmentEditable)), __LINE__);
         }
         $this->IsAssignmentEditable = $isAssignmentEditable;
         return $this;
@@ -493,7 +493,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isComplete) && !is_bool($isComplete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isComplete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isComplete, true), gettype($isComplete)), __LINE__);
         }
         $this->IsComplete = $isComplete;
         return $this;
@@ -515,7 +515,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isRecurring) && !is_bool($isRecurring)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRecurring)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRecurring, true), gettype($isRecurring)), __LINE__);
         }
         $this->IsRecurring = $isRecurring;
         return $this;
@@ -537,7 +537,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isTeamTask) && !is_bool($isTeamTask)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isTeamTask)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTeamTask, true), gettype($isTeamTask)), __LINE__);
         }
         $this->IsTeamTask = $isTeamTask;
         return $this;
@@ -559,7 +559,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($mileage) && !is_string($mileage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mileage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mileage, true), gettype($mileage)), __LINE__);
         }
         $this->Mileage = $mileage;
         return $this;
@@ -581,7 +581,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($owner) && !is_string($owner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($owner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($owner, true), gettype($owner)), __LINE__);
         }
         $this->Owner = $owner;
         return $this;
@@ -601,6 +601,10 @@ class EwsTaskType extends EwsItemType
      */
     public function setPercentComplete($percentComplete = null)
     {
+        // validation for constraint: float
+        if (!is_null($percentComplete) && !(is_float($percentComplete) || is_numeric($percentComplete))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($percentComplete, true), gettype($percentComplete)), __LINE__);
+        }
         $this->PercentComplete = $percentComplete;
         return $this;
     }
@@ -639,7 +643,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($startDate) && !is_string($startDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDate, true), gettype($startDate)), __LINE__);
         }
         $this->StartDate = $startDate;
         return $this;
@@ -664,7 +668,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTaskStatusType::valueIsValid($status)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $status, implode(', ', \Ews\EnumType\EwsTaskStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTaskStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \Ews\EnumType\EwsTaskStatusType::getValidValues())), __LINE__);
         }
         $this->Status = $status;
         return $this;
@@ -686,7 +690,7 @@ class EwsTaskType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($statusDescription) && !is_string($statusDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($statusDescription)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusDescription, true), gettype($statusDescription)), __LINE__);
         }
         $this->StatusDescription = $statusDescription;
         return $this;
@@ -707,30 +711,10 @@ class EwsTaskType extends EwsItemType
     public function setTotalWork($totalWork = null)
     {
         // validation for constraint: int
-        if (!is_null($totalWork) && !is_numeric($totalWork)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalWork)), __LINE__);
+        if (!is_null($totalWork) && !(is_int($totalWork) || ctype_digit($totalWork))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalWork, true), gettype($totalWork)), __LINE__);
         }
         $this->TotalWork = $totalWork;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsTaskType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
 {
     /**
      * The TotalValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var float
@@ -22,7 +22,7 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
     public $TotalValue;
     /**
      * The TotalCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var float
@@ -56,6 +56,10 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
      */
     public function setTotalValue($totalValue = null)
     {
+        // validation for constraint: float
+        if (!is_null($totalValue) && !(is_float($totalValue) || is_numeric($totalValue))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($totalValue, true), gettype($totalValue)), __LINE__);
+        }
         $this->TotalValue = $totalValue;
         return $this;
     }
@@ -74,27 +78,11 @@ class EwsAudioMetricsAverageType extends AbstractStructBase
      */
     public function setTotalCount($totalCount = null)
     {
+        // validation for constraint: float
+        if (!is_null($totalCount) && !(is_float($totalCount) || is_numeric($totalCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($totalCount, true), gettype($totalCount)), __LINE__);
+        }
         $this->TotalCount = $totalCount;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAudioMetricsAverageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

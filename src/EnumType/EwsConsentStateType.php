@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ConsentStateType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsConsentStateType
+class EwsConsentStateType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NotResponded'
@@ -26,16 +28,6 @@ class EwsConsentStateType
      */
     const VALUE_CONSENTED = 'Consented';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NOT_RESPONDED
      * @uses self::VALUE_NOT_CONSENTED
@@ -49,13 +41,5 @@ class EwsConsentStateType
             self::VALUE_NOT_CONSENTED,
             self::VALUE_CONSENTED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

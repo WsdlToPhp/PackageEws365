@@ -14,14 +14,14 @@ class EwsIndexedPageViewType extends EwsBasePagingType
 {
     /**
      * The Offset
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var int
      */
     public $Offset;
     /**
      * The BasePoint
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -55,8 +55,8 @@ class EwsIndexedPageViewType extends EwsBasePagingType
     public function setOffset($offset = null)
     {
         // validation for constraint: int
-        if (!is_null($offset) && !is_numeric($offset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($offset)), __LINE__);
+        if (!is_null($offset) && !(is_int($offset) || ctype_digit($offset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offset, true), gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
         return $this;
@@ -81,29 +81,9 @@ class EwsIndexedPageViewType extends EwsBasePagingType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $basePoint, implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIndexBasePointType', is_array($basePoint) ? implode(', ', $basePoint) : var_export($basePoint, true), implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
         }
         $this->BasePoint = $basePoint;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsIndexedPageViewType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

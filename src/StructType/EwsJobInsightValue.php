@@ -14,7 +14,7 @@ class EwsJobInsightValue extends EwsInsightValue
 {
     /**
      * The Company
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $Company;
     /**
      * The CompanyDescription
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $CompanyDescription;
     /**
      * The CompanyTicker
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $CompanyTicker;
     /**
      * The CompanyLogoUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $CompanyLogoUrl;
     /**
      * The CompanyWebsiteUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $CompanyWebsiteUrl;
     /**
      * The CompanyLinkedInUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $CompanyLinkedInUrl;
     /**
      * The Title
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $Title;
     /**
      * The StartUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -78,7 +78,7 @@ class EwsJobInsightValue extends EwsInsightValue
     public $StartUtcTicks;
     /**
      * The EndUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -135,7 +135,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($company) && !is_string($company)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($company)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($company, true), gettype($company)), __LINE__);
         }
         $this->Company = $company;
         return $this;
@@ -157,7 +157,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($companyDescription) && !is_string($companyDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyDescription)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyDescription, true), gettype($companyDescription)), __LINE__);
         }
         $this->CompanyDescription = $companyDescription;
         return $this;
@@ -179,7 +179,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($companyTicker) && !is_string($companyTicker)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyTicker)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyTicker, true), gettype($companyTicker)), __LINE__);
         }
         $this->CompanyTicker = $companyTicker;
         return $this;
@@ -201,7 +201,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($companyLogoUrl) && !is_string($companyLogoUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyLogoUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyLogoUrl, true), gettype($companyLogoUrl)), __LINE__);
         }
         $this->CompanyLogoUrl = $companyLogoUrl;
         return $this;
@@ -223,7 +223,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($companyWebsiteUrl) && !is_string($companyWebsiteUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyWebsiteUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyWebsiteUrl, true), gettype($companyWebsiteUrl)), __LINE__);
         }
         $this->CompanyWebsiteUrl = $companyWebsiteUrl;
         return $this;
@@ -245,7 +245,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($companyLinkedInUrl) && !is_string($companyLinkedInUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyLinkedInUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyLinkedInUrl, true), gettype($companyLinkedInUrl)), __LINE__);
         }
         $this->CompanyLinkedInUrl = $companyLinkedInUrl;
         return $this;
@@ -267,7 +267,7 @@ class EwsJobInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
         return $this;
@@ -288,8 +288,8 @@ class EwsJobInsightValue extends EwsInsightValue
     public function setStartUtcTicks($startUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($startUtcTicks) && !is_numeric($startUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startUtcTicks)), __LINE__);
+        if (!is_null($startUtcTicks) && !(is_int($startUtcTicks) || ctype_digit($startUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startUtcTicks, true), gettype($startUtcTicks)), __LINE__);
         }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
@@ -310,30 +310,10 @@ class EwsJobInsightValue extends EwsInsightValue
     public function setEndUtcTicks($endUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($endUtcTicks) && !is_numeric($endUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endUtcTicks)), __LINE__);
+        if (!is_null($endUtcTicks) && !(is_int($endUtcTicks) || ctype_digit($endUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endUtcTicks, true), gettype($endUtcTicks)), __LINE__);
         }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsJobInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

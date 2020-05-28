@@ -14,21 +14,21 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
 {
     /**
      * The IncludeMimeContent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IncludeMimeContent;
     /**
      * The BodyType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $BodyType;
     /**
      * The FilterHtmlContent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -36,7 +36,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     public $FilterHtmlContent;
     /**
      * The AdditionalProperties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
      */
@@ -77,7 +77,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($includeMimeContent) && !is_bool($includeMimeContent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeMimeContent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeMimeContent, true), gettype($includeMimeContent)), __LINE__);
         }
         $this->IncludeMimeContent = $includeMimeContent;
         return $this;
@@ -102,7 +102,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($bodyType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bodyType, implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsBodyTypeResponseType', is_array($bodyType) ? implode(', ', $bodyType) : var_export($bodyType, true), implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
         $this->BodyType = $bodyType;
         return $this;
@@ -124,7 +124,7 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($filterHtmlContent) && !is_bool($filterHtmlContent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($filterHtmlContent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($filterHtmlContent, true), gettype($filterHtmlContent)), __LINE__);
         }
         $this->FilterHtmlContent = $filterHtmlContent;
         return $this;
@@ -146,25 +146,5 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
     {
         $this->AdditionalProperties = $additionalProperties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

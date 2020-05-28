@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
 {
     /**
      * The FolderName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var string[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
         return $this->FolderName;
     }
     /**
+     * This method is responsible for validating the values passed to the setFolderName method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFolderName method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFolderNameForArrayConstraintsFromSetFolderName(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfFolderNamesTypeFolderNameItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfFolderNamesTypeFolderNameItem)) {
+                $invalidValues[] = is_object($nonEmptyArrayOfFolderNamesTypeFolderNameItem) ? get_class($nonEmptyArrayOfFolderNamesTypeFolderNameItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfFolderNamesTypeFolderNameItem), var_export($nonEmptyArrayOfFolderNamesTypeFolderNameItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The FolderName property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set FolderName value
      * @throws \InvalidArgumentException
      * @param string[] $folderName
@@ -45,11 +67,9 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      */
     public function setFolderName(array $folderName = array())
     {
-        foreach ($folderName as $nonEmptyArrayOfFolderNamesTypeFolderNameItem) {
-            // validation for constraint: itemType
-            if (!is_string($nonEmptyArrayOfFolderNamesTypeFolderNameItem)) {
-                throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfFolderNamesTypeFolderNameItem) ? get_class($nonEmptyArrayOfFolderNamesTypeFolderNameItem) : gettype($nonEmptyArrayOfFolderNamesTypeFolderNameItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($folderNameArrayErrorMessage = self::validateFolderNameForArrayConstraintsFromSetFolderName($folderName))) {
+            throw new \InvalidArgumentException($folderNameArrayErrorMessage, __LINE__);
         }
         $this->FolderName = $folderName;
         return $this;
@@ -64,7 +84,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->FolderName[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'FolderName';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

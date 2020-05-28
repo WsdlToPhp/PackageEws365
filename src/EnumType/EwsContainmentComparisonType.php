@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ContainmentComparisonType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsContainmentComparisonType
+class EwsContainmentComparisonType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Exact'
@@ -51,16 +53,6 @@ class EwsContainmentComparisonType
      */
     const VALUE_LOOSE_AND_IGNORE_CASE_AND_IGNORE_NON_SPACE = 'LooseAndIgnoreCaseAndIgnoreNonSpace';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_EXACT
      * @uses self::VALUE_IGNORE_CASE
@@ -84,13 +76,5 @@ class EwsContainmentComparisonType
             self::VALUE_LOOSE_AND_IGNORE_NON_SPACE,
             self::VALUE_LOOSE_AND_IGNORE_CASE_AND_IGNORE_NON_SPACE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

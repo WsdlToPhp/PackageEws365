@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ItemIndexErrorType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsItemIndexErrorType
+class EwsItemIndexErrorType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -51,16 +53,6 @@ class EwsItemIndexErrorType
      */
     const VALUE_DOCUMENT_PARSER_FAILURE = 'DocumentParserFailure';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_GENERIC_ERROR
@@ -84,13 +76,5 @@ class EwsItemIndexErrorType
             self::VALUE_MARS_WRITER_TRUNCATION,
             self::VALUE_DOCUMENT_PARSER_FAILURE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

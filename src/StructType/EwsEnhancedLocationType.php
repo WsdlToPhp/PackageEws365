@@ -19,14 +19,14 @@ class EwsEnhancedLocationType extends AbstractStructBase
     public $DisplayName;
     /**
      * The Annotation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Annotation;
     /**
      * The PostalAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPersonaPostalAddressType
      */
@@ -64,7 +64,7 @@ class EwsEnhancedLocationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -86,7 +86,7 @@ class EwsEnhancedLocationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($annotation) && !is_string($annotation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($annotation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($annotation, true), gettype($annotation)), __LINE__);
         }
         $this->Annotation = $annotation;
         return $this;
@@ -108,25 +108,5 @@ class EwsEnhancedLocationType extends AbstractStructBase
     {
         $this->PostalAddress = $postalAddress;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEnhancedLocationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

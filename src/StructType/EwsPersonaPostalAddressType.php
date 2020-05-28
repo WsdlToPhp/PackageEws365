@@ -14,7 +14,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
 {
     /**
      * The Street
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Street;
     /**
      * The City
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $City;
     /**
      * The State
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $State;
     /**
      * The Country
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Country;
     /**
      * The PostalCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $PostalCode;
     /**
      * The PostOfficeBox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $PostOfficeBox;
     /**
      * The Type
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Type;
     /**
      * The Latitude
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -78,7 +78,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Latitude;
     /**
      * The Longitude
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -86,7 +86,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Longitude;
     /**
      * The Accuracy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -94,7 +94,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Accuracy;
     /**
      * The Altitude
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -102,7 +102,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $Altitude;
     /**
      * The AltitudeAccuracy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -110,7 +110,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $AltitudeAccuracy;
     /**
      * The FormattedAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -118,7 +118,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $FormattedAddress;
     /**
      * The LocationUri
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -126,7 +126,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     public $LocationUri;
     /**
      * The LocationSource
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -201,7 +201,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($street) && !is_string($street)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($street)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($street, true), gettype($street)), __LINE__);
         }
         $this->Street = $street;
         return $this;
@@ -223,7 +223,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($city) && !is_string($city)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($city)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
         }
         $this->City = $city;
         return $this;
@@ -245,7 +245,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($state) && !is_string($state)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($state)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($state, true), gettype($state)), __LINE__);
         }
         $this->State = $state;
         return $this;
@@ -267,7 +267,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($country) && !is_string($country)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($country)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($country, true), gettype($country)), __LINE__);
         }
         $this->Country = $country;
         return $this;
@@ -289,7 +289,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($postalCode) && !is_string($postalCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($postalCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postalCode, true), gettype($postalCode)), __LINE__);
         }
         $this->PostalCode = $postalCode;
         return $this;
@@ -311,7 +311,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($postOfficeBox) && !is_string($postOfficeBox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($postOfficeBox)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postOfficeBox, true), gettype($postOfficeBox)), __LINE__);
         }
         $this->PostOfficeBox = $postOfficeBox;
         return $this;
@@ -333,7 +333,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($type) && !is_string($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($type)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
         }
         $this->Type = $type;
         return $this;
@@ -353,6 +353,10 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      */
     public function setLatitude($latitude = null)
     {
+        // validation for constraint: float
+        if (!is_null($latitude) && !(is_float($latitude) || is_numeric($latitude))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
+        }
         $this->Latitude = $latitude;
         return $this;
     }
@@ -371,6 +375,10 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      */
     public function setLongitude($longitude = null)
     {
+        // validation for constraint: float
+        if (!is_null($longitude) && !(is_float($longitude) || is_numeric($longitude))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
+        }
         $this->Longitude = $longitude;
         return $this;
     }
@@ -389,6 +397,10 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      */
     public function setAccuracy($accuracy = null)
     {
+        // validation for constraint: float
+        if (!is_null($accuracy) && !(is_float($accuracy) || is_numeric($accuracy))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($accuracy, true), gettype($accuracy)), __LINE__);
+        }
         $this->Accuracy = $accuracy;
         return $this;
     }
@@ -407,6 +419,10 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      */
     public function setAltitude($altitude = null)
     {
+        // validation for constraint: float
+        if (!is_null($altitude) && !(is_float($altitude) || is_numeric($altitude))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitude, true), gettype($altitude)), __LINE__);
+        }
         $this->Altitude = $altitude;
         return $this;
     }
@@ -425,6 +441,10 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      */
     public function setAltitudeAccuracy($altitudeAccuracy = null)
     {
+        // validation for constraint: float
+        if (!is_null($altitudeAccuracy) && !(is_float($altitudeAccuracy) || is_numeric($altitudeAccuracy))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitudeAccuracy, true), gettype($altitudeAccuracy)), __LINE__);
+        }
         $this->AltitudeAccuracy = $altitudeAccuracy;
         return $this;
     }
@@ -445,7 +465,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($formattedAddress) && !is_string($formattedAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($formattedAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($formattedAddress, true), gettype($formattedAddress)), __LINE__);
         }
         $this->FormattedAddress = $formattedAddress;
         return $this;
@@ -467,7 +487,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($locationUri) && !is_string($locationUri)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($locationUri)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($locationUri, true), gettype($locationUri)), __LINE__);
         }
         $this->LocationUri = $locationUri;
         return $this;
@@ -492,29 +512,9 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLocationSourceType::valueIsValid($locationSource)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $locationSource, implode(', ', \Ews\EnumType\EwsLocationSourceType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLocationSourceType', is_array($locationSource) ? implode(', ', $locationSource) : var_export($locationSource, true), implode(', ', \Ews\EnumType\EwsLocationSourceType::getValidValues())), __LINE__);
         }
         $this->LocationSource = $locationSource;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

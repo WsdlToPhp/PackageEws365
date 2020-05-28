@@ -14,33 +14,35 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
 {
     /**
      * The GroupSmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - maxOccurs: 1
-     * - minOccurs: 1
      * - minLength: 1
+     * - minOccurs: 1
      * @var string
      */
     public $GroupSmtpAddress;
     /**
      * The ForceConfigurationAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $ForceConfigurationAction;
     /**
      * The ExecutingUserSmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - maxOccurs: 1
-     * - minOccurs: 0
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $ExecutingUserSmtpAddress;
     /**
      * The DomainController
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +50,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $DomainController;
     /**
      * The MemberIdentifierType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +58,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $MemberIdentifierType;
     /**
      * The AddedMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -64,7 +66,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $AddedMembers;
     /**
      * The RemovedMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -72,7 +74,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $RemovedMembers;
     /**
      * The AddedPendingMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -80,7 +82,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $AddedPendingMembers;
     /**
      * The RemovedPendingMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -88,7 +90,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $RemovedPendingMembers;
     /**
      * The CalendarMemberReadOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -96,7 +98,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $CalendarMemberReadOnly;
     /**
      * The SuppressWarmupMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -104,7 +106,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     public $SuppressWarmupMessage;
     /**
      * The AllowOnlyMembersToPost
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -125,7 +127,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * @uses EwsUpdateGroupMailboxType::setSuppressWarmupMessage()
      * @uses EwsUpdateGroupMailboxType::setAllowOnlyMembersToPost()
      * @param string $groupSmtpAddress
-     * @param string $forceConfigurationAction
+     * @param string[] $forceConfigurationAction
      * @param string $executingUserSmtpAddress
      * @param string $domainController
      * @param string $memberIdentifierType
@@ -137,7 +139,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * @param bool $suppressWarmupMessage
      * @param bool $allowOnlyMembersToPost
      */
-    public function __construct($groupSmtpAddress = null, $forceConfigurationAction = null, $executingUserSmtpAddress = null, $domainController = null, $memberIdentifierType = null, \Ews\ArrayType\EwsArrayOfStringsType $addedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null, $calendarMemberReadOnly = null, $suppressWarmupMessage = null, $allowOnlyMembersToPost = null)
+    public function __construct($groupSmtpAddress = null, array $forceConfigurationAction = array(), $executingUserSmtpAddress = null, $domainController = null, $memberIdentifierType = null, \Ews\ArrayType\EwsArrayOfStringsType $addedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null, $calendarMemberReadOnly = null, $suppressWarmupMessage = null, $allowOnlyMembersToPost = null)
     {
         $this
             ->setGroupSmtpAddress($groupSmtpAddress)
@@ -168,40 +170,62 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      */
     public function setGroupSmtpAddress($groupSmtpAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($groupSmtpAddress) && strlen($groupSmtpAddress) < 1) || (is_array($groupSmtpAddress) && count($groupSmtpAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($groupSmtpAddress) && !is_string($groupSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupSmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupSmtpAddress, true), gettype($groupSmtpAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($groupSmtpAddress) && mb_strlen($groupSmtpAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($groupSmtpAddress)), __LINE__);
         }
         $this->GroupSmtpAddress = $groupSmtpAddress;
         return $this;
     }
     /**
      * Get ForceConfigurationAction value
-     * @return string
+     * @return string[]
      */
     public function getForceConfigurationAction()
     {
         return $this->ForceConfigurationAction;
     }
     /**
+     * This method is responsible for validating the values passed to the setForceConfigurationAction method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setForceConfigurationAction method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $updateGroupMailboxTypeForceConfigurationActionItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid($updateGroupMailboxTypeForceConfigurationActionItem)) {
+                $invalidValues[] = is_object($updateGroupMailboxTypeForceConfigurationActionItem) ? get_class($updateGroupMailboxTypeForceConfigurationActionItem) : sprintf('%s(%s)', gettype($updateGroupMailboxTypeForceConfigurationActionItem), var_export($updateGroupMailboxTypeForceConfigurationActionItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMailboxConfigurationActionType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ForceConfigurationAction value
      * @uses \Ews\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid()
      * @uses \Ews\EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $forceConfigurationAction
+     * @param string[] $forceConfigurationAction
      * @return \Ews\StructType\EwsUpdateGroupMailboxType
      */
-    public function setForceConfigurationAction($forceConfigurationAction = null)
+    public function setForceConfigurationAction(array $forceConfigurationAction = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid($forceConfigurationAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $forceConfigurationAction, implode(', ', \Ews\EnumType\EwsGroupMailboxConfigurationActionType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($forceConfigurationActionArrayErrorMessage = self::validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction($forceConfigurationAction))) {
+            throw new \InvalidArgumentException($forceConfigurationActionArrayErrorMessage, __LINE__);
         }
-        $this->ForceConfigurationAction = $forceConfigurationAction;
+        $this->ForceConfigurationAction = is_array($forceConfigurationAction) ? implode(' ', $forceConfigurationAction) : null;
         return $this;
     }
     /**
@@ -219,13 +243,13 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      */
     public function setExecutingUserSmtpAddress($executingUserSmtpAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($executingUserSmtpAddress) && strlen($executingUserSmtpAddress) < 1) || (is_array($executingUserSmtpAddress) && count($executingUserSmtpAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($executingUserSmtpAddress) && !is_string($executingUserSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($executingUserSmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($executingUserSmtpAddress, true), gettype($executingUserSmtpAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($executingUserSmtpAddress) && mb_strlen($executingUserSmtpAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($executingUserSmtpAddress)), __LINE__);
         }
         $this->ExecutingUserSmtpAddress = $executingUserSmtpAddress;
         return $this;
@@ -247,7 +271,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($domainController) && !is_string($domainController)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($domainController)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainController, true), gettype($domainController)), __LINE__);
         }
         $this->DomainController = $domainController;
         return $this;
@@ -272,7 +296,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsGroupMemberIdentifierType::valueIsValid($memberIdentifierType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $memberIdentifierType, implode(', ', \Ews\EnumType\EwsGroupMemberIdentifierType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMemberIdentifierType', is_array($memberIdentifierType) ? implode(', ', $memberIdentifierType) : var_export($memberIdentifierType, true), implode(', ', \Ews\EnumType\EwsGroupMemberIdentifierType::getValidValues())), __LINE__);
         }
         $this->MemberIdentifierType = $memberIdentifierType;
         return $this;
@@ -366,7 +390,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($calendarMemberReadOnly) && !is_bool($calendarMemberReadOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($calendarMemberReadOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($calendarMemberReadOnly, true), gettype($calendarMemberReadOnly)), __LINE__);
         }
         $this->CalendarMemberReadOnly = $calendarMemberReadOnly;
         return $this;
@@ -388,7 +412,7 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($suppressWarmupMessage) && !is_bool($suppressWarmupMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressWarmupMessage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressWarmupMessage, true), gettype($suppressWarmupMessage)), __LINE__);
         }
         $this->SuppressWarmupMessage = $suppressWarmupMessage;
         return $this;
@@ -410,29 +434,9 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($allowOnlyMembersToPost) && !is_bool($allowOnlyMembersToPost)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($allowOnlyMembersToPost)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowOnlyMembersToPost, true), gettype($allowOnlyMembersToPost)), __LINE__);
         }
         $this->AllowOnlyMembersToPost = $allowOnlyMembersToPost;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
 {
     /**
      * The QueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
     public $QueryString;
     /**
      * The MaxResultsCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -58,7 +58,7 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($queryString) && !is_string($queryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($queryString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($queryString, true), gettype($queryString)), __LINE__);
         }
         $this->QueryString = $queryString;
         return $this;
@@ -79,30 +79,10 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
     public function setMaxResultsCount($maxResultsCount = null)
     {
         // validation for constraint: int
-        if (!is_null($maxResultsCount) && !is_numeric($maxResultsCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxResultsCount)), __LINE__);
+        if (!is_null($maxResultsCount) && !(is_int($maxResultsCount) || ctype_digit($maxResultsCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxResultsCount, true), gettype($maxResultsCount)), __LINE__);
         }
         $this->MaxResultsCount = $maxResultsCount;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsContactPropertySuggestionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

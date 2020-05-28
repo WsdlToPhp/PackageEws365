@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for CreateActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsCreateActionType
+class EwsCreateActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'CreateNew'
@@ -26,16 +28,6 @@ class EwsCreateActionType
      */
     const VALUE_UPDATE_OR_CREATE = 'UpdateOrCreate';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CREATE_NEW
      * @uses self::VALUE_UPDATE
@@ -49,13 +41,5 @@ class EwsCreateActionType
             self::VALUE_UPDATE,
             self::VALUE_UPDATE_OR_CREATE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

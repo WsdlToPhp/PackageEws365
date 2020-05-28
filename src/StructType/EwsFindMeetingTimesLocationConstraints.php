@@ -14,21 +14,21 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
 {
     /**
      * The LocationEntries
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfLocationConstraintItems
      */
     public $LocationEntries;
     /**
      * The IsRequired
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsRequired;
     /**
      * The SuggestLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -84,7 +84,7 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isRequired) && !is_bool($isRequired)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRequired)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRequired, true), gettype($isRequired)), __LINE__);
         }
         $this->IsRequired = $isRequired;
         return $this;
@@ -106,29 +106,9 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($suggestLocation) && !is_bool($suggestLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suggestLocation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestLocation, true), gettype($suggestLocation)), __LINE__);
         }
         $this->SuggestLocation = $suggestLocation;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

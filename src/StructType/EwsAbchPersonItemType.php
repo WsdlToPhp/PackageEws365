@@ -14,58 +14,59 @@ class EwsAbchPersonItemType extends EwsItemType
 {
     /**
      * The AntiLinkInfo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $AntiLinkInfo;
     /**
      * The PersonId
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
+     * - minOccurs: 0
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $PersonId;
     /**
      * The ContactHandles
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfAbchPersonContactHandlesType
      */
     public $ContactHandles;
     /**
      * The ContactCategories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $ContactCategories;
     /**
      * The RelevanceOrder1
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $RelevanceOrder1;
     /**
      * The RelevanceOrder2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $RelevanceOrder2;
     /**
      * The TrustLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $TrustLevel;
     /**
      * The FavoriteOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
@@ -118,7 +119,7 @@ class EwsAbchPersonItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($antiLinkInfo) && !is_string($antiLinkInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($antiLinkInfo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($antiLinkInfo, true), gettype($antiLinkInfo)), __LINE__);
         }
         $this->AntiLinkInfo = $antiLinkInfo;
         return $this;
@@ -138,13 +139,13 @@ class EwsAbchPersonItemType extends EwsItemType
      */
     public function setPersonId($personId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($personId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $personId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($personId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($personId) && !is_string($personId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personId, true), gettype($personId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($personId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $personId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($personId, true)), __LINE__);
         }
         $this->PersonId = $personId;
         return $this;
@@ -202,7 +203,7 @@ class EwsAbchPersonItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($relevanceOrder1) && !is_string($relevanceOrder1)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($relevanceOrder1)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relevanceOrder1, true), gettype($relevanceOrder1)), __LINE__);
         }
         $this->RelevanceOrder1 = $relevanceOrder1;
         return $this;
@@ -224,7 +225,7 @@ class EwsAbchPersonItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($relevanceOrder2) && !is_string($relevanceOrder2)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($relevanceOrder2)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($relevanceOrder2, true), gettype($relevanceOrder2)), __LINE__);
         }
         $this->RelevanceOrder2 = $relevanceOrder2;
         return $this;
@@ -245,8 +246,8 @@ class EwsAbchPersonItemType extends EwsItemType
     public function setTrustLevel($trustLevel = null)
     {
         // validation for constraint: int
-        if (!is_null($trustLevel) && !is_numeric($trustLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($trustLevel)), __LINE__);
+        if (!is_null($trustLevel) && !(is_int($trustLevel) || ctype_digit($trustLevel))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($trustLevel, true), gettype($trustLevel)), __LINE__);
         }
         $this->TrustLevel = $trustLevel;
         return $this;
@@ -267,30 +268,10 @@ class EwsAbchPersonItemType extends EwsItemType
     public function setFavoriteOrder($favoriteOrder = null)
     {
         // validation for constraint: int
-        if (!is_null($favoriteOrder) && !is_numeric($favoriteOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($favoriteOrder)), __LINE__);
+        if (!is_null($favoriteOrder) && !(is_int($favoriteOrder) || ctype_digit($favoriteOrder))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($favoriteOrder, true), gettype($favoriteOrder)), __LINE__);
         }
         $this->FavoriteOrder = $favoriteOrder;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAbchPersonItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

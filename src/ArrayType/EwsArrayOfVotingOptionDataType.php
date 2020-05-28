@@ -14,7 +14,7 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
 {
     /**
      * The VotingOptionData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsVotingOptionDataType[]
@@ -39,6 +39,28 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
         return $this->VotingOptionData;
     }
     /**
+     * This method is responsible for validating the values passed to the setVotingOptionData method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setVotingOptionData method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateVotingOptionDataForArrayConstraintsFromSetVotingOptionData(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfVotingOptionDataTypeVotingOptionDataItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfVotingOptionDataTypeVotingOptionDataItem instanceof \Ews\StructType\EwsVotingOptionDataType) {
+                $invalidValues[] = is_object($arrayOfVotingOptionDataTypeVotingOptionDataItem) ? get_class($arrayOfVotingOptionDataTypeVotingOptionDataItem) : sprintf('%s(%s)', gettype($arrayOfVotingOptionDataTypeVotingOptionDataItem), var_export($arrayOfVotingOptionDataTypeVotingOptionDataItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The VotingOptionData property can only contain items of type \Ews\StructType\EwsVotingOptionDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set VotingOptionData value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsVotingOptionDataType[] $votingOptionData
@@ -46,11 +68,9 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
      */
     public function setVotingOptionData(array $votingOptionData = array())
     {
-        foreach ($votingOptionData as $arrayOfVotingOptionDataTypeVotingOptionDataItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfVotingOptionDataTypeVotingOptionDataItem instanceof \Ews\StructType\EwsVotingOptionDataType) {
-                throw new \InvalidArgumentException(sprintf('The VotingOptionData property can only contain items of \Ews\StructType\EwsVotingOptionDataType, "%s" given', is_object($arrayOfVotingOptionDataTypeVotingOptionDataItem) ? get_class($arrayOfVotingOptionDataTypeVotingOptionDataItem) : gettype($arrayOfVotingOptionDataTypeVotingOptionDataItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($votingOptionDataArrayErrorMessage = self::validateVotingOptionDataForArrayConstraintsFromSetVotingOptionData($votingOptionData))) {
+            throw new \InvalidArgumentException($votingOptionDataArrayErrorMessage, __LINE__);
         }
         $this->VotingOptionData = $votingOptionData;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsVotingOptionDataType) {
-            throw new \InvalidArgumentException(sprintf('The VotingOptionData property can only contain items of \Ews\StructType\EwsVotingOptionDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The VotingOptionData property can only contain items of type \Ews\StructType\EwsVotingOptionDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->VotingOptionData[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfVotingOptionDataType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'VotingOptionData';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfVotingOptionDataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxSearchScopeType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Set of mailbox, search scope and its extended attributes.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
     public $Mailbox;
     /**
      * The SearchScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
     public $SearchScope;
     /**
      * The ExtendedAttributes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - nillable: false
@@ -72,7 +72,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
         return $this;
@@ -97,7 +97,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($searchScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $searchScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->SearchScope = $searchScope;
         return $this;
@@ -119,25 +119,5 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
     {
         $this->ExtendedAttributes = $extendedAttributes;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

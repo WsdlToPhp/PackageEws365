@@ -14,16 +14,16 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
 {
     /**
      * The Reminder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var string[]
+     * @var \Ews\StructType\EwsReminderType[]
      */
     public $Reminder;
     /**
      * Constructor method for ArrayOfRemindersType
      * @uses EwsArrayOfRemindersType::setReminder()
-     * @param string[] $reminder
+     * @param \Ews\StructType\EwsReminderType[] $reminder
      */
     public function __construct(array $reminder = array())
     {
@@ -32,47 +32,60 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     }
     /**
      * Get Reminder value
-     * @return string[]|null
+     * @return \Ews\StructType\EwsReminderType[]|null
      */
     public function getReminder()
     {
         return $this->Reminder;
     }
     /**
+     * This method is responsible for validating the values passed to the setReminder method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setReminder method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateReminderForArrayConstraintsFromSetReminder(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfRemindersTypeReminderItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRemindersTypeReminderItem instanceof \Ews\StructType\EwsReminderType) {
+                $invalidValues[] = is_object($arrayOfRemindersTypeReminderItem) ? get_class($arrayOfRemindersTypeReminderItem) : sprintf('%s(%s)', gettype($arrayOfRemindersTypeReminderItem), var_export($arrayOfRemindersTypeReminderItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Reminder property can only contain items of type \Ews\StructType\EwsReminderType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Reminder value
-     * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
-     * @uses \Ews\EnumType\EwsReminderType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string[] $reminder
+     * @param \Ews\StructType\EwsReminderType[] $reminder
      * @return \Ews\ArrayType\EwsArrayOfRemindersType
      */
     public function setReminder(array $reminder = array())
     {
-        $invalidValues = array();
-        foreach ($reminder as $arrayOfRemindersTypeReminderItem) {
-            if (!\Ews\EnumType\EwsReminderType::valueIsValid($arrayOfRemindersTypeReminderItem)) {
-                $invalidValues[] = var_export($arrayOfRemindersTypeReminderItem, true);
-            }
-        }
-        if (!empty($invalidValues)) {
-            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Ews\EnumType\EwsReminderType::getValidValues())), __LINE__);
+        // validation for constraint: array
+        if ('' !== ($reminderArrayErrorMessage = self::validateReminderForArrayConstraintsFromSetReminder($reminder))) {
+            throw new \InvalidArgumentException($reminderArrayErrorMessage, __LINE__);
         }
         $this->Reminder = $reminder;
         return $this;
     }
     /**
      * Add item to Reminder value
-     * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
-     * @uses \Ews\EnumType\EwsReminderType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $item
+     * @param \Ews\StructType\EwsReminderType $item
      * @return \Ews\ArrayType\EwsArrayOfRemindersType
      */
-    public function addToReminder($item)
+    public function addToReminder(\Ews\StructType\EwsReminderType $item)
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsReminderType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsReminderType::getValidValues())), __LINE__);
+        // validation for constraint: itemType
+        if (!$item instanceof \Ews\StructType\EwsReminderType) {
+            throw new \InvalidArgumentException(sprintf('The Reminder property can only contain items of type \Ews\StructType\EwsReminderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Reminder[] = $item;
         return $this;
@@ -80,7 +93,7 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function current()
     {
@@ -90,7 +103,7 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function item($index)
     {
@@ -99,7 +112,7 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function first()
     {
@@ -108,7 +121,7 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function last()
     {
@@ -118,26 +131,11 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function offsetGet($offset)
     {
         return parent::offsetGet($offset);
-    }
-    /**
-     * Add element to array
-     * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfRemindersType
-     */
-    public function add($item)
-    {
-        if (!\Ews\EnumType\EwsReminderType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsReminderType::getValidValues())), __LINE__);
-        }
-        return parent::add($item);
     }
     /**
      * Returns the attribute name
@@ -147,25 +145,5 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Reminder';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfRemindersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

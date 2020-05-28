@@ -14,7 +14,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
 {
     /**
      * The ItemIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
@@ -22,14 +22,14 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     public $ItemIds;
     /**
      * The IsJunk
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
     public $IsJunk;
     /**
      * The MoveItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
@@ -85,7 +85,7 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($isJunk) && !is_bool($isJunk)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isJunk)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isJunk, true), gettype($isJunk)), __LINE__);
         }
         $this->IsJunk = $isJunk;
         return $this;
@@ -107,29 +107,9 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($moveItem) && !is_bool($moveItem)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($moveItem)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($moveItem, true), gettype($moveItem)), __LINE__);
         }
         $this->MoveItem = $moveItem;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMarkAsJunkType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

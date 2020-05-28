@@ -14,7 +14,7 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
 {
     /**
      * The Service
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBookingServiceType[]
@@ -39,6 +39,28 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
         return $this->Service;
     }
     /**
+     * This method is responsible for validating the values passed to the setService method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setService method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateServiceForArrayConstraintsFromSetService(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfBookingServiceServiceItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBookingServiceServiceItem instanceof \Ews\StructType\EwsBookingServiceType) {
+                $invalidValues[] = is_object($arrayOfBookingServiceServiceItem) ? get_class($arrayOfBookingServiceServiceItem) : sprintf('%s(%s)', gettype($arrayOfBookingServiceServiceItem), var_export($arrayOfBookingServiceServiceItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Service property can only contain items of type \Ews\StructType\EwsBookingServiceType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Service value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsBookingServiceType[] $service
@@ -46,11 +68,9 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
      */
     public function setService(array $service = array())
     {
-        foreach ($service as $arrayOfBookingServiceServiceItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfBookingServiceServiceItem instanceof \Ews\StructType\EwsBookingServiceType) {
-                throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Ews\StructType\EwsBookingServiceType, "%s" given', is_object($arrayOfBookingServiceServiceItem) ? get_class($arrayOfBookingServiceServiceItem) : gettype($arrayOfBookingServiceServiceItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($serviceArrayErrorMessage = self::validateServiceForArrayConstraintsFromSetService($service))) {
+            throw new \InvalidArgumentException($serviceArrayErrorMessage, __LINE__);
         }
         $this->Service = $service;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsBookingServiceType) {
-            throw new \InvalidArgumentException(sprintf('The Service property can only contain items of \Ews\StructType\EwsBookingServiceType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Service property can only contain items of type \Ews\StructType\EwsBookingServiceType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Service[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfBookingService extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Service';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfBookingService
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

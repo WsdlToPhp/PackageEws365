@@ -14,35 +14,35 @@ class EwsServerVersionInfo extends AbstractStructBase
 {
     /**
      * The MajorVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
     public $MajorVersion;
     /**
      * The MinorVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
     public $MinorVersion;
     /**
      * The MajorBuildNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
     public $MajorBuildNumber;
     /**
      * The MinorBuildNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
     public $MinorBuildNumber;
     /**
      * The Version
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -85,8 +85,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMajorVersion($majorVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($majorVersion) && !is_numeric($majorVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($majorVersion)), __LINE__);
+        if (!is_null($majorVersion) && !(is_int($majorVersion) || ctype_digit($majorVersion))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($majorVersion, true), gettype($majorVersion)), __LINE__);
         }
         $this->MajorVersion = $majorVersion;
         return $this;
@@ -107,8 +107,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMinorVersion($minorVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($minorVersion) && !is_numeric($minorVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($minorVersion)), __LINE__);
+        if (!is_null($minorVersion) && !(is_int($minorVersion) || ctype_digit($minorVersion))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minorVersion, true), gettype($minorVersion)), __LINE__);
         }
         $this->MinorVersion = $minorVersion;
         return $this;
@@ -129,8 +129,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMajorBuildNumber($majorBuildNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($majorBuildNumber) && !is_numeric($majorBuildNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($majorBuildNumber)), __LINE__);
+        if (!is_null($majorBuildNumber) && !(is_int($majorBuildNumber) || ctype_digit($majorBuildNumber))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($majorBuildNumber, true), gettype($majorBuildNumber)), __LINE__);
         }
         $this->MajorBuildNumber = $majorBuildNumber;
         return $this;
@@ -151,8 +151,8 @@ class EwsServerVersionInfo extends AbstractStructBase
     public function setMinorBuildNumber($minorBuildNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($minorBuildNumber) && !is_numeric($minorBuildNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($minorBuildNumber)), __LINE__);
+        if (!is_null($minorBuildNumber) && !(is_int($minorBuildNumber) || ctype_digit($minorBuildNumber))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minorBuildNumber, true), gettype($minorBuildNumber)), __LINE__);
         }
         $this->MinorBuildNumber = $minorBuildNumber;
         return $this;
@@ -174,29 +174,9 @@ class EwsServerVersionInfo extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($version) && !is_string($version)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($version)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($version, true), gettype($version)), __LINE__);
         }
         $this->Version = $version;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsServerVersionInfo
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

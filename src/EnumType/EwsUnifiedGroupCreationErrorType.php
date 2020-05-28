@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UnifiedGroupCreationErrorType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUnifiedGroupCreationErrorType
+class EwsUnifiedGroupCreationErrorType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NoError'
@@ -26,16 +28,6 @@ class EwsUnifiedGroupCreationErrorType
      */
     const VALUE_FAILED_MAILBOX_PROVISION = 'FailedMailboxProvision';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NO_ERROR
      * @uses self::VALUE_FAILED_CREATE
@@ -49,13 +41,5 @@ class EwsUnifiedGroupCreationErrorType
             self::VALUE_FAILED_CREATE,
             self::VALUE_FAILED_MAILBOX_PROVISION,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

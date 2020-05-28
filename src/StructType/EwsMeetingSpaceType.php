@@ -14,7 +14,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $Id;
     /**
      * The ChangeKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $ChangeKey;
     /**
      * The Type
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $Type;
     /**
      * The Version
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $Version;
     /**
      * The JoinUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $JoinUrl;
     /**
      * The DateTimeCreated
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $DateTimeCreated;
     /**
      * The DateTimeModified
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $DateTimeModified;
     /**
      * The ExpiryTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -78,7 +78,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $ExpiryTime;
     /**
      * The Meadata
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -86,7 +86,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     public $Meadata;
     /**
      * The Tag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -146,7 +146,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -168,7 +168,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($changeKey) && !is_string($changeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
         }
         $this->ChangeKey = $changeKey;
         return $this;
@@ -193,7 +193,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMeetingSpaceTypeEnum::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsMeetingSpaceTypeEnum::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMeetingSpaceTypeEnum', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsMeetingSpaceTypeEnum::getValidValues())), __LINE__);
         }
         $this->Type = $type;
         return $this;
@@ -215,7 +215,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($version) && !is_string($version)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($version)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($version, true), gettype($version)), __LINE__);
         }
         $this->Version = $version;
         return $this;
@@ -237,7 +237,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($joinUrl) && !is_string($joinUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($joinUrl, true), gettype($joinUrl)), __LINE__);
         }
         $this->JoinUrl = $joinUrl;
         return $this;
@@ -259,7 +259,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dateTimeCreated) && !is_string($dateTimeCreated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeCreated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeCreated, true), gettype($dateTimeCreated)), __LINE__);
         }
         $this->DateTimeCreated = $dateTimeCreated;
         return $this;
@@ -281,7 +281,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dateTimeModified) && !is_string($dateTimeModified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeModified)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeModified, true), gettype($dateTimeModified)), __LINE__);
         }
         $this->DateTimeModified = $dateTimeModified;
         return $this;
@@ -303,7 +303,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($expiryTime) && !is_string($expiryTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expiryTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expiryTime, true), gettype($expiryTime)), __LINE__);
         }
         $this->ExpiryTime = $expiryTime;
         return $this;
@@ -325,7 +325,7 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($meadata) && !is_string($meadata)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meadata)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($meadata, true), gettype($meadata)), __LINE__);
         }
         $this->Meadata = $meadata;
         return $this;
@@ -347,29 +347,9 @@ class EwsMeetingSpaceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($tag) && !is_string($tag)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tag)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tag, true), gettype($tag)), __LINE__);
         }
         $this->Tag = $tag;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingSpaceType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

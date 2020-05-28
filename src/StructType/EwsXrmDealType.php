@@ -14,7 +14,7 @@ class EwsXrmDealType extends AbstractStructBase
 {
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Name;
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,17 +30,18 @@ class EwsXrmDealType extends AbstractStructBase
     public $Id;
     /**
      * The XrmId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $XrmId;
     /**
      * The Stage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +49,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Stage;
     /**
      * The Amount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -56,7 +57,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Amount;
     /**
      * The CurrencyCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,7 +65,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $CurrencyCode;
     /**
      * The Probability
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -72,7 +73,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Probability;
     /**
      * The CloseTimeUtc
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +81,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $CloseTimeUtc;
     /**
      * The Owner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -88,7 +89,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Owner;
     /**
      * The CreatedBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -96,7 +97,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $CreatedBy;
     /**
      * The CreationTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -104,7 +105,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $CreationTime;
     /**
      * The LastModifiedBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -112,7 +113,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $LastModifiedBy;
     /**
      * The Notes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -120,7 +121,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $Notes;
     /**
      * The IsReminderSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -128,7 +129,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $IsReminderSet;
     /**
      * The ReminderDueBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -136,7 +137,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $ReminderDueBy;
     /**
      * The ReminderCustomMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -144,7 +145,7 @@ class EwsXrmDealType extends AbstractStructBase
     public $ReminderCustomMessage;
     /**
      * The ReminderNextTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -225,7 +226,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -247,7 +248,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -267,13 +268,13 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setXrmId($xrmId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($xrmId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($xrmId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($xrmId) && !is_string($xrmId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xrmId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xrmId, true), gettype($xrmId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($xrmId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($xrmId, true)), __LINE__);
         }
         $this->XrmId = $xrmId;
         return $this;
@@ -295,7 +296,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($stage) && !is_string($stage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($stage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($stage, true), gettype($stage)), __LINE__);
         }
         $this->Stage = $stage;
         return $this;
@@ -315,6 +316,10 @@ class EwsXrmDealType extends AbstractStructBase
      */
     public function setAmount($amount = null)
     {
+        // validation for constraint: float
+        if (!is_null($amount) && !(is_float($amount) || is_numeric($amount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($amount, true), gettype($amount)), __LINE__);
+        }
         $this->Amount = $amount;
         return $this;
     }
@@ -335,7 +340,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($currencyCode) && !is_string($currencyCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currencyCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($currencyCode, true), gettype($currencyCode)), __LINE__);
         }
         $this->CurrencyCode = $currencyCode;
         return $this;
@@ -356,8 +361,8 @@ class EwsXrmDealType extends AbstractStructBase
     public function setProbability($probability = null)
     {
         // validation for constraint: int
-        if (!is_null($probability) && !is_numeric($probability)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($probability)), __LINE__);
+        if (!is_null($probability) && !(is_int($probability) || ctype_digit($probability))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($probability, true), gettype($probability)), __LINE__);
         }
         $this->Probability = $probability;
         return $this;
@@ -379,7 +384,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($closeTimeUtc) && !is_string($closeTimeUtc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($closeTimeUtc)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($closeTimeUtc, true), gettype($closeTimeUtc)), __LINE__);
         }
         $this->CloseTimeUtc = $closeTimeUtc;
         return $this;
@@ -401,7 +406,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($owner) && !is_string($owner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($owner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($owner, true), gettype($owner)), __LINE__);
         }
         $this->Owner = $owner;
         return $this;
@@ -423,7 +428,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($createdBy) && !is_string($createdBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdBy, true), gettype($createdBy)), __LINE__);
         }
         $this->CreatedBy = $createdBy;
         return $this;
@@ -445,7 +450,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($creationTime) && !is_string($creationTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationTime, true), gettype($creationTime)), __LINE__);
         }
         $this->CreationTime = $creationTime;
         return $this;
@@ -467,7 +472,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastModifiedBy) && !is_string($lastModifiedBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedBy, true), gettype($lastModifiedBy)), __LINE__);
         }
         $this->LastModifiedBy = $lastModifiedBy;
         return $this;
@@ -489,7 +494,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($notes) && !is_string($notes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($notes)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($notes, true), gettype($notes)), __LINE__);
         }
         $this->Notes = $notes;
         return $this;
@@ -511,7 +516,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isReminderSet) && !is_bool($isReminderSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReminderSet)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReminderSet, true), gettype($isReminderSet)), __LINE__);
         }
         $this->IsReminderSet = $isReminderSet;
         return $this;
@@ -533,7 +538,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderDueBy) && !is_string($reminderDueBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderDueBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderDueBy, true), gettype($reminderDueBy)), __LINE__);
         }
         $this->ReminderDueBy = $reminderDueBy;
         return $this;
@@ -555,7 +560,7 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderCustomMessage) && !is_string($reminderCustomMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderCustomMessage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderCustomMessage, true), gettype($reminderCustomMessage)), __LINE__);
         }
         $this->ReminderCustomMessage = $reminderCustomMessage;
         return $this;
@@ -577,29 +582,9 @@ class EwsXrmDealType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderNextTime) && !is_string($reminderNextTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderNextTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderNextTime, true), gettype($reminderNextTime)), __LINE__);
         }
         $this->ReminderNextTime = $reminderNextTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsXrmDealType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

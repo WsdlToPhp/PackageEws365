@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ItemTypesFilterType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsItemTypesFilterType
+class EwsItemTypesFilterType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -46,16 +48,6 @@ class EwsItemTypesFilterType
      */
     const VALUE_FILE_ITEMS = 'FileItems';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_MAIL_ITEMS
@@ -77,13 +69,5 @@ class EwsItemTypesFilterType
             self::VALUE_ONE_DRIVE_ITEMS,
             self::VALUE_FILE_ITEMS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

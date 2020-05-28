@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExecuteSearch StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - type: m:ExecuteSearch
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
 {
     /**
      * The ApplicationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $ApplicationId;
     /**
      * The Scenario
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,17 +32,18 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $Scenario;
     /**
      * The SearchSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $SearchSessionId;
     /**
      * The SearchScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsArrayOfSearchScopeType
@@ -50,7 +51,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $SearchScope;
     /**
      * The Query
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -58,15 +59,15 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $Query;
     /**
      * The ItemTypes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $ItemTypes;
     /**
      * The AnalyzedQuery
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAnalyzedQuery
@@ -74,7 +75,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $AnalyzedQuery;
     /**
      * The ResultRowCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -82,7 +83,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $ResultRowCount;
     /**
      * The ResultRowOffset
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -90,7 +91,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $ResultRowOffset;
     /**
      * The MaxResultsCountHint
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -98,7 +99,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $MaxResultsCountHint;
     /**
      * The MaxPreviewLength
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -106,7 +107,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $MaxPreviewLength;
     /**
      * The SearchRefiners
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSearchRefiners
@@ -114,7 +115,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $SearchRefiners;
     /**
      * The RetrieveRefiners
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -122,7 +123,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $RetrieveRefiners;
     /**
      * The MaxRefinersCountPerRefinerType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -130,7 +131,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $MaxRefinersCountPerRefinerType;
     /**
      * The IdFormat
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -138,7 +139,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $IdFormat;
     /**
      * The PropertySetName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -146,7 +147,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $PropertySetName;
     /**
      * The SearchRestrictions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRestrictionType
@@ -154,7 +155,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public $SearchRestrictions;
     /**
      * The IncludeDeleted
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -185,7 +186,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * @param string $searchSessionId
      * @param \Ews\StructType\EwsArrayOfSearchScopeType $searchScope
      * @param string $query
-     * @param string $itemTypes
+     * @param string[] $itemTypes
      * @param \Ews\StructType\EwsAnalyzedQuery $analyzedQuery
      * @param int $resultRowCount
      * @param int $resultRowOffset
@@ -199,7 +200,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
      * @param \Ews\StructType\EwsRestrictionType $searchRestrictions
      * @param bool $includeDeleted
      */
-    public function __construct($applicationId = null, $scenario = null, $searchSessionId = null, \Ews\StructType\EwsArrayOfSearchScopeType $searchScope = null, $query = null, $itemTypes = null, \Ews\StructType\EwsAnalyzedQuery $analyzedQuery = null, $resultRowCount = null, $resultRowOffset = null, $maxResultsCountHint = null, $maxPreviewLength = null, \Ews\StructType\EwsSearchRefiners $searchRefiners = null, $retrieveRefiners = null, $maxRefinersCountPerRefinerType = null, $idFormat = null, $propertySetName = null, \Ews\StructType\EwsRestrictionType $searchRestrictions = null, $includeDeleted = null)
+    public function __construct($applicationId = null, $scenario = null, $searchSessionId = null, \Ews\StructType\EwsArrayOfSearchScopeType $searchScope = null, $query = null, array $itemTypes = array(), \Ews\StructType\EwsAnalyzedQuery $analyzedQuery = null, $resultRowCount = null, $resultRowOffset = null, $maxResultsCountHint = null, $maxPreviewLength = null, \Ews\StructType\EwsSearchRefiners $searchRefiners = null, $retrieveRefiners = null, $maxRefinersCountPerRefinerType = null, $idFormat = null, $propertySetName = null, \Ews\StructType\EwsRestrictionType $searchRestrictions = null, $includeDeleted = null)
     {
         $this
             ->setApplicationId($applicationId)
@@ -241,7 +242,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchApplicationIdType::valueIsValid($applicationId)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $applicationId, implode(', ', \Ews\EnumType\EwsSearchApplicationIdType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchApplicationIdType', is_array($applicationId) ? implode(', ', $applicationId) : var_export($applicationId, true), implode(', ', \Ews\EnumType\EwsSearchApplicationIdType::getValidValues())), __LINE__);
         }
         $this->ApplicationId = $applicationId;
         return $this;
@@ -263,7 +264,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($scenario) && !is_string($scenario)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scenario)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scenario, true), gettype($scenario)), __LINE__);
         }
         $this->Scenario = $scenario;
         return $this;
@@ -283,13 +284,13 @@ class EwsExecuteSearch extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($searchSessionId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($searchSessionId, true)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
         return $this;
@@ -329,34 +330,56 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
         return $this;
     }
     /**
      * Get ItemTypes value
-     * @return string
+     * @return string[]
      */
     public function getItemTypes()
     {
         return $this->ItemTypes;
     }
     /**
+     * This method is responsible for validating the values passed to the setItemTypes method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setItemTypes method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateItemTypesForArrayConstraintsFromSetItemTypes(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $executeSearchItemTypesItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsItemTypesFilterType::valueIsValid($executeSearchItemTypesItem)) {
+                $invalidValues[] = is_object($executeSearchItemTypesItem) ? get_class($executeSearchItemTypesItem) : sprintf('%s(%s)', gettype($executeSearchItemTypesItem), var_export($executeSearchItemTypesItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsItemTypesFilterType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsItemTypesFilterType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ItemTypes value
      * @uses \Ews\EnumType\EwsItemTypesFilterType::valueIsValid()
      * @uses \Ews\EnumType\EwsItemTypesFilterType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $itemTypes
+     * @param string[] $itemTypes
      * @return \Ews\StructType\EwsExecuteSearch
      */
-    public function setItemTypes($itemTypes = null)
+    public function setItemTypes(array $itemTypes = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsItemTypesFilterType::valueIsValid($itemTypes)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $itemTypes, implode(', ', \Ews\EnumType\EwsItemTypesFilterType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($itemTypesArrayErrorMessage = self::validateItemTypesForArrayConstraintsFromSetItemTypes($itemTypes))) {
+            throw new \InvalidArgumentException($itemTypesArrayErrorMessage, __LINE__);
         }
-        $this->ItemTypes = $itemTypes;
+        $this->ItemTypes = is_array($itemTypes) ? implode(' ', $itemTypes) : null;
         return $this;
     }
     /**
@@ -393,8 +416,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setResultRowCount($resultRowCount = null)
     {
         // validation for constraint: int
-        if (!is_null($resultRowCount) && !is_numeric($resultRowCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($resultRowCount)), __LINE__);
+        if (!is_null($resultRowCount) && !(is_int($resultRowCount) || ctype_digit($resultRowCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($resultRowCount, true), gettype($resultRowCount)), __LINE__);
         }
         $this->ResultRowCount = $resultRowCount;
         return $this;
@@ -415,8 +438,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setResultRowOffset($resultRowOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($resultRowOffset) && !is_numeric($resultRowOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($resultRowOffset)), __LINE__);
+        if (!is_null($resultRowOffset) && !(is_int($resultRowOffset) || ctype_digit($resultRowOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($resultRowOffset, true), gettype($resultRowOffset)), __LINE__);
         }
         $this->ResultRowOffset = $resultRowOffset;
         return $this;
@@ -437,8 +460,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxResultsCountHint($maxResultsCountHint = null)
     {
         // validation for constraint: int
-        if (!is_null($maxResultsCountHint) && !is_numeric($maxResultsCountHint)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxResultsCountHint)), __LINE__);
+        if (!is_null($maxResultsCountHint) && !(is_int($maxResultsCountHint) || ctype_digit($maxResultsCountHint))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxResultsCountHint, true), gettype($maxResultsCountHint)), __LINE__);
         }
         $this->MaxResultsCountHint = $maxResultsCountHint;
         return $this;
@@ -459,8 +482,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxPreviewLength($maxPreviewLength = null)
     {
         // validation for constraint: int
-        if (!is_null($maxPreviewLength) && !is_numeric($maxPreviewLength)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxPreviewLength)), __LINE__);
+        if (!is_null($maxPreviewLength) && !(is_int($maxPreviewLength) || ctype_digit($maxPreviewLength))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxPreviewLength, true), gettype($maxPreviewLength)), __LINE__);
         }
         $this->MaxPreviewLength = $maxPreviewLength;
         return $this;
@@ -500,7 +523,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($retrieveRefiners) && !is_bool($retrieveRefiners)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($retrieveRefiners)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($retrieveRefiners, true), gettype($retrieveRefiners)), __LINE__);
         }
         $this->RetrieveRefiners = $retrieveRefiners;
         return $this;
@@ -521,8 +544,8 @@ class EwsExecuteSearch extends EwsBaseRequestType
     public function setMaxRefinersCountPerRefinerType($maxRefinersCountPerRefinerType = null)
     {
         // validation for constraint: int
-        if (!is_null($maxRefinersCountPerRefinerType) && !is_numeric($maxRefinersCountPerRefinerType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxRefinersCountPerRefinerType)), __LINE__);
+        if (!is_null($maxRefinersCountPerRefinerType) && !(is_int($maxRefinersCountPerRefinerType) || ctype_digit($maxRefinersCountPerRefinerType))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxRefinersCountPerRefinerType, true), gettype($maxRefinersCountPerRefinerType)), __LINE__);
         }
         $this->MaxRefinersCountPerRefinerType = $maxRefinersCountPerRefinerType;
         return $this;
@@ -547,7 +570,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($idFormat)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $idFormat, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIdFormatType', is_array($idFormat) ? implode(', ', $idFormat) : var_export($idFormat, true), implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }
         $this->IdFormat = $idFormat;
         return $this;
@@ -572,7 +595,7 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultsPropertySetNameType::valueIsValid($propertySetName)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $propertySetName, implode(', ', \Ews\EnumType\EwsSearchResultsPropertySetNameType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchResultsPropertySetNameType', is_array($propertySetName) ? implode(', ', $propertySetName) : var_export($propertySetName, true), implode(', ', \Ews\EnumType\EwsSearchResultsPropertySetNameType::getValidValues())), __LINE__);
         }
         $this->PropertySetName = $propertySetName;
         return $this;
@@ -612,29 +635,9 @@ class EwsExecuteSearch extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($includeDeleted) && !is_bool($includeDeleted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeDeleted)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeDeleted, true), gettype($includeDeleted)), __LINE__);
         }
         $this->IncludeDeleted = $includeDeleted;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsExecuteSearch
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

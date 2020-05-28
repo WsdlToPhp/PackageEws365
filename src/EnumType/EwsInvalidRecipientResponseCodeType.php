@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for InvalidRecipientResponseCodeType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents the message keys that can be returned for invalid recipients
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsInvalidRecipientResponseCodeType
+class EwsInvalidRecipientResponseCodeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'OtherError'
@@ -38,16 +40,6 @@ class EwsInvalidRecipientResponseCodeType
      */
     const VALUE_RECIPIENT_ORGANIZATION_FEDERATED_WITH_UNKNOWN_TOKEN_ISSUER = 'RecipientOrganizationFederatedWithUnknownTokenIssuer';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_OTHER_ERROR
      * @uses self::VALUE_RECIPIENT_ORGANIZATION_NOT_FEDERATED
@@ -65,13 +57,5 @@ class EwsInvalidRecipientResponseCodeType
             self::VALUE_SYSTEM_POLICY_BLOCKS_SHARING_WITH_THIS_RECIPIENT,
             self::VALUE_RECIPIENT_ORGANIZATION_FEDERATED_WITH_UNKNOWN_TOKEN_ISSUER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

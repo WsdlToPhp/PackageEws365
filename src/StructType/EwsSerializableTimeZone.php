@@ -14,7 +14,7 @@ class EwsSerializableTimeZone extends AbstractStructBase
 {
     /**
      * The Bias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsSerializableTimeZone extends AbstractStructBase
     public $Bias;
     /**
      * The StandardTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsSerializableTimeZoneTime
@@ -30,7 +30,7 @@ class EwsSerializableTimeZone extends AbstractStructBase
     public $StandardTime;
     /**
      * The DaylightTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsSerializableTimeZoneTime
@@ -68,8 +68,8 @@ class EwsSerializableTimeZone extends AbstractStructBase
     public function setBias($bias = null)
     {
         // validation for constraint: int
-        if (!is_null($bias) && !is_numeric($bias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($bias)), __LINE__);
+        if (!is_null($bias) && !(is_int($bias) || ctype_digit($bias))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($bias, true), gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
         return $this;
@@ -109,25 +109,5 @@ class EwsSerializableTimeZone extends AbstractStructBase
     {
         $this->DaylightTime = $daylightTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSerializableTimeZone
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

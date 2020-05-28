@@ -14,21 +14,21 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The GroupIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - ref: t:GroupIdentity
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
      */
     public $GroupIdentity;
     /**
      * The ErrorCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - ref: t:ErrorCode
      * @var string
      */
     public $ErrorCode;
     /**
      * The LegacyDN
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -36,7 +36,7 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
     public $LegacyDN;
     /**
      * The MailboxDatabase
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -99,7 +99,7 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupCreationErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
         return $this;
@@ -121,7 +121,7 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
     {
         // validation for constraint: string
         if (!is_null($legacyDN) && !is_string($legacyDN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($legacyDN)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
         }
         $this->LegacyDN = $legacyDN;
         return $this;
@@ -143,29 +143,9 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
     {
         // validation for constraint: string
         if (!is_null($mailboxDatabase) && !is_string($mailboxDatabase)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxDatabase)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxDatabase, true), gettype($mailboxDatabase)), __LINE__);
         }
         $this->MailboxDatabase = $mailboxDatabase;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
 {
     /**
      * The Group
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsGroupLocatorType
@@ -22,7 +22,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $Group;
     /**
      * The User
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUserLocatorType
@@ -30,7 +30,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $User;
     /**
      * The IsMember
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -38,7 +38,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $IsMember;
     /**
      * The JoinDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $JoinDate;
     /**
      * The IsPin
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -54,7 +54,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $IsPin;
     /**
      * The JoinedBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     public $JoinedBy;
     /**
      * The LastVisitedDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -149,7 +149,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMember) && !is_bool($isMember)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
         }
         $this->IsMember = $isMember;
         return $this;
@@ -171,7 +171,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($joinDate) && !is_string($joinDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($joinDate, true), gettype($joinDate)), __LINE__);
         }
         $this->JoinDate = $joinDate;
         return $this;
@@ -193,7 +193,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isPin) && !is_bool($isPin)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPin)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPin, true), gettype($isPin)), __LINE__);
         }
         $this->IsPin = $isPin;
         return $this;
@@ -215,7 +215,7 @@ class EwsMailboxAssociationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($joinedBy) && !is_string($joinedBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($joinedBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($joinedBy, true), gettype($joinedBy)), __LINE__);
         }
         $this->JoinedBy = $joinedBy;
         return $this;
@@ -237,29 +237,9 @@ class EwsMailboxAssociationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastVisitedDate) && !is_string($lastVisitedDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedDate, true), gettype($lastVisitedDate)), __LINE__);
         }
         $this->LastVisitedDate = $lastVisitedDate;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMailboxAssociationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsBookingServiceType extends AbstractStructBase
 {
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $DisplayName;
     /**
      * The Description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $Description;
     /**
      * The DefaultLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEnhancedLocationType
@@ -38,7 +38,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $DefaultLocation;
     /**
      * The InternalNotes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $InternalNotes;
     /**
      * The BookingServiceType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $BookingServiceType;
     /**
      * The DefaultDurationMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -62,7 +62,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $DefaultDurationMinutes;
     /**
      * The DefaultEmailReminderText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $DefaultEmailReminderText;
     /**
      * The DefaultEmailReminderMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -78,7 +78,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $DefaultEmailReminderMinutes;
     /**
      * The IsDefaultEmailReminderSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -86,7 +86,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $IsDefaultEmailReminderSet;
     /**
      * The StaffPersonIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfItemIdsType
@@ -94,7 +94,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $StaffPersonIds;
     /**
      * The ServiceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -102,7 +102,7 @@ class EwsBookingServiceType extends AbstractStructBase
     public $ServiceId;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -168,7 +168,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -190,7 +190,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
         return $this;
@@ -230,7 +230,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($internalNotes) && !is_string($internalNotes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internalNotes)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internalNotes, true), gettype($internalNotes)), __LINE__);
         }
         $this->InternalNotes = $internalNotes;
         return $this;
@@ -255,7 +255,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsBookingServiceTypeEnum::valueIsValid($bookingServiceType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $bookingServiceType, implode(', ', \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsBookingServiceTypeEnum', is_array($bookingServiceType) ? implode(', ', $bookingServiceType) : var_export($bookingServiceType, true), implode(', ', \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues())), __LINE__);
         }
         $this->BookingServiceType = $bookingServiceType;
         return $this;
@@ -276,8 +276,8 @@ class EwsBookingServiceType extends AbstractStructBase
     public function setDefaultDurationMinutes($defaultDurationMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($defaultDurationMinutes) && !is_numeric($defaultDurationMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($defaultDurationMinutes)), __LINE__);
+        if (!is_null($defaultDurationMinutes) && !(is_int($defaultDurationMinutes) || ctype_digit($defaultDurationMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultDurationMinutes, true), gettype($defaultDurationMinutes)), __LINE__);
         }
         $this->DefaultDurationMinutes = $defaultDurationMinutes;
         return $this;
@@ -299,7 +299,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($defaultEmailReminderText) && !is_string($defaultEmailReminderText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($defaultEmailReminderText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($defaultEmailReminderText, true), gettype($defaultEmailReminderText)), __LINE__);
         }
         $this->DefaultEmailReminderText = $defaultEmailReminderText;
         return $this;
@@ -320,8 +320,8 @@ class EwsBookingServiceType extends AbstractStructBase
     public function setDefaultEmailReminderMinutes($defaultEmailReminderMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($defaultEmailReminderMinutes) && !is_numeric($defaultEmailReminderMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($defaultEmailReminderMinutes)), __LINE__);
+        if (!is_null($defaultEmailReminderMinutes) && !(is_int($defaultEmailReminderMinutes) || ctype_digit($defaultEmailReminderMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultEmailReminderMinutes, true), gettype($defaultEmailReminderMinutes)), __LINE__);
         }
         $this->DefaultEmailReminderMinutes = $defaultEmailReminderMinutes;
         return $this;
@@ -343,7 +343,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isDefaultEmailReminderSet) && !is_bool($isDefaultEmailReminderSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDefaultEmailReminderSet)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDefaultEmailReminderSet, true), gettype($isDefaultEmailReminderSet)), __LINE__);
         }
         $this->IsDefaultEmailReminderSet = $isDefaultEmailReminderSet;
         return $this;
@@ -383,7 +383,7 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($serviceId) && !is_string($serviceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($serviceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceId, true), gettype($serviceId)), __LINE__);
         }
         $this->ServiceId = $serviceId;
         return $this;
@@ -405,25 +405,5 @@ class EwsBookingServiceType extends AbstractStructBase
     {
         $this->ItemId = $itemId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBookingServiceType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -44,8 +44,9 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     public $TargetItemId;
     /**
      * The TargetMailboxGuid
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
@@ -135,7 +136,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($latestTimestamp) && !is_string($latestTimestamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($latestTimestamp)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($latestTimestamp, true), gettype($latestTimestamp)), __LINE__);
         }
         $this->LatestTimestamp = $latestTimestamp;
         return $this;
@@ -157,7 +158,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isSeen) && !is_bool($isSeen)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSeen)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSeen, true), gettype($isSeen)), __LINE__);
         }
         $this->IsSeen = $isSeen;
         return $this;
@@ -200,7 +201,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $socialActivityActionType, implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
         $this->SocialActivityActionType = $socialActivityActionType;
         return $this;
@@ -256,13 +257,13 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      */
     public function setTargetMailboxGuid($targetMailboxGuid = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($targetMailboxGuid, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($targetMailboxGuid) && !is_string($targetMailboxGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxGuid)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxGuid, true), gettype($targetMailboxGuid)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($targetMailboxGuid, true)), __LINE__);
         }
         $this->TargetMailboxGuid = $targetMailboxGuid;
         return $this;
@@ -284,7 +285,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetMailboxSmtpAddress) && !is_string($targetMailboxSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMailboxSmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxSmtpAddress, true), gettype($targetMailboxSmtpAddress)), __LINE__);
         }
         $this->TargetMailboxSmtpAddress = $targetMailboxSmtpAddress;
         return $this;
@@ -306,7 +307,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetItemType) && !is_string($targetItemType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetItemType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetItemType, true), gettype($targetItemType)), __LINE__);
         }
         $this->TargetItemType = $targetItemType;
         return $this;
@@ -328,7 +329,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetGroupName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
         }
         $this->TargetGroupName = $targetGroupName;
         return $this;
@@ -350,7 +351,7 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetMessagePreview) && !is_string($targetMessagePreview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetMessagePreview)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMessagePreview, true), gettype($targetMessagePreview)), __LINE__);
         }
         $this->TargetMessagePreview = $targetMessagePreview;
         return $this;
@@ -372,25 +373,5 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
     {
         $this->UnseenItemIDs = $unseenItemIDs;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
 {
     /**
      * The ItemShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemResponseShapeType
@@ -22,14 +22,14 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public $ItemShape;
     /**
      * The Conversations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfConversationRequestsType
      */
     public $Conversations;
     /**
      * The FoldersToIgnore
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
@@ -37,7 +37,7 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public $FoldersToIgnore;
     /**
      * The MaxItemsToReturn
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -45,7 +45,7 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public $MaxItemsToReturn;
     /**
      * The SortOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -53,7 +53,7 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public $SortOrder;
     /**
      * The MailboxScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -154,8 +154,8 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     public function setMaxItemsToReturn($maxItemsToReturn = null)
     {
         // validation for constraint: int
-        if (!is_null($maxItemsToReturn) && !is_numeric($maxItemsToReturn)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxItemsToReturn)), __LINE__);
+        if (!is_null($maxItemsToReturn) && !(is_int($maxItemsToReturn) || ctype_digit($maxItemsToReturn))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItemsToReturn, true), gettype($maxItemsToReturn)), __LINE__);
         }
         $this->MaxItemsToReturn = $maxItemsToReturn;
         return $this;
@@ -180,7 +180,7 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationNodeSortOrder::valueIsValid($sortOrder)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortOrder, implode(', ', \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConversationNodeSortOrder', is_array($sortOrder) ? implode(', ', $sortOrder) : var_export($sortOrder, true), implode(', ', \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues())), __LINE__);
         }
         $this->SortOrder = $sortOrder;
         return $this;
@@ -205,29 +205,9 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->MailboxScope = $mailboxScope;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetConversationItemsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

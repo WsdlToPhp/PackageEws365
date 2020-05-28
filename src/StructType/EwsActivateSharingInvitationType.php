@@ -14,9 +14,10 @@ class EwsActivateSharingInvitationType extends EwsBaseSharingInvitationRequestTy
 {
     /**
      * The EmailAddressInInvitation
-     * Meta informations extracted from the WSDL
-     * - use: required
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: required
      * @var string
      */
     public $EmailAddressInInvitation;
@@ -45,35 +46,15 @@ class EwsActivateSharingInvitationType extends EwsBaseSharingInvitationRequestTy
      */
     public function setEmailAddressInInvitation($emailAddressInInvitation = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($emailAddressInInvitation) && strlen($emailAddressInInvitation) < 1) || (is_array($emailAddressInInvitation) && count($emailAddressInInvitation) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($emailAddressInInvitation) && !is_string($emailAddressInInvitation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddressInInvitation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddressInInvitation, true), gettype($emailAddressInInvitation)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($emailAddressInInvitation) && mb_strlen($emailAddressInInvitation) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($emailAddressInInvitation)), __LINE__);
         }
         $this->EmailAddressInInvitation = $emailAddressInInvitation;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsActivateSharingInvitationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

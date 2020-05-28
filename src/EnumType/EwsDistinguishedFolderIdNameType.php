@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DistinguishedFolderIdNameType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: URIs for the distinguished folders accessible from a mailbox
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDistinguishedFolderIdNameType
+class EwsDistinguishedFolderIdNameType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'calendar'
@@ -243,16 +245,6 @@ class EwsDistinguishedFolderIdNameType
      */
     const VALUE_PERSONMETADATA = 'personmetadata';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CALENDAR
      * @uses self::VALUE_CONTACTS
@@ -352,13 +344,5 @@ class EwsDistinguishedFolderIdNameType
             self::VALUE_MECONTACT,
             self::VALUE_PERSONMETADATA,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

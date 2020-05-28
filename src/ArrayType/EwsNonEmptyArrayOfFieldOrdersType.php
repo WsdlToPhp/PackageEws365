@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
 {
     /**
      * The FieldOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsFieldOrderType[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
         return $this->FieldOrder;
     }
     /**
+     * This method is responsible for validating the values passed to the setFieldOrder method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFieldOrder method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFieldOrderForArrayConstraintsFromSetFieldOrder(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfFieldOrdersTypeFieldOrderItem instanceof \Ews\StructType\EwsFieldOrderType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) ? get_class($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem), var_export($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The FieldOrder property can only contain items of type \Ews\StructType\EwsFieldOrderType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set FieldOrder value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFieldOrderType[] $fieldOrder
@@ -45,11 +67,9 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
      */
     public function setFieldOrder(array $fieldOrder = array())
     {
-        foreach ($fieldOrder as $nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfFieldOrdersTypeFieldOrderItem instanceof \Ews\StructType\EwsFieldOrderType) {
-                throw new \InvalidArgumentException(sprintf('The FieldOrder property can only contain items of \Ews\StructType\EwsFieldOrderType, "%s" given', is_object($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) ? get_class($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem) : gettype($nonEmptyArrayOfFieldOrdersTypeFieldOrderItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($fieldOrderArrayErrorMessage = self::validateFieldOrderForArrayConstraintsFromSetFieldOrder($fieldOrder))) {
+            throw new \InvalidArgumentException($fieldOrderArrayErrorMessage, __LINE__);
         }
         $this->FieldOrder = $fieldOrder;
         return $this;
@@ -64,7 +84,7 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsFieldOrderType) {
-            throw new \InvalidArgumentException(sprintf('The FieldOrder property can only contain items of \Ews\StructType\EwsFieldOrderType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The FieldOrder property can only contain items of type \Ews\StructType\EwsFieldOrderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->FieldOrder[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'FieldOrder';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

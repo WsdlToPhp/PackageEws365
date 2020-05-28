@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OpenAsAdminOrSystemServiceType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Allow attributes in the soap namespace to be used here
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
 {
     /**
      * The LogonType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -28,7 +28,7 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
     public $ConnectingSID;
     /**
      * The BudgetType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
@@ -69,7 +69,7 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSpecialLogonTypeType::valueIsValid($logonType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $logonType, implode(', ', \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSpecialLogonTypeType', is_array($logonType) ? implode(', ', $logonType) : var_export($logonType, true), implode(', ', \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues())), __LINE__);
         }
         $this->LogonType = $logonType;
         return $this;
@@ -108,30 +108,10 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
     public function setBudgetType($budgetType = null)
     {
         // validation for constraint: int
-        if (!is_null($budgetType) && !is_numeric($budgetType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($budgetType)), __LINE__);
+        if (!is_null($budgetType) && !(is_int($budgetType) || ctype_digit($budgetType))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($budgetType, true), gettype($budgetType)), __LINE__);
         }
         $this->BudgetType = $budgetType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsOpenAsAdminOrSystemServiceType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

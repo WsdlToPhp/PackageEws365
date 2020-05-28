@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UMCDRFilterByType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUMCDRFilterByType
+class EwsUMCDRFilterByType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'FilterByUser'
@@ -21,16 +23,6 @@ class EwsUMCDRFilterByType
      */
     const VALUE_FILTER_BY_DATE = 'FilterByDate';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_FILTER_BY_USER
      * @uses self::VALUE_FILTER_BY_DATE
@@ -42,13 +34,5 @@ class EwsUMCDRFilterByType
             self::VALUE_FILTER_BY_USER,
             self::VALUE_FILTER_BY_DATE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

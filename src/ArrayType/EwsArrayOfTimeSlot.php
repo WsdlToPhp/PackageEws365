@@ -14,7 +14,7 @@ class EwsArrayOfTimeSlot extends AbstractStructArrayBase
 {
     /**
      * The TimeSlot
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTimeSlot[]
@@ -39,6 +39,28 @@ class EwsArrayOfTimeSlot extends AbstractStructArrayBase
         return $this->TimeSlot;
     }
     /**
+     * This method is responsible for validating the values passed to the setTimeSlot method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setTimeSlot method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateTimeSlotForArrayConstraintsFromSetTimeSlot(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfTimeSlotTimeSlotItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfTimeSlotTimeSlotItem instanceof \Ews\StructType\EwsTimeSlot) {
+                $invalidValues[] = is_object($arrayOfTimeSlotTimeSlotItem) ? get_class($arrayOfTimeSlotTimeSlotItem) : sprintf('%s(%s)', gettype($arrayOfTimeSlotTimeSlotItem), var_export($arrayOfTimeSlotTimeSlotItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The TimeSlot property can only contain items of type \Ews\StructType\EwsTimeSlot, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set TimeSlot value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsTimeSlot[] $timeSlot
@@ -46,11 +68,9 @@ class EwsArrayOfTimeSlot extends AbstractStructArrayBase
      */
     public function setTimeSlot(array $timeSlot = array())
     {
-        foreach ($timeSlot as $arrayOfTimeSlotTimeSlotItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfTimeSlotTimeSlotItem instanceof \Ews\StructType\EwsTimeSlot) {
-                throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of \Ews\StructType\EwsTimeSlot, "%s" given', is_object($arrayOfTimeSlotTimeSlotItem) ? get_class($arrayOfTimeSlotTimeSlotItem) : gettype($arrayOfTimeSlotTimeSlotItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($timeSlotArrayErrorMessage = self::validateTimeSlotForArrayConstraintsFromSetTimeSlot($timeSlot))) {
+            throw new \InvalidArgumentException($timeSlotArrayErrorMessage, __LINE__);
         }
         $this->TimeSlot = $timeSlot;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfTimeSlot extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsTimeSlot) {
-            throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of \Ews\StructType\EwsTimeSlot, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of type \Ews\StructType\EwsTimeSlot, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->TimeSlot[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfTimeSlot extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'TimeSlot';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfTimeSlot
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

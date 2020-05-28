@@ -14,7 +14,7 @@ class EwsRequestTypeHeader extends AbstractStructBase
 {
     /**
      * The RequestType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -50,29 +50,9 @@ class EwsRequestTypeHeader extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAvailabilityProxyRequestType::valueIsValid($requestType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $requestType, implode(', ', \Ews\EnumType\EwsAvailabilityProxyRequestType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAvailabilityProxyRequestType', is_array($requestType) ? implode(', ', $requestType) : var_export($requestType, true), implode(', ', \Ews\EnumType\EwsAvailabilityProxyRequestType::getValidValues())), __LINE__);
         }
         $this->RequestType = $requestType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRequestTypeHeader
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

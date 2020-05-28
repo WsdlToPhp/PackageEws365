@@ -14,7 +14,7 @@ class EwsClientExtensionResponseType extends EwsResponseMessageType
 {
     /**
      * The ClientExtensions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfClientExtensionsType
@@ -22,7 +22,7 @@ class EwsClientExtensionResponseType extends EwsResponseMessageType
     public $ClientExtensions;
     /**
      * The RawMasterTableXml
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -76,29 +76,9 @@ class EwsClientExtensionResponseType extends EwsResponseMessageType
     {
         // validation for constraint: string
         if (!is_null($rawMasterTableXml) && !is_string($rawMasterTableXml)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rawMasterTableXml)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rawMasterTableXml, true), gettype($rawMasterTableXml)), __LINE__);
         }
         $this->RawMasterTableXml = $rawMasterTableXml;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsClientExtensionResponseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

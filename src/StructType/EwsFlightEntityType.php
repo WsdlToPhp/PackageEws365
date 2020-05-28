@@ -14,42 +14,42 @@ class EwsFlightEntityType extends AbstractStructBase
 {
     /**
      * The FlightNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FlightNumber;
     /**
      * The AirlineIataCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $AirlineIataCode;
     /**
      * The DepartureTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DepartureTime;
     /**
      * The WindowsTimeZoneName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $WindowsTimeZoneName;
     /**
      * The DepartureAirportIataCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DepartureAirportIataCode;
     /**
      * The ArrivalAirportIataCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -96,7 +96,7 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($flightNumber) && !is_string($flightNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($flightNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($flightNumber, true), gettype($flightNumber)), __LINE__);
         }
         $this->FlightNumber = $flightNumber;
         return $this;
@@ -118,7 +118,7 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($airlineIataCode) && !is_string($airlineIataCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($airlineIataCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($airlineIataCode, true), gettype($airlineIataCode)), __LINE__);
         }
         $this->AirlineIataCode = $airlineIataCode;
         return $this;
@@ -140,7 +140,7 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($departureTime) && !is_string($departureTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($departureTime, true), gettype($departureTime)), __LINE__);
         }
         $this->DepartureTime = $departureTime;
         return $this;
@@ -162,7 +162,7 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($windowsTimeZoneName) && !is_string($windowsTimeZoneName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($windowsTimeZoneName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($windowsTimeZoneName, true), gettype($windowsTimeZoneName)), __LINE__);
         }
         $this->WindowsTimeZoneName = $windowsTimeZoneName;
         return $this;
@@ -184,7 +184,7 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($departureAirportIataCode) && !is_string($departureAirportIataCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($departureAirportIataCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($departureAirportIataCode, true), gettype($departureAirportIataCode)), __LINE__);
         }
         $this->DepartureAirportIataCode = $departureAirportIataCode;
         return $this;
@@ -206,29 +206,9 @@ class EwsFlightEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($arrivalAirportIataCode) && !is_string($arrivalAirportIataCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($arrivalAirportIataCode)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($arrivalAirportIataCode, true), gettype($arrivalAirportIataCode)), __LINE__);
         }
         $this->ArrivalAirportIataCode = $arrivalAirportIataCode;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFlightEntityType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

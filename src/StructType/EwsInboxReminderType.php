@@ -14,17 +14,18 @@ class EwsInboxReminderType extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 0
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $Id;
     /**
      * The ReminderOffset
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -32,7 +33,7 @@ class EwsInboxReminderType extends AbstractStructBase
     public $ReminderOffset;
     /**
      * The Message
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -40,7 +41,7 @@ class EwsInboxReminderType extends AbstractStructBase
     public $Message;
     /**
      * The IsOrganizerReminder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -48,7 +49,7 @@ class EwsInboxReminderType extends AbstractStructBase
     public $IsOrganizerReminder;
     /**
      * The OccurrenceChange
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +57,7 @@ class EwsInboxReminderType extends AbstractStructBase
     public $OccurrenceChange;
     /**
      * The SendOption
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -102,13 +103,13 @@ class EwsInboxReminderType extends AbstractStructBase
      */
     public function setId($id = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($id, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($id, true)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -129,8 +130,8 @@ class EwsInboxReminderType extends AbstractStructBase
     public function setReminderOffset($reminderOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($reminderOffset) && !is_numeric($reminderOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($reminderOffset)), __LINE__);
+        if (!is_null($reminderOffset) && !(is_int($reminderOffset) || ctype_digit($reminderOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($reminderOffset, true), gettype($reminderOffset)), __LINE__);
         }
         $this->ReminderOffset = $reminderOffset;
         return $this;
@@ -152,7 +153,7 @@ class EwsInboxReminderType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($message) && !is_string($message)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($message)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
         }
         $this->Message = $message;
         return $this;
@@ -174,7 +175,7 @@ class EwsInboxReminderType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isOrganizerReminder) && !is_bool($isOrganizerReminder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOrganizerReminder)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOrganizerReminder, true), gettype($isOrganizerReminder)), __LINE__);
         }
         $this->IsOrganizerReminder = $isOrganizerReminder;
         return $this;
@@ -199,7 +200,7 @@ class EwsInboxReminderType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEmailReminderChangeType::valueIsValid($occurrenceChange)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $occurrenceChange, implode(', ', \Ews\EnumType\EwsEmailReminderChangeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsEmailReminderChangeType', is_array($occurrenceChange) ? implode(', ', $occurrenceChange) : var_export($occurrenceChange, true), implode(', ', \Ews\EnumType\EwsEmailReminderChangeType::getValidValues())), __LINE__);
         }
         $this->OccurrenceChange = $occurrenceChange;
         return $this;
@@ -224,29 +225,9 @@ class EwsInboxReminderType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEmailReminderSendOption::valueIsValid($sendOption)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendOption, implode(', ', \Ews\EnumType\EwsEmailReminderSendOption::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsEmailReminderSendOption', is_array($sendOption) ? implode(', ', $sendOption) : var_export($sendOption, true), implode(', ', \Ews\EnumType\EwsEmailReminderSendOption::getValidValues())), __LINE__);
         }
         $this->SendOption = $sendOption;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsInboxReminderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

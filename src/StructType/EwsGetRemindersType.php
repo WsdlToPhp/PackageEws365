@@ -14,7 +14,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
 {
     /**
      * The BeginTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
     public $BeginTime;
     /**
      * The EndTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,20 +30,21 @@ class EwsGetRemindersType extends EwsBaseRequestType
     public $EndTime;
     /**
      * The MaxItems
-     * Meta informations extracted from the WSDL
-     * - maxOccurs: 1
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: xs:int
      * - maxInclusive: 200
+     * - maxOccurs: 1
      * - minInclusive: 0
+     * - minOccurs: 0
      * @var int
      */
     public $MaxItems;
     /**
      * The ReminderType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var \Ews\StructType\EwsReminderType
      */
     public $ReminderType;
     /**
@@ -55,9 +56,9 @@ class EwsGetRemindersType extends EwsBaseRequestType
      * @param string $beginTime
      * @param string $endTime
      * @param int $maxItems
-     * @param string $reminderType
+     * @param \Ews\StructType\EwsReminderType $reminderType
      */
-    public function __construct($beginTime = null, $endTime = null, $maxItems = null, $reminderType = null)
+    public function __construct($beginTime = null, $endTime = null, $maxItems = null, \Ews\StructType\EwsReminderType $reminderType = null)
     {
         $this
             ->setBeginTime($beginTime)
@@ -82,7 +83,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($beginTime) && !is_string($beginTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($beginTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($beginTime, true), gettype($beginTime)), __LINE__);
         }
         $this->BeginTime = $beginTime;
         return $this;
@@ -104,7 +105,7 @@ class EwsGetRemindersType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
         return $this;
@@ -124,24 +125,24 @@ class EwsGetRemindersType extends EwsBaseRequestType
      */
     public function setMaxItems($maxItems = null)
     {
-        // validation for constraint: maxInclusive
-        if ($maxItems > 200) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 200, "%s" given', $maxItems), __LINE__);
+        // validation for constraint: int
+        if (!is_null($maxItems) && !(is_int($maxItems) || ctype_digit($maxItems))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItems, true), gettype($maxItems)), __LINE__);
+        }
+        // validation for constraint: maxInclusive(200)
+        if (!is_null($maxItems) && $maxItems > 200) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 200', var_export($maxItems, true)), __LINE__);
         }
         // validation for constraint: minInclusive
-        if ($maxItems < 0) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 0, "%s" given', $maxItems), __LINE__);
-        }
-        // validation for constraint: int
-        if (!is_null($maxItems) && !is_numeric($maxItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxItems)), __LINE__);
+        if (!is_null($maxItems) && $maxItems < 0) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 0', var_export($maxItems, true)), __LINE__);
         }
         $this->MaxItems = $maxItems;
         return $this;
     }
     /**
      * Get ReminderType value
-     * @return string|null
+     * @return \Ews\StructType\EwsReminderType|null
      */
     public function getReminderType()
     {
@@ -149,39 +150,12 @@ class EwsGetRemindersType extends EwsBaseRequestType
     }
     /**
      * Set ReminderType value
-     * @uses \Ews\EnumType\EwsReminderType::valueIsValid()
-     * @uses \Ews\EnumType\EwsReminderType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $reminderType
+     * @param \Ews\StructType\EwsReminderType $reminderType
      * @return \Ews\StructType\EwsGetRemindersType
      */
-    public function setReminderType($reminderType = null)
+    public function setReminderType(\Ews\StructType\EwsReminderType $reminderType = null)
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsReminderType::valueIsValid($reminderType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $reminderType, implode(', ', \Ews\EnumType\EwsReminderType::getValidValues())), __LINE__);
-        }
         $this->ReminderType = $reminderType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetRemindersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

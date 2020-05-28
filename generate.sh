@@ -14,18 +14,17 @@ rm -rf  $DEST/src/ \
         $DEST/composer.lock;
 
 # package informations
-php wsdltophp.phar generate:package \
+php-7.3 -dmemory_limit=-1 wsdltophp.phar generate:package \
     --urlorpath=$DEST"/wsdl/services.updated.wsdl" \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews365" \
     --composer-settings="autoload.psr-4.SoapClient\:./SoapClient/" \
-    --composer-settings="require-dev.wsdltophp/packagegenerator:~2.0" \
     --addcomments="author:WsdlToPhp <contact@wsdltophp.com>" \
     --soapclient="\SoapClient\SoapClientBase" \
     --prefix="Ews";
 
 # generate package
-php wsdltophp.phar generate:package \
+php-7.3 -dmemory_limit=-1 wsdltophp.phar generate:package \
     --urlorpath=$DEST"/wsdl/services.updated.wsdl" \
     --destination=$DEST \
     --composer-name="wsdltophp/package-ews365" \

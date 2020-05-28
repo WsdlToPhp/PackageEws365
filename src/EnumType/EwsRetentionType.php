@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for RetentionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsRetentionType
+class EwsRetentionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Delete'
@@ -21,16 +23,6 @@ class EwsRetentionType
      */
     const VALUE_ARCHIVE = 'Archive';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_DELETE
      * @uses self::VALUE_ARCHIVE
@@ -42,13 +34,5 @@ class EwsRetentionType
             self::VALUE_DELETE,
             self::VALUE_ARCHIVE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

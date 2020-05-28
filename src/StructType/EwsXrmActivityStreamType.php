@@ -14,7 +14,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $Id;
     /**
      * The ClientSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $ClientSessionId;
     /**
      * The EventTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $EventTime;
     /**
      * The SourceUser
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $SourceUser;
     /**
      * The ActionVerb
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $ActionVerb;
     /**
      * The Subtype
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $Subtype;
     /**
      * The TargetEntities
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -70,7 +70,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $TargetEntities;
     /**
      * The OtherRelatedEntities
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -78,7 +78,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $OtherRelatedEntities;
     /**
      * The Flags
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -86,7 +86,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $Flags;
     /**
      * The ModifiedProperties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -94,7 +94,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     public $ModifiedProperties;
     /**
      * The AdditionalActivityDetails
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -157,7 +157,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -179,7 +179,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientSessionId) && !is_string($clientSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientSessionId, true), gettype($clientSessionId)), __LINE__);
         }
         $this->ClientSessionId = $clientSessionId;
         return $this;
@@ -201,7 +201,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($eventTime) && !is_string($eventTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventTime, true), gettype($eventTime)), __LINE__);
         }
         $this->EventTime = $eventTime;
         return $this;
@@ -223,7 +223,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sourceUser) && !is_string($sourceUser)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceUser)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceUser, true), gettype($sourceUser)), __LINE__);
         }
         $this->SourceUser = $sourceUser;
         return $this;
@@ -245,7 +245,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($actionVerb) && !is_string($actionVerb)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($actionVerb)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($actionVerb, true), gettype($actionVerb)), __LINE__);
         }
         $this->ActionVerb = $actionVerb;
         return $this;
@@ -267,7 +267,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($subtype) && !is_string($subtype)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subtype)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subtype, true), gettype($subtype)), __LINE__);
         }
         $this->Subtype = $subtype;
         return $this;
@@ -328,7 +328,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid($flags)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flags, implode(', ', \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmActivityStreamFlagsType', is_array($flags) ? implode(', ', $flags) : var_export($flags, true), implode(', ', \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues())), __LINE__);
         }
         $this->Flags = $flags;
         return $this;
@@ -350,7 +350,7 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($modifiedProperties) && !is_string($modifiedProperties)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($modifiedProperties)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($modifiedProperties, true), gettype($modifiedProperties)), __LINE__);
         }
         $this->ModifiedProperties = $modifiedProperties;
         return $this;
@@ -372,29 +372,9 @@ class EwsXrmActivityStreamType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($additionalActivityDetails) && !is_string($additionalActivityDetails)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalActivityDetails)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalActivityDetails, true), gettype($additionalActivityDetails)), __LINE__);
         }
         $this->AdditionalActivityDetails = $additionalActivityDetails;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsXrmActivityStreamType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

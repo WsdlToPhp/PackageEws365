@@ -14,7 +14,7 @@ class EwsSuggestion extends AbstractStructBase
 {
     /**
      * The MeetingTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsSuggestion extends AbstractStructBase
     public $MeetingTime;
     /**
      * The IsWorkTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -30,7 +30,7 @@ class EwsSuggestion extends AbstractStructBase
     public $IsWorkTime;
     /**
      * The SuggestionQuality
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -38,7 +38,7 @@ class EwsSuggestion extends AbstractStructBase
     public $SuggestionQuality;
     /**
      * The AttendeeConflictDataArray
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsArrayOfAttendeeConflictData
@@ -80,7 +80,7 @@ class EwsSuggestion extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($meetingTime) && !is_string($meetingTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($meetingTime, true), gettype($meetingTime)), __LINE__);
         }
         $this->MeetingTime = $meetingTime;
         return $this;
@@ -102,7 +102,7 @@ class EwsSuggestion extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isWorkTime) && !is_bool($isWorkTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isWorkTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isWorkTime, true), gettype($isWorkTime)), __LINE__);
         }
         $this->IsWorkTime = $isWorkTime;
         return $this;
@@ -127,7 +127,7 @@ class EwsSuggestion extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSuggestionQuality::valueIsValid($suggestionQuality)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionQuality, implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSuggestionQuality', is_array($suggestionQuality) ? implode(', ', $suggestionQuality) : var_export($suggestionQuality, true), implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
         }
         $this->SuggestionQuality = $suggestionQuality;
         return $this;
@@ -149,25 +149,5 @@ class EwsSuggestion extends AbstractStructBase
     {
         $this->AttendeeConflictDataArray = $attendeeConflictDataArray;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSuggestion
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

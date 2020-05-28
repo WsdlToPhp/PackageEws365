@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ClientAccessTokenTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsClientAccessTokenTypeType
+class EwsClientAccessTokenTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'CallerIdentity'
@@ -26,16 +28,6 @@ class EwsClientAccessTokenTypeType
      */
     const VALUE_SCOPED_TOKEN = 'ScopedToken';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CALLER_IDENTITY
      * @uses self::VALUE_EXTENSION_CALLBACK
@@ -49,13 +41,5 @@ class EwsClientAccessTokenTypeType
             self::VALUE_EXTENSION_CALLBACK,
             self::VALUE_SCOPED_TOKEN,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

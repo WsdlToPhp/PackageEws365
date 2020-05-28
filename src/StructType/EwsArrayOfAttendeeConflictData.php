@@ -14,7 +14,10 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
 {
     /**
      * The UnknownAttendeeConflictData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - choice: UnknownAttendeeConflictData | IndividualAttendeeConflictData | TooBigGroupAttendeeConflictData | GroupAttendeeConflictData
+     * - choiceMaxOccurs: unbounded
+     * - choiceMinOccurs: 0
      * - maxOccurs: 1
      * - minOccurs: 1
      * - nillable: true
@@ -23,7 +26,10 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     public $UnknownAttendeeConflictData;
     /**
      * The IndividualAttendeeConflictData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - choice: UnknownAttendeeConflictData | IndividualAttendeeConflictData | TooBigGroupAttendeeConflictData | GroupAttendeeConflictData
+     * - choiceMaxOccurs: unbounded
+     * - choiceMinOccurs: 0
      * - maxOccurs: 1
      * - minOccurs: 1
      * - nillable: true
@@ -32,7 +38,10 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     public $IndividualAttendeeConflictData;
     /**
      * The TooBigGroupAttendeeConflictData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - choice: UnknownAttendeeConflictData | IndividualAttendeeConflictData | TooBigGroupAttendeeConflictData | GroupAttendeeConflictData
+     * - choiceMaxOccurs: unbounded
+     * - choiceMinOccurs: 0
      * - maxOccurs: 1
      * - minOccurs: 1
      * - nillable: true
@@ -41,7 +50,10 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
     public $TooBigGroupAttendeeConflictData;
     /**
      * The GroupAttendeeConflictData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - choice: UnknownAttendeeConflictData | IndividualAttendeeConflictData | TooBigGroupAttendeeConflictData | GroupAttendeeConflictData
+     * - choiceMaxOccurs: unbounded
+     * - choiceMinOccurs: 0
      * - maxOccurs: 1
      * - minOccurs: 1
      * - nillable: true
@@ -73,16 +85,57 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
      */
     public function getUnknownAttendeeConflictData()
     {
-        return $this->UnknownAttendeeConflictData;
+        return isset($this->UnknownAttendeeConflictData) ? $this->UnknownAttendeeConflictData : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setUnknownAttendeeConflictData method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setUnknownAttendeeConflictData method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateUnknownAttendeeConflictDataForChoiceConstraintsFromSetUnknownAttendeeConflictData($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndividualAttendeeConflictData',
+            'TooBigGroupAttendeeConflictData',
+            'GroupAttendeeConflictData',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property UnknownAttendeeConflictData can\'t be set as the property %s is already set. Only one property must be set among these properties: UnknownAttendeeConflictData, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set UnknownAttendeeConflictData value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setUnknownAttendeeConflictData(\Ews\StructType\EwsUnknownAttendeeConflictData $unknownAttendeeConflictData = null)
     {
-        $this->UnknownAttendeeConflictData = $unknownAttendeeConflictData;
+        // validation for constraint: choice(UnknownAttendeeConflictData, IndividualAttendeeConflictData, TooBigGroupAttendeeConflictData, GroupAttendeeConflictData)
+        if ('' !== ($unknownAttendeeConflictDataChoiceErrorMessage = self::validateUnknownAttendeeConflictDataForChoiceConstraintsFromSetUnknownAttendeeConflictData($unknownAttendeeConflictData))) {
+            throw new \InvalidArgumentException($unknownAttendeeConflictDataChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($unknownAttendeeConflictData) || (is_array($unknownAttendeeConflictData) && empty($unknownAttendeeConflictData))) {
+            unset($this->UnknownAttendeeConflictData);
+        } else {
+            $this->UnknownAttendeeConflictData = $unknownAttendeeConflictData;
+        }
         return $this;
     }
     /**
@@ -91,16 +144,57 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
      */
     public function getIndividualAttendeeConflictData()
     {
-        return $this->IndividualAttendeeConflictData;
+        return isset($this->IndividualAttendeeConflictData) ? $this->IndividualAttendeeConflictData : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setIndividualAttendeeConflictData method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setIndividualAttendeeConflictData method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateIndividualAttendeeConflictDataForChoiceConstraintsFromSetIndividualAttendeeConflictData($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'UnknownAttendeeConflictData',
+            'TooBigGroupAttendeeConflictData',
+            'GroupAttendeeConflictData',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property IndividualAttendeeConflictData can\'t be set as the property %s is already set. Only one property must be set among these properties: IndividualAttendeeConflictData, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set IndividualAttendeeConflictData value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setIndividualAttendeeConflictData(\Ews\StructType\EwsIndividualAttendeeConflictData $individualAttendeeConflictData = null)
     {
-        $this->IndividualAttendeeConflictData = $individualAttendeeConflictData;
+        // validation for constraint: choice(UnknownAttendeeConflictData, IndividualAttendeeConflictData, TooBigGroupAttendeeConflictData, GroupAttendeeConflictData)
+        if ('' !== ($individualAttendeeConflictDataChoiceErrorMessage = self::validateIndividualAttendeeConflictDataForChoiceConstraintsFromSetIndividualAttendeeConflictData($individualAttendeeConflictData))) {
+            throw new \InvalidArgumentException($individualAttendeeConflictDataChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($individualAttendeeConflictData) || (is_array($individualAttendeeConflictData) && empty($individualAttendeeConflictData))) {
+            unset($this->IndividualAttendeeConflictData);
+        } else {
+            $this->IndividualAttendeeConflictData = $individualAttendeeConflictData;
+        }
         return $this;
     }
     /**
@@ -109,16 +203,57 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
      */
     public function getTooBigGroupAttendeeConflictData()
     {
-        return $this->TooBigGroupAttendeeConflictData;
+        return isset($this->TooBigGroupAttendeeConflictData) ? $this->TooBigGroupAttendeeConflictData : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setTooBigGroupAttendeeConflictData method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setTooBigGroupAttendeeConflictData method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateTooBigGroupAttendeeConflictDataForChoiceConstraintsFromSetTooBigGroupAttendeeConflictData($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'UnknownAttendeeConflictData',
+            'IndividualAttendeeConflictData',
+            'GroupAttendeeConflictData',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property TooBigGroupAttendeeConflictData can\'t be set as the property %s is already set. Only one property must be set among these properties: TooBigGroupAttendeeConflictData, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set TooBigGroupAttendeeConflictData value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setTooBigGroupAttendeeConflictData(\Ews\StructType\EwsTooBigGroupAttendeeConflictData $tooBigGroupAttendeeConflictData = null)
     {
-        $this->TooBigGroupAttendeeConflictData = $tooBigGroupAttendeeConflictData;
+        // validation for constraint: choice(UnknownAttendeeConflictData, IndividualAttendeeConflictData, TooBigGroupAttendeeConflictData, GroupAttendeeConflictData)
+        if ('' !== ($tooBigGroupAttendeeConflictDataChoiceErrorMessage = self::validateTooBigGroupAttendeeConflictDataForChoiceConstraintsFromSetTooBigGroupAttendeeConflictData($tooBigGroupAttendeeConflictData))) {
+            throw new \InvalidArgumentException($tooBigGroupAttendeeConflictDataChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($tooBigGroupAttendeeConflictData) || (is_array($tooBigGroupAttendeeConflictData) && empty($tooBigGroupAttendeeConflictData))) {
+            unset($this->TooBigGroupAttendeeConflictData);
+        } else {
+            $this->TooBigGroupAttendeeConflictData = $tooBigGroupAttendeeConflictData;
+        }
         return $this;
     }
     /**
@@ -127,36 +262,57 @@ class EwsArrayOfAttendeeConflictData extends AbstractStructBase
      */
     public function getGroupAttendeeConflictData()
     {
-        return $this->GroupAttendeeConflictData;
+        return isset($this->GroupAttendeeConflictData) ? $this->GroupAttendeeConflictData : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setGroupAttendeeConflictData method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setGroupAttendeeConflictData method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateGroupAttendeeConflictDataForChoiceConstraintsFromSetGroupAttendeeConflictData($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'UnknownAttendeeConflictData',
+            'IndividualAttendeeConflictData',
+            'TooBigGroupAttendeeConflictData',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property GroupAttendeeConflictData can\'t be set as the property %s is already set. Only one property must be set among these properties: GroupAttendeeConflictData, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set GroupAttendeeConflictData value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsGroupAttendeeConflictData $groupAttendeeConflictData
      * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
      */
     public function setGroupAttendeeConflictData(\Ews\StructType\EwsGroupAttendeeConflictData $groupAttendeeConflictData = null)
     {
-        $this->GroupAttendeeConflictData = $groupAttendeeConflictData;
+        // validation for constraint: choice(UnknownAttendeeConflictData, IndividualAttendeeConflictData, TooBigGroupAttendeeConflictData, GroupAttendeeConflictData)
+        if ('' !== ($groupAttendeeConflictDataChoiceErrorMessage = self::validateGroupAttendeeConflictDataForChoiceConstraintsFromSetGroupAttendeeConflictData($groupAttendeeConflictData))) {
+            throw new \InvalidArgumentException($groupAttendeeConflictDataChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($groupAttendeeConflictData) || (is_array($groupAttendeeConflictData) && empty($groupAttendeeConflictData))) {
+            unset($this->GroupAttendeeConflictData);
+        } else {
+            $this->GroupAttendeeConflictData = $groupAttendeeConflictData;
+        }
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsArrayOfAttendeeConflictData
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

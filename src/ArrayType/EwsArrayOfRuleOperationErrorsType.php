@@ -14,7 +14,7 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
 {
     /**
      * The RuleOperationError
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var \Ews\StructType\EwsRuleOperationErrorType[]
@@ -39,6 +39,28 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
         return $this->RuleOperationError;
     }
     /**
+     * This method is responsible for validating the values passed to the setRuleOperationError method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRuleOperationError method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRuleOperationErrorForArrayConstraintsFromSetRuleOperationError(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRuleOperationErrorsTypeRuleOperationErrorItem instanceof \Ews\StructType\EwsRuleOperationErrorType) {
+                $invalidValues[] = is_object($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) ? get_class($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) : sprintf('%s(%s)', gettype($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem), var_export($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The RuleOperationError property can only contain items of type \Ews\StructType\EwsRuleOperationErrorType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set RuleOperationError value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsRuleOperationErrorType[] $ruleOperationError
@@ -46,11 +68,9 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      */
     public function setRuleOperationError(array $ruleOperationError = array())
     {
-        foreach ($ruleOperationError as $arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfRuleOperationErrorsTypeRuleOperationErrorItem instanceof \Ews\StructType\EwsRuleOperationErrorType) {
-                throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of \Ews\StructType\EwsRuleOperationErrorType, "%s" given', is_object($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) ? get_class($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) : gettype($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($ruleOperationErrorArrayErrorMessage = self::validateRuleOperationErrorForArrayConstraintsFromSetRuleOperationError($ruleOperationError))) {
+            throw new \InvalidArgumentException($ruleOperationErrorArrayErrorMessage, __LINE__);
         }
         $this->RuleOperationError = $ruleOperationError;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsRuleOperationErrorType) {
-            throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of \Ews\StructType\EwsRuleOperationErrorType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of type \Ews\StructType\EwsRuleOperationErrorType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->RuleOperationError[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'RuleOperationError';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

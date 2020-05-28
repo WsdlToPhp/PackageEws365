@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SerializedSecurityContextType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Allow attributes in the soap namespace to be used here
  * @package Ews
  * @subpackage Structs
@@ -21,21 +21,21 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
     public $UserSid;
     /**
      * The GroupSids
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
      */
     public $GroupSids;
     /**
      * The RestrictedGroupSids
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
      */
     public $RestrictedGroupSids;
     /**
      * The PrimarySmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -76,7 +76,7 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($userSid) && !is_string($userSid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userSid)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userSid, true), gettype($userSid)), __LINE__);
         }
         $this->UserSid = $userSid;
         return $this;
@@ -134,29 +134,9 @@ class EwsSerializedSecurityContextType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSerializedSecurityContextType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

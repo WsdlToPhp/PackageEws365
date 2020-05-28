@@ -14,7 +14,7 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
 {
     /**
      * The LocationItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsLocationConstraintItem[]
@@ -39,6 +39,28 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
         return $this->LocationItem;
     }
     /**
+     * This method is responsible for validating the values passed to the setLocationItem method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setLocationItem method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateLocationItemForArrayConstraintsFromSetLocationItem(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfLocationConstraintItemsLocationItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfLocationConstraintItemsLocationItemItem instanceof \Ews\StructType\EwsLocationConstraintItem) {
+                $invalidValues[] = is_object($arrayOfLocationConstraintItemsLocationItemItem) ? get_class($arrayOfLocationConstraintItemsLocationItemItem) : sprintf('%s(%s)', gettype($arrayOfLocationConstraintItemsLocationItemItem), var_export($arrayOfLocationConstraintItemsLocationItemItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The LocationItem property can only contain items of type \Ews\StructType\EwsLocationConstraintItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set LocationItem value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsLocationConstraintItem[] $locationItem
@@ -46,11 +68,9 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      */
     public function setLocationItem(array $locationItem = array())
     {
-        foreach ($locationItem as $arrayOfLocationConstraintItemsLocationItemItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfLocationConstraintItemsLocationItemItem instanceof \Ews\StructType\EwsLocationConstraintItem) {
-                throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of \Ews\StructType\EwsLocationConstraintItem, "%s" given', is_object($arrayOfLocationConstraintItemsLocationItemItem) ? get_class($arrayOfLocationConstraintItemsLocationItemItem) : gettype($arrayOfLocationConstraintItemsLocationItemItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($locationItemArrayErrorMessage = self::validateLocationItemForArrayConstraintsFromSetLocationItem($locationItem))) {
+            throw new \InvalidArgumentException($locationItemArrayErrorMessage, __LINE__);
         }
         $this->LocationItem = $locationItem;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsLocationConstraintItem) {
-            throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of \Ews\StructType\EwsLocationConstraintItem, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of type \Ews\StructType\EwsLocationConstraintItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->LocationItem[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'LocationItem';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

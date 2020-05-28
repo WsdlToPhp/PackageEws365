@@ -53,7 +53,7 @@ class EwsDelete extends SoapClientBase
     }
     /**
      * Method to call the operation originally named DeleteFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsDelete extends SoapClientBase
     public function DeleteFolder(\Ews\StructType\EwsDeleteFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->DeleteFolder($request));
+            $this->setResult($this->getSoapClient()->DeleteFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -77,7 +77,7 @@ class EwsDelete extends SoapClientBase
     }
     /**
      * Method to call the operation originally named DeleteItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -92,7 +92,7 @@ class EwsDelete extends SoapClientBase
     public function DeleteItem(\Ews\StructType\EwsDeleteItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->DeleteItem($request));
+            $this->setResult($this->getSoapClient()->DeleteItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -101,7 +101,7 @@ class EwsDelete extends SoapClientBase
     }
     /**
      * Method to call the operation originally named DeleteAttachment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -116,7 +116,7 @@ class EwsDelete extends SoapClientBase
     public function DeleteAttachment(\Ews\StructType\EwsDeleteAttachmentType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->DeleteAttachment($request));
+            $this->setResult($this->getSoapClient()->DeleteAttachment($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -125,7 +125,7 @@ class EwsDelete extends SoapClientBase
     }
     /**
      * Method to call the operation originally named DeleteUserConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -140,7 +140,7 @@ class EwsDelete extends SoapClientBase
     public function DeleteUserConfiguration(\Ews\StructType\EwsDeleteUserConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->DeleteUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->DeleteUserConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -155,13 +155,5 @@ class EwsDelete extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

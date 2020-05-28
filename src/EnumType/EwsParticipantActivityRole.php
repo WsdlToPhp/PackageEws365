@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ParticipantActivityRole EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsParticipantActivityRole
+class EwsParticipantActivityRole extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Organizer'
@@ -26,16 +28,6 @@ class EwsParticipantActivityRole
      */
     const VALUE_PRESENTER = 'Presenter';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ORGANIZER
      * @uses self::VALUE_ATTENDEE
@@ -49,13 +41,5 @@ class EwsParticipantActivityRole
             self::VALUE_ATTENDEE,
             self::VALUE_PRESENTER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

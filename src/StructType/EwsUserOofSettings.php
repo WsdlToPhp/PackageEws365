@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserOofSettings StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - type: t:UserOofSettings
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsUserOofSettings extends AbstractStructBase
 {
     /**
      * The OofState
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsUserOofSettings extends AbstractStructBase
     public $OofState;
     /**
      * The ExternalAudience
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsUserOofSettings extends AbstractStructBase
     public $ExternalAudience;
     /**
      * The Duration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsDuration
@@ -40,7 +40,7 @@ class EwsUserOofSettings extends AbstractStructBase
     public $Duration;
     /**
      * The InternalReply
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsReplyBody
@@ -48,7 +48,7 @@ class EwsUserOofSettings extends AbstractStructBase
     public $InternalReply;
     /**
      * The ExternalReply
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsReplyBody
@@ -96,7 +96,7 @@ class EwsUserOofSettings extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsOofState::valueIsValid($oofState)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $oofState, implode(', ', \Ews\EnumType\EwsOofState::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsOofState', is_array($oofState) ? implode(', ', $oofState) : var_export($oofState, true), implode(', ', \Ews\EnumType\EwsOofState::getValidValues())), __LINE__);
         }
         $this->OofState = $oofState;
         return $this;
@@ -121,7 +121,7 @@ class EwsUserOofSettings extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($externalAudience)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $externalAudience, implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExternalAudience', is_array($externalAudience) ? implode(', ', $externalAudience) : var_export($externalAudience, true), implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }
         $this->ExternalAudience = $externalAudience;
         return $this;
@@ -179,25 +179,5 @@ class EwsUserOofSettings extends AbstractStructBase
     {
         $this->ExternalReply = $externalReply;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserOofSettings
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

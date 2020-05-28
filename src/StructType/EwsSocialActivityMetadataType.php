@@ -52,7 +52,7 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetGroupName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
         }
         $this->TargetGroupName = $targetGroupName;
         return $this;
@@ -74,29 +74,9 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($messagePreview) && !is_string($messagePreview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messagePreview)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messagePreview, true), gettype($messagePreview)), __LINE__);
         }
         $this->MessagePreview = $messagePreview;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSocialActivityMetadataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

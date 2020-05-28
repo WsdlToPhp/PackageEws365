@@ -14,56 +14,56 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
 {
     /**
      * The Start
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Start;
     /**
      * The End
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $End;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Location;
     /**
      * The Recurrence
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRecurrenceType
      */
     public $Recurrence;
     /**
      * The CalendarItemType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $CalendarItemType;
     /**
      * The ProposedStart
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ProposedStart;
     /**
      * The ProposedEnd
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ProposedEnd;
     /**
      * The EnhancedLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEnhancedLocationType
      */
@@ -116,7 +116,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
         return $this;
@@ -138,7 +138,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
         return $this;
@@ -160,7 +160,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -200,7 +200,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($calendarItemType) && !is_string($calendarItemType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarItemType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($calendarItemType, true), gettype($calendarItemType)), __LINE__);
         }
         $this->CalendarItemType = $calendarItemType;
         return $this;
@@ -222,7 +222,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($proposedStart) && !is_string($proposedStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedStart)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedStart, true), gettype($proposedStart)), __LINE__);
         }
         $this->ProposedStart = $proposedStart;
         return $this;
@@ -244,7 +244,7 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         // validation for constraint: string
         if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedEnd)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedEnd, true), gettype($proposedEnd)), __LINE__);
         }
         $this->ProposedEnd = $proposedEnd;
         return $this;
@@ -266,25 +266,5 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
     {
         $this->EnhancedLocation = $enhancedLocation;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

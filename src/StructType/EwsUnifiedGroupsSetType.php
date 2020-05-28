@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupsSetType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents a set of unified groups in a GetUserUnifiedGroup response
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
 {
     /**
      * The FilterType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -24,7 +24,7 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     public $FilterType;
     /**
      * The TotalGroups
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -32,7 +32,7 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     public $TotalGroups;
     /**
      * The Groups
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupsType
@@ -74,7 +74,7 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $filterType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
         $this->FilterType = $filterType;
         return $this;
@@ -95,8 +95,8 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     public function setTotalGroups($totalGroups = null)
     {
         // validation for constraint: int
-        if (!is_null($totalGroups) && !is_numeric($totalGroups)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalGroups)), __LINE__);
+        if (!is_null($totalGroups) && !(is_int($totalGroups) || ctype_digit($totalGroups))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalGroups, true), gettype($totalGroups)), __LINE__);
         }
         $this->TotalGroups = $totalGroups;
         return $this;
@@ -118,25 +118,5 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
     {
         $this->Groups = $groups;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

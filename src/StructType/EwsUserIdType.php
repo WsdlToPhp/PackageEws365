@@ -14,7 +14,7 @@ class EwsUserIdType extends AbstractStructBase
 {
     /**
      * The SID
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsUserIdType extends AbstractStructBase
     public $SID;
     /**
      * The PrimarySmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsUserIdType extends AbstractStructBase
     public $PrimarySmtpAddress;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsUserIdType extends AbstractStructBase
     public $DisplayName;
     /**
      * The DistinguishedUser
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsUserIdType extends AbstractStructBase
     public $DistinguishedUser;
     /**
      * The ExternalUserIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -91,7 +91,7 @@ class EwsUserIdType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sID) && !is_string($sID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sID)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sID, true), gettype($sID)), __LINE__);
         }
         $this->SID = $sID;
         return $this;
@@ -113,7 +113,7 @@ class EwsUserIdType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
@@ -135,7 +135,7 @@ class EwsUserIdType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -160,7 +160,7 @@ class EwsUserIdType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedUserType::valueIsValid($distinguishedUser)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $distinguishedUser, implode(', ', \Ews\EnumType\EwsDistinguishedUserType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDistinguishedUserType', is_array($distinguishedUser) ? implode(', ', $distinguishedUser) : var_export($distinguishedUser, true), implode(', ', \Ews\EnumType\EwsDistinguishedUserType::getValidValues())), __LINE__);
         }
         $this->DistinguishedUser = $distinguishedUser;
         return $this;
@@ -182,29 +182,9 @@ class EwsUserIdType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($externalUserIdentity) && !is_string($externalUserIdentity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalUserIdentity)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalUserIdentity, true), gettype($externalUserIdentity)), __LINE__);
         }
         $this->ExternalUserIdentity = $externalUserIdentity;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

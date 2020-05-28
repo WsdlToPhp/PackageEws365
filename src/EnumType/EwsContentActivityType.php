@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ContentActivityType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsContentActivityType
+class EwsContentActivityType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Poll'
@@ -46,16 +48,6 @@ class EwsContentActivityType
      */
     const VALUE_SHARED_NOTES = 'SharedNotes';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_POLL
      * @uses self::VALUE_WHITE_BOARD
@@ -77,13 +69,5 @@ class EwsContentActivityType
             self::VALUE_ANNOTATIONS,
             self::VALUE_SHARED_NOTES,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

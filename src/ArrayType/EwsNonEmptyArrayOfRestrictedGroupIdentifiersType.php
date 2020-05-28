@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
 {
     /**
      * The RestrictedGroupIdentifier
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsSidAndAttributesType[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
         return $this->RestrictedGroupIdentifier;
     }
     /**
+     * This method is responsible for validating the values passed to the setRestrictedGroupIdentifier method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRestrictedGroupIdentifier method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRestrictedGroupIdentifierForArrayConstraintsFromSetRestrictedGroupIdentifier(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) ? get_class($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem), var_export($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The RestrictedGroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set RestrictedGroupIdentifier value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
@@ -45,11 +67,9 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      */
     public function setRestrictedGroupIdentifier(array $restrictedGroupIdentifier = array())
     {
-        foreach ($restrictedGroupIdentifier as $nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
-                throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) ? get_class($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) : gettype($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($restrictedGroupIdentifierArrayErrorMessage = self::validateRestrictedGroupIdentifierForArrayConstraintsFromSetRestrictedGroupIdentifier($restrictedGroupIdentifier))) {
+            throw new \InvalidArgumentException($restrictedGroupIdentifierArrayErrorMessage, __LINE__);
         }
         $this->RestrictedGroupIdentifier = $restrictedGroupIdentifier;
         return $this;
@@ -64,7 +84,7 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSidAndAttributesType) {
-            throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of \Ews\StructType\EwsSidAndAttributesType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->RestrictedGroupIdentifier[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
     public function getAttributeName()
     {
         return 'RestrictedGroupIdentifier';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

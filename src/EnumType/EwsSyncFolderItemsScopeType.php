@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SyncFolderItemsScopeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSyncFolderItemsScopeType
+class EwsSyncFolderItemsScopeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NormalItems'
@@ -21,16 +23,6 @@ class EwsSyncFolderItemsScopeType
      */
     const VALUE_NORMAL_AND_ASSOCIATED_ITEMS = 'NormalAndAssociatedItems';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NORMAL_ITEMS
      * @uses self::VALUE_NORMAL_AND_ASSOCIATED_ITEMS
@@ -42,13 +34,5 @@ class EwsSyncFolderItemsScopeType
             self::VALUE_NORMAL_ITEMS,
             self::VALUE_NORMAL_AND_ASSOCIATED_ITEMS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

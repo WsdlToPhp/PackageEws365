@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for XrmGraphRelationshipType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsXrmGraphRelationshipType
+class EwsXrmGraphRelationshipType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'PointsOfContactFor'
@@ -26,16 +28,6 @@ class EwsXrmGraphRelationshipType
      */
     const VALUE_WORKS_FOR = 'WorksFor';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_POINTS_OF_CONTACT_FOR
      * @uses self::VALUE_CUSTOMER_OF
@@ -49,13 +41,5 @@ class EwsXrmGraphRelationshipType
             self::VALUE_CUSTOMER_OF,
             self::VALUE_WORKS_FOR,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

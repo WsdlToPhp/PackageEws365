@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
 {
     /**
      * The Unseen
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUnseenDataType[]
@@ -39,6 +39,28 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
         return $this->Unseen;
     }
     /**
+     * This method is responsible for validating the values passed to the setUnseen method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setUnseen method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateUnseenForArrayConstraintsFromSetUnseen(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfUseenDataTypeUnseenItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfUseenDataTypeUnseenItem instanceof \Ews\StructType\EwsUnseenDataType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfUseenDataTypeUnseenItem) ? get_class($nonEmptyArrayOfUseenDataTypeUnseenItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfUseenDataTypeUnseenItem), var_export($nonEmptyArrayOfUseenDataTypeUnseenItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Unseen property can only contain items of type \Ews\StructType\EwsUnseenDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Unseen value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsUnseenDataType[] $unseen
@@ -46,11 +68,9 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
      */
     public function setUnseen(array $unseen = array())
     {
-        foreach ($unseen as $nonEmptyArrayOfUseenDataTypeUnseenItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfUseenDataTypeUnseenItem instanceof \Ews\StructType\EwsUnseenDataType) {
-                throw new \InvalidArgumentException(sprintf('The Unseen property can only contain items of \Ews\StructType\EwsUnseenDataType, "%s" given', is_object($nonEmptyArrayOfUseenDataTypeUnseenItem) ? get_class($nonEmptyArrayOfUseenDataTypeUnseenItem) : gettype($nonEmptyArrayOfUseenDataTypeUnseenItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($unseenArrayErrorMessage = self::validateUnseenForArrayConstraintsFromSetUnseen($unseen))) {
+            throw new \InvalidArgumentException($unseenArrayErrorMessage, __LINE__);
         }
         $this->Unseen = $unseen;
         return $this;
@@ -65,7 +85,7 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsUnseenDataType) {
-            throw new \InvalidArgumentException(sprintf('The Unseen property can only contain items of \Ews\StructType\EwsUnseenDataType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Unseen property can only contain items of type \Ews\StructType\EwsUnseenDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Unseen[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Unseen';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUseenDataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

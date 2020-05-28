@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for OnlineMeetingAccessLevelType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsOnlineMeetingAccessLevelType
+class EwsOnlineMeetingAccessLevelType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Locked'
@@ -31,16 +33,6 @@ class EwsOnlineMeetingAccessLevelType
      */
     const VALUE_EVERYONE = 'Everyone';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_LOCKED
      * @uses self::VALUE_INVITED
@@ -56,13 +48,5 @@ class EwsOnlineMeetingAccessLevelType
             self::VALUE_INTERNAL,
             self::VALUE_EVERYONE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

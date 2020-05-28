@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for NotificationEventTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsNotificationEventTypeType
+class EwsNotificationEventTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'CopiedEvent'
@@ -46,16 +48,6 @@ class EwsNotificationEventTypeType
      */
     const VALUE_FREE_BUSY_CHANGED_EVENT = 'FreeBusyChangedEvent';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_COPIED_EVENT
      * @uses self::VALUE_CREATED_EVENT
@@ -77,13 +69,5 @@ class EwsNotificationEventTypeType
             self::VALUE_NEW_MAIL_EVENT,
             self::VALUE_FREE_BUSY_CHANGED_EVENT,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetNonIndexableItemDetailsType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the GetNonIndexableItemDetails web method.
  * @package Ews
  * @subpackage Structs
@@ -16,35 +16,35 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
 {
     /**
      * The Mailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
     public $Mailboxes;
     /**
      * The PageSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $PageSize;
     /**
      * The PageItemReference
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $PageItemReference;
     /**
      * The PageDirection
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $PageDirection;
     /**
      * The SearchArchiveOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -105,8 +105,8 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     public function setPageSize($pageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($pageSize) && !is_numeric($pageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageSize)), __LINE__);
+        if (!is_null($pageSize) && !(is_int($pageSize) || ctype_digit($pageSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
         return $this;
@@ -128,7 +128,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($pageItemReference) && !is_string($pageItemReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pageItemReference)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pageItemReference, true), gettype($pageItemReference)), __LINE__);
         }
         $this->PageItemReference = $pageItemReference;
         return $this;
@@ -153,7 +153,7 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $pageDirection, implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchPageDirectionType', is_array($pageDirection) ? implode(', ', $pageDirection) : var_export($pageDirection, true), implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
         }
         $this->PageDirection = $pageDirection;
         return $this;
@@ -175,29 +175,9 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($searchArchiveOnly) && !is_bool($searchArchiveOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchArchiveOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchArchiveOnly, true), gettype($searchArchiveOnly)), __LINE__);
         }
         $this->SearchArchiveOnly = $searchArchiveOnly;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

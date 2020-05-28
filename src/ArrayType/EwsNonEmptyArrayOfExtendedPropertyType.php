@@ -14,7 +14,10 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
 {
     /**
      * The ExtendedProperty
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - choice: ExtendedProperty
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 1
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsExtendedPropertyType[]
      */
@@ -35,24 +38,108 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
      */
     public function getExtendedProperty()
     {
-        return $this->ExtendedProperty;
+        return isset($this->ExtendedProperty) ? $this->ExtendedProperty : null;
+    }
+    /**
+     * This method is responsible for validating the values passed to the setExtendedProperty method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setExtendedProperty method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) ? get_class($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem), var_export($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setExtendedProperty method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setExtendedProperty method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateExtendedPropertyForChoiceConstraintsFromSetExtendedProperty($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property ExtendedProperty can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedProperty, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set ExtendedProperty value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
      * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
      */
     public function setExtendedProperty(array $extendedProperty = array())
     {
-        foreach ($extendedProperty as $nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
-                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) ? get_class($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem) : gettype($nonEmptyArrayOfExtendedPropertyTypeExtendedPropertyItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($extendedPropertyArrayErrorMessage = self::validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty($extendedProperty))) {
+            throw new \InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
         }
-        $this->ExtendedProperty = $extendedProperty;
+        // validation for constraint: choice(ExtendedProperty)
+        if ('' !== ($extendedPropertyChoiceErrorMessage = self::validateExtendedPropertyForChoiceConstraintsFromSetExtendedProperty($extendedProperty))) {
+            throw new \InvalidArgumentException($extendedPropertyChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($extendedProperty) || (is_array($extendedProperty) && empty($extendedProperty))) {
+            unset($this->ExtendedProperty);
+        } else {
+            $this->ExtendedProperty = $extendedProperty;
+        }
         return $this;
+    }
+    /**
+     * This method is responsible for validating the value passed to the addToExtendedProperty method
+     * This method is willingly generated in order to preserve the one-line inline validation within the addToExtendedProperty method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateItemForChoiceConstraintsFromAddToExtendedProperty($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property ExtendedProperty can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedProperty, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Add item to ExtendedProperty value
@@ -64,7 +151,11 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
-            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        // validation for constraint: choice(ExtendedProperty)
+        if ('' !== ($itemChoiceErrorMessage = self::validateItemForChoiceConstraintsFromAddToExtendedProperty($item))) {
+            throw new \InvalidArgumentException($itemChoiceErrorMessage, __LINE__);
         }
         $this->ExtendedProperty[] = $item;
         return $this;
@@ -124,25 +215,5 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'ExtendedProperty';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

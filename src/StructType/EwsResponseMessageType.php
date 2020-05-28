@@ -14,35 +14,35 @@ class EwsResponseMessageType extends AbstractStructBase
 {
     /**
      * The ResponseClass
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $ResponseClass;
     /**
      * The MessageText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $MessageText;
     /**
      * The ResponseCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ResponseCode;
     /**
      * The DescriptiveLinkKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $DescriptiveLinkKey;
     /**
      * The MessageXml
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMessageXml
      */
@@ -89,7 +89,7 @@ class EwsResponseMessageType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseClassType::valueIsValid($responseClass)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseClass, implode(', ', \Ews\EnumType\EwsResponseClassType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResponseClassType', is_array($responseClass) ? implode(', ', $responseClass) : var_export($responseClass, true), implode(', ', \Ews\EnumType\EwsResponseClassType::getValidValues())), __LINE__);
         }
         $this->ResponseClass = $responseClass;
         return $this;
@@ -111,7 +111,7 @@ class EwsResponseMessageType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($messageText) && !is_string($messageText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messageText, true), gettype($messageText)), __LINE__);
         }
         $this->MessageText = $messageText;
         return $this;
@@ -136,7 +136,7 @@ class EwsResponseMessageType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseCodeType::valueIsValid($responseCode)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseCode, implode(', ', \Ews\EnumType\EwsResponseCodeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResponseCodeType', is_array($responseCode) ? implode(', ', $responseCode) : var_export($responseCode, true), implode(', ', \Ews\EnumType\EwsResponseCodeType::getValidValues())), __LINE__);
         }
         $this->ResponseCode = $responseCode;
         return $this;
@@ -157,8 +157,8 @@ class EwsResponseMessageType extends AbstractStructBase
     public function setDescriptiveLinkKey($descriptiveLinkKey = null)
     {
         // validation for constraint: int
-        if (!is_null($descriptiveLinkKey) && !is_numeric($descriptiveLinkKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($descriptiveLinkKey)), __LINE__);
+        if (!is_null($descriptiveLinkKey) && !(is_int($descriptiveLinkKey) || ctype_digit($descriptiveLinkKey))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($descriptiveLinkKey, true), gettype($descriptiveLinkKey)), __LINE__);
         }
         $this->DescriptiveLinkKey = $descriptiveLinkKey;
         return $this;
@@ -180,25 +180,5 @@ class EwsResponseMessageType extends AbstractStructBase
     {
         $this->MessageXml = $messageXml;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

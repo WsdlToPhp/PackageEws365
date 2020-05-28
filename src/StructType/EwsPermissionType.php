@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PermissionType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: A permission on a folder
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsPermissionType extends EwsBasePermissionType
 {
     /**
      * The PermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsPermissionType extends EwsBasePermissionType
     public $PermissionLevel;
     /**
      * The ReadItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -63,7 +63,7 @@ class EwsPermissionType extends EwsBasePermissionType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionLevelType::valueIsValid($permissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionLevelType', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \Ews\EnumType\EwsPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->PermissionLevel = $permissionLevel;
         return $this;
@@ -88,29 +88,9 @@ class EwsPermissionType extends EwsBasePermissionType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionReadAccessType::valueIsValid($readItems)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $readItems, implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionReadAccessType', is_array($readItems) ? implode(', ', $readItems) : var_export($readItems, true), implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
         }
         $this->ReadItems = $readItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPermissionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

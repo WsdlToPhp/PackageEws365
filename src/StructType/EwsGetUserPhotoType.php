@@ -14,7 +14,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
 {
     /**
      * The Email
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
     public $Email;
     /**
      * The SizeRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -58,7 +58,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($email) && !is_string($email)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($email)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
         }
         $this->Email = $email;
         return $this;
@@ -83,29 +83,9 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserPhotoSizeType::valueIsValid($sizeRequested)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sizeRequested, implode(', ', \Ews\EnumType\EwsUserPhotoSizeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserPhotoSizeType', is_array($sizeRequested) ? implode(', ', $sizeRequested) : var_export($sizeRequested, true), implode(', ', \Ews\EnumType\EwsUserPhotoSizeType::getValidValues())), __LINE__);
         }
         $this->SizeRequested = $sizeRequested;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetUserPhotoType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

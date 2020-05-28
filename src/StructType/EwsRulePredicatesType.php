@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RulePredicatesType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Rule predicates, used as rule conditions or exceptions
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRulePredicatesType extends AbstractStructBase
 {
     /**
      * The Categories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -24,7 +24,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $Categories;
     /**
      * The ContainsBodyStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -32,7 +32,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsBodyStrings;
     /**
      * The ContainsHeaderStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -40,7 +40,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsHeaderStrings;
     /**
      * The ContainsRecipientStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -48,7 +48,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsRecipientStrings;
     /**
      * The ContainsSenderStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -56,7 +56,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsSenderStrings;
     /**
      * The ContainsSubjectOrBodyStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -64,7 +64,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsSubjectOrBodyStrings;
     /**
      * The ContainsSubjectStrings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -72,7 +72,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ContainsSubjectStrings;
     /**
      * The FlaggedForAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +80,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $FlaggedForAction;
     /**
      * The FromAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -88,7 +88,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $FromAddresses;
     /**
      * The FromConnectedAccounts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -96,7 +96,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $FromConnectedAccounts;
     /**
      * The HasAttachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -104,7 +104,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $HasAttachments;
     /**
      * The Importance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -112,7 +112,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $Importance;
     /**
      * The IsApprovalRequest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -120,7 +120,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsApprovalRequest;
     /**
      * The IsAutomaticForward
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -128,7 +128,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsAutomaticForward;
     /**
      * The IsAutomaticReply
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -136,7 +136,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsAutomaticReply;
     /**
      * The IsEncrypted
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -144,7 +144,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsEncrypted;
     /**
      * The IsMeetingRequest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -152,7 +152,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsMeetingRequest;
     /**
      * The IsMeetingResponse
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -160,7 +160,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsMeetingResponse;
     /**
      * The IsNDR
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -168,7 +168,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsNDR;
     /**
      * The IsPermissionControlled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -176,7 +176,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsPermissionControlled;
     /**
      * The IsReadReceipt
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -184,7 +184,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsReadReceipt;
     /**
      * The IsSigned
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -192,7 +192,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsSigned;
     /**
      * The IsVoicemail
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -200,7 +200,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $IsVoicemail;
     /**
      * The ItemClasses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -208,7 +208,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $ItemClasses;
     /**
      * The MessageClassifications
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -216,7 +216,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $MessageClassifications;
     /**
      * The NotSentToMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -224,7 +224,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $NotSentToMe;
     /**
      * The SentCcMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -232,7 +232,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $SentCcMe;
     /**
      * The SentOnlyToMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -240,7 +240,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $SentOnlyToMe;
     /**
      * The SentToAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -248,7 +248,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $SentToAddresses;
     /**
      * The SentToMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -256,7 +256,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $SentToMe;
     /**
      * The SentToOrCcMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -264,7 +264,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $SentToOrCcMe;
     /**
      * The Sensitivity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -272,7 +272,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $Sensitivity;
     /**
      * The WithinDateRange
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRulePredicateDateRangeType
@@ -280,7 +280,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     public $WithinDateRange;
     /**
      * The WithinSizeRange
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRulePredicateSizeRangeType
@@ -541,7 +541,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlaggedForActionType::valueIsValid($flaggedForAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flaggedForAction, implode(', ', \Ews\EnumType\EwsFlaggedForActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlaggedForActionType', is_array($flaggedForAction) ? implode(', ', $flaggedForAction) : var_export($flaggedForAction, true), implode(', ', \Ews\EnumType\EwsFlaggedForActionType::getValidValues())), __LINE__);
         }
         $this->FlaggedForAction = $flaggedForAction;
         return $this;
@@ -599,7 +599,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
         return $this;
@@ -624,7 +624,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
         return $this;
@@ -646,7 +646,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isApprovalRequest) && !is_bool($isApprovalRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isApprovalRequest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isApprovalRequest, true), gettype($isApprovalRequest)), __LINE__);
         }
         $this->IsApprovalRequest = $isApprovalRequest;
         return $this;
@@ -668,7 +668,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isAutomaticForward) && !is_bool($isAutomaticForward)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAutomaticForward)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticForward, true), gettype($isAutomaticForward)), __LINE__);
         }
         $this->IsAutomaticForward = $isAutomaticForward;
         return $this;
@@ -690,7 +690,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isAutomaticReply) && !is_bool($isAutomaticReply)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAutomaticReply)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticReply, true), gettype($isAutomaticReply)), __LINE__);
         }
         $this->IsAutomaticReply = $isAutomaticReply;
         return $this;
@@ -712,7 +712,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isEncrypted) && !is_bool($isEncrypted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEncrypted)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEncrypted, true), gettype($isEncrypted)), __LINE__);
         }
         $this->IsEncrypted = $isEncrypted;
         return $this;
@@ -734,7 +734,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMeetingRequest) && !is_bool($isMeetingRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeetingRequest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingRequest, true), gettype($isMeetingRequest)), __LINE__);
         }
         $this->IsMeetingRequest = $isMeetingRequest;
         return $this;
@@ -756,7 +756,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMeetingResponse) && !is_bool($isMeetingResponse)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMeetingResponse)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingResponse, true), gettype($isMeetingResponse)), __LINE__);
         }
         $this->IsMeetingResponse = $isMeetingResponse;
         return $this;
@@ -778,7 +778,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isNDR) && !is_bool($isNDR)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isNDR)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNDR, true), gettype($isNDR)), __LINE__);
         }
         $this->IsNDR = $isNDR;
         return $this;
@@ -800,7 +800,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isPermissionControlled) && !is_bool($isPermissionControlled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPermissionControlled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermissionControlled, true), gettype($isPermissionControlled)), __LINE__);
         }
         $this->IsPermissionControlled = $isPermissionControlled;
         return $this;
@@ -822,7 +822,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isReadReceipt) && !is_bool($isReadReceipt)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceipt)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReadReceipt, true), gettype($isReadReceipt)), __LINE__);
         }
         $this->IsReadReceipt = $isReadReceipt;
         return $this;
@@ -844,7 +844,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isSigned) && !is_bool($isSigned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSigned)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSigned, true), gettype($isSigned)), __LINE__);
         }
         $this->IsSigned = $isSigned;
         return $this;
@@ -866,7 +866,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isVoicemail) && !is_bool($isVoicemail)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isVoicemail)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVoicemail, true), gettype($isVoicemail)), __LINE__);
         }
         $this->IsVoicemail = $isVoicemail;
         return $this;
@@ -924,7 +924,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($notSentToMe) && !is_bool($notSentToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($notSentToMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($notSentToMe, true), gettype($notSentToMe)), __LINE__);
         }
         $this->NotSentToMe = $notSentToMe;
         return $this;
@@ -946,7 +946,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($sentCcMe) && !is_bool($sentCcMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentCcMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentCcMe, true), gettype($sentCcMe)), __LINE__);
         }
         $this->SentCcMe = $sentCcMe;
         return $this;
@@ -968,7 +968,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($sentOnlyToMe) && !is_bool($sentOnlyToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentOnlyToMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentOnlyToMe, true), gettype($sentOnlyToMe)), __LINE__);
         }
         $this->SentOnlyToMe = $sentOnlyToMe;
         return $this;
@@ -1008,7 +1008,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($sentToMe) && !is_bool($sentToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentToMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToMe, true), gettype($sentToMe)), __LINE__);
         }
         $this->SentToMe = $sentToMe;
         return $this;
@@ -1030,7 +1030,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($sentToOrCcMe) && !is_bool($sentToOrCcMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($sentToOrCcMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToOrCcMe, true), gettype($sentToOrCcMe)), __LINE__);
         }
         $this->SentToOrCcMe = $sentToOrCcMe;
         return $this;
@@ -1055,7 +1055,7 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sensitivity, implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
         $this->Sensitivity = $sensitivity;
         return $this;
@@ -1095,25 +1095,5 @@ class EwsRulePredicatesType extends AbstractStructBase
     {
         $this->WithinSizeRange = $withinSizeRange;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRulePredicatesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

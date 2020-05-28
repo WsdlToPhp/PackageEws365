@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ConflictResolutionType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Type of conflict resolution to attempt during update
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsConflictResolutionType
+class EwsConflictResolutionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NeverOverwrite'
@@ -28,16 +30,6 @@ class EwsConflictResolutionType
      */
     const VALUE_ALWAYS_OVERWRITE = 'AlwaysOverwrite';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NEVER_OVERWRITE
      * @uses self::VALUE_AUTO_RESOLVE
@@ -51,13 +43,5 @@ class EwsConflictResolutionType
             self::VALUE_AUTO_RESOLVE,
             self::VALUE_ALWAYS_OVERWRITE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

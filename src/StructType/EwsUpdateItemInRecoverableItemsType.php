@@ -19,21 +19,21 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
     public $ItemId;
     /**
      * The Updates
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
      */
     public $Updates;
     /**
      * The Attachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType
      */
     public $Attachments;
     /**
      * The MakeItemImmutable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -128,29 +128,9 @@ class EwsUpdateItemInRecoverableItemsType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($makeItemImmutable) && !is_bool($makeItemImmutable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($makeItemImmutable)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($makeItemImmutable, true), gettype($makeItemImmutable)), __LINE__);
         }
         $this->MakeItemImmutable = $makeItemImmutable;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUpdateItemInRecoverableItemsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

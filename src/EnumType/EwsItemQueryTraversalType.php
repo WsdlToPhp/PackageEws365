@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ItemQueryTraversalType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Types of sub-tree traversal for deletion and enumeration
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsItemQueryTraversalType
+class EwsItemQueryTraversalType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Shallow'
@@ -28,16 +30,6 @@ class EwsItemQueryTraversalType
      */
     const VALUE_ASSOCIATED = 'Associated';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SHALLOW
      * @uses self::VALUE_SOFT_DELETED
@@ -51,13 +43,5 @@ class EwsItemQueryTraversalType
             self::VALUE_SOFT_DELETED,
             self::VALUE_ASSOCIATED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

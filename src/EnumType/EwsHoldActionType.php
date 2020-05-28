@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for HoldActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsHoldActionType
+class EwsHoldActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Create'
@@ -26,16 +28,6 @@ class EwsHoldActionType
      */
     const VALUE_REMOVE = 'Remove';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CREATE
      * @uses self::VALUE_UPDATE
@@ -49,13 +41,5 @@ class EwsHoldActionType
             self::VALUE_UPDATE,
             self::VALUE_REMOVE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

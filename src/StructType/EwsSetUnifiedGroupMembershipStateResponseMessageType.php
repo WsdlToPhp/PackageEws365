@@ -15,14 +15,14 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
 {
     /**
      * The GroupActionResultType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - ref: t:GroupActionResultType
      * @var string
      */
     public $GroupActionResultType;
     /**
      * The InvalidMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
@@ -30,7 +30,7 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
     public $InvalidMembers;
     /**
      * The FailedMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
@@ -72,7 +72,7 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupActionResultType::valueIsValid($groupActionResultType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupActionResultType, implode(', ', \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupActionResultType', is_array($groupActionResultType) ? implode(', ', $groupActionResultType) : var_export($groupActionResultType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues())), __LINE__);
         }
         $this->GroupActionResultType = $groupActionResultType;
         return $this;
@@ -112,25 +112,5 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
     {
         $this->FailedMembers = $failedMembers;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

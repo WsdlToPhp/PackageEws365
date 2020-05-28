@@ -14,7 +14,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
 {
     /**
      * The MailTipsEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -22,7 +22,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $MailTipsEnabled;
     /**
      * The MaxRecipientsPerGetMailTipsRequest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,7 +30,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $MaxRecipientsPerGetMailTipsRequest;
     /**
      * The MaxMessageSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -38,7 +38,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $MaxMessageSize;
     /**
      * The LargeAudienceThreshold
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -46,7 +46,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $LargeAudienceThreshold;
     /**
      * The ShowExternalRecipientCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -54,7 +54,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $ShowExternalRecipientCount;
     /**
      * The InternalDomains
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsSmtpDomainList
@@ -62,7 +62,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $InternalDomains;
     /**
      * The PolicyTipsEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -70,7 +70,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public $PolicyTipsEnabled;
     /**
      * The LargeAudienceCap
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -124,7 +124,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     {
         // validation for constraint: boolean
         if (!is_null($mailTipsEnabled) && !is_bool($mailTipsEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mailTipsEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mailTipsEnabled, true), gettype($mailTipsEnabled)), __LINE__);
         }
         $this->MailTipsEnabled = $mailTipsEnabled;
         return $this;
@@ -145,8 +145,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setMaxRecipientsPerGetMailTipsRequest($maxRecipientsPerGetMailTipsRequest = null)
     {
         // validation for constraint: int
-        if (!is_null($maxRecipientsPerGetMailTipsRequest) && !is_numeric($maxRecipientsPerGetMailTipsRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxRecipientsPerGetMailTipsRequest)), __LINE__);
+        if (!is_null($maxRecipientsPerGetMailTipsRequest) && !(is_int($maxRecipientsPerGetMailTipsRequest) || ctype_digit($maxRecipientsPerGetMailTipsRequest))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxRecipientsPerGetMailTipsRequest, true), gettype($maxRecipientsPerGetMailTipsRequest)), __LINE__);
         }
         $this->MaxRecipientsPerGetMailTipsRequest = $maxRecipientsPerGetMailTipsRequest;
         return $this;
@@ -167,8 +167,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setMaxMessageSize($maxMessageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($maxMessageSize) && !is_numeric($maxMessageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxMessageSize)), __LINE__);
+        if (!is_null($maxMessageSize) && !(is_int($maxMessageSize) || ctype_digit($maxMessageSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxMessageSize, true), gettype($maxMessageSize)), __LINE__);
         }
         $this->MaxMessageSize = $maxMessageSize;
         return $this;
@@ -189,8 +189,8 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setLargeAudienceThreshold($largeAudienceThreshold = null)
     {
         // validation for constraint: int
-        if (!is_null($largeAudienceThreshold) && !is_numeric($largeAudienceThreshold)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($largeAudienceThreshold)), __LINE__);
+        if (!is_null($largeAudienceThreshold) && !(is_int($largeAudienceThreshold) || ctype_digit($largeAudienceThreshold))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($largeAudienceThreshold, true), gettype($largeAudienceThreshold)), __LINE__);
         }
         $this->LargeAudienceThreshold = $largeAudienceThreshold;
         return $this;
@@ -212,7 +212,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     {
         // validation for constraint: boolean
         if (!is_null($showExternalRecipientCount) && !is_bool($showExternalRecipientCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($showExternalRecipientCount)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($showExternalRecipientCount, true), gettype($showExternalRecipientCount)), __LINE__);
         }
         $this->ShowExternalRecipientCount = $showExternalRecipientCount;
         return $this;
@@ -252,7 +252,7 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     {
         // validation for constraint: boolean
         if (!is_null($policyTipsEnabled) && !is_bool($policyTipsEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($policyTipsEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($policyTipsEnabled, true), gettype($policyTipsEnabled)), __LINE__);
         }
         $this->PolicyTipsEnabled = $policyTipsEnabled;
         return $this;
@@ -273,30 +273,10 @@ class EwsMailTipsServiceConfiguration extends EwsServiceConfiguration
     public function setLargeAudienceCap($largeAudienceCap = null)
     {
         // validation for constraint: int
-        if (!is_null($largeAudienceCap) && !is_numeric($largeAudienceCap)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($largeAudienceCap)), __LINE__);
+        if (!is_null($largeAudienceCap) && !(is_int($largeAudienceCap) || ctype_digit($largeAudienceCap))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($largeAudienceCap, true), gettype($largeAudienceCap)), __LINE__);
         }
         $this->LargeAudienceCap = $largeAudienceCap;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMailTipsServiceConfiguration
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

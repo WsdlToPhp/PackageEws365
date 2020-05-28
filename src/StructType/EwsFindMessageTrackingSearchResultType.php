@@ -24,7 +24,7 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
     public $Sender;
     /**
      * The PurportedSender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEmailAddressType
      */
@@ -41,30 +41,33 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
     public $SubmittedTime;
     /**
      * The MessageTrackingReportId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $MessageTrackingReportId;
     /**
      * The PreviousHopServer
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $PreviousHopServer;
     /**
      * The FirstHopServer
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $FirstHopServer;
     /**
      * The Properties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
      */
@@ -120,7 +123,7 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -196,7 +199,7 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($submittedTime) && !is_string($submittedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($submittedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($submittedTime, true), gettype($submittedTime)), __LINE__);
         }
         $this->SubmittedTime = $submittedTime;
         return $this;
@@ -216,13 +219,13 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
      */
     public function setMessageTrackingReportId($messageTrackingReportId = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($messageTrackingReportId) && strlen($messageTrackingReportId) < 1) || (is_array($messageTrackingReportId) && count($messageTrackingReportId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($messageTrackingReportId) && !is_string($messageTrackingReportId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageTrackingReportId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messageTrackingReportId, true), gettype($messageTrackingReportId)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($messageTrackingReportId) && mb_strlen($messageTrackingReportId) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($messageTrackingReportId)), __LINE__);
         }
         $this->MessageTrackingReportId = $messageTrackingReportId;
         return $this;
@@ -242,13 +245,13 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
      */
     public function setPreviousHopServer($previousHopServer = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($previousHopServer) && strlen($previousHopServer) < 1) || (is_array($previousHopServer) && count($previousHopServer) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($previousHopServer) && !is_string($previousHopServer)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($previousHopServer)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($previousHopServer, true), gettype($previousHopServer)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($previousHopServer) && mb_strlen($previousHopServer) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($previousHopServer)), __LINE__);
         }
         $this->PreviousHopServer = $previousHopServer;
         return $this;
@@ -268,13 +271,13 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
      */
     public function setFirstHopServer($firstHopServer = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($firstHopServer) && strlen($firstHopServer) < 1) || (is_array($firstHopServer) && count($firstHopServer) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($firstHopServer) && !is_string($firstHopServer)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstHopServer)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($firstHopServer, true), gettype($firstHopServer)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($firstHopServer) && mb_strlen($firstHopServer) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($firstHopServer)), __LINE__);
         }
         $this->FirstHopServer = $firstHopServer;
         return $this;
@@ -296,25 +299,5 @@ class EwsFindMessageTrackingSearchResultType extends AbstractStructBase
     {
         $this->Properties = $properties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
 {
     /**
      * The RequestedExtensionIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -22,7 +22,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
     public $RequestedExtensionIds;
     /**
      * The UserParameters
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsGetClientExtensionUserParametersType
@@ -30,7 +30,7 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
     public $UserParameters;
     /**
      * The IsDebug
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -105,29 +105,9 @@ class EwsGetClientExtensionType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($isDebug) && !is_bool($isDebug)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDebug)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDebug, true), gettype($isDebug)), __LINE__);
         }
         $this->IsDebug = $isDebug;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetClientExtensionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

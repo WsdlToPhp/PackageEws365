@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
 {
     /**
      * The PeopleToken
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var \Ews\StructType\EwsPeopleTokenType[]
@@ -39,6 +39,28 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
         return $this->PeopleToken;
     }
     /**
+     * This method is responsible for validating the values passed to the setPeopleToken method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setPeopleToken method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validatePeopleTokenForArrayConstraintsFromSetPeopleToken(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfPeopleTokenTypePeopleTokenItem instanceof \Ews\StructType\EwsPeopleTokenType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) ? get_class($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem), var_export($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The PeopleToken property can only contain items of type \Ews\StructType\EwsPeopleTokenType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set PeopleToken value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsPeopleTokenType[] $peopleToken
@@ -46,11 +68,9 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      */
     public function setPeopleToken(array $peopleToken = array())
     {
-        foreach ($peopleToken as $nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfPeopleTokenTypePeopleTokenItem instanceof \Ews\StructType\EwsPeopleTokenType) {
-                throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of \Ews\StructType\EwsPeopleTokenType, "%s" given', is_object($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) ? get_class($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) : gettype($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($peopleTokenArrayErrorMessage = self::validatePeopleTokenForArrayConstraintsFromSetPeopleToken($peopleToken))) {
+            throw new \InvalidArgumentException($peopleTokenArrayErrorMessage, __LINE__);
         }
         $this->PeopleToken = $peopleToken;
         return $this;
@@ -65,7 +85,7 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsPeopleTokenType) {
-            throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of \Ews\StructType\EwsPeopleTokenType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of type \Ews\StructType\EwsPeopleTokenType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->PeopleToken[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'PeopleToken';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

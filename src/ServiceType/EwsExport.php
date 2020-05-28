@@ -66,7 +66,7 @@ class EwsExport extends SoapClientBase
     }
     /**
      * Method to call the operation originally named ExportItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -81,7 +81,7 @@ class EwsExport extends SoapClientBase
     public function ExportItems(\Ews\StructType\EwsExportItemsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->ExportItems($request));
+            $this->setResult($this->getSoapClient()->ExportItems($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -96,13 +96,5 @@ class EwsExport extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SearchFolderTraversalType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Types of sub-tree traversal for deletion and enumeration
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSearchFolderTraversalType
+class EwsSearchFolderTraversalType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Shallow'
@@ -23,16 +25,6 @@ class EwsSearchFolderTraversalType
      */
     const VALUE_DEEP = 'Deep';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SHALLOW
      * @uses self::VALUE_DEEP
@@ -44,13 +36,5 @@ class EwsSearchFolderTraversalType
             self::VALUE_SHALLOW,
             self::VALUE_DEEP,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

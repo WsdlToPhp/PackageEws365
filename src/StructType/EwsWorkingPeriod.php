@@ -14,15 +14,15 @@ class EwsWorkingPeriod extends AbstractStructBase
 {
     /**
      * The DayOfWeek
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $DayOfWeek;
     /**
      * The StartTimeInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,7 +30,7 @@ class EwsWorkingPeriod extends AbstractStructBase
     public $StartTimeInMinutes;
     /**
      * The EndTimeInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -41,11 +41,11 @@ class EwsWorkingPeriod extends AbstractStructBase
      * @uses EwsWorkingPeriod::setDayOfWeek()
      * @uses EwsWorkingPeriod::setStartTimeInMinutes()
      * @uses EwsWorkingPeriod::setEndTimeInMinutes()
-     * @param string $dayOfWeek
+     * @param string[] $dayOfWeek
      * @param int $startTimeInMinutes
      * @param int $endTimeInMinutes
      */
-    public function __construct($dayOfWeek = null, $startTimeInMinutes = null, $endTimeInMinutes = null)
+    public function __construct(array $dayOfWeek = array(), $startTimeInMinutes = null, $endTimeInMinutes = null)
     {
         $this
             ->setDayOfWeek($dayOfWeek)
@@ -54,24 +54,49 @@ class EwsWorkingPeriod extends AbstractStructBase
     }
     /**
      * Get DayOfWeek value
-     * @return string
+     * @return string[]
      */
     public function getDayOfWeek()
     {
         return $this->DayOfWeek;
     }
     /**
+     * This method is responsible for validating the values passed to the setDayOfWeek method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setDayOfWeek method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateDayOfWeekForArrayConstraintsFromSetDayOfWeek(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $workingPeriodDayOfWeekItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($workingPeriodDayOfWeekItem)) {
+                $invalidValues[] = is_object($workingPeriodDayOfWeekItem) ? get_class($workingPeriodDayOfWeekItem) : sprintf('%s(%s)', gettype($workingPeriodDayOfWeekItem), var_export($workingPeriodDayOfWeekItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set DayOfWeek value
-     * @param string $dayOfWeek
+     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws \InvalidArgumentException
+     * @param string[] $dayOfWeek
      * @return \Ews\StructType\EwsWorkingPeriod
      */
-    public function setDayOfWeek($dayOfWeek = null)
+    public function setDayOfWeek(array $dayOfWeek = array())
     {
-        // validation for constraint: string
-        if (!is_null($dayOfWeek) && !is_string($dayOfWeek)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dayOfWeek)), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($dayOfWeekArrayErrorMessage = self::validateDayOfWeekForArrayConstraintsFromSetDayOfWeek($dayOfWeek))) {
+            throw new \InvalidArgumentException($dayOfWeekArrayErrorMessage, __LINE__);
         }
-        $this->DayOfWeek = $dayOfWeek;
+        $this->DayOfWeek = is_array($dayOfWeek) ? implode(' ', $dayOfWeek) : null;
         return $this;
     }
     /**
@@ -90,8 +115,8 @@ class EwsWorkingPeriod extends AbstractStructBase
     public function setStartTimeInMinutes($startTimeInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($startTimeInMinutes) && !is_numeric($startTimeInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startTimeInMinutes)), __LINE__);
+        if (!is_null($startTimeInMinutes) && !(is_int($startTimeInMinutes) || ctype_digit($startTimeInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
         }
         $this->StartTimeInMinutes = $startTimeInMinutes;
         return $this;
@@ -112,30 +137,10 @@ class EwsWorkingPeriod extends AbstractStructBase
     public function setEndTimeInMinutes($endTimeInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($endTimeInMinutes) && !is_numeric($endTimeInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endTimeInMinutes)), __LINE__);
+        if (!is_null($endTimeInMinutes) && !(is_int($endTimeInMinutes) || ctype_digit($endTimeInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
         }
         $this->EndTimeInMinutes = $endTimeInMinutes;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsWorkingPeriod
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

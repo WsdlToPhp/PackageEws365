@@ -14,10 +14,11 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
 {
     /**
      * The SubscriptionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: t:NonEmptyStringType
      * - maxOccurs: unbounded
-     * - minOccurs: 1
      * - minLength: 1
+     * - minOccurs: 1
      * @var string[]
      */
     public $SubscriptionId;
@@ -40,6 +41,51 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
         return $this->SubscriptionId;
     }
     /**
+     * This method is responsible for validating the values passed to the setSubscriptionId method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSubscriptionId method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSubscriptionIdForArrayConstraintsFromSetSubscriptionId(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) {
+            // validation for constraint: itemType
+            if (!is_string($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem)) {
+                $invalidValues[] = is_object($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) ? get_class($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem), var_export($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The SubscriptionId property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setSubscriptionId method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSubscriptionId method
+     * This has to validate that the items contained by the array match the length constraint
+     * @param mixed $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSubscriptionIdForMinLengthConstraintFromSetSubscriptionId($values)
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) {
+            // validation for constraint: minLength(1)
+            if (mb_strlen($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) < 1) {
+                $invalidValues[] = var_export($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem, true);
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid length for value(s) %s, the number of characters/octets contained by the literal must be greater than or equal to 1', implode(', ', $invalidValues));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set SubscriptionId value
      * @throws \InvalidArgumentException
      * @param string[] $subscriptionId
@@ -47,15 +93,13 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
      */
     public function setSubscriptionId(array $subscriptionId = array())
     {
-        // validation for constraint: minLength
-        if ((is_scalar($subscriptionId) && strlen($subscriptionId) < 1) || (is_array($subscriptionId) && count($subscriptionId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
+        // validation for constraint: array
+        if ('' !== ($subscriptionIdArrayErrorMessage = self::validateSubscriptionIdForArrayConstraintsFromSetSubscriptionId($subscriptionId))) {
+            throw new \InvalidArgumentException($subscriptionIdArrayErrorMessage, __LINE__);
         }
-        foreach ($subscriptionId as $nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) {
-            // validation for constraint: itemType
-            if (!is_string($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem)) {
-                throw new \InvalidArgumentException(sprintf('The SubscriptionId property can only contain items of string, "%s" given', is_object($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) ? get_class($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem) : gettype($nonEmptyArrayOfSubscriptionIdsTypeSubscriptionIdItem)), __LINE__);
-            }
+        // validation for constraint: minLength(1)
+        if ('' !== ($subscriptionIdMinLengthErrorMessage = self::validateSubscriptionIdForMinLengthConstraintFromSetSubscriptionId($subscriptionId))) {
+            throw new \InvalidArgumentException($subscriptionIdMinLengthErrorMessage, __LINE__);
         }
         $this->SubscriptionId = $subscriptionId;
         return $this;
@@ -68,13 +112,13 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
      */
     public function addToSubscriptionId($item)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($item) && strlen($item) < 1) || (is_array($item) && count($item) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The SubscriptionId property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The SubscriptionId property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (mb_strlen($item) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($item)), __LINE__);
         }
         $this->SubscriptionId[] = $item;
         return $this;
@@ -134,25 +178,5 @@ class EwsNonEmptyArrayOfSubscriptionIdsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'SubscriptionId';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

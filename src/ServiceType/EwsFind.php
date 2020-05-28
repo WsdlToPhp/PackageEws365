@@ -93,13 +93,13 @@ class EwsFind extends SoapClientBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dateTimePrecision, implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDateTimePrecisionType', is_array($dateTimePrecision) ? implode(', ', $dateTimePrecision) : var_export($dateTimePrecision, true), implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
         }
         return $this->setSoapHeader($nameSpace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named FindFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
@@ -114,7 +114,7 @@ class EwsFind extends SoapClientBase
     public function FindFolder(\Ews\StructType\EwsFindFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindFolder($request));
+            $this->setResult($this->getSoapClient()->FindFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -123,7 +123,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType, \Ews\StructType\EwsManagementRoleType
@@ -138,7 +138,7 @@ class EwsFind extends SoapClientBase
     public function FindItem(\Ews\StructType\EwsFindItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindItem($request));
+            $this->setResult($this->getSoapClient()->FindItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -147,7 +147,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindMessageTrackingReport
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -162,7 +162,7 @@ class EwsFind extends SoapClientBase
     public function FindMessageTrackingReport(\Ews\StructType\EwsFindMessageTrackingReportRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindMessageTrackingReport($request));
+            $this->setResult($this->getSoapClient()->FindMessageTrackingReport($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -171,7 +171,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindConversation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
@@ -186,7 +186,7 @@ class EwsFind extends SoapClientBase
     public function FindConversation(\Ews\StructType\EwsFindConversationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindConversation($request));
+            $this->setResult($this->getSoapClient()->FindConversation($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -195,7 +195,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindPeople
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
@@ -210,7 +210,7 @@ class EwsFind extends SoapClientBase
     public function FindPeople(\Ews\StructType\EwsFindPeopleType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindPeople($request));
+            $this->setResult($this->getSoapClient()->FindPeople($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -219,7 +219,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindAvailableMeetingTimes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -234,7 +234,7 @@ class EwsFind extends SoapClientBase
     public function FindAvailableMeetingTimes(\Ews\StructType\EwsFindAvailableMeetingTimesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindAvailableMeetingTimes($request));
+            $this->setResult($this->getSoapClient()->FindAvailableMeetingTimes($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -243,7 +243,7 @@ class EwsFind extends SoapClientBase
     }
     /**
      * Method to call the operation originally named FindMeetingTimeCandidates
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -258,7 +258,7 @@ class EwsFind extends SoapClientBase
     public function FindMeetingTimeCandidates(\Ews\StructType\EwsFindMeetingTimeCandidatesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->FindMeetingTimeCandidates($request));
+            $this->setResult($this->getSoapClient()->FindMeetingTimeCandidates($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -273,13 +273,5 @@ class EwsFind extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

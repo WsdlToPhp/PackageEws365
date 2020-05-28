@@ -14,112 +14,112 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
 {
     /**
      * The RightsManagedMessageDecryptionStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $RightsManagedMessageDecryptionStatus;
     /**
      * The RmsTemplateId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $RmsTemplateId;
     /**
      * The TemplateName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $TemplateName;
     /**
      * The TemplateDescription
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $TemplateDescription;
     /**
      * The EditAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $EditAllowed;
     /**
      * The ReplyAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ReplyAllowed;
     /**
      * The ReplyAllAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ReplyAllAllowed;
     /**
      * The ForwardAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ForwardAllowed;
     /**
      * The ModifyRecipientsAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ModifyRecipientsAllowed;
     /**
      * The ExtractAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ExtractAllowed;
     /**
      * The PrintAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $PrintAllowed;
     /**
      * The ExportAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ExportAllowed;
     /**
      * The ProgrammaticAccessAllowed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ProgrammaticAccessAllowed;
     /**
      * The IsOwner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsOwner;
     /**
      * The ContentOwner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ContentOwner;
     /**
      * The ContentExpiryDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -195,8 +195,8 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     public function setRightsManagedMessageDecryptionStatus($rightsManagedMessageDecryptionStatus = null)
     {
         // validation for constraint: int
-        if (!is_null($rightsManagedMessageDecryptionStatus) && !is_numeric($rightsManagedMessageDecryptionStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($rightsManagedMessageDecryptionStatus)), __LINE__);
+        if (!is_null($rightsManagedMessageDecryptionStatus) && !(is_int($rightsManagedMessageDecryptionStatus) || ctype_digit($rightsManagedMessageDecryptionStatus))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($rightsManagedMessageDecryptionStatus, true), gettype($rightsManagedMessageDecryptionStatus)), __LINE__);
         }
         $this->RightsManagedMessageDecryptionStatus = $rightsManagedMessageDecryptionStatus;
         return $this;
@@ -218,7 +218,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($rmsTemplateId) && !is_string($rmsTemplateId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rmsTemplateId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rmsTemplateId, true), gettype($rmsTemplateId)), __LINE__);
         }
         $this->RmsTemplateId = $rmsTemplateId;
         return $this;
@@ -240,7 +240,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($templateName) && !is_string($templateName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($templateName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($templateName, true), gettype($templateName)), __LINE__);
         }
         $this->TemplateName = $templateName;
         return $this;
@@ -262,7 +262,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($templateDescription) && !is_string($templateDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($templateDescription)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($templateDescription, true), gettype($templateDescription)), __LINE__);
         }
         $this->TemplateDescription = $templateDescription;
         return $this;
@@ -284,7 +284,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($editAllowed) && !is_bool($editAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($editAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($editAllowed, true), gettype($editAllowed)), __LINE__);
         }
         $this->EditAllowed = $editAllowed;
         return $this;
@@ -306,7 +306,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($replyAllowed) && !is_bool($replyAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($replyAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($replyAllowed, true), gettype($replyAllowed)), __LINE__);
         }
         $this->ReplyAllowed = $replyAllowed;
         return $this;
@@ -328,7 +328,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($replyAllAllowed) && !is_bool($replyAllAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($replyAllAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($replyAllAllowed, true), gettype($replyAllAllowed)), __LINE__);
         }
         $this->ReplyAllAllowed = $replyAllAllowed;
         return $this;
@@ -350,7 +350,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($forwardAllowed) && !is_bool($forwardAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($forwardAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($forwardAllowed, true), gettype($forwardAllowed)), __LINE__);
         }
         $this->ForwardAllowed = $forwardAllowed;
         return $this;
@@ -372,7 +372,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($modifyRecipientsAllowed) && !is_bool($modifyRecipientsAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($modifyRecipientsAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($modifyRecipientsAllowed, true), gettype($modifyRecipientsAllowed)), __LINE__);
         }
         $this->ModifyRecipientsAllowed = $modifyRecipientsAllowed;
         return $this;
@@ -394,7 +394,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($extractAllowed) && !is_bool($extractAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($extractAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($extractAllowed, true), gettype($extractAllowed)), __LINE__);
         }
         $this->ExtractAllowed = $extractAllowed;
         return $this;
@@ -416,7 +416,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($printAllowed) && !is_bool($printAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($printAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($printAllowed, true), gettype($printAllowed)), __LINE__);
         }
         $this->PrintAllowed = $printAllowed;
         return $this;
@@ -438,7 +438,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($exportAllowed) && !is_bool($exportAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($exportAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($exportAllowed, true), gettype($exportAllowed)), __LINE__);
         }
         $this->ExportAllowed = $exportAllowed;
         return $this;
@@ -460,7 +460,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($programmaticAccessAllowed) && !is_bool($programmaticAccessAllowed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($programmaticAccessAllowed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($programmaticAccessAllowed, true), gettype($programmaticAccessAllowed)), __LINE__);
         }
         $this->ProgrammaticAccessAllowed = $programmaticAccessAllowed;
         return $this;
@@ -482,7 +482,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isOwner) && !is_bool($isOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOwner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
         }
         $this->IsOwner = $isOwner;
         return $this;
@@ -504,7 +504,7 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contentOwner) && !is_string($contentOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentOwner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentOwner, true), gettype($contentOwner)), __LINE__);
         }
         $this->ContentOwner = $contentOwner;
         return $this;
@@ -526,29 +526,9 @@ class EwsRightsManagementLicenseDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contentExpiryDate) && !is_string($contentExpiryDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentExpiryDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentExpiryDate, true), gettype($contentExpiryDate)), __LINE__);
         }
         $this->ContentExpiryDate = $contentExpiryDate;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRightsManagementLicenseDataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

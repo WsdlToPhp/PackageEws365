@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchableMailboxesType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the GetSearchableMailboxes web method.
  * @package Ews
  * @subpackage Structs
@@ -16,14 +16,14 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
 {
     /**
      * The SearchFilter
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SearchFilter;
     /**
      * The ExpandGroupMembership
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -58,7 +58,7 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($searchFilter) && !is_string($searchFilter)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchFilter)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchFilter, true), gettype($searchFilter)), __LINE__);
         }
         $this->SearchFilter = $searchFilter;
         return $this;
@@ -80,29 +80,9 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($expandGroupMembership) && !is_bool($expandGroupMembership)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($expandGroupMembership)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($expandGroupMembership, true), gettype($expandGroupMembership)), __LINE__);
         }
         $this->ExpandGroupMembership = $expandGroupMembership;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetSearchableMailboxesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

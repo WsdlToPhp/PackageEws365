@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for CalendarPermissionLevelType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsCalendarPermissionLevelType
+class EwsCalendarPermissionLevelType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -71,16 +73,6 @@ class EwsCalendarPermissionLevelType
      */
     const VALUE_CUSTOM = 'Custom';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_OWNER
@@ -112,13 +104,5 @@ class EwsCalendarPermissionLevelType
             self::VALUE_FREE_BUSY_TIME_AND_SUBJECT_AND_LOCATION,
             self::VALUE_CUSTOM,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

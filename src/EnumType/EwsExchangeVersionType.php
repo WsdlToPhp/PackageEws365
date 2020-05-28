@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ExchangeVersionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsExchangeVersionType
+class EwsExchangeVersionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Exchange2007'
@@ -56,16 +58,6 @@ class EwsExchangeVersionType
      */
     const VALUE_V_2_47 = 'V2_47';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_EXCHANGE_2007
      * @uses self::VALUE_EXCHANGE_2007_SP_1
@@ -91,13 +83,5 @@ class EwsExchangeVersionType
             self::VALUE_EXCHANGE_2015,
             self::VALUE_V_2_47,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

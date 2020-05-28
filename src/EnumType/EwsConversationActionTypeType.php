@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ConversationActionTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsConversationActionTypeType
+class EwsConversationActionTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'AlwaysCategorize'
@@ -56,16 +58,6 @@ class EwsConversationActionTypeType
      */
     const VALUE_FLAG = 'Flag';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ALWAYS_CATEGORIZE
      * @uses self::VALUE_ALWAYS_DELETE
@@ -91,13 +83,5 @@ class EwsConversationActionTypeType
             self::VALUE_SET_RETENTION_POLICY,
             self::VALUE_FLAG,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

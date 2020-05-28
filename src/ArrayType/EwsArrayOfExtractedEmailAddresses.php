@@ -14,7 +14,7 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
 {
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var string[]
@@ -39,6 +39,28 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
         return $this->EmailAddress;
     }
     /**
+     * This method is responsible for validating the values passed to the setEmailAddress method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setEmailAddress method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateEmailAddressForArrayConstraintsFromSetEmailAddress(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfExtractedEmailAddressesEmailAddressItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfExtractedEmailAddressesEmailAddressItem)) {
+                $invalidValues[] = is_object($arrayOfExtractedEmailAddressesEmailAddressItem) ? get_class($arrayOfExtractedEmailAddressesEmailAddressItem) : sprintf('%s(%s)', gettype($arrayOfExtractedEmailAddressesEmailAddressItem), var_export($arrayOfExtractedEmailAddressesEmailAddressItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The EmailAddress property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set EmailAddress value
      * @throws \InvalidArgumentException
      * @param string[] $emailAddress
@@ -46,11 +68,9 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
      */
     public function setEmailAddress(array $emailAddress = array())
     {
-        foreach ($emailAddress as $arrayOfExtractedEmailAddressesEmailAddressItem) {
-            // validation for constraint: itemType
-            if (!is_string($arrayOfExtractedEmailAddressesEmailAddressItem)) {
-                throw new \InvalidArgumentException(sprintf('The EmailAddress property can only contain items of string, "%s" given', is_object($arrayOfExtractedEmailAddressesEmailAddressItem) ? get_class($arrayOfExtractedEmailAddressesEmailAddressItem) : gettype($arrayOfExtractedEmailAddressesEmailAddressItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($emailAddressArrayErrorMessage = self::validateEmailAddressForArrayConstraintsFromSetEmailAddress($emailAddress))) {
+            throw new \InvalidArgumentException($emailAddressArrayErrorMessage, __LINE__);
         }
         $this->EmailAddress = $emailAddress;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The EmailAddress property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The EmailAddress property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->EmailAddress[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfExtractedEmailAddresses extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'EmailAddress';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfExtractedEmailAddresses
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

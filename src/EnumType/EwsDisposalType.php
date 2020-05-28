@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DisposalType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDisposalType
+class EwsDisposalType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'HardDelete'
@@ -26,16 +28,6 @@ class EwsDisposalType
      */
     const VALUE_MOVE_TO_DELETED_ITEMS = 'MoveToDeletedItems';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_HARD_DELETE
      * @uses self::VALUE_SOFT_DELETE
@@ -49,13 +41,5 @@ class EwsDisposalType
             self::VALUE_SOFT_DELETE,
             self::VALUE_MOVE_TO_DELETED_ITEMS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

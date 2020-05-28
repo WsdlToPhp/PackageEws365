@@ -14,24 +14,26 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
 {
     /**
      * The SuggestedCalendarName
-     * Meta informations extracted from the WSDL
-     * - use: required
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: required
      * @var string
      */
     public $SuggestedCalendarName;
     /**
      * The PermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $PermissionLevel;
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
-     * - use: required
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: required
      * @var string
      */
     public $FolderId;
@@ -66,13 +68,13 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
      */
     public function setSuggestedCalendarName($suggestedCalendarName = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($suggestedCalendarName) && strlen($suggestedCalendarName) < 1) || (is_array($suggestedCalendarName) && count($suggestedCalendarName) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($suggestedCalendarName) && !is_string($suggestedCalendarName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($suggestedCalendarName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($suggestedCalendarName, true), gettype($suggestedCalendarName)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($suggestedCalendarName) && mb_strlen($suggestedCalendarName) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($suggestedCalendarName)), __LINE__);
         }
         $this->SuggestedCalendarName = $suggestedCalendarName;
         return $this;
@@ -97,7 +99,7 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $permissionLevel, implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSharingInvitationPermissionLevel', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
         $this->PermissionLevel = $permissionLevel;
         return $this;
@@ -117,35 +119,15 @@ class EwsActivateSharingInvitationResponseMessageType extends EwsResponseMessage
      */
     public function setFolderId($folderId = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($folderId) && strlen($folderId) < 1) || (is_array($folderId) && count($folderId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($folderId) && !is_string($folderId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($folderId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($folderId, true), gettype($folderId)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($folderId) && mb_strlen($folderId) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($folderId)), __LINE__);
         }
         $this->FolderId = $folderId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsActivateSharingInvitationResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

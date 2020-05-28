@@ -14,35 +14,35 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
 {
     /**
      * The Diagnostics
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Diagnostics;
     /**
      * The MessageTrackingSearchResults
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
      */
     public $MessageTrackingSearchResults;
     /**
      * The ExecutedSearchScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ExecutedSearchScope;
     /**
      * The Errors
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
      */
     public $Errors;
     /**
      * The Properties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
      */
@@ -122,7 +122,7 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
     {
         // validation for constraint: string
         if (!is_null($executedSearchScope) && !is_string($executedSearchScope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($executedSearchScope)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($executedSearchScope, true), gettype($executedSearchScope)), __LINE__);
         }
         $this->ExecutedSearchScope = $executedSearchScope;
         return $this;
@@ -162,25 +162,5 @@ class EwsFindMessageTrackingReportResponseMessageType extends EwsResponseMessage
     {
         $this->Properties = $properties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindMessageTrackingReportResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

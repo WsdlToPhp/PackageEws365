@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for GroupMemberIdentifierType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsGroupMemberIdentifierType
+class EwsGroupMemberIdentifierType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'ExternalDirectoryObjectId'
@@ -26,16 +28,6 @@ class EwsGroupMemberIdentifierType
      */
     const VALUE_SMTP_ADDRESS = 'SmtpAddress';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_EXTERNAL_DIRECTORY_OBJECT_ID
      * @uses self::VALUE_LEGACY_EXCHANGE_DN
@@ -49,13 +41,5 @@ class EwsGroupMemberIdentifierType
             self::VALUE_LEGACY_EXCHANGE_DN,
             self::VALUE_SMTP_ADDRESS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

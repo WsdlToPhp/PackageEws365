@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfMailboxStatisticsItemsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of mailbox statistics item.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
 {
     /**
      * The MailboxStat
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMailboxStatisticsItemType[]
@@ -41,6 +41,28 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
         return $this->MailboxStat;
     }
     /**
+     * This method is responsible for validating the values passed to the setMailboxStat method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMailboxStat method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMailboxStatForArrayConstraintsFromSetMailboxStat(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfMailboxStatisticsItemsTypeMailboxStatItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMailboxStatisticsItemsTypeMailboxStatItem instanceof \Ews\StructType\EwsMailboxStatisticsItemType) {
+                $invalidValues[] = is_object($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) ? get_class($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) : sprintf('%s(%s)', gettype($arrayOfMailboxStatisticsItemsTypeMailboxStatItem), var_export($arrayOfMailboxStatisticsItemsTypeMailboxStatItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The MailboxStat property can only contain items of type \Ews\StructType\EwsMailboxStatisticsItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set MailboxStat value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsMailboxStatisticsItemType[] $mailboxStat
@@ -48,11 +70,9 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
      */
     public function setMailboxStat(array $mailboxStat = array())
     {
-        foreach ($mailboxStat as $arrayOfMailboxStatisticsItemsTypeMailboxStatItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfMailboxStatisticsItemsTypeMailboxStatItem instanceof \Ews\StructType\EwsMailboxStatisticsItemType) {
-                throw new \InvalidArgumentException(sprintf('The MailboxStat property can only contain items of \Ews\StructType\EwsMailboxStatisticsItemType, "%s" given', is_object($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) ? get_class($arrayOfMailboxStatisticsItemsTypeMailboxStatItem) : gettype($arrayOfMailboxStatisticsItemsTypeMailboxStatItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($mailboxStatArrayErrorMessage = self::validateMailboxStatForArrayConstraintsFromSetMailboxStat($mailboxStat))) {
+            throw new \InvalidArgumentException($mailboxStatArrayErrorMessage, __LINE__);
         }
         $this->MailboxStat = $mailboxStat;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsMailboxStatisticsItemType) {
-            throw new \InvalidArgumentException(sprintf('The MailboxStat property can only contain items of \Ews\StructType\EwsMailboxStatisticsItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The MailboxStat property can only contain items of type \Ews\StructType\EwsMailboxStatisticsItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->MailboxStat[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'MailboxStat';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfMailboxStatisticsItemsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

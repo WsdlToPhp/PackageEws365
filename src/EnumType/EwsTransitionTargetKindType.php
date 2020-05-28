@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for TransitionTargetKindType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsTransitionTargetKindType
+class EwsTransitionTargetKindType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Period'
@@ -21,16 +23,6 @@ class EwsTransitionTargetKindType
      */
     const VALUE_GROUP = 'Group';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_PERIOD
      * @uses self::VALUE_GROUP
@@ -42,13 +34,5 @@ class EwsTransitionTargetKindType
             self::VALUE_PERIOD,
             self::VALUE_GROUP,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

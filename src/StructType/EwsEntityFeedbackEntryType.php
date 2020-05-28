@@ -14,7 +14,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
 {
     /**
      * The ClientEventTimeUTC
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $ClientEventTimeUTC;
     /**
      * The ClientEventTimeLocal
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,17 +30,18 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $ClientEventTimeLocal;
     /**
      * The ClientSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $ClientSessionId;
     /**
      * The ClientVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -48,7 +49,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $ClientVersion;
     /**
      * The ClientId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -56,7 +57,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $ClientId;
     /**
      * The EntrySequenceNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -64,7 +65,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $EntrySequenceNumber;
     /**
      * The EventType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -72,7 +73,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $EventType;
     /**
      * The TransactionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +81,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $TransactionId;
     /**
      * The TargetEntityList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -88,7 +89,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $TargetEntityList;
     /**
      * The EntityAddSource
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -96,7 +97,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public $EntityAddSource;
     /**
      * The JsonPropertyBag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -159,7 +160,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientEventTimeUTC) && !is_string($clientEventTimeUTC)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientEventTimeUTC)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientEventTimeUTC, true), gettype($clientEventTimeUTC)), __LINE__);
         }
         $this->ClientEventTimeUTC = $clientEventTimeUTC;
         return $this;
@@ -181,7 +182,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientEventTimeLocal) && !is_string($clientEventTimeLocal)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientEventTimeLocal)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientEventTimeLocal, true), gettype($clientEventTimeLocal)), __LINE__);
         }
         $this->ClientEventTimeLocal = $clientEventTimeLocal;
         return $this;
@@ -201,13 +202,13 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
      */
     public function setClientSessionId($clientSessionId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($clientSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $clientSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($clientSessionId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($clientSessionId) && !is_string($clientSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientSessionId, true), gettype($clientSessionId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($clientSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $clientSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($clientSessionId, true)), __LINE__);
         }
         $this->ClientSessionId = $clientSessionId;
         return $this;
@@ -229,7 +230,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientVersion) && !is_string($clientVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientVersion)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientVersion, true), gettype($clientVersion)), __LINE__);
         }
         $this->ClientVersion = $clientVersion;
         return $this;
@@ -254,7 +255,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientIdType::valueIsValid($clientId)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $clientId, implode(', ', \Ews\EnumType\EwsClientIdType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientIdType', is_array($clientId) ? implode(', ', $clientId) : var_export($clientId, true), implode(', ', \Ews\EnumType\EwsClientIdType::getValidValues())), __LINE__);
         }
         $this->ClientId = $clientId;
         return $this;
@@ -275,8 +276,8 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     public function setEntrySequenceNumber($entrySequenceNumber = null)
     {
         // validation for constraint: int
-        if (!is_null($entrySequenceNumber) && !is_numeric($entrySequenceNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($entrySequenceNumber)), __LINE__);
+        if (!is_null($entrySequenceNumber) && !(is_int($entrySequenceNumber) || ctype_digit($entrySequenceNumber))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($entrySequenceNumber, true), gettype($entrySequenceNumber)), __LINE__);
         }
         $this->EntrySequenceNumber = $entrySequenceNumber;
         return $this;
@@ -298,7 +299,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($eventType) && !is_string($eventType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventType, true), gettype($eventType)), __LINE__);
         }
         $this->EventType = $eventType;
         return $this;
@@ -320,7 +321,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($transactionId) && !is_string($transactionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($transactionId, true), gettype($transactionId)), __LINE__);
         }
         $this->TransactionId = $transactionId;
         return $this;
@@ -342,7 +343,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($targetEntityList) && !is_string($targetEntityList)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($targetEntityList)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetEntityList, true), gettype($targetEntityList)), __LINE__);
         }
         $this->TargetEntityList = $targetEntityList;
         return $this;
@@ -367,7 +368,7 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsEntityFeedbackEntityAddSourceType::valueIsValid($entityAddSource)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $entityAddSource, implode(', ', \Ews\EnumType\EwsEntityFeedbackEntityAddSourceType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsEntityFeedbackEntityAddSourceType', is_array($entityAddSource) ? implode(', ', $entityAddSource) : var_export($entityAddSource, true), implode(', ', \Ews\EnumType\EwsEntityFeedbackEntityAddSourceType::getValidValues())), __LINE__);
         }
         $this->EntityAddSource = $entityAddSource;
         return $this;
@@ -389,29 +390,9 @@ class EwsEntityFeedbackEntryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($jsonPropertyBag) && !is_string($jsonPropertyBag)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($jsonPropertyBag)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($jsonPropertyBag, true), gettype($jsonPropertyBag)), __LINE__);
         }
         $this->JsonPropertyBag = $jsonPropertyBag;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

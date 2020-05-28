@@ -14,7 +14,7 @@ class EwsUnifiedGroupMembersResponseType extends AbstractStructBase
 {
     /**
      * The TotalCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -22,7 +22,7 @@ class EwsUnifiedGroupMembersResponseType extends AbstractStructBase
     public $TotalCount;
     /**
      * The Members
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupMembersType
@@ -57,8 +57,8 @@ class EwsUnifiedGroupMembersResponseType extends AbstractStructBase
     public function setTotalCount($totalCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalCount) && !is_numeric($totalCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalCount)), __LINE__);
+        if (!is_null($totalCount) && !(is_int($totalCount) || ctype_digit($totalCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalCount, true), gettype($totalCount)), __LINE__);
         }
         $this->TotalCount = $totalCount;
         return $this;
@@ -80,25 +80,5 @@ class EwsUnifiedGroupMembersResponseType extends AbstractStructBase
     {
         $this->Members = $members;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUnifiedGroupMembersResponseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -19,28 +19,28 @@ class EwsAttendeeType extends AbstractStructBase
     public $Mailbox;
     /**
      * The ResponseType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ResponseType;
     /**
      * The LastResponseTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastResponseTime;
     /**
      * The ProposedStart
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ProposedStart;
     /**
      * The ProposedEnd
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -105,7 +105,7 @@ class EwsAttendeeType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($responseType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseType, implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResponseTypeType', is_array($responseType) ? implode(', ', $responseType) : var_export($responseType, true), implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
         $this->ResponseType = $responseType;
         return $this;
@@ -127,7 +127,7 @@ class EwsAttendeeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastResponseTime) && !is_string($lastResponseTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastResponseTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastResponseTime, true), gettype($lastResponseTime)), __LINE__);
         }
         $this->LastResponseTime = $lastResponseTime;
         return $this;
@@ -149,7 +149,7 @@ class EwsAttendeeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($proposedStart) && !is_string($proposedStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedStart)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedStart, true), gettype($proposedStart)), __LINE__);
         }
         $this->ProposedStart = $proposedStart;
         return $this;
@@ -171,29 +171,9 @@ class EwsAttendeeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($proposedEnd)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedEnd, true), gettype($proposedEnd)), __LINE__);
         }
         $this->ProposedEnd = $proposedEnd;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAttendeeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

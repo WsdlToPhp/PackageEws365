@@ -14,23 +14,24 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
 {
     /**
      * The XrmOrganizationId
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
+     * - minOccurs: 0
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $XrmOrganizationId;
     /**
      * The XrmContactType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $XrmContactType;
     /**
      * The XrmCompanySize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
@@ -66,13 +67,13 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
      */
     public function setXrmOrganizationId($xrmOrganizationId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($xrmOrganizationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmOrganizationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($xrmOrganizationId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($xrmOrganizationId) && !is_string($xrmOrganizationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($xrmOrganizationId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xrmOrganizationId, true), gettype($xrmOrganizationId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($xrmOrganizationId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $xrmOrganizationId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($xrmOrganizationId, true)), __LINE__);
         }
         $this->XrmOrganizationId = $xrmOrganizationId;
         return $this;
@@ -93,8 +94,8 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
     public function setXrmContactType($xrmContactType = null)
     {
         // validation for constraint: int
-        if (!is_null($xrmContactType) && !is_numeric($xrmContactType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($xrmContactType)), __LINE__);
+        if (!is_null($xrmContactType) && !(is_int($xrmContactType) || ctype_digit($xrmContactType))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($xrmContactType, true), gettype($xrmContactType)), __LINE__);
         }
         $this->XrmContactType = $xrmContactType;
         return $this;
@@ -115,30 +116,10 @@ class EwsXrmOrganizationItemType extends EwsContactItemType
     public function setXrmCompanySize($xrmCompanySize = null)
     {
         // validation for constraint: int
-        if (!is_null($xrmCompanySize) && !is_numeric($xrmCompanySize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($xrmCompanySize)), __LINE__);
+        if (!is_null($xrmCompanySize) && !(is_int($xrmCompanySize) || ctype_digit($xrmCompanySize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($xrmCompanySize, true), gettype($xrmCompanySize)), __LINE__);
         }
         $this->XrmCompanySize = $xrmCompanySize;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsXrmOrganizationItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
 {
     /**
      * The MeetingParticipantAvailability
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsMeetingParticipantAvailability[]
      */
@@ -38,6 +38,28 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
         return $this->MeetingParticipantAvailability;
     }
     /**
+     * This method is responsible for validating the values passed to the setMeetingParticipantAvailability method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMeetingParticipantAvailability method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMeetingParticipantAvailabilityForArrayConstraintsFromSetMeetingParticipantAvailability(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem instanceof \Ews\StructType\EwsMeetingParticipantAvailability) {
+                $invalidValues[] = is_object($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) ? get_class($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) : sprintf('%s(%s)', gettype($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem), var_export($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The MeetingParticipantAvailability property can only contain items of type \Ews\StructType\EwsMeetingParticipantAvailability, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set MeetingParticipantAvailability value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsMeetingParticipantAvailability[] $meetingParticipantAvailability
@@ -45,11 +67,9 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
      */
     public function setMeetingParticipantAvailability(array $meetingParticipantAvailability = array())
     {
-        foreach ($meetingParticipantAvailability as $arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem instanceof \Ews\StructType\EwsMeetingParticipantAvailability) {
-                throw new \InvalidArgumentException(sprintf('The MeetingParticipantAvailability property can only contain items of \Ews\StructType\EwsMeetingParticipantAvailability, "%s" given', is_object($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) ? get_class($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem) : gettype($arrayOfMeetingParticipantAvailabilityMeetingParticipantAvailabilityItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($meetingParticipantAvailabilityArrayErrorMessage = self::validateMeetingParticipantAvailabilityForArrayConstraintsFromSetMeetingParticipantAvailability($meetingParticipantAvailability))) {
+            throw new \InvalidArgumentException($meetingParticipantAvailabilityArrayErrorMessage, __LINE__);
         }
         $this->MeetingParticipantAvailability = $meetingParticipantAvailability;
         return $this;
@@ -64,7 +84,7 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsMeetingParticipantAvailability) {
-            throw new \InvalidArgumentException(sprintf('The MeetingParticipantAvailability property can only contain items of \Ews\StructType\EwsMeetingParticipantAvailability, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The MeetingParticipantAvailability property can only contain items of type \Ews\StructType\EwsMeetingParticipantAvailability, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->MeetingParticipantAvailability[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsArrayOfMeetingParticipantAvailability extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'MeetingParticipantAvailability';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

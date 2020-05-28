@@ -14,7 +14,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
 {
     /**
      * The Operations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsArrayOfRuleOperationsType
@@ -22,7 +22,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
     public $Operations;
     /**
      * The MailboxSmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
     public $MailboxSmtpAddress;
     /**
      * The RemoveOutlookRuleBlob
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -87,7 +87,7 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($mailboxSmtpAddress) && !is_string($mailboxSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxSmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxSmtpAddress, true), gettype($mailboxSmtpAddress)), __LINE__);
         }
         $this->MailboxSmtpAddress = $mailboxSmtpAddress;
         return $this;
@@ -109,29 +109,9 @@ class EwsUpdateInboxRulesRequestType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($removeOutlookRuleBlob) && !is_bool($removeOutlookRuleBlob)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($removeOutlookRuleBlob)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($removeOutlookRuleBlob, true), gettype($removeOutlookRuleBlob)), __LINE__);
         }
         $this->RemoveOutlookRuleBlob = $removeOutlookRuleBlob;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUpdateInboxRulesRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

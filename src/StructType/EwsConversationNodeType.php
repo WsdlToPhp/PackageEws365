@@ -14,7 +14,7 @@ class EwsConversationNodeType extends AbstractStructBase
 {
     /**
      * The InternetMessageId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsConversationNodeType extends AbstractStructBase
     public $InternetMessageId;
     /**
      * The ParentInternetMessageId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsConversationNodeType extends AbstractStructBase
     public $ParentInternetMessageId;
     /**
      * The Items
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfAllItemsType
@@ -69,7 +69,7 @@ class EwsConversationNodeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internetMessageId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internetMessageId, true), gettype($internetMessageId)), __LINE__);
         }
         $this->InternetMessageId = $internetMessageId;
         return $this;
@@ -91,7 +91,7 @@ class EwsConversationNodeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($parentInternetMessageId) && !is_string($parentInternetMessageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($parentInternetMessageId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parentInternetMessageId, true), gettype($parentInternetMessageId)), __LINE__);
         }
         $this->ParentInternetMessageId = $parentInternetMessageId;
         return $this;
@@ -113,25 +113,5 @@ class EwsConversationNodeType extends AbstractStructBase
     {
         $this->Items = $items;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsConversationNodeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

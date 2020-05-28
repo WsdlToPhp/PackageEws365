@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for PhysicalAddressIndexType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsPhysicalAddressIndexType
+class EwsPhysicalAddressIndexType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -31,16 +33,6 @@ class EwsPhysicalAddressIndexType
      */
     const VALUE_OTHER = 'Other';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_BUSINESS
@@ -56,13 +48,5 @@ class EwsPhysicalAddressIndexType
             self::VALUE_HOME,
             self::VALUE_OTHER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

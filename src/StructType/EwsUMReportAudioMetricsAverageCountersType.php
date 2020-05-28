@@ -14,7 +14,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
 {
     /**
      * The TotalAudioQualityCallsSampled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $TotalAudioQualityCallsSampled;
     /**
      * The NMOS
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -30,7 +30,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $NMOS;
     /**
      * The NMOSDegradation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -38,7 +38,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $NMOSDegradation;
     /**
      * The Jitter
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -46,7 +46,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $Jitter;
     /**
      * The PercentPacketLoss
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -54,7 +54,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $PercentPacketLoss;
     /**
      * The RoundTrip
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -62,7 +62,7 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public $RoundTrip;
     /**
      * The BurstLossDuration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAudioMetricsAverageType
@@ -112,8 +112,8 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     public function setTotalAudioQualityCallsSampled($totalAudioQualityCallsSampled = null)
     {
         // validation for constraint: int
-        if (!is_null($totalAudioQualityCallsSampled) && !is_numeric($totalAudioQualityCallsSampled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalAudioQualityCallsSampled)), __LINE__);
+        if (!is_null($totalAudioQualityCallsSampled) && !(is_int($totalAudioQualityCallsSampled) || ctype_digit($totalAudioQualityCallsSampled))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalAudioQualityCallsSampled, true), gettype($totalAudioQualityCallsSampled)), __LINE__);
         }
         $this->TotalAudioQualityCallsSampled = $totalAudioQualityCallsSampled;
         return $this;
@@ -225,25 +225,5 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
     {
         $this->BurstLossDuration = $burstLossDuration;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

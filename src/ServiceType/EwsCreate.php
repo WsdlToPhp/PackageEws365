@@ -66,7 +66,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateFolderPath
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -81,7 +81,7 @@ class EwsCreate extends SoapClientBase
     public function CreateFolderPath(\Ews\StructType\EwsCreateFolderPathType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateFolderPath($request));
+            $this->setResult($this->getSoapClient()->CreateFolderPath($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -90,7 +90,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -105,7 +105,7 @@ class EwsCreate extends SoapClientBase
     public function CreateFolder(\Ews\StructType\EwsCreateFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateFolder($request));
+            $this->setResult($this->getSoapClient()->CreateFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -114,7 +114,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -129,7 +129,7 @@ class EwsCreate extends SoapClientBase
     public function CreateItem(\Ews\StructType\EwsCreateItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateItem($request));
+            $this->setResult($this->getSoapClient()->CreateItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -138,7 +138,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateAttachment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -153,7 +153,7 @@ class EwsCreate extends SoapClientBase
     public function CreateAttachment(\Ews\StructType\EwsCreateAttachmentType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateAttachment($request));
+            $this->setResult($this->getSoapClient()->CreateAttachment($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -162,7 +162,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateManagedFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -177,7 +177,7 @@ class EwsCreate extends SoapClientBase
     public function CreateManagedFolder(\Ews\StructType\EwsCreateManagedFolderRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateManagedFolder($request));
+            $this->setResult($this->getSoapClient()->CreateManagedFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -186,7 +186,7 @@ class EwsCreate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CreateUserConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -201,7 +201,7 @@ class EwsCreate extends SoapClientBase
     public function CreateUserConfiguration(\Ews\StructType\EwsCreateUserConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CreateUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->CreateUserConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -216,13 +216,5 @@ class EwsCreate extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

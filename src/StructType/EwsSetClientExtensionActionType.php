@@ -14,14 +14,14 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
 {
     /**
      * The ActionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $ActionId;
     /**
      * The ClientExtension
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsClientExtensionType
@@ -29,7 +29,7 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
     public $ClientExtension;
     /**
      * The ExtensionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -70,7 +70,7 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSetClientExtensionActionIdType::valueIsValid($actionId)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionId, implode(', ', \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSetClientExtensionActionIdType', is_array($actionId) ? implode(', ', $actionId) : var_export($actionId, true), implode(', ', \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues())), __LINE__);
         }
         $this->ActionId = $actionId;
         return $this;
@@ -110,29 +110,9 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($extensionId) && !is_string($extensionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($extensionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionId, true), gettype($extensionId)), __LINE__);
         }
         $this->ExtensionId = $extensionId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetClientExtensionActionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

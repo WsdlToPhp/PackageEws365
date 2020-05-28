@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ResponseClassType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsResponseClassType
+class EwsResponseClassType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Success'
@@ -26,16 +28,6 @@ class EwsResponseClassType
      */
     const VALUE_ERROR = 'Error';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SUCCESS
      * @uses self::VALUE_WARNING
@@ -49,13 +41,5 @@ class EwsResponseClassType
             self::VALUE_WARNING,
             self::VALUE_ERROR,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DistinguishedPropertySetType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Defines the well known property set ids for extended properties.
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDistinguishedPropertySetType
+class EwsDistinguishedPropertySetType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Meeting'
@@ -63,16 +65,6 @@ class EwsDistinguishedPropertySetType
      */
     const VALUE_SHARING = 'Sharing';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_MEETING
      * @uses self::VALUE_APPOINTMENT
@@ -100,13 +92,5 @@ class EwsDistinguishedPropertySetType
             self::VALUE_TASK,
             self::VALUE_SHARING,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

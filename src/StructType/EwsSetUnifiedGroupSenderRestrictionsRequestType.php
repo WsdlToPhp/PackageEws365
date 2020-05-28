@@ -14,7 +14,7 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
 {
     /**
      * The GroupIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
@@ -22,7 +22,7 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     public $GroupIdentity;
     /**
      * The RestrictionSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
@@ -30,7 +30,7 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     public $RestrictionSettings;
     /**
      * The UnifiedGroupSenderRestrictionsSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
@@ -105,25 +105,5 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     {
         $this->UnifiedGroupSenderRestrictionsSettings = $unifiedGroupSenderRestrictionsSettings;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

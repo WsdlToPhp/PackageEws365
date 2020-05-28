@@ -14,7 +14,7 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
 {
     /**
      * The InboxReminder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsInboxReminderType[]
@@ -39,6 +39,28 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
         return $this->InboxReminder;
     }
     /**
+     * This method is responsible for validating the values passed to the setInboxReminder method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setInboxReminder method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateInboxReminderForArrayConstraintsFromSetInboxReminder(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfInboxReminderTypeInboxReminderItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfInboxReminderTypeInboxReminderItem instanceof \Ews\StructType\EwsInboxReminderType) {
+                $invalidValues[] = is_object($arrayOfInboxReminderTypeInboxReminderItem) ? get_class($arrayOfInboxReminderTypeInboxReminderItem) : sprintf('%s(%s)', gettype($arrayOfInboxReminderTypeInboxReminderItem), var_export($arrayOfInboxReminderTypeInboxReminderItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The InboxReminder property can only contain items of type \Ews\StructType\EwsInboxReminderType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set InboxReminder value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsInboxReminderType[] $inboxReminder
@@ -46,11 +68,9 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
      */
     public function setInboxReminder(array $inboxReminder = array())
     {
-        foreach ($inboxReminder as $arrayOfInboxReminderTypeInboxReminderItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfInboxReminderTypeInboxReminderItem instanceof \Ews\StructType\EwsInboxReminderType) {
-                throw new \InvalidArgumentException(sprintf('The InboxReminder property can only contain items of \Ews\StructType\EwsInboxReminderType, "%s" given', is_object($arrayOfInboxReminderTypeInboxReminderItem) ? get_class($arrayOfInboxReminderTypeInboxReminderItem) : gettype($arrayOfInboxReminderTypeInboxReminderItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($inboxReminderArrayErrorMessage = self::validateInboxReminderForArrayConstraintsFromSetInboxReminder($inboxReminder))) {
+            throw new \InvalidArgumentException($inboxReminderArrayErrorMessage, __LINE__);
         }
         $this->InboxReminder = $inboxReminder;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsInboxReminderType) {
-            throw new \InvalidArgumentException(sprintf('The InboxReminder property can only contain items of \Ews\StructType\EwsInboxReminderType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The InboxReminder property can only contain items of type \Ews\StructType\EwsInboxReminderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->InboxReminder[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfInboxReminderType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'InboxReminder';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfInboxReminderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

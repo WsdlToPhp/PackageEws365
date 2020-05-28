@@ -14,7 +14,7 @@ class EwsClientExtensionType extends AbstractStructBase
 {
     /**
      * The SpecificUsers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -22,7 +22,7 @@ class EwsClientExtensionType extends AbstractStructBase
     public $SpecificUsers;
     /**
      * The Manifest
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,70 +30,70 @@ class EwsClientExtensionType extends AbstractStructBase
     public $Manifest;
     /**
      * The IsAvailable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $IsAvailable;
     /**
      * The IsMandatory
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $IsMandatory;
     /**
      * The IsEnabledByDefault
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $IsEnabledByDefault;
     /**
      * The ProvidedTo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $ProvidedTo;
     /**
      * The Type
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $Type;
     /**
      * The Scope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $Scope;
     /**
      * The MarketplaceAssetId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $MarketplaceAssetId;
     /**
      * The MarketplaceContentMarket
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $MarketplaceContentMarket;
     /**
      * The AppStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $AppStatus;
     /**
      * The Etoken
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -176,7 +176,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($manifest) && !is_string($manifest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($manifest)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($manifest, true), gettype($manifest)), __LINE__);
         }
         $this->Manifest = $manifest;
         return $this;
@@ -198,7 +198,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isAvailable) && !is_bool($isAvailable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAvailable)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAvailable, true), gettype($isAvailable)), __LINE__);
         }
         $this->IsAvailable = $isAvailable;
         return $this;
@@ -220,7 +220,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMandatory) && !is_bool($isMandatory)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMandatory)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMandatory, true), gettype($isMandatory)), __LINE__);
         }
         $this->IsMandatory = $isMandatory;
         return $this;
@@ -242,7 +242,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isEnabledByDefault) && !is_bool($isEnabledByDefault)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEnabledByDefault)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEnabledByDefault, true), gettype($isEnabledByDefault)), __LINE__);
         }
         $this->IsEnabledByDefault = $isEnabledByDefault;
         return $this;
@@ -267,7 +267,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionProvidedToType::valueIsValid($providedTo)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $providedTo, implode(', ', \Ews\EnumType\EwsClientExtensionProvidedToType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientExtensionProvidedToType', is_array($providedTo) ? implode(', ', $providedTo) : var_export($providedTo, true), implode(', ', \Ews\EnumType\EwsClientExtensionProvidedToType::getValidValues())), __LINE__);
         }
         $this->ProvidedTo = $providedTo;
         return $this;
@@ -292,7 +292,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionTypeType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsClientExtensionTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientExtensionTypeType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsClientExtensionTypeType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
         return $this;
@@ -317,7 +317,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientExtensionScopeType::valueIsValid($scope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $scope, implode(', ', \Ews\EnumType\EwsClientExtensionScopeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientExtensionScopeType', is_array($scope) ? implode(', ', $scope) : var_export($scope, true), implode(', ', \Ews\EnumType\EwsClientExtensionScopeType::getValidValues())), __LINE__);
         }
         $this->Scope = $scope;
         return $this;
@@ -339,7 +339,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($marketplaceAssetId) && !is_string($marketplaceAssetId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($marketplaceAssetId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($marketplaceAssetId, true), gettype($marketplaceAssetId)), __LINE__);
         }
         $this->MarketplaceAssetId = $marketplaceAssetId;
         return $this;
@@ -361,7 +361,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($marketplaceContentMarket) && !is_string($marketplaceContentMarket)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($marketplaceContentMarket)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($marketplaceContentMarket, true), gettype($marketplaceContentMarket)), __LINE__);
         }
         $this->MarketplaceContentMarket = $marketplaceContentMarket;
         return $this;
@@ -383,7 +383,7 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($appStatus) && !is_string($appStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($appStatus)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appStatus, true), gettype($appStatus)), __LINE__);
         }
         $this->AppStatus = $appStatus;
         return $this;
@@ -405,29 +405,9 @@ class EwsClientExtensionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($etoken) && !is_string($etoken)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($etoken)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($etoken, true), gettype($etoken)), __LINE__);
         }
         $this->Etoken = $etoken;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsClientExtensionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

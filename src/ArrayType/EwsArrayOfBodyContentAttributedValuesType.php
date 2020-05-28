@@ -14,7 +14,7 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
 {
     /**
      * The BodyContentAttributedValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyContentAttributedValueType[]
@@ -39,6 +39,28 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
         return $this->BodyContentAttributedValue;
     }
     /**
+     * This method is responsible for validating the values passed to the setBodyContentAttributedValue method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setBodyContentAttributedValue method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateBodyContentAttributedValueForArrayConstraintsFromSetBodyContentAttributedValue(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
+                $invalidValues[] = is_object($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) ? get_class($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) : sprintf('%s(%s)', gettype($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem), var_export($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The BodyContentAttributedValue property can only contain items of type \Ews\StructType\EwsBodyContentAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set BodyContentAttributedValue value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
@@ -46,11 +68,9 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      */
     public function setBodyContentAttributedValue(array $bodyContentAttributedValue = array())
     {
-        foreach ($bodyContentAttributedValue as $arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
-                throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of \Ews\StructType\EwsBodyContentAttributedValueType, "%s" given', is_object($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) ? get_class($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) : gettype($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($bodyContentAttributedValueArrayErrorMessage = self::validateBodyContentAttributedValueForArrayConstraintsFromSetBodyContentAttributedValue($bodyContentAttributedValue))) {
+            throw new \InvalidArgumentException($bodyContentAttributedValueArrayErrorMessage, __LINE__);
         }
         $this->BodyContentAttributedValue = $bodyContentAttributedValue;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
-            throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of \Ews\StructType\EwsBodyContentAttributedValueType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of type \Ews\StructType\EwsBodyContentAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->BodyContentAttributedValue[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'BodyContentAttributedValue';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

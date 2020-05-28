@@ -14,7 +14,7 @@ class EwsWorkHoursType extends AbstractStructBase
 {
     /**
      * The WorkDay
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsWorkHoursType extends AbstractStructBase
     public $WorkDay;
     /**
      * The TimeSlots
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfWorkTimeSlot
@@ -61,7 +61,7 @@ class EwsWorkHoursType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSystemDayOfWeek::valueIsValid($workDay)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $workDay, implode(', ', \Ews\EnumType\EwsSystemDayOfWeek::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSystemDayOfWeek', is_array($workDay) ? implode(', ', $workDay) : var_export($workDay, true), implode(', ', \Ews\EnumType\EwsSystemDayOfWeek::getValidValues())), __LINE__);
         }
         $this->WorkDay = $workDay;
         return $this;
@@ -83,25 +83,5 @@ class EwsWorkHoursType extends AbstractStructBase
     {
         $this->TimeSlots = $timeSlots;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsWorkHoursType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

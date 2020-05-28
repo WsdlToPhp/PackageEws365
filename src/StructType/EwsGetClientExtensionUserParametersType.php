@@ -14,14 +14,14 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
 {
     /**
      * The UserId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $UserId;
     /**
      * The UserEnabledExtensions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -29,7 +29,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     public $UserEnabledExtensions;
     /**
      * The UserDisabledExtensions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -37,7 +37,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     public $UserDisabledExtensions;
     /**
      * The EnabledOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -78,7 +78,7 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($userId) && !is_string($userId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($userId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userId, true), gettype($userId)), __LINE__);
         }
         $this->UserId = $userId;
         return $this;
@@ -136,29 +136,9 @@ class EwsGetClientExtensionUserParametersType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($enabledOnly) && !is_bool($enabledOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($enabledOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($enabledOnly, true), gettype($enabledOnly)), __LINE__);
         }
         $this->EnabledOnly = $enabledOnly;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetClientExtensionUserParametersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

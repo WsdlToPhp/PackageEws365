@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscoverySearchConfigurationType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Discovery search configuration.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
 {
     /**
      * The SearchId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     public $SearchId;
     /**
      * The SearchQuery
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     public $SearchQuery;
     /**
      * The SearchableMailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
@@ -40,7 +40,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     public $SearchableMailboxes;
     /**
      * The InPlaceHoldIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +48,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     public $InPlaceHoldIdentity;
     /**
      * The ManagedByOrganization
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +56,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     public $ManagedByOrganization;
     /**
      * The Language
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -104,7 +104,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($searchId) && !is_string($searchId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchId, true), gettype($searchId)), __LINE__);
         }
         $this->SearchId = $searchId;
         return $this;
@@ -126,7 +126,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($searchQuery) && !is_string($searchQuery)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchQuery)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchQuery, true), gettype($searchQuery)), __LINE__);
         }
         $this->SearchQuery = $searchQuery;
         return $this;
@@ -166,7 +166,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($inPlaceHoldIdentity) && !is_string($inPlaceHoldIdentity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inPlaceHoldIdentity)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inPlaceHoldIdentity, true), gettype($inPlaceHoldIdentity)), __LINE__);
         }
         $this->InPlaceHoldIdentity = $inPlaceHoldIdentity;
         return $this;
@@ -188,7 +188,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($managedByOrganization) && !is_string($managedByOrganization)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($managedByOrganization)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedByOrganization, true), gettype($managedByOrganization)), __LINE__);
         }
         $this->ManagedByOrganization = $managedByOrganization;
         return $this;
@@ -210,29 +210,9 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MemberStatusType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMemberStatusType
+class EwsMemberStatusType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Unrecognized'
@@ -26,16 +28,6 @@ class EwsMemberStatusType
      */
     const VALUE_DEMOTED = 'Demoted';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_UNRECOGNIZED
      * @uses self::VALUE_NORMAL
@@ -49,13 +41,5 @@ class EwsMemberStatusType
             self::VALUE_NORMAL,
             self::VALUE_DEMOTED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

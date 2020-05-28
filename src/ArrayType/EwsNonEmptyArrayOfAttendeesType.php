@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
 {
     /**
      * The Attendee
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsAttendeeType[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
         return $this->Attendee;
     }
     /**
+     * This method is responsible for validating the values passed to the setAttendee method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setAttendee method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateAttendeeForArrayConstraintsFromSetAttendee(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfAttendeesTypeAttendeeItem) {
+            // validation for constraint: itemType
+            if (!$nonEmptyArrayOfAttendeesTypeAttendeeItem instanceof \Ews\StructType\EwsAttendeeType) {
+                $invalidValues[] = is_object($nonEmptyArrayOfAttendeesTypeAttendeeItem) ? get_class($nonEmptyArrayOfAttendeesTypeAttendeeItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfAttendeesTypeAttendeeItem), var_export($nonEmptyArrayOfAttendeesTypeAttendeeItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Attendee property can only contain items of type \Ews\StructType\EwsAttendeeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Attendee value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsAttendeeType[] $attendee
@@ -45,11 +67,9 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      */
     public function setAttendee(array $attendee = array())
     {
-        foreach ($attendee as $nonEmptyArrayOfAttendeesTypeAttendeeItem) {
-            // validation for constraint: itemType
-            if (!$nonEmptyArrayOfAttendeesTypeAttendeeItem instanceof \Ews\StructType\EwsAttendeeType) {
-                throw new \InvalidArgumentException(sprintf('The Attendee property can only contain items of \Ews\StructType\EwsAttendeeType, "%s" given', is_object($nonEmptyArrayOfAttendeesTypeAttendeeItem) ? get_class($nonEmptyArrayOfAttendeesTypeAttendeeItem) : gettype($nonEmptyArrayOfAttendeesTypeAttendeeItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($attendeeArrayErrorMessage = self::validateAttendeeForArrayConstraintsFromSetAttendee($attendee))) {
+            throw new \InvalidArgumentException($attendeeArrayErrorMessage, __LINE__);
         }
         $this->Attendee = $attendee;
         return $this;
@@ -64,7 +84,7 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsAttendeeType) {
-            throw new \InvalidArgumentException(sprintf('The Attendee property can only contain items of \Ews\StructType\EwsAttendeeType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Attendee property can only contain items of type \Ews\StructType\EwsAttendeeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Attendee[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Attendee';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

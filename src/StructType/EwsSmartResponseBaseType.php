@@ -10,74 +10,74 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
  * @subpackage Structs
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSmartResponseBaseType extends EwsResponseObjectType
+class EwsSmartResponseBaseType extends AbstractStructBase
 {
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Subject;
     /**
      * The Body
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $Body;
     /**
      * The ToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $ToRecipients;
     /**
      * The CcRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $CcRecipients;
     /**
      * The BccRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $BccRecipients;
     /**
      * The IsReadReceiptRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsReadReceiptRequested;
     /**
      * The IsDeliveryReceiptRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsDeliveryReceiptRequested;
     /**
      * The From
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
      */
     public $From;
     /**
      * The ReferenceItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ReferenceItemId;
     /**
      * The ObjectName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: prohibited
      * @var string
      */
@@ -136,7 +136,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -230,7 +230,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     {
         // validation for constraint: boolean
         if (!is_null($isReadReceiptRequested) && !is_bool($isReadReceiptRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceiptRequested)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReadReceiptRequested, true), gettype($isReadReceiptRequested)), __LINE__);
         }
         $this->IsReadReceiptRequested = $isReadReceiptRequested;
         return $this;
@@ -252,7 +252,7 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     {
         // validation for constraint: boolean
         if (!is_null($isDeliveryReceiptRequested) && !is_bool($isDeliveryReceiptRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeliveryReceiptRequested)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDeliveryReceiptRequested, true), gettype($isDeliveryReceiptRequested)), __LINE__);
         }
         $this->IsDeliveryReceiptRequested = $isDeliveryReceiptRequested;
         return $this;
@@ -310,29 +310,9 @@ class EwsSmartResponseBaseType extends EwsResponseObjectType
     {
         // validation for constraint: string
         if (!is_null($objectName) && !is_string($objectName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
         }
         $this->ObjectName = $objectName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSmartResponseBaseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

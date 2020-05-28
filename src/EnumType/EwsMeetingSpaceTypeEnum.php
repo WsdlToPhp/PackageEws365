@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MeetingSpaceTypeEnum EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMeetingSpaceTypeEnum
+class EwsMeetingSpaceTypeEnum extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Public'
@@ -21,16 +23,6 @@ class EwsMeetingSpaceTypeEnum
      */
     const VALUE_PRIVATE = 'Private';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_PUBLIC
      * @uses self::VALUE_PRIVATE
@@ -42,13 +34,5 @@ class EwsMeetingSpaceTypeEnum
             self::VALUE_PUBLIC,
             self::VALUE_PRIVATE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

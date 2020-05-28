@@ -14,7 +14,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The MailTipsConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMailTipsServiceConfiguration
@@ -22,7 +22,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     public $MailTipsConfiguration;
     /**
      * The UnifiedMessagingConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUnifiedMessageServiceConfiguration
@@ -30,7 +30,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     public $UnifiedMessagingConfiguration;
     /**
      * The ProtectionRulesConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProtectionRulesServiceConfiguration
@@ -38,7 +38,7 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     public $ProtectionRulesConfiguration;
     /**
      * The PolicyNudgeRulesConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPolicyNudgeRulesServiceConfiguration
@@ -134,25 +134,5 @@ class EwsServiceConfigurationResponseMessageType extends EwsResponseMessageType
     {
         $this->PolicyNudgeRulesConfiguration = $policyNudgeRulesConfiguration;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsServiceConfigurationResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

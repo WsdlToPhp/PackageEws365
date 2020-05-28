@@ -44,7 +44,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     public $Read;
     /**
      * The ViewPrivateItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -95,7 +95,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($createAssociated) && !is_bool($createAssociated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createAssociated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($createAssociated, true), gettype($createAssociated)), __LINE__);
         }
         $this->CreateAssociated = $createAssociated;
         return $this;
@@ -117,7 +117,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($createContents) && !is_bool($createContents)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createContents)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($createContents, true), gettype($createContents)), __LINE__);
         }
         $this->CreateContents = $createContents;
         return $this;
@@ -139,7 +139,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($createHierarchy) && !is_bool($createHierarchy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($createHierarchy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($createHierarchy, true), gettype($createHierarchy)), __LINE__);
         }
         $this->CreateHierarchy = $createHierarchy;
         return $this;
@@ -161,7 +161,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($delete) && !is_bool($delete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($delete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($delete, true), gettype($delete)), __LINE__);
         }
         $this->Delete = $delete;
         return $this;
@@ -183,7 +183,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($modify) && !is_bool($modify)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($modify)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($modify, true), gettype($modify)), __LINE__);
         }
         $this->Modify = $modify;
         return $this;
@@ -205,7 +205,7 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($read) && !is_bool($read)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($read)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($read, true), gettype($read)), __LINE__);
         }
         $this->Read = $read;
         return $this;
@@ -227,29 +227,9 @@ class EwsEffectiveRightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($viewPrivateItems) && !is_bool($viewPrivateItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($viewPrivateItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($viewPrivateItems, true), gettype($viewPrivateItems)), __LINE__);
         }
         $this->ViewPrivateItems = $viewPrivateItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEffectiveRightsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

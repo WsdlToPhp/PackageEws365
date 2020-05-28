@@ -40,7 +40,7 @@ class EwsApply extends SoapClientBase
     }
     /**
      * Method to call the operation originally named ApplyConversationAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
@@ -55,7 +55,7 @@ class EwsApply extends SoapClientBase
     public function ApplyConversationAction(\Ews\StructType\EwsApplyConversationActionType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->ApplyConversationAction($request));
+            $this->setResult($this->getSoapClient()->ApplyConversationAction($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -70,13 +70,5 @@ class EwsApply extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DateTimePrecisionType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Precision for returned DateTime values
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDateTimePrecisionType
+class EwsDateTimePrecisionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Seconds'
@@ -23,16 +25,6 @@ class EwsDateTimePrecisionType
      */
     const VALUE_MILLISECONDS = 'Milliseconds';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SECONDS
      * @uses self::VALUE_MILLISECONDS
@@ -44,13 +36,5 @@ class EwsDateTimePrecisionType
             self::VALUE_SECONDS,
             self::VALUE_MILLISECONDS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

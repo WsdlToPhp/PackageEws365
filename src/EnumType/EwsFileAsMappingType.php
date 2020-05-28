@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for FileAsMappingType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsFileAsMappingType
+class EwsFileAsMappingType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -101,16 +103,6 @@ class EwsFileAsMappingType
      */
     const VALUE_EMPTY = 'Empty';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_LAST_COMMA_FIRST
@@ -154,13 +146,5 @@ class EwsFileAsMappingType
             self::VALUE_LAST_NAME,
             self::VALUE_EMPTY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

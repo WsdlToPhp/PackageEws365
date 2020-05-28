@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for IconIndexType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsIconIndexType
+class EwsIconIndexType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Default'
@@ -191,16 +193,6 @@ class EwsIconIndexType
      */
     const VALUE_TASK_DELEGATED = 'TaskDelegated';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_DEFAULT
      * @uses self::VALUE_POST_ITEM
@@ -280,13 +272,5 @@ class EwsIconIndexType
             self::VALUE_TASK_OWNED,
             self::VALUE_TASK_DELEGATED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ViewFilterType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Types of view filters for finding items/conversations
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsViewFilterType
+class EwsViewFilterType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'All'
@@ -63,16 +65,6 @@ class EwsViewFilterType
      */
     const VALUE_CLUTTER = 'Clutter';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ALL
      * @uses self::VALUE_FLAGGED
@@ -100,13 +92,5 @@ class EwsViewFilterType
             self::VALUE_NO_CLUTTER,
             self::VALUE_CLUTTER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
 {
     /**
      * The Insight
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsInsightItemType[]
@@ -39,6 +39,28 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
         return $this->Insight;
     }
     /**
+     * This method is responsible for validating the values passed to the setInsight method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setInsight method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateInsightForArrayConstraintsFromSetInsight(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfInsightItemTypeInsightItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfInsightItemTypeInsightItem instanceof \Ews\StructType\EwsInsightItemType) {
+                $invalidValues[] = is_object($arrayOfInsightItemTypeInsightItem) ? get_class($arrayOfInsightItemTypeInsightItem) : sprintf('%s(%s)', gettype($arrayOfInsightItemTypeInsightItem), var_export($arrayOfInsightItemTypeInsightItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Insight property can only contain items of type \Ews\StructType\EwsInsightItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Insight value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsInsightItemType[] $insight
@@ -46,11 +68,9 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
      */
     public function setInsight(array $insight = array())
     {
-        foreach ($insight as $arrayOfInsightItemTypeInsightItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfInsightItemTypeInsightItem instanceof \Ews\StructType\EwsInsightItemType) {
-                throw new \InvalidArgumentException(sprintf('The Insight property can only contain items of \Ews\StructType\EwsInsightItemType, "%s" given', is_object($arrayOfInsightItemTypeInsightItem) ? get_class($arrayOfInsightItemTypeInsightItem) : gettype($arrayOfInsightItemTypeInsightItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($insightArrayErrorMessage = self::validateInsightForArrayConstraintsFromSetInsight($insight))) {
+            throw new \InvalidArgumentException($insightArrayErrorMessage, __LINE__);
         }
         $this->Insight = $insight;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsInsightItemType) {
-            throw new \InvalidArgumentException(sprintf('The Insight property can only contain items of \Ews\StructType\EwsInsightItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Insight property can only contain items of type \Ews\StructType\EwsInsightItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Insight[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Insight';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfInsightItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

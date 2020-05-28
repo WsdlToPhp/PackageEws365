@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for TaskDelegateStateType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsTaskDelegateStateType
+class EwsTaskDelegateStateType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NoMatch'
@@ -41,16 +43,6 @@ class EwsTaskDelegateStateType
      */
     const VALUE_MAX = 'Max';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NO_MATCH
      * @uses self::VALUE_OWN_NEW
@@ -70,13 +62,5 @@ class EwsTaskDelegateStateType
             self::VALUE_DECLINED,
             self::VALUE_MAX,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonIndexableItemDetailType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Non indexable item detail.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -24,7 +24,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $ItemId;
     /**
      * The ErrorCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $ErrorCode;
     /**
      * The ErrorDescription
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -40,7 +40,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $ErrorDescription;
     /**
      * The IsPartiallyIndexed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -48,7 +48,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $IsPartiallyIndexed;
     /**
      * The IsPermanentFailure
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -56,7 +56,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $IsPermanentFailure;
     /**
      * The SortValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -64,7 +64,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $SortValue;
     /**
      * The AttemptCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -72,7 +72,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $AttemptCount;
     /**
      * The LastAttemptTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +80,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public $LastAttemptTime;
     /**
      * The AdditionalInfo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -158,7 +158,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsItemIndexErrorType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $errorCode, implode(', ', \Ews\EnumType\EwsItemIndexErrorType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsItemIndexErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsItemIndexErrorType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
         return $this;
@@ -180,7 +180,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($errorDescription) && !is_string($errorDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorDescription)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDescription, true), gettype($errorDescription)), __LINE__);
         }
         $this->ErrorDescription = $errorDescription;
         return $this;
@@ -202,7 +202,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isPartiallyIndexed) && !is_bool($isPartiallyIndexed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPartiallyIndexed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPartiallyIndexed, true), gettype($isPartiallyIndexed)), __LINE__);
         }
         $this->IsPartiallyIndexed = $isPartiallyIndexed;
         return $this;
@@ -224,7 +224,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isPermanentFailure) && !is_bool($isPermanentFailure)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isPermanentFailure)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermanentFailure, true), gettype($isPermanentFailure)), __LINE__);
         }
         $this->IsPermanentFailure = $isPermanentFailure;
         return $this;
@@ -246,7 +246,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortValue) && !is_string($sortValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortValue)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
         }
         $this->SortValue = $sortValue;
         return $this;
@@ -267,8 +267,8 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     public function setAttemptCount($attemptCount = null)
     {
         // validation for constraint: int
-        if (!is_null($attemptCount) && !is_numeric($attemptCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($attemptCount)), __LINE__);
+        if (!is_null($attemptCount) && !(is_int($attemptCount) || ctype_digit($attemptCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($attemptCount, true), gettype($attemptCount)), __LINE__);
         }
         $this->AttemptCount = $attemptCount;
         return $this;
@@ -290,7 +290,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastAttemptTime) && !is_string($lastAttemptTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastAttemptTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastAttemptTime, true), gettype($lastAttemptTime)), __LINE__);
         }
         $this->LastAttemptTime = $lastAttemptTime;
         return $this;
@@ -312,29 +312,9 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalInfo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
         }
         $this->AdditionalInfo = $additionalInfo;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

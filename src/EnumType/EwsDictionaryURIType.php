@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DictionaryURIType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDictionaryURIType
+class EwsDictionaryURIType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'item:InternetMessageHeader'
@@ -61,16 +63,6 @@ class EwsDictionaryURIType
      */
     const VALUE_DISTRIBUTIONLIST_MEMBERS_MEMBER = 'distributionlist:Members:Member';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ITEM_INTERNET_MESSAGE_HEADER
      * @uses self::VALUE_CONTACTS_IM_ADDRESS
@@ -98,13 +90,5 @@ class EwsDictionaryURIType
             self::VALUE_CONTACTS_EMAIL_ADDRESS,
             self::VALUE_DISTRIBUTIONLIST_MEMBERS_MEMBER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

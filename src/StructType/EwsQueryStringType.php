@@ -19,21 +19,21 @@ class EwsQueryStringType extends AbstractStructBase
     public $_;
     /**
      * The ResetCache
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $ResetCache;
     /**
      * The ReturnHighlightTerms
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
     public $ReturnHighlightTerms;
     /**
      * The ReturnDeletedItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -74,7 +74,7 @@ class EwsQueryStringType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
         return $this;
@@ -96,7 +96,7 @@ class EwsQueryStringType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($resetCache) && !is_bool($resetCache)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($resetCache)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($resetCache, true), gettype($resetCache)), __LINE__);
         }
         $this->ResetCache = $resetCache;
         return $this;
@@ -118,7 +118,7 @@ class EwsQueryStringType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($returnHighlightTerms) && !is_bool($returnHighlightTerms)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnHighlightTerms)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnHighlightTerms, true), gettype($returnHighlightTerms)), __LINE__);
         }
         $this->ReturnHighlightTerms = $returnHighlightTerms;
         return $this;
@@ -140,29 +140,9 @@ class EwsQueryStringType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($returnDeletedItems) && !is_bool($returnDeletedItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnDeletedItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnDeletedItems, true), gettype($returnDeletedItems)), __LINE__);
         }
         $this->ReturnDeletedItems = $returnDeletedItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsQueryStringType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

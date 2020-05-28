@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MapiPropertyTypeType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Includes all of the extended property types that we support. Note that Error, Null, Object and Object array can not be used in restrictions, or for setting/getting values. They are only there for error reporting purposes.
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMapiPropertyTypeType
+class EwsMapiPropertyTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'ApplicationTime'
@@ -148,16 +150,6 @@ class EwsMapiPropertyTypeType
      */
     const VALUE_STRING_ARRAY = 'StringArray';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_APPLICATION_TIME
      * @uses self::VALUE_APPLICATION_TIME_ARRAY
@@ -219,13 +211,5 @@ class EwsMapiPropertyTypeType
             self::VALUE_STRING,
             self::VALUE_STRING_ARRAY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

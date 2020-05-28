@@ -14,14 +14,14 @@ class EwsContactsViewType extends EwsBasePagingType
 {
     /**
      * The InitialName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $InitialName;
     /**
      * The FinalName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -56,7 +56,7 @@ class EwsContactsViewType extends EwsBasePagingType
     {
         // validation for constraint: string
         if (!is_null($initialName) && !is_string($initialName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initialName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initialName, true), gettype($initialName)), __LINE__);
         }
         $this->InitialName = $initialName;
         return $this;
@@ -78,29 +78,9 @@ class EwsContactsViewType extends EwsBasePagingType
     {
         // validation for constraint: string
         if (!is_null($finalName) && !is_string($finalName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($finalName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($finalName, true), gettype($finalName)), __LINE__);
         }
         $this->FinalName = $finalName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsContactsViewType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

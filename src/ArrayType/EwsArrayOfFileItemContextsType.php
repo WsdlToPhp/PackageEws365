@@ -14,7 +14,7 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
 {
     /**
      * The FileContext
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFileItemContext[]
@@ -39,6 +39,28 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
         return $this->FileContext;
     }
     /**
+     * This method is responsible for validating the values passed to the setFileContext method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFileContext method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFileContextForArrayConstraintsFromSetFileContext(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfFileItemContextsTypeFileContextItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFileItemContextsTypeFileContextItem instanceof \Ews\StructType\EwsFileItemContext) {
+                $invalidValues[] = is_object($arrayOfFileItemContextsTypeFileContextItem) ? get_class($arrayOfFileItemContextsTypeFileContextItem) : sprintf('%s(%s)', gettype($arrayOfFileItemContextsTypeFileContextItem), var_export($arrayOfFileItemContextsTypeFileContextItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The FileContext property can only contain items of type \Ews\StructType\EwsFileItemContext, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set FileContext value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFileItemContext[] $fileContext
@@ -46,11 +68,9 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
      */
     public function setFileContext(array $fileContext = array())
     {
-        foreach ($fileContext as $arrayOfFileItemContextsTypeFileContextItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfFileItemContextsTypeFileContextItem instanceof \Ews\StructType\EwsFileItemContext) {
-                throw new \InvalidArgumentException(sprintf('The FileContext property can only contain items of \Ews\StructType\EwsFileItemContext, "%s" given', is_object($arrayOfFileItemContextsTypeFileContextItem) ? get_class($arrayOfFileItemContextsTypeFileContextItem) : gettype($arrayOfFileItemContextsTypeFileContextItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($fileContextArrayErrorMessage = self::validateFileContextForArrayConstraintsFromSetFileContext($fileContext))) {
+            throw new \InvalidArgumentException($fileContextArrayErrorMessage, __LINE__);
         }
         $this->FileContext = $fileContext;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsFileItemContext) {
-            throw new \InvalidArgumentException(sprintf('The FileContext property can only contain items of \Ews\StructType\EwsFileItemContext, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The FileContext property can only contain items of type \Ews\StructType\EwsFileItemContext, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->FileContext[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'FileContext';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfFileItemContextsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

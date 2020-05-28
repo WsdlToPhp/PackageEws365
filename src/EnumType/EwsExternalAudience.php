@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ExternalAudience EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsExternalAudience
+class EwsExternalAudience extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -26,16 +28,6 @@ class EwsExternalAudience
      */
     const VALUE_ALL = 'All';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_KNOWN
@@ -49,13 +41,5 @@ class EwsExternalAudience
             self::VALUE_KNOWN,
             self::VALUE_ALL,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

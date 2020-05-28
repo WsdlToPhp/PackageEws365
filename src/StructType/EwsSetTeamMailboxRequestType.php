@@ -78,7 +78,7 @@ class EwsSetTeamMailboxRequestType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($sharePointSiteUrl) && !is_string($sharePointSiteUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharePointSiteUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sharePointSiteUrl, true), gettype($sharePointSiteUrl)), __LINE__);
         }
         $this->SharePointSiteUrl = $sharePointSiteUrl;
         return $this;
@@ -103,29 +103,9 @@ class EwsSetTeamMailboxRequestType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTeamMailboxLifecycleStateType::valueIsValid($state)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $state, implode(', ', \Ews\EnumType\EwsTeamMailboxLifecycleStateType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTeamMailboxLifecycleStateType', is_array($state) ? implode(', ', $state) : var_export($state, true), implode(', ', \Ews\EnumType\EwsTeamMailboxLifecycleStateType::getValidValues())), __LINE__);
         }
         $this->State = $state;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetTeamMailboxRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

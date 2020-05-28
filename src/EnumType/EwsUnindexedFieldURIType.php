@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UnindexedFieldURIType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUnindexedFieldURIType
+class EwsUnindexedFieldURIType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'folder:FolderId'
@@ -2341,16 +2343,6 @@ class EwsUnindexedFieldURIType
      */
     const VALUE_INSIGHT_VERSION = 'insight:Version';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_FOLDER_FOLDER_ID
      * @uses self::VALUE_FOLDER_PARENT_FOLDER_ID
@@ -3290,13 +3282,5 @@ class EwsUnindexedFieldURIType
             self::VALUE_INSIGHT_STATUS,
             self::VALUE_INSIGHT_VERSION,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

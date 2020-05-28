@@ -34,14 +34,15 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public $EventDescription;
     /**
      * The EventData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $EventData;
     /**
      * The Server
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
@@ -53,37 +54,39 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public $InternalId;
     /**
      * The BccRecipient
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $BccRecipient;
     /**
      * The HiddenRecipient
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HiddenRecipient;
     /**
      * The UniquePathId
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $UniquePathId;
     /**
      * The RootAddress
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $RootAddress;
     /**
      * The Properties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
      */
@@ -148,7 +151,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($date) && !is_string($date)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($date)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($date, true), gettype($date)), __LINE__);
         }
         $this->Date = $date;
         return $this;
@@ -188,7 +191,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($deliveryStatus) && !is_string($deliveryStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($deliveryStatus)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($deliveryStatus, true), gettype($deliveryStatus)), __LINE__);
         }
         $this->DeliveryStatus = $deliveryStatus;
         return $this;
@@ -210,7 +213,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($eventDescription) && !is_string($eventDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($eventDescription)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventDescription, true), gettype($eventDescription)), __LINE__);
         }
         $this->EventDescription = $eventDescription;
         return $this;
@@ -248,13 +251,13 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setServer($server = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($server) && strlen($server) < 1) || (is_array($server) && count($server) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($server) && !is_string($server)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($server)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($server, true), gettype($server)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($server) && mb_strlen($server) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($server)), __LINE__);
         }
         $this->Server = $server;
         return $this;
@@ -275,8 +278,8 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     public function setInternalId($internalId = null)
     {
         // validation for constraint: int
-        if (!is_null($internalId) && !is_numeric($internalId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($internalId)), __LINE__);
+        if (!is_null($internalId) && !(is_int($internalId) || ctype_digit($internalId))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($internalId, true), gettype($internalId)), __LINE__);
         }
         $this->InternalId = $internalId;
         return $this;
@@ -298,7 +301,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($bccRecipient) && !is_bool($bccRecipient)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($bccRecipient)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($bccRecipient, true), gettype($bccRecipient)), __LINE__);
         }
         $this->BccRecipient = $bccRecipient;
         return $this;
@@ -320,7 +323,7 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hiddenRecipient) && !is_bool($hiddenRecipient)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hiddenRecipient)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hiddenRecipient, true), gettype($hiddenRecipient)), __LINE__);
         }
         $this->HiddenRecipient = $hiddenRecipient;
         return $this;
@@ -340,13 +343,13 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setUniquePathId($uniquePathId = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($uniquePathId) && strlen($uniquePathId) < 1) || (is_array($uniquePathId) && count($uniquePathId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($uniquePathId) && !is_string($uniquePathId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uniquePathId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniquePathId, true), gettype($uniquePathId)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($uniquePathId) && mb_strlen($uniquePathId) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($uniquePathId)), __LINE__);
         }
         $this->UniquePathId = $uniquePathId;
         return $this;
@@ -366,13 +369,13 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      */
     public function setRootAddress($rootAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($rootAddress) && strlen($rootAddress) < 1) || (is_array($rootAddress) && count($rootAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($rootAddress) && !is_string($rootAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($rootAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootAddress, true), gettype($rootAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($rootAddress) && mb_strlen($rootAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($rootAddress)), __LINE__);
         }
         $this->RootAddress = $rootAddress;
         return $this;
@@ -394,25 +397,5 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
     {
         $this->Properties = $properties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

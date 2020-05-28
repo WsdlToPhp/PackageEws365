@@ -14,7 +14,7 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
 {
     /**
      * The AttendeeItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAttendeeConstraintItem[]
@@ -39,6 +39,28 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
         return $this->AttendeeItem;
     }
     /**
+     * This method is responsible for validating the values passed to the setAttendeeItem method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setAttendeeItem method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateAttendeeItemForArrayConstraintsFromSetAttendeeItem(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfAttendeeConstraintItemsAttendeeItemItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfAttendeeConstraintItemsAttendeeItemItem instanceof \Ews\StructType\EwsAttendeeConstraintItem) {
+                $invalidValues[] = is_object($arrayOfAttendeeConstraintItemsAttendeeItemItem) ? get_class($arrayOfAttendeeConstraintItemsAttendeeItemItem) : sprintf('%s(%s)', gettype($arrayOfAttendeeConstraintItemsAttendeeItemItem), var_export($arrayOfAttendeeConstraintItemsAttendeeItemItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The AttendeeItem property can only contain items of type \Ews\StructType\EwsAttendeeConstraintItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set AttendeeItem value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsAttendeeConstraintItem[] $attendeeItem
@@ -46,11 +68,9 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
      */
     public function setAttendeeItem(array $attendeeItem = array())
     {
-        foreach ($attendeeItem as $arrayOfAttendeeConstraintItemsAttendeeItemItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfAttendeeConstraintItemsAttendeeItemItem instanceof \Ews\StructType\EwsAttendeeConstraintItem) {
-                throw new \InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of \Ews\StructType\EwsAttendeeConstraintItem, "%s" given', is_object($arrayOfAttendeeConstraintItemsAttendeeItemItem) ? get_class($arrayOfAttendeeConstraintItemsAttendeeItemItem) : gettype($arrayOfAttendeeConstraintItemsAttendeeItemItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($attendeeItemArrayErrorMessage = self::validateAttendeeItemForArrayConstraintsFromSetAttendeeItem($attendeeItem))) {
+            throw new \InvalidArgumentException($attendeeItemArrayErrorMessage, __LINE__);
         }
         $this->AttendeeItem = $attendeeItem;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsAttendeeConstraintItem) {
-            throw new \InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of \Ews\StructType\EwsAttendeeConstraintItem, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of type \Ews\StructType\EwsAttendeeConstraintItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->AttendeeItem[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'AttendeeItem';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

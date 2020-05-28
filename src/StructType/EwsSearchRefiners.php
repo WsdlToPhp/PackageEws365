@@ -14,7 +14,7 @@ class EwsSearchRefiners extends AbstractStructBase
 {
     /**
      * The SearchRefiner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var \Ews\StructType\EwsSearchRefinerType[]
@@ -39,6 +39,28 @@ class EwsSearchRefiners extends AbstractStructBase
         return $this->SearchRefiner;
     }
     /**
+     * This method is responsible for validating the values passed to the setSearchRefiner method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSearchRefiner method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSearchRefinerForArrayConstraintsFromSetSearchRefiner(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $searchRefinersSearchRefinerItem) {
+            // validation for constraint: itemType
+            if (!$searchRefinersSearchRefinerItem instanceof \Ews\StructType\EwsSearchRefinerType) {
+                $invalidValues[] = is_object($searchRefinersSearchRefinerItem) ? get_class($searchRefinersSearchRefinerItem) : sprintf('%s(%s)', gettype($searchRefinersSearchRefinerItem), var_export($searchRefinersSearchRefinerItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The SearchRefiner property can only contain items of type \Ews\StructType\EwsSearchRefinerType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set SearchRefiner value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSearchRefinerType[] $searchRefiner
@@ -46,11 +68,9 @@ class EwsSearchRefiners extends AbstractStructBase
      */
     public function setSearchRefiner(array $searchRefiner = array())
     {
-        foreach ($searchRefiner as $searchRefinersSearchRefinerItem) {
-            // validation for constraint: itemType
-            if (!$searchRefinersSearchRefinerItem instanceof \Ews\StructType\EwsSearchRefinerType) {
-                throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of \Ews\StructType\EwsSearchRefinerType, "%s" given', is_object($searchRefinersSearchRefinerItem) ? get_class($searchRefinersSearchRefinerItem) : gettype($searchRefinersSearchRefinerItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($searchRefinerArrayErrorMessage = self::validateSearchRefinerForArrayConstraintsFromSetSearchRefiner($searchRefiner))) {
+            throw new \InvalidArgumentException($searchRefinerArrayErrorMessage, __LINE__);
         }
         $this->SearchRefiner = $searchRefiner;
         return $this;
@@ -65,29 +85,9 @@ class EwsSearchRefiners extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSearchRefinerType) {
-            throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of \Ews\StructType\EwsSearchRefinerType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of type \Ews\StructType\EwsSearchRefinerType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->SearchRefiner[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchRefiners
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

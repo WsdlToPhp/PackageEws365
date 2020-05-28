@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ConversationNodeSortOrder EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsConversationNodeSortOrder
+class EwsConversationNodeSortOrder extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'TreeOrderAscending'
@@ -31,16 +33,6 @@ class EwsConversationNodeSortOrder
      */
     const VALUE_DATE_ORDER_DESCENDING = 'DateOrderDescending';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_TREE_ORDER_ASCENDING
      * @uses self::VALUE_TREE_ORDER_DESCENDING
@@ -56,13 +48,5 @@ class EwsConversationNodeSortOrder
             self::VALUE_DATE_ORDER_ASCENDING,
             self::VALUE_DATE_ORDER_DESCENDING,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }
