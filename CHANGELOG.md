@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.0
+- Update generated classes thanks to PackageGenerator release [3.2.7](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/3.2.7)
+- Add Docker settings
+- Remove Dependency badge
+
 ## 1.1.1
 - Update generated classes thanks to PackageGenerator release [2.8.1](https://github.com/WsdlToPhp/PackageGenerator/releases/tag/2.8.1)
 
