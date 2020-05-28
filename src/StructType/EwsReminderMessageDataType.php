@@ -14,35 +14,35 @@ class EwsReminderMessageDataType extends AbstractStructBase
 {
     /**
      * The ReminderText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ReminderText;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Location;
     /**
      * The StartTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StartTime;
     /**
      * The EndTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $EndTime;
     /**
      * The AssociatedCalendarItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
@@ -86,7 +86,7 @@ class EwsReminderMessageDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderText) && !is_string($reminderText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderText, true), gettype($reminderText)), __LINE__);
         }
         $this->ReminderText = $reminderText;
         return $this;
@@ -108,7 +108,7 @@ class EwsReminderMessageDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -130,7 +130,7 @@ class EwsReminderMessageDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
         return $this;
@@ -152,7 +152,7 @@ class EwsReminderMessageDataType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
         return $this;
@@ -174,25 +174,5 @@ class EwsReminderMessageDataType extends AbstractStructBase
     {
         $this->AssociatedCalendarItemId = $associatedCalendarItemId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsReminderMessageDataType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

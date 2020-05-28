@@ -14,28 +14,31 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
 {
     /**
      * The TelUriAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $TelUriAddress;
     /**
      * The ImContactSipUriAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $ImContactSipUriAddress;
     /**
      * The ImTelephoneNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $ImTelephoneNumber;
     /**
      * The GroupId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
@@ -74,13 +77,13 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setTelUriAddress($telUriAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($telUriAddress) && strlen($telUriAddress) < 1) || (is_array($telUriAddress) && count($telUriAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($telUriAddress) && !is_string($telUriAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($telUriAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($telUriAddress, true), gettype($telUriAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($telUriAddress) && mb_strlen($telUriAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($telUriAddress)), __LINE__);
         }
         $this->TelUriAddress = $telUriAddress;
         return $this;
@@ -100,13 +103,13 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setImContactSipUriAddress($imContactSipUriAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($imContactSipUriAddress) && strlen($imContactSipUriAddress) < 1) || (is_array($imContactSipUriAddress) && count($imContactSipUriAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($imContactSipUriAddress) && !is_string($imContactSipUriAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imContactSipUriAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imContactSipUriAddress, true), gettype($imContactSipUriAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($imContactSipUriAddress) && mb_strlen($imContactSipUriAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($imContactSipUriAddress)), __LINE__);
         }
         $this->ImContactSipUriAddress = $imContactSipUriAddress;
         return $this;
@@ -126,13 +129,13 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
      */
     public function setImTelephoneNumber($imTelephoneNumber = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($imTelephoneNumber) && strlen($imTelephoneNumber) < 1) || (is_array($imTelephoneNumber) && count($imTelephoneNumber) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($imTelephoneNumber) && !is_string($imTelephoneNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imTelephoneNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imTelephoneNumber, true), gettype($imTelephoneNumber)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($imTelephoneNumber) && mb_strlen($imTelephoneNumber) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($imTelephoneNumber)), __LINE__);
         }
         $this->ImTelephoneNumber = $imTelephoneNumber;
         return $this;
@@ -154,25 +157,5 @@ class EwsAddNewTelUriContactToGroupType extends EwsBaseRequestType
     {
         $this->GroupId = $groupId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAddNewTelUriContactToGroupType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

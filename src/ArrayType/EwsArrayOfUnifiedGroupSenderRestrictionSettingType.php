@@ -14,7 +14,7 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
 {
     /**
      * The Setting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[]
@@ -39,6 +39,28 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
         return $this->Setting;
     }
     /**
+     * This method is responsible for validating the values passed to the setSetting method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSetting method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSettingForArrayConstraintsFromSetSetting(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting) {
+                $invalidValues[] = is_object($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) ? get_class($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem), var_export($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Setting property can only contain items of type \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Setting value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting[] $setting
@@ -46,11 +68,9 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
      */
     public function setSetting(array $setting = array())
     {
-        foreach ($setting as $arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting) {
-                throw new \InvalidArgumentException(sprintf('The Setting property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, "%s" given', is_object($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) ? get_class($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem) : gettype($arrayOfUnifiedGroupSenderRestrictionSettingTypeSettingItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($settingArrayErrorMessage = self::validateSettingForArrayConstraintsFromSetSetting($setting))) {
+            throw new \InvalidArgumentException($settingArrayErrorMessage, __LINE__);
         }
         $this->Setting = $setting;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting) {
-            throw new \InvalidArgumentException(sprintf('The Setting property can only contain items of \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Setting property can only contain items of type \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Setting[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
     public function getAttributeName()
     {
         return 'Setting';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

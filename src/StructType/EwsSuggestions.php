@@ -14,7 +14,7 @@ class EwsSuggestions extends AbstractStructBase
 {
     /**
      * The Suggestion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSuggestionType[]
@@ -39,6 +39,28 @@ class EwsSuggestions extends AbstractStructBase
         return $this->Suggestion;
     }
     /**
+     * This method is responsible for validating the values passed to the setSuggestion method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSuggestion method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSuggestionForArrayConstraintsFromSetSuggestion(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $suggestionsSuggestionItem) {
+            // validation for constraint: itemType
+            if (!$suggestionsSuggestionItem instanceof \Ews\StructType\EwsSuggestionType) {
+                $invalidValues[] = is_object($suggestionsSuggestionItem) ? get_class($suggestionsSuggestionItem) : sprintf('%s(%s)', gettype($suggestionsSuggestionItem), var_export($suggestionsSuggestionItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Suggestion property can only contain items of type \Ews\StructType\EwsSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Suggestion value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSuggestionType[] $suggestion
@@ -46,11 +68,9 @@ class EwsSuggestions extends AbstractStructBase
      */
     public function setSuggestion(array $suggestion = array())
     {
-        foreach ($suggestion as $suggestionsSuggestionItem) {
-            // validation for constraint: itemType
-            if (!$suggestionsSuggestionItem instanceof \Ews\StructType\EwsSuggestionType) {
-                throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of \Ews\StructType\EwsSuggestionType, "%s" given', is_object($suggestionsSuggestionItem) ? get_class($suggestionsSuggestionItem) : gettype($suggestionsSuggestionItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($suggestionArrayErrorMessage = self::validateSuggestionForArrayConstraintsFromSetSuggestion($suggestion))) {
+            throw new \InvalidArgumentException($suggestionArrayErrorMessage, __LINE__);
         }
         $this->Suggestion = $suggestion;
         return $this;
@@ -65,29 +85,9 @@ class EwsSuggestions extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSuggestionType) {
-            throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of \Ews\StructType\EwsSuggestionType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of type \Ews\StructType\EwsSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Suggestion[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSuggestions
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

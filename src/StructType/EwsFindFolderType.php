@@ -14,7 +14,7 @@ class EwsFindFolderType extends EwsBaseRequestType
 {
     /**
      * The Traversal
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -26,17 +26,25 @@ class EwsFindFolderType extends EwsBaseRequestType
     public $FolderShape;
     /**
      * The IndexedPageFolderView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageFolderView | FractionalPageFolderView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsIndexedPageViewType
      */
     public $IndexedPageFolderView;
     /**
      * The FractionalPageFolderView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageFolderView | FractionalPageFolderView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsFractionalPageViewType
      */
     public $FractionalPageFolderView;
     /**
      * The Restriction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRestrictionType
      */
@@ -91,7 +99,7 @@ class EwsFindFolderType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFolderQueryTraversalType::valueIsValid($traversal)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsFolderQueryTraversalType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFolderQueryTraversalType', is_array($traversal) ? implode(', ', $traversal) : var_export($traversal, true), implode(', ', \Ews\EnumType\EwsFolderQueryTraversalType::getValidValues())), __LINE__);
         }
         $this->Traversal = $traversal;
         return $this;
@@ -120,16 +128,55 @@ class EwsFindFolderType extends EwsBaseRequestType
      */
     public function getIndexedPageFolderView()
     {
-        return $this->IndexedPageFolderView;
+        return isset($this->IndexedPageFolderView) ? $this->IndexedPageFolderView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setIndexedPageFolderView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setIndexedPageFolderView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateIndexedPageFolderViewForChoiceConstraintsFromSetIndexedPageFolderView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'FractionalPageFolderView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property IndexedPageFolderView can\'t be set as the property %s is already set. Only one property must be set among these properties: IndexedPageFolderView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set IndexedPageFolderView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsIndexedPageViewType $indexedPageFolderView
      * @return \Ews\StructType\EwsFindFolderType
      */
     public function setIndexedPageFolderView(\Ews\StructType\EwsIndexedPageViewType $indexedPageFolderView = null)
     {
-        $this->IndexedPageFolderView = $indexedPageFolderView;
+        // validation for constraint: choice(IndexedPageFolderView, FractionalPageFolderView)
+        if ('' !== ($indexedPageFolderViewChoiceErrorMessage = self::validateIndexedPageFolderViewForChoiceConstraintsFromSetIndexedPageFolderView($indexedPageFolderView))) {
+            throw new \InvalidArgumentException($indexedPageFolderViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($indexedPageFolderView) || (is_array($indexedPageFolderView) && empty($indexedPageFolderView))) {
+            unset($this->IndexedPageFolderView);
+        } else {
+            $this->IndexedPageFolderView = $indexedPageFolderView;
+        }
         return $this;
     }
     /**
@@ -138,16 +185,55 @@ class EwsFindFolderType extends EwsBaseRequestType
      */
     public function getFractionalPageFolderView()
     {
-        return $this->FractionalPageFolderView;
+        return isset($this->FractionalPageFolderView) ? $this->FractionalPageFolderView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setFractionalPageFolderView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFractionalPageFolderView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateFractionalPageFolderViewForChoiceConstraintsFromSetFractionalPageFolderView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageFolderView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property FractionalPageFolderView can\'t be set as the property %s is already set. Only one property must be set among these properties: FractionalPageFolderView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set FractionalPageFolderView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFractionalPageViewType $fractionalPageFolderView
      * @return \Ews\StructType\EwsFindFolderType
      */
     public function setFractionalPageFolderView(\Ews\StructType\EwsFractionalPageViewType $fractionalPageFolderView = null)
     {
-        $this->FractionalPageFolderView = $fractionalPageFolderView;
+        // validation for constraint: choice(IndexedPageFolderView, FractionalPageFolderView)
+        if ('' !== ($fractionalPageFolderViewChoiceErrorMessage = self::validateFractionalPageFolderViewForChoiceConstraintsFromSetFractionalPageFolderView($fractionalPageFolderView))) {
+            throw new \InvalidArgumentException($fractionalPageFolderViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($fractionalPageFolderView) || (is_array($fractionalPageFolderView) && empty($fractionalPageFolderView))) {
+            unset($this->FractionalPageFolderView);
+        } else {
+            $this->FractionalPageFolderView = $fractionalPageFolderView;
+        }
         return $this;
     }
     /**
@@ -185,25 +271,5 @@ class EwsFindFolderType extends EwsBaseRequestType
     {
         $this->ParentFolderIds = $parentFolderIds;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindFolderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -79,7 +79,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -94,7 +94,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateFolder(\Ews\StructType\EwsUpdateFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateFolder($request));
+            $this->setResult($this->getSoapClient()->UpdateFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -103,7 +103,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -118,7 +118,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateItem(\Ews\StructType\EwsUpdateItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateItem($request));
+            $this->setResult($this->getSoapClient()->UpdateItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -127,7 +127,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateItemInRecoverableItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
@@ -142,7 +142,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateItemInRecoverableItems(\Ews\StructType\EwsUpdateItemInRecoverableItemsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateItemInRecoverableItems($request));
+            $this->setResult($this->getSoapClient()->UpdateItemInRecoverableItems($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -151,7 +151,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateDelegate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -166,7 +166,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateDelegate(\Ews\StructType\EwsUpdateDelegateType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateDelegate($request));
+            $this->setResult($this->getSoapClient()->UpdateDelegate($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -175,7 +175,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateUserConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -190,7 +190,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateUserConfiguration(\Ews\StructType\EwsUpdateUserConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->UpdateUserConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -199,7 +199,7 @@ class EwsUpdate extends SoapClientBase
     }
     /**
      * Method to call the operation originally named UpdateInboxRules
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -214,7 +214,7 @@ class EwsUpdate extends SoapClientBase
     public function UpdateInboxRules(\Ews\StructType\EwsUpdateInboxRulesRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->UpdateInboxRules($request));
+            $this->setResult($this->getSoapClient()->UpdateInboxRules($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -229,13 +229,5 @@ class EwsUpdate extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

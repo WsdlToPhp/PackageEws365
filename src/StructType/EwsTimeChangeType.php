@@ -34,7 +34,7 @@ class EwsTimeChangeType extends AbstractStructBase
     public $Time;
     /**
      * The TimeZoneName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -78,7 +78,7 @@ class EwsTimeChangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($offset) && !is_string($offset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($offset)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($offset, true), gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
         return $this;
@@ -118,7 +118,7 @@ class EwsTimeChangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($absoluteDate) && !is_string($absoluteDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($absoluteDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($absoluteDate, true), gettype($absoluteDate)), __LINE__);
         }
         $this->AbsoluteDate = $absoluteDate;
         return $this;
@@ -140,7 +140,7 @@ class EwsTimeChangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($time) && !is_string($time)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($time)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($time, true), gettype($time)), __LINE__);
         }
         $this->Time = $time;
         return $this;
@@ -162,29 +162,9 @@ class EwsTimeChangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($timeZoneName) && !is_string($timeZoneName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZoneName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZoneName, true), gettype($timeZoneName)), __LINE__);
         }
         $this->TimeZoneName = $timeZoneName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsTimeChangeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

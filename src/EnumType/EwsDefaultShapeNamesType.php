@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DefaultShapeNamesType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDefaultShapeNamesType
+class EwsDefaultShapeNamesType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'IdOnly'
@@ -26,16 +28,6 @@ class EwsDefaultShapeNamesType
      */
     const VALUE_ALL_PROPERTIES = 'AllProperties';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ID_ONLY
      * @uses self::VALUE_DEFAULT
@@ -49,13 +41,5 @@ class EwsDefaultShapeNamesType
             self::VALUE_DEFAULT,
             self::VALUE_ALL_PROPERTIES,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

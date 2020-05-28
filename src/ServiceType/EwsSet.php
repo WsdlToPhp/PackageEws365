@@ -66,7 +66,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetUserOofSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType
@@ -81,7 +81,7 @@ class EwsSet extends SoapClientBase
     public function SetUserOofSettings(\Ews\StructType\EwsSetUserOofSettingsRequest $setUserOofSettingsRequest)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetUserOofSettings($setUserOofSettingsRequest));
+            $this->setResult($this->getSoapClient()->SetUserOofSettings($setUserOofSettingsRequest));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -90,7 +90,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetTeamMailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -105,7 +105,7 @@ class EwsSet extends SoapClientBase
     public function SetTeamMailbox(\Ews\StructType\EwsSetTeamMailboxRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetTeamMailbox($request));
+            $this->setResult($this->getSoapClient()->SetTeamMailbox($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -114,7 +114,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetHoldOnMailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -129,7 +129,7 @@ class EwsSet extends SoapClientBase
     public function SetHoldOnMailboxes(\Ews\StructType\EwsSetHoldOnMailboxesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetHoldOnMailboxes($request));
+            $this->setResult($this->getSoapClient()->SetHoldOnMailboxes($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -138,7 +138,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetImGroup
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -153,7 +153,7 @@ class EwsSet extends SoapClientBase
     public function SetImGroup(\Ews\StructType\EwsSetImGroupType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetImGroup($request));
+            $this->setResult($this->getSoapClient()->SetImGroup($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -162,7 +162,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetImListMigrationCompleted
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -177,7 +177,7 @@ class EwsSet extends SoapClientBase
     public function SetImListMigrationCompleted(\Ews\StructType\EwsSetImListMigrationCompletedType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetImListMigrationCompleted($request));
+            $this->setResult($this->getSoapClient()->SetImListMigrationCompleted($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -186,7 +186,7 @@ class EwsSet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named SetUserPhoto
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -201,7 +201,7 @@ class EwsSet extends SoapClientBase
     public function SetUserPhoto(\Ews\StructType\EwsSetUserPhotoType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->SetUserPhoto($request));
+            $this->setResult($this->getSoapClient()->SetUserPhoto($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -216,13 +216,5 @@ class EwsSet extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for GroupMailboxConfigurationActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsGroupMailboxConfigurationActionType
+class EwsGroupMailboxConfigurationActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'SetRegionalSettings'
@@ -46,16 +48,6 @@ class EwsGroupMailboxConfigurationActionType
      */
     const VALUE_GENERATE_GROUP_PHOTO = 'GenerateGroupPhoto';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SET_REGIONAL_SETTINGS
      * @uses self::VALUE_CREATE_DEFAULT_FOLDERS
@@ -77,13 +69,5 @@ class EwsGroupMailboxConfigurationActionType
             self::VALUE_SEND_WELCOME_MESSAGE,
             self::VALUE_GENERATE_GROUP_PHOTO,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,6 +14,10 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
 {
     /**
      * The UnknownEntry
+     * Meta information extracted from the WSDL
+     * - choice: UnknownEntry
+     * - choiceMaxOccurs: unbounded
+     * - choiceMinOccurs: 0
      * @var string
      */
     public $UnknownEntry;
@@ -33,10 +37,40 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      */
     public function getUnknownEntry()
     {
-        return $this->UnknownEntry;
+        return isset($this->UnknownEntry) ? $this->UnknownEntry : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setUnknownEntry method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setUnknownEntry method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateUnknownEntryForChoiceConstraintsFromSetUnknownEntry($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property UnknownEntry can\'t be set as the property %s is already set. Only one property must be set among these properties: UnknownEntry, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set UnknownEntry value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param string $unknownEntry
      * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType
      */
@@ -44,9 +78,17 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
     {
         // validation for constraint: string
         if (!is_null($unknownEntry) && !is_string($unknownEntry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($unknownEntry)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unknownEntry, true), gettype($unknownEntry)), __LINE__);
         }
-        $this->UnknownEntry = $unknownEntry;
+        // validation for constraint: choice(UnknownEntry)
+        if ('' !== ($unknownEntryChoiceErrorMessage = self::validateUnknownEntryForChoiceConstraintsFromSetUnknownEntry($unknownEntry))) {
+            throw new \InvalidArgumentException($unknownEntryChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($unknownEntry) || (is_array($unknownEntry) && empty($unknownEntry))) {
+            unset($this->UnknownEntry);
+        } else {
+            $this->UnknownEntry = $unknownEntry;
+        }
         return $this;
     }
     /**
@@ -104,25 +146,5 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'UnknownEntry';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

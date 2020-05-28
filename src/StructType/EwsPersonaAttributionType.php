@@ -14,7 +14,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $Id;
     /**
      * The SourceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -30,7 +30,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $SourceId;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -38,7 +38,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $DisplayName;
     /**
      * The IsWritable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -46,7 +46,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $IsWritable;
     /**
      * The IsQuickContact
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -54,7 +54,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $IsQuickContact;
     /**
      * The IsHidden
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -62,7 +62,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     public $IsHidden;
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFolderIdType
@@ -113,7 +113,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -153,7 +153,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -175,7 +175,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isWritable) && !is_bool($isWritable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isWritable)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isWritable, true), gettype($isWritable)), __LINE__);
         }
         $this->IsWritable = $isWritable;
         return $this;
@@ -197,7 +197,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isQuickContact) && !is_bool($isQuickContact)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isQuickContact)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isQuickContact, true), gettype($isQuickContact)), __LINE__);
         }
         $this->IsQuickContact = $isQuickContact;
         return $this;
@@ -219,7 +219,7 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isHidden) && !is_bool($isHidden)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isHidden)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isHidden, true), gettype($isHidden)), __LINE__);
         }
         $this->IsHidden = $isHidden;
         return $this;
@@ -241,25 +241,5 @@ class EwsPersonaAttributionType extends AbstractStructBase
     {
         $this->FolderId = $folderId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPersonaAttributionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

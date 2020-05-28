@@ -14,7 +14,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
 {
     /**
      * The Type
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     public $Type;
     /**
      * The Value
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var string[]
@@ -61,7 +61,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
         return $this;
@@ -75,6 +75,28 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
         return $this->Value;
     }
     /**
+     * This method is responsible for validating the values passed to the setValue method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setValue method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateValueForArrayConstraintsFromSetValue(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $userConfigurationDictionaryObjectTypeValueItem) {
+            // validation for constraint: itemType
+            if (!is_string($userConfigurationDictionaryObjectTypeValueItem)) {
+                $invalidValues[] = is_object($userConfigurationDictionaryObjectTypeValueItem) ? get_class($userConfigurationDictionaryObjectTypeValueItem) : sprintf('%s(%s)', gettype($userConfigurationDictionaryObjectTypeValueItem), var_export($userConfigurationDictionaryObjectTypeValueItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Value property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Value value
      * @throws \InvalidArgumentException
      * @param string[] $value
@@ -82,11 +104,9 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      */
     public function setValue(array $value = array())
     {
-        foreach ($value as $userConfigurationDictionaryObjectTypeValueItem) {
-            // validation for constraint: itemType
-            if (!is_string($userConfigurationDictionaryObjectTypeValueItem)) {
-                throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($userConfigurationDictionaryObjectTypeValueItem) ? get_class($userConfigurationDictionaryObjectTypeValueItem) : gettype($userConfigurationDictionaryObjectTypeValueItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($valueArrayErrorMessage = self::validateValueForArrayConstraintsFromSetValue($value))) {
+            throw new \InvalidArgumentException($valueArrayErrorMessage, __LINE__);
         }
         $this->Value = $value;
         return $this;
@@ -101,29 +121,9 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Value[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

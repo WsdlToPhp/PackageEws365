@@ -14,7 +14,7 @@ class EwsUploadItemType extends AbstractStructBase
 {
     /**
      * The ParentFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsFolderIdType
@@ -22,7 +22,7 @@ class EwsUploadItemType extends AbstractStructBase
     public $ParentFolderId;
     /**
      * The Data
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,14 +30,14 @@ class EwsUploadItemType extends AbstractStructBase
     public $Data;
     /**
      * The CreateAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $CreateAction;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -45,7 +45,7 @@ class EwsUploadItemType extends AbstractStructBase
     public $ItemId;
     /**
      * The IsAssociated
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -107,7 +107,7 @@ class EwsUploadItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($data) && !is_string($data)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($data)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($data, true), gettype($data)), __LINE__);
         }
         $this->Data = $data;
         return $this;
@@ -132,7 +132,7 @@ class EwsUploadItemType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCreateActionType::valueIsValid($createAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $createAction, implode(', ', \Ews\EnumType\EwsCreateActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCreateActionType', is_array($createAction) ? implode(', ', $createAction) : var_export($createAction, true), implode(', ', \Ews\EnumType\EwsCreateActionType::getValidValues())), __LINE__);
         }
         $this->CreateAction = $createAction;
         return $this;
@@ -172,29 +172,9 @@ class EwsUploadItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isAssociated) && !is_bool($isAssociated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAssociated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAssociated, true), gettype($isAssociated)), __LINE__);
         }
         $this->IsAssociated = $isAssociated;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUploadItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

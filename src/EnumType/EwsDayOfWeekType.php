@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DayOfWeekType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDayOfWeekType
+class EwsDayOfWeekType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Sunday'
@@ -61,16 +63,6 @@ class EwsDayOfWeekType
      */
     const VALUE_WEEKEND_DAY = 'WeekendDay';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SUNDAY
      * @uses self::VALUE_MONDAY
@@ -98,13 +90,5 @@ class EwsDayOfWeekType
             self::VALUE_WEEKDAY,
             self::VALUE_WEEKEND_DAY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

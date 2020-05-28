@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DisableReasonType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: List of possible reasons for disabling the client extension
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDisableReasonType
+class EwsDisableReasonType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NoReason'
@@ -33,16 +35,6 @@ class EwsDisableReasonType
      */
     const VALUE_MOBILE_CLIENT_PERFORMANCE = 'MobileClientPerformance';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NO_REASON
      * @uses self::VALUE_OUTLOOK_CLIENT_PERFORMANCE
@@ -58,13 +50,5 @@ class EwsDisableReasonType
             self::VALUE_OWACLIENT_PERFORMANCE,
             self::VALUE_MOBILE_CLIENT_PERFORMANCE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

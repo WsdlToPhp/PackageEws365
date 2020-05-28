@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupBaseType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents base unified group
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
 {
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -24,7 +24,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     public $SmtpAddress;
     /**
      * The LegacyDN
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -32,7 +32,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     public $LegacyDN;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -40,7 +40,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     public $DisplayName;
     /**
      * The AccessType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -82,7 +82,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
@@ -104,7 +104,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($legacyDN) && !is_string($legacyDN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($legacyDN)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
         }
         $this->LegacyDN = $legacyDN;
         return $this;
@@ -126,7 +126,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -151,29 +151,9 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $accessType, implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
         $this->AccessType = $accessType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUnifiedGroupBaseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

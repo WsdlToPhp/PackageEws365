@@ -14,7 +14,7 @@ class EwsAdditionalEntries extends AbstractStructBase
 {
     /**
      * The Entry
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var string[]
@@ -39,6 +39,28 @@ class EwsAdditionalEntries extends AbstractStructBase
         return $this->Entry;
     }
     /**
+     * This method is responsible for validating the values passed to the setEntry method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setEntry method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateEntryForArrayConstraintsFromSetEntry(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $additionalEntriesEntryItem) {
+            // validation for constraint: itemType
+            if (!is_string($additionalEntriesEntryItem)) {
+                $invalidValues[] = is_object($additionalEntriesEntryItem) ? get_class($additionalEntriesEntryItem) : sprintf('%s(%s)', gettype($additionalEntriesEntryItem), var_export($additionalEntriesEntryItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Entry property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Entry value
      * @throws \InvalidArgumentException
      * @param string[] $entry
@@ -46,11 +68,9 @@ class EwsAdditionalEntries extends AbstractStructBase
      */
     public function setEntry(array $entry = array())
     {
-        foreach ($entry as $additionalEntriesEntryItem) {
-            // validation for constraint: itemType
-            if (!is_string($additionalEntriesEntryItem)) {
-                throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of string, "%s" given', is_object($additionalEntriesEntryItem) ? get_class($additionalEntriesEntryItem) : gettype($additionalEntriesEntryItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($entryArrayErrorMessage = self::validateEntryForArrayConstraintsFromSetEntry($entry))) {
+            throw new \InvalidArgumentException($entryArrayErrorMessage, __LINE__);
         }
         $this->Entry = $entry;
         return $this;
@@ -65,29 +85,9 @@ class EwsAdditionalEntries extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Entry[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAdditionalEntries
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
 {
     /**
      * The Microsoft_OutlookServices_SenderApp
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSenderAddInEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
         return $this->{'Microsoft.OutlookServices.SenderApp'};
     }
     /**
+     * This method is responsible for validating the values passed to the setMicrosoft_OutlookServices_SenderApp method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMicrosoft_OutlookServices_SenderApp method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMicrosoft_OutlookServices_SenderAppForArrayConstraintsFromSetMicrosoft_OutlookServices_SenderApp(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem instanceof \Ews\StructType\EwsSenderAddInEntityType) {
+                $invalidValues[] = is_object($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) ? get_class($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) : sprintf('%s(%s)', gettype($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem), var_export($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of type \Ews\StructType\EwsSenderAddInEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Microsoft_OutlookServices_SenderApp value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSenderAddInEntityType[] $microsoft_OutlookServices_SenderApp
@@ -46,24 +68,26 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
      */
     public function setMicrosoft_OutlookServices_SenderApp(array $microsoft_OutlookServices_SenderApp = array())
     {
-        foreach ($microsoft_OutlookServices_SenderApp as $arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem instanceof \Ews\StructType\EwsSenderAddInEntityType) {
-                throw new \InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of \Ews\StructType\EwsSenderAddInEntityType, "%s" given', is_object($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) ? get_class($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem) : gettype($arrayOfSenderAddInsTypeMicrosoft_OutlookServices_SenderAppItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($microsoft_OutlookServices_SenderAppArrayErrorMessage = self::validateMicrosoft_OutlookServices_SenderAppForArrayConstraintsFromSetMicrosoft_OutlookServices_SenderApp($microsoft_OutlookServices_SenderApp))) {
+            throw new \InvalidArgumentException($microsoft_OutlookServices_SenderAppArrayErrorMessage, __LINE__);
         }
         $this->Microsoft_OutlookServices_SenderApp = $this->{'Microsoft.OutlookServices.SenderApp'} = $microsoft_OutlookServices_SenderApp;
         return $this;
     }
     /**
+     * Add item to Microsoft_OutlookServices_SenderApp value
+     * @throws \InvalidArgumentException
+     * @param \Ews\StructType\EwsSenderAddInEntityType $item
+     * @return \Ews\ArrayType\EwsArrayOfSenderAddInsType
      */
     public function addToMicrosoft_OutlookServices_SenderApp(\Ews\StructType\EwsSenderAddInEntityType $item)
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSenderAddInEntityType) {
-            throw new \InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of \Ews\StructType\EwsSenderAddInEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of type \Ews\StructType\EwsSenderAddInEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
-        $this->Microsoft_OutlookServices_SenderApp[] = $item;
+        $this->Microsoft_OutlookServices_SenderApp[] = $this->{'Microsoft.OutlookServices.SenderApp'}[] = $item;
         return $this;
     }
     /**
@@ -121,25 +145,5 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Microsoft.OutlookServices.SenderApp';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfSenderAddInsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

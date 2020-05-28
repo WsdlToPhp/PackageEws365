@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxHoldStatusType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Mailbox hold status.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
     public $Mailbox;
     /**
      * The Status
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +32,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
     public $Status;
     /**
      * The AdditionalInfo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -71,7 +71,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
         return $this;
@@ -96,7 +96,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsHoldStatusType::valueIsValid($status)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $status, implode(', ', \Ews\EnumType\EwsHoldStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsHoldStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \Ews\EnumType\EwsHoldStatusType::getValidValues())), __LINE__);
         }
         $this->Status = $status;
         return $this;
@@ -118,29 +118,9 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($additionalInfo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
         }
         $this->AdditionalInfo = $additionalInfo;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMailboxHoldStatusType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

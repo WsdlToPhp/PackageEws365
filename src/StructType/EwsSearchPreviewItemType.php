@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchPreviewItemType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Mailbox search preview item.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -24,7 +24,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Id;
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPreviewItemMailboxType
@@ -32,7 +32,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Mailbox;
     /**
      * The ParentId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -40,7 +40,8 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $ParentId;
     /**
      * The ItemClass
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +49,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $ItemClass;
     /**
      * The UniqueHash
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +57,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $UniqueHash;
     /**
      * The SortValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,7 +65,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $SortValue;
     /**
      * The OwaLink
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -72,7 +73,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $OwaLink;
     /**
      * The Sender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -80,7 +81,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Sender;
     /**
      * The ToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
@@ -88,7 +89,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $ToRecipients;
     /**
      * The CcRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
@@ -96,7 +97,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $CcRecipients;
     /**
      * The BccRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
@@ -104,7 +105,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $BccRecipients;
     /**
      * The CreatedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -112,7 +113,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $CreatedTime;
     /**
      * The ReceivedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -120,7 +121,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $ReceivedTime;
     /**
      * The SentTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -128,7 +129,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $SentTime;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -136,7 +137,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Subject;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -144,7 +145,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Size;
     /**
      * The Preview
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -152,7 +153,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Preview;
     /**
      * The Importance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -160,7 +161,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Importance;
     /**
      * The Read
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -168,7 +169,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $Read;
     /**
      * The HasAttachment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -176,7 +177,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public $HasAttachment;
     /**
      * The ExtendedProperties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
@@ -323,7 +324,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($itemClass) && !is_string($itemClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         $this->ItemClass = $itemClass;
         return $this;
@@ -345,7 +346,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($uniqueHash) && !is_string($uniqueHash)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uniqueHash)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniqueHash, true), gettype($uniqueHash)), __LINE__);
         }
         $this->UniqueHash = $uniqueHash;
         return $this;
@@ -367,7 +368,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sortValue) && !is_string($sortValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sortValue)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
         }
         $this->SortValue = $sortValue;
         return $this;
@@ -389,7 +390,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($owaLink) && !is_string($owaLink)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($owaLink)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($owaLink, true), gettype($owaLink)), __LINE__);
         }
         $this->OwaLink = $owaLink;
         return $this;
@@ -411,7 +412,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sender) && !is_string($sender)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sender)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sender, true), gettype($sender)), __LINE__);
         }
         $this->Sender = $sender;
         return $this;
@@ -487,7 +488,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($createdTime) && !is_string($createdTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdTime, true), gettype($createdTime)), __LINE__);
         }
         $this->CreatedTime = $createdTime;
         return $this;
@@ -509,7 +510,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($receivedTime) && !is_string($receivedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($receivedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($receivedTime, true), gettype($receivedTime)), __LINE__);
         }
         $this->ReceivedTime = $receivedTime;
         return $this;
@@ -531,7 +532,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sentTime) && !is_string($sentTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sentTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sentTime, true), gettype($sentTime)), __LINE__);
         }
         $this->SentTime = $sentTime;
         return $this;
@@ -553,7 +554,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -574,8 +575,8 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -597,7 +598,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
         return $this;
@@ -622,7 +623,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
         return $this;
@@ -644,7 +645,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($read) && !is_bool($read)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($read)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($read, true), gettype($read)), __LINE__);
         }
         $this->Read = $read;
         return $this;
@@ -666,7 +667,7 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachment) && !is_bool($hasAttachment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachment)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachment, true), gettype($hasAttachment)), __LINE__);
         }
         $this->HasAttachment = $hasAttachment;
         return $this;
@@ -688,25 +689,5 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     {
         $this->ExtendedProperties = $extendedProperties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchPreviewItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

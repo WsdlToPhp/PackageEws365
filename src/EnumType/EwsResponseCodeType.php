@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ResponseCodeType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents the message keys that can be returned by response error messages
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsResponseCodeType
+class EwsResponseCodeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NoError'
@@ -2538,16 +2540,6 @@ class EwsResponseCodeType
      */
     const VALUE_ERROR_INVALID_LATITUDE = 'ErrorInvalidLatitude';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NO_ERROR
      * @uses self::VALUE_ERROR_ACCESS_DENIED
@@ -3565,13 +3557,5 @@ class EwsResponseCodeType
             self::VALUE_ERROR_INVALID_LONGITUDE,
             self::VALUE_ERROR_INVALID_LATITUDE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

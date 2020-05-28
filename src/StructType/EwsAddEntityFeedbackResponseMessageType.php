@@ -14,7 +14,7 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The ErrorCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
     public $ErrorCount;
     /**
      * The ErrorDetails
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -57,8 +57,8 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
     public function setErrorCount($errorCount = null)
     {
         // validation for constraint: int
-        if (!is_null($errorCount) && !is_numeric($errorCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($errorCount)), __LINE__);
+        if (!is_null($errorCount) && !(is_int($errorCount) || ctype_digit($errorCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($errorCount, true), gettype($errorCount)), __LINE__);
         }
         $this->ErrorCount = $errorCount;
         return $this;
@@ -80,29 +80,9 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
     {
         // validation for constraint: string
         if (!is_null($errorDetails) && !is_string($errorDetails)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($errorDetails)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDetails, true), gettype($errorDetails)), __LINE__);
         }
         $this->ErrorDetails = $errorDetails;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAddEntityFeedbackResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

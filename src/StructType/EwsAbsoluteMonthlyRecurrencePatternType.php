@@ -43,30 +43,10 @@ class EwsAbsoluteMonthlyRecurrencePatternType extends EwsIntervalRecurrencePatte
     public function setDayOfMonth($dayOfMonth = null)
     {
         // validation for constraint: int
-        if (!is_null($dayOfMonth) && !is_numeric($dayOfMonth)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($dayOfMonth)), __LINE__);
+        if (!is_null($dayOfMonth) && !(is_int($dayOfMonth) || ctype_digit($dayOfMonth))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOfMonth, true), gettype($dayOfMonth)), __LINE__);
         }
         $this->DayOfMonth = $dayOfMonth;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsFindItemType extends EwsBaseRequestType
 {
     /**
      * The Traversal
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -26,49 +26,77 @@ class EwsFindItemType extends EwsBaseRequestType
     public $ItemShape;
     /**
      * The IndexedPageItemView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | FractionalPageItemView | SeekToConditionPageItemView | CalendarView | ContactsView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsIndexedPageViewType
      */
     public $IndexedPageItemView;
     /**
      * The FractionalPageItemView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | FractionalPageItemView | SeekToConditionPageItemView | CalendarView | ContactsView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsFractionalPageViewType
      */
     public $FractionalPageItemView;
     /**
      * The SeekToConditionPageItemView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | FractionalPageItemView | SeekToConditionPageItemView | CalendarView | ContactsView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsSeekToConditionPageViewType
      */
     public $SeekToConditionPageItemView;
     /**
      * The CalendarView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | FractionalPageItemView | SeekToConditionPageItemView | CalendarView | ContactsView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsCalendarViewType
      */
     public $CalendarView;
     /**
      * The ContactsView
+     * Meta information extracted from the WSDL
+     * - choice: IndexedPageItemView | FractionalPageItemView | SeekToConditionPageItemView | CalendarView | ContactsView
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsContactsViewType
      */
     public $ContactsView;
     /**
      * The GroupBy
+     * Meta information extracted from the WSDL
+     * - choice: GroupBy | DistinguishedGroupBy
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsGroupByType
      */
     public $GroupBy;
     /**
      * The DistinguishedGroupBy
+     * Meta information extracted from the WSDL
+     * - choice: GroupBy | DistinguishedGroupBy
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 0
      * @var \Ews\StructType\EwsDistinguishedGroupByType
      */
     public $DistinguishedGroupBy;
     /**
      * The Restriction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRestrictionType
      */
     public $Restriction;
     /**
      * The SortOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfFieldOrdersType
      */
@@ -80,7 +108,7 @@ class EwsFindItemType extends EwsBaseRequestType
     public $ParentFolderIds;
     /**
      * The QueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsQueryStringType
@@ -152,7 +180,7 @@ class EwsFindItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsItemQueryTraversalType::valueIsValid($traversal)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $traversal, implode(', ', \Ews\EnumType\EwsItemQueryTraversalType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsItemQueryTraversalType', is_array($traversal) ? implode(', ', $traversal) : var_export($traversal, true), implode(', ', \Ews\EnumType\EwsItemQueryTraversalType::getValidValues())), __LINE__);
         }
         $this->Traversal = $traversal;
         return $this;
@@ -181,16 +209,58 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getIndexedPageItemView()
     {
-        return $this->IndexedPageItemView;
+        return isset($this->IndexedPageItemView) ? $this->IndexedPageItemView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setIndexedPageItemView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setIndexedPageItemView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateIndexedPageItemViewForChoiceConstraintsFromSetIndexedPageItemView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'FractionalPageItemView',
+            'SeekToConditionPageItemView',
+            'CalendarView',
+            'ContactsView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property IndexedPageItemView can\'t be set as the property %s is already set. Only one property must be set among these properties: IndexedPageItemView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set IndexedPageItemView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsIndexedPageViewType $indexedPageItemView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setIndexedPageItemView(\Ews\StructType\EwsIndexedPageViewType $indexedPageItemView = null)
     {
-        $this->IndexedPageItemView = $indexedPageItemView;
+        // validation for constraint: choice(IndexedPageItemView, FractionalPageItemView, SeekToConditionPageItemView, CalendarView, ContactsView)
+        if ('' !== ($indexedPageItemViewChoiceErrorMessage = self::validateIndexedPageItemViewForChoiceConstraintsFromSetIndexedPageItemView($indexedPageItemView))) {
+            throw new \InvalidArgumentException($indexedPageItemViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($indexedPageItemView) || (is_array($indexedPageItemView) && empty($indexedPageItemView))) {
+            unset($this->IndexedPageItemView);
+        } else {
+            $this->IndexedPageItemView = $indexedPageItemView;
+        }
         return $this;
     }
     /**
@@ -199,16 +269,58 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getFractionalPageItemView()
     {
-        return $this->FractionalPageItemView;
+        return isset($this->FractionalPageItemView) ? $this->FractionalPageItemView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setFractionalPageItemView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFractionalPageItemView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateFractionalPageItemViewForChoiceConstraintsFromSetFractionalPageItemView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageItemView',
+            'SeekToConditionPageItemView',
+            'CalendarView',
+            'ContactsView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property FractionalPageItemView can\'t be set as the property %s is already set. Only one property must be set among these properties: FractionalPageItemView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set FractionalPageItemView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFractionalPageViewType $fractionalPageItemView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setFractionalPageItemView(\Ews\StructType\EwsFractionalPageViewType $fractionalPageItemView = null)
     {
-        $this->FractionalPageItemView = $fractionalPageItemView;
+        // validation for constraint: choice(IndexedPageItemView, FractionalPageItemView, SeekToConditionPageItemView, CalendarView, ContactsView)
+        if ('' !== ($fractionalPageItemViewChoiceErrorMessage = self::validateFractionalPageItemViewForChoiceConstraintsFromSetFractionalPageItemView($fractionalPageItemView))) {
+            throw new \InvalidArgumentException($fractionalPageItemViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($fractionalPageItemView) || (is_array($fractionalPageItemView) && empty($fractionalPageItemView))) {
+            unset($this->FractionalPageItemView);
+        } else {
+            $this->FractionalPageItemView = $fractionalPageItemView;
+        }
         return $this;
     }
     /**
@@ -217,16 +329,58 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getSeekToConditionPageItemView()
     {
-        return $this->SeekToConditionPageItemView;
+        return isset($this->SeekToConditionPageItemView) ? $this->SeekToConditionPageItemView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setSeekToConditionPageItemView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSeekToConditionPageItemView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateSeekToConditionPageItemViewForChoiceConstraintsFromSetSeekToConditionPageItemView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageItemView',
+            'FractionalPageItemView',
+            'CalendarView',
+            'ContactsView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property SeekToConditionPageItemView can\'t be set as the property %s is already set. Only one property must be set among these properties: SeekToConditionPageItemView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set SeekToConditionPageItemView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setSeekToConditionPageItemView(\Ews\StructType\EwsSeekToConditionPageViewType $seekToConditionPageItemView = null)
     {
-        $this->SeekToConditionPageItemView = $seekToConditionPageItemView;
+        // validation for constraint: choice(IndexedPageItemView, FractionalPageItemView, SeekToConditionPageItemView, CalendarView, ContactsView)
+        if ('' !== ($seekToConditionPageItemViewChoiceErrorMessage = self::validateSeekToConditionPageItemViewForChoiceConstraintsFromSetSeekToConditionPageItemView($seekToConditionPageItemView))) {
+            throw new \InvalidArgumentException($seekToConditionPageItemViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($seekToConditionPageItemView) || (is_array($seekToConditionPageItemView) && empty($seekToConditionPageItemView))) {
+            unset($this->SeekToConditionPageItemView);
+        } else {
+            $this->SeekToConditionPageItemView = $seekToConditionPageItemView;
+        }
         return $this;
     }
     /**
@@ -235,16 +389,58 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getCalendarView()
     {
-        return $this->CalendarView;
+        return isset($this->CalendarView) ? $this->CalendarView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setCalendarView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setCalendarView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateCalendarViewForChoiceConstraintsFromSetCalendarView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageItemView',
+            'FractionalPageItemView',
+            'SeekToConditionPageItemView',
+            'ContactsView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property CalendarView can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set CalendarView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsCalendarViewType $calendarView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setCalendarView(\Ews\StructType\EwsCalendarViewType $calendarView = null)
     {
-        $this->CalendarView = $calendarView;
+        // validation for constraint: choice(IndexedPageItemView, FractionalPageItemView, SeekToConditionPageItemView, CalendarView, ContactsView)
+        if ('' !== ($calendarViewChoiceErrorMessage = self::validateCalendarViewForChoiceConstraintsFromSetCalendarView($calendarView))) {
+            throw new \InvalidArgumentException($calendarViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($calendarView) || (is_array($calendarView) && empty($calendarView))) {
+            unset($this->CalendarView);
+        } else {
+            $this->CalendarView = $calendarView;
+        }
         return $this;
     }
     /**
@@ -253,16 +449,58 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getContactsView()
     {
-        return $this->ContactsView;
+        return isset($this->ContactsView) ? $this->ContactsView : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setContactsView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setContactsView method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateContactsViewForChoiceConstraintsFromSetContactsView($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'IndexedPageItemView',
+            'FractionalPageItemView',
+            'SeekToConditionPageItemView',
+            'CalendarView',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property ContactsView can\'t be set as the property %s is already set. Only one property must be set among these properties: ContactsView, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set ContactsView value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsContactsViewType $contactsView
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setContactsView(\Ews\StructType\EwsContactsViewType $contactsView = null)
     {
-        $this->ContactsView = $contactsView;
+        // validation for constraint: choice(IndexedPageItemView, FractionalPageItemView, SeekToConditionPageItemView, CalendarView, ContactsView)
+        if ('' !== ($contactsViewChoiceErrorMessage = self::validateContactsViewForChoiceConstraintsFromSetContactsView($contactsView))) {
+            throw new \InvalidArgumentException($contactsViewChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($contactsView) || (is_array($contactsView) && empty($contactsView))) {
+            unset($this->ContactsView);
+        } else {
+            $this->ContactsView = $contactsView;
+        }
         return $this;
     }
     /**
@@ -271,16 +509,55 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getGroupBy()
     {
-        return $this->GroupBy;
+        return isset($this->GroupBy) ? $this->GroupBy : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setGroupBy method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setGroupBy method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateGroupByForChoiceConstraintsFromSetGroupBy($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'DistinguishedGroupBy',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property GroupBy can\'t be set as the property %s is already set. Only one property must be set among these properties: GroupBy, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set GroupBy value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsGroupByType $groupBy
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setGroupBy(\Ews\StructType\EwsGroupByType $groupBy = null)
     {
-        $this->GroupBy = $groupBy;
+        // validation for constraint: choice(GroupBy, DistinguishedGroupBy)
+        if ('' !== ($groupByChoiceErrorMessage = self::validateGroupByForChoiceConstraintsFromSetGroupBy($groupBy))) {
+            throw new \InvalidArgumentException($groupByChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($groupBy) || (is_array($groupBy) && empty($groupBy))) {
+            unset($this->GroupBy);
+        } else {
+            $this->GroupBy = $groupBy;
+        }
         return $this;
     }
     /**
@@ -289,16 +566,55 @@ class EwsFindItemType extends EwsBaseRequestType
      */
     public function getDistinguishedGroupBy()
     {
-        return $this->DistinguishedGroupBy;
+        return isset($this->DistinguishedGroupBy) ? $this->DistinguishedGroupBy : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setDistinguishedGroupBy method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setDistinguishedGroupBy method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateDistinguishedGroupByForChoiceConstraintsFromSetDistinguishedGroupBy($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'GroupBy',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property DistinguishedGroupBy can\'t be set as the property %s is already set. Only one property must be set among these properties: DistinguishedGroupBy, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set DistinguishedGroupBy value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsDistinguishedGroupByType $distinguishedGroupBy
      * @return \Ews\StructType\EwsFindItemType
      */
     public function setDistinguishedGroupBy(\Ews\StructType\EwsDistinguishedGroupByType $distinguishedGroupBy = null)
     {
-        $this->DistinguishedGroupBy = $distinguishedGroupBy;
+        // validation for constraint: choice(GroupBy, DistinguishedGroupBy)
+        if ('' !== ($distinguishedGroupByChoiceErrorMessage = self::validateDistinguishedGroupByForChoiceConstraintsFromSetDistinguishedGroupBy($distinguishedGroupBy))) {
+            throw new \InvalidArgumentException($distinguishedGroupByChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($distinguishedGroupBy) || (is_array($distinguishedGroupBy) && empty($distinguishedGroupBy))) {
+            unset($this->DistinguishedGroupBy);
+        } else {
+            $this->DistinguishedGroupBy = $distinguishedGroupBy;
+        }
         return $this;
     }
     /**
@@ -372,25 +688,5 @@ class EwsFindItemType extends EwsBaseRequestType
     {
         $this->QueryString = $queryString;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
 {
     /**
      * The Phone
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPhoneEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
         return $this->Phone;
     }
     /**
+     * This method is responsible for validating the values passed to the setPhone method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setPhone method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validatePhoneForArrayConstraintsFromSetPhone(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfPhoneEntitiesTypePhoneItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfPhoneEntitiesTypePhoneItem instanceof \Ews\StructType\EwsPhoneEntityType) {
+                $invalidValues[] = is_object($arrayOfPhoneEntitiesTypePhoneItem) ? get_class($arrayOfPhoneEntitiesTypePhoneItem) : sprintf('%s(%s)', gettype($arrayOfPhoneEntitiesTypePhoneItem), var_export($arrayOfPhoneEntitiesTypePhoneItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Phone property can only contain items of type \Ews\StructType\EwsPhoneEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Phone value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsPhoneEntityType[] $phone
@@ -46,11 +68,9 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
      */
     public function setPhone(array $phone = array())
     {
-        foreach ($phone as $arrayOfPhoneEntitiesTypePhoneItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfPhoneEntitiesTypePhoneItem instanceof \Ews\StructType\EwsPhoneEntityType) {
-                throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Ews\StructType\EwsPhoneEntityType, "%s" given', is_object($arrayOfPhoneEntitiesTypePhoneItem) ? get_class($arrayOfPhoneEntitiesTypePhoneItem) : gettype($arrayOfPhoneEntitiesTypePhoneItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($phoneArrayErrorMessage = self::validatePhoneForArrayConstraintsFromSetPhone($phone))) {
+            throw new \InvalidArgumentException($phoneArrayErrorMessage, __LINE__);
         }
         $this->Phone = $phone;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsPhoneEntityType) {
-            throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of \Ews\StructType\EwsPhoneEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Phone property can only contain items of type \Ews\StructType\EwsPhoneEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Phone[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Phone';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfPhoneEntitiesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
 {
     /**
      * The String
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var string[]
@@ -39,6 +39,28 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
         return $this->String;
     }
     /**
+     * This method is responsible for validating the values passed to the setString method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setString method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateStringForArrayConstraintsFromSetString(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfStringsTypeStringItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfStringsTypeStringItem)) {
+                $invalidValues[] = is_object($arrayOfStringsTypeStringItem) ? get_class($arrayOfStringsTypeStringItem) : sprintf('%s(%s)', gettype($arrayOfStringsTypeStringItem), var_export($arrayOfStringsTypeStringItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The String property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set String value
      * @throws \InvalidArgumentException
      * @param string[] $string
@@ -46,11 +68,9 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
      */
     public function setString(array $string = array())
     {
-        foreach ($string as $arrayOfStringsTypeStringItem) {
-            // validation for constraint: itemType
-            if (!is_string($arrayOfStringsTypeStringItem)) {
-                throw new \InvalidArgumentException(sprintf('The String property can only contain items of string, "%s" given', is_object($arrayOfStringsTypeStringItem) ? get_class($arrayOfStringsTypeStringItem) : gettype($arrayOfStringsTypeStringItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($stringArrayErrorMessage = self::validateStringForArrayConstraintsFromSetString($string))) {
+            throw new \InvalidArgumentException($stringArrayErrorMessage, __LINE__);
         }
         $this->String = $string;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The String property can only contain items of string, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The String property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->String[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfStringsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'String';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfStringsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for CalendarItemUpdateOperationType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsCalendarItemUpdateOperationType
+class EwsCalendarItemUpdateOperationType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'SendToNone'
@@ -36,16 +38,6 @@ class EwsCalendarItemUpdateOperationType
      */
     const VALUE_SEND_TO_CHANGED_AND_SAVE_COPY = 'SendToChangedAndSaveCopy';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SEND_TO_NONE
      * @uses self::VALUE_SEND_ONLY_TO_ALL
@@ -63,13 +55,5 @@ class EwsCalendarItemUpdateOperationType
             self::VALUE_SEND_TO_ALL_AND_SAVE_COPY,
             self::VALUE_SEND_TO_CHANGED_AND_SAVE_COPY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

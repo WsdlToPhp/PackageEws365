@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserOofSettingsResponse StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - type: tns:GetUserOofSettingsResponse
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
 {
     /**
      * The ResponseMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsResponseMessageType
@@ -24,7 +24,7 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     public $ResponseMessage;
     /**
      * The OofSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - ref: t:OofSettings
@@ -33,7 +33,7 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     public $OofSettings;
     /**
      * The AllowExternalOof
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -111,29 +111,9 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($allowExternalOof)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $allowExternalOof, implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExternalAudience', is_array($allowExternalOof) ? implode(', ', $allowExternalOof) : var_export($allowExternalOof, true), implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }
         $this->AllowExternalOof = $allowExternalOof;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetUserOofSettingsResponse
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

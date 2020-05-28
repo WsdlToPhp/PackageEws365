@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SearchApplicationIdType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSearchApplicationIdType
+class EwsSearchApplicationIdType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Outlook'
@@ -41,16 +43,6 @@ class EwsSearchApplicationIdType
      */
     const VALUE_OTHER = 'Other';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_OUTLOOK
      * @uses self::VALUE_OWA
@@ -70,13 +62,5 @@ class EwsSearchApplicationIdType
             self::VALUE_ONE_DRIVE,
             self::VALUE_OTHER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

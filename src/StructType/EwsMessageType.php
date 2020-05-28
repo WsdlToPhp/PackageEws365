@@ -14,133 +14,133 @@ class EwsMessageType extends EwsItemType
 {
     /**
      * The Sender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
      */
     public $Sender;
     /**
      * The ToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $ToRecipients;
     /**
      * The CcRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $CcRecipients;
     /**
      * The BccRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $BccRecipients;
     /**
      * The IsReadReceiptRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsReadReceiptRequested;
     /**
      * The IsDeliveryReceiptRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsDeliveryReceiptRequested;
     /**
      * The ConversationIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ConversationIndex;
     /**
      * The ConversationTopic
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ConversationTopic;
     /**
      * The From
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
      */
     public $From;
     /**
      * The InternetMessageId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $InternetMessageId;
     /**
      * The IsRead
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsRead;
     /**
      * The IsResponseRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsResponseRequested;
     /**
      * The References
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $References;
     /**
      * The ReplyTo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $ReplyTo;
     /**
      * The ReceivedBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
      */
     public $ReceivedBy;
     /**
      * The ReceivedRepresenting
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSingleRecipientType
      */
     public $ReceivedRepresenting;
     /**
      * The ApprovalRequestData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsApprovalRequestDataType
      */
     public $ApprovalRequestData;
     /**
      * The VotingInformation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsVotingInformationType
      */
     public $VotingInformation;
     /**
      * The ReminderMessageData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsReminderMessageDataType
      */
@@ -298,7 +298,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isReadReceiptRequested) && !is_bool($isReadReceiptRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isReadReceiptRequested)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReadReceiptRequested, true), gettype($isReadReceiptRequested)), __LINE__);
         }
         $this->IsReadReceiptRequested = $isReadReceiptRequested;
         return $this;
@@ -320,7 +320,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isDeliveryReceiptRequested) && !is_bool($isDeliveryReceiptRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeliveryReceiptRequested)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDeliveryReceiptRequested, true), gettype($isDeliveryReceiptRequested)), __LINE__);
         }
         $this->IsDeliveryReceiptRequested = $isDeliveryReceiptRequested;
         return $this;
@@ -342,7 +342,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($conversationIndex) && !is_string($conversationIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationIndex)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationIndex, true), gettype($conversationIndex)), __LINE__);
         }
         $this->ConversationIndex = $conversationIndex;
         return $this;
@@ -364,7 +364,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationTopic)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationTopic, true), gettype($conversationTopic)), __LINE__);
         }
         $this->ConversationTopic = $conversationTopic;
         return $this;
@@ -404,7 +404,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($internetMessageId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internetMessageId, true), gettype($internetMessageId)), __LINE__);
         }
         $this->InternetMessageId = $internetMessageId;
         return $this;
@@ -426,7 +426,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isRead) && !is_bool($isRead)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRead)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRead, true), gettype($isRead)), __LINE__);
         }
         $this->IsRead = $isRead;
         return $this;
@@ -448,7 +448,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: boolean
         if (!is_null($isResponseRequested) && !is_bool($isResponseRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isResponseRequested)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isResponseRequested, true), gettype($isResponseRequested)), __LINE__);
         }
         $this->IsResponseRequested = $isResponseRequested;
         return $this;
@@ -470,7 +470,7 @@ class EwsMessageType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($references) && !is_string($references)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($references)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($references, true), gettype($references)), __LINE__);
         }
         $this->References = $references;
         return $this;
@@ -582,25 +582,5 @@ class EwsMessageType extends EwsItemType
     {
         $this->ReminderMessageData = $reminderMessageData;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

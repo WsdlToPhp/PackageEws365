@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ProcessComplianceOperationActionType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Types of compliance operation action
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsProcessComplianceOperationActionType
+class EwsProcessComplianceOperationActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'GetReviewComments'
@@ -28,16 +30,6 @@ class EwsProcessComplianceOperationActionType
      */
     const VALUE_SET_REVIEW_STATUS = 'SetReviewStatus';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_GET_REVIEW_COMMENTS
      * @uses self::VALUE_SET_REVIEW_COMMENTS
@@ -51,13 +43,5 @@ class EwsProcessComplianceOperationActionType
             self::VALUE_SET_REVIEW_COMMENTS,
             self::VALUE_SET_REVIEW_STATUS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

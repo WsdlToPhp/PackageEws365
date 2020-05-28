@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for IdFormatType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Surfaces the various id types that are supported for conversion
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsIdFormatType
+class EwsIdFormatType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'EwsLegacyId'
@@ -43,16 +45,6 @@ class EwsIdFormatType
      */
     const VALUE_OWA_ID = 'OwaId';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_EWS_LEGACY_ID
      * @uses self::VALUE_EWS_ID
@@ -72,13 +64,5 @@ class EwsIdFormatType
             self::VALUE_STORE_ID,
             self::VALUE_OWA_ID,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

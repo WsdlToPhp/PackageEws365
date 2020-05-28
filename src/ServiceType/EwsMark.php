@@ -53,7 +53,7 @@ class EwsMark extends SoapClientBase
     }
     /**
      * Method to call the operation originally named MarkAllItemsAsRead
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsMark extends SoapClientBase
     public function MarkAllItemsAsRead(\Ews\StructType\EwsMarkAllItemsAsReadType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->MarkAllItemsAsRead($request));
+            $this->setResult($this->getSoapClient()->MarkAllItemsAsRead($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -77,7 +77,7 @@ class EwsMark extends SoapClientBase
     }
     /**
      * Method to call the operation originally named MarkAsJunk
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -92,7 +92,7 @@ class EwsMark extends SoapClientBase
     public function MarkAsJunk(\Ews\StructType\EwsMarkAsJunkType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->MarkAsJunk($request));
+            $this->setResult($this->getSoapClient()->MarkAsJunk($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -107,13 +107,5 @@ class EwsMark extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

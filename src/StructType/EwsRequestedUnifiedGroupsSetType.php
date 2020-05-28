@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RequestedUnifiedGroupsSetType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents a set of unified groups in a GetUserUnifiedGroup request
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
 {
     /**
      * The FilterType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     public $FilterType;
     /**
      * The SortType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -32,7 +32,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     public $SortType;
     /**
      * The SortDirection
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -40,7 +40,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     public $SortDirection;
     /**
      * The GroupsLimit
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -85,7 +85,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $filterType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
         $this->FilterType = $filterType;
         return $this;
@@ -110,7 +110,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupsSortType::valueIsValid($sortType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortType, implode(', ', \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsSortType', is_array($sortType) ? implode(', ', $sortType) : var_export($sortType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues())), __LINE__);
         }
         $this->SortType = $sortType;
         return $this;
@@ -135,7 +135,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($sortDirection)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sortDirection, implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSortDirectionType', is_array($sortDirection) ? implode(', ', $sortDirection) : var_export($sortDirection, true), implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }
         $this->SortDirection = $sortDirection;
         return $this;
@@ -156,30 +156,10 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
     public function setGroupsLimit($groupsLimit = null)
     {
         // validation for constraint: int
-        if (!is_null($groupsLimit) && !is_numeric($groupsLimit)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($groupsLimit)), __LINE__);
+        if (!is_null($groupsLimit) && !(is_int($groupsLimit) || ctype_digit($groupsLimit))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($groupsLimit, true), gettype($groupsLimit)), __LINE__);
         }
         $this->GroupsLimit = $groupsLimit;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

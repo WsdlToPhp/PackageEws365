@@ -14,7 +14,7 @@ class EwsMeetingSuggestionType extends EwsEntityType
 {
     /**
      * The Attendees
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailUsersType
@@ -22,35 +22,35 @@ class EwsMeetingSuggestionType extends EwsEntityType
     public $Attendees;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Location;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Subject;
     /**
      * The MeetingString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $MeetingString;
     /**
      * The StartTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StartTime;
     /**
      * The EndTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -115,7 +115,7 @@ class EwsMeetingSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -137,7 +137,7 @@ class EwsMeetingSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -159,7 +159,7 @@ class EwsMeetingSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($meetingString) && !is_string($meetingString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($meetingString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($meetingString, true), gettype($meetingString)), __LINE__);
         }
         $this->MeetingString = $meetingString;
         return $this;
@@ -181,7 +181,7 @@ class EwsMeetingSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
         return $this;
@@ -203,29 +203,9 @@ class EwsMeetingSuggestionType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingSuggestionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

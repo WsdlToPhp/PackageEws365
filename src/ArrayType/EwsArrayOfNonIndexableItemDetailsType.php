@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfNonIndexableItemDetailsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of non indexable item details.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
 {
     /**
      * The NonIndexableItemDetail
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonIndexableItemDetailType[]
@@ -41,6 +41,28 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
         return $this->NonIndexableItemDetail;
     }
     /**
+     * This method is responsible for validating the values passed to the setNonIndexableItemDetail method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setNonIndexableItemDetail method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateNonIndexableItemDetailForArrayConstraintsFromSetNonIndexableItemDetail(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem instanceof \Ews\StructType\EwsNonIndexableItemDetailType) {
+                $invalidValues[] = is_object($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) ? get_class($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) : sprintf('%s(%s)', gettype($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem), var_export($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The NonIndexableItemDetail property can only contain items of type \Ews\StructType\EwsNonIndexableItemDetailType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set NonIndexableItemDetail value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsNonIndexableItemDetailType[] $nonIndexableItemDetail
@@ -48,11 +70,9 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
      */
     public function setNonIndexableItemDetail(array $nonIndexableItemDetail = array())
     {
-        foreach ($nonIndexableItemDetail as $arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem instanceof \Ews\StructType\EwsNonIndexableItemDetailType) {
-                throw new \InvalidArgumentException(sprintf('The NonIndexableItemDetail property can only contain items of \Ews\StructType\EwsNonIndexableItemDetailType, "%s" given', is_object($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) ? get_class($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem) : gettype($arrayOfNonIndexableItemDetailsTypeNonIndexableItemDetailItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($nonIndexableItemDetailArrayErrorMessage = self::validateNonIndexableItemDetailForArrayConstraintsFromSetNonIndexableItemDetail($nonIndexableItemDetail))) {
+            throw new \InvalidArgumentException($nonIndexableItemDetailArrayErrorMessage, __LINE__);
         }
         $this->NonIndexableItemDetail = $nonIndexableItemDetail;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsNonIndexableItemDetailType) {
-            throw new \InvalidArgumentException(sprintf('The NonIndexableItemDetail property can only contain items of \Ews\StructType\EwsNonIndexableItemDetailType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The NonIndexableItemDetail property can only contain items of type \Ews\StructType\EwsNonIndexableItemDetailType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->NonIndexableItemDetail[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfNonIndexableItemDetailsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'NonIndexableItemDetail';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

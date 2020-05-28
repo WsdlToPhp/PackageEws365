@@ -14,7 +14,7 @@ class EwsAttachmentType extends AbstractStructBase
 {
     /**
      * The AttachmentId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsAttachmentIdType
@@ -22,7 +22,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $AttachmentId;
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $Name;
     /**
      * The ContentType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $ContentType;
     /**
      * The ContentId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $ContentId;
     /**
      * The ContentLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $ContentLocation;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -62,7 +62,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $Size;
     /**
      * The LastModifiedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsAttachmentType extends AbstractStructBase
     public $LastModifiedTime;
     /**
      * The IsInline
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -142,7 +142,7 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -164,7 +164,7 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contentType) && !is_string($contentType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentType, true), gettype($contentType)), __LINE__);
         }
         $this->ContentType = $contentType;
         return $this;
@@ -186,7 +186,7 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contentId) && !is_string($contentId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentId, true), gettype($contentId)), __LINE__);
         }
         $this->ContentId = $contentId;
         return $this;
@@ -208,7 +208,7 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($contentLocation) && !is_string($contentLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contentLocation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentLocation, true), gettype($contentLocation)), __LINE__);
         }
         $this->ContentLocation = $contentLocation;
         return $this;
@@ -229,8 +229,8 @@ class EwsAttachmentType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -252,7 +252,7 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
@@ -274,29 +274,9 @@ class EwsAttachmentType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isInline) && !is_bool($isInline)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isInline)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInline, true), gettype($isInline)), __LINE__);
         }
         $this->IsInline = $isInline;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAttachmentType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

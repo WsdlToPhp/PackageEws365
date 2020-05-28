@@ -14,7 +14,7 @@ class EwsConversationActionType extends AbstractStructBase
 {
     /**
      * The Action
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $Action;
     /**
      * The ConversationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -30,7 +30,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $ConversationId;
     /**
      * The ContextFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
@@ -38,7 +38,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $ContextFolderId;
     /**
      * The ConversationLastSyncTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $ConversationLastSyncTime;
     /**
      * The ProcessRightAway
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -54,7 +54,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $ProcessRightAway;
     /**
      * The DestinationFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
@@ -62,7 +62,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $DestinationFolderId;
     /**
      * The Categories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -70,7 +70,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $Categories;
     /**
      * The EnableAlwaysDelete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -78,7 +78,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $EnableAlwaysDelete;
     /**
      * The IsRead
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -86,7 +86,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $IsRead;
     /**
      * The DeleteType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -94,7 +94,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $DeleteType;
     /**
      * The RetentionPolicyType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -102,7 +102,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $RetentionPolicyType;
     /**
      * The RetentionPolicyTagId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -110,7 +110,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $RetentionPolicyTagId;
     /**
      * The Flag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFlagType
@@ -118,7 +118,7 @@ class EwsConversationActionType extends AbstractStructBase
     public $Flag;
     /**
      * The SuppressReadReceipts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -193,7 +193,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConversationActionTypeType::valueIsValid($action)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $action, implode(', ', \Ews\EnumType\EwsConversationActionTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConversationActionTypeType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \Ews\EnumType\EwsConversationActionTypeType::getValidValues())), __LINE__);
         }
         $this->Action = $action;
         return $this;
@@ -251,7 +251,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($conversationLastSyncTime) && !is_string($conversationLastSyncTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationLastSyncTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationLastSyncTime, true), gettype($conversationLastSyncTime)), __LINE__);
         }
         $this->ConversationLastSyncTime = $conversationLastSyncTime;
         return $this;
@@ -273,7 +273,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($processRightAway) && !is_bool($processRightAway)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($processRightAway)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($processRightAway, true), gettype($processRightAway)), __LINE__);
         }
         $this->ProcessRightAway = $processRightAway;
         return $this;
@@ -331,7 +331,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($enableAlwaysDelete) && !is_bool($enableAlwaysDelete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($enableAlwaysDelete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($enableAlwaysDelete, true), gettype($enableAlwaysDelete)), __LINE__);
         }
         $this->EnableAlwaysDelete = $enableAlwaysDelete;
         return $this;
@@ -353,7 +353,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isRead) && !is_bool($isRead)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isRead)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRead, true), gettype($isRead)), __LINE__);
         }
         $this->IsRead = $isRead;
         return $this;
@@ -378,7 +378,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
         $this->DeleteType = $deleteType;
         return $this;
@@ -403,7 +403,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRetentionType::valueIsValid($retentionPolicyType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $retentionPolicyType, implode(', ', \Ews\EnumType\EwsRetentionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRetentionType', is_array($retentionPolicyType) ? implode(', ', $retentionPolicyType) : var_export($retentionPolicyType, true), implode(', ', \Ews\EnumType\EwsRetentionType::getValidValues())), __LINE__);
         }
         $this->RetentionPolicyType = $retentionPolicyType;
         return $this;
@@ -425,7 +425,7 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($retentionPolicyTagId) && !is_string($retentionPolicyTagId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($retentionPolicyTagId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionPolicyTagId, true), gettype($retentionPolicyTagId)), __LINE__);
         }
         $this->RetentionPolicyTagId = $retentionPolicyTagId;
         return $this;
@@ -465,29 +465,9 @@ class EwsConversationActionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suppressReadReceipts)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
         }
         $this->SuppressReadReceipts = $suppressReadReceipts;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsConversationActionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

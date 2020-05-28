@@ -53,7 +53,7 @@ class EwsCopy extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CopyFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsCopy extends SoapClientBase
     public function CopyFolder(\Ews\StructType\EwsCopyFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CopyFolder($request));
+            $this->setResult($this->getSoapClient()->CopyFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -77,7 +77,7 @@ class EwsCopy extends SoapClientBase
     }
     /**
      * Method to call the operation originally named CopyItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -92,7 +92,7 @@ class EwsCopy extends SoapClientBase
     public function CopyItem(\Ews\StructType\EwsCopyItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->CopyItem($request));
+            $this->setResult($this->getSoapClient()->CopyItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -107,13 +107,5 @@ class EwsCopy extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

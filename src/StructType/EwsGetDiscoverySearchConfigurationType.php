@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscoverySearchConfigurationType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the GetDiscoverySearchConfiguration web method.
  * @package Ews
  * @subpackage Structs
@@ -16,21 +16,21 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
 {
     /**
      * The SearchId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SearchId;
     /**
      * The ExpandGroupMembership
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ExpandGroupMembership;
     /**
      * The InPlaceHoldConfigurationOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -68,7 +68,7 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($searchId) && !is_string($searchId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchId, true), gettype($searchId)), __LINE__);
         }
         $this->SearchId = $searchId;
         return $this;
@@ -90,7 +90,7 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($expandGroupMembership) && !is_bool($expandGroupMembership)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($expandGroupMembership)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($expandGroupMembership, true), gettype($expandGroupMembership)), __LINE__);
         }
         $this->ExpandGroupMembership = $expandGroupMembership;
         return $this;
@@ -112,29 +112,9 @@ class EwsGetDiscoverySearchConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($inPlaceHoldConfigurationOnly) && !is_bool($inPlaceHoldConfigurationOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($inPlaceHoldConfigurationOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inPlaceHoldConfigurationOnly, true), gettype($inPlaceHoldConfigurationOnly)), __LINE__);
         }
         $this->InPlaceHoldConfigurationOnly = $inPlaceHoldConfigurationOnly;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

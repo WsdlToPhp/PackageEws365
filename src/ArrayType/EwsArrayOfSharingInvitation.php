@@ -14,7 +14,7 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
 {
     /**
      * The SharingInvitation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var \Ews\StructType\EwsSharingInvitation[]
      */
@@ -38,6 +38,28 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
         return $this->SharingInvitation;
     }
     /**
+     * This method is responsible for validating the values passed to the setSharingInvitation method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSharingInvitation method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSharingInvitationForArrayConstraintsFromSetSharingInvitation(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfSharingInvitationSharingInvitationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSharingInvitationSharingInvitationItem instanceof \Ews\StructType\EwsSharingInvitation) {
+                $invalidValues[] = is_object($arrayOfSharingInvitationSharingInvitationItem) ? get_class($arrayOfSharingInvitationSharingInvitationItem) : sprintf('%s(%s)', gettype($arrayOfSharingInvitationSharingInvitationItem), var_export($arrayOfSharingInvitationSharingInvitationItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The SharingInvitation property can only contain items of type \Ews\StructType\EwsSharingInvitation, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set SharingInvitation value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSharingInvitation[] $sharingInvitation
@@ -45,11 +67,9 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
      */
     public function setSharingInvitation(array $sharingInvitation = array())
     {
-        foreach ($sharingInvitation as $arrayOfSharingInvitationSharingInvitationItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfSharingInvitationSharingInvitationItem instanceof \Ews\StructType\EwsSharingInvitation) {
-                throw new \InvalidArgumentException(sprintf('The SharingInvitation property can only contain items of \Ews\StructType\EwsSharingInvitation, "%s" given', is_object($arrayOfSharingInvitationSharingInvitationItem) ? get_class($arrayOfSharingInvitationSharingInvitationItem) : gettype($arrayOfSharingInvitationSharingInvitationItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($sharingInvitationArrayErrorMessage = self::validateSharingInvitationForArrayConstraintsFromSetSharingInvitation($sharingInvitation))) {
+            throw new \InvalidArgumentException($sharingInvitationArrayErrorMessage, __LINE__);
         }
         $this->SharingInvitation = $sharingInvitation;
         return $this;
@@ -64,7 +84,7 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSharingInvitation) {
-            throw new \InvalidArgumentException(sprintf('The SharingInvitation property can only contain items of \Ews\StructType\EwsSharingInvitation, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The SharingInvitation property can only contain items of type \Ews\StructType\EwsSharingInvitation, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->SharingInvitation[] = $item;
         return $this;
@@ -124,25 +144,5 @@ class EwsArrayOfSharingInvitation extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'SharingInvitation';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfSharingInvitation
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

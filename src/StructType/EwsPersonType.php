@@ -14,7 +14,7 @@ class EwsPersonType extends AbstractStructBase
 {
     /**
      * The FullName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsPersonType extends AbstractStructBase
     public $FullName;
     /**
      * The GivenName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsPersonType extends AbstractStructBase
     public $GivenName;
     /**
      * The Surname
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsPersonType extends AbstractStructBase
     public $Surname;
     /**
      * The PhoneNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsPersonType extends AbstractStructBase
     public $PhoneNumber;
     /**
      * The SMSNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsPersonType extends AbstractStructBase
     public $SMSNumber;
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsPersonType extends AbstractStructBase
     public $EmailAddress;
     /**
      * The Alias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsPersonType extends AbstractStructBase
     public $Alias;
     /**
      * The Department
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -78,7 +78,7 @@ class EwsPersonType extends AbstractStructBase
     public $Department;
     /**
      * The LinkedInProfileLink
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -86,7 +86,7 @@ class EwsPersonType extends AbstractStructBase
     public $LinkedInProfileLink;
     /**
      * The Skills
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSkillInsightValue
@@ -94,7 +94,7 @@ class EwsPersonType extends AbstractStructBase
     public $Skills;
     /**
      * The ProfessionalBiography
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -102,7 +102,7 @@ class EwsPersonType extends AbstractStructBase
     public $ProfessionalBiography;
     /**
      * The ManagementChain
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
@@ -110,7 +110,7 @@ class EwsPersonType extends AbstractStructBase
     public $ManagementChain;
     /**
      * The DirectReports
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
@@ -118,7 +118,7 @@ class EwsPersonType extends AbstractStructBase
     public $DirectReports;
     /**
      * The Peers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
@@ -126,7 +126,7 @@ class EwsPersonType extends AbstractStructBase
     public $Peers;
     /**
      * The TeamSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -134,7 +134,7 @@ class EwsPersonType extends AbstractStructBase
     public $TeamSize;
     /**
      * The CurrentJob
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfJobInsightValue
@@ -142,7 +142,7 @@ class EwsPersonType extends AbstractStructBase
     public $CurrentJob;
     /**
      * The Birthday
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -150,7 +150,7 @@ class EwsPersonType extends AbstractStructBase
     public $Birthday;
     /**
      * The Hometown
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -158,7 +158,7 @@ class EwsPersonType extends AbstractStructBase
     public $Hometown;
     /**
      * The CurrentLocation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -166,7 +166,7 @@ class EwsPersonType extends AbstractStructBase
     public $CurrentLocation;
     /**
      * The CompanyProfile
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfCompanyInsightValue
@@ -174,7 +174,7 @@ class EwsPersonType extends AbstractStructBase
     public $CompanyProfile;
     /**
      * The Office
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -182,7 +182,7 @@ class EwsPersonType extends AbstractStructBase
     public $Office;
     /**
      * The Headline
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -190,7 +190,7 @@ class EwsPersonType extends AbstractStructBase
     public $Headline;
     /**
      * The MutualConnections
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
@@ -198,7 +198,7 @@ class EwsPersonType extends AbstractStructBase
     public $MutualConnections;
     /**
      * The Title
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -206,7 +206,7 @@ class EwsPersonType extends AbstractStructBase
     public $Title;
     /**
      * The MutualManager
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProfileInsightValue
@@ -214,7 +214,7 @@ class EwsPersonType extends AbstractStructBase
     public $MutualManager;
     /**
      * The Insights
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfInsight
@@ -222,7 +222,7 @@ class EwsPersonType extends AbstractStructBase
     public $Insights;
     /**
      * The UserProfilePicture
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUserProfilePicture
@@ -333,7 +333,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fullName) && !is_string($fullName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fullName, true), gettype($fullName)), __LINE__);
         }
         $this->FullName = $fullName;
         return $this;
@@ -355,7 +355,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($givenName) && !is_string($givenName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($givenName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
         }
         $this->GivenName = $givenName;
         return $this;
@@ -377,7 +377,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($surname) && !is_string($surname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($surname)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
         }
         $this->Surname = $surname;
         return $this;
@@ -399,7 +399,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($phoneNumber) && !is_string($phoneNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phoneNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneNumber, true), gettype($phoneNumber)), __LINE__);
         }
         $this->PhoneNumber = $phoneNumber;
         return $this;
@@ -421,7 +421,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sMSNumber) && !is_string($sMSNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sMSNumber)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sMSNumber, true), gettype($sMSNumber)), __LINE__);
         }
         $this->SMSNumber = $sMSNumber;
         return $this;
@@ -443,7 +443,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
         return $this;
@@ -465,7 +465,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
         return $this;
@@ -487,7 +487,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($department) && !is_string($department)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
         }
         $this->Department = $department;
         return $this;
@@ -509,7 +509,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($linkedInProfileLink) && !is_string($linkedInProfileLink)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($linkedInProfileLink)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedInProfileLink, true), gettype($linkedInProfileLink)), __LINE__);
         }
         $this->LinkedInProfileLink = $linkedInProfileLink;
         return $this;
@@ -549,7 +549,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($professionalBiography) && !is_string($professionalBiography)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($professionalBiography)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($professionalBiography, true), gettype($professionalBiography)), __LINE__);
         }
         $this->ProfessionalBiography = $professionalBiography;
         return $this;
@@ -625,7 +625,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($teamSize) && !is_string($teamSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($teamSize)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($teamSize, true), gettype($teamSize)), __LINE__);
         }
         $this->TeamSize = $teamSize;
         return $this;
@@ -665,7 +665,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($birthday) && !is_string($birthday)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($birthday)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($birthday, true), gettype($birthday)), __LINE__);
         }
         $this->Birthday = $birthday;
         return $this;
@@ -687,7 +687,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($hometown) && !is_string($hometown)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($hometown)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($hometown, true), gettype($hometown)), __LINE__);
         }
         $this->Hometown = $hometown;
         return $this;
@@ -709,7 +709,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($currentLocation) && !is_string($currentLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($currentLocation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($currentLocation, true), gettype($currentLocation)), __LINE__);
         }
         $this->CurrentLocation = $currentLocation;
         return $this;
@@ -749,7 +749,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($office) && !is_string($office)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($office)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($office, true), gettype($office)), __LINE__);
         }
         $this->Office = $office;
         return $this;
@@ -771,7 +771,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($headline) && !is_string($headline)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($headline)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($headline, true), gettype($headline)), __LINE__);
         }
         $this->Headline = $headline;
         return $this;
@@ -811,7 +811,7 @@ class EwsPersonType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
         return $this;
@@ -869,25 +869,5 @@ class EwsPersonType extends AbstractStructBase
     {
         $this->UserProfilePicture = $userProfilePicture;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPersonType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ConnectionStatusType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsConnectionStatusType
+class EwsConnectionStatusType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'OK'
@@ -21,16 +23,6 @@ class EwsConnectionStatusType
      */
     const VALUE_CLOSED = 'Closed';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_OK
      * @uses self::VALUE_CLOSED
@@ -42,13 +34,5 @@ class EwsConnectionStatusType
             self::VALUE_OK,
             self::VALUE_CLOSED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

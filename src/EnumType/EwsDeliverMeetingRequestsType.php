@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for DeliverMeetingRequestsType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsDeliverMeetingRequestsType
+class EwsDeliverMeetingRequestsType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'DelegatesOnly'
@@ -31,16 +33,6 @@ class EwsDeliverMeetingRequestsType
      */
     const VALUE_NO_FORWARD = 'NoForward';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_DELEGATES_ONLY
      * @uses self::VALUE_DELEGATES_AND_ME
@@ -56,13 +48,5 @@ class EwsDeliverMeetingRequestsType
             self::VALUE_DELEGATES_AND_SEND_INFORMATION_TO_ME,
             self::VALUE_NO_FORWARD,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

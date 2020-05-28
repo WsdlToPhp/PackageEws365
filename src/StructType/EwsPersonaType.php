@@ -14,7 +14,7 @@ class EwsPersonaType extends AbstractStructBase
 {
     /**
      * The PersonaId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -22,7 +22,7 @@ class EwsPersonaType extends AbstractStructBase
     public $PersonaId;
     /**
      * The PersonaType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsPersonaType extends AbstractStructBase
     public $PersonaType;
     /**
      * The PersonaObjectStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsPersonaType extends AbstractStructBase
     public $PersonaObjectStatus;
     /**
      * The CreationTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,14 +46,14 @@ class EwsPersonaType extends AbstractStructBase
     public $CreationTime;
     /**
      * The Bodies
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
      */
     public $Bodies;
     /**
      * The DisplayNameFirstLastSortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -61,7 +61,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameFirstLastSortKey;
     /**
      * The DisplayNameLastFirstSortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -69,7 +69,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameLastFirstSortKey;
     /**
      * The CompanyNameSortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -77,7 +77,7 @@ class EwsPersonaType extends AbstractStructBase
     public $CompanyNameSortKey;
     /**
      * The HomeCitySortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -85,7 +85,7 @@ class EwsPersonaType extends AbstractStructBase
     public $HomeCitySortKey;
     /**
      * The WorkCitySortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -93,7 +93,7 @@ class EwsPersonaType extends AbstractStructBase
     public $WorkCitySortKey;
     /**
      * The DisplayNameFirstLastHeader
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -101,7 +101,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameFirstLastHeader;
     /**
      * The DisplayNameLastFirstHeader
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -109,7 +109,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameLastFirstHeader;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -117,7 +117,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayName;
     /**
      * The DisplayNameFirstLast
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -125,7 +125,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameFirstLast;
     /**
      * The DisplayNameLastFirst
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -133,7 +133,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNameLastFirst;
     /**
      * The FileAs
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -141,7 +141,7 @@ class EwsPersonaType extends AbstractStructBase
     public $FileAs;
     /**
      * The FileAsId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -149,7 +149,7 @@ class EwsPersonaType extends AbstractStructBase
     public $FileAsId;
     /**
      * The DisplayNamePrefix
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -157,7 +157,7 @@ class EwsPersonaType extends AbstractStructBase
     public $DisplayNamePrefix;
     /**
      * The GivenName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -165,7 +165,7 @@ class EwsPersonaType extends AbstractStructBase
     public $GivenName;
     /**
      * The MiddleName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -173,7 +173,7 @@ class EwsPersonaType extends AbstractStructBase
     public $MiddleName;
     /**
      * The Surname
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -181,7 +181,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Surname;
     /**
      * The Generation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -189,7 +189,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Generation;
     /**
      * The Nickname
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -197,7 +197,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Nickname;
     /**
      * The YomiCompanyName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -205,7 +205,7 @@ class EwsPersonaType extends AbstractStructBase
     public $YomiCompanyName;
     /**
      * The YomiFirstName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -213,7 +213,7 @@ class EwsPersonaType extends AbstractStructBase
     public $YomiFirstName;
     /**
      * The YomiLastName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -221,7 +221,7 @@ class EwsPersonaType extends AbstractStructBase
     public $YomiLastName;
     /**
      * The Title
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -229,7 +229,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Title;
     /**
      * The Department
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -237,7 +237,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Department;
     /**
      * The CompanyName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -245,7 +245,7 @@ class EwsPersonaType extends AbstractStructBase
     public $CompanyName;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -253,7 +253,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Location;
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEmailAddressType
@@ -261,7 +261,7 @@ class EwsPersonaType extends AbstractStructBase
     public $EmailAddress;
     /**
      * The EmailAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -269,7 +269,7 @@ class EwsPersonaType extends AbstractStructBase
     public $EmailAddresses;
     /**
      * The PhoneNumber
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPersonaPhoneNumberType
@@ -277,7 +277,7 @@ class EwsPersonaType extends AbstractStructBase
     public $PhoneNumber;
     /**
      * The ImAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -285,7 +285,7 @@ class EwsPersonaType extends AbstractStructBase
     public $ImAddress;
     /**
      * The HomeCity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -293,7 +293,7 @@ class EwsPersonaType extends AbstractStructBase
     public $HomeCity;
     /**
      * The WorkCity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -301,7 +301,7 @@ class EwsPersonaType extends AbstractStructBase
     public $WorkCity;
     /**
      * The RelevanceScore
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -309,7 +309,7 @@ class EwsPersonaType extends AbstractStructBase
     public $RelevanceScore;
     /**
      * The RankingWeight
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var float
@@ -317,7 +317,7 @@ class EwsPersonaType extends AbstractStructBase
     public $RankingWeight;
     /**
      * The FolderIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfFolderIdType
@@ -325,7 +325,7 @@ class EwsPersonaType extends AbstractStructBase
     public $FolderIds;
     /**
      * The Attributions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
@@ -333,231 +333,231 @@ class EwsPersonaType extends AbstractStructBase
     public $Attributions;
     /**
      * The DisplayNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $DisplayNames;
     /**
      * The FileAses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $FileAses;
     /**
      * The FileAsIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $FileAsIds;
     /**
      * The DisplayNamePrefixes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $DisplayNamePrefixes;
     /**
      * The GivenNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $GivenNames;
     /**
      * The MiddleNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $MiddleNames;
     /**
      * The Surnames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Surnames;
     /**
      * The Generations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Generations;
     /**
      * The Nicknames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Nicknames;
     /**
      * The Initials
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Initials;
     /**
      * The YomiCompanyNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $YomiCompanyNames;
     /**
      * The YomiFirstNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $YomiFirstNames;
     /**
      * The YomiLastNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $YomiLastNames;
     /**
      * The BusinessPhoneNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $BusinessPhoneNumbers;
     /**
      * The BusinessPhoneNumbers2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $BusinessPhoneNumbers2;
     /**
      * The HomePhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $HomePhones;
     /**
      * The HomePhones2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $HomePhones2;
     /**
      * The MobilePhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $MobilePhones;
     /**
      * The MobilePhones2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $MobilePhones2;
     /**
      * The AssistantPhoneNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $AssistantPhoneNumbers;
     /**
      * The CallbackPhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $CallbackPhones;
     /**
      * The CarPhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $CarPhones;
     /**
      * The HomeFaxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $HomeFaxes;
     /**
      * The OrganizationMainPhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $OrganizationMainPhones;
     /**
      * The OtherFaxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $OtherFaxes;
     /**
      * The OtherTelephones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $OtherTelephones;
     /**
      * The OtherPhones2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $OtherPhones2;
     /**
      * The Pagers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $Pagers;
     /**
      * The RadioPhones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $RadioPhones;
     /**
      * The TelexNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $TelexNumbers;
     /**
      * The TTYTDDPhoneNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $TTYTDDPhoneNumbers;
     /**
      * The WorkFaxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
     public $WorkFaxes;
     /**
      * The Emails1
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
@@ -565,7 +565,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Emails1;
     /**
      * The Emails2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
@@ -573,7 +573,7 @@ class EwsPersonaType extends AbstractStructBase
     public $Emails2;
     /**
      * The Emails3
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
@@ -581,49 +581,49 @@ class EwsPersonaType extends AbstractStructBase
     public $Emails3;
     /**
      * The BusinessHomePages
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $BusinessHomePages;
     /**
      * The PersonalHomePages
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $PersonalHomePages;
     /**
      * The OfficeLocations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $OfficeLocations;
     /**
      * The ImAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $ImAddresses;
     /**
      * The ImAddresses2
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $ImAddresses2;
     /**
      * The ImAddresses3
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $ImAddresses3;
     /**
      * The BusinessAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
@@ -631,7 +631,7 @@ class EwsPersonaType extends AbstractStructBase
     public $BusinessAddresses;
     /**
      * The HomeAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
@@ -639,7 +639,7 @@ class EwsPersonaType extends AbstractStructBase
     public $HomeAddresses;
     /**
      * The OtherAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
@@ -647,98 +647,98 @@ class EwsPersonaType extends AbstractStructBase
     public $OtherAddresses;
     /**
      * The Titles
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Titles;
     /**
      * The Departments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Departments;
     /**
      * The CompanyNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $CompanyNames;
     /**
      * The Managers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Managers;
     /**
      * The AssistantNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $AssistantNames;
     /**
      * The Professions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Professions;
     /**
      * The SpouseNames
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $SpouseNames;
     /**
      * The Children
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType
      */
     public $Children;
     /**
      * The Schools
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Schools;
     /**
      * The Hobbies
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Hobbies;
     /**
      * The WeddingAnniversaries
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $WeddingAnniversaries;
     /**
      * The Birthdays
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Birthdays;
     /**
      * The Locations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
      */
     public $Locations;
     /**
      * The ExtendedProperties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
      */
@@ -1079,7 +1079,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($personaType) && !is_string($personaType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personaType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaType, true), gettype($personaType)), __LINE__);
         }
         $this->PersonaType = $personaType;
         return $this;
@@ -1101,7 +1101,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($personaObjectStatus) && !is_string($personaObjectStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personaObjectStatus)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaObjectStatus, true), gettype($personaObjectStatus)), __LINE__);
         }
         $this->PersonaObjectStatus = $personaObjectStatus;
         return $this;
@@ -1123,7 +1123,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($creationTime) && !is_string($creationTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($creationTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationTime, true), gettype($creationTime)), __LINE__);
         }
         $this->CreationTime = $creationTime;
         return $this;
@@ -1163,7 +1163,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLastSortKey) && !is_string($displayNameFirstLastSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLastSortKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastSortKey, true), gettype($displayNameFirstLastSortKey)), __LINE__);
         }
         $this->DisplayNameFirstLastSortKey = $displayNameFirstLastSortKey;
         return $this;
@@ -1185,7 +1185,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirstSortKey) && !is_string($displayNameLastFirstSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirstSortKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstSortKey, true), gettype($displayNameLastFirstSortKey)), __LINE__);
         }
         $this->DisplayNameLastFirstSortKey = $displayNameLastFirstSortKey;
         return $this;
@@ -1207,7 +1207,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($companyNameSortKey) && !is_string($companyNameSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyNameSortKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyNameSortKey, true), gettype($companyNameSortKey)), __LINE__);
         }
         $this->CompanyNameSortKey = $companyNameSortKey;
         return $this;
@@ -1229,7 +1229,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($homeCitySortKey) && !is_string($homeCitySortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homeCitySortKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCitySortKey, true), gettype($homeCitySortKey)), __LINE__);
         }
         $this->HomeCitySortKey = $homeCitySortKey;
         return $this;
@@ -1251,7 +1251,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($workCitySortKey) && !is_string($workCitySortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($workCitySortKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCitySortKey, true), gettype($workCitySortKey)), __LINE__);
         }
         $this->WorkCitySortKey = $workCitySortKey;
         return $this;
@@ -1273,7 +1273,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLastHeader) && !is_string($displayNameFirstLastHeader)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLastHeader)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastHeader, true), gettype($displayNameFirstLastHeader)), __LINE__);
         }
         $this->DisplayNameFirstLastHeader = $displayNameFirstLastHeader;
         return $this;
@@ -1295,7 +1295,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirstHeader) && !is_string($displayNameLastFirstHeader)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirstHeader)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstHeader, true), gettype($displayNameLastFirstHeader)), __LINE__);
         }
         $this->DisplayNameLastFirstHeader = $displayNameLastFirstHeader;
         return $this;
@@ -1317,7 +1317,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -1339,7 +1339,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLast) && !is_string($displayNameFirstLast)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameFirstLast)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLast, true), gettype($displayNameFirstLast)), __LINE__);
         }
         $this->DisplayNameFirstLast = $displayNameFirstLast;
         return $this;
@@ -1361,7 +1361,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirst) && !is_string($displayNameLastFirst)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNameLastFirst)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirst, true), gettype($displayNameLastFirst)), __LINE__);
         }
         $this->DisplayNameLastFirst = $displayNameLastFirst;
         return $this;
@@ -1383,7 +1383,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fileAs) && !is_string($fileAs)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAs)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAs, true), gettype($fileAs)), __LINE__);
         }
         $this->FileAs = $fileAs;
         return $this;
@@ -1405,7 +1405,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fileAsId) && !is_string($fileAsId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileAsId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAsId, true), gettype($fileAsId)), __LINE__);
         }
         $this->FileAsId = $fileAsId;
         return $this;
@@ -1427,7 +1427,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayNamePrefix) && !is_string($displayNamePrefix)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayNamePrefix)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNamePrefix, true), gettype($displayNamePrefix)), __LINE__);
         }
         $this->DisplayNamePrefix = $displayNamePrefix;
         return $this;
@@ -1449,7 +1449,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($givenName) && !is_string($givenName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($givenName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
         }
         $this->GivenName = $givenName;
         return $this;
@@ -1471,7 +1471,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($middleName) && !is_string($middleName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($middleName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
         }
         $this->MiddleName = $middleName;
         return $this;
@@ -1493,7 +1493,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($surname) && !is_string($surname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($surname)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
         }
         $this->Surname = $surname;
         return $this;
@@ -1515,7 +1515,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($generation) && !is_string($generation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($generation)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($generation, true), gettype($generation)), __LINE__);
         }
         $this->Generation = $generation;
         return $this;
@@ -1537,7 +1537,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($nickname) && !is_string($nickname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nickname)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
         }
         $this->Nickname = $nickname;
         return $this;
@@ -1559,7 +1559,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($yomiCompanyName) && !is_string($yomiCompanyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiCompanyName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiCompanyName, true), gettype($yomiCompanyName)), __LINE__);
         }
         $this->YomiCompanyName = $yomiCompanyName;
         return $this;
@@ -1581,7 +1581,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($yomiFirstName) && !is_string($yomiFirstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiFirstName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiFirstName, true), gettype($yomiFirstName)), __LINE__);
         }
         $this->YomiFirstName = $yomiFirstName;
         return $this;
@@ -1603,7 +1603,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($yomiLastName) && !is_string($yomiLastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiLastName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiLastName, true), gettype($yomiLastName)), __LINE__);
         }
         $this->YomiLastName = $yomiLastName;
         return $this;
@@ -1625,7 +1625,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
         return $this;
@@ -1647,7 +1647,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($department) && !is_string($department)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($department)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
         }
         $this->Department = $department;
         return $this;
@@ -1669,7 +1669,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($companyName) && !is_string($companyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($companyName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyName, true), gettype($companyName)), __LINE__);
         }
         $this->CompanyName = $companyName;
         return $this;
@@ -1691,7 +1691,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -1767,7 +1767,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($imAddress) && !is_string($imAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imAddress, true), gettype($imAddress)), __LINE__);
         }
         $this->ImAddress = $imAddress;
         return $this;
@@ -1789,7 +1789,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($homeCity) && !is_string($homeCity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homeCity)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCity, true), gettype($homeCity)), __LINE__);
         }
         $this->HomeCity = $homeCity;
         return $this;
@@ -1811,7 +1811,7 @@ class EwsPersonaType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($workCity) && !is_string($workCity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($workCity)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCity, true), gettype($workCity)), __LINE__);
         }
         $this->WorkCity = $workCity;
         return $this;
@@ -1832,8 +1832,8 @@ class EwsPersonaType extends AbstractStructBase
     public function setRelevanceScore($relevanceScore = null)
     {
         // validation for constraint: int
-        if (!is_null($relevanceScore) && !is_numeric($relevanceScore)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($relevanceScore)), __LINE__);
+        if (!is_null($relevanceScore) && !(is_int($relevanceScore) || ctype_digit($relevanceScore))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($relevanceScore, true), gettype($relevanceScore)), __LINE__);
         }
         $this->RelevanceScore = $relevanceScore;
         return $this;
@@ -1853,6 +1853,10 @@ class EwsPersonaType extends AbstractStructBase
      */
     public function setRankingWeight($rankingWeight = null)
     {
+        // validation for constraint: float
+        if (!is_null($rankingWeight) && !(is_float($rankingWeight) || is_numeric($rankingWeight))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($rankingWeight, true), gettype($rankingWeight)), __LINE__);
+        }
         $this->RankingWeight = $rankingWeight;
         return $this;
     }
@@ -2935,25 +2939,5 @@ class EwsPersonaType extends AbstractStructBase
     {
         $this->ExtendedProperties = $extendedProperties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPersonaType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

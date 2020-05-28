@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ServiceConfigurationType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsServiceConfigurationType
+class EwsServiceConfigurationType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'MailTips'
@@ -31,16 +33,6 @@ class EwsServiceConfigurationType
      */
     const VALUE_POLICY_NUDGES = 'PolicyNudges';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_MAIL_TIPS
      * @uses self::VALUE_UNIFIED_MESSAGING_CONFIGURATION
@@ -56,13 +48,5 @@ class EwsServiceConfigurationType
             self::VALUE_PROTECTION_RULES,
             self::VALUE_POLICY_NUDGES,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

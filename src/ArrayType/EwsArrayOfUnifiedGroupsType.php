@@ -14,7 +14,7 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
 {
     /**
      * The UnifiedGroup
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUnifiedGroupType[]
@@ -39,6 +39,28 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
         return $this->UnifiedGroup;
     }
     /**
+     * This method is responsible for validating the values passed to the setUnifiedGroup method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setUnifiedGroup method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateUnifiedGroupForArrayConstraintsFromSetUnifiedGroup(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfUnifiedGroupsTypeUnifiedGroupItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfUnifiedGroupsTypeUnifiedGroupItem instanceof \Ews\StructType\EwsUnifiedGroupType) {
+                $invalidValues[] = is_object($arrayOfUnifiedGroupsTypeUnifiedGroupItem) ? get_class($arrayOfUnifiedGroupsTypeUnifiedGroupItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupsTypeUnifiedGroupItem), var_export($arrayOfUnifiedGroupsTypeUnifiedGroupItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The UnifiedGroup property can only contain items of type \Ews\StructType\EwsUnifiedGroupType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set UnifiedGroup value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsUnifiedGroupType[] $unifiedGroup
@@ -46,11 +68,9 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
      */
     public function setUnifiedGroup(array $unifiedGroup = array())
     {
-        foreach ($unifiedGroup as $arrayOfUnifiedGroupsTypeUnifiedGroupItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupsTypeUnifiedGroupItem instanceof \Ews\StructType\EwsUnifiedGroupType) {
-                throw new \InvalidArgumentException(sprintf('The UnifiedGroup property can only contain items of \Ews\StructType\EwsUnifiedGroupType, "%s" given', is_object($arrayOfUnifiedGroupsTypeUnifiedGroupItem) ? get_class($arrayOfUnifiedGroupsTypeUnifiedGroupItem) : gettype($arrayOfUnifiedGroupsTypeUnifiedGroupItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($unifiedGroupArrayErrorMessage = self::validateUnifiedGroupForArrayConstraintsFromSetUnifiedGroup($unifiedGroup))) {
+            throw new \InvalidArgumentException($unifiedGroupArrayErrorMessage, __LINE__);
         }
         $this->UnifiedGroup = $unifiedGroup;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsUnifiedGroupType) {
-            throw new \InvalidArgumentException(sprintf('The UnifiedGroup property can only contain items of \Ews\StructType\EwsUnifiedGroupType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The UnifiedGroup property can only contain items of type \Ews\StructType\EwsUnifiedGroupType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->UnifiedGroup[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfUnifiedGroupsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'UnifiedGroup';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
 {
     /**
      * The UserGroupRelationship
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUserUnifiedGroupRelationshipType
@@ -22,7 +22,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public $UserGroupRelationship;
     /**
      * The GroupResources
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
@@ -30,7 +30,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public $GroupResources;
     /**
      * The MailboxSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
@@ -38,7 +38,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public $MailboxSettings;
     /**
      * The OwnerCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -46,7 +46,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public $OwnerCount;
     /**
      * The Description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public $Description;
     /**
      * The ExternalDirectoryObjectId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -155,8 +155,8 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     public function setOwnerCount($ownerCount = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerCount) && !is_numeric($ownerCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerCount)), __LINE__);
+        if (!is_null($ownerCount) && !(is_int($ownerCount) || ctype_digit($ownerCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($ownerCount, true), gettype($ownerCount)), __LINE__);
         }
         $this->OwnerCount = $ownerCount;
         return $this;
@@ -178,7 +178,7 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
         return $this;
@@ -200,29 +200,9 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     {
         // validation for constraint: string
         if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalDirectoryObjectId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
         }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

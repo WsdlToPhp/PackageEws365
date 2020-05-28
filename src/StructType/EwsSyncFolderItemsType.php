@@ -14,44 +14,45 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
 {
     /**
      * The ItemShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemResponseShapeType
      */
     public $ItemShape;
     /**
      * The SyncFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\StructType\EwsTargetFolderIdType
      */
     public $SyncFolderId;
     /**
      * The MaxChangesReturned
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 1
+     * Meta information extracted from the WSDL
+     * - base: xs:int
      * - maxInclusive: 512
      * - minInclusive: 1
+     * - minOccurs: 1
      * @var int
      */
     public $MaxChangesReturned;
     /**
      * The SyncState
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SyncState;
     /**
      * The Ignore
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfBaseItemIdsType
      */
     public $Ignore;
     /**
      * The SyncScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -132,17 +133,17 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
      */
     public function setMaxChangesReturned($maxChangesReturned = null)
     {
-        // validation for constraint: maxInclusive
-        if ($maxChangesReturned > 512) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 512, "%s" given', $maxChangesReturned), __LINE__);
-        }
-        // validation for constraint: minInclusive
-        if ($maxChangesReturned < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $maxChangesReturned), __LINE__);
-        }
         // validation for constraint: int
-        if (!is_null($maxChangesReturned) && !is_numeric($maxChangesReturned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxChangesReturned)), __LINE__);
+        if (!is_null($maxChangesReturned) && !(is_int($maxChangesReturned) || ctype_digit($maxChangesReturned))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxChangesReturned, true), gettype($maxChangesReturned)), __LINE__);
+        }
+        // validation for constraint: maxInclusive(512)
+        if (!is_null($maxChangesReturned) && $maxChangesReturned > 512) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 512', var_export($maxChangesReturned, true)), __LINE__);
+        }
+        // validation for constraint: minInclusive(1)
+        if (!is_null($maxChangesReturned) && $maxChangesReturned < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($maxChangesReturned, true)), __LINE__);
         }
         $this->MaxChangesReturned = $maxChangesReturned;
         return $this;
@@ -164,7 +165,7 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($syncState) && !is_string($syncState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
         }
         $this->SyncState = $syncState;
         return $this;
@@ -207,29 +208,9 @@ class EwsSyncFolderItemsType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSyncFolderItemsScopeType::valueIsValid($syncScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $syncScope, implode(', ', \Ews\EnumType\EwsSyncFolderItemsScopeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSyncFolderItemsScopeType', is_array($syncScope) ? implode(', ', $syncScope) : var_export($syncScope, true), implode(', ', \Ews\EnumType\EwsSyncFolderItemsScopeType::getValidValues())), __LINE__);
         }
         $this->SyncScope = $syncScope;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSyncFolderItemsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

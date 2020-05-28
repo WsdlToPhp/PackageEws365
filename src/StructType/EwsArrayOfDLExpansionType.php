@@ -14,7 +14,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
 {
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEmailAddressType[]
@@ -22,26 +22,41 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public $Mailbox;
     /**
      * The IndexedPagingOffset
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $IndexedPagingOffset;
     /**
      * The NumeratorOffset
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $NumeratorOffset;
     /**
      * The AbsoluteDenominator
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $AbsoluteDenominator;
     /**
      * The IncludesLastItemInRange
+     * Meta information extracted from the WSDL
+     * - type: xs:boolean
+     * - use: optional
      * @var bool
      */
     public $IncludesLastItemInRange;
     /**
      * The TotalItemsInView
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $TotalItemsInView;
@@ -79,6 +94,28 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
         return $this->Mailbox;
     }
     /**
+     * This method is responsible for validating the values passed to the setMailbox method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMailbox method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMailboxForArrayConstraintsFromSetMailbox(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfDLExpansionTypeMailboxItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfDLExpansionTypeMailboxItem instanceof \Ews\StructType\EwsEmailAddressType) {
+                $invalidValues[] = is_object($arrayOfDLExpansionTypeMailboxItem) ? get_class($arrayOfDLExpansionTypeMailboxItem) : sprintf('%s(%s)', gettype($arrayOfDLExpansionTypeMailboxItem), var_export($arrayOfDLExpansionTypeMailboxItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Mailbox property can only contain items of type \Ews\StructType\EwsEmailAddressType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Mailbox value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsEmailAddressType[] $mailbox
@@ -86,11 +123,9 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
      */
     public function setMailbox(array $mailbox = array())
     {
-        foreach ($mailbox as $arrayOfDLExpansionTypeMailboxItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfDLExpansionTypeMailboxItem instanceof \Ews\StructType\EwsEmailAddressType) {
-                throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($arrayOfDLExpansionTypeMailboxItem) ? get_class($arrayOfDLExpansionTypeMailboxItem) : gettype($arrayOfDLExpansionTypeMailboxItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($mailboxArrayErrorMessage = self::validateMailboxForArrayConstraintsFromSetMailbox($mailbox))) {
+            throw new \InvalidArgumentException($mailboxArrayErrorMessage, __LINE__);
         }
         $this->Mailbox = $mailbox;
         return $this;
@@ -105,7 +140,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsEmailAddressType) {
-            throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of \Ews\StructType\EwsEmailAddressType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Mailbox property can only contain items of type \Ews\StructType\EwsEmailAddressType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Mailbox[] = $item;
         return $this;
@@ -126,8 +161,8 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedPagingOffset) && !is_numeric($indexedPagingOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        if (!is_null($indexedPagingOffset) && !(is_int($indexedPagingOffset) || ctype_digit($indexedPagingOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedPagingOffset, true), gettype($indexedPagingOffset)), __LINE__);
         }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
@@ -148,8 +183,8 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public function setNumeratorOffset($numeratorOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($numeratorOffset) && !is_numeric($numeratorOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numeratorOffset)), __LINE__);
+        if (!is_null($numeratorOffset) && !(is_int($numeratorOffset) || ctype_digit($numeratorOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numeratorOffset, true), gettype($numeratorOffset)), __LINE__);
         }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
@@ -170,8 +205,8 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
         // validation for constraint: int
-        if (!is_null($absoluteDenominator) && !is_numeric($absoluteDenominator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        if (!is_null($absoluteDenominator) && !(is_int($absoluteDenominator) || ctype_digit($absoluteDenominator))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($absoluteDenominator, true), gettype($absoluteDenominator)), __LINE__);
         }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
@@ -193,7 +228,7 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($includesLastItemInRange) && !is_bool($includesLastItemInRange)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includesLastItemInRange)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includesLastItemInRange, true), gettype($includesLastItemInRange)), __LINE__);
         }
         $this->IncludesLastItemInRange = $includesLastItemInRange;
         return $this;
@@ -214,30 +249,10 @@ class EwsArrayOfDLExpansionType extends AbstractStructBase
     public function setTotalItemsInView($totalItemsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalItemsInView) && !is_numeric($totalItemsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalItemsInView)), __LINE__);
+        if (!is_null($totalItemsInView) && !(is_int($totalItemsInView) || ctype_digit($totalItemsInView))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalItemsInView, true), gettype($totalItemsInView)), __LINE__);
         }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsArrayOfDLExpansionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

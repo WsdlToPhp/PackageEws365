@@ -14,36 +14,59 @@ class EwsFindItemParentType extends AbstractStructBase
 {
     /**
      * The Items
+     * Meta information extracted from the WSDL
+     * - choice: Items | Groups
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 1
      * @var \Ews\StructType\EwsArrayOfRealItemsType
      */
     public $Items;
     /**
      * The Groups
+     * Meta information extracted from the WSDL
+     * - choice: Items | Groups
+     * - choiceMaxOccurs: 1
+     * - choiceMinOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfGroupedItemsType
      */
     public $Groups;
     /**
      * The IndexedPagingOffset
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $IndexedPagingOffset;
     /**
      * The NumeratorOffset
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $NumeratorOffset;
     /**
      * The AbsoluteDenominator
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $AbsoluteDenominator;
     /**
      * The IncludesLastItemInRange
+     * Meta information extracted from the WSDL
+     * - type: xs:boolean
+     * - use: optional
      * @var bool
      */
     public $IncludesLastItemInRange;
     /**
      * The TotalItemsInView
+     * Meta information extracted from the WSDL
+     * - type: xs:int
+     * - use: optional
      * @var int
      */
     public $TotalItemsInView;
@@ -81,16 +104,55 @@ class EwsFindItemParentType extends AbstractStructBase
      */
     public function getItems()
     {
-        return $this->Items;
+        return isset($this->Items) ? $this->Items : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setItems method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setItems method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateItemsForChoiceConstraintsFromSetItems($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'Groups',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property Items can\'t be set as the property %s is already set. Only one property must be set among these properties: Items, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set Items value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsArrayOfRealItemsType $items
      * @return \Ews\StructType\EwsFindItemParentType
      */
     public function setItems(\Ews\StructType\EwsArrayOfRealItemsType $items = null)
     {
-        $this->Items = $items;
+        // validation for constraint: choice(Items, Groups)
+        if ('' !== ($itemsChoiceErrorMessage = self::validateItemsForChoiceConstraintsFromSetItems($items))) {
+            throw new \InvalidArgumentException($itemsChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($items) || (is_array($items) && empty($items))) {
+            unset($this->Items);
+        } else {
+            $this->Items = $items;
+        }
         return $this;
     }
     /**
@@ -99,16 +161,55 @@ class EwsFindItemParentType extends AbstractStructBase
      */
     public function getGroups()
     {
-        return $this->Groups;
+        return isset($this->Groups) ? $this->Groups : null;
+    }
+    /**
+     * This method is responsible for validating the value passed to the setGroups method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setGroups method
+     * This has to validate that the property which is being set is the only one among the given choices
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public function validateGroupsForChoiceConstraintsFromSetGroups($value)
+    {
+        $message = '';
+        if (is_null($value)) {
+            return $message;
+        }
+        $properties = [
+            'Items',
+        ];
+        try {
+            foreach ($properties as $property) {
+                if (isset($this->{$property})) {
+                    throw new \InvalidArgumentException(sprintf('The property Groups can\'t be set as the property %s is already set. Only one property must be set among these properties: Groups, %s.', $property, implode(', ', $properties)), __LINE__);
+                }
+            }
+        } catch (\InvalidArgumentException $e) {
+            $message = $e->getMessage();
+        }
+        return $message;
     }
     /**
      * Set Groups value
+     * This property belongs to a choice that allows only one property to exist. It is
+     * therefore removable from the request, consequently if the value assigned to this
+     * property is null, the property is removed from this object
+     * @throws \InvalidArgumentException
      * @param \Ews\ArrayType\EwsArrayOfGroupedItemsType $groups
      * @return \Ews\StructType\EwsFindItemParentType
      */
     public function setGroups(\Ews\ArrayType\EwsArrayOfGroupedItemsType $groups = null)
     {
-        $this->Groups = $groups;
+        // validation for constraint: choice(Items, Groups)
+        if ('' !== ($groupsChoiceErrorMessage = self::validateGroupsForChoiceConstraintsFromSetGroups($groups))) {
+            throw new \InvalidArgumentException($groupsChoiceErrorMessage, __LINE__);
+        }
+        if (is_null($groups) || (is_array($groups) && empty($groups))) {
+            unset($this->Groups);
+        } else {
+            $this->Groups = $groups;
+        }
         return $this;
     }
     /**
@@ -127,8 +228,8 @@ class EwsFindItemParentType extends AbstractStructBase
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedPagingOffset) && !is_numeric($indexedPagingOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        if (!is_null($indexedPagingOffset) && !(is_int($indexedPagingOffset) || ctype_digit($indexedPagingOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedPagingOffset, true), gettype($indexedPagingOffset)), __LINE__);
         }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
@@ -149,8 +250,8 @@ class EwsFindItemParentType extends AbstractStructBase
     public function setNumeratorOffset($numeratorOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($numeratorOffset) && !is_numeric($numeratorOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numeratorOffset)), __LINE__);
+        if (!is_null($numeratorOffset) && !(is_int($numeratorOffset) || ctype_digit($numeratorOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numeratorOffset, true), gettype($numeratorOffset)), __LINE__);
         }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
@@ -171,8 +272,8 @@ class EwsFindItemParentType extends AbstractStructBase
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
         // validation for constraint: int
-        if (!is_null($absoluteDenominator) && !is_numeric($absoluteDenominator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        if (!is_null($absoluteDenominator) && !(is_int($absoluteDenominator) || ctype_digit($absoluteDenominator))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($absoluteDenominator, true), gettype($absoluteDenominator)), __LINE__);
         }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
@@ -194,7 +295,7 @@ class EwsFindItemParentType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($includesLastItemInRange) && !is_bool($includesLastItemInRange)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includesLastItemInRange)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includesLastItemInRange, true), gettype($includesLastItemInRange)), __LINE__);
         }
         $this->IncludesLastItemInRange = $includesLastItemInRange;
         return $this;
@@ -215,30 +316,10 @@ class EwsFindItemParentType extends AbstractStructBase
     public function setTotalItemsInView($totalItemsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalItemsInView) && !is_numeric($totalItemsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalItemsInView)), __LINE__);
+        if (!is_null($totalItemsInView) && !(is_int($totalItemsInView) || ctype_digit($totalItemsInView))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalItemsInView, true), gettype($totalItemsInView)), __LINE__);
         }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindItemParentType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

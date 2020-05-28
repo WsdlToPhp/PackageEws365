@@ -14,17 +14,18 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
 {
     /**
      * The LinkedEntityId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $LinkedEntityId;
     /**
      * The GraphRelationshipTypes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
@@ -58,13 +59,13 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
      */
     public function setLinkedEntityId($linkedEntityId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($linkedEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $linkedEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($linkedEntityId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($linkedEntityId) && !is_string($linkedEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($linkedEntityId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedEntityId, true), gettype($linkedEntityId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($linkedEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $linkedEntityId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($linkedEntityId, true)), __LINE__);
         }
         $this->LinkedEntityId = $linkedEntityId;
         return $this;
@@ -86,25 +87,5 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
     {
         $this->GraphRelationshipTypes = $graphRelationshipTypes;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindXrmGraphRelationshipType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

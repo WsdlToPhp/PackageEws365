@@ -14,7 +14,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
 {
     /**
      * The Bias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public $Bias;
     /**
      * The Time
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public $Time;
     /**
      * The DayOrder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -38,7 +38,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public $DayOrder;
     /**
      * The Month
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -46,7 +46,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public $Month;
     /**
      * The DayOfWeek
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -54,7 +54,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public $DayOfWeek;
     /**
      * The Year
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -101,8 +101,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setBias($bias = null)
     {
         // validation for constraint: int
-        if (!is_null($bias) && !is_numeric($bias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($bias)), __LINE__);
+        if (!is_null($bias) && !(is_int($bias) || ctype_digit($bias))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($bias, true), gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
         return $this;
@@ -124,7 +124,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($time) && !is_string($time)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($time)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($time, true), gettype($time)), __LINE__);
         }
         $this->Time = $time;
         return $this;
@@ -145,8 +145,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setDayOrder($dayOrder = null)
     {
         // validation for constraint: int
-        if (!is_null($dayOrder) && !is_numeric($dayOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($dayOrder)), __LINE__);
+        if (!is_null($dayOrder) && !(is_int($dayOrder) || ctype_digit($dayOrder))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOrder, true), gettype($dayOrder)), __LINE__);
         }
         $this->DayOrder = $dayOrder;
         return $this;
@@ -167,8 +167,8 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     public function setMonth($month = null)
     {
         // validation for constraint: int
-        if (!is_null($month) && !is_numeric($month)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($month)), __LINE__);
+        if (!is_null($month) && !(is_int($month) || ctype_digit($month))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($month, true), gettype($month)), __LINE__);
         }
         $this->Month = $month;
         return $this;
@@ -193,7 +193,7 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($dayOfWeek)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dayOfWeek, implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($dayOfWeek) ? implode(', ', $dayOfWeek) : var_export($dayOfWeek, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
         $this->DayOfWeek = $dayOfWeek;
         return $this;
@@ -215,29 +215,9 @@ class EwsSerializableTimeZoneTime extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($year) && !is_string($year)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($year)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($year, true), gettype($year)), __LINE__);
         }
         $this->Year = $year;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSerializableTimeZoneTime
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

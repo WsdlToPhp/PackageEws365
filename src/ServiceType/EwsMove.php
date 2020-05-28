@@ -53,7 +53,7 @@ class EwsMove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named MoveFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsMove extends SoapClientBase
     public function MoveFolder(\Ews\StructType\EwsMoveFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->MoveFolder($request));
+            $this->setResult($this->getSoapClient()->MoveFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -77,7 +77,7 @@ class EwsMove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named MoveItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -92,7 +92,7 @@ class EwsMove extends SoapClientBase
     public function MoveItem(\Ews\StructType\EwsMoveItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->MoveItem($request));
+            $this->setResult($this->getSoapClient()->MoveItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -107,13 +107,5 @@ class EwsMove extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

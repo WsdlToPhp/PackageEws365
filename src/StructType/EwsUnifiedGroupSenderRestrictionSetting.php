@@ -14,7 +14,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
 {
     /**
      * The RestrictionAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
     public $RestrictionAction;
     /**
      * The Restriction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
     public $Restriction;
     /**
      * The SenderList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
@@ -72,7 +72,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSenderRestrictionActionType::valueIsValid($restrictionAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $restrictionAction, implode(', ', \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSenderRestrictionActionType', is_array($restrictionAction) ? implode(', ', $restrictionAction) : var_export($restrictionAction, true), implode(', ', \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues())), __LINE__);
         }
         $this->RestrictionAction = $restrictionAction;
         return $this;
@@ -97,7 +97,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSenderRestrictionType::valueIsValid($restriction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $restriction, implode(', ', \Ews\EnumType\EwsSenderRestrictionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSenderRestrictionType', is_array($restriction) ? implode(', ', $restriction) : var_export($restriction, true), implode(', ', \Ews\EnumType\EwsSenderRestrictionType::getValidValues())), __LINE__);
         }
         $this->Restriction = $restriction;
         return $this;
@@ -119,25 +119,5 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
     {
         $this->SenderList = $senderList;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

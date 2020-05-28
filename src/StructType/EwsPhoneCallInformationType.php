@@ -14,7 +14,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
 {
     /**
      * The PhoneCallState
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     public $PhoneCallState;
     /**
      * The ConnectionFailureCause
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     public $ConnectionFailureCause;
     /**
      * The SIPResponseText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     public $SIPResponseText;
     /**
      * The SIPResponseCode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -83,7 +83,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPhoneCallStateType::valueIsValid($phoneCallState)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $phoneCallState, implode(', ', \Ews\EnumType\EwsPhoneCallStateType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPhoneCallStateType', is_array($phoneCallState) ? implode(', ', $phoneCallState) : var_export($phoneCallState, true), implode(', ', \Ews\EnumType\EwsPhoneCallStateType::getValidValues())), __LINE__);
         }
         $this->PhoneCallState = $phoneCallState;
         return $this;
@@ -108,7 +108,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsConnectionFailureCauseType::valueIsValid($connectionFailureCause)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $connectionFailureCause, implode(', ', \Ews\EnumType\EwsConnectionFailureCauseType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConnectionFailureCauseType', is_array($connectionFailureCause) ? implode(', ', $connectionFailureCause) : var_export($connectionFailureCause, true), implode(', ', \Ews\EnumType\EwsConnectionFailureCauseType::getValidValues())), __LINE__);
         }
         $this->ConnectionFailureCause = $connectionFailureCause;
         return $this;
@@ -130,7 +130,7 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sIPResponseText) && !is_string($sIPResponseText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sIPResponseText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sIPResponseText, true), gettype($sIPResponseText)), __LINE__);
         }
         $this->SIPResponseText = $sIPResponseText;
         return $this;
@@ -151,30 +151,10 @@ class EwsPhoneCallInformationType extends AbstractStructBase
     public function setSIPResponseCode($sIPResponseCode = null)
     {
         // validation for constraint: int
-        if (!is_null($sIPResponseCode) && !is_numeric($sIPResponseCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sIPResponseCode)), __LINE__);
+        if (!is_null($sIPResponseCode) && !(is_int($sIPResponseCode) || ctype_digit($sIPResponseCode))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sIPResponseCode, true), gettype($sIPResponseCode)), __LINE__);
         }
         $this->SIPResponseCode = $sIPResponseCode;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPhoneCallInformationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

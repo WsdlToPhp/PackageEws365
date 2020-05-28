@@ -14,7 +14,7 @@ class EwsClientIntentType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -22,7 +22,7 @@ class EwsClientIntentType extends AbstractStructBase
     public $ItemId;
     /**
      * The Intent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,7 +30,7 @@ class EwsClientIntentType extends AbstractStructBase
     public $Intent;
     /**
      * The ItemVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -38,7 +38,7 @@ class EwsClientIntentType extends AbstractStructBase
     public $ItemVersion;
     /**
      * The WouldRepair
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -46,7 +46,7 @@ class EwsClientIntentType extends AbstractStructBase
     public $WouldRepair;
     /**
      * The PredictedAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -108,8 +108,8 @@ class EwsClientIntentType extends AbstractStructBase
     public function setIntent($intent = null)
     {
         // validation for constraint: int
-        if (!is_null($intent) && !is_numeric($intent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($intent)), __LINE__);
+        if (!is_null($intent) && !(is_int($intent) || ctype_digit($intent))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($intent, true), gettype($intent)), __LINE__);
         }
         $this->Intent = $intent;
         return $this;
@@ -130,8 +130,8 @@ class EwsClientIntentType extends AbstractStructBase
     public function setItemVersion($itemVersion = null)
     {
         // validation for constraint: int
-        if (!is_null($itemVersion) && !is_numeric($itemVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemVersion)), __LINE__);
+        if (!is_null($itemVersion) && !(is_int($itemVersion) || ctype_digit($itemVersion))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemVersion, true), gettype($itemVersion)), __LINE__);
         }
         $this->ItemVersion = $itemVersion;
         return $this;
@@ -153,7 +153,7 @@ class EwsClientIntentType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($wouldRepair) && !is_bool($wouldRepair)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($wouldRepair)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($wouldRepair, true), gettype($wouldRepair)), __LINE__);
         }
         $this->WouldRepair = $wouldRepair;
         return $this;
@@ -178,29 +178,9 @@ class EwsClientIntentType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsClientIntentMeetingInquiryActionType::valueIsValid($predictedAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $predictedAction, implode(', ', \Ews\EnumType\EwsClientIntentMeetingInquiryActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientIntentMeetingInquiryActionType', is_array($predictedAction) ? implode(', ', $predictedAction) : var_export($predictedAction, true), implode(', ', \Ews\EnumType\EwsClientIntentMeetingInquiryActionType::getValidValues())), __LINE__);
         }
         $this->PredictedAction = $predictedAction;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsClientIntentType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

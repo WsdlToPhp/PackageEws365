@@ -24,28 +24,28 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     public $IsMember;
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SmtpAddress;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DisplayName;
     /**
      * The IsFavorite
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsFavorite;
     /**
      * The LastVisitedTimeUtc
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -53,7 +53,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     public $LastVisitedTimeUtc;
     /**
      * The AccessType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -103,7 +103,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instanceKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
         return $this;
@@ -125,7 +125,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: boolean
         if (!is_null($isMember) && !is_bool($isMember)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
         }
         $this->IsMember = $isMember;
         return $this;
@@ -147,7 +147,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
@@ -169,7 +169,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -191,7 +191,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: boolean
         if (!is_null($isFavorite) && !is_bool($isFavorite)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFavorite)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFavorite, true), gettype($isFavorite)), __LINE__);
         }
         $this->IsFavorite = $isFavorite;
         return $this;
@@ -213,7 +213,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: string
         if (!is_null($lastVisitedTimeUtc) && !is_string($lastVisitedTimeUtc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastVisitedTimeUtc)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedTimeUtc, true), gettype($lastVisitedTimeUtc)), __LINE__);
         }
         $this->LastVisitedTimeUtc = $lastVisitedTimeUtc;
         return $this;
@@ -238,29 +238,9 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $accessType, implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
         $this->AccessType = $accessType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

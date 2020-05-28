@@ -14,212 +14,212 @@ class EwsItemType extends AbstractStructBase
 {
     /**
      * The MimeContent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMimeContentType
      */
     public $MimeContent;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ItemId;
     /**
      * The ParentFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
     /**
      * The ItemClass
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minOccurs: 0
      * @var string
      */
     public $ItemClass;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Subject;
     /**
      * The Sensitivity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Sensitivity;
     /**
      * The Body
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $Body;
     /**
      * The Attachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType
      */
     public $Attachments;
     /**
      * The DateTimeReceived
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DateTimeReceived;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $Size;
     /**
      * The Categories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Categories;
     /**
      * The Importance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Importance;
     /**
      * The InReplyTo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $InReplyTo;
     /**
      * The IsSubmitted
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsSubmitted;
     /**
      * The IsDraft
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsDraft;
     /**
      * The IsFromMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsFromMe;
     /**
      * The IsResend
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsResend;
     /**
      * The IsUnmodified
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsUnmodified;
     /**
      * The InternetMessageHeaders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
      */
     public $InternetMessageHeaders;
     /**
      * The DateTimeSent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DateTimeSent;
     /**
      * The DateTimeCreated
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DateTimeCreated;
     /**
      * The ResponseObjects
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
     public $ResponseObjects;
     /**
      * The ReminderDueBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ReminderDueBy;
     /**
      * The ReminderIsSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ReminderIsSet;
     /**
      * The ReminderNextTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ReminderNextTime;
     /**
      * The ReminderMinutesBeforeStart
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * - maxInclusive: 1525252321
-     * - minInclusive: 1525252321
+     * - union: int
      * @var string
      */
     public $ReminderMinutesBeforeStart;
     /**
      * The DisplayCc
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DisplayCc;
     /**
      * The DisplayTo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DisplayTo;
     /**
      * The HasAttachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasAttachments;
     /**
      * The ExtendedProperty
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsExtendedPropertyType[]
@@ -227,217 +227,217 @@ class EwsItemType extends AbstractStructBase
     public $ExtendedProperty;
     /**
      * The Culture
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Culture;
     /**
      * The EffectiveRights
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEffectiveRightsType
      */
     public $EffectiveRights;
     /**
      * The LastModifiedName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastModifiedName;
     /**
      * The LastModifiedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastModifiedTime;
     /**
      * The IsAssociated
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsAssociated;
     /**
      * The WebClientReadFormQueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $WebClientReadFormQueryString;
     /**
      * The WebClientEditFormQueryString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $WebClientEditFormQueryString;
     /**
      * The ConversationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ConversationId;
     /**
      * The UniqueBody
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $UniqueBody;
     /**
      * The Flag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFlagType
      */
     public $Flag;
     /**
      * The StoreEntryId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StoreEntryId;
     /**
      * The InstanceKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $InstanceKey;
     /**
      * The NormalizedBody
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $NormalizedBody;
     /**
      * The EntityExtractionResult
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEntityExtractionResultType
      */
     public $EntityExtractionResult;
     /**
      * The PolicyTag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRetentionTagType
      */
     public $PolicyTag;
     /**
      * The ArchiveTag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRetentionTagType
      */
     public $ArchiveTag;
     /**
      * The RetentionDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $RetentionDate;
     /**
      * The Preview
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Preview;
     /**
      * The RightsManagementLicenseData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRightsManagementLicenseDataType
      */
     public $RightsManagementLicenseData;
     /**
      * The PredictedActionReasons
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
      */
     public $PredictedActionReasons;
     /**
      * The IsClutter
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsClutter;
     /**
      * The BlockStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $BlockStatus;
     /**
      * The HasBlockedImages
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasBlockedImages;
     /**
      * The TextBody
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsBodyType
      */
     public $TextBody;
     /**
      * The IconIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $IconIndex;
     /**
      * The SearchKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SearchKey;
     /**
      * The SortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $SortKey;
     /**
      * The Hashtags
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Hashtags;
     /**
      * The Mentions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
      */
     public $Mentions;
     /**
      * The MentionedMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $MentionedMe;
     /**
      * The PendingSocialActivityTagIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
@@ -703,7 +703,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($itemClass) && !is_string($itemClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemClass)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         $this->ItemClass = $itemClass;
         return $this;
@@ -725,7 +725,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -750,7 +750,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sensitivity, implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
         $this->Sensitivity = $sensitivity;
         return $this;
@@ -808,7 +808,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dateTimeReceived) && !is_string($dateTimeReceived)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeReceived)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeReceived, true), gettype($dateTimeReceived)), __LINE__);
         }
         $this->DateTimeReceived = $dateTimeReceived;
         return $this;
@@ -829,8 +829,8 @@ class EwsItemType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -873,7 +873,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
         return $this;
@@ -895,7 +895,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($inReplyTo) && !is_string($inReplyTo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inReplyTo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inReplyTo, true), gettype($inReplyTo)), __LINE__);
         }
         $this->InReplyTo = $inReplyTo;
         return $this;
@@ -917,7 +917,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isSubmitted) && !is_bool($isSubmitted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSubmitted)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubmitted, true), gettype($isSubmitted)), __LINE__);
         }
         $this->IsSubmitted = $isSubmitted;
         return $this;
@@ -939,7 +939,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isDraft) && !is_bool($isDraft)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDraft)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDraft, true), gettype($isDraft)), __LINE__);
         }
         $this->IsDraft = $isDraft;
         return $this;
@@ -961,7 +961,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isFromMe) && !is_bool($isFromMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFromMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFromMe, true), gettype($isFromMe)), __LINE__);
         }
         $this->IsFromMe = $isFromMe;
         return $this;
@@ -983,7 +983,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isResend) && !is_bool($isResend)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isResend)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isResend, true), gettype($isResend)), __LINE__);
         }
         $this->IsResend = $isResend;
         return $this;
@@ -1005,7 +1005,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isUnmodified) && !is_bool($isUnmodified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUnmodified)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnmodified, true), gettype($isUnmodified)), __LINE__);
         }
         $this->IsUnmodified = $isUnmodified;
         return $this;
@@ -1045,7 +1045,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dateTimeSent) && !is_string($dateTimeSent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeSent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeSent, true), gettype($dateTimeSent)), __LINE__);
         }
         $this->DateTimeSent = $dateTimeSent;
         return $this;
@@ -1067,7 +1067,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dateTimeCreated) && !is_string($dateTimeCreated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeCreated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeCreated, true), gettype($dateTimeCreated)), __LINE__);
         }
         $this->DateTimeCreated = $dateTimeCreated;
         return $this;
@@ -1107,7 +1107,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderDueBy) && !is_string($reminderDueBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderDueBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderDueBy, true), gettype($reminderDueBy)), __LINE__);
         }
         $this->ReminderDueBy = $reminderDueBy;
         return $this;
@@ -1129,7 +1129,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($reminderIsSet) && !is_bool($reminderIsSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($reminderIsSet)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reminderIsSet, true), gettype($reminderIsSet)), __LINE__);
         }
         $this->ReminderIsSet = $reminderIsSet;
         return $this;
@@ -1151,7 +1151,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reminderNextTime) && !is_string($reminderNextTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderNextTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderNextTime, true), gettype($reminderNextTime)), __LINE__);
         }
         $this->ReminderNextTime = $reminderNextTime;
         return $this;
@@ -1165,23 +1165,39 @@ class EwsItemType extends AbstractStructBase
         return $this->ReminderMinutesBeforeStart;
     }
     /**
+     * This method is responsible for validating the value passed to the setReminderMinutesBeforeStart method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setReminderMinutesBeforeStart method
+     * This is a set of validation rules based on the union types associated to the property being set by the setReminderMinutesBeforeStart method
+     * @param mixed $value
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateReminderMinutesBeforeStartForUnionConstraintsFromSetReminderMinutesBeforeStart($value)
+    {
+        $message = '';
+        // validation for constraint: int
+        if (!is_null($value) && !(is_int($value) || ctype_digit($value))) {
+            $exception0 = new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
+        }
+        if (isset($exception0)) {
+            $message = sprintf("The value %s does not match any of the union rules: int. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(\InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
+        }
+        unset($exception0);
+        return $message;
+    }
+    /**
      * Set ReminderMinutesBeforeStart value
      * @param string $reminderMinutesBeforeStart
      * @return \Ews\StructType\EwsItemType
      */
     public function setReminderMinutesBeforeStart($reminderMinutesBeforeStart = null)
     {
-        // validation for constraint: maxInclusive
-        if ($reminderMinutesBeforeStart > 1525252321) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1525252321, "%s" given', $reminderMinutesBeforeStart), __LINE__);
-        }
-        // validation for constraint: minInclusive
-        if ($reminderMinutesBeforeStart < 1525252321) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1525252321, "%s" given', $reminderMinutesBeforeStart), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($reminderMinutesBeforeStart) && !is_string($reminderMinutesBeforeStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reminderMinutesBeforeStart)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderMinutesBeforeStart, true), gettype($reminderMinutesBeforeStart)), __LINE__);
+        }
+        // validation for constraint: union(int)
+        if ('' !== ($reminderMinutesBeforeStartUnionErrorMessage = self::validateReminderMinutesBeforeStartForUnionConstraintsFromSetReminderMinutesBeforeStart($reminderMinutesBeforeStart))) {
+            throw new \InvalidArgumentException($reminderMinutesBeforeStartUnionErrorMessage, __LINE__);
         }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
         return $this;
@@ -1203,7 +1219,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayCc) && !is_string($displayCc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayCc)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayCc, true), gettype($displayCc)), __LINE__);
         }
         $this->DisplayCc = $displayCc;
         return $this;
@@ -1225,7 +1241,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayTo) && !is_string($displayTo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayTo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayTo, true), gettype($displayTo)), __LINE__);
         }
         $this->DisplayTo = $displayTo;
         return $this;
@@ -1247,7 +1263,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
         return $this;
@@ -1261,6 +1277,28 @@ class EwsItemType extends AbstractStructBase
         return $this->ExtendedProperty;
     }
     /**
+     * This method is responsible for validating the values passed to the setExtendedProperty method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setExtendedProperty method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $itemTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$itemTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                $invalidValues[] = is_object($itemTypeExtendedPropertyItem) ? get_class($itemTypeExtendedPropertyItem) : sprintf('%s(%s)', gettype($itemTypeExtendedPropertyItem), var_export($itemTypeExtendedPropertyItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ExtendedProperty value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
@@ -1268,11 +1306,9 @@ class EwsItemType extends AbstractStructBase
      */
     public function setExtendedProperty(array $extendedProperty = array())
     {
-        foreach ($extendedProperty as $itemTypeExtendedPropertyItem) {
-            // validation for constraint: itemType
-            if (!$itemTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
-                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($itemTypeExtendedPropertyItem) ? get_class($itemTypeExtendedPropertyItem) : gettype($itemTypeExtendedPropertyItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($extendedPropertyArrayErrorMessage = self::validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty($extendedProperty))) {
+            throw new \InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
         }
         $this->ExtendedProperty = $extendedProperty;
         return $this;
@@ -1287,7 +1323,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
-            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->ExtendedProperty[] = $item;
         return $this;
@@ -1309,7 +1345,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($culture) && !is_string($culture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         $this->Culture = $culture;
         return $this;
@@ -1349,7 +1385,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastModifiedName) && !is_string($lastModifiedName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedName, true), gettype($lastModifiedName)), __LINE__);
         }
         $this->LastModifiedName = $lastModifiedName;
         return $this;
@@ -1371,7 +1407,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
@@ -1393,7 +1429,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isAssociated) && !is_bool($isAssociated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isAssociated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAssociated, true), gettype($isAssociated)), __LINE__);
         }
         $this->IsAssociated = $isAssociated;
         return $this;
@@ -1415,7 +1451,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($webClientReadFormQueryString) && !is_string($webClientReadFormQueryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($webClientReadFormQueryString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientReadFormQueryString, true), gettype($webClientReadFormQueryString)), __LINE__);
         }
         $this->WebClientReadFormQueryString = $webClientReadFormQueryString;
         return $this;
@@ -1437,7 +1473,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($webClientEditFormQueryString) && !is_string($webClientEditFormQueryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($webClientEditFormQueryString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientEditFormQueryString, true), gettype($webClientEditFormQueryString)), __LINE__);
         }
         $this->WebClientEditFormQueryString = $webClientEditFormQueryString;
         return $this;
@@ -1513,7 +1549,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($storeEntryId) && !is_string($storeEntryId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($storeEntryId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($storeEntryId, true), gettype($storeEntryId)), __LINE__);
         }
         $this->StoreEntryId = $storeEntryId;
         return $this;
@@ -1535,7 +1571,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instanceKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
         return $this;
@@ -1629,7 +1665,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($retentionDate) && !is_string($retentionDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($retentionDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionDate, true), gettype($retentionDate)), __LINE__);
         }
         $this->RetentionDate = $retentionDate;
         return $this;
@@ -1651,7 +1687,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
         return $this;
@@ -1709,7 +1745,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isClutter) && !is_bool($isClutter)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isClutter)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isClutter, true), gettype($isClutter)), __LINE__);
         }
         $this->IsClutter = $isClutter;
         return $this;
@@ -1731,7 +1767,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($blockStatus) && !is_bool($blockStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($blockStatus)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($blockStatus, true), gettype($blockStatus)), __LINE__);
         }
         $this->BlockStatus = $blockStatus;
         return $this;
@@ -1753,7 +1789,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasBlockedImages) && !is_bool($hasBlockedImages)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasBlockedImages)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasBlockedImages, true), gettype($hasBlockedImages)), __LINE__);
         }
         $this->HasBlockedImages = $hasBlockedImages;
         return $this;
@@ -1796,7 +1832,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $iconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->IconIndex = $iconIndex;
         return $this;
@@ -1818,7 +1854,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($searchKey) && !is_string($searchKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchKey, true), gettype($searchKey)), __LINE__);
         }
         $this->SearchKey = $searchKey;
         return $this;
@@ -1839,8 +1875,8 @@ class EwsItemType extends AbstractStructBase
     public function setSortKey($sortKey = null)
     {
         // validation for constraint: int
-        if (!is_null($sortKey) && !is_numeric($sortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sortKey)), __LINE__);
+        if (!is_null($sortKey) && !(is_int($sortKey) || ctype_digit($sortKey))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
         return $this;
@@ -1898,7 +1934,7 @@ class EwsItemType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mentionedMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
         }
         $this->MentionedMe = $mentionedMe;
         return $this;
@@ -1920,25 +1956,5 @@ class EwsItemType extends AbstractStructBase
     {
         $this->PendingSocialActivityTagIds = $pendingSocialActivityTagIds;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManagedFolderInformationType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Compound property for Managed Folder related information for Managed Folders.
  * @package Ews
  * @subpackage Structs
@@ -16,70 +16,70 @@ class EwsManagedFolderInformationType extends AbstractStructBase
 {
     /**
      * The CanDelete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $CanDelete;
     /**
      * The CanRenameOrMove
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $CanRenameOrMove;
     /**
      * The MustDisplayComment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $MustDisplayComment;
     /**
      * The HasQuota
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasQuota;
     /**
      * The IsManagedFoldersRoot
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsManagedFoldersRoot;
     /**
      * The ManagedFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ManagedFolderId;
     /**
      * The Comment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Comment;
     /**
      * The StorageQuota
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $StorageQuota;
     /**
      * The FolderSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $FolderSize;
     /**
      * The HomePage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -138,7 +138,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($canDelete) && !is_bool($canDelete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canDelete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canDelete, true), gettype($canDelete)), __LINE__);
         }
         $this->CanDelete = $canDelete;
         return $this;
@@ -160,7 +160,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($canRenameOrMove) && !is_bool($canRenameOrMove)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canRenameOrMove)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canRenameOrMove, true), gettype($canRenameOrMove)), __LINE__);
         }
         $this->CanRenameOrMove = $canRenameOrMove;
         return $this;
@@ -182,7 +182,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($mustDisplayComment) && !is_bool($mustDisplayComment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mustDisplayComment)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mustDisplayComment, true), gettype($mustDisplayComment)), __LINE__);
         }
         $this->MustDisplayComment = $mustDisplayComment;
         return $this;
@@ -204,7 +204,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasQuota) && !is_bool($hasQuota)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasQuota)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasQuota, true), gettype($hasQuota)), __LINE__);
         }
         $this->HasQuota = $hasQuota;
         return $this;
@@ -226,7 +226,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isManagedFoldersRoot) && !is_bool($isManagedFoldersRoot)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isManagedFoldersRoot)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isManagedFoldersRoot, true), gettype($isManagedFoldersRoot)), __LINE__);
         }
         $this->IsManagedFoldersRoot = $isManagedFoldersRoot;
         return $this;
@@ -248,7 +248,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($managedFolderId) && !is_string($managedFolderId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($managedFolderId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedFolderId, true), gettype($managedFolderId)), __LINE__);
         }
         $this->ManagedFolderId = $managedFolderId;
         return $this;
@@ -270,7 +270,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($comment) && !is_string($comment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($comment)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comment, true), gettype($comment)), __LINE__);
         }
         $this->Comment = $comment;
         return $this;
@@ -291,8 +291,8 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     public function setStorageQuota($storageQuota = null)
     {
         // validation for constraint: int
-        if (!is_null($storageQuota) && !is_numeric($storageQuota)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($storageQuota)), __LINE__);
+        if (!is_null($storageQuota) && !(is_int($storageQuota) || ctype_digit($storageQuota))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($storageQuota, true), gettype($storageQuota)), __LINE__);
         }
         $this->StorageQuota = $storageQuota;
         return $this;
@@ -313,8 +313,8 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     public function setFolderSize($folderSize = null)
     {
         // validation for constraint: int
-        if (!is_null($folderSize) && !is_numeric($folderSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($folderSize)), __LINE__);
+        if (!is_null($folderSize) && !(is_int($folderSize) || ctype_digit($folderSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($folderSize, true), gettype($folderSize)), __LINE__);
         }
         $this->FolderSize = $folderSize;
         return $this;
@@ -336,29 +336,9 @@ class EwsManagedFolderInformationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($homePage) && !is_string($homePage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($homePage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homePage, true), gettype($homePage)), __LINE__);
         }
         $this->HomePage = $homePage;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsManagedFolderInformationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for InstantSearchResultType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsInstantSearchResultType
+class EwsInstantSearchResultType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -66,16 +68,6 @@ class EwsInstantSearchResultType
      */
     const VALUE_SUGGESTIONS_PRIMER = 'SuggestionsPrimer';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_SUGGESTIONS
@@ -105,13 +97,5 @@ class EwsInstantSearchResultType
             self::VALUE_PERSONA_RESULTS,
             self::VALUE_SUGGESTIONS_PRIMER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

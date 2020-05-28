@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SuggestionKindType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSuggestionKindType
+class EwsSuggestionKindType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -46,16 +48,6 @@ class EwsSuggestionKindType
      */
     const VALUE_ALL = 'All';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_KEYWORDS
@@ -77,13 +69,5 @@ class EwsSuggestionKindType
             self::VALUE_ONE_DRIVE_QUERY_HISTORY,
             self::VALUE_ALL,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

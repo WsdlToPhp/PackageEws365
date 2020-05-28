@@ -14,7 +14,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
 {
     /**
      * The LinkId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     public $LinkId;
     /**
      * The FromEntityId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     public $FromEntityId;
     /**
      * The FromEntityType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -38,7 +38,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     public $FromEntityType;
     /**
      * The ToEntityId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -46,7 +46,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     public $ToEntityId;
     /**
      * The ToEntityType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -54,7 +54,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     public $ToEntityType;
     /**
      * The RelationshipType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -102,7 +102,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($linkId) && !is_string($linkId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($linkId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkId, true), gettype($linkId)), __LINE__);
         }
         $this->LinkId = $linkId;
         return $this;
@@ -124,7 +124,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fromEntityId) && !is_string($fromEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fromEntityId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityId, true), gettype($fromEntityId)), __LINE__);
         }
         $this->FromEntityId = $fromEntityId;
         return $this;
@@ -146,7 +146,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fromEntityType) && !is_string($fromEntityType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fromEntityType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityType, true), gettype($fromEntityType)), __LINE__);
         }
         $this->FromEntityType = $fromEntityType;
         return $this;
@@ -168,7 +168,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($toEntityId) && !is_string($toEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($toEntityId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityId, true), gettype($toEntityId)), __LINE__);
         }
         $this->ToEntityId = $toEntityId;
         return $this;
@@ -190,7 +190,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($toEntityType) && !is_string($toEntityType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($toEntityType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityType, true), gettype($toEntityType)), __LINE__);
         }
         $this->ToEntityType = $toEntityType;
         return $this;
@@ -215,29 +215,9 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($relationshipType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $relationshipType, implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmGraphRelationshipType', is_array($relationshipType) ? implode(', ', $relationshipType) : var_export($relationshipType, true), implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
         }
         $this->RelationshipType = $relationshipType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

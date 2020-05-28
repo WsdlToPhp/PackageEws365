@@ -14,37 +14,38 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The People
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPeopleType
      */
     public $People;
     /**
      * The TotalNumberOfPeopleInView
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $TotalNumberOfPeopleInView;
     /**
      * The FirstMatchingRowIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $FirstMatchingRowIndex;
     /**
      * The FirstLoadedRowIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $FirstLoadedRowIndex;
     /**
      * The TransactionId
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
+     * - minOccurs: 0
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
@@ -105,8 +106,8 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
     public function setTotalNumberOfPeopleInView($totalNumberOfPeopleInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalNumberOfPeopleInView) && !is_numeric($totalNumberOfPeopleInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalNumberOfPeopleInView)), __LINE__);
+        if (!is_null($totalNumberOfPeopleInView) && !(is_int($totalNumberOfPeopleInView) || ctype_digit($totalNumberOfPeopleInView))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalNumberOfPeopleInView, true), gettype($totalNumberOfPeopleInView)), __LINE__);
         }
         $this->TotalNumberOfPeopleInView = $totalNumberOfPeopleInView;
         return $this;
@@ -127,8 +128,8 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
     public function setFirstMatchingRowIndex($firstMatchingRowIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($firstMatchingRowIndex) && !is_numeric($firstMatchingRowIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($firstMatchingRowIndex)), __LINE__);
+        if (!is_null($firstMatchingRowIndex) && !(is_int($firstMatchingRowIndex) || ctype_digit($firstMatchingRowIndex))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstMatchingRowIndex, true), gettype($firstMatchingRowIndex)), __LINE__);
         }
         $this->FirstMatchingRowIndex = $firstMatchingRowIndex;
         return $this;
@@ -149,8 +150,8 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
     public function setFirstLoadedRowIndex($firstLoadedRowIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($firstLoadedRowIndex) && !is_numeric($firstLoadedRowIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($firstLoadedRowIndex)), __LINE__);
+        if (!is_null($firstLoadedRowIndex) && !(is_int($firstLoadedRowIndex) || ctype_digit($firstLoadedRowIndex))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstLoadedRowIndex, true), gettype($firstLoadedRowIndex)), __LINE__);
         }
         $this->FirstLoadedRowIndex = $firstLoadedRowIndex;
         return $this;
@@ -170,35 +171,15 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
      */
     public function setTransactionId($transactionId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($transactionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $transactionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($transactionId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($transactionId) && !is_string($transactionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($transactionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($transactionId, true), gettype($transactionId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($transactionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $transactionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($transactionId, true)), __LINE__);
         }
         $this->TransactionId = $transactionId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

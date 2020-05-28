@@ -14,7 +14,7 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
 {
     /**
      * The SourceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
     public $SourceId;
     /**
      * The ObjectId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
     public $ObjectId;
     /**
      * The AccountName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -69,7 +69,7 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sourceId) && !is_string($sourceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceId, true), gettype($sourceId)), __LINE__);
         }
         $this->SourceId = $sourceId;
         return $this;
@@ -91,7 +91,7 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($objectId) && !is_string($objectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($objectId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectId, true), gettype($objectId)), __LINE__);
         }
         $this->ObjectId = $objectId;
         return $this;
@@ -113,29 +113,9 @@ class EwsAbchPersonContactHandle extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($accountName) && !is_string($accountName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($accountName, true), gettype($accountName)), __LINE__);
         }
         $this->AccountName = $accountName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAbchPersonContactHandle
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

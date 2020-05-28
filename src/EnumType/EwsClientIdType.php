@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ClientIdType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsClientIdType
+class EwsClientIdType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Web'
@@ -76,16 +78,6 @@ class EwsClientIdType
      */
     const VALUE_MAC_MAIL = 'MacMail';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_WEB
      * @uses self::VALUE_MOBILE
@@ -119,13 +111,5 @@ class EwsClientIdType
             self::VALUE_OUTLOOK_SERVICE,
             self::VALUE_MAC_MAIL,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

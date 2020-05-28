@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UserPhotoSizeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUserPhotoSizeType
+class EwsUserPhotoSizeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'HR48x48'
@@ -56,16 +58,6 @@ class EwsUserPhotoSizeType
      */
     const VALUE_HR_648_X_648 = 'HR648x648';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_HR_48_X_48
      * @uses self::VALUE_HR_64_X_64
@@ -91,13 +83,5 @@ class EwsUserPhotoSizeType
             self::VALUE_HR_504_X_504,
             self::VALUE_HR_648_X_648,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

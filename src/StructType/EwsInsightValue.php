@@ -14,7 +14,7 @@ class EwsInsightValue extends AbstractStructBase
 {
     /**
      * The InsightSource
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsInsightValue extends AbstractStructBase
     public $InsightSource;
     /**
      * The UpdatedUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -58,7 +58,7 @@ class EwsInsightValue extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($insightSource) && !is_string($insightSource)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($insightSource)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($insightSource, true), gettype($insightSource)), __LINE__);
         }
         $this->InsightSource = $insightSource;
         return $this;
@@ -79,30 +79,10 @@ class EwsInsightValue extends AbstractStructBase
     public function setUpdatedUtcTicks($updatedUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($updatedUtcTicks) && !is_numeric($updatedUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($updatedUtcTicks)), __LINE__);
+        if (!is_null($updatedUtcTicks) && !(is_int($updatedUtcTicks) || ctype_digit($updatedUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($updatedUtcTicks, true), gettype($updatedUtcTicks)), __LINE__);
         }
         $this->UpdatedUtcTicks = $updatedUtcTicks;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

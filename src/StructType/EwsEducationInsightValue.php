@@ -14,7 +14,7 @@ class EwsEducationInsightValue extends EwsInsightValue
 {
     /**
      * The Institute
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsEducationInsightValue extends EwsInsightValue
     public $Institute;
     /**
      * The Degree
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsEducationInsightValue extends EwsInsightValue
     public $Degree;
     /**
      * The StartUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -38,7 +38,7 @@ class EwsEducationInsightValue extends EwsInsightValue
     public $StartUtcTicks;
     /**
      * The EndUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -80,7 +80,7 @@ class EwsEducationInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($institute) && !is_string($institute)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($institute)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($institute, true), gettype($institute)), __LINE__);
         }
         $this->Institute = $institute;
         return $this;
@@ -102,7 +102,7 @@ class EwsEducationInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($degree) && !is_string($degree)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($degree)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($degree, true), gettype($degree)), __LINE__);
         }
         $this->Degree = $degree;
         return $this;
@@ -123,8 +123,8 @@ class EwsEducationInsightValue extends EwsInsightValue
     public function setStartUtcTicks($startUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($startUtcTicks) && !is_numeric($startUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startUtcTicks)), __LINE__);
+        if (!is_null($startUtcTicks) && !(is_int($startUtcTicks) || ctype_digit($startUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startUtcTicks, true), gettype($startUtcTicks)), __LINE__);
         }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
@@ -145,30 +145,10 @@ class EwsEducationInsightValue extends EwsInsightValue
     public function setEndUtcTicks($endUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($endUtcTicks) && !is_numeric($endUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endUtcTicks)), __LINE__);
+        if (!is_null($endUtcTicks) && !(is_int($endUtcTicks) || ctype_digit($endUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endUtcTicks, true), gettype($endUtcTicks)), __LINE__);
         }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEducationInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

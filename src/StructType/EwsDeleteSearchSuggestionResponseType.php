@@ -14,7 +14,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
 {
     /**
      * The Success
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -22,7 +22,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     public $Success;
     /**
      * The StatusMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     public $StatusMessage;
     /**
      * The DiagnosticsData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSearchDiagnosticsType
@@ -69,7 +69,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($success) && !is_bool($success)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($success)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($success, true), gettype($success)), __LINE__);
         }
         $this->Success = $success;
         return $this;
@@ -91,7 +91,7 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($statusMessage) && !is_string($statusMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($statusMessage)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusMessage, true), gettype($statusMessage)), __LINE__);
         }
         $this->StatusMessage = $statusMessage;
         return $this;
@@ -113,25 +113,5 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
     {
         $this->DiagnosticsData = $diagnosticsData;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

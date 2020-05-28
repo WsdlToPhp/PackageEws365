@@ -14,7 +14,7 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
 {
     /**
      * The XrmOrganization
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsXrmOrganizationItemType[]
@@ -39,6 +39,28 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
         return $this->XrmOrganization;
     }
     /**
+     * This method is responsible for validating the values passed to the setXrmOrganization method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setXrmOrganization method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateXrmOrganizationForArrayConstraintsFromSetXrmOrganization(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfXrmOrganizationItemTypeXrmOrganizationItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmOrganizationItemTypeXrmOrganizationItem instanceof \Ews\StructType\EwsXrmOrganizationItemType) {
+                $invalidValues[] = is_object($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) ? get_class($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) : sprintf('%s(%s)', gettype($arrayOfXrmOrganizationItemTypeXrmOrganizationItem), var_export($arrayOfXrmOrganizationItemTypeXrmOrganizationItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The XrmOrganization property can only contain items of type \Ews\StructType\EwsXrmOrganizationItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set XrmOrganization value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsXrmOrganizationItemType[] $xrmOrganization
@@ -46,11 +68,9 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
      */
     public function setXrmOrganization(array $xrmOrganization = array())
     {
-        foreach ($xrmOrganization as $arrayOfXrmOrganizationItemTypeXrmOrganizationItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfXrmOrganizationItemTypeXrmOrganizationItem instanceof \Ews\StructType\EwsXrmOrganizationItemType) {
-                throw new \InvalidArgumentException(sprintf('The XrmOrganization property can only contain items of \Ews\StructType\EwsXrmOrganizationItemType, "%s" given', is_object($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) ? get_class($arrayOfXrmOrganizationItemTypeXrmOrganizationItem) : gettype($arrayOfXrmOrganizationItemTypeXrmOrganizationItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($xrmOrganizationArrayErrorMessage = self::validateXrmOrganizationForArrayConstraintsFromSetXrmOrganization($xrmOrganization))) {
+            throw new \InvalidArgumentException($xrmOrganizationArrayErrorMessage, __LINE__);
         }
         $this->XrmOrganization = $xrmOrganization;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsXrmOrganizationItemType) {
-            throw new \InvalidArgumentException(sprintf('The XrmOrganization property can only contain items of \Ews\StructType\EwsXrmOrganizationItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The XrmOrganization property can only contain items of type \Ews\StructType\EwsXrmOrganizationItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->XrmOrganization[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfXrmOrganizationItemType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'XrmOrganization';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

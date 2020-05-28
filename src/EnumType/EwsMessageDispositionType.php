@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MessageDispositionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMessageDispositionType
+class EwsMessageDispositionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'SaveOnly'
@@ -26,16 +28,6 @@ class EwsMessageDispositionType
      */
     const VALUE_SEND_AND_SAVE_COPY = 'SendAndSaveCopy';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SAVE_ONLY
      * @uses self::VALUE_SEND_ONLY
@@ -49,13 +41,5 @@ class EwsMessageDispositionType
             self::VALUE_SEND_ONLY,
             self::VALUE_SEND_AND_SAVE_COPY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

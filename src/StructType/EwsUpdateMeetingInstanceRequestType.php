@@ -14,7 +14,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
 {
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -22,7 +22,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     public $ItemId;
     /**
      * The MeetingInstance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMeetingInstanceType
@@ -30,7 +30,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     public $MeetingInstance;
     /**
      * The ContentActivitiesToAdd
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
@@ -38,7 +38,7 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     public $ContentActivitiesToAdd;
     /**
      * The ParticipantActivitiesToAdd
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
@@ -134,25 +134,5 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     {
         $this->ParticipantActivitiesToAdd = $participantActivitiesToAdd;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

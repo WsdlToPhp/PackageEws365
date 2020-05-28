@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for RuleFieldURIType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Rule field URI enumerates all possible rule fields that could trigger validation error
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsRuleFieldURIType
+class EwsRuleFieldURIType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'RuleId'
@@ -463,16 +465,6 @@ class EwsRuleFieldURIType
      */
     const VALUE_EXCEPTIONS = 'Exceptions';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_RULE_ID
      * @uses self::VALUE_DISPLAY_NAME
@@ -660,13 +652,5 @@ class EwsRuleFieldURIType
             self::VALUE_CONDITIONS,
             self::VALUE_EXCEPTIONS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

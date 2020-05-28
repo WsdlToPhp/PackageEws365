@@ -56,6 +56,7 @@ class EwsClassMap
             'FindMeetingTimesLocationConstraints' => '\\Ews\\StructType\\EwsFindMeetingTimesLocationConstraints',
             'FindMeetingTimesSearchConstraints' => '\\Ews\\StructType\\EwsFindMeetingTimesSearchConstraints',
             'FindMeetingTimesConstraints' => '\\Ews\\StructType\\EwsFindMeetingTimesConstraints',
+            'ReminderType' => '\\Ews\\StructType\\EwsReminderType',
             'ArrayOfRemindersType' => '\\Ews\\ArrayType\\EwsArrayOfRemindersType',
             'ArrayOfRecipientsType' => '\\Ews\\ArrayType\\EwsArrayOfRecipientsType',
             'SingleRecipientType' => '\\Ews\\StructType\\EwsSingleRecipientType',

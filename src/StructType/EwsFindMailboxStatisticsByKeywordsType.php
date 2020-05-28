@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMailboxStatisticsByKeywordsType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the FindMailboxStatisticsByKeywords web method.
  * @package Ews
  * @subpackage Structs
@@ -16,77 +16,77 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
 {
     /**
      * The Mailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfUserMailboxesType
      */
     public $Mailboxes;
     /**
      * The Keywords
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Keywords;
     /**
      * The Language
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Language;
     /**
      * The Senders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
      */
     public $Senders;
     /**
      * The Recipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
      */
     public $Recipients;
     /**
      * The FromDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FromDate;
     /**
      * The ToDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ToDate;
     /**
      * The MessageTypes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfSearchItemKindsType
      */
     public $MessageTypes;
     /**
      * The SearchDumpster
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $SearchDumpster;
     /**
      * The IncludePersonalArchive
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IncludePersonalArchive;
     /**
      * The IncludeUnsearchableItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -184,7 +184,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
         return $this;
@@ -242,7 +242,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($fromDate) && !is_string($fromDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fromDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromDate, true), gettype($fromDate)), __LINE__);
         }
         $this->FromDate = $fromDate;
         return $this;
@@ -264,7 +264,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($toDate) && !is_string($toDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($toDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toDate, true), gettype($toDate)), __LINE__);
         }
         $this->ToDate = $toDate;
         return $this;
@@ -304,7 +304,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($searchDumpster) && !is_bool($searchDumpster)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($searchDumpster)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchDumpster, true), gettype($searchDumpster)), __LINE__);
         }
         $this->SearchDumpster = $searchDumpster;
         return $this;
@@ -326,7 +326,7 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($includePersonalArchive) && !is_bool($includePersonalArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includePersonalArchive)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includePersonalArchive, true), gettype($includePersonalArchive)), __LINE__);
         }
         $this->IncludePersonalArchive = $includePersonalArchive;
         return $this;
@@ -348,29 +348,9 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($includeUnsearchableItems) && !is_bool($includeUnsearchableItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeUnsearchableItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeUnsearchableItems, true), gettype($includeUnsearchableItems)), __LINE__);
         }
         $this->IncludeUnsearchableItems = $includeUnsearchableItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FileItemType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: File search result item.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsFileItemType extends EwsItemType
 {
     /**
      * The FileName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -24,7 +24,7 @@ class EwsFileItemType extends EwsItemType
     public $FileName;
     /**
      * The FileExtension
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -32,7 +32,7 @@ class EwsFileItemType extends EwsItemType
     public $FileExtension;
     /**
      * The FileSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -40,7 +40,7 @@ class EwsFileItemType extends EwsItemType
     public $FileSize;
     /**
      * The FileCreatedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +48,7 @@ class EwsFileItemType extends EwsItemType
     public $FileCreatedTime;
     /**
      * The FileModifiedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -56,7 +56,7 @@ class EwsFileItemType extends EwsItemType
     public $FileModifiedTime;
     /**
      * The StorageProviderContext
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,7 +64,7 @@ class EwsFileItemType extends EwsItemType
     public $StorageProviderContext;
     /**
      * The FileID
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -123,7 +123,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($fileName) && !is_string($fileName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileName, true), gettype($fileName)), __LINE__);
         }
         $this->FileName = $fileName;
         return $this;
@@ -145,7 +145,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($fileExtension) && !is_string($fileExtension)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileExtension)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileExtension, true), gettype($fileExtension)), __LINE__);
         }
         $this->FileExtension = $fileExtension;
         return $this;
@@ -166,8 +166,8 @@ class EwsFileItemType extends EwsItemType
     public function setFileSize($fileSize = null)
     {
         // validation for constraint: int
-        if (!is_null($fileSize) && !is_numeric($fileSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($fileSize)), __LINE__);
+        if (!is_null($fileSize) && !(is_int($fileSize) || ctype_digit($fileSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($fileSize, true), gettype($fileSize)), __LINE__);
         }
         $this->FileSize = $fileSize;
         return $this;
@@ -189,7 +189,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($fileCreatedTime) && !is_string($fileCreatedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileCreatedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileCreatedTime, true), gettype($fileCreatedTime)), __LINE__);
         }
         $this->FileCreatedTime = $fileCreatedTime;
         return $this;
@@ -211,7 +211,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($fileModifiedTime) && !is_string($fileModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileModifiedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileModifiedTime, true), gettype($fileModifiedTime)), __LINE__);
         }
         $this->FileModifiedTime = $fileModifiedTime;
         return $this;
@@ -233,7 +233,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($storageProviderContext) && !is_string($storageProviderContext)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($storageProviderContext)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($storageProviderContext, true), gettype($storageProviderContext)), __LINE__);
         }
         $this->StorageProviderContext = $storageProviderContext;
         return $this;
@@ -255,7 +255,7 @@ class EwsFileItemType extends EwsItemType
     {
         // validation for constraint: string
         if (!is_null($fileID) && !is_string($fileID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fileID)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileID, true), gettype($fileID)), __LINE__);
         }
         $this->FileID = $fileID;
         return $this;
@@ -277,25 +277,5 @@ class EwsFileItemType extends EwsItemType
     {
         $this->FileContexts = $fileContexts;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFileItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

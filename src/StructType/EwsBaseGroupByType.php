@@ -14,7 +14,7 @@ abstract class EwsBaseGroupByType extends AbstractStructBase
 {
     /**
      * The Order
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -49,29 +49,9 @@ abstract class EwsBaseGroupByType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($order)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $order, implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSortDirectionType', is_array($order) ? implode(', ', $order) : var_export($order, true), implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }
         $this->Order = $order;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBaseGroupByType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

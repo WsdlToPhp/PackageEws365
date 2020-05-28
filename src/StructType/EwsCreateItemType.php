@@ -14,7 +14,7 @@ class EwsCreateItemType extends EwsBaseRequestType
 {
     /**
      * The SavedItemFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
      */
@@ -26,14 +26,14 @@ class EwsCreateItemType extends EwsBaseRequestType
     public $Items;
     /**
      * The MessageDisposition
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $MessageDisposition;
     /**
      * The SendMeetingInvitations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -113,7 +113,7 @@ class EwsCreateItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $messageDisposition, implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMessageDispositionType', is_array($messageDisposition) ? implode(', ', $messageDisposition) : var_export($messageDisposition, true), implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
         }
         $this->MessageDisposition = $messageDisposition;
         return $this;
@@ -138,29 +138,9 @@ class EwsCreateItemType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid($sendMeetingInvitations)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sendMeetingInvitations, implode(', ', \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType', is_array($sendMeetingInvitations) ? implode(', ', $sendMeetingInvitations) : var_export($sendMeetingInvitations, true), implode(', ', \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
         }
         $this->SendMeetingInvitations = $sendMeetingInvitations;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsCreateItemType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

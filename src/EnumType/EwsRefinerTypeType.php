@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for RefinerTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsRefinerTypeType
+class EwsRefinerTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -41,16 +43,6 @@ class EwsRefinerTypeType
      */
     const VALUE_MAILBOX_SOURCE = 'MailboxSource';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_TO
@@ -70,13 +62,5 @@ class EwsRefinerTypeType
             self::VALUE_HAS_ATTACHMENT,
             self::VALUE_MAILBOX_SOURCE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

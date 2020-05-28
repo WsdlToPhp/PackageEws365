@@ -14,7 +14,7 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
 {
     /**
      * The Term
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsHighlightTermType[]
@@ -39,6 +39,28 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
         return $this->Term;
     }
     /**
+     * This method is responsible for validating the values passed to the setTerm method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setTerm method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateTermForArrayConstraintsFromSetTerm(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfHighlightTermsTypeTermItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfHighlightTermsTypeTermItem instanceof \Ews\StructType\EwsHighlightTermType) {
+                $invalidValues[] = is_object($arrayOfHighlightTermsTypeTermItem) ? get_class($arrayOfHighlightTermsTypeTermItem) : sprintf('%s(%s)', gettype($arrayOfHighlightTermsTypeTermItem), var_export($arrayOfHighlightTermsTypeTermItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Term property can only contain items of type \Ews\StructType\EwsHighlightTermType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Term value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsHighlightTermType[] $term
@@ -46,11 +68,9 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      */
     public function setTerm(array $term = array())
     {
-        foreach ($term as $arrayOfHighlightTermsTypeTermItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfHighlightTermsTypeTermItem instanceof \Ews\StructType\EwsHighlightTermType) {
-                throw new \InvalidArgumentException(sprintf('The Term property can only contain items of \Ews\StructType\EwsHighlightTermType, "%s" given', is_object($arrayOfHighlightTermsTypeTermItem) ? get_class($arrayOfHighlightTermsTypeTermItem) : gettype($arrayOfHighlightTermsTypeTermItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($termArrayErrorMessage = self::validateTermForArrayConstraintsFromSetTerm($term))) {
+            throw new \InvalidArgumentException($termArrayErrorMessage, __LINE__);
         }
         $this->Term = $term;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsHighlightTermType) {
-            throw new \InvalidArgumentException(sprintf('The Term property can only contain items of \Ews\StructType\EwsHighlightTermType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Term property can only contain items of type \Ews\StructType\EwsHighlightTermType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Term[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Term';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

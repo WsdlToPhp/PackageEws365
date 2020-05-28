@@ -14,21 +14,21 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
 {
     /**
      * The SearchWindows
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTimeSlot
      */
     public $SearchWindows;
     /**
      * The MeetingDurationInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $MeetingDurationInMinutes;
     /**
      * The ActivityDomain
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -83,8 +83,8 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
     public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($meetingDurationInMinutes) && !is_numeric($meetingDurationInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($meetingDurationInMinutes)), __LINE__);
+        if (!is_null($meetingDurationInMinutes) && !(is_int($meetingDurationInMinutes) || ctype_digit($meetingDurationInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($meetingDurationInMinutes, true), gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
         return $this;
@@ -109,29 +109,9 @@ class EwsFindMeetingTimesSearchConstraints extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $activityDomain, implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsActivityDomainType', is_array($activityDomain) ? implode(', ', $activityDomain) : var_export($activityDomain, true), implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
         }
         $this->ActivityDomain = $activityDomain;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindMeetingTimesSearchConstraints
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

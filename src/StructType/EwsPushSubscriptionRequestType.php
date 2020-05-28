@@ -14,7 +14,8 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
 {
     /**
      * The StatusFrequency
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:int
      * - maxInclusive: 1440
      * - minInclusive: 1
      * @var int
@@ -27,7 +28,7 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
     public $URL;
     /**
      * The CallerData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,17 +65,17 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
      */
     public function setStatusFrequency($statusFrequency = null)
     {
-        // validation for constraint: maxInclusive
-        if ($statusFrequency > 1440) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 1440, "%s" given', $statusFrequency), __LINE__);
-        }
-        // validation for constraint: minInclusive
-        if ($statusFrequency < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $statusFrequency), __LINE__);
-        }
         // validation for constraint: int
-        if (!is_null($statusFrequency) && !is_numeric($statusFrequency)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($statusFrequency)), __LINE__);
+        if (!is_null($statusFrequency) && !(is_int($statusFrequency) || ctype_digit($statusFrequency))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($statusFrequency, true), gettype($statusFrequency)), __LINE__);
+        }
+        // validation for constraint: maxInclusive(1440)
+        if (!is_null($statusFrequency) && $statusFrequency > 1440) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 1440', var_export($statusFrequency, true)), __LINE__);
+        }
+        // validation for constraint: minInclusive(1)
+        if (!is_null($statusFrequency) && $statusFrequency < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($statusFrequency, true)), __LINE__);
         }
         $this->StatusFrequency = $statusFrequency;
         return $this;
@@ -96,7 +97,7 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
     {
         // validation for constraint: string
         if (!is_null($uRL) && !is_string($uRL)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uRL)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uRL, true), gettype($uRL)), __LINE__);
         }
         $this->URL = $uRL;
         return $this;
@@ -118,29 +119,9 @@ class EwsPushSubscriptionRequestType extends EwsBaseSubscriptionRequestType
     {
         // validation for constraint: string
         if (!is_null($callerData) && !is_string($callerData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($callerData)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($callerData, true), gettype($callerData)), __LINE__);
         }
         $this->CallerData = $callerData;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPushSubscriptionRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

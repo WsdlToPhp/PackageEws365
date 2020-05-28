@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ResponseTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsResponseTypeType
+class EwsResponseTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Unknown'
@@ -41,16 +43,6 @@ class EwsResponseTypeType
      */
     const VALUE_NO_RESPONSE_RECEIVED = 'NoResponseReceived';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_UNKNOWN
      * @uses self::VALUE_ORGANIZER
@@ -70,13 +62,5 @@ class EwsResponseTypeType
             self::VALUE_DECLINE,
             self::VALUE_NO_RESPONSE_RECEIVED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

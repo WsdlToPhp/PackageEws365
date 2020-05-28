@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConvertIdType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Converts the passed source ids into the destination format. Change keys are not returned.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsConvertIdType extends EwsBaseRequestType
 {
     /**
      * The SourceIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
@@ -24,7 +24,7 @@ class EwsConvertIdType extends EwsBaseRequestType
     public $SourceIds;
     /**
      * The DestinationFormat
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -80,29 +80,9 @@ class EwsConvertIdType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($destinationFormat)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $destinationFormat, implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIdFormatType', is_array($destinationFormat) ? implode(', ', $destinationFormat) : var_export($destinationFormat, true), implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }
         $this->DestinationFormat = $destinationFormat;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsConvertIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

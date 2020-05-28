@@ -19,7 +19,8 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
     public $SubscriptionIds;
     /**
      * The ConnectionTimeout
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:int
      * - maxInclusive: 30
      * - minInclusive: 1
      * @var int
@@ -71,39 +72,19 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
      */
     public function setConnectionTimeout($connectionTimeout = null)
     {
-        // validation for constraint: maxInclusive
-        if ($connectionTimeout > 30) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be inferior or equal to 30, "%s" given', $connectionTimeout), __LINE__);
-        }
-        // validation for constraint: minInclusive
-        if ($connectionTimeout < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, the value must be superior or equal to 1, "%s" given', $connectionTimeout), __LINE__);
-        }
         // validation for constraint: int
-        if (!is_null($connectionTimeout) && !is_numeric($connectionTimeout)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($connectionTimeout)), __LINE__);
+        if (!is_null($connectionTimeout) && !(is_int($connectionTimeout) || ctype_digit($connectionTimeout))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($connectionTimeout, true), gettype($connectionTimeout)), __LINE__);
+        }
+        // validation for constraint: maxInclusive(30)
+        if (!is_null($connectionTimeout) && $connectionTimeout > 30) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 30', var_export($connectionTimeout, true)), __LINE__);
+        }
+        // validation for constraint: minInclusive(1)
+        if (!is_null($connectionTimeout) && $connectionTimeout < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($connectionTimeout, true)), __LINE__);
         }
         $this->ConnectionTimeout = $connectionTimeout;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetStreamingEventsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

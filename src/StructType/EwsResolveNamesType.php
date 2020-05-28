@@ -14,28 +14,29 @@ class EwsResolveNamesType extends EwsBaseRequestType
 {
     /**
      * The ReturnFullContactData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
     public $ReturnFullContactData;
     /**
      * The ParentFolderIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
      */
     public $ParentFolderIds;
     /**
      * The UnresolvedEntry
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $UnresolvedEntry;
     /**
      * The SearchScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - default: ActiveDirectoryContacts
      * @var string
      */
@@ -84,7 +85,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($returnFullContactData) && !is_bool($returnFullContactData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnFullContactData)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnFullContactData, true), gettype($returnFullContactData)), __LINE__);
         }
         $this->ReturnFullContactData = $returnFullContactData;
         return $this;
@@ -122,13 +123,13 @@ class EwsResolveNamesType extends EwsBaseRequestType
      */
     public function setUnresolvedEntry($unresolvedEntry = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($unresolvedEntry) && strlen($unresolvedEntry) < 1) || (is_array($unresolvedEntry) && count($unresolvedEntry) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($unresolvedEntry) && !is_string($unresolvedEntry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($unresolvedEntry)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unresolvedEntry, true), gettype($unresolvedEntry)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($unresolvedEntry) && mb_strlen($unresolvedEntry) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($unresolvedEntry)), __LINE__);
         }
         $this->UnresolvedEntry = $unresolvedEntry;
         return $this;
@@ -153,7 +154,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid($searchScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $searchScope, implode(', ', \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResolveNamesSearchScopeType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues())), __LINE__);
         }
         $this->SearchScope = $searchScope;
         return $this;
@@ -178,29 +179,9 @@ class EwsResolveNamesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($contactDataShape)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactDataShape, implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDefaultShapeNamesType', is_array($contactDataShape) ? implode(', ', $contactDataShape) : var_export($contactDataShape, true), implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }
         $this->ContactDataShape = $contactDataShape;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsResolveNamesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

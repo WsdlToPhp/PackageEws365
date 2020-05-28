@@ -14,280 +14,280 @@ class EwsConversationType extends AbstractStructBase
 {
     /**
      * The ConversationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $ConversationId;
     /**
      * The ConversationTopic
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ConversationTopic;
     /**
      * The UniqueRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $UniqueRecipients;
     /**
      * The GlobalUniqueRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $GlobalUniqueRecipients;
     /**
      * The UniqueUnreadSenders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $UniqueUnreadSenders;
     /**
      * The GlobalUniqueUnreadSenders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $GlobalUniqueUnreadSenders;
     /**
      * The UniqueSenders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $UniqueSenders;
     /**
      * The GlobalUniqueSenders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $GlobalUniqueSenders;
     /**
      * The LastDeliveryTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastDeliveryTime;
     /**
      * The GlobalLastDeliveryTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $GlobalLastDeliveryTime;
     /**
      * The Categories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Categories;
     /**
      * The GlobalCategories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $GlobalCategories;
     /**
      * The FlagStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FlagStatus;
     /**
      * The GlobalFlagStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $GlobalFlagStatus;
     /**
      * The HasAttachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasAttachments;
     /**
      * The GlobalHasAttachments
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $GlobalHasAttachments;
     /**
      * The MessageCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $MessageCount;
     /**
      * The GlobalMessageCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $GlobalMessageCount;
     /**
      * The UnreadCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $UnreadCount;
     /**
      * The GlobalUnreadCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $GlobalUnreadCount;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $Size;
     /**
      * The GlobalSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $GlobalSize;
     /**
      * The ItemClasses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfItemClassType
      */
     public $ItemClasses;
     /**
      * The GlobalItemClasses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfItemClassType
      */
     public $GlobalItemClasses;
     /**
      * The Importance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Importance;
     /**
      * The GlobalImportance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $GlobalImportance;
     /**
      * The ItemIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
     public $ItemIds;
     /**
      * The GlobalItemIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
     public $GlobalItemIds;
     /**
      * The LastModifiedTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastModifiedTime;
     /**
      * The InstanceKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $InstanceKey;
     /**
      * The Preview
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Preview;
     /**
      * The MailboxScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $MailboxScope;
     /**
      * The IconIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $IconIndex;
     /**
      * The GlobalIconIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $GlobalIconIndex;
     /**
      * The DraftItemIds
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
     public $DraftItemIds;
     /**
      * The HasIrm
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasIrm;
     /**
      * The GlobalHasIrm
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $GlobalHasIrm;
     /**
      * The SortKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $SortKey;
     /**
      * The MentionedMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $MentionedMe;
     /**
      * The GlobalMentionedMe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -454,7 +454,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($conversationTopic)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationTopic, true), gettype($conversationTopic)), __LINE__);
         }
         $this->ConversationTopic = $conversationTopic;
         return $this;
@@ -584,7 +584,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastDeliveryTime) && !is_string($lastDeliveryTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastDeliveryTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastDeliveryTime, true), gettype($lastDeliveryTime)), __LINE__);
         }
         $this->LastDeliveryTime = $lastDeliveryTime;
         return $this;
@@ -606,7 +606,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($globalLastDeliveryTime) && !is_string($globalLastDeliveryTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($globalLastDeliveryTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($globalLastDeliveryTime, true), gettype($globalLastDeliveryTime)), __LINE__);
         }
         $this->GlobalLastDeliveryTime = $globalLastDeliveryTime;
         return $this;
@@ -667,7 +667,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($flagStatus)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flagStatus, implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlagStatusType', is_array($flagStatus) ? implode(', ', $flagStatus) : var_export($flagStatus, true), implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
         $this->FlagStatus = $flagStatus;
         return $this;
@@ -692,7 +692,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($globalFlagStatus)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalFlagStatus, implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlagStatusType', is_array($globalFlagStatus) ? implode(', ', $globalFlagStatus) : var_export($globalFlagStatus, true), implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
         $this->GlobalFlagStatus = $globalFlagStatus;
         return $this;
@@ -714,7 +714,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasAttachments)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
         return $this;
@@ -736,7 +736,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($globalHasAttachments) && !is_bool($globalHasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalHasAttachments)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasAttachments, true), gettype($globalHasAttachments)), __LINE__);
         }
         $this->GlobalHasAttachments = $globalHasAttachments;
         return $this;
@@ -757,8 +757,8 @@ class EwsConversationType extends AbstractStructBase
     public function setMessageCount($messageCount = null)
     {
         // validation for constraint: int
-        if (!is_null($messageCount) && !is_numeric($messageCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($messageCount)), __LINE__);
+        if (!is_null($messageCount) && !(is_int($messageCount) || ctype_digit($messageCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($messageCount, true), gettype($messageCount)), __LINE__);
         }
         $this->MessageCount = $messageCount;
         return $this;
@@ -779,8 +779,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalMessageCount($globalMessageCount = null)
     {
         // validation for constraint: int
-        if (!is_null($globalMessageCount) && !is_numeric($globalMessageCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalMessageCount)), __LINE__);
+        if (!is_null($globalMessageCount) && !(is_int($globalMessageCount) || ctype_digit($globalMessageCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalMessageCount, true), gettype($globalMessageCount)), __LINE__);
         }
         $this->GlobalMessageCount = $globalMessageCount;
         return $this;
@@ -801,8 +801,8 @@ class EwsConversationType extends AbstractStructBase
     public function setUnreadCount($unreadCount = null)
     {
         // validation for constraint: int
-        if (!is_null($unreadCount) && !is_numeric($unreadCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($unreadCount)), __LINE__);
+        if (!is_null($unreadCount) && !(is_int($unreadCount) || ctype_digit($unreadCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
         return $this;
@@ -823,8 +823,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalUnreadCount($globalUnreadCount = null)
     {
         // validation for constraint: int
-        if (!is_null($globalUnreadCount) && !is_numeric($globalUnreadCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalUnreadCount)), __LINE__);
+        if (!is_null($globalUnreadCount) && !(is_int($globalUnreadCount) || ctype_digit($globalUnreadCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalUnreadCount, true), gettype($globalUnreadCount)), __LINE__);
         }
         $this->GlobalUnreadCount = $globalUnreadCount;
         return $this;
@@ -845,8 +845,8 @@ class EwsConversationType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
@@ -867,8 +867,8 @@ class EwsConversationType extends AbstractStructBase
     public function setGlobalSize($globalSize = null)
     {
         // validation for constraint: int
-        if (!is_null($globalSize) && !is_numeric($globalSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($globalSize)), __LINE__);
+        if (!is_null($globalSize) && !(is_int($globalSize) || ctype_digit($globalSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalSize, true), gettype($globalSize)), __LINE__);
         }
         $this->GlobalSize = $globalSize;
         return $this;
@@ -929,7 +929,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $importance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
         return $this;
@@ -954,7 +954,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($globalImportance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalImportance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($globalImportance) ? implode(', ', $globalImportance) : var_export($globalImportance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->GlobalImportance = $globalImportance;
         return $this;
@@ -1012,7 +1012,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastModifiedTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
         return $this;
@@ -1034,7 +1034,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($instanceKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
         return $this;
@@ -1056,7 +1056,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($preview)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
         return $this;
@@ -1081,7 +1081,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailboxScope, implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->MailboxScope = $mailboxScope;
         return $this;
@@ -1106,7 +1106,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $iconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->IconIndex = $iconIndex;
         return $this;
@@ -1131,7 +1131,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($globalIconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $globalIconIndex, implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($globalIconIndex) ? implode(', ', $globalIconIndex) : var_export($globalIconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->GlobalIconIndex = $globalIconIndex;
         return $this;
@@ -1171,7 +1171,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasIrm) && !is_bool($hasIrm)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasIrm)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasIrm, true), gettype($hasIrm)), __LINE__);
         }
         $this->HasIrm = $hasIrm;
         return $this;
@@ -1193,7 +1193,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($globalHasIrm) && !is_bool($globalHasIrm)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalHasIrm)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasIrm, true), gettype($globalHasIrm)), __LINE__);
         }
         $this->GlobalHasIrm = $globalHasIrm;
         return $this;
@@ -1214,8 +1214,8 @@ class EwsConversationType extends AbstractStructBase
     public function setSortKey($sortKey = null)
     {
         // validation for constraint: int
-        if (!is_null($sortKey) && !is_numeric($sortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($sortKey)), __LINE__);
+        if (!is_null($sortKey) && !(is_int($sortKey) || ctype_digit($sortKey))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
         return $this;
@@ -1237,7 +1237,7 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($mentionedMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
         }
         $this->MentionedMe = $mentionedMe;
         return $this;
@@ -1259,29 +1259,9 @@ class EwsConversationType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($globalMentionedMe) && !is_bool($globalMentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($globalMentionedMe)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalMentionedMe, true), gettype($globalMentionedMe)), __LINE__);
         }
         $this->GlobalMentionedMe = $globalMentionedMe;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsConversationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

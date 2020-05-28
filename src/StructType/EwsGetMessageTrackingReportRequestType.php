@@ -14,7 +14,8 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
 {
     /**
      * The Scope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
@@ -26,35 +27,36 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     public $ReportTemplate;
     /**
      * The RecipientFilter
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEmailAddressType
      */
     public $RecipientFilter;
     /**
      * The MessageTrackingReportId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $MessageTrackingReportId;
     /**
      * The ReturnQueueEvents
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $ReturnQueueEvents;
     /**
      * The DiagnosticsLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DiagnosticsLevel;
     /**
      * The Properties
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
      */
@@ -102,13 +104,13 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setScope($scope = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($scope) && strlen($scope) < 1) || (is_array($scope) && count($scope) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($scope) && !is_string($scope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($scope)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($scope) && mb_strlen($scope) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($scope)), __LINE__);
         }
         $this->Scope = $scope;
         return $this;
@@ -133,7 +135,7 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMessageTrackingReportTemplateType::valueIsValid($reportTemplate)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $reportTemplate, implode(', ', \Ews\EnumType\EwsMessageTrackingReportTemplateType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMessageTrackingReportTemplateType', is_array($reportTemplate) ? implode(', ', $reportTemplate) : var_export($reportTemplate, true), implode(', ', \Ews\EnumType\EwsMessageTrackingReportTemplateType::getValidValues())), __LINE__);
         }
         $this->ReportTemplate = $reportTemplate;
         return $this;
@@ -171,13 +173,13 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
      */
     public function setMessageTrackingReportId($messageTrackingReportId = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($messageTrackingReportId) && strlen($messageTrackingReportId) < 1) || (is_array($messageTrackingReportId) && count($messageTrackingReportId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($messageTrackingReportId) && !is_string($messageTrackingReportId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($messageTrackingReportId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messageTrackingReportId, true), gettype($messageTrackingReportId)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($messageTrackingReportId) && mb_strlen($messageTrackingReportId) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($messageTrackingReportId)), __LINE__);
         }
         $this->MessageTrackingReportId = $messageTrackingReportId;
         return $this;
@@ -199,7 +201,7 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($returnQueueEvents) && !is_bool($returnQueueEvents)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($returnQueueEvents)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnQueueEvents, true), gettype($returnQueueEvents)), __LINE__);
         }
         $this->ReturnQueueEvents = $returnQueueEvents;
         return $this;
@@ -221,7 +223,7 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($diagnosticsLevel) && !is_string($diagnosticsLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($diagnosticsLevel)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($diagnosticsLevel, true), gettype($diagnosticsLevel)), __LINE__);
         }
         $this->DiagnosticsLevel = $diagnosticsLevel;
         return $this;
@@ -243,25 +245,5 @@ class EwsGetMessageTrackingReportRequestType extends EwsBaseRequestType
     {
         $this->Properties = $properties;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetMessageTrackingReportRequestType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

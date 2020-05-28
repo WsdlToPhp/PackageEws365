@@ -14,7 +14,7 @@ class EwsMailboxData extends AbstractStructBase
 {
     /**
      * The Email
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsEmailAddress
@@ -22,7 +22,7 @@ class EwsMailboxData extends AbstractStructBase
     public $Email;
     /**
      * The AttendeeType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -30,7 +30,7 @@ class EwsMailboxData extends AbstractStructBase
     public $AttendeeType;
     /**
      * The ExcludeConflicts
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -90,7 +90,7 @@ class EwsMailboxData extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsMeetingAttendeeType::valueIsValid($attendeeType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $attendeeType, implode(', ', \Ews\EnumType\EwsMeetingAttendeeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMeetingAttendeeType', is_array($attendeeType) ? implode(', ', $attendeeType) : var_export($attendeeType, true), implode(', ', \Ews\EnumType\EwsMeetingAttendeeType::getValidValues())), __LINE__);
         }
         $this->AttendeeType = $attendeeType;
         return $this;
@@ -112,29 +112,9 @@ class EwsMailboxData extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($excludeConflicts) && !is_bool($excludeConflicts)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($excludeConflicts)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($excludeConflicts, true), gettype($excludeConflicts)), __LINE__);
         }
         $this->ExcludeConflicts = $excludeConflicts;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMailboxData
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

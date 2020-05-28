@@ -14,7 +14,7 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
 {
     /**
      * The OldestTimeStamp
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -63,7 +63,7 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($oldestTimeStamp) && !is_string($oldestTimeStamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($oldestTimeStamp)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($oldestTimeStamp, true), gettype($oldestTimeStamp)), __LINE__);
         }
         $this->OldestTimeStamp = $oldestTimeStamp;
         return $this;
@@ -84,8 +84,8 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
     public function setMaxItems($maxItems = null)
     {
         // validation for constraint: int
-        if (!is_null($maxItems) && !is_numeric($maxItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxItems)), __LINE__);
+        if (!is_null($maxItems) && !(is_int($maxItems) || ctype_digit($maxItems))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItems, true), gettype($maxItems)), __LINE__);
         }
         $this->MaxItems = $maxItems;
         return $this;
@@ -110,29 +110,9 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $socialActivityActionType, implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
         $this->SocialActivityActionType = $socialActivityActionType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetSocialActivityNotificationsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

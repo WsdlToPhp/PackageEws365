@@ -14,7 +14,7 @@ class EwsMembersListType extends AbstractStructBase
 {
     /**
      * The Member
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsMemberType[]
@@ -39,6 +39,28 @@ class EwsMembersListType extends AbstractStructBase
         return $this->Member;
     }
     /**
+     * This method is responsible for validating the values passed to the setMember method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMember method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMemberForArrayConstraintsFromSetMember(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $membersListTypeMemberItem) {
+            // validation for constraint: itemType
+            if (!$membersListTypeMemberItem instanceof \Ews\StructType\EwsMemberType) {
+                $invalidValues[] = is_object($membersListTypeMemberItem) ? get_class($membersListTypeMemberItem) : sprintf('%s(%s)', gettype($membersListTypeMemberItem), var_export($membersListTypeMemberItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Member property can only contain items of type \Ews\StructType\EwsMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Member value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsMemberType[] $member
@@ -46,11 +68,9 @@ class EwsMembersListType extends AbstractStructBase
      */
     public function setMember(array $member = array())
     {
-        foreach ($member as $membersListTypeMemberItem) {
-            // validation for constraint: itemType
-            if (!$membersListTypeMemberItem instanceof \Ews\StructType\EwsMemberType) {
-                throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsMemberType, "%s" given', is_object($membersListTypeMemberItem) ? get_class($membersListTypeMemberItem) : gettype($membersListTypeMemberItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($memberArrayErrorMessage = self::validateMemberForArrayConstraintsFromSetMember($member))) {
+            throw new \InvalidArgumentException($memberArrayErrorMessage, __LINE__);
         }
         $this->Member = $member;
         return $this;
@@ -65,29 +85,9 @@ class EwsMembersListType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsMemberType) {
-            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of \Ews\StructType\EwsMemberType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of type \Ews\StructType\EwsMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Member[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMembersListType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

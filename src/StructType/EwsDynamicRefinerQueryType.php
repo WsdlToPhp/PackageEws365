@@ -14,7 +14,7 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
 {
     /**
      * The RefinerQuery
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
     public $RefinerQuery;
     /**
      * The TDRefinerId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -58,7 +58,7 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($refinerQuery) && !is_string($refinerQuery)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($refinerQuery)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($refinerQuery, true), gettype($refinerQuery)), __LINE__);
         }
         $this->RefinerQuery = $refinerQuery;
         return $this;
@@ -79,30 +79,10 @@ class EwsDynamicRefinerQueryType extends AbstractStructBase
     public function setTDRefinerId($tDRefinerId = null)
     {
         // validation for constraint: int
-        if (!is_null($tDRefinerId) && !is_numeric($tDRefinerId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($tDRefinerId)), __LINE__);
+        if (!is_null($tDRefinerId) && !(is_int($tDRefinerId) || ctype_digit($tDRefinerId))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($tDRefinerId, true), gettype($tDRefinerId)), __LINE__);
         }
         $this->TDRefinerId = $tDRefinerId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsDynamicRefinerQueryType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

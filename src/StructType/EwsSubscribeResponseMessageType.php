@@ -14,17 +14,19 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The SubscriptionId
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: t:NonEmptyStringType
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $SubscriptionId;
     /**
      * The Watermark
-     * Meta informations extracted from the WSDL
-     * - minOccurs: 0
+     * Meta information extracted from the WSDL
+     * - base: t:NonEmptyStringType
      * - minLength: 1
+     * - minOccurs: 0
      * @var string
      */
     public $Watermark;
@@ -56,13 +58,13 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
      */
     public function setSubscriptionId($subscriptionId = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($subscriptionId) && strlen($subscriptionId) < 1) || (is_array($subscriptionId) && count($subscriptionId) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subscriptionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subscriptionId, true), gettype($subscriptionId)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($subscriptionId) && mb_strlen($subscriptionId) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($subscriptionId)), __LINE__);
         }
         $this->SubscriptionId = $subscriptionId;
         return $this;
@@ -82,35 +84,15 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
      */
     public function setWatermark($watermark = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($watermark) && strlen($watermark) < 1) || (is_array($watermark) && count($watermark) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($watermark) && !is_string($watermark)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($watermark)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($watermark, true), gettype($watermark)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($watermark) && mb_strlen($watermark) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($watermark)), __LINE__);
         }
         $this->Watermark = $watermark;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSubscribeResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

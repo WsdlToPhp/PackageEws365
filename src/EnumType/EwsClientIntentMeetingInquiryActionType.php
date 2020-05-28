@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ClientIntentMeetingInquiryActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsClientIntentMeetingInquiryActionType
+class EwsClientIntentMeetingInquiryActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'SendCancellation'
@@ -56,16 +58,6 @@ class EwsClientIntentMeetingInquiryActionType
      */
     const VALUE_FAILED_TO_REVIVE = 'FailedToRevive';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SEND_CANCELLATION
      * @uses self::VALUE_REVIVE_MEETING
@@ -91,13 +83,5 @@ class EwsClientIntentMeetingInquiryActionType
             self::VALUE_PAIRED_CANCELLATION_FOUND,
             self::VALUE_FAILED_TO_REVIVE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

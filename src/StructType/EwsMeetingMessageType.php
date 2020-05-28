@@ -14,63 +14,63 @@ class EwsMeetingMessageType extends EwsMessageType
 {
     /**
      * The AssociatedCalendarItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
      */
     public $AssociatedCalendarItemId;
     /**
      * The IsDelegated
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsDelegated;
     /**
      * The IsOutOfDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IsOutOfDate;
     /**
      * The HasBeenProcessed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasBeenProcessed;
     /**
      * The ResponseType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ResponseType;
     /**
      * The UID
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $UID;
     /**
      * The RecurrenceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $RecurrenceId;
     /**
      * The DateTimeStamp
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DateTimeStamp;
     /**
      * The IsOrganizer
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
@@ -144,7 +144,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: boolean
         if (!is_null($isDelegated) && !is_bool($isDelegated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDelegated)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDelegated, true), gettype($isDelegated)), __LINE__);
         }
         $this->IsDelegated = $isDelegated;
         return $this;
@@ -166,7 +166,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: boolean
         if (!is_null($isOutOfDate) && !is_bool($isOutOfDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOutOfDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOutOfDate, true), gettype($isOutOfDate)), __LINE__);
         }
         $this->IsOutOfDate = $isOutOfDate;
         return $this;
@@ -188,7 +188,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: boolean
         if (!is_null($hasBeenProcessed) && !is_bool($hasBeenProcessed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasBeenProcessed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasBeenProcessed, true), gettype($hasBeenProcessed)), __LINE__);
         }
         $this->HasBeenProcessed = $hasBeenProcessed;
         return $this;
@@ -213,7 +213,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($responseType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $responseType, implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResponseTypeType', is_array($responseType) ? implode(', ', $responseType) : var_export($responseType, true), implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
         $this->ResponseType = $responseType;
         return $this;
@@ -235,7 +235,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: string
         if (!is_null($uID) && !is_string($uID)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($uID)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uID, true), gettype($uID)), __LINE__);
         }
         $this->UID = $uID;
         return $this;
@@ -257,7 +257,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: string
         if (!is_null($recurrenceId) && !is_string($recurrenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($recurrenceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($recurrenceId, true), gettype($recurrenceId)), __LINE__);
         }
         $this->RecurrenceId = $recurrenceId;
         return $this;
@@ -279,7 +279,7 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: string
         if (!is_null($dateTimeStamp) && !is_string($dateTimeStamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dateTimeStamp)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeStamp, true), gettype($dateTimeStamp)), __LINE__);
         }
         $this->DateTimeStamp = $dateTimeStamp;
         return $this;
@@ -301,29 +301,9 @@ class EwsMeetingMessageType extends EwsMessageType
     {
         // validation for constraint: boolean
         if (!is_null($isOrganizer) && !is_bool($isOrganizer)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOrganizer)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOrganizer, true), gettype($isOrganizer)), __LINE__);
         }
         $this->IsOrganizer = $isOrganizer;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

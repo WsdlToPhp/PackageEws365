@@ -14,7 +14,7 @@ class EwsMasterMailboxType extends AbstractStructBase
 {
     /**
      * The MailboxType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $MailboxType;
     /**
      * The Alias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $Alias;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $DisplayName;
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $SmtpAddress;
     /**
      * The GroupType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $GroupType;
     /**
      * The Description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $Description;
     /**
      * The Photo
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $Photo;
     /**
      * The SharePointUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -78,7 +78,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $SharePointUrl;
     /**
      * The InboxUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -86,7 +86,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $InboxUrl;
     /**
      * The CalendarUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -94,7 +94,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     public $CalendarUrl;
     /**
      * The DomainController
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -157,7 +157,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mailboxType) && !is_string($mailboxType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailboxType)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxType, true), gettype($mailboxType)), __LINE__);
         }
         $this->MailboxType = $mailboxType;
         return $this;
@@ -179,7 +179,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
         return $this;
@@ -201,7 +201,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -223,7 +223,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
@@ -248,7 +248,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsModernGroupTypeType::valueIsValid($groupType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $groupType, implode(', ', \Ews\EnumType\EwsModernGroupTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsModernGroupTypeType', is_array($groupType) ? implode(', ', $groupType) : var_export($groupType, true), implode(', ', \Ews\EnumType\EwsModernGroupTypeType::getValidValues())), __LINE__);
         }
         $this->GroupType = $groupType;
         return $this;
@@ -270,7 +270,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
         return $this;
@@ -292,7 +292,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($photo) && !is_string($photo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($photo)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($photo, true), gettype($photo)), __LINE__);
         }
         $this->Photo = $photo;
         return $this;
@@ -314,7 +314,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($sharePointUrl) && !is_string($sharePointUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sharePointUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sharePointUrl, true), gettype($sharePointUrl)), __LINE__);
         }
         $this->SharePointUrl = $sharePointUrl;
         return $this;
@@ -336,7 +336,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($inboxUrl) && !is_string($inboxUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inboxUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inboxUrl, true), gettype($inboxUrl)), __LINE__);
         }
         $this->InboxUrl = $inboxUrl;
         return $this;
@@ -358,7 +358,7 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($calendarUrl) && !is_string($calendarUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($calendarUrl, true), gettype($calendarUrl)), __LINE__);
         }
         $this->CalendarUrl = $calendarUrl;
         return $this;
@@ -380,29 +380,9 @@ class EwsMasterMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($domainController) && !is_string($domainController)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($domainController)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainController, true), gettype($domainController)), __LINE__);
         }
         $this->DomainController = $domainController;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMasterMailboxType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

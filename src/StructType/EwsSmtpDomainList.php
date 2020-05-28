@@ -14,7 +14,7 @@ class EwsSmtpDomainList extends AbstractStructBase
 {
     /**
      * The Domain
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSmtpDomain[]
@@ -39,6 +39,28 @@ class EwsSmtpDomainList extends AbstractStructBase
         return $this->Domain;
     }
     /**
+     * This method is responsible for validating the values passed to the setDomain method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setDomain method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateDomainForArrayConstraintsFromSetDomain(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $smtpDomainListDomainItem) {
+            // validation for constraint: itemType
+            if (!$smtpDomainListDomainItem instanceof \Ews\StructType\EwsSmtpDomain) {
+                $invalidValues[] = is_object($smtpDomainListDomainItem) ? get_class($smtpDomainListDomainItem) : sprintf('%s(%s)', gettype($smtpDomainListDomainItem), var_export($smtpDomainListDomainItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Domain property can only contain items of type \Ews\StructType\EwsSmtpDomain, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Domain value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSmtpDomain[] $domain
@@ -46,11 +68,9 @@ class EwsSmtpDomainList extends AbstractStructBase
      */
     public function setDomain(array $domain = array())
     {
-        foreach ($domain as $smtpDomainListDomainItem) {
-            // validation for constraint: itemType
-            if (!$smtpDomainListDomainItem instanceof \Ews\StructType\EwsSmtpDomain) {
-                throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of \Ews\StructType\EwsSmtpDomain, "%s" given', is_object($smtpDomainListDomainItem) ? get_class($smtpDomainListDomainItem) : gettype($smtpDomainListDomainItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($domainArrayErrorMessage = self::validateDomainForArrayConstraintsFromSetDomain($domain))) {
+            throw new \InvalidArgumentException($domainArrayErrorMessage, __LINE__);
         }
         $this->Domain = $domain;
         return $this;
@@ -65,29 +85,9 @@ class EwsSmtpDomainList extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSmtpDomain) {
-            throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of \Ews\StructType\EwsSmtpDomain, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of type \Ews\StructType\EwsSmtpDomain, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Domain[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSmtpDomainList
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

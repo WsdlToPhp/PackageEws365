@@ -14,14 +14,16 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
 {
     /**
      * The SmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
     public $SmtpAddress;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
      * @var string
      */
@@ -54,13 +56,13 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
      */
     public function setSmtpAddress($smtpAddress = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($smtpAddress) && strlen($smtpAddress) < 1) || (is_array($smtpAddress) && count($smtpAddress) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($smtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($smtpAddress) && mb_strlen($smtpAddress) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
         return $this;
@@ -80,35 +82,15 @@ class EwsAddDistributionGroupToImListType extends EwsBaseRequestType
      */
     public function setDisplayName($displayName = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($displayName) && strlen($displayName) < 1) || (is_array($displayName) && count($displayName) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($displayName) && mb_strlen($displayName) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAddDistributionGroupToImListType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

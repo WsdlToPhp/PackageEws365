@@ -14,14 +14,15 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
 {
     /**
      * The OccurrenceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - use: required
      * @var string
      */
     public $OccurrenceId;
     /**
      * The ChangeKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -56,7 +57,7 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
     {
         // validation for constraint: string
         if (!is_null($occurrenceId) && !is_string($occurrenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($occurrenceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($occurrenceId, true), gettype($occurrenceId)), __LINE__);
         }
         $this->OccurrenceId = $occurrenceId;
         return $this;
@@ -78,29 +79,9 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
     {
         // validation for constraint: string
         if (!is_null($changeKey) && !is_string($changeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
         }
         $this->ChangeKey = $changeKey;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRecurringMasterItemIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

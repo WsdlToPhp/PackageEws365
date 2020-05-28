@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SortDirectionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSortDirectionType
+class EwsSortDirectionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Ascending'
@@ -21,16 +23,6 @@ class EwsSortDirectionType
      */
     const VALUE_DESCENDING = 'Descending';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ASCENDING
      * @uses self::VALUE_DESCENDING
@@ -42,13 +34,5 @@ class EwsSortDirectionType
             self::VALUE_ASCENDING,
             self::VALUE_DESCENDING,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

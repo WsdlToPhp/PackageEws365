@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchMailboxesType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the SearchMailboxes web method.
  * @package Ews
  * @subpackage Structs
@@ -16,63 +16,63 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
 {
     /**
      * The SearchQueries
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
     public $SearchQueries;
     /**
      * The ResultType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
     public $ResultType;
     /**
      * The PreviewItemResponseShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPreviewItemResponseShapeType
      */
     public $PreviewItemResponseShape;
     /**
      * The SortBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFieldOrderType
      */
     public $SortBy;
     /**
      * The Language
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Language;
     /**
      * The Deduplication
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $Deduplication;
     /**
      * The PageSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $PageSize;
     /**
      * The PageItemReference
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $PageItemReference;
     /**
      * The PageDirection
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -149,7 +149,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchResultType::valueIsValid($resultType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchResultType', is_array($resultType) ? implode(', ', $resultType) : var_export($resultType, true), implode(', ', \Ews\EnumType\EwsSearchResultType::getValidValues())), __LINE__);
         }
         $this->ResultType = $resultType;
         return $this;
@@ -207,7 +207,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
         return $this;
@@ -229,7 +229,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($deduplication) && !is_bool($deduplication)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deduplication)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deduplication, true), gettype($deduplication)), __LINE__);
         }
         $this->Deduplication = $deduplication;
         return $this;
@@ -250,8 +250,8 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     public function setPageSize($pageSize = null)
     {
         // validation for constraint: int
-        if (!is_null($pageSize) && !is_numeric($pageSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($pageSize)), __LINE__);
+        if (!is_null($pageSize) && !(is_int($pageSize) || ctype_digit($pageSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
         return $this;
@@ -273,7 +273,7 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($pageItemReference) && !is_string($pageItemReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($pageItemReference)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pageItemReference, true), gettype($pageItemReference)), __LINE__);
         }
         $this->PageItemReference = $pageItemReference;
         return $this;
@@ -298,29 +298,9 @@ class EwsSearchMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $pageDirection, implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchPageDirectionType', is_array($pageDirection) ? implode(', ', $pageDirection) : var_export($pageDirection, true), implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
         }
         $this->PageDirection = $pageDirection;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchMailboxesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

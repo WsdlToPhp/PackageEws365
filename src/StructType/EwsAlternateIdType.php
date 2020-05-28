@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AlternateIdType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Represents an alternate mailbox folder or item Id.
  * @package Ews
  * @subpackage Structs
@@ -16,22 +16,23 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $Id;
     /**
      * The Mailbox
-     * Meta informations extracted from the WSDL
-     * - use: required
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - minLength: 1
+     * - use: required
      * @var string
      */
     public $Mailbox;
     /**
      * The IsArchive
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var bool
      */
@@ -69,7 +70,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -89,13 +90,13 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      */
     public function setMailbox($mailbox = null)
     {
-        // validation for constraint: minLength
-        if ((is_scalar($mailbox) && strlen($mailbox) < 1) || (is_array($mailbox) && count($mailbox) < 1)) {
-            throw new \InvalidArgumentException('Invalid length, please provide an array with 1 element(s) or a scalar of 1 character(s) at least', __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mailbox)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
+        }
+        // validation for constraint: minLength(1)
+        if (!is_null($mailbox) && mb_strlen($mailbox) < 1) {
+            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
         return $this;
@@ -117,29 +118,9 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
     {
         // validation for constraint: boolean
         if (!is_null($isArchive) && !is_bool($isArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isArchive)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
         }
         $this->IsArchive = $isArchive;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAlternateIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UnifiedGroupMembershipActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUnifiedGroupMembershipActionType
+class EwsUnifiedGroupMembershipActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Add'
@@ -31,16 +33,6 @@ class EwsUnifiedGroupMembershipActionType
      */
     const VALUE_DEMOTE = 'Demote';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ADD
      * @uses self::VALUE_REMOVE
@@ -56,13 +48,5 @@ class EwsUnifiedGroupMembershipActionType
             self::VALUE_PROMOTE,
             self::VALUE_DEMOTE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsBusinessInfoType extends AbstractStructBase
 {
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $Name;
     /**
      * The Address
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $Address;
     /**
      * The Phone
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $Phone;
     /**
      * The Email
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $Email;
     /**
      * The EmailDisplayAs
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $EmailDisplayAs;
     /**
      * The Website
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     public $Website;
     /**
      * The BusinessHours
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfWorkHours
@@ -113,7 +113,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -135,7 +135,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($address) && !is_string($address)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($address)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($address, true), gettype($address)), __LINE__);
         }
         $this->Address = $address;
         return $this;
@@ -157,7 +157,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($phone) && !is_string($phone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($phone)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phone, true), gettype($phone)), __LINE__);
         }
         $this->Phone = $phone;
         return $this;
@@ -179,7 +179,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($email) && !is_string($email)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($email)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
         }
         $this->Email = $email;
         return $this;
@@ -201,7 +201,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($emailDisplayAs) && !is_string($emailDisplayAs)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailDisplayAs)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailDisplayAs, true), gettype($emailDisplayAs)), __LINE__);
         }
         $this->EmailDisplayAs = $emailDisplayAs;
         return $this;
@@ -223,7 +223,7 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($website) && !is_string($website)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($website)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($website, true), gettype($website)), __LINE__);
         }
         $this->Website = $website;
         return $this;
@@ -245,25 +245,5 @@ class EwsBusinessInfoType extends AbstractStructBase
     {
         $this->BusinessHours = $businessHours;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBusinessInfoType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,28 +14,28 @@ class EwsFindConversationResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The Conversations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfConversationsType
      */
     public $Conversations;
     /**
      * The HighlightTerms
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfHighlightTermsType
      */
     public $HighlightTerms;
     /**
      * The TotalConversationsInView
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $TotalConversationsInView;
     /**
      * The IndexedOffset
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
@@ -111,8 +111,8 @@ class EwsFindConversationResponseMessageType extends EwsResponseMessageType
     public function setTotalConversationsInView($totalConversationsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalConversationsInView) && !is_numeric($totalConversationsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalConversationsInView)), __LINE__);
+        if (!is_null($totalConversationsInView) && !(is_int($totalConversationsInView) || ctype_digit($totalConversationsInView))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalConversationsInView, true), gettype($totalConversationsInView)), __LINE__);
         }
         $this->TotalConversationsInView = $totalConversationsInView;
         return $this;
@@ -133,30 +133,10 @@ class EwsFindConversationResponseMessageType extends EwsResponseMessageType
     public function setIndexedOffset($indexedOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedOffset) && !is_numeric($indexedOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedOffset)), __LINE__);
+        if (!is_null($indexedOffset) && !(is_int($indexedOffset) || ctype_digit($indexedOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedOffset, true), gettype($indexedOffset)), __LINE__);
         }
         $this->IndexedOffset = $indexedOffset;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFindConversationResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

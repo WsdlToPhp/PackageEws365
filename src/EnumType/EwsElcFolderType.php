@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ElcFolderType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsElcFolderType
+class EwsElcFolderType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Calendar'
@@ -106,16 +108,6 @@ class EwsElcFolderType
      */
     const VALUE_NON_IPM_ROOT = 'NonIpmRoot';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CALENDAR
      * @uses self::VALUE_CONTACTS
@@ -161,13 +153,5 @@ class EwsElcFolderType
             self::VALUE_RECOVERABLE_ITEMS,
             self::VALUE_NON_IPM_ROOT,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

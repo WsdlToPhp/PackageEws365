@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SharingDataType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSharingDataType
+class EwsSharingDataType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Calendar'
@@ -21,16 +23,6 @@ class EwsSharingDataType
      */
     const VALUE_CONTACTS = 'Contacts';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_CALENDAR
      * @uses self::VALUE_CONTACTS
@@ -42,13 +34,5 @@ class EwsSharingDataType
             self::VALUE_CALENDAR,
             self::VALUE_CONTACTS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
 {
     /**
      * The Contact
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsContactType[]
@@ -39,6 +39,28 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
         return $this->Contact;
     }
     /**
+     * This method is responsible for validating the values passed to the setContact method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setContact method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateContactForArrayConstraintsFromSetContact(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfContactsTypeContactItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfContactsTypeContactItem instanceof \Ews\StructType\EwsContactType) {
+                $invalidValues[] = is_object($arrayOfContactsTypeContactItem) ? get_class($arrayOfContactsTypeContactItem) : sprintf('%s(%s)', gettype($arrayOfContactsTypeContactItem), var_export($arrayOfContactsTypeContactItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Contact property can only contain items of type \Ews\StructType\EwsContactType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Contact value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsContactType[] $contact
@@ -46,11 +68,9 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      */
     public function setContact(array $contact = array())
     {
-        foreach ($contact as $arrayOfContactsTypeContactItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfContactsTypeContactItem instanceof \Ews\StructType\EwsContactType) {
-                throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of \Ews\StructType\EwsContactType, "%s" given', is_object($arrayOfContactsTypeContactItem) ? get_class($arrayOfContactsTypeContactItem) : gettype($arrayOfContactsTypeContactItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($contactArrayErrorMessage = self::validateContactForArrayConstraintsFromSetContact($contact))) {
+            throw new \InvalidArgumentException($contactArrayErrorMessage, __LINE__);
         }
         $this->Contact = $contact;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsContactType) {
-            throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of \Ews\StructType\EwsContactType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of type \Ews\StructType\EwsContactType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Contact[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Contact';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfContactsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
 {
     /**
      * The Rule
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProtectionRuleType[]
@@ -39,6 +39,28 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
         return $this->Rule;
     }
     /**
+     * This method is responsible for validating the values passed to the setRule method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRule method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRuleForArrayConstraintsFromSetRule(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfProtectionRulesTypeRuleItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfProtectionRulesTypeRuleItem instanceof \Ews\StructType\EwsProtectionRuleType) {
+                $invalidValues[] = is_object($arrayOfProtectionRulesTypeRuleItem) ? get_class($arrayOfProtectionRulesTypeRuleItem) : sprintf('%s(%s)', gettype($arrayOfProtectionRulesTypeRuleItem), var_export($arrayOfProtectionRulesTypeRuleItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Rule property can only contain items of type \Ews\StructType\EwsProtectionRuleType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Rule value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsProtectionRuleType[] $rule
@@ -46,11 +68,9 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
      */
     public function setRule(array $rule = array())
     {
-        foreach ($rule as $arrayOfProtectionRulesTypeRuleItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfProtectionRulesTypeRuleItem instanceof \Ews\StructType\EwsProtectionRuleType) {
-                throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsProtectionRuleType, "%s" given', is_object($arrayOfProtectionRulesTypeRuleItem) ? get_class($arrayOfProtectionRulesTypeRuleItem) : gettype($arrayOfProtectionRulesTypeRuleItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($ruleArrayErrorMessage = self::validateRuleForArrayConstraintsFromSetRule($rule))) {
+            throw new \InvalidArgumentException($ruleArrayErrorMessage, __LINE__);
         }
         $this->Rule = $rule;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsProtectionRuleType) {
-            throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of \Ews\StructType\EwsProtectionRuleType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of type \Ews\StructType\EwsProtectionRuleType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Rule[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Rule';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfProtectionRulesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

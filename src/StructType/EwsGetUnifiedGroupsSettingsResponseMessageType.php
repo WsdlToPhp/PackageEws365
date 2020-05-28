@@ -14,7 +14,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
 {
     /**
      * The GroupsEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -22,7 +22,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $GroupsEnabled;
     /**
      * The GroupCreationEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -30,7 +30,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $GroupCreationEnabled;
     /**
      * The IsUnifiedGroupsAddressListPresent
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -38,7 +38,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $IsUnifiedGroupsAddressListPresent;
     /**
      * The EditGroupOwaTemplateUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $EditGroupOwaTemplateUrl;
     /**
      * The BrowseGroupsUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $BrowseGroupsUrl;
     /**
      * The GroupsTargetDomain
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     public $GroupsTargetDomain;
     /**
      * The GroupsGuidelinesLink
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -113,7 +113,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: boolean
         if (!is_null($groupsEnabled) && !is_bool($groupsEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($groupsEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($groupsEnabled, true), gettype($groupsEnabled)), __LINE__);
         }
         $this->GroupsEnabled = $groupsEnabled;
         return $this;
@@ -135,7 +135,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: boolean
         if (!is_null($groupCreationEnabled) && !is_bool($groupCreationEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($groupCreationEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($groupCreationEnabled, true), gettype($groupCreationEnabled)), __LINE__);
         }
         $this->GroupCreationEnabled = $groupCreationEnabled;
         return $this;
@@ -157,7 +157,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: boolean
         if (!is_null($isUnifiedGroupsAddressListPresent) && !is_bool($isUnifiedGroupsAddressListPresent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isUnifiedGroupsAddressListPresent)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnifiedGroupsAddressListPresent, true), gettype($isUnifiedGroupsAddressListPresent)), __LINE__);
         }
         $this->IsUnifiedGroupsAddressListPresent = $isUnifiedGroupsAddressListPresent;
         return $this;
@@ -179,7 +179,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: string
         if (!is_null($editGroupOwaTemplateUrl) && !is_string($editGroupOwaTemplateUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($editGroupOwaTemplateUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($editGroupOwaTemplateUrl, true), gettype($editGroupOwaTemplateUrl)), __LINE__);
         }
         $this->EditGroupOwaTemplateUrl = $editGroupOwaTemplateUrl;
         return $this;
@@ -201,7 +201,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: string
         if (!is_null($browseGroupsUrl) && !is_string($browseGroupsUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($browseGroupsUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($browseGroupsUrl, true), gettype($browseGroupsUrl)), __LINE__);
         }
         $this->BrowseGroupsUrl = $browseGroupsUrl;
         return $this;
@@ -223,7 +223,7 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: string
         if (!is_null($groupsTargetDomain) && !is_string($groupsTargetDomain)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupsTargetDomain)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupsTargetDomain, true), gettype($groupsTargetDomain)), __LINE__);
         }
         $this->GroupsTargetDomain = $groupsTargetDomain;
         return $this;
@@ -245,29 +245,9 @@ class EwsGetUnifiedGroupsSettingsResponseMessageType extends EwsResponseMessageT
     {
         // validation for constraint: string
         if (!is_null($groupsGuidelinesLink) && !is_string($groupsGuidelinesLink)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($groupsGuidelinesLink)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupsGuidelinesLink, true), gettype($groupsGuidelinesLink)), __LINE__);
         }
         $this->GroupsGuidelinesLink = $groupsGuidelinesLink;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetUnifiedGroupsSettingsResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

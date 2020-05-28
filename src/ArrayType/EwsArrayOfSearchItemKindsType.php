@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchItemKindsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of search item kind enum.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
 {
     /**
      * The SearchItemKind
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
      * @var string[]
@@ -41,6 +41,28 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
         return $this->SearchItemKind;
     }
     /**
+     * This method is responsible for validating the values passed to the setSearchItemKind method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSearchItemKind method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSearchItemKindForArrayConstraintsFromSetSearchItemKind(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfSearchItemKindsTypeSearchItemKindItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
+                $invalidValues[] = is_object($arrayOfSearchItemKindsTypeSearchItemKindItem) ? get_class($arrayOfSearchItemKindsTypeSearchItemKindItem) : sprintf('%s(%s)', gettype($arrayOfSearchItemKindsTypeSearchItemKindItem), var_export($arrayOfSearchItemKindsTypeSearchItemKindItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set SearchItemKind value
      * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsSearchItemKindType::getValidValues()
@@ -50,14 +72,9 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      */
     public function setSearchItemKind(array $searchItemKind = array())
     {
-        $invalidValues = array();
-        foreach ($searchItemKind as $arrayOfSearchItemKindsTypeSearchItemKindItem) {
-            if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
-                $invalidValues[] = var_export($arrayOfSearchItemKindsTypeSearchItemKindItem, true);
-            }
-        }
-        if (!empty($invalidValues)) {
-            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+        // validation for constraint: array
+        if ('' !== ($searchItemKindArrayErrorMessage = self::validateSearchItemKindForArrayConstraintsFromSetSearchItemKind($searchItemKind))) {
+            throw new \InvalidArgumentException($searchItemKindArrayErrorMessage, __LINE__);
         }
         $this->SearchItemKind = $searchItemKind;
         return $this;
@@ -74,7 +91,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
         }
         $this->SearchItemKind[] = $item;
         return $this;
@@ -136,8 +153,9 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      */
     public function add($item)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -149,25 +167,5 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'SearchItemKind';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,15 +2,17 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for RuleValidationErrorCodeType EnumType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Rule validation error code describing what failed validation for each rule predicate or action.
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsRuleValidationErrorCodeType
+class EwsRuleValidationErrorCodeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'ADOperationFailure'
@@ -133,16 +135,6 @@ class EwsRuleValidationErrorCodeType
      */
     const VALUE_UNSUPPORTED_RULE = 'UnsupportedRule';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ADOPERATION_FAILURE
      * @uses self::VALUE_CONNECTED_ACCOUNT_NOT_FOUND
@@ -198,13 +190,5 @@ class EwsRuleValidationErrorCodeType
             self::VALUE_UNEXPECTED_ERROR,
             self::VALUE_UNSUPPORTED_RULE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for MeetingRequestTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsMeetingRequestTypeType
+class EwsMeetingRequestTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -46,16 +48,6 @@ class EwsMeetingRequestTypeType
      */
     const VALUE_PRINCIPAL_WANTS_COPY = 'PrincipalWantsCopy';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_FULL_UPDATE
@@ -77,13 +69,5 @@ class EwsMeetingRequestTypeType
             self::VALUE_SILENT_UPDATE,
             self::VALUE_PRINCIPAL_WANTS_COPY,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

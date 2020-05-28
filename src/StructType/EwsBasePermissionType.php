@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BasePermissionType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: A permission on a folder
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
 {
     /**
      * The UserId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUserIdType
@@ -24,7 +24,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $UserId;
     /**
      * The CanCreateItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -32,7 +32,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $CanCreateItems;
     /**
      * The CanCreateSubFolders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -40,7 +40,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $CanCreateSubFolders;
     /**
      * The IsFolderOwner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -48,7 +48,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $IsFolderOwner;
     /**
      * The IsFolderVisible
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -56,7 +56,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $IsFolderVisible;
     /**
      * The IsFolderContact
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -64,7 +64,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $IsFolderContact;
     /**
      * The EditItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -72,7 +72,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     public $EditItems;
     /**
      * The DeleteItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -144,7 +144,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($canCreateItems) && !is_bool($canCreateItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canCreateItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canCreateItems, true), gettype($canCreateItems)), __LINE__);
         }
         $this->CanCreateItems = $canCreateItems;
         return $this;
@@ -166,7 +166,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($canCreateSubFolders) && !is_bool($canCreateSubFolders)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($canCreateSubFolders)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canCreateSubFolders, true), gettype($canCreateSubFolders)), __LINE__);
         }
         $this->CanCreateSubFolders = $canCreateSubFolders;
         return $this;
@@ -188,7 +188,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isFolderOwner) && !is_bool($isFolderOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderOwner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFolderOwner, true), gettype($isFolderOwner)), __LINE__);
         }
         $this->IsFolderOwner = $isFolderOwner;
         return $this;
@@ -210,7 +210,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isFolderVisible) && !is_bool($isFolderVisible)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderVisible)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFolderVisible, true), gettype($isFolderVisible)), __LINE__);
         }
         $this->IsFolderVisible = $isFolderVisible;
         return $this;
@@ -232,7 +232,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isFolderContact) && !is_bool($isFolderContact)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isFolderContact)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFolderContact, true), gettype($isFolderContact)), __LINE__);
         }
         $this->IsFolderContact = $isFolderContact;
         return $this;
@@ -257,7 +257,7 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionActionType::valueIsValid($editItems)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $editItems, implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionActionType', is_array($editItems) ? implode(', ', $editItems) : var_export($editItems, true), implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
         }
         $this->EditItems = $editItems;
         return $this;
@@ -282,29 +282,9 @@ abstract class EwsBasePermissionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionActionType::valueIsValid($deleteItems)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteItems, implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionActionType', is_array($deleteItems) ? implode(', ', $deleteItems) : var_export($deleteItems, true), implode(', ', \Ews\EnumType\EwsPermissionActionType::getValidValues())), __LINE__);
         }
         $this->DeleteItems = $deleteItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBasePermissionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

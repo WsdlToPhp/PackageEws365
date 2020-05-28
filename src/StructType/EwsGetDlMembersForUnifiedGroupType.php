@@ -14,7 +14,7 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
 {
     /**
      * The DlIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUnifiedGroupIdentity
@@ -22,7 +22,7 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
     public $DlIdentity;
     /**
      * The MembersCountLimit
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -75,30 +75,10 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
     public function setMembersCountLimit($membersCountLimit = null)
     {
         // validation for constraint: int
-        if (!is_null($membersCountLimit) && !is_numeric($membersCountLimit)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($membersCountLimit)), __LINE__);
+        if (!is_null($membersCountLimit) && !(is_int($membersCountLimit) || ctype_digit($membersCountLimit))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($membersCountLimit, true), gettype($membersCountLimit)), __LINE__);
         }
         $this->MembersCountLimit = $membersCountLimit;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsGetMailTipsType extends EwsBaseRequestType
 {
     /**
      * The SendingAs
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsEmailAddressType
@@ -22,7 +22,7 @@ class EwsGetMailTipsType extends EwsBaseRequestType
     public $SendingAs;
     /**
      * The Recipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfRecipientsType
@@ -30,10 +30,10 @@ class EwsGetMailTipsType extends EwsBaseRequestType
     public $Recipients;
     /**
      * The MailTipsRequested
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $MailTipsRequested;
     /**
@@ -43,9 +43,9 @@ class EwsGetMailTipsType extends EwsBaseRequestType
      * @uses EwsGetMailTipsType::setMailTipsRequested()
      * @param \Ews\StructType\EwsEmailAddressType $sendingAs
      * @param \Ews\ArrayType\EwsArrayOfRecipientsType $recipients
-     * @param string $mailTipsRequested
+     * @param string[] $mailTipsRequested
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $sendingAs = null, \Ews\ArrayType\EwsArrayOfRecipientsType $recipients = null, $mailTipsRequested = null)
+    public function __construct(\Ews\StructType\EwsEmailAddressType $sendingAs = null, \Ews\ArrayType\EwsArrayOfRecipientsType $recipients = null, array $mailTipsRequested = array())
     {
         $this
             ->setSendingAs($sendingAs)
@@ -90,47 +90,49 @@ class EwsGetMailTipsType extends EwsBaseRequestType
     }
     /**
      * Get MailTipsRequested value
-     * @return string
+     * @return string[]
      */
     public function getMailTipsRequested()
     {
         return $this->MailTipsRequested;
     }
     /**
+     * This method is responsible for validating the values passed to the setMailTipsRequested method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setMailTipsRequested method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateMailTipsRequestedForArrayConstraintsFromSetMailTipsRequested(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $getMailTipsTypeMailTipsRequestedItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsMailTipTypes::valueIsValid($getMailTipsTypeMailTipsRequestedItem)) {
+                $invalidValues[] = is_object($getMailTipsTypeMailTipsRequestedItem) ? get_class($getMailTipsTypeMailTipsRequestedItem) : sprintf('%s(%s)', gettype($getMailTipsTypeMailTipsRequestedItem), var_export($getMailTipsTypeMailTipsRequestedItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailTipTypes', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsMailTipTypes::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set MailTipsRequested value
      * @uses \Ews\EnumType\EwsMailTipTypes::valueIsValid()
      * @uses \Ews\EnumType\EwsMailTipTypes::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $mailTipsRequested
+     * @param string[] $mailTipsRequested
      * @return \Ews\StructType\EwsGetMailTipsType
      */
-    public function setMailTipsRequested($mailTipsRequested = null)
+    public function setMailTipsRequested(array $mailTipsRequested = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailTipTypes::valueIsValid($mailTipsRequested)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mailTipsRequested, implode(', ', \Ews\EnumType\EwsMailTipTypes::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($mailTipsRequestedArrayErrorMessage = self::validateMailTipsRequestedForArrayConstraintsFromSetMailTipsRequested($mailTipsRequested))) {
+            throw new \InvalidArgumentException($mailTipsRequestedArrayErrorMessage, __LINE__);
         }
-        $this->MailTipsRequested = $mailTipsRequested;
+        $this->MailTipsRequested = is_array($mailTipsRequested) ? implode(' ', $mailTipsRequested) : null;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetMailTipsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

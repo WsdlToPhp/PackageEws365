@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleActionsType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Rule actions
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRuleActionsType extends AbstractStructBase
 {
     /**
      * The AssignCategories
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -24,7 +24,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $AssignCategories;
     /**
      * The CopyToFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
@@ -32,7 +32,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $CopyToFolder;
     /**
      * The Delete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -40,7 +40,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $Delete;
     /**
      * The ForwardAsAttachmentToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -48,7 +48,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $ForwardAsAttachmentToRecipients;
     /**
      * The ForwardToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -56,7 +56,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $ForwardToRecipients;
     /**
      * The MarkImportance
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -64,7 +64,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $MarkImportance;
     /**
      * The MarkAsRead
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -72,7 +72,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $MarkAsRead;
     /**
      * The MoveToFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
@@ -80,7 +80,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $MoveToFolder;
     /**
      * The PermanentDelete
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -88,7 +88,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $PermanentDelete;
     /**
      * The RedirectToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -96,7 +96,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $RedirectToRecipients;
     /**
      * The SendSMSAlertToRecipients
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
@@ -104,7 +104,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $SendSMSAlertToRecipients;
     /**
      * The ServerReplyWithMessage
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsItemIdType
@@ -112,7 +112,7 @@ class EwsRuleActionsType extends AbstractStructBase
     public $ServerReplyWithMessage;
     /**
      * The StopProcessingRules
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -217,7 +217,7 @@ class EwsRuleActionsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($delete) && !is_bool($delete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($delete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($delete, true), gettype($delete)), __LINE__);
         }
         $this->Delete = $delete;
         return $this;
@@ -278,7 +278,7 @@ class EwsRuleActionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($markImportance)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $markImportance, implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($markImportance) ? implode(', ', $markImportance) : var_export($markImportance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->MarkImportance = $markImportance;
         return $this;
@@ -300,7 +300,7 @@ class EwsRuleActionsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($markAsRead) && !is_bool($markAsRead)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($markAsRead)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($markAsRead, true), gettype($markAsRead)), __LINE__);
         }
         $this->MarkAsRead = $markAsRead;
         return $this;
@@ -340,7 +340,7 @@ class EwsRuleActionsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($permanentDelete) && !is_bool($permanentDelete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($permanentDelete)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($permanentDelete, true), gettype($permanentDelete)), __LINE__);
         }
         $this->PermanentDelete = $permanentDelete;
         return $this;
@@ -416,29 +416,9 @@ class EwsRuleActionsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($stopProcessingRules) && !is_bool($stopProcessingRules)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($stopProcessingRules)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($stopProcessingRules, true), gettype($stopProcessingRules)), __LINE__);
         }
         $this->StopProcessingRules = $stopProcessingRules;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRuleActionsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

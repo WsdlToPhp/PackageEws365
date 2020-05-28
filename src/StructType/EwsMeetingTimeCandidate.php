@@ -100,6 +100,10 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
      */
     public function setConfidence($confidence = null)
     {
+        // validation for constraint: float
+        if (!is_null($confidence) && !(is_float($confidence) || is_numeric($confidence))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($confidence, true), gettype($confidence)), __LINE__);
+        }
         $this->Confidence = $confidence;
         return $this;
     }
@@ -119,8 +123,8 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     public function setScore($score = null)
     {
         // validation for constraint: int
-        if (!is_null($score) && !is_numeric($score)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($score)), __LINE__);
+        if (!is_null($score) && !(is_int($score) || ctype_digit($score))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($score, true), gettype($score)), __LINE__);
         }
         $this->Score = $score;
         return $this;
@@ -145,7 +149,7 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAvailabilityStatusType::valueIsValid($organizerAvailability)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $organizerAvailability, implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAvailabilityStatusType', is_array($organizerAvailability) ? implode(', ', $organizerAvailability) : var_export($organizerAvailability, true), implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
         }
         $this->OrganizerAvailability = $organizerAvailability;
         return $this;
@@ -185,25 +189,5 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     {
         $this->Locations = $locations;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

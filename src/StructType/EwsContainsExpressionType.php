@@ -34,14 +34,14 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     public $ExtendedFieldURI;
     /**
      * The ContainmentMode
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
     public $ContainmentMode;
     /**
      * The ContainmentComparison
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -163,7 +163,7 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContainmentModeType::valueIsValid($containmentMode)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $containmentMode, implode(', ', \Ews\EnumType\EwsContainmentModeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsContainmentModeType', is_array($containmentMode) ? implode(', ', $containmentMode) : var_export($containmentMode, true), implode(', ', \Ews\EnumType\EwsContainmentModeType::getValidValues())), __LINE__);
         }
         $this->ContainmentMode = $containmentMode;
         return $this;
@@ -188,29 +188,9 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsContainmentComparisonType::valueIsValid($containmentComparison)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $containmentComparison, implode(', ', \Ews\EnumType\EwsContainmentComparisonType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsContainmentComparisonType', is_array($containmentComparison) ? implode(', ', $containmentComparison) : var_export($containmentComparison, true), implode(', ', \Ews\EnumType\EwsContainmentComparisonType::getValidValues())), __LINE__);
         }
         $this->ContainmentComparison = $containmentComparison;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsContainsExpressionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

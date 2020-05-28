@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RetentionPolicyTagType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Retention policy tag.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
 {
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,17 +24,18 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $DisplayName;
     /**
      * The RetentionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $RetentionId;
     /**
      * The RetentionPeriod
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -42,7 +43,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $RetentionPeriod;
     /**
      * The Type
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -50,7 +51,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $Type;
     /**
      * The RetentionAction
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -58,7 +59,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $RetentionAction;
     /**
      * The IsVisible
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -66,7 +67,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $IsVisible;
     /**
      * The OptedInto
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -74,7 +75,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $OptedInto;
     /**
      * The IsArchive
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -82,7 +83,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public $IsArchive;
     /**
      * The Description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -139,7 +140,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -159,13 +160,13 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
      */
     public function setRetentionId($retentionId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($retentionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $retentionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($retentionId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($retentionId) && !is_string($retentionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($retentionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionId, true), gettype($retentionId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($retentionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $retentionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($retentionId, true)), __LINE__);
         }
         $this->RetentionId = $retentionId;
         return $this;
@@ -186,8 +187,8 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     public function setRetentionPeriod($retentionPeriod = null)
     {
         // validation for constraint: int
-        if (!is_null($retentionPeriod) && !is_numeric($retentionPeriod)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($retentionPeriod)), __LINE__);
+        if (!is_null($retentionPeriod) && !(is_int($retentionPeriod) || ctype_digit($retentionPeriod))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($retentionPeriod, true), gettype($retentionPeriod)), __LINE__);
         }
         $this->RetentionPeriod = $retentionPeriod;
         return $this;
@@ -212,7 +213,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsElcFolderType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $type, implode(', ', \Ews\EnumType\EwsElcFolderType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsElcFolderType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsElcFolderType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
         return $this;
@@ -237,7 +238,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRetentionActionType::valueIsValid($retentionAction)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $retentionAction, implode(', ', \Ews\EnumType\EwsRetentionActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRetentionActionType', is_array($retentionAction) ? implode(', ', $retentionAction) : var_export($retentionAction, true), implode(', ', \Ews\EnumType\EwsRetentionActionType::getValidValues())), __LINE__);
         }
         $this->RetentionAction = $retentionAction;
         return $this;
@@ -259,7 +260,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isVisible) && !is_bool($isVisible)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isVisible)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVisible, true), gettype($isVisible)), __LINE__);
         }
         $this->IsVisible = $isVisible;
         return $this;
@@ -281,7 +282,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($optedInto) && !is_bool($optedInto)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($optedInto)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($optedInto, true), gettype($optedInto)), __LINE__);
         }
         $this->OptedInto = $optedInto;
         return $this;
@@ -303,7 +304,7 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isArchive) && !is_bool($isArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isArchive)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
         }
         $this->IsArchive = $isArchive;
         return $this;
@@ -325,29 +326,9 @@ class EwsRetentionPolicyTagType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRetentionPolicyTagType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

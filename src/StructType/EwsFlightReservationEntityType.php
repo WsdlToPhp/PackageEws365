@@ -14,42 +14,42 @@ class EwsFlightReservationEntityType extends AbstractStructBase
 {
     /**
      * The ReservationId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ReservationId;
     /**
      * The ReservationStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $ReservationStatus;
     /**
      * The UnderName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $UnderName;
     /**
      * The BrokerName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $BrokerName;
     /**
      * The BrokerPhone
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $BrokerPhone;
     /**
      * The Flights
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfFlightsType
@@ -97,7 +97,7 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reservationId) && !is_string($reservationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reservationId, true), gettype($reservationId)), __LINE__);
         }
         $this->ReservationId = $reservationId;
         return $this;
@@ -119,7 +119,7 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($reservationStatus) && !is_string($reservationStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($reservationStatus)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reservationStatus, true), gettype($reservationStatus)), __LINE__);
         }
         $this->ReservationStatus = $reservationStatus;
         return $this;
@@ -141,7 +141,7 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($underName) && !is_string($underName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($underName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($underName, true), gettype($underName)), __LINE__);
         }
         $this->UnderName = $underName;
         return $this;
@@ -163,7 +163,7 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($brokerName) && !is_string($brokerName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brokerName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brokerName, true), gettype($brokerName)), __LINE__);
         }
         $this->BrokerName = $brokerName;
         return $this;
@@ -185,7 +185,7 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($brokerPhone) && !is_string($brokerPhone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($brokerPhone)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($brokerPhone, true), gettype($brokerPhone)), __LINE__);
         }
         $this->BrokerPhone = $brokerPhone;
         return $this;
@@ -207,25 +207,5 @@ class EwsFlightReservationEntityType extends AbstractStructBase
     {
         $this->Flights = $flights;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFlightReservationEntityType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

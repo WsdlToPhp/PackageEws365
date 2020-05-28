@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for UnifiedGroupActionResultType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsUnifiedGroupActionResultType
+class EwsUnifiedGroupActionResultType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Success'
@@ -26,16 +28,6 @@ class EwsUnifiedGroupActionResultType
      */
     const VALUE_UNAUTHORIZED = 'Unauthorized';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_SUCCESS
      * @uses self::VALUE_SUCCESS_DELAYED
@@ -49,13 +41,5 @@ class EwsUnifiedGroupActionResultType
             self::VALUE_SUCCESS_DELAYED,
             self::VALUE_UNAUTHORIZED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

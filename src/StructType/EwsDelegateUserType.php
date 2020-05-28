@@ -14,7 +14,7 @@ class EwsDelegateUserType extends AbstractStructBase
 {
     /**
      * The UserId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsUserIdType
@@ -22,7 +22,7 @@ class EwsDelegateUserType extends AbstractStructBase
     public $UserId;
     /**
      * The DelegatePermissions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsDelegatePermissionsType
@@ -30,7 +30,7 @@ class EwsDelegateUserType extends AbstractStructBase
     public $DelegatePermissions;
     /**
      * The ReceiveCopiesOfMeetingMessages
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -38,7 +38,7 @@ class EwsDelegateUserType extends AbstractStructBase
     public $ReceiveCopiesOfMeetingMessages;
     /**
      * The ViewPrivateItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -116,7 +116,7 @@ class EwsDelegateUserType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($receiveCopiesOfMeetingMessages) && !is_bool($receiveCopiesOfMeetingMessages)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($receiveCopiesOfMeetingMessages)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($receiveCopiesOfMeetingMessages, true), gettype($receiveCopiesOfMeetingMessages)), __LINE__);
         }
         $this->ReceiveCopiesOfMeetingMessages = $receiveCopiesOfMeetingMessages;
         return $this;
@@ -138,29 +138,9 @@ class EwsDelegateUserType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($viewPrivateItems) && !is_bool($viewPrivateItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($viewPrivateItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($viewPrivateItems, true), gettype($viewPrivateItems)), __LINE__);
         }
         $this->ViewPrivateItems = $viewPrivateItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsDelegateUserType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

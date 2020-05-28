@@ -14,7 +14,7 @@ class EwsSearchRefinerType extends AbstractStructBase
 {
     /**
      * The RefinerType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsSearchRefinerType extends AbstractStructBase
     public $RefinerType;
     /**
      * The Refiner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsDynamicRefinerQueryType
@@ -61,7 +61,7 @@ class EwsSearchRefinerType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsRefinerTypeType::valueIsValid($refinerType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $refinerType, implode(', ', \Ews\EnumType\EwsRefinerTypeType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRefinerTypeType', is_array($refinerType) ? implode(', ', $refinerType) : var_export($refinerType, true), implode(', ', \Ews\EnumType\EwsRefinerTypeType::getValidValues())), __LINE__);
         }
         $this->RefinerType = $refinerType;
         return $this;
@@ -83,25 +83,5 @@ class EwsSearchRefinerType extends AbstractStructBase
     {
         $this->Refiner = $refiner;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchRefinerType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

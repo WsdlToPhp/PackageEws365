@@ -14,7 +14,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
 {
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $Name;
     /**
      * The SatoriId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $SatoriId;
     /**
      * The Description
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $Description;
     /**
      * The DescriptionAttribution
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $DescriptionAttribution;
     /**
      * The ImageUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $ImageUrl;
     /**
      * The ImageUrlAttribution
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $ImageUrlAttribution;
     /**
      * The YearFound
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -70,7 +70,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $YearFound;
     /**
      * The FinanceSymbol
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -78,7 +78,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     public $FinanceSymbol;
     /**
      * The WebsiteUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -135,7 +135,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -157,7 +157,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($satoriId) && !is_string($satoriId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($satoriId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($satoriId, true), gettype($satoriId)), __LINE__);
         }
         $this->SatoriId = $satoriId;
         return $this;
@@ -179,7 +179,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($description)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
         return $this;
@@ -201,7 +201,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($descriptionAttribution) && !is_string($descriptionAttribution)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($descriptionAttribution)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($descriptionAttribution, true), gettype($descriptionAttribution)), __LINE__);
         }
         $this->DescriptionAttribution = $descriptionAttribution;
         return $this;
@@ -223,7 +223,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($imageUrl) && !is_string($imageUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageUrl, true), gettype($imageUrl)), __LINE__);
         }
         $this->ImageUrl = $imageUrl;
         return $this;
@@ -245,7 +245,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($imageUrlAttribution) && !is_string($imageUrlAttribution)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageUrlAttribution)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageUrlAttribution, true), gettype($imageUrlAttribution)), __LINE__);
         }
         $this->ImageUrlAttribution = $imageUrlAttribution;
         return $this;
@@ -267,7 +267,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($yearFound) && !is_string($yearFound)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yearFound)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yearFound, true), gettype($yearFound)), __LINE__);
         }
         $this->YearFound = $yearFound;
         return $this;
@@ -289,7 +289,7 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($financeSymbol) && !is_string($financeSymbol)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($financeSymbol)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($financeSymbol, true), gettype($financeSymbol)), __LINE__);
         }
         $this->FinanceSymbol = $financeSymbol;
         return $this;
@@ -311,29 +311,9 @@ class EwsCompanyInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($websiteUrl) && !is_string($websiteUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($websiteUrl)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($websiteUrl, true), gettype($websiteUrl)), __LINE__);
         }
         $this->WebsiteUrl = $websiteUrl;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsCompanyInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

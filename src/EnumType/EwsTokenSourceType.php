@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for TokenSourceType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsTokenSourceType
+class EwsTokenSourceType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -21,16 +23,6 @@ class EwsTokenSourceType
      */
     const VALUE_LINKED_IN = 'LinkedIn';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_LINKED_IN
@@ -42,13 +34,5 @@ class EwsTokenSourceType
             self::VALUE_NONE,
             self::VALUE_LINKED_IN,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

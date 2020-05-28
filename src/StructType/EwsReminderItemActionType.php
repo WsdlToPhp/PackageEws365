@@ -14,7 +14,7 @@ class EwsReminderItemActionType extends AbstractStructBase
 {
     /**
      * The ActionType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsReminderItemActionType extends AbstractStructBase
     public $ActionType;
     /**
      * The ItemId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsItemIdType
@@ -30,7 +30,7 @@ class EwsReminderItemActionType extends AbstractStructBase
     public $ItemId;
     /**
      * The NewReminderTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -72,7 +72,7 @@ class EwsReminderItemActionType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsReminderActionType::valueIsValid($actionType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionType, implode(', ', \Ews\EnumType\EwsReminderActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsReminderActionType', is_array($actionType) ? implode(', ', $actionType) : var_export($actionType, true), implode(', ', \Ews\EnumType\EwsReminderActionType::getValidValues())), __LINE__);
         }
         $this->ActionType = $actionType;
         return $this;
@@ -112,29 +112,9 @@ class EwsReminderItemActionType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($newReminderTime) && !is_string($newReminderTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($newReminderTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($newReminderTime, true), gettype($newReminderTime)), __LINE__);
         }
         $this->NewReminderTime = $newReminderTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsReminderItemActionType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsEmailInsightValue extends EwsInsightValue
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $Id;
     /**
      * The ThreadId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $ThreadId;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $Subject;
     /**
      * The LastEmailDateUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -46,7 +46,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $LastEmailDateUtcTicks;
     /**
      * The Body
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $Body;
     /**
      * The LastEmailSender
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProfileInsightValue
@@ -62,7 +62,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     public $LastEmailSender;
     /**
      * The EmailsCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -113,7 +113,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -135,7 +135,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($threadId) && !is_string($threadId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($threadId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($threadId, true), gettype($threadId)), __LINE__);
         }
         $this->ThreadId = $threadId;
         return $this;
@@ -157,7 +157,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -178,8 +178,8 @@ class EwsEmailInsightValue extends EwsInsightValue
     public function setLastEmailDateUtcTicks($lastEmailDateUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($lastEmailDateUtcTicks) && !is_numeric($lastEmailDateUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($lastEmailDateUtcTicks)), __LINE__);
+        if (!is_null($lastEmailDateUtcTicks) && !(is_int($lastEmailDateUtcTicks) || ctype_digit($lastEmailDateUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($lastEmailDateUtcTicks, true), gettype($lastEmailDateUtcTicks)), __LINE__);
         }
         $this->LastEmailDateUtcTicks = $lastEmailDateUtcTicks;
         return $this;
@@ -201,7 +201,7 @@ class EwsEmailInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($body) && !is_string($body)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($body)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($body, true), gettype($body)), __LINE__);
         }
         $this->Body = $body;
         return $this;
@@ -240,30 +240,10 @@ class EwsEmailInsightValue extends EwsInsightValue
     public function setEmailsCount($emailsCount = null)
     {
         // validation for constraint: int
-        if (!is_null($emailsCount) && !is_numeric($emailsCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($emailsCount)), __LINE__);
+        if (!is_null($emailsCount) && !(is_int($emailsCount) || ctype_digit($emailsCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($emailsCount, true), gettype($emailsCount)), __LINE__);
         }
         $this->EmailsCount = $emailsCount;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEmailInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

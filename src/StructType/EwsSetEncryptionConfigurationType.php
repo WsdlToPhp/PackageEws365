@@ -14,7 +14,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
 {
     /**
      * The ImageBase64
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     public $ImageBase64;
     /**
      * The EmailText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     public $EmailText;
     /**
      * The PortalText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     public $PortalText;
     /**
      * The DisclaimerText
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     public $DisclaimerText;
     /**
      * The OTPEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -91,7 +91,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($imageBase64) && !is_string($imageBase64)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($imageBase64)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imageBase64, true), gettype($imageBase64)), __LINE__);
         }
         $this->ImageBase64 = $imageBase64;
         return $this;
@@ -113,7 +113,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($emailText) && !is_string($emailText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailText, true), gettype($emailText)), __LINE__);
         }
         $this->EmailText = $emailText;
         return $this;
@@ -135,7 +135,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($portalText) && !is_string($portalText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($portalText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($portalText, true), gettype($portalText)), __LINE__);
         }
         $this->PortalText = $portalText;
         return $this;
@@ -157,7 +157,7 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($disclaimerText) && !is_string($disclaimerText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($disclaimerText)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($disclaimerText, true), gettype($disclaimerText)), __LINE__);
         }
         $this->DisclaimerText = $disclaimerText;
         return $this;
@@ -179,29 +179,9 @@ class EwsSetEncryptionConfigurationType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($oTPEnabled) && !is_bool($oTPEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($oTPEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($oTPEnabled, true), gettype($oTPEnabled)), __LINE__);
         }
         $this->OTPEnabled = $oTPEnabled;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetEncryptionConfigurationType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

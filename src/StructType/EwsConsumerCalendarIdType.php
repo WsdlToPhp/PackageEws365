@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsumerCalendarIdType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Identifier for a consumer calendar. This is reserved for a select number of server-2-server calls.
  * @package Ews
  * @subpackage Structs
@@ -16,23 +16,24 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
 {
     /**
      * The OwnerPuid
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var int
      */
     public $OwnerPuid;
     /**
      * The CalendarGuid
-     * Meta informations extracted from the WSDL
-     * - use: required
+     * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
+     * - use: required
      * @var string
      */
     public $CalendarGuid;
     /**
      * The OwnerCid
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var int
      */
@@ -69,8 +70,8 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     public function setOwnerPuid($ownerPuid = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerPuid) && !is_numeric($ownerPuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerPuid)), __LINE__);
+        if (!is_null($ownerPuid) && !(is_int($ownerPuid) || ctype_digit($ownerPuid))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($ownerPuid, true), gettype($ownerPuid)), __LINE__);
         }
         $this->OwnerPuid = $ownerPuid;
         return $this;
@@ -90,13 +91,13 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
      */
     public function setCalendarGuid($calendarGuid = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($calendarGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $calendarGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($calendarGuid, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($calendarGuid) && !is_string($calendarGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($calendarGuid)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($calendarGuid, true), gettype($calendarGuid)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($calendarGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $calendarGuid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($calendarGuid, true)), __LINE__);
         }
         $this->CalendarGuid = $calendarGuid;
         return $this;
@@ -117,30 +118,10 @@ class EwsConsumerCalendarIdType extends EwsBaseFolderIdType
     public function setOwnerCid($ownerCid = null)
     {
         // validation for constraint: int
-        if (!is_null($ownerCid) && !is_numeric($ownerCid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($ownerCid)), __LINE__);
+        if (!is_null($ownerCid) && !(is_int($ownerCid) || ctype_digit($ownerCid))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($ownerCid, true), gettype($ownerCid)), __LINE__);
         }
         $this->OwnerCid = $ownerCid;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsConsumerCalendarIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

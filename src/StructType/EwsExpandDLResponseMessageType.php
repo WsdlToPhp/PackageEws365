@@ -14,7 +14,7 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The DLExpansion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsArrayOfDLExpansionType
      */
@@ -103,8 +103,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setIndexedPagingOffset($indexedPagingOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($indexedPagingOffset) && !is_numeric($indexedPagingOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($indexedPagingOffset)), __LINE__);
+        if (!is_null($indexedPagingOffset) && !(is_int($indexedPagingOffset) || ctype_digit($indexedPagingOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedPagingOffset, true), gettype($indexedPagingOffset)), __LINE__);
         }
         $this->IndexedPagingOffset = $indexedPagingOffset;
         return $this;
@@ -125,8 +125,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setNumeratorOffset($numeratorOffset = null)
     {
         // validation for constraint: int
-        if (!is_null($numeratorOffset) && !is_numeric($numeratorOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numeratorOffset)), __LINE__);
+        if (!is_null($numeratorOffset) && !(is_int($numeratorOffset) || ctype_digit($numeratorOffset))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numeratorOffset, true), gettype($numeratorOffset)), __LINE__);
         }
         $this->NumeratorOffset = $numeratorOffset;
         return $this;
@@ -147,8 +147,8 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setAbsoluteDenominator($absoluteDenominator = null)
     {
         // validation for constraint: int
-        if (!is_null($absoluteDenominator) && !is_numeric($absoluteDenominator)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($absoluteDenominator)), __LINE__);
+        if (!is_null($absoluteDenominator) && !(is_int($absoluteDenominator) || ctype_digit($absoluteDenominator))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($absoluteDenominator, true), gettype($absoluteDenominator)), __LINE__);
         }
         $this->AbsoluteDenominator = $absoluteDenominator;
         return $this;
@@ -170,7 +170,7 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     {
         // validation for constraint: boolean
         if (!is_null($includesLastItemInRange) && !is_bool($includesLastItemInRange)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includesLastItemInRange)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includesLastItemInRange, true), gettype($includesLastItemInRange)), __LINE__);
         }
         $this->IncludesLastItemInRange = $includesLastItemInRange;
         return $this;
@@ -191,30 +191,10 @@ class EwsExpandDLResponseMessageType extends EwsResponseMessageType
     public function setTotalItemsInView($totalItemsInView = null)
     {
         // validation for constraint: int
-        if (!is_null($totalItemsInView) && !is_numeric($totalItemsInView)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalItemsInView)), __LINE__);
+        if (!is_null($totalItemsInView) && !(is_int($totalItemsInView) || ctype_digit($totalItemsInView))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalItemsInView, true), gettype($totalItemsInView)), __LINE__);
         }
         $this->TotalItemsInView = $totalItemsInView;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsExpandDLResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

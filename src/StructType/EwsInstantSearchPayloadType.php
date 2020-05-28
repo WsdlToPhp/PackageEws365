@@ -14,7 +14,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
 {
     /**
      * The SearchSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public $SearchSessionId;
     /**
      * The SearchRequestId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,15 +30,15 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public $SearchRequestId;
     /**
      * The ResultType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $ResultType;
     /**
      * The Items
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfItemsType
@@ -46,7 +46,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public $Items;
     /**
      * The Conversations
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfConversationsType
@@ -54,7 +54,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public $Conversations;
     /**
      * The CalendarItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfCalendarItemsType
@@ -70,12 +70,12 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * @uses EwsInstantSearchPayloadType::setCalendarItems()
      * @param string $searchSessionId
      * @param int $searchRequestId
-     * @param string $resultType
+     * @param string[] $resultType
      * @param \Ews\ArrayType\EwsArrayOfItemsType $items
      * @param \Ews\ArrayType\EwsArrayOfConversationsType $conversations
      * @param \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems
      */
-    public function __construct($searchSessionId = null, $searchRequestId = null, $resultType = null, \Ews\ArrayType\EwsArrayOfItemsType $items = null, \Ews\ArrayType\EwsArrayOfConversationsType $conversations = null, \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null)
+    public function __construct($searchSessionId = null, $searchRequestId = null, array $resultType = array(), \Ews\ArrayType\EwsArrayOfItemsType $items = null, \Ews\ArrayType\EwsArrayOfConversationsType $conversations = null, \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null)
     {
         $this
             ->setSearchSessionId($searchSessionId)
@@ -102,7 +102,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
         return $this;
@@ -123,35 +123,57 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     public function setSearchRequestId($searchRequestId = null)
     {
         // validation for constraint: int
-        if (!is_null($searchRequestId) && !is_numeric($searchRequestId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchRequestId)), __LINE__);
+        if (!is_null($searchRequestId) && !(is_int($searchRequestId) || ctype_digit($searchRequestId))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($searchRequestId, true), gettype($searchRequestId)), __LINE__);
         }
         $this->SearchRequestId = $searchRequestId;
         return $this;
     }
     /**
      * Get ResultType value
-     * @return string
+     * @return string[]
      */
     public function getResultType()
     {
         return $this->ResultType;
     }
     /**
+     * This method is responsible for validating the values passed to the setResultType method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setResultType method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateResultTypeForArrayConstraintsFromSetResultType(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $instantSearchPayloadTypeResultTypeItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsInstantSearchResultType::valueIsValid($instantSearchPayloadTypeResultTypeItem)) {
+                $invalidValues[] = is_object($instantSearchPayloadTypeResultTypeItem) ? get_class($instantSearchPayloadTypeResultTypeItem) : sprintf('%s(%s)', gettype($instantSearchPayloadTypeResultTypeItem), var_export($instantSearchPayloadTypeResultTypeItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsInstantSearchResultType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsInstantSearchResultType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ResultType value
      * @uses \Ews\EnumType\EwsInstantSearchResultType::valueIsValid()
      * @uses \Ews\EnumType\EwsInstantSearchResultType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $resultType
+     * @param string[] $resultType
      * @return \Ews\StructType\EwsInstantSearchPayloadType
      */
-    public function setResultType($resultType = null)
+    public function setResultType(array $resultType = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsInstantSearchResultType::valueIsValid($resultType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $resultType, implode(', ', \Ews\EnumType\EwsInstantSearchResultType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($resultTypeArrayErrorMessage = self::validateResultTypeForArrayConstraintsFromSetResultType($resultType))) {
+            throw new \InvalidArgumentException($resultTypeArrayErrorMessage, __LINE__);
         }
-        $this->ResultType = $resultType;
+        $this->ResultType = is_array($resultType) ? implode(' ', $resultType) : null;
         return $this;
     }
     /**
@@ -207,25 +229,5 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
     {
         $this->CalendarItems = $calendarItems;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

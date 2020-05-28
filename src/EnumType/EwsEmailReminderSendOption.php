@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for EmailReminderSendOption EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsEmailReminderSendOption
+class EwsEmailReminderSendOption extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'NotSet'
@@ -36,16 +38,6 @@ class EwsEmailReminderSendOption
      */
     const VALUE_CUSTOMER = 'Customer';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NOT_SET
      * @uses self::VALUE_USER
@@ -63,13 +55,5 @@ class EwsEmailReminderSendOption
             self::VALUE_STAFF,
             self::VALUE_CUSTOMER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

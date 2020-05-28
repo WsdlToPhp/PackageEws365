@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchSuggestions StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - type: m:GetSearchSuggestions
  * @package Ews
  * @subpackage Structs
@@ -16,17 +16,18 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
 {
     /**
      * The SearchSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $SearchSessionId;
     /**
      * The Query
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -34,15 +35,15 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     public $Query;
     /**
      * The SuggestionTypes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string[]
      */
     public $SuggestionTypes;
     /**
      * The SuggestionsPrimer
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -50,7 +51,7 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     public $SuggestionsPrimer;
     /**
      * The MaxSuggestionsCountPerSuggestionType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -65,11 +66,11 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      * @uses EwsGetSearchSuggestions::setMaxSuggestionsCountPerSuggestionType()
      * @param string $searchSessionId
      * @param string $query
-     * @param string $suggestionTypes
+     * @param string[] $suggestionTypes
      * @param bool $suggestionsPrimer
      * @param int $maxSuggestionsCountPerSuggestionType
      */
-    public function __construct($searchSessionId = null, $query = null, $suggestionTypes = null, $suggestionsPrimer = null, $maxSuggestionsCountPerSuggestionType = null)
+    public function __construct($searchSessionId = null, $query = null, array $suggestionTypes = array(), $suggestionsPrimer = null, $maxSuggestionsCountPerSuggestionType = null)
     {
         $this
             ->setSearchSessionId($searchSessionId)
@@ -93,13 +94,13 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      */
     public function setSearchSessionId($searchSessionId = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($searchSessionId, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($searchSessionId, true)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
         return $this;
@@ -121,34 +122,56 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
         return $this;
     }
     /**
      * Get SuggestionTypes value
-     * @return string|null
+     * @return string[]|null
      */
     public function getSuggestionTypes()
     {
         return $this->SuggestionTypes;
     }
     /**
+     * This method is responsible for validating the values passed to the setSuggestionTypes method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setSuggestionTypes method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $getSearchSuggestionsSuggestionTypesItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($getSearchSuggestionsSuggestionTypesItem)) {
+                $invalidValues[] = is_object($getSearchSuggestionsSuggestionTypesItem) ? get_class($getSearchSuggestionsSuggestionTypesItem) : sprintf('%s(%s)', gettype($getSearchSuggestionsSuggestionTypesItem), var_export($getSearchSuggestionsSuggestionTypesItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSuggestionKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set SuggestionTypes value
      * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
      * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $suggestionTypes
+     * @param string[] $suggestionTypes
      * @return \Ews\StructType\EwsGetSearchSuggestions
      */
-    public function setSuggestionTypes($suggestionTypes = null)
+    public function setSuggestionTypes(array $suggestionTypes = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($suggestionTypes)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $suggestionTypes, implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($suggestionTypesArrayErrorMessage = self::validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes($suggestionTypes))) {
+            throw new \InvalidArgumentException($suggestionTypesArrayErrorMessage, __LINE__);
         }
-        $this->SuggestionTypes = $suggestionTypes;
+        $this->SuggestionTypes = is_array($suggestionTypes) ? implode(' ', $suggestionTypes) : null;
         return $this;
     }
     /**
@@ -168,7 +191,7 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($suggestionsPrimer) && !is_bool($suggestionsPrimer)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($suggestionsPrimer)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestionsPrimer, true), gettype($suggestionsPrimer)), __LINE__);
         }
         $this->SuggestionsPrimer = $suggestionsPrimer;
         return $this;
@@ -189,30 +212,10 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
     public function setMaxSuggestionsCountPerSuggestionType($maxSuggestionsCountPerSuggestionType = null)
     {
         // validation for constraint: int
-        if (!is_null($maxSuggestionsCountPerSuggestionType) && !is_numeric($maxSuggestionsCountPerSuggestionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
+        if (!is_null($maxSuggestionsCountPerSuggestionType) && !(is_int($maxSuggestionsCountPerSuggestionType) || ctype_digit($maxSuggestionsCountPerSuggestionType))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxSuggestionsCountPerSuggestionType, true), gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
         }
         $this->MaxSuggestionsCountPerSuggestionType = $maxSuggestionsCountPerSuggestionType;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetSearchSuggestions
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

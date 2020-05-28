@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for AvailabilityStatusType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsAvailabilityStatusType
+class EwsAvailabilityStatusType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Unknown'
@@ -41,16 +43,6 @@ class EwsAvailabilityStatusType
      */
     const VALUE_WORKING_ELSEWHERE = 'WorkingElsewhere';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_UNKNOWN
      * @uses self::VALUE_FREE
@@ -70,13 +62,5 @@ class EwsAvailabilityStatusType
             self::VALUE_OOF,
             self::VALUE_WORKING_ELSEWHERE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

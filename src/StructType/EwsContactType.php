@@ -14,21 +14,21 @@ class EwsContactType extends EwsEntityType
 {
     /**
      * The PersonName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $PersonName;
     /**
      * The BusinessName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $BusinessName;
     /**
      * The PhoneNumbers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPhonesType
@@ -36,7 +36,7 @@ class EwsContactType extends EwsEntityType
     public $PhoneNumbers;
     /**
      * The Urls
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfUrlsType
@@ -44,7 +44,7 @@ class EwsContactType extends EwsEntityType
     public $Urls;
     /**
      * The EmailAddresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfExtractedEmailAddresses
@@ -52,7 +52,7 @@ class EwsContactType extends EwsEntityType
     public $EmailAddresses;
     /**
      * The Addresses
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfAddressesType
@@ -60,7 +60,7 @@ class EwsContactType extends EwsEntityType
     public $Addresses;
     /**
      * The ContactString
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -110,7 +110,7 @@ class EwsContactType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($personName) && !is_string($personName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($personName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personName, true), gettype($personName)), __LINE__);
         }
         $this->PersonName = $personName;
         return $this;
@@ -132,7 +132,7 @@ class EwsContactType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($businessName) && !is_string($businessName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($businessName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($businessName, true), gettype($businessName)), __LINE__);
         }
         $this->BusinessName = $businessName;
         return $this;
@@ -226,29 +226,9 @@ class EwsContactType extends EwsEntityType
     {
         // validation for constraint: string
         if (!is_null($contactString) && !is_string($contactString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($contactString)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contactString, true), gettype($contactString)), __LINE__);
         }
         $this->ContactString = $contactString;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsContactType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

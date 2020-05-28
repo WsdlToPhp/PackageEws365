@@ -14,7 +14,7 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
 {
     /**
      * The ParcelDelivery
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsParcelDeliveryEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
         return $this->ParcelDelivery;
     }
     /**
+     * This method is responsible for validating the values passed to the setParcelDelivery method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setParcelDelivery method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateParcelDeliveryForArrayConstraintsFromSetParcelDelivery(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
+                $invalidValues[] = is_object($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) ? get_class($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) : sprintf('%s(%s)', gettype($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem), var_export($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The ParcelDelivery property can only contain items of type \Ews\StructType\EwsParcelDeliveryEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ParcelDelivery value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
@@ -46,11 +68,9 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      */
     public function setParcelDelivery(array $parcelDelivery = array())
     {
-        foreach ($parcelDelivery as $arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
-                throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of \Ews\StructType\EwsParcelDeliveryEntityType, "%s" given', is_object($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) ? get_class($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) : gettype($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($parcelDeliveryArrayErrorMessage = self::validateParcelDeliveryForArrayConstraintsFromSetParcelDelivery($parcelDelivery))) {
+            throw new \InvalidArgumentException($parcelDeliveryArrayErrorMessage, __LINE__);
         }
         $this->ParcelDelivery = $parcelDelivery;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
-            throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of \Ews\StructType\EwsParcelDeliveryEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of type \Ews\StructType\EwsParcelDeliveryEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->ParcelDelivery[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'ParcelDelivery';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

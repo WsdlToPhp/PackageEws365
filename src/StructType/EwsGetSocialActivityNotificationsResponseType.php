@@ -14,7 +14,7 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
 {
     /**
      * The AggregatedNotification
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSocialActivityAggregatedNotificationType[]
@@ -39,6 +39,28 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
         return $this->AggregatedNotification;
     }
     /**
+     * This method is responsible for validating the values passed to the setAggregatedNotification method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setAggregatedNotification method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateAggregatedNotificationForArrayConstraintsFromSetAggregatedNotification(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) {
+            // validation for constraint: itemType
+            if (!$getSocialActivityNotificationsResponseTypeAggregatedNotificationItem instanceof \Ews\StructType\EwsSocialActivityAggregatedNotificationType) {
+                $invalidValues[] = is_object($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) ? get_class($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) : sprintf('%s(%s)', gettype($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem), var_export($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The AggregatedNotification property can only contain items of type \Ews\StructType\EwsSocialActivityAggregatedNotificationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set AggregatedNotification value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSocialActivityAggregatedNotificationType[] $aggregatedNotification
@@ -46,11 +68,9 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
      */
     public function setAggregatedNotification(array $aggregatedNotification = array())
     {
-        foreach ($aggregatedNotification as $getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) {
-            // validation for constraint: itemType
-            if (!$getSocialActivityNotificationsResponseTypeAggregatedNotificationItem instanceof \Ews\StructType\EwsSocialActivityAggregatedNotificationType) {
-                throw new \InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of \Ews\StructType\EwsSocialActivityAggregatedNotificationType, "%s" given', is_object($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) ? get_class($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem) : gettype($getSocialActivityNotificationsResponseTypeAggregatedNotificationItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($aggregatedNotificationArrayErrorMessage = self::validateAggregatedNotificationForArrayConstraintsFromSetAggregatedNotification($aggregatedNotification))) {
+            throw new \InvalidArgumentException($aggregatedNotificationArrayErrorMessage, __LINE__);
         }
         $this->AggregatedNotification = $aggregatedNotification;
         return $this;
@@ -65,29 +85,9 @@ class EwsGetSocialActivityNotificationsResponseType extends EwsResponseMessageTy
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSocialActivityAggregatedNotificationType) {
-            throw new \InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of \Ews\StructType\EwsSocialActivityAggregatedNotificationType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of type \Ews\StructType\EwsSocialActivityAggregatedNotificationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->AggregatedNotification[] = $item;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetSocialActivityNotificationsResponseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

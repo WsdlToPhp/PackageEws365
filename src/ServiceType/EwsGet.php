@@ -93,13 +93,13 @@ class EwsGet extends SoapClientBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $dateTimePrecision, implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDateTimePrecisionType', is_array($dateTimePrecision) ? implode(', ', $dateTimePrecision) : var_export($dateTimePrecision, true), implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
         }
         return $this->setSoapHeader($nameSpace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named GetServerTimeZones
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -114,7 +114,7 @@ class EwsGet extends SoapClientBase
     public function GetServerTimeZones(\Ews\StructType\EwsGetServerTimeZonesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetServerTimeZones($request));
+            $this->setResult($this->getSoapClient()->GetServerTimeZones($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -123,7 +123,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
@@ -138,7 +138,7 @@ class EwsGet extends SoapClientBase
     public function GetFolder(\Ews\StructType\EwsGetFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetFolder($request));
+            $this->setResult($this->getSoapClient()->GetFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -147,7 +147,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetEvents
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -162,7 +162,7 @@ class EwsGet extends SoapClientBase
     public function GetEvents(\Ews\StructType\EwsGetEventsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetEvents($request));
+            $this->setResult($this->getSoapClient()->GetEvents($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -171,7 +171,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetStreamingEvents
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -186,7 +186,7 @@ class EwsGet extends SoapClientBase
     public function GetStreamingEvents(\Ews\StructType\EwsGetStreamingEventsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetStreamingEvents($request));
+            $this->setResult($this->getSoapClient()->GetStreamingEvents($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -195,7 +195,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetItem
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType, \Ews\StructType\EwsManagementRoleType
@@ -210,7 +210,7 @@ class EwsGet extends SoapClientBase
     public function GetItem(\Ews\StructType\EwsGetItemType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetItem($request));
+            $this->setResult($this->getSoapClient()->GetItem($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -219,7 +219,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetAttachment
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -234,7 +234,7 @@ class EwsGet extends SoapClientBase
     public function GetAttachment(\Ews\StructType\EwsGetAttachmentType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetAttachment($request));
+            $this->setResult($this->getSoapClient()->GetAttachment($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -243,7 +243,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetClientAccessToken
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -258,7 +258,7 @@ class EwsGet extends SoapClientBase
     public function GetClientAccessToken(\Ews\StructType\EwsGetClientAccessTokenType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetClientAccessToken($request));
+            $this->setResult($this->getSoapClient()->GetClientAccessToken($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -267,7 +267,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetDelegate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -282,7 +282,7 @@ class EwsGet extends SoapClientBase
     public function GetDelegate(\Ews\StructType\EwsGetDelegateType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetDelegate($request));
+            $this->setResult($this->getSoapClient()->GetDelegate($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -291,7 +291,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetUserConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -306,7 +306,7 @@ class EwsGet extends SoapClientBase
     public function GetUserConfiguration(\Ews\StructType\EwsGetUserConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->GetUserConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -315,7 +315,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetUserAvailability
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, TimeZoneContext, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsRequestServerVersion
@@ -330,7 +330,7 @@ class EwsGet extends SoapClientBase
     public function GetUserAvailability(\Ews\StructType\EwsGetUserAvailabilityRequestType $getUserAvailabilityRequest)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetUserAvailability($getUserAvailabilityRequest));
+            $this->setResult($this->getSoapClient()->GetUserAvailability($getUserAvailabilityRequest));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -339,7 +339,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetUserOofSettings
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType
@@ -354,7 +354,7 @@ class EwsGet extends SoapClientBase
     public function GetUserOofSettings(\Ews\StructType\EwsGetUserOofSettingsRequest $getUserOofSettingsRequest)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetUserOofSettings($getUserOofSettingsRequest));
+            $this->setResult($this->getSoapClient()->GetUserOofSettings($getUserOofSettingsRequest));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -363,7 +363,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetServiceConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, RequestServerVersion, MailboxCulture
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
@@ -378,7 +378,7 @@ class EwsGet extends SoapClientBase
     public function GetServiceConfiguration(\Ews\StructType\EwsGetServiceConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetServiceConfiguration($request));
+            $this->setResult($this->getSoapClient()->GetServiceConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -387,7 +387,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetMailTips
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, MailboxCulture
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsMailboxCultureType
@@ -402,7 +402,7 @@ class EwsGet extends SoapClientBase
     public function GetMailTips(\Ews\StructType\EwsGetMailTipsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetMailTips($request));
+            $this->setResult($this->getSoapClient()->GetMailTips($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -411,7 +411,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetPhoneCallInformation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -426,7 +426,7 @@ class EwsGet extends SoapClientBase
     public function GetPhoneCallInformation(\Ews\StructType\EwsGetPhoneCallInformationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetPhoneCallInformation($request));
+            $this->setResult($this->getSoapClient()->GetPhoneCallInformation($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -435,7 +435,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetSharingMetadata
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -450,7 +450,7 @@ class EwsGet extends SoapClientBase
     public function GetSharingMetadata(\Ews\StructType\EwsGetSharingMetadataType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetSharingMetadata($request));
+            $this->setResult($this->getSoapClient()->GetSharingMetadata($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -459,7 +459,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetSharingFolder
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -474,7 +474,7 @@ class EwsGet extends SoapClientBase
     public function GetSharingFolder(\Ews\StructType\EwsGetSharingFolderType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetSharingFolder($request));
+            $this->setResult($this->getSoapClient()->GetSharingFolder($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -483,7 +483,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetRoomLists
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -498,7 +498,7 @@ class EwsGet extends SoapClientBase
     public function GetRoomLists(\Ews\StructType\EwsGetRoomListsType $getRoomListsRequest)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetRoomLists($getRoomListsRequest));
+            $this->setResult($this->getSoapClient()->GetRoomLists($getRoomListsRequest));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -507,7 +507,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetRooms
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -522,7 +522,7 @@ class EwsGet extends SoapClientBase
     public function GetRooms(\Ews\StructType\EwsGetRoomsType $getRoomsRequest)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetRooms($getRoomsRequest));
+            $this->setResult($this->getSoapClient()->GetRooms($getRoomsRequest));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -531,7 +531,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetMessageTrackingReport
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -546,7 +546,7 @@ class EwsGet extends SoapClientBase
     public function GetMessageTrackingReport(\Ews\StructType\EwsGetMessageTrackingReportRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetMessageTrackingReport($request));
+            $this->setResult($this->getSoapClient()->GetMessageTrackingReport($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -555,7 +555,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetConversationItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
@@ -570,7 +570,7 @@ class EwsGet extends SoapClientBase
     public function GetConversationItems(\Ews\StructType\EwsGetConversationItemsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetConversationItems($request));
+            $this->setResult($this->getSoapClient()->GetConversationItems($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -579,7 +579,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetPersona
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
@@ -594,7 +594,7 @@ class EwsGet extends SoapClientBase
     public function GetPersona(\Ews\StructType\EwsGetPersonaType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetPersona($request));
+            $this->setResult($this->getSoapClient()->GetPersona($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -603,7 +603,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetInboxRules
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType
@@ -618,7 +618,7 @@ class EwsGet extends SoapClientBase
     public function GetInboxRules(\Ews\StructType\EwsGetInboxRulesRequestType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetInboxRules($request));
+            $this->setResult($this->getSoapClient()->GetInboxRules($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -627,7 +627,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetPasswordExpirationDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -642,7 +642,7 @@ class EwsGet extends SoapClientBase
     public function GetPasswordExpirationDate(\Ews\StructType\EwsGetPasswordExpirationDateType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetPasswordExpirationDate($request));
+            $this->setResult($this->getSoapClient()->GetPasswordExpirationDate($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -651,7 +651,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetDiscoverySearchConfiguration
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -666,7 +666,7 @@ class EwsGet extends SoapClientBase
     public function GetDiscoverySearchConfiguration(\Ews\StructType\EwsGetDiscoverySearchConfigurationType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetDiscoverySearchConfiguration($request));
+            $this->setResult($this->getSoapClient()->GetDiscoverySearchConfiguration($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -675,7 +675,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetSearchableMailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -690,7 +690,7 @@ class EwsGet extends SoapClientBase
     public function GetSearchableMailboxes(\Ews\StructType\EwsGetSearchableMailboxesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetSearchableMailboxes($request));
+            $this->setResult($this->getSoapClient()->GetSearchableMailboxes($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -699,7 +699,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetHoldOnMailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -714,7 +714,7 @@ class EwsGet extends SoapClientBase
     public function GetHoldOnMailboxes(\Ews\StructType\EwsGetHoldOnMailboxesType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetHoldOnMailboxes($request));
+            $this->setResult($this->getSoapClient()->GetHoldOnMailboxes($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -723,7 +723,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetNonIndexableItemStatistics
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -738,7 +738,7 @@ class EwsGet extends SoapClientBase
     public function GetNonIndexableItemStatistics(\Ews\StructType\EwsGetNonIndexableItemStatisticsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetNonIndexableItemStatistics($request));
+            $this->setResult($this->getSoapClient()->GetNonIndexableItemStatistics($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -747,7 +747,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetNonIndexableItemDetails
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsManagementRoleType
@@ -762,7 +762,7 @@ class EwsGet extends SoapClientBase
     public function GetNonIndexableItemDetails(\Ews\StructType\EwsGetNonIndexableItemDetailsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetNonIndexableItemDetails($request));
+            $this->setResult($this->getSoapClient()->GetNonIndexableItemDetails($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -771,7 +771,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetAppManifests
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -786,7 +786,7 @@ class EwsGet extends SoapClientBase
     public function GetAppManifests(\Ews\StructType\EwsGetAppManifestsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetAppManifests($request));
+            $this->setResult($this->getSoapClient()->GetAppManifests($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -795,7 +795,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetImItemList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -810,7 +810,7 @@ class EwsGet extends SoapClientBase
     public function GetImItemList(\Ews\StructType\EwsGetImItemListType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetImItemList($request));
+            $this->setResult($this->getSoapClient()->GetImItemList($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -819,7 +819,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetImItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -834,7 +834,7 @@ class EwsGet extends SoapClientBase
     public function GetImItems(\Ews\StructType\EwsGetImItemsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetImItems($request));
+            $this->setResult($this->getSoapClient()->GetImItems($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -843,7 +843,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetUserRetentionPolicyTags
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -858,7 +858,7 @@ class EwsGet extends SoapClientBase
     public function GetUserRetentionPolicyTags(\Ews\StructType\EwsGetUserRetentionPolicyTagsType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetUserRetentionPolicyTags($request));
+            $this->setResult($this->getSoapClient()->GetUserRetentionPolicyTags($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -867,7 +867,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetAppMarketplaceUrl
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -882,7 +882,7 @@ class EwsGet extends SoapClientBase
     public function GetAppMarketplaceUrl(\Ews\StructType\EwsGetAppMarketplaceUrlType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetAppMarketplaceUrl($request));
+            $this->setResult($this->getSoapClient()->GetAppMarketplaceUrl($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -891,7 +891,7 @@ class EwsGet extends SoapClientBase
     }
     /**
      * Method to call the operation originally named GetUserPhoto
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
@@ -906,7 +906,7 @@ class EwsGet extends SoapClientBase
     public function GetUserPhoto(\Ews\StructType\EwsGetUserPhotoType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->GetUserPhoto($request));
+            $this->setResult($this->getSoapClient()->GetUserPhoto($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -921,13 +921,5 @@ class EwsGet extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

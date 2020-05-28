@@ -14,21 +14,21 @@ class EwsSyncFolderHierarchyType extends EwsBaseRequestType
 {
     /**
      * The FolderShape
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var \Ews\StructType\EwsFolderResponseShapeType
      */
     public $FolderShape;
     /**
      * The SyncFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsTargetFolderIdType
      */
     public $SyncFolderId;
     /**
      * The SyncState
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -102,29 +102,9 @@ class EwsSyncFolderHierarchyType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($syncState) && !is_string($syncState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($syncState)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
         }
         $this->SyncState = $syncState;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSyncFolderHierarchyType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

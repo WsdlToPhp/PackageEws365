@@ -14,7 +14,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
 {
     /**
      * The Name
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $Name;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $DisplayName;
     /**
      * The Alias
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $Alias;
     /**
      * The Culture
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $Culture;
     /**
      * The TimeZone
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $TimeZone;
     /**
      * The ReplyToAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -62,7 +62,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     public $ReplyToAddress;
     /**
      * The BookingServiceName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -113,7 +113,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($name)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
         return $this;
@@ -135,7 +135,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -157,7 +157,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($alias)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
         return $this;
@@ -179,7 +179,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($culture) && !is_string($culture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($culture)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         $this->Culture = $culture;
         return $this;
@@ -201,7 +201,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($timeZone) && !is_string($timeZone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($timeZone)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZone, true), gettype($timeZone)), __LINE__);
         }
         $this->TimeZone = $timeZone;
         return $this;
@@ -223,7 +223,7 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($replyToAddress) && !is_string($replyToAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($replyToAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($replyToAddress, true), gettype($replyToAddress)), __LINE__);
         }
         $this->ReplyToAddress = $replyToAddress;
         return $this;
@@ -245,29 +245,9 @@ class EwsNewBookingMailboxType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($bookingServiceName) && !is_string($bookingServiceName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($bookingServiceName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($bookingServiceName, true), gettype($bookingServiceName)), __LINE__);
         }
         $this->BookingServiceName = $bookingServiceName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsNewBookingMailboxType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,14 +14,14 @@ class EwsEmptyFolderType extends EwsBaseRequestType
 {
     /**
      * The DeleteType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
     public $DeleteType;
     /**
      * The DeleteSubFolders
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
@@ -67,7 +67,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $deleteType, implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
         $this->DeleteType = $deleteType;
         return $this;
@@ -89,7 +89,7 @@ class EwsEmptyFolderType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($deleteSubFolders) && !is_bool($deleteSubFolders)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deleteSubFolders)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deleteSubFolders, true), gettype($deleteSubFolders)), __LINE__);
         }
         $this->DeleteSubFolders = $deleteSubFolders;
         return $this;
@@ -111,25 +111,5 @@ class EwsEmptyFolderType extends EwsBaseRequestType
     {
         $this->FolderIds = $folderIds;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsEmptyFolderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

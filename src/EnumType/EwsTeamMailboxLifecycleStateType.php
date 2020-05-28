@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for TeamMailboxLifecycleStateType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsTeamMailboxLifecycleStateType
+class EwsTeamMailboxLifecycleStateType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Active'
@@ -31,16 +33,6 @@ class EwsTeamMailboxLifecycleStateType
      */
     const VALUE_PENDING_DELETE = 'PendingDelete';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ACTIVE
      * @uses self::VALUE_CLOSED
@@ -56,13 +48,5 @@ class EwsTeamMailboxLifecycleStateType
             self::VALUE_UNLINKED,
             self::VALUE_PENDING_DELETE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

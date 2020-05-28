@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ParticipantActivityMediaType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsParticipantActivityMediaType
+class EwsParticipantActivityMediaType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'AppSharing'
@@ -51,16 +53,6 @@ class EwsParticipantActivityMediaType
      */
     const VALUE_FOCUS = 'Focus';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_APP_SHARING
      * @uses self::VALUE_AUDIO_VIDEO
@@ -84,13 +76,5 @@ class EwsParticipantActivityMediaType
             self::VALUE_PHONE_CONF,
             self::VALUE_FOCUS,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

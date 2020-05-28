@@ -14,7 +14,7 @@ class EwsPathToExceptionFieldType extends EwsBasePathToElementType
 {
     /**
      * The FieldURI
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
@@ -49,29 +49,9 @@ class EwsPathToExceptionFieldType extends EwsBasePathToElementType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsExceptionPropertyURIType::valueIsValid($fieldURI)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $fieldURI, implode(', ', \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExceptionPropertyURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues())), __LINE__);
         }
         $this->FieldURI = $fieldURI;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPathToExceptionFieldType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

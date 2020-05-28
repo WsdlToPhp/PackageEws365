@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Rule type
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRuleType extends AbstractStructBase
 {
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsRuleType extends AbstractStructBase
     public $DisplayName;
     /**
      * The Priority
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -32,7 +32,7 @@ class EwsRuleType extends AbstractStructBase
     public $Priority;
     /**
      * The IsEnabled
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -40,7 +40,7 @@ class EwsRuleType extends AbstractStructBase
     public $IsEnabled;
     /**
      * The RuleId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -48,7 +48,7 @@ class EwsRuleType extends AbstractStructBase
     public $RuleId;
     /**
      * The IsNotSupported
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -56,7 +56,7 @@ class EwsRuleType extends AbstractStructBase
     public $IsNotSupported;
     /**
      * The IsInError
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -64,7 +64,7 @@ class EwsRuleType extends AbstractStructBase
     public $IsInError;
     /**
      * The Conditions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRulePredicatesType
@@ -72,7 +72,7 @@ class EwsRuleType extends AbstractStructBase
     public $Conditions;
     /**
      * The Exceptions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRulePredicatesType
@@ -80,7 +80,7 @@ class EwsRuleType extends AbstractStructBase
     public $Exceptions;
     /**
      * The Actions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRuleActionsType
@@ -137,7 +137,7 @@ class EwsRuleType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -158,8 +158,8 @@ class EwsRuleType extends AbstractStructBase
     public function setPriority($priority = null)
     {
         // validation for constraint: int
-        if (!is_null($priority) && !is_numeric($priority)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($priority)), __LINE__);
+        if (!is_null($priority) && !(is_int($priority) || ctype_digit($priority))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($priority, true), gettype($priority)), __LINE__);
         }
         $this->Priority = $priority;
         return $this;
@@ -181,7 +181,7 @@ class EwsRuleType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isEnabled) && !is_bool($isEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isEnabled)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEnabled, true), gettype($isEnabled)), __LINE__);
         }
         $this->IsEnabled = $isEnabled;
         return $this;
@@ -203,7 +203,7 @@ class EwsRuleType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($ruleId) && !is_string($ruleId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($ruleId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ruleId, true), gettype($ruleId)), __LINE__);
         }
         $this->RuleId = $ruleId;
         return $this;
@@ -225,7 +225,7 @@ class EwsRuleType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isNotSupported) && !is_bool($isNotSupported)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isNotSupported)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNotSupported, true), gettype($isNotSupported)), __LINE__);
         }
         $this->IsNotSupported = $isNotSupported;
         return $this;
@@ -247,7 +247,7 @@ class EwsRuleType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isInError) && !is_bool($isInError)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isInError)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInError, true), gettype($isInError)), __LINE__);
         }
         $this->IsInError = $isInError;
         return $this;
@@ -305,25 +305,5 @@ class EwsRuleType extends AbstractStructBase
     {
         $this->Actions = $actions;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRuleType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

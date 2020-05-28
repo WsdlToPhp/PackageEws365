@@ -14,7 +14,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $Id;
     /**
      * The Subject
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $Subject;
     /**
      * The StartUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -38,7 +38,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $StartUtcTicks;
     /**
      * The EndUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -46,7 +46,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $EndUtcTicks;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $Location;
     /**
      * The Organizer
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsProfileInsightValue
@@ -62,7 +62,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public $Organizer;
     /**
      * The Attendees
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
@@ -113,7 +113,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -135,7 +135,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($subject)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
         return $this;
@@ -156,8 +156,8 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public function setStartUtcTicks($startUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($startUtcTicks) && !is_numeric($startUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startUtcTicks)), __LINE__);
+        if (!is_null($startUtcTicks) && !(is_int($startUtcTicks) || ctype_digit($startUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startUtcTicks, true), gettype($startUtcTicks)), __LINE__);
         }
         $this->StartUtcTicks = $startUtcTicks;
         return $this;
@@ -178,8 +178,8 @@ class EwsMeetingInsightValue extends EwsInsightValue
     public function setEndUtcTicks($endUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($endUtcTicks) && !is_numeric($endUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endUtcTicks)), __LINE__);
+        if (!is_null($endUtcTicks) && !(is_int($endUtcTicks) || ctype_digit($endUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endUtcTicks, true), gettype($endUtcTicks)), __LINE__);
         }
         $this->EndUtcTicks = $endUtcTicks;
         return $this;
@@ -201,7 +201,7 @@ class EwsMeetingInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -241,25 +241,5 @@ class EwsMeetingInsightValue extends EwsInsightValue
     {
         $this->Attendees = $attendees;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMeetingInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,28 +14,28 @@ class EwsContactsFolderType extends EwsBaseFolderType
 {
     /**
      * The SharingEffectiveRights
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SharingEffectiveRights;
     /**
      * The PermissionSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsPermissionSetType
      */
     public $PermissionSet;
     /**
      * The SourceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $SourceId;
     /**
      * The AccountName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -79,7 +79,7 @@ class EwsContactsFolderType extends EwsBaseFolderType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPermissionReadAccessType::valueIsValid($sharingEffectiveRights)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $sharingEffectiveRights, implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionReadAccessType', is_array($sharingEffectiveRights) ? implode(', ', $sharingEffectiveRights) : var_export($sharingEffectiveRights, true), implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
         }
         $this->SharingEffectiveRights = $sharingEffectiveRights;
         return $this;
@@ -119,7 +119,7 @@ class EwsContactsFolderType extends EwsBaseFolderType
     {
         // validation for constraint: string
         if (!is_null($sourceId) && !is_string($sourceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($sourceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceId, true), gettype($sourceId)), __LINE__);
         }
         $this->SourceId = $sourceId;
         return $this;
@@ -141,29 +141,9 @@ class EwsContactsFolderType extends EwsBaseFolderType
     {
         // validation for constraint: string
         if (!is_null($accountName) && !is_string($accountName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($accountName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($accountName, true), gettype($accountName)), __LINE__);
         }
         $this->AccountName = $accountName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsContactsFolderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

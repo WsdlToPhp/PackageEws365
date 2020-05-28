@@ -14,7 +14,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
 {
     /**
      * The CalendarFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     public $CalendarFolderPermissionLevel;
     /**
      * The TasksFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     public $TasksFolderPermissionLevel;
     /**
      * The InboxFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     public $InboxFolderPermissionLevel;
     /**
      * The ContactsFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     public $ContactsFolderPermissionLevel;
     /**
      * The NotesFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     public $NotesFolderPermissionLevel;
     /**
      * The JournalFolderPermissionLevel
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -105,7 +105,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($calendarFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $calendarFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($calendarFolderPermissionLevel) ? implode(', ', $calendarFolderPermissionLevel) : var_export($calendarFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->CalendarFolderPermissionLevel = $calendarFolderPermissionLevel;
         return $this;
@@ -130,7 +130,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($tasksFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tasksFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($tasksFolderPermissionLevel) ? implode(', ', $tasksFolderPermissionLevel) : var_export($tasksFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->TasksFolderPermissionLevel = $tasksFolderPermissionLevel;
         return $this;
@@ -155,7 +155,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($inboxFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $inboxFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($inboxFolderPermissionLevel) ? implode(', ', $inboxFolderPermissionLevel) : var_export($inboxFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->InboxFolderPermissionLevel = $inboxFolderPermissionLevel;
         return $this;
@@ -180,7 +180,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($contactsFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $contactsFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($contactsFolderPermissionLevel) ? implode(', ', $contactsFolderPermissionLevel) : var_export($contactsFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->ContactsFolderPermissionLevel = $contactsFolderPermissionLevel;
         return $this;
@@ -205,7 +205,7 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($notesFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $notesFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($notesFolderPermissionLevel) ? implode(', ', $notesFolderPermissionLevel) : var_export($notesFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->NotesFolderPermissionLevel = $notesFolderPermissionLevel;
         return $this;
@@ -230,29 +230,9 @@ class EwsDelegatePermissionsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDelegateFolderPermissionLevelType::valueIsValid($journalFolderPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $journalFolderPermissionLevel, implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDelegateFolderPermissionLevelType', is_array($journalFolderPermissionLevel) ? implode(', ', $journalFolderPermissionLevel) : var_export($journalFolderPermissionLevel, true), implode(', ', \Ews\EnumType\EwsDelegateFolderPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->JournalFolderPermissionLevel = $journalFolderPermissionLevel;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsDelegatePermissionsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

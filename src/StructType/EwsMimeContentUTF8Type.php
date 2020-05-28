@@ -19,7 +19,7 @@ class EwsMimeContentUTF8Type extends AbstractStructBase
     public $_;
     /**
      * The CharacterSet
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -54,7 +54,7 @@ class EwsMimeContentUTF8Type extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($_)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
         return $this;
@@ -76,29 +76,9 @@ class EwsMimeContentUTF8Type extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($characterSet) && !is_string($characterSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($characterSet)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($characterSet, true), gettype($characterSet)), __LINE__);
         }
         $this->CharacterSet = $characterSet;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsMimeContentUTF8Type
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

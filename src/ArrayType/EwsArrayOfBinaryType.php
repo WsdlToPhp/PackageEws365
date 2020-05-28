@@ -14,7 +14,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
 {
     /**
      * The Base64Binary
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var string[]
@@ -39,6 +39,28 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
         return $this->Base64Binary;
     }
     /**
+     * This method is responsible for validating the values passed to the setBase64Binary method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setBase64Binary method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateBase64BinaryForArrayConstraintsFromSetBase64Binary(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfBinaryTypeBase64BinaryItem) {
+            // validation for constraint: itemType
+            if (!is_string($arrayOfBinaryTypeBase64BinaryItem)) {
+                $invalidValues[] = is_object($arrayOfBinaryTypeBase64BinaryItem) ? get_class($arrayOfBinaryTypeBase64BinaryItem) : sprintf('%s(%s)', gettype($arrayOfBinaryTypeBase64BinaryItem), var_export($arrayOfBinaryTypeBase64BinaryItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Base64Binary property can only contain items of type base64Binary, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Base64Binary value
      * @throws \InvalidArgumentException
      * @param string[] $base64Binary
@@ -46,11 +68,9 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
      */
     public function setBase64Binary(array $base64Binary = array())
     {
-        foreach ($base64Binary as $arrayOfBinaryTypeBase64BinaryItem) {
-            // validation for constraint: itemType
-            if (!is_string($arrayOfBinaryTypeBase64BinaryItem)) {
-                throw new \InvalidArgumentException(sprintf('The Base64Binary property can only contain items of base64Binary, "%s" given', is_object($arrayOfBinaryTypeBase64BinaryItem) ? get_class($arrayOfBinaryTypeBase64BinaryItem) : gettype($arrayOfBinaryTypeBase64BinaryItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($base64BinaryArrayErrorMessage = self::validateBase64BinaryForArrayConstraintsFromSetBase64Binary($base64Binary))) {
+            throw new \InvalidArgumentException($base64BinaryArrayErrorMessage, __LINE__);
         }
         $this->Base64Binary = $base64Binary;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Base64Binary property can only contain items of base64Binary, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Base64Binary property can only contain items of type base64Binary, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Base64Binary[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfBinaryType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Base64Binary';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfBinaryType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

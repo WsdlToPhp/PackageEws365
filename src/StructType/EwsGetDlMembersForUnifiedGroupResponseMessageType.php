@@ -14,7 +14,7 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
 {
     /**
      * The MembershipType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     public $MembershipType;
     /**
      * The TotalMembersCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -30,7 +30,7 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     public $TotalMembersCount;
     /**
      * The Members
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfPeopleType
@@ -72,7 +72,7 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsGroupMembershipType::valueIsValid($membershipType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $membershipType, implode(', ', \Ews\EnumType\EwsGroupMembershipType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMembershipType', is_array($membershipType) ? implode(', ', $membershipType) : var_export($membershipType, true), implode(', ', \Ews\EnumType\EwsGroupMembershipType::getValidValues())), __LINE__);
         }
         $this->MembershipType = $membershipType;
         return $this;
@@ -93,8 +93,8 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     public function setTotalMembersCount($totalMembersCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalMembersCount) && !is_numeric($totalMembersCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalMembersCount)), __LINE__);
+        if (!is_null($totalMembersCount) && !(is_int($totalMembersCount) || ctype_digit($totalMembersCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalMembersCount, true), gettype($totalMembersCount)), __LINE__);
         }
         $this->TotalMembersCount = $totalMembersCount;
         return $this;
@@ -116,25 +116,5 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
     {
         $this->Members = $members;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

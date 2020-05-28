@@ -14,7 +14,7 @@ class EwsFlagType extends AbstractStructBase
 {
     /**
      * The FlagStatus
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,21 +22,21 @@ class EwsFlagType extends AbstractStructBase
     public $FlagStatus;
     /**
      * The StartDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $StartDate;
     /**
      * The DueDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DueDate;
     /**
      * The CompleteDate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -80,7 +80,7 @@ class EwsFlagType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($flagStatus)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $flagStatus, implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlagStatusType', is_array($flagStatus) ? implode(', ', $flagStatus) : var_export($flagStatus, true), implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
         $this->FlagStatus = $flagStatus;
         return $this;
@@ -102,7 +102,7 @@ class EwsFlagType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($startDate) && !is_string($startDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDate, true), gettype($startDate)), __LINE__);
         }
         $this->StartDate = $startDate;
         return $this;
@@ -124,7 +124,7 @@ class EwsFlagType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($dueDate) && !is_string($dueDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($dueDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dueDate, true), gettype($dueDate)), __LINE__);
         }
         $this->DueDate = $dueDate;
         return $this;
@@ -146,29 +146,9 @@ class EwsFlagType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($completeDate) && !is_string($completeDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($completeDate)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($completeDate, true), gettype($completeDate)), __LINE__);
         }
         $this->CompleteDate = $completeDate;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFlagType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

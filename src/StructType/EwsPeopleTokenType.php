@@ -14,7 +14,7 @@ class EwsPeopleTokenType extends AbstractStructBase
 {
     /**
      * The TokenSource
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,7 +22,7 @@ class EwsPeopleTokenType extends AbstractStructBase
     public $TokenSource;
     /**
      * The ExpirationDateTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsPeopleTokenType extends AbstractStructBase
     public $ExpirationDateTime;
     /**
      * The TokenValue
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -72,7 +72,7 @@ class EwsPeopleTokenType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsTokenSourceType::valueIsValid($tokenSource)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $tokenSource, implode(', ', \Ews\EnumType\EwsTokenSourceType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTokenSourceType', is_array($tokenSource) ? implode(', ', $tokenSource) : var_export($tokenSource, true), implode(', ', \Ews\EnumType\EwsTokenSourceType::getValidValues())), __LINE__);
         }
         $this->TokenSource = $tokenSource;
         return $this;
@@ -94,7 +94,7 @@ class EwsPeopleTokenType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($expirationDateTime) && !is_string($expirationDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($expirationDateTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expirationDateTime, true), gettype($expirationDateTime)), __LINE__);
         }
         $this->ExpirationDateTime = $expirationDateTime;
         return $this;
@@ -116,29 +116,9 @@ class EwsPeopleTokenType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($tokenValue) && !is_string($tokenValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($tokenValue)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenValue, true), gettype($tokenValue)), __LINE__);
         }
         $this->TokenValue = $tokenValue;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPeopleTokenType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

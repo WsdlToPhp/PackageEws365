@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RulePredicateSizeRangeType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Size range type used for the WithinSizeRange rule predicate.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
 {
     /**
      * The MinimumSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -24,7 +24,7 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
     public $MinimumSize;
     /**
      * The MaximumSize
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -59,8 +59,8 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
     public function setMinimumSize($minimumSize = null)
     {
         // validation for constraint: int
-        if (!is_null($minimumSize) && !is_numeric($minimumSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($minimumSize)), __LINE__);
+        if (!is_null($minimumSize) && !(is_int($minimumSize) || ctype_digit($minimumSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minimumSize, true), gettype($minimumSize)), __LINE__);
         }
         $this->MinimumSize = $minimumSize;
         return $this;
@@ -81,30 +81,10 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
     public function setMaximumSize($maximumSize = null)
     {
         // validation for constraint: int
-        if (!is_null($maximumSize) && !is_numeric($maximumSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($maximumSize)), __LINE__);
+        if (!is_null($maximumSize) && !(is_int($maximumSize) || ctype_digit($maximumSize))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maximumSize, true), gettype($maximumSize)), __LINE__);
         }
         $this->MaximumSize = $maximumSize;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRulePredicateSizeRangeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

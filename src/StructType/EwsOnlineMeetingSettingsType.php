@@ -63,7 +63,7 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsLobbyBypassType::valueIsValid($lobbyBypass)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $lobbyBypass, implode(', ', \Ews\EnumType\EwsLobbyBypassType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLobbyBypassType', is_array($lobbyBypass) ? implode(', ', $lobbyBypass) : var_export($lobbyBypass, true), implode(', ', \Ews\EnumType\EwsLobbyBypassType::getValidValues())), __LINE__);
         }
         $this->LobbyBypass = $lobbyBypass;
         return $this;
@@ -88,7 +88,7 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid($accessLevel)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $accessLevel, implode(', ', \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsOnlineMeetingAccessLevelType', is_array($accessLevel) ? implode(', ', $accessLevel) : var_export($accessLevel, true), implode(', ', \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues())), __LINE__);
         }
         $this->AccessLevel = $accessLevel;
         return $this;
@@ -113,29 +113,9 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPresentersType::valueIsValid($presenters)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $presenters, implode(', ', \Ews\EnumType\EwsPresentersType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPresentersType', is_array($presenters) ? implode(', ', $presenters) : var_export($presenters, true), implode(', ', \Ews\EnumType\EwsPresentersType::getValidValues())), __LINE__);
         }
         $this->Presenters = $presenters;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsOnlineMeetingSettingsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

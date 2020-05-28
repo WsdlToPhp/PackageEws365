@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for RetentionActionType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsRetentionActionType
+class EwsRetentionActionType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -46,16 +48,6 @@ class EwsRetentionActionType
      */
     const VALUE_MOVE_TO_ARCHIVE = 'MoveToArchive';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_MOVE_TO_DELETED_ITEMS
@@ -77,13 +69,5 @@ class EwsRetentionActionType
             self::VALUE_MARK_AS_PAST_RETENTION_LIMIT,
             self::VALUE_MOVE_TO_ARCHIVE,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

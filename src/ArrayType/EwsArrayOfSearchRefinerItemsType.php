@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchRefinerItemsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of search refiner item.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
 {
     /**
      * The Refiner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsSearchRefinerItemType[]
@@ -41,6 +41,28 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
         return $this->Refiner;
     }
     /**
+     * This method is responsible for validating the values passed to the setRefiner method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRefiner method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRefinerForArrayConstraintsFromSetRefiner(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfSearchRefinerItemsTypeRefinerItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfSearchRefinerItemsTypeRefinerItem instanceof \Ews\StructType\EwsSearchRefinerItemType) {
+                $invalidValues[] = is_object($arrayOfSearchRefinerItemsTypeRefinerItem) ? get_class($arrayOfSearchRefinerItemsTypeRefinerItem) : sprintf('%s(%s)', gettype($arrayOfSearchRefinerItemsTypeRefinerItem), var_export($arrayOfSearchRefinerItemsTypeRefinerItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Refiner property can only contain items of type \Ews\StructType\EwsSearchRefinerItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Refiner value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsSearchRefinerItemType[] $refiner
@@ -48,11 +70,9 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      */
     public function setRefiner(array $refiner = array())
     {
-        foreach ($refiner as $arrayOfSearchRefinerItemsTypeRefinerItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfSearchRefinerItemsTypeRefinerItem instanceof \Ews\StructType\EwsSearchRefinerItemType) {
-                throw new \InvalidArgumentException(sprintf('The Refiner property can only contain items of \Ews\StructType\EwsSearchRefinerItemType, "%s" given', is_object($arrayOfSearchRefinerItemsTypeRefinerItem) ? get_class($arrayOfSearchRefinerItemsTypeRefinerItem) : gettype($arrayOfSearchRefinerItemsTypeRefinerItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($refinerArrayErrorMessage = self::validateRefinerForArrayConstraintsFromSetRefiner($refiner))) {
+            throw new \InvalidArgumentException($refinerArrayErrorMessage, __LINE__);
         }
         $this->Refiner = $refiner;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsSearchRefinerItemType) {
-            throw new \InvalidArgumentException(sprintf('The Refiner property can only contain items of \Ews\StructType\EwsSearchRefinerItemType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Refiner property can only contain items of type \Ews\StructType\EwsSearchRefinerItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Refiner[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Refiner';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfSearchRefinerItemsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

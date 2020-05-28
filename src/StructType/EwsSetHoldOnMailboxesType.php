@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetHoldOnMailboxesType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Request type for the SetHoldOnMailboxes web method.
  * @package Ews
  * @subpackage Structs
@@ -16,63 +16,63 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
 {
     /**
      * The ActionType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
     public $ActionType;
     /**
      * The HoldId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
     public $HoldId;
     /**
      * The Query
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
     public $Query;
     /**
      * The Mailboxes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
     public $Mailboxes;
     /**
      * The Language
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Language;
     /**
      * The IncludeNonIndexableItems
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $IncludeNonIndexableItems;
     /**
      * The Deduplication
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $Deduplication;
     /**
      * The InPlaceHoldIdentity
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $InPlaceHoldIdentity;
     /**
      * The ItemHoldPeriod
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -131,7 +131,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsHoldActionType::valueIsValid($actionType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $actionType, implode(', ', \Ews\EnumType\EwsHoldActionType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsHoldActionType', is_array($actionType) ? implode(', ', $actionType) : var_export($actionType, true), implode(', ', \Ews\EnumType\EwsHoldActionType::getValidValues())), __LINE__);
         }
         $this->ActionType = $actionType;
         return $this;
@@ -153,7 +153,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($holdId) && !is_string($holdId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($holdId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($holdId, true), gettype($holdId)), __LINE__);
         }
         $this->HoldId = $holdId;
         return $this;
@@ -175,7 +175,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($query)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
         return $this;
@@ -215,7 +215,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($language)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
         return $this;
@@ -237,7 +237,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($includeNonIndexableItems) && !is_bool($includeNonIndexableItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($includeNonIndexableItems)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeNonIndexableItems, true), gettype($includeNonIndexableItems)), __LINE__);
         }
         $this->IncludeNonIndexableItems = $includeNonIndexableItems;
         return $this;
@@ -259,7 +259,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($deduplication) && !is_bool($deduplication)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($deduplication)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deduplication, true), gettype($deduplication)), __LINE__);
         }
         $this->Deduplication = $deduplication;
         return $this;
@@ -281,7 +281,7 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($inPlaceHoldIdentity) && !is_string($inPlaceHoldIdentity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($inPlaceHoldIdentity)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inPlaceHoldIdentity, true), gettype($inPlaceHoldIdentity)), __LINE__);
         }
         $this->InPlaceHoldIdentity = $inPlaceHoldIdentity;
         return $this;
@@ -303,29 +303,9 @@ class EwsSetHoldOnMailboxesType extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($itemHoldPeriod) && !is_string($itemHoldPeriod)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($itemHoldPeriod)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemHoldPeriod, true), gettype($itemHoldPeriod)), __LINE__);
         }
         $this->ItemHoldPeriod = $itemHoldPeriod;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSetHoldOnMailboxesType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

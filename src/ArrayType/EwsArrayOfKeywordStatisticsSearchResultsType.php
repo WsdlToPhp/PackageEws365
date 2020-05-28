@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfKeywordStatisticsSearchResultsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of keyword statistics result.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
 {
     /**
      * The KeywordStat
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsKeywordStatisticsSearchResultType[]
@@ -41,6 +41,28 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
         return $this->KeywordStat;
     }
     /**
+     * This method is responsible for validating the values passed to the setKeywordStat method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setKeywordStat method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateKeywordStatForArrayConstraintsFromSetKeywordStat(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem instanceof \Ews\StructType\EwsKeywordStatisticsSearchResultType) {
+                $invalidValues[] = is_object($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) ? get_class($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) : sprintf('%s(%s)', gettype($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem), var_export($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The KeywordStat property can only contain items of type \Ews\StructType\EwsKeywordStatisticsSearchResultType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set KeywordStat value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType[] $keywordStat
@@ -48,11 +70,9 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
      */
     public function setKeywordStat(array $keywordStat = array())
     {
-        foreach ($keywordStat as $arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem instanceof \Ews\StructType\EwsKeywordStatisticsSearchResultType) {
-                throw new \InvalidArgumentException(sprintf('The KeywordStat property can only contain items of \Ews\StructType\EwsKeywordStatisticsSearchResultType, "%s" given', is_object($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) ? get_class($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem) : gettype($arrayOfKeywordStatisticsSearchResultsTypeKeywordStatItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($keywordStatArrayErrorMessage = self::validateKeywordStatForArrayConstraintsFromSetKeywordStat($keywordStat))) {
+            throw new \InvalidArgumentException($keywordStatArrayErrorMessage, __LINE__);
         }
         $this->KeywordStat = $keywordStat;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsKeywordStatisticsSearchResultType) {
-            throw new \InvalidArgumentException(sprintf('The KeywordStat property can only contain items of \Ews\StructType\EwsKeywordStatisticsSearchResultType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The KeywordStat property can only contain items of type \Ews\StructType\EwsKeywordStatisticsSearchResultType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->KeywordStat[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfKeywordStatisticsSearchResultsType extends AbstractStructArrayBa
     public function getAttributeName()
     {
         return 'KeywordStat';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfKeywordStatisticsSearchResultsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

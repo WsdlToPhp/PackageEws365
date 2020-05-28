@@ -14,70 +14,70 @@ class EwsCompleteNameType extends AbstractStructBase
 {
     /**
      * The Title
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Title;
     /**
      * The FirstName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FirstName;
     /**
      * The MiddleName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $MiddleName;
     /**
      * The LastName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $LastName;
     /**
      * The Suffix
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Suffix;
     /**
      * The Initials
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Initials;
     /**
      * The FullName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FullName;
     /**
      * The Nickname
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Nickname;
     /**
      * The YomiFirstName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $YomiFirstName;
     /**
      * The YomiLastName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -136,7 +136,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
         return $this;
@@ -158,7 +158,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($firstName) && !is_string($firstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($firstName, true), gettype($firstName)), __LINE__);
         }
         $this->FirstName = $firstName;
         return $this;
@@ -180,7 +180,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($middleName) && !is_string($middleName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($middleName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
         }
         $this->MiddleName = $middleName;
         return $this;
@@ -202,7 +202,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($lastName) && !is_string($lastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastName, true), gettype($lastName)), __LINE__);
         }
         $this->LastName = $lastName;
         return $this;
@@ -224,7 +224,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($suffix) && !is_string($suffix)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($suffix)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($suffix, true), gettype($suffix)), __LINE__);
         }
         $this->Suffix = $suffix;
         return $this;
@@ -246,7 +246,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($initials) && !is_string($initials)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($initials)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initials, true), gettype($initials)), __LINE__);
         }
         $this->Initials = $initials;
         return $this;
@@ -268,7 +268,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($fullName) && !is_string($fullName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fullName, true), gettype($fullName)), __LINE__);
         }
         $this->FullName = $fullName;
         return $this;
@@ -290,7 +290,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($nickname) && !is_string($nickname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($nickname)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
         }
         $this->Nickname = $nickname;
         return $this;
@@ -312,7 +312,7 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($yomiFirstName) && !is_string($yomiFirstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiFirstName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiFirstName, true), gettype($yomiFirstName)), __LINE__);
         }
         $this->YomiFirstName = $yomiFirstName;
         return $this;
@@ -334,29 +334,9 @@ class EwsCompleteNameType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($yomiLastName) && !is_string($yomiLastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($yomiLastName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiLastName, true), gettype($yomiLastName)), __LINE__);
         }
         $this->YomiLastName = $yomiLastName;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsCompleteNameType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

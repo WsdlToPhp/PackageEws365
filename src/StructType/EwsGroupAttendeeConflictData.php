@@ -14,7 +14,7 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
 {
     /**
      * The NumberOfMembers
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public $NumberOfMembers;
     /**
      * The NumberOfMembersAvailable
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -30,7 +30,7 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public $NumberOfMembersAvailable;
     /**
      * The NumberOfMembersWithConflict
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -38,7 +38,7 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public $NumberOfMembersWithConflict;
     /**
      * The NumberOfMembersWithNoData
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -79,8 +79,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembers($numberOfMembers = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembers) && !is_numeric($numberOfMembers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembers)), __LINE__);
+        if (!is_null($numberOfMembers) && !(is_int($numberOfMembers) || ctype_digit($numberOfMembers))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfMembers, true), gettype($numberOfMembers)), __LINE__);
         }
         $this->NumberOfMembers = $numberOfMembers;
         return $this;
@@ -101,8 +101,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersAvailable($numberOfMembersAvailable = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersAvailable) && !is_numeric($numberOfMembersAvailable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersAvailable)), __LINE__);
+        if (!is_null($numberOfMembersAvailable) && !(is_int($numberOfMembersAvailable) || ctype_digit($numberOfMembersAvailable))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfMembersAvailable, true), gettype($numberOfMembersAvailable)), __LINE__);
         }
         $this->NumberOfMembersAvailable = $numberOfMembersAvailable;
         return $this;
@@ -123,8 +123,8 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersWithConflict($numberOfMembersWithConflict = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersWithConflict) && !is_numeric($numberOfMembersWithConflict)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersWithConflict)), __LINE__);
+        if (!is_null($numberOfMembersWithConflict) && !(is_int($numberOfMembersWithConflict) || ctype_digit($numberOfMembersWithConflict))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfMembersWithConflict, true), gettype($numberOfMembersWithConflict)), __LINE__);
         }
         $this->NumberOfMembersWithConflict = $numberOfMembersWithConflict;
         return $this;
@@ -145,30 +145,10 @@ class EwsGroupAttendeeConflictData extends EwsAttendeeConflictData
     public function setNumberOfMembersWithNoData($numberOfMembersWithNoData = null)
     {
         // validation for constraint: int
-        if (!is_null($numberOfMembersWithNoData) && !is_numeric($numberOfMembersWithNoData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($numberOfMembersWithNoData)), __LINE__);
+        if (!is_null($numberOfMembersWithNoData) && !(is_int($numberOfMembersWithNoData) || ctype_digit($numberOfMembersWithNoData))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfMembersWithNoData, true), gettype($numberOfMembersWithNoData)), __LINE__);
         }
         $this->NumberOfMembersWithNoData = $numberOfMembersWithNoData;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGroupAttendeeConflictData
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

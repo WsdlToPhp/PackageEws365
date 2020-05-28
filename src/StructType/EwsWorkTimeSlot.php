@@ -14,7 +14,7 @@ class EwsWorkTimeSlot extends AbstractStructBase
 {
     /**
      * The StartTimeInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -22,7 +22,7 @@ class EwsWorkTimeSlot extends AbstractStructBase
     public $StartTimeInMinutes;
     /**
      * The EndTimeInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -57,8 +57,8 @@ class EwsWorkTimeSlot extends AbstractStructBase
     public function setStartTimeInMinutes($startTimeInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($startTimeInMinutes) && !is_numeric($startTimeInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($startTimeInMinutes)), __LINE__);
+        if (!is_null($startTimeInMinutes) && !(is_int($startTimeInMinutes) || ctype_digit($startTimeInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
         }
         $this->StartTimeInMinutes = $startTimeInMinutes;
         return $this;
@@ -79,30 +79,10 @@ class EwsWorkTimeSlot extends AbstractStructBase
     public function setEndTimeInMinutes($endTimeInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($endTimeInMinutes) && !is_numeric($endTimeInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($endTimeInMinutes)), __LINE__);
+        if (!is_null($endTimeInMinutes) && !(is_int($endTimeInMinutes) || ctype_digit($endTimeInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
         }
         $this->EndTimeInMinutes = $endTimeInMinutes;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsWorkTimeSlot
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

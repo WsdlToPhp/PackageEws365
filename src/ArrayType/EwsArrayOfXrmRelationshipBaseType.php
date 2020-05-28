@@ -14,7 +14,7 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
 {
     /**
      * The XrmRelationshipBaseType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsXrmRelationshipBaseType[]
@@ -39,6 +39,28 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
         return $this->XrmRelationshipBaseType;
     }
     /**
+     * This method is responsible for validating the values passed to the setXrmRelationshipBaseType method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setXrmRelationshipBaseType method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateXrmRelationshipBaseTypeForArrayConstraintsFromSetXrmRelationshipBaseType(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem instanceof \Ews\StructType\EwsXrmRelationshipBaseType) {
+                $invalidValues[] = is_object($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) ? get_class($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) : sprintf('%s(%s)', gettype($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem), var_export($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The XrmRelationshipBaseType property can only contain items of type \Ews\StructType\EwsXrmRelationshipBaseType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set XrmRelationshipBaseType value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsXrmRelationshipBaseType[] $xrmRelationshipBaseType
@@ -46,11 +68,9 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
      */
     public function setXrmRelationshipBaseType(array $xrmRelationshipBaseType = array())
     {
-        foreach ($xrmRelationshipBaseType as $arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem instanceof \Ews\StructType\EwsXrmRelationshipBaseType) {
-                throw new \InvalidArgumentException(sprintf('The XrmRelationshipBaseType property can only contain items of \Ews\StructType\EwsXrmRelationshipBaseType, "%s" given', is_object($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) ? get_class($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem) : gettype($arrayOfXrmRelationshipBaseTypeXrmRelationshipBaseTypeItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($xrmRelationshipBaseTypeArrayErrorMessage = self::validateXrmRelationshipBaseTypeForArrayConstraintsFromSetXrmRelationshipBaseType($xrmRelationshipBaseType))) {
+            throw new \InvalidArgumentException($xrmRelationshipBaseTypeArrayErrorMessage, __LINE__);
         }
         $this->XrmRelationshipBaseType = $xrmRelationshipBaseType;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsXrmRelationshipBaseType) {
-            throw new \InvalidArgumentException(sprintf('The XrmRelationshipBaseType property can only contain items of \Ews\StructType\EwsXrmRelationshipBaseType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The XrmRelationshipBaseType property can only contain items of type \Ews\StructType\EwsXrmRelationshipBaseType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->XrmRelationshipBaseType[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfXrmRelationshipBaseType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'XrmRelationshipBaseType';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

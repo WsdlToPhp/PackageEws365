@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ModernGroupTypeType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsModernGroupTypeType
+class EwsModernGroupTypeType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -31,16 +33,6 @@ class EwsModernGroupTypeType
      */
     const VALUE_PUBLIC = 'Public';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_PRIVATE
@@ -56,13 +48,5 @@ class EwsModernGroupTypeType
             self::VALUE_SECRET,
             self::VALUE_PUBLIC,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

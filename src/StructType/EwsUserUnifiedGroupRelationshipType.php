@@ -14,7 +14,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
 {
     /**
      * The IsMember
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -22,7 +22,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     public $IsMember;
     /**
      * The IsOwner
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -30,7 +30,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     public $IsOwner;
     /**
      * The IsSubscribed
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -69,7 +69,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMember) && !is_bool($isMember)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMember)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
         }
         $this->IsMember = $isMember;
         return $this;
@@ -91,7 +91,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isOwner) && !is_bool($isOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isOwner)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
         }
         $this->IsOwner = $isOwner;
         return $this;
@@ -113,29 +113,9 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isSubscribed)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
         }
         $this->IsSubscribed = $isSubscribed;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

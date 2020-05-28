@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for OofState EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsOofState
+class EwsOofState extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'Disabled'
@@ -26,16 +28,6 @@ class EwsOofState
      */
     const VALUE_SCHEDULED = 'Scheduled';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_DISABLED
      * @uses self::VALUE_ENABLED
@@ -49,13 +41,5 @@ class EwsOofState
             self::VALUE_ENABLED,
             self::VALUE_SCHEDULED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

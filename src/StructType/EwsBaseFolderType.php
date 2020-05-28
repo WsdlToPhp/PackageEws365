@@ -14,49 +14,49 @@ abstract class EwsBaseFolderType extends AbstractStructBase
 {
     /**
      * The FolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $FolderId;
     /**
      * The ParentFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFolderIdType
      */
     public $ParentFolderId;
     /**
      * The FolderClass
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $FolderClass;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DisplayName;
     /**
      * The TotalCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $TotalCount;
     /**
      * The ChildFolderCount
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var int
      */
     public $ChildFolderCount;
     /**
      * The ExtendedProperty
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsExtendedPropertyType[]
@@ -64,42 +64,42 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     public $ExtendedProperty;
     /**
      * The ManagedFolderInformation
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsManagedFolderInformationType
      */
     public $ManagedFolderInformation;
     /**
      * The EffectiveRights
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsEffectiveRightsType
      */
     public $EffectiveRights;
     /**
      * The DistinguishedFolderId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $DistinguishedFolderId;
     /**
      * The PolicyTag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRetentionTagType
      */
     public $PolicyTag;
     /**
      * The ArchiveTag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRetentionTagType
      */
     public $ArchiveTag;
     /**
      * The ReplicaList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
      */
@@ -203,7 +203,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($folderClass) && !is_string($folderClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($folderClass)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($folderClass, true), gettype($folderClass)), __LINE__);
         }
         $this->FolderClass = $folderClass;
         return $this;
@@ -225,7 +225,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -246,8 +246,8 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     public function setTotalCount($totalCount = null)
     {
         // validation for constraint: int
-        if (!is_null($totalCount) && !is_numeric($totalCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($totalCount)), __LINE__);
+        if (!is_null($totalCount) && !(is_int($totalCount) || ctype_digit($totalCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalCount, true), gettype($totalCount)), __LINE__);
         }
         $this->TotalCount = $totalCount;
         return $this;
@@ -268,8 +268,8 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     public function setChildFolderCount($childFolderCount = null)
     {
         // validation for constraint: int
-        if (!is_null($childFolderCount) && !is_numeric($childFolderCount)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($childFolderCount)), __LINE__);
+        if (!is_null($childFolderCount) && !(is_int($childFolderCount) || ctype_digit($childFolderCount))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($childFolderCount, true), gettype($childFolderCount)), __LINE__);
         }
         $this->ChildFolderCount = $childFolderCount;
         return $this;
@@ -283,6 +283,28 @@ abstract class EwsBaseFolderType extends AbstractStructBase
         return $this->ExtendedProperty;
     }
     /**
+     * This method is responsible for validating the values passed to the setExtendedProperty method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setExtendedProperty method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $baseFolderTypeExtendedPropertyItem) {
+            // validation for constraint: itemType
+            if (!$baseFolderTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+                $invalidValues[] = is_object($baseFolderTypeExtendedPropertyItem) ? get_class($baseFolderTypeExtendedPropertyItem) : sprintf('%s(%s)', gettype($baseFolderTypeExtendedPropertyItem), var_export($baseFolderTypeExtendedPropertyItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ExtendedProperty value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
@@ -290,11 +312,9 @@ abstract class EwsBaseFolderType extends AbstractStructBase
      */
     public function setExtendedProperty(array $extendedProperty = array())
     {
-        foreach ($extendedProperty as $baseFolderTypeExtendedPropertyItem) {
-            // validation for constraint: itemType
-            if (!$baseFolderTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
-                throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($baseFolderTypeExtendedPropertyItem) ? get_class($baseFolderTypeExtendedPropertyItem) : gettype($baseFolderTypeExtendedPropertyItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($extendedPropertyArrayErrorMessage = self::validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty($extendedProperty))) {
+            throw new \InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
         }
         $this->ExtendedProperty = $extendedProperty;
         return $this;
@@ -309,7 +329,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
-            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of \Ews\StructType\EwsExtendedPropertyType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->ExtendedProperty[] = $item;
         return $this;
@@ -370,7 +390,7 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid($distinguishedFolderId)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $distinguishedFolderId, implode(', ', \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDistinguishedFolderIdNameType', is_array($distinguishedFolderId) ? implode(', ', $distinguishedFolderId) : var_export($distinguishedFolderId, true), implode(', ', \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
         }
         $this->DistinguishedFolderId = $distinguishedFolderId;
         return $this;
@@ -428,25 +448,5 @@ abstract class EwsBaseFolderType extends AbstractStructBase
     {
         $this->ReplicaList = $replicaList;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsBaseFolderType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

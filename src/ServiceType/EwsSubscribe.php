@@ -53,7 +53,7 @@ class EwsSubscribe extends SoapClientBase
     }
     /**
      * Method to call the operation originally named Subscribe
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsSubscribe extends SoapClientBase
     public function Subscribe(\Ews\StructType\EwsSubscribeType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->Subscribe($request));
+            $this->setResult($this->getSoapClient()->Subscribe($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -83,13 +83,5 @@ class EwsSubscribe extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

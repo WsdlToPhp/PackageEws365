@@ -14,7 +14,7 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
 {
     /**
      * The TimeWindow
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsDuration
@@ -22,7 +22,7 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
     public $TimeWindow;
     /**
      * The MergedFreeBusyIntervalInMinutes
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -30,10 +30,10 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
     public $MergedFreeBusyIntervalInMinutes;
     /**
      * The RequestedView
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string[]
      */
     public $RequestedView;
     /**
@@ -43,9 +43,9 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
      * @uses EwsFreeBusyViewOptionsType::setRequestedView()
      * @param \Ews\StructType\EwsDuration $timeWindow
      * @param int $mergedFreeBusyIntervalInMinutes
-     * @param string $requestedView
+     * @param string[] $requestedView
      */
-    public function __construct(\Ews\StructType\EwsDuration $timeWindow = null, $mergedFreeBusyIntervalInMinutes = null, $requestedView = null)
+    public function __construct(\Ews\StructType\EwsDuration $timeWindow = null, $mergedFreeBusyIntervalInMinutes = null, array $requestedView = array())
     {
         $this
             ->setTimeWindow($timeWindow)
@@ -86,55 +86,57 @@ class EwsFreeBusyViewOptionsType extends AbstractStructBase
     public function setMergedFreeBusyIntervalInMinutes($mergedFreeBusyIntervalInMinutes = null)
     {
         // validation for constraint: int
-        if (!is_null($mergedFreeBusyIntervalInMinutes) && !is_numeric($mergedFreeBusyIntervalInMinutes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($mergedFreeBusyIntervalInMinutes)), __LINE__);
+        if (!is_null($mergedFreeBusyIntervalInMinutes) && !(is_int($mergedFreeBusyIntervalInMinutes) || ctype_digit($mergedFreeBusyIntervalInMinutes))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($mergedFreeBusyIntervalInMinutes, true), gettype($mergedFreeBusyIntervalInMinutes)), __LINE__);
         }
         $this->MergedFreeBusyIntervalInMinutes = $mergedFreeBusyIntervalInMinutes;
         return $this;
     }
     /**
      * Get RequestedView value
-     * @return string|null
+     * @return string[]|null
      */
     public function getRequestedView()
     {
         return $this->RequestedView;
     }
     /**
+     * This method is responsible for validating the values passed to the setRequestedView method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRequestedView method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRequestedViewForArrayConstraintsFromSetRequestedView(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $freeBusyViewOptionsTypeRequestedViewItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($freeBusyViewOptionsTypeRequestedViewItem)) {
+                $invalidValues[] = is_object($freeBusyViewOptionsTypeRequestedViewItem) ? get_class($freeBusyViewOptionsTypeRequestedViewItem) : sprintf('%s(%s)', gettype($freeBusyViewOptionsTypeRequestedViewItem), var_export($freeBusyViewOptionsTypeRequestedViewItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFreeBusyViewType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set RequestedView value
      * @uses \Ews\EnumType\EwsFreeBusyViewType::valueIsValid()
      * @uses \Ews\EnumType\EwsFreeBusyViewType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $requestedView
+     * @param string[] $requestedView
      * @return \Ews\StructType\EwsFreeBusyViewOptionsType
      */
-    public function setRequestedView($requestedView = null)
+    public function setRequestedView(array $requestedView = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($requestedView)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $requestedView, implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($requestedViewArrayErrorMessage = self::validateRequestedViewForArrayConstraintsFromSetRequestedView($requestedView))) {
+            throw new \InvalidArgumentException($requestedViewArrayErrorMessage, __LINE__);
         }
-        $this->RequestedView = $requestedView;
+        $this->RequestedView = is_array($requestedView) ? implode(' ', $requestedView) : null;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsFreeBusyViewOptionsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for PermissionLevelType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsPermissionLevelType
+class EwsPermissionLevelType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -61,16 +63,6 @@ class EwsPermissionLevelType
      */
     const VALUE_CUSTOM = 'Custom';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_OWNER
@@ -98,13 +90,5 @@ class EwsPermissionLevelType
             self::VALUE_CONTRIBUTOR,
             self::VALUE_CUSTOM,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

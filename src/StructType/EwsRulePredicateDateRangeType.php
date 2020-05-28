@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RulePredicateDateRangeType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Date range type used for the WithinDateRange rule predicate.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
 {
     /**
      * The StartDateTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -24,7 +24,7 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     public $StartDateTime;
     /**
      * The EndDateTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -60,7 +60,7 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($startDateTime) && !is_string($startDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startDateTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
         }
         $this->StartDateTime = $startDateTime;
         return $this;
@@ -82,29 +82,9 @@ class EwsRulePredicateDateRangeType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($endDateTime) && !is_string($endDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endDateTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDateTime, true), gettype($endDateTime)), __LINE__);
         }
         $this->EndDateTime = $endDateTime;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsRulePredicateDateRangeType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

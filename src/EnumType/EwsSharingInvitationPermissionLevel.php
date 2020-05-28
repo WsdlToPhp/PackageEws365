@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for SharingInvitationPermissionLevel EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsSharingInvitationPermissionLevel
+class EwsSharingInvitationPermissionLevel extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'FreeBusy'
@@ -36,16 +38,6 @@ class EwsSharingInvitationPermissionLevel
      */
     const VALUE_CO_OWNER = 'CoOwner';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_FREE_BUSY
      * @uses self::VALUE_LIMITED_DETAILS
@@ -63,13 +55,5 @@ class EwsSharingInvitationPermissionLevel
             self::VALUE_READ_WRITE,
             self::VALUE_CO_OWNER,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

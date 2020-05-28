@@ -14,42 +14,42 @@ class EwsChangeHighlightsType extends AbstractStructBase
 {
     /**
      * The HasLocationChanged
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasLocationChanged;
     /**
      * The Location
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Location;
     /**
      * The HasStartTimeChanged
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasStartTimeChanged;
     /**
      * The Start
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
     public $Start;
     /**
      * The HasEndTimeChanged
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var bool
      */
     public $HasEndTimeChanged;
     /**
      * The End
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - minOccurs: 0
      * @var string
      */
@@ -96,7 +96,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasLocationChanged) && !is_bool($hasLocationChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasLocationChanged)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasLocationChanged, true), gettype($hasLocationChanged)), __LINE__);
         }
         $this->HasLocationChanged = $hasLocationChanged;
         return $this;
@@ -118,7 +118,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($location)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
         return $this;
@@ -140,7 +140,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasStartTimeChanged) && !is_bool($hasStartTimeChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasStartTimeChanged)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasStartTimeChanged, true), gettype($hasStartTimeChanged)), __LINE__);
         }
         $this->HasStartTimeChanged = $hasStartTimeChanged;
         return $this;
@@ -162,7 +162,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($start)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
         return $this;
@@ -184,7 +184,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($hasEndTimeChanged) && !is_bool($hasEndTimeChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($hasEndTimeChanged)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasEndTimeChanged, true), gettype($hasEndTimeChanged)), __LINE__);
         }
         $this->HasEndTimeChanged = $hasEndTimeChanged;
         return $this;
@@ -206,29 +206,9 @@ class EwsChangeHighlightsType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($end)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsChangeHighlightsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

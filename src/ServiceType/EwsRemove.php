@@ -53,7 +53,7 @@ class EwsRemove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named RemoveDelegate
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -68,7 +68,7 @@ class EwsRemove extends SoapClientBase
     public function RemoveDelegate(\Ews\StructType\EwsRemoveDelegateType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->RemoveDelegate($request));
+            $this->setResult($this->getSoapClient()->RemoveDelegate($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -77,7 +77,7 @@ class EwsRemove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named RemoveImContactFromGroup
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -92,7 +92,7 @@ class EwsRemove extends SoapClientBase
     public function RemoveImContactFromGroup(\Ews\StructType\EwsRemoveImContactFromGroupType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->RemoveImContactFromGroup($request));
+            $this->setResult($this->getSoapClient()->RemoveImContactFromGroup($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -101,7 +101,7 @@ class EwsRemove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named RemoveContactFromImList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -116,7 +116,7 @@ class EwsRemove extends SoapClientBase
     public function RemoveContactFromImList(\Ews\StructType\EwsRemoveContactFromImListType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->RemoveContactFromImList($request));
+            $this->setResult($this->getSoapClient()->RemoveContactFromImList($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -125,7 +125,7 @@ class EwsRemove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named RemoveDistributionGroupFromImList
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -140,7 +140,7 @@ class EwsRemove extends SoapClientBase
     public function RemoveDistributionGroupFromImList(\Ews\StructType\EwsRemoveDistributionGroupFromImListType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->RemoveDistributionGroupFromImList($request));
+            $this->setResult($this->getSoapClient()->RemoveDistributionGroupFromImList($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -149,7 +149,7 @@ class EwsRemove extends SoapClientBase
     }
     /**
      * Method to call the operation originally named RemoveImGroup
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
      * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
@@ -164,7 +164,7 @@ class EwsRemove extends SoapClientBase
     public function RemoveImGroup(\Ews\StructType\EwsRemoveImGroupType $request)
     {
         try {
-            $this->setResult(self::getSoapClient()->RemoveImGroup($request));
+            $this->setResult($this->getSoapClient()->RemoveImGroup($request));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -179,13 +179,5 @@ class EwsRemove extends SoapClientBase
     public function getResult()
     {
         return parent::getResult();
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -14,7 +14,7 @@ class EwsGetStaffAvailabilityType extends EwsBaseBookingRequestType
 {
     /**
      * The StaffEmails
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
@@ -22,7 +22,7 @@ class EwsGetStaffAvailabilityType extends EwsBaseBookingRequestType
     public $StaffEmails;
     /**
      * The TimeWindow
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\StructType\EwsDuration
@@ -76,25 +76,5 @@ class EwsGetStaffAvailabilityType extends EwsBaseBookingRequestType
     {
         $this->TimeWindow = $timeWindow;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsGetStaffAvailabilityType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

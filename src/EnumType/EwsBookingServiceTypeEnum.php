@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for BookingServiceTypeEnum EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsBookingServiceTypeEnum
+class EwsBookingServiceTypeEnum extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'UserDefined'
@@ -21,16 +23,6 @@ class EwsBookingServiceTypeEnum
      */
     const VALUE_TIME_OFF = 'TimeOff';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_USER_DEFINED
      * @uses self::VALUE_TIME_OFF
@@ -42,13 +34,5 @@ class EwsBookingServiceTypeEnum
             self::VALUE_USER_DEFINED,
             self::VALUE_TIME_OFF,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

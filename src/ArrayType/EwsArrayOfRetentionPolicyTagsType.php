@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRetentionPolicyTagsType ArrayType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Array of retention policy tags.
  * @package Ews
  * @subpackage Arrays
@@ -16,7 +16,7 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
 {
     /**
      * The RetentionPolicyTag
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsRetentionPolicyTagType[]
@@ -41,6 +41,28 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
         return $this->RetentionPolicyTag;
     }
     /**
+     * This method is responsible for validating the values passed to the setRetentionPolicyTag method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setRetentionPolicyTag method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateRetentionPolicyTagForArrayConstraintsFromSetRetentionPolicyTag(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem instanceof \Ews\StructType\EwsRetentionPolicyTagType) {
+                $invalidValues[] = is_object($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) ? get_class($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) : sprintf('%s(%s)', gettype($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem), var_export($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The RetentionPolicyTag property can only contain items of type \Ews\StructType\EwsRetentionPolicyTagType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set RetentionPolicyTag value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsRetentionPolicyTagType[] $retentionPolicyTag
@@ -48,11 +70,9 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
      */
     public function setRetentionPolicyTag(array $retentionPolicyTag = array())
     {
-        foreach ($retentionPolicyTag as $arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem instanceof \Ews\StructType\EwsRetentionPolicyTagType) {
-                throw new \InvalidArgumentException(sprintf('The RetentionPolicyTag property can only contain items of \Ews\StructType\EwsRetentionPolicyTagType, "%s" given', is_object($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) ? get_class($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem) : gettype($arrayOfRetentionPolicyTagsTypeRetentionPolicyTagItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($retentionPolicyTagArrayErrorMessage = self::validateRetentionPolicyTagForArrayConstraintsFromSetRetentionPolicyTag($retentionPolicyTag))) {
+            throw new \InvalidArgumentException($retentionPolicyTagArrayErrorMessage, __LINE__);
         }
         $this->RetentionPolicyTag = $retentionPolicyTag;
         return $this;
@@ -67,7 +87,7 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsRetentionPolicyTagType) {
-            throw new \InvalidArgumentException(sprintf('The RetentionPolicyTag property can only contain items of \Ews\StructType\EwsRetentionPolicyTagType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The RetentionPolicyTag property can only contain items of type \Ews\StructType\EwsRetentionPolicyTagType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->RetentionPolicyTag[] = $item;
         return $this;
@@ -127,25 +147,5 @@ class EwsArrayOfRetentionPolicyTagsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'RetentionPolicyTag';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

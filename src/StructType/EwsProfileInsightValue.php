@@ -14,7 +14,7 @@ class EwsProfileInsightValue extends EwsInsightValue
 {
     /**
      * The FullName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -22,7 +22,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $FullName;
     /**
      * The FirstName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -30,7 +30,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $FirstName;
     /**
      * The LastName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -38,7 +38,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $LastName;
     /**
      * The EmailAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -46,7 +46,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $EmailAddress;
     /**
      * The Avatar
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -54,7 +54,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $Avatar;
     /**
      * The JoinedUtcTicks
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -62,7 +62,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $JoinedUtcTicks;
     /**
      * The ProfilePicture
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\StructType\EwsUserProfilePicture
@@ -70,7 +70,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     public $ProfilePicture;
     /**
      * The Title
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -124,7 +124,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($fullName) && !is_string($fullName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($fullName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fullName, true), gettype($fullName)), __LINE__);
         }
         $this->FullName = $fullName;
         return $this;
@@ -146,7 +146,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($firstName) && !is_string($firstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($firstName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($firstName, true), gettype($firstName)), __LINE__);
         }
         $this->FirstName = $firstName;
         return $this;
@@ -168,7 +168,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($lastName) && !is_string($lastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($lastName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastName, true), gettype($lastName)), __LINE__);
         }
         $this->LastName = $lastName;
         return $this;
@@ -190,7 +190,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
         return $this;
@@ -212,7 +212,7 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($avatar) && !is_string($avatar)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($avatar)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($avatar, true), gettype($avatar)), __LINE__);
         }
         $this->Avatar = $avatar;
         return $this;
@@ -233,8 +233,8 @@ class EwsProfileInsightValue extends EwsInsightValue
     public function setJoinedUtcTicks($joinedUtcTicks = null)
     {
         // validation for constraint: int
-        if (!is_null($joinedUtcTicks) && !is_numeric($joinedUtcTicks)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($joinedUtcTicks)), __LINE__);
+        if (!is_null($joinedUtcTicks) && !(is_int($joinedUtcTicks) || ctype_digit($joinedUtcTicks))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($joinedUtcTicks, true), gettype($joinedUtcTicks)), __LINE__);
         }
         $this->JoinedUtcTicks = $joinedUtcTicks;
         return $this;
@@ -274,29 +274,9 @@ class EwsProfileInsightValue extends EwsInsightValue
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($title)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsProfileInsightValue
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for KeywordStatisticsSearchResultType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Keyword statistics search result.
  * @package Ews
  * @subpackage Structs
@@ -16,7 +16,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
 {
     /**
      * The Keyword
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -24,7 +24,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     public $Keyword;
     /**
      * The ItemHits
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -32,7 +32,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     public $ItemHits;
     /**
      * The Size
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -71,7 +71,7 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($keyword) && !is_string($keyword)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($keyword)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($keyword, true), gettype($keyword)), __LINE__);
         }
         $this->Keyword = $keyword;
         return $this;
@@ -92,8 +92,8 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     public function setItemHits($itemHits = null)
     {
         // validation for constraint: int
-        if (!is_null($itemHits) && !is_numeric($itemHits)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($itemHits)), __LINE__);
+        if (!is_null($itemHits) && !(is_int($itemHits) || ctype_digit($itemHits))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemHits, true), gettype($itemHits)), __LINE__);
         }
         $this->ItemHits = $itemHits;
         return $this;
@@ -114,30 +114,10 @@ class EwsKeywordStatisticsSearchResultType extends AbstractStructBase
     public function setSize($size = null)
     {
         // validation for constraint: int
-        if (!is_null($size) && !is_numeric($size)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($size)), __LINE__);
+        if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsKeywordStatisticsSearchResultType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

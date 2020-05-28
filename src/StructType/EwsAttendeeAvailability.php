@@ -52,7 +52,7 @@ class EwsAttendeeAvailability extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($emailAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
         return $this;
@@ -77,29 +77,9 @@ class EwsAttendeeAvailability extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsAvailabilityStatusType::valueIsValid($availability)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $availability, implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAvailabilityStatusType', is_array($availability) ? implode(', ', $availability) : var_export($availability, true), implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
         }
         $this->Availability = $availability;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsAttendeeAvailability
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

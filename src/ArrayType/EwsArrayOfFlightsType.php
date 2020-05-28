@@ -14,7 +14,7 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
 {
     /**
      * The Flight
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * @var \Ews\StructType\EwsFlightEntityType[]
@@ -39,6 +39,28 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
         return $this->Flight;
     }
     /**
+     * This method is responsible for validating the values passed to the setFlight method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setFlight method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateFlightForArrayConstraintsFromSetFlight(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $arrayOfFlightsTypeFlightItem) {
+            // validation for constraint: itemType
+            if (!$arrayOfFlightsTypeFlightItem instanceof \Ews\StructType\EwsFlightEntityType) {
+                $invalidValues[] = is_object($arrayOfFlightsTypeFlightItem) ? get_class($arrayOfFlightsTypeFlightItem) : sprintf('%s(%s)', gettype($arrayOfFlightsTypeFlightItem), var_export($arrayOfFlightsTypeFlightItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('The Flight property can only contain items of type \Ews\StructType\EwsFlightEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set Flight value
      * @throws \InvalidArgumentException
      * @param \Ews\StructType\EwsFlightEntityType[] $flight
@@ -46,11 +68,9 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      */
     public function setFlight(array $flight = array())
     {
-        foreach ($flight as $arrayOfFlightsTypeFlightItem) {
-            // validation for constraint: itemType
-            if (!$arrayOfFlightsTypeFlightItem instanceof \Ews\StructType\EwsFlightEntityType) {
-                throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of \Ews\StructType\EwsFlightEntityType, "%s" given', is_object($arrayOfFlightsTypeFlightItem) ? get_class($arrayOfFlightsTypeFlightItem) : gettype($arrayOfFlightsTypeFlightItem)), __LINE__);
-            }
+        // validation for constraint: array
+        if ('' !== ($flightArrayErrorMessage = self::validateFlightForArrayConstraintsFromSetFlight($flight))) {
+            throw new \InvalidArgumentException($flightArrayErrorMessage, __LINE__);
         }
         $this->Flight = $flight;
         return $this;
@@ -65,7 +85,7 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
     {
         // validation for constraint: itemType
         if (!$item instanceof \Ews\StructType\EwsFlightEntityType) {
-            throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of \Ews\StructType\EwsFlightEntityType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of type \Ews\StructType\EwsFlightEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Flight[] = $item;
         return $this;
@@ -125,25 +145,5 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
     public function getAttributeName()
     {
         return 'Flight';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsArrayOfFlightsType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

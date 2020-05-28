@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for ExceptionPropertyURIType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsExceptionPropertyURIType
+class EwsExceptionPropertyURIType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'attachment:Name'
@@ -61,16 +63,6 @@ class EwsExceptionPropertyURIType
      */
     const VALUE_TIMEZONE_OFFSET = 'timezone:Offset';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_ATTACHMENT_NAME
      * @uses self::VALUE_ATTACHMENT_CONTENT_TYPE
@@ -98,13 +90,5 @@ class EwsExceptionPropertyURIType
             self::VALUE_RECURRENCE_NUMBER_OF_OCCURRENCES,
             self::VALUE_TIMEZONE_OFFSET,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

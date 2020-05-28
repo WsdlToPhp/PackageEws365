@@ -23,7 +23,8 @@ You can generate again the package's sources using the [generate.sh](generate.sh
 ```bash
 $ git clone https://github.com/WsdlToPhp/PackageEws365.git package-ews365
 $ cd package-ews365
-$ ./generate.sh
+$ docker-compose up -d
+$ docker exec -it package_ews365 generate.sh
 ```
 To learn how to customize the generated package, please read the PackageGenerator's [README](https://github.com/WsdlToPhp/PackageGenerator/blob/master/README.md).
 
@@ -33,7 +34,7 @@ To learn how to customize the generated package, please read the PackageGenerato
 ```bash
 $ git clone https://github.com/WsdlToPhp/PackageEws365.git package-ews365
 $ cd package-ews365
-$ composer update
+$ docker exec -it package_ews365 php-7.3 /usr/bin/composer update
 ```
 
 ## Learn from the tutorial

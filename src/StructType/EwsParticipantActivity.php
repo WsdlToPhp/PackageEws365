@@ -14,17 +14,18 @@ class EwsParticipantActivity extends AbstractStructBase
 {
     /**
      * The Id
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $Id;
     /**
      * The CreatedBy
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -32,7 +33,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $CreatedBy;
     /**
      * The StartTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -40,7 +41,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $StartTime;
     /**
      * The EndTime
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -48,7 +49,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $EndTime;
     /**
      * The ClientVersion
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -56,7 +57,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $ClientVersion;
     /**
      * The Role
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -64,7 +65,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $Role;
     /**
      * The MediaType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -72,7 +73,7 @@ class EwsParticipantActivity extends AbstractStructBase
     public $MediaType;
     /**
      * The MediaDetails
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var string
@@ -124,13 +125,13 @@ class EwsParticipantActivity extends AbstractStructBase
      */
     public function setId($id = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($id, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($id)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($id) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $id)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($id, true)), __LINE__);
         }
         $this->Id = $id;
         return $this;
@@ -152,7 +153,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($createdBy) && !is_string($createdBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($createdBy)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdBy, true), gettype($createdBy)), __LINE__);
         }
         $this->CreatedBy = $createdBy;
         return $this;
@@ -174,7 +175,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($startTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
         return $this;
@@ -196,7 +197,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($endTime)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
         return $this;
@@ -218,7 +219,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($clientVersion) && !is_string($clientVersion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($clientVersion)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientVersion, true), gettype($clientVersion)), __LINE__);
         }
         $this->ClientVersion = $clientVersion;
         return $this;
@@ -243,7 +244,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsParticipantActivityRole::valueIsValid($role)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $role, implode(', ', \Ews\EnumType\EwsParticipantActivityRole::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsParticipantActivityRole', is_array($role) ? implode(', ', $role) : var_export($role, true), implode(', ', \Ews\EnumType\EwsParticipantActivityRole::getValidValues())), __LINE__);
         }
         $this->Role = $role;
         return $this;
@@ -268,7 +269,7 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsParticipantActivityMediaType::valueIsValid($mediaType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $mediaType, implode(', ', \Ews\EnumType\EwsParticipantActivityMediaType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsParticipantActivityMediaType', is_array($mediaType) ? implode(', ', $mediaType) : var_export($mediaType, true), implode(', ', \Ews\EnumType\EwsParticipantActivityMediaType::getValidValues())), __LINE__);
         }
         $this->MediaType = $mediaType;
         return $this;
@@ -290,29 +291,9 @@ class EwsParticipantActivity extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($mediaDetails) && !is_string($mediaDetails)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($mediaDetails)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mediaDetails, true), gettype($mediaDetails)), __LINE__);
         }
         $this->MediaDetails = $mediaDetails;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsParticipantActivity
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

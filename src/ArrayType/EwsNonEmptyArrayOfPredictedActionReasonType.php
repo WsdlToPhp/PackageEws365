@@ -14,7 +14,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
 {
     /**
      * The PredictedActionReason
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * @var string[]
      */
@@ -38,6 +38,28 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
         return $this->PredictedActionReason;
     }
     /**
+     * This method is responsible for validating the values passed to the setPredictedActionReason method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setPredictedActionReason method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validatePredictedActionReasonForArrayConstraintsFromSetPredictedActionReason(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem)) {
+                $invalidValues[] = is_object($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) ? get_class($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem), var_export($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set PredictedActionReason value
      * @uses \Ews\EnumType\EwsPredictedActionReasonType::valueIsValid()
      * @uses \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()
@@ -47,14 +69,9 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      */
     public function setPredictedActionReason(array $predictedActionReason = array())
     {
-        $invalidValues = array();
-        foreach ($predictedActionReason as $nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) {
-            if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem)) {
-                $invalidValues[] = var_export($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem, true);
-            }
-        }
-        if (!empty($invalidValues)) {
-            throw new \InvalidArgumentException(sprintf('Value(s) "%s" is/are invalid, please use one of: %s', implode(', ', $invalidValues), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
+        // validation for constraint: array
+        if ('' !== ($predictedActionReasonArrayErrorMessage = self::validatePredictedActionReasonForArrayConstraintsFromSetPredictedActionReason($predictedActionReason))) {
+            throw new \InvalidArgumentException($predictedActionReasonArrayErrorMessage, __LINE__);
         }
         $this->PredictedActionReason = $predictedActionReason;
         return $this;
@@ -71,7 +88,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
         }
         $this->PredictedActionReason[] = $item;
         return $this;
@@ -133,8 +150,9 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      */
     public function add($item)
     {
+        // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $item, implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -146,25 +164,5 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
     public function getAttributeName()
     {
         return 'PredictedActionReason';
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructArrayBase::__set_state()
-     * @uses AbstractStructArrayBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

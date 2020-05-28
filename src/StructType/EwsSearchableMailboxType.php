@@ -6,7 +6,7 @@ use \WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchableMailboxType StructType
- * Meta informations extracted from the WSDL
+ * Meta information extracted from the WSDL
  * - documentation: Searchable mailbox.
  * @package Ews
  * @subpackage Structs
@@ -16,17 +16,18 @@ class EwsSearchableMailboxType extends AbstractStructBase
 {
     /**
      * The Guid
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - documentation: The regular expression captures the standard representation of a GUID
+     * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 1
-     * - documentation: The regular expression captures the standard representation of a GUID
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
     public $Guid;
     /**
      * The PrimarySmtpAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -34,7 +35,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     public $PrimarySmtpAddress;
     /**
      * The IsExternalMailbox
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -42,7 +43,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     public $IsExternalMailbox;
     /**
      * The ExternalEmailAddress
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -50,7 +51,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     public $ExternalEmailAddress;
     /**
      * The DisplayName
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -58,7 +59,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     public $DisplayName;
     /**
      * The IsMembershipGroup
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var bool
@@ -66,7 +67,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     public $IsMembershipGroup;
     /**
      * The ReferenceId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -115,13 +116,13 @@ class EwsSearchableMailboxType extends AbstractStructBase
      */
     public function setGuid($guid = null)
     {
-        // validation for constraint: pattern
-        if (is_scalar($guid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $guid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a scalar value that matches "[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}", "%s" given', var_export($guid, true)), __LINE__);
-        }
         // validation for constraint: string
         if (!is_null($guid) && !is_string($guid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($guid)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($guid, true), gettype($guid)), __LINE__);
+        }
+        // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
+        if (!is_null($guid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $guid)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}', var_export($guid, true)), __LINE__);
         }
         $this->Guid = $guid;
         return $this;
@@ -143,7 +144,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($primarySmtpAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
         return $this;
@@ -165,7 +166,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isExternalMailbox) && !is_bool($isExternalMailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isExternalMailbox)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isExternalMailbox, true), gettype($isExternalMailbox)), __LINE__);
         }
         $this->IsExternalMailbox = $isExternalMailbox;
         return $this;
@@ -187,7 +188,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($externalEmailAddress) && !is_string($externalEmailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($externalEmailAddress)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalEmailAddress, true), gettype($externalEmailAddress)), __LINE__);
         }
         $this->ExternalEmailAddress = $externalEmailAddress;
         return $this;
@@ -209,7 +210,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($displayName)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
         return $this;
@@ -231,7 +232,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($isMembershipGroup) && !is_bool($isMembershipGroup)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isMembershipGroup)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMembershipGroup, true), gettype($isMembershipGroup)), __LINE__);
         }
         $this->IsMembershipGroup = $isMembershipGroup;
         return $this;
@@ -253,29 +254,9 @@ class EwsSearchableMailboxType extends AbstractStructBase
     {
         // validation for constraint: string
         if (!is_null($referenceId) && !is_string($referenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($referenceId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($referenceId, true), gettype($referenceId)), __LINE__);
         }
         $this->ReferenceId = $referenceId;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsSearchableMailboxType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

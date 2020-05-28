@@ -14,7 +14,7 @@ class EwsInsightFiltersType extends AbstractStructBase
 {
     /**
      * The Count
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var int
@@ -22,7 +22,7 @@ class EwsInsightFiltersType extends AbstractStructBase
     public $Count;
     /**
      * The Types
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfStringsType
@@ -30,7 +30,7 @@ class EwsInsightFiltersType extends AbstractStructBase
     public $Types;
     /**
      * The KeyInsightsOnly
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -68,8 +68,8 @@ class EwsInsightFiltersType extends AbstractStructBase
     public function setCount($count = null)
     {
         // validation for constraint: int
-        if (!is_null($count) && !is_numeric($count)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($count)), __LINE__);
+        if (!is_null($count) && !(is_int($count) || ctype_digit($count))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
         }
         $this->Count = $count;
         return $this;
@@ -109,29 +109,9 @@ class EwsInsightFiltersType extends AbstractStructBase
     {
         // validation for constraint: boolean
         if (!is_null($keyInsightsOnly) && !is_bool($keyInsightsOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($keyInsightsOnly)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($keyInsightsOnly, true), gettype($keyInsightsOnly)), __LINE__);
         }
         $this->KeyInsightsOnly = $keyInsightsOnly;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsInsightFiltersType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

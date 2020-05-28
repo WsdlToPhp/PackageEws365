@@ -14,7 +14,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
 {
     /**
      * The SearchSessionId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -22,23 +22,23 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $SearchSessionId;
     /**
      * The ItemType
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $ItemType;
     /**
      * The QueryOptions
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string
+     * @var string[]
      */
     public $QueryOptions;
     /**
      * The SearchRequestId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var int
@@ -46,7 +46,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $SearchRequestId;
     /**
      * The KqlQuery
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var string
@@ -54,7 +54,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $KqlQuery;
     /**
      * The FolderScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * @var \Ews\ArrayType\EwsArrayOfFolderIdType
@@ -62,7 +62,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $FolderScope;
     /**
      * The DistinguishedFolderScope
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType
@@ -70,7 +70,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $DistinguishedFolderScope;
     /**
      * The IsDeepTraversal
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -78,7 +78,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public $IsDeepTraversal;
     /**
      * The WaitOnSearchResults
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * @var bool
@@ -96,8 +96,8 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * @uses EwsPerformInstantSearchRequest::setIsDeepTraversal()
      * @uses EwsPerformInstantSearchRequest::setWaitOnSearchResults()
      * @param string $searchSessionId
-     * @param string $itemType
-     * @param string $queryOptions
+     * @param string[] $itemType
+     * @param string[] $queryOptions
      * @param int $searchRequestId
      * @param string $kqlQuery
      * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope
@@ -105,7 +105,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
      * @param bool $isDeepTraversal
      * @param bool $waitOnSearchResults
      */
-    public function __construct($searchSessionId = null, $itemType = null, $queryOptions = null, $searchRequestId = null, $kqlQuery = null, \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope = null, \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope = null, $isDeepTraversal = null, $waitOnSearchResults = null)
+    public function __construct($searchSessionId = null, array $itemType = array(), array $queryOptions = array(), $searchRequestId = null, $kqlQuery = null, \Ews\ArrayType\EwsArrayOfFolderIdType $folderScope = null, \Ews\ArrayType\EwsArrayOfDistinguishedFolderIdType $distinguishedFolderScope = null, $isDeepTraversal = null, $waitOnSearchResults = null)
     {
         $this
             ->setSearchSessionId($searchSessionId)
@@ -135,59 +135,103 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($searchSessionId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
         return $this;
     }
     /**
      * Get ItemType value
-     * @return string
+     * @return string[]
      */
     public function getItemType()
     {
         return $this->ItemType;
     }
     /**
+     * This method is responsible for validating the values passed to the setItemType method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setItemType method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateItemTypeForArrayConstraintsFromSetItemType(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $performInstantSearchRequestItemTypeItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsInstantSearchItemType::valueIsValid($performInstantSearchRequestItemTypeItem)) {
+                $invalidValues[] = is_object($performInstantSearchRequestItemTypeItem) ? get_class($performInstantSearchRequestItemTypeItem) : sprintf('%s(%s)', gettype($performInstantSearchRequestItemTypeItem), var_export($performInstantSearchRequestItemTypeItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsInstantSearchItemType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsInstantSearchItemType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set ItemType value
      * @uses \Ews\EnumType\EwsInstantSearchItemType::valueIsValid()
      * @uses \Ews\EnumType\EwsInstantSearchItemType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $itemType
+     * @param string[] $itemType
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
-    public function setItemType($itemType = null)
+    public function setItemType(array $itemType = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsInstantSearchItemType::valueIsValid($itemType)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $itemType, implode(', ', \Ews\EnumType\EwsInstantSearchItemType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($itemTypeArrayErrorMessage = self::validateItemTypeForArrayConstraintsFromSetItemType($itemType))) {
+            throw new \InvalidArgumentException($itemTypeArrayErrorMessage, __LINE__);
         }
-        $this->ItemType = $itemType;
+        $this->ItemType = is_array($itemType) ? implode(' ', $itemType) : null;
         return $this;
     }
     /**
      * Get QueryOptions value
-     * @return string
+     * @return string[]
      */
     public function getQueryOptions()
     {
         return $this->QueryOptions;
     }
     /**
+     * This method is responsible for validating the values passed to the setQueryOptions method
+     * This method is willingly generated in order to preserve the one-line inline validation within the setQueryOptions method
+     * @param array $values
+     * @return string A non-empty message if the values does not match the validation rules
+     */
+    public static function validateQueryOptionsForArrayConstraintsFromSetQueryOptions(array $values = array())
+    {
+        $message = '';
+        $invalidValues = [];
+        foreach ($values as $performInstantSearchRequestQueryOptionsItem) {
+            // validation for constraint: enumeration
+            if (!\Ews\EnumType\EwsQueryOptionsType::valueIsValid($performInstantSearchRequestQueryOptionsItem)) {
+                $invalidValues[] = is_object($performInstantSearchRequestQueryOptionsItem) ? get_class($performInstantSearchRequestQueryOptionsItem) : sprintf('%s(%s)', gettype($performInstantSearchRequestQueryOptionsItem), var_export($performInstantSearchRequestQueryOptionsItem, true));
+            }
+        }
+        if (!empty($invalidValues)) {
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsQueryOptionsType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsQueryOptionsType::getValidValues()));
+        }
+        unset($invalidValues);
+        return $message;
+    }
+    /**
      * Set QueryOptions value
      * @uses \Ews\EnumType\EwsQueryOptionsType::valueIsValid()
      * @uses \Ews\EnumType\EwsQueryOptionsType::getValidValues()
      * @throws \InvalidArgumentException
-     * @param string $queryOptions
+     * @param string[] $queryOptions
      * @return \Ews\StructType\EwsPerformInstantSearchRequest
      */
-    public function setQueryOptions($queryOptions = null)
+    public function setQueryOptions(array $queryOptions = array())
     {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsQueryOptionsType::valueIsValid($queryOptions)) {
-            throw new \InvalidArgumentException(sprintf('Value "%s" is invalid, please use one of: %s', $queryOptions, implode(', ', \Ews\EnumType\EwsQueryOptionsType::getValidValues())), __LINE__);
+        // validation for constraint: list
+        if ('' !== ($queryOptionsArrayErrorMessage = self::validateQueryOptionsForArrayConstraintsFromSetQueryOptions($queryOptions))) {
+            throw new \InvalidArgumentException($queryOptionsArrayErrorMessage, __LINE__);
         }
-        $this->QueryOptions = $queryOptions;
+        $this->QueryOptions = is_array($queryOptions) ? implode(' ', $queryOptions) : null;
         return $this;
     }
     /**
@@ -206,8 +250,8 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     public function setSearchRequestId($searchRequestId = null)
     {
         // validation for constraint: int
-        if (!is_null($searchRequestId) && !is_numeric($searchRequestId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($searchRequestId)), __LINE__);
+        if (!is_null($searchRequestId) && !(is_int($searchRequestId) || ctype_digit($searchRequestId))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($searchRequestId, true), gettype($searchRequestId)), __LINE__);
         }
         $this->SearchRequestId = $searchRequestId;
         return $this;
@@ -229,7 +273,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     {
         // validation for constraint: string
         if (!is_null($kqlQuery) && !is_string($kqlQuery)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($kqlQuery)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($kqlQuery, true), gettype($kqlQuery)), __LINE__);
         }
         $this->KqlQuery = $kqlQuery;
         return $this;
@@ -287,7 +331,7 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($isDeepTraversal) && !is_bool($isDeepTraversal)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($isDeepTraversal)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDeepTraversal, true), gettype($isDeepTraversal)), __LINE__);
         }
         $this->IsDeepTraversal = $isDeepTraversal;
         return $this;
@@ -309,29 +353,9 @@ class EwsPerformInstantSearchRequest extends EwsBaseRequestType
     {
         // validation for constraint: boolean
         if (!is_null($waitOnSearchResults) && !is_bool($waitOnSearchResults)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a bool, "%s" given', gettype($waitOnSearchResults)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($waitOnSearchResults, true), gettype($waitOnSearchResults)), __LINE__);
         }
         $this->WaitOnSearchResults = $waitOnSearchResults;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsPerformInstantSearchRequest
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

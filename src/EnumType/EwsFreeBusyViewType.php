@@ -2,13 +2,15 @@
 
 namespace Ews\EnumType;
 
+use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+
 /**
  * This class stands for FreeBusyViewType EnumType
  * @package Ews
  * @subpackage Enumerations
  * @author WsdlToPhp <contact@wsdltophp.com>
  */
-class EwsFreeBusyViewType
+class EwsFreeBusyViewType extends AbstractStructEnumBase
 {
     /**
      * Constant for value 'None'
@@ -41,16 +43,6 @@ class EwsFreeBusyViewType
      */
     const VALUE_DETAILED_MERGED = 'DetailedMerged';
     /**
-     * Return true if value is allowed
-     * @uses self::getValidValues()
-     * @param mixed $value value
-     * @return bool true|false
-     */
-    public static function valueIsValid($value)
-    {
-        return ($value === null) || in_array($value, self::getValidValues(), true);
-    }
-    /**
      * Return allowed values
      * @uses self::VALUE_NONE
      * @uses self::VALUE_MERGED_ONLY
@@ -70,13 +62,5 @@ class EwsFreeBusyViewType
             self::VALUE_DETAILED,
             self::VALUE_DETAILED_MERGED,
         );
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }

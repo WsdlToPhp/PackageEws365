@@ -14,21 +14,22 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
 {
     /**
      * The RecurringMasterId
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
+     * - base: xs:string
      * - use: required
      * @var string
      */
     public $RecurringMasterId;
     /**
      * The InstanceIndex
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: required
      * @var int
      */
     public $InstanceIndex;
     /**
      * The ChangeKey
-     * Meta informations extracted from the WSDL
+     * Meta information extracted from the WSDL
      * - use: optional
      * @var string
      */
@@ -66,7 +67,7 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
     {
         // validation for constraint: string
         if (!is_null($recurringMasterId) && !is_string($recurringMasterId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($recurringMasterId)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($recurringMasterId, true), gettype($recurringMasterId)), __LINE__);
         }
         $this->RecurringMasterId = $recurringMasterId;
         return $this;
@@ -87,8 +88,8 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
     public function setInstanceIndex($instanceIndex = null)
     {
         // validation for constraint: int
-        if (!is_null($instanceIndex) && !is_numeric($instanceIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a numeric value, "%s" given', gettype($instanceIndex)), __LINE__);
+        if (!is_null($instanceIndex) && !(is_int($instanceIndex) || ctype_digit($instanceIndex))) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($instanceIndex, true), gettype($instanceIndex)), __LINE__);
         }
         $this->InstanceIndex = $instanceIndex;
         return $this;
@@ -110,29 +111,9 @@ class EwsOccurrenceItemIdType extends EwsBaseItemIdType
     {
         // validation for constraint: string
         if (!is_null($changeKey) && !is_string($changeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value, please provide a string, "%s" given', gettype($changeKey)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
         }
         $this->ChangeKey = $changeKey;
         return $this;
-    }
-    /**
-     * Method called when an object has been exported with var_export() functions
-     * It allows to return an object instantiated with the values
-     * @see AbstractStructBase::__set_state()
-     * @uses AbstractStructBase::__set_state()
-     * @param array $array the exported values
-     * @return \Ews\StructType\EwsOccurrenceItemIdType
-     */
-    public static function __set_state(array $array)
-    {
-        return parent::__set_state($array);
-    }
-    /**
-     * Method returning the class name
-     * @return string __CLASS__
-     */
-    public function __toString()
-    {
-        return __CLASS__;
     }
 }
