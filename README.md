@@ -1,6 +1,5 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/WsdlToPhp/PackageEws365/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/WsdlToPhp/PackageEws365/?branch=develop)
 [![Latest Stable Version](https://poser.pugx.org/wsdltophp/package-ews365/v/stable)](https://packagist.org/packages/wsdltophp/package-ews365)
-[![Dependency Status](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209/badge.svg)](https://www.versioneye.com/user/projects/55fc8608ddc3cf0014000209)
 [![StyleCI](https://styleci.io/repos/41913278/shield)](https://styleci.io/repos/41913278)
 [![Total Downloads](https://poser.pugx.org/wsdltophp/package-ews365/downloads)](https://packagist.org/packages/wsdltophp/package-ews365)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/fca54b99-a6f2-4ed8-97c7-cb1cbe437c66/mini.png)](https://insight.sensiolabs.com/projects/fca54b99-a6f2-4ed8-97c7-cb1cbe437c66)
