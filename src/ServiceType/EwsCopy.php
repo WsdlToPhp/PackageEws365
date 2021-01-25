@@ -68,7 +68,9 @@ class EwsCopy extends SoapClientBase
     public function CopyFolder(\Ews\StructType\EwsCopyFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CopyFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CopyFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsCopy extends SoapClientBase
     public function CopyItem(\Ews\StructType\EwsCopyItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CopyItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CopyItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

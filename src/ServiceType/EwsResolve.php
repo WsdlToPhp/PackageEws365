@@ -68,7 +68,9 @@ class EwsResolve extends SoapClientBase
     public function ResolveNames(\Ews\StructType\EwsResolveNamesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->ResolveNames($request));
+            $this->setResult($this->getSoapClient()->__soapCall('ResolveNames', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

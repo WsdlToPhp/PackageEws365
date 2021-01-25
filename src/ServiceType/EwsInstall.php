@@ -42,7 +42,9 @@ class EwsInstall extends SoapClientBase
     public function InstallApp(\Ews\StructType\EwsInstallAppType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->InstallApp($request));
+            $this->setResult($this->getSoapClient()->__soapCall('InstallApp', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

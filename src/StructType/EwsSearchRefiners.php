@@ -16,7 +16,7 @@ class EwsSearchRefiners extends AbstractStructBase
      * The SearchRefiner
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * - minOccurs: 1
+     * - minOccurs: 0 | 1
      * @var \Ews\StructType\EwsSearchRefinerType[]
      */
     public $SearchRefiner;

@@ -25,7 +25,7 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
      * The SenderRestrictions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
-     * - minOccurs: 0
+     * - minOccurs: 1 | 0
      * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public $SenderRestrictions;
@@ -62,7 +62,7 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
     }
     /**
      * Get SenderRestrictions value
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType|null
+     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
      */
     public function getSenderRestrictions()
     {

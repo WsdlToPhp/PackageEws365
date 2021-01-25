@@ -68,7 +68,9 @@ class EwsDisconnect extends SoapClientBase
     public function DisconnectPhoneCall(\Ews\StructType\EwsDisconnectPhoneCallType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->DisconnectPhoneCall($request));
+            $this->setResult($this->getSoapClient()->__soapCall('DisconnectPhoneCall', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

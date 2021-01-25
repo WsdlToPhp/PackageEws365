@@ -68,7 +68,9 @@ class EwsExpand extends SoapClientBase
     public function ExpandDL(\Ews\StructType\EwsExpandDLType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->ExpandDL($request));
+            $this->setResult($this->getSoapClient()->__soapCall('ExpandDL', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

@@ -68,7 +68,9 @@ class EwsMark extends SoapClientBase
     public function MarkAllItemsAsRead(\Ews\StructType\EwsMarkAllItemsAsReadType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->MarkAllItemsAsRead($request));
+            $this->setResult($this->getSoapClient()->__soapCall('MarkAllItemsAsRead', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsMark extends SoapClientBase
     public function MarkAsJunk(\Ews\StructType\EwsMarkAsJunkType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->MarkAsJunk($request));
+            $this->setResult($this->getSoapClient()->__soapCall('MarkAsJunk', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

@@ -68,7 +68,9 @@ class EwsMove extends SoapClientBase
     public function MoveFolder(\Ews\StructType\EwsMoveFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->MoveFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('MoveFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsMove extends SoapClientBase
     public function MoveItem(\Ews\StructType\EwsMoveItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->MoveItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('MoveItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

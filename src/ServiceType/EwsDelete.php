@@ -68,7 +68,9 @@ class EwsDelete extends SoapClientBase
     public function DeleteFolder(\Ews\StructType\EwsDeleteFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->DeleteFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('DeleteFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsDelete extends SoapClientBase
     public function DeleteItem(\Ews\StructType\EwsDeleteItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->DeleteItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('DeleteItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -116,7 +120,9 @@ class EwsDelete extends SoapClientBase
     public function DeleteAttachment(\Ews\StructType\EwsDeleteAttachmentType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->DeleteAttachment($request));
+            $this->setResult($this->getSoapClient()->__soapCall('DeleteAttachment', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -140,7 +146,9 @@ class EwsDelete extends SoapClientBase
     public function DeleteUserConfiguration(\Ews\StructType\EwsDeleteUserConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->DeleteUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('DeleteUserConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

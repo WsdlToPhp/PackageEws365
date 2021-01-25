@@ -55,7 +55,9 @@ class EwsApply extends SoapClientBase
     public function ApplyConversationAction(\Ews\StructType\EwsApplyConversationActionType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->ApplyConversationAction($request));
+            $this->setResult($this->getSoapClient()->__soapCall('ApplyConversationAction', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

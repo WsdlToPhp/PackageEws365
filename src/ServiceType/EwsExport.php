@@ -81,7 +81,9 @@ class EwsExport extends SoapClientBase
     public function ExportItems(\Ews\StructType\EwsExportItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->ExportItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('ExportItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

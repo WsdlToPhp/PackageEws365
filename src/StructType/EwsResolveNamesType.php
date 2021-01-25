@@ -59,7 +59,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * @param string $searchScope
      * @param string $contactDataShape
      */
-    public function __construct($returnFullContactData = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null, $unresolvedEntry = null, $searchScope = 'ActiveDirectoryContacts', $contactDataShape = null)
+    public function __construct($returnFullContactData = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null, $unresolvedEntry = null, $searchScope = null, $contactDataShape = null)
     {
         $this
             ->setReturnFullContactData($returnFullContactData)
@@ -150,7 +150,7 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * @param string $searchScope
      * @return \Ews\StructType\EwsResolveNamesType
      */
-    public function setSearchScope($searchScope = 'ActiveDirectoryContacts')
+    public function setSearchScope($searchScope = null)
     {
         // validation for constraint: enumeration
         if (!\Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid($searchScope)) {

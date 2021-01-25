@@ -81,7 +81,9 @@ class EwsCreate extends SoapClientBase
     public function CreateFolderPath(\Ews\StructType\EwsCreateFolderPathType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateFolderPath($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateFolderPath', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -105,7 +107,9 @@ class EwsCreate extends SoapClientBase
     public function CreateFolder(\Ews\StructType\EwsCreateFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -129,7 +133,9 @@ class EwsCreate extends SoapClientBase
     public function CreateItem(\Ews\StructType\EwsCreateItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -153,7 +159,9 @@ class EwsCreate extends SoapClientBase
     public function CreateAttachment(\Ews\StructType\EwsCreateAttachmentType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateAttachment($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateAttachment', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -177,7 +185,9 @@ class EwsCreate extends SoapClientBase
     public function CreateManagedFolder(\Ews\StructType\EwsCreateManagedFolderRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateManagedFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateManagedFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -201,7 +211,9 @@ class EwsCreate extends SoapClientBase
     public function CreateUserConfiguration(\Ews\StructType\EwsCreateUserConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->CreateUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('CreateUserConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

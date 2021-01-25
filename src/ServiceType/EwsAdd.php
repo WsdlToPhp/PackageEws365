@@ -68,7 +68,9 @@ class EwsAdd extends SoapClientBase
     public function AddDelegate(\Ews\StructType\EwsAddDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddDelegate($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddDelegate', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsAdd extends SoapClientBase
     public function AddNewImContactToGroup(\Ews\StructType\EwsAddNewImContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddNewImContactToGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddNewImContactToGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -116,7 +120,9 @@ class EwsAdd extends SoapClientBase
     public function AddNewTelUriContactToGroup(\Ews\StructType\EwsAddNewTelUriContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddNewTelUriContactToGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddNewTelUriContactToGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -140,7 +146,9 @@ class EwsAdd extends SoapClientBase
     public function AddImContactToGroup(\Ews\StructType\EwsAddImContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddImContactToGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddImContactToGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -164,7 +172,9 @@ class EwsAdd extends SoapClientBase
     public function AddImGroup(\Ews\StructType\EwsAddImGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddImGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddImGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -188,7 +198,9 @@ class EwsAdd extends SoapClientBase
     public function AddDistributionGroupToImList(\Ews\StructType\EwsAddDistributionGroupToImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->AddDistributionGroupToImList($request));
+            $this->setResult($this->getSoapClient()->__soapCall('AddDistributionGroupToImList', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

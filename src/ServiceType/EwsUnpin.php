@@ -42,7 +42,9 @@ class EwsUnpin extends SoapClientBase
     public function UnpinTeamMailbox(\Ews\StructType\EwsUnpinTeamMailboxRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UnpinTeamMailbox($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UnpinTeamMailbox', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

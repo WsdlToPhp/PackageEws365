@@ -52,7 +52,7 @@ class EwsExcludesValueType extends AbstractStructBase
         }
         // validation for constraint: pattern(((0x|0X)[0-9A-Fa-f]*)|([0-9]*))
         if (!is_null($value) && !preg_match('/((0x|0X)[0-9A-Fa-f]*)|([0-9]*)/', $value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression ((0x|0X)[0-9A-Fa-f]*)|([0-9]*)', var_export($value, true)), __LINE__);
+            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /((0x|0X)[0-9A-Fa-f]*)|([0-9]*)/', var_export($value, true)), __LINE__);
         }
         $this->Value = $value;
         return $this;

@@ -81,7 +81,9 @@ class EwsSet extends SoapClientBase
     public function SetUserOofSettings(\Ews\StructType\EwsSetUserOofSettingsRequest $setUserOofSettingsRequest)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetUserOofSettings($setUserOofSettingsRequest));
+            $this->setResult($this->getSoapClient()->__soapCall('SetUserOofSettings', array(
+                $setUserOofSettingsRequest,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -105,7 +107,9 @@ class EwsSet extends SoapClientBase
     public function SetTeamMailbox(\Ews\StructType\EwsSetTeamMailboxRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetTeamMailbox($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SetTeamMailbox', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -129,7 +133,9 @@ class EwsSet extends SoapClientBase
     public function SetHoldOnMailboxes(\Ews\StructType\EwsSetHoldOnMailboxesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetHoldOnMailboxes($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SetHoldOnMailboxes', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -153,7 +159,9 @@ class EwsSet extends SoapClientBase
     public function SetImGroup(\Ews\StructType\EwsSetImGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetImGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SetImGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -177,7 +185,9 @@ class EwsSet extends SoapClientBase
     public function SetImListMigrationCompleted(\Ews\StructType\EwsSetImListMigrationCompletedType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetImListMigrationCompleted($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SetImListMigrationCompleted', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -201,7 +211,9 @@ class EwsSet extends SoapClientBase
     public function SetUserPhoto(\Ews\StructType\EwsSetUserPhotoType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SetUserPhoto($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SetUserPhoto', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

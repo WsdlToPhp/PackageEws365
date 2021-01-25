@@ -68,7 +68,9 @@ class EwsArchive extends SoapClientBase
     public function ArchiveItem(\Ews\StructType\EwsArchiveItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->ArchiveItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('ArchiveItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
