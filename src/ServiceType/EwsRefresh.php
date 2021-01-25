@@ -42,7 +42,9 @@ class EwsRefresh extends SoapClientBase
     public function RefreshSharingFolder(\Ews\StructType\EwsRefreshSharingFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RefreshSharingFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RefreshSharingFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

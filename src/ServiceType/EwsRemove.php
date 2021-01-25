@@ -68,7 +68,9 @@ class EwsRemove extends SoapClientBase
     public function RemoveDelegate(\Ews\StructType\EwsRemoveDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RemoveDelegate($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RemoveDelegate', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsRemove extends SoapClientBase
     public function RemoveImContactFromGroup(\Ews\StructType\EwsRemoveImContactFromGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RemoveImContactFromGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RemoveImContactFromGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -116,7 +120,9 @@ class EwsRemove extends SoapClientBase
     public function RemoveContactFromImList(\Ews\StructType\EwsRemoveContactFromImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RemoveContactFromImList($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RemoveContactFromImList', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -140,7 +146,9 @@ class EwsRemove extends SoapClientBase
     public function RemoveDistributionGroupFromImList(\Ews\StructType\EwsRemoveDistributionGroupFromImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RemoveDistributionGroupFromImList($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RemoveDistributionGroupFromImList', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -164,7 +172,9 @@ class EwsRemove extends SoapClientBase
     public function RemoveImGroup(\Ews\StructType\EwsRemoveImGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->RemoveImGroup($request));
+            $this->setResult($this->getSoapClient()->__soapCall('RemoveImGroup', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

@@ -68,7 +68,9 @@ class EwsSubscribe extends SoapClientBase
     public function Subscribe(\Ews\StructType\EwsSubscribeType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->Subscribe($request));
+            $this->setResult($this->getSoapClient()->__soapCall('Subscribe', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

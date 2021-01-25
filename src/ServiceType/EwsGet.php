@@ -114,7 +114,9 @@ class EwsGet extends SoapClientBase
     public function GetServerTimeZones(\Ews\StructType\EwsGetServerTimeZonesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetServerTimeZones($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetServerTimeZones', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -138,7 +140,9 @@ class EwsGet extends SoapClientBase
     public function GetFolder(\Ews\StructType\EwsGetFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -162,7 +166,9 @@ class EwsGet extends SoapClientBase
     public function GetEvents(\Ews\StructType\EwsGetEventsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetEvents($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetEvents', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -186,7 +192,9 @@ class EwsGet extends SoapClientBase
     public function GetStreamingEvents(\Ews\StructType\EwsGetStreamingEventsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetStreamingEvents($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetStreamingEvents', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -210,7 +218,9 @@ class EwsGet extends SoapClientBase
     public function GetItem(\Ews\StructType\EwsGetItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -234,7 +244,9 @@ class EwsGet extends SoapClientBase
     public function GetAttachment(\Ews\StructType\EwsGetAttachmentType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetAttachment($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetAttachment', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -258,7 +270,9 @@ class EwsGet extends SoapClientBase
     public function GetClientAccessToken(\Ews\StructType\EwsGetClientAccessTokenType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetClientAccessToken($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetClientAccessToken', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -282,7 +296,9 @@ class EwsGet extends SoapClientBase
     public function GetDelegate(\Ews\StructType\EwsGetDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetDelegate($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetDelegate', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -306,7 +322,9 @@ class EwsGet extends SoapClientBase
     public function GetUserConfiguration(\Ews\StructType\EwsGetUserConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetUserConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -330,7 +348,9 @@ class EwsGet extends SoapClientBase
     public function GetUserAvailability(\Ews\StructType\EwsGetUserAvailabilityRequestType $getUserAvailabilityRequest)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetUserAvailability($getUserAvailabilityRequest));
+            $this->setResult($this->getSoapClient()->__soapCall('GetUserAvailability', array(
+                $getUserAvailabilityRequest,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -354,7 +374,9 @@ class EwsGet extends SoapClientBase
     public function GetUserOofSettings(\Ews\StructType\EwsGetUserOofSettingsRequest $getUserOofSettingsRequest)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetUserOofSettings($getUserOofSettingsRequest));
+            $this->setResult($this->getSoapClient()->__soapCall('GetUserOofSettings', array(
+                $getUserOofSettingsRequest,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -378,7 +400,9 @@ class EwsGet extends SoapClientBase
     public function GetServiceConfiguration(\Ews\StructType\EwsGetServiceConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetServiceConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetServiceConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -402,7 +426,9 @@ class EwsGet extends SoapClientBase
     public function GetMailTips(\Ews\StructType\EwsGetMailTipsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetMailTips($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetMailTips', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -426,7 +452,9 @@ class EwsGet extends SoapClientBase
     public function GetPhoneCallInformation(\Ews\StructType\EwsGetPhoneCallInformationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetPhoneCallInformation($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetPhoneCallInformation', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -450,7 +478,9 @@ class EwsGet extends SoapClientBase
     public function GetSharingMetadata(\Ews\StructType\EwsGetSharingMetadataType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetSharingMetadata($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetSharingMetadata', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -474,7 +504,9 @@ class EwsGet extends SoapClientBase
     public function GetSharingFolder(\Ews\StructType\EwsGetSharingFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetSharingFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetSharingFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -498,7 +530,9 @@ class EwsGet extends SoapClientBase
     public function GetRoomLists(\Ews\StructType\EwsGetRoomListsType $getRoomListsRequest)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetRoomLists($getRoomListsRequest));
+            $this->setResult($this->getSoapClient()->__soapCall('GetRoomLists', array(
+                $getRoomListsRequest,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -522,7 +556,9 @@ class EwsGet extends SoapClientBase
     public function GetRooms(\Ews\StructType\EwsGetRoomsType $getRoomsRequest)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetRooms($getRoomsRequest));
+            $this->setResult($this->getSoapClient()->__soapCall('GetRooms', array(
+                $getRoomsRequest,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -546,7 +582,9 @@ class EwsGet extends SoapClientBase
     public function GetMessageTrackingReport(\Ews\StructType\EwsGetMessageTrackingReportRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetMessageTrackingReport($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetMessageTrackingReport', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -570,7 +608,9 @@ class EwsGet extends SoapClientBase
     public function GetConversationItems(\Ews\StructType\EwsGetConversationItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetConversationItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetConversationItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -594,7 +634,9 @@ class EwsGet extends SoapClientBase
     public function GetPersona(\Ews\StructType\EwsGetPersonaType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetPersona($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetPersona', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -618,7 +660,9 @@ class EwsGet extends SoapClientBase
     public function GetInboxRules(\Ews\StructType\EwsGetInboxRulesRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetInboxRules($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetInboxRules', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -642,7 +686,9 @@ class EwsGet extends SoapClientBase
     public function GetPasswordExpirationDate(\Ews\StructType\EwsGetPasswordExpirationDateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetPasswordExpirationDate($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetPasswordExpirationDate', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -666,7 +712,9 @@ class EwsGet extends SoapClientBase
     public function GetDiscoverySearchConfiguration(\Ews\StructType\EwsGetDiscoverySearchConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetDiscoverySearchConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetDiscoverySearchConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -690,7 +738,9 @@ class EwsGet extends SoapClientBase
     public function GetSearchableMailboxes(\Ews\StructType\EwsGetSearchableMailboxesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetSearchableMailboxes($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetSearchableMailboxes', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -714,7 +764,9 @@ class EwsGet extends SoapClientBase
     public function GetHoldOnMailboxes(\Ews\StructType\EwsGetHoldOnMailboxesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetHoldOnMailboxes($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetHoldOnMailboxes', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -738,7 +790,9 @@ class EwsGet extends SoapClientBase
     public function GetNonIndexableItemStatistics(\Ews\StructType\EwsGetNonIndexableItemStatisticsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetNonIndexableItemStatistics($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetNonIndexableItemStatistics', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -762,7 +816,9 @@ class EwsGet extends SoapClientBase
     public function GetNonIndexableItemDetails(\Ews\StructType\EwsGetNonIndexableItemDetailsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetNonIndexableItemDetails($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetNonIndexableItemDetails', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -786,7 +842,9 @@ class EwsGet extends SoapClientBase
     public function GetAppManifests(\Ews\StructType\EwsGetAppManifestsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetAppManifests($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetAppManifests', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -810,7 +868,9 @@ class EwsGet extends SoapClientBase
     public function GetImItemList(\Ews\StructType\EwsGetImItemListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetImItemList($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetImItemList', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -834,7 +894,9 @@ class EwsGet extends SoapClientBase
     public function GetImItems(\Ews\StructType\EwsGetImItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetImItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetImItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -858,7 +920,9 @@ class EwsGet extends SoapClientBase
     public function GetUserRetentionPolicyTags(\Ews\StructType\EwsGetUserRetentionPolicyTagsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetUserRetentionPolicyTags($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetUserRetentionPolicyTags', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -882,7 +946,9 @@ class EwsGet extends SoapClientBase
     public function GetAppMarketplaceUrl(\Ews\StructType\EwsGetAppMarketplaceUrlType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetAppMarketplaceUrl($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetAppMarketplaceUrl', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -906,7 +972,9 @@ class EwsGet extends SoapClientBase
     public function GetUserPhoto(\Ews\StructType\EwsGetUserPhotoType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->GetUserPhoto($request));
+            $this->setResult($this->getSoapClient()->__soapCall('GetUserPhoto', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

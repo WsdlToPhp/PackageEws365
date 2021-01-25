@@ -68,7 +68,9 @@ class EwsSync extends SoapClientBase
     public function SyncFolderHierarchy(\Ews\StructType\EwsSyncFolderHierarchyType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SyncFolderHierarchy($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SyncFolderHierarchy', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -92,7 +94,9 @@ class EwsSync extends SoapClientBase
     public function SyncFolderItems(\Ews\StructType\EwsSyncFolderItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->SyncFolderItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('SyncFolderItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

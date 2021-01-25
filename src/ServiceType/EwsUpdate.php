@@ -94,7 +94,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateFolder(\Ews\StructType\EwsUpdateFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateFolder($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateFolder', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -118,7 +120,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateItem(\Ews\StructType\EwsUpdateItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateItem($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateItem', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -142,7 +146,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateItemInRecoverableItems(\Ews\StructType\EwsUpdateItemInRecoverableItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateItemInRecoverableItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateItemInRecoverableItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -166,7 +172,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateDelegate(\Ews\StructType\EwsUpdateDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateDelegate($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateDelegate', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -190,7 +198,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateUserConfiguration(\Ews\StructType\EwsUpdateUserConfigurationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateUserConfiguration($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateUserConfiguration', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
@@ -214,7 +224,9 @@ class EwsUpdate extends SoapClientBase
     public function UpdateInboxRules(\Ews\StructType\EwsUpdateInboxRulesRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UpdateInboxRules($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UpdateInboxRules', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);

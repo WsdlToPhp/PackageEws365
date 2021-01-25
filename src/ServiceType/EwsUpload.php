@@ -68,7 +68,9 @@ class EwsUpload extends SoapClientBase
     public function UploadItems(\Ews\StructType\EwsUploadItemsType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->UploadItems($request));
+            $this->setResult($this->getSoapClient()->__soapCall('UploadItems', array(
+                $request,
+            ), array(), array(), $this->outputHeaders));
             return $this->getResult();
         } catch (\SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
