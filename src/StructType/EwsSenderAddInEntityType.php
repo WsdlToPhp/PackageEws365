@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SenderAddInEntityType StructType
@@ -17,15 +20,15 @@ class EwsSenderAddInEntityType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExtensionId;
+    protected ?string $ExtensionId = null;
     /**
      * Constructor method for SenderAddInEntityType
      * @uses EwsSenderAddInEntityType::setExtensionId()
      * @param string $extensionId
      */
-    public function __construct($extensionId = null)
+    public function __construct(?string $extensionId = null)
     {
         $this
             ->setExtensionId($extensionId);
@@ -34,22 +37,23 @@ class EwsSenderAddInEntityType extends AbstractStructBase
      * Get ExtensionId value
      * @return string|null
      */
-    public function getExtensionId()
+    public function getExtensionId(): ?string
     {
         return $this->ExtensionId;
     }
     /**
      * Set ExtensionId value
      * @param string $extensionId
-     * @return \Ews\StructType\EwsSenderAddInEntityType
+     * @return \StructType\EwsSenderAddInEntityType
      */
-    public function setExtensionId($extensionId = null)
+    public function setExtensionId(?string $extensionId = null): self
     {
         // validation for constraint: string
         if (!is_null($extensionId) && !is_string($extensionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionId, true), gettype($extensionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionId, true), gettype($extensionId)), __LINE__);
         }
         $this->ExtensionId = $extensionId;
+        
         return $this;
     }
 }

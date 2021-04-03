@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfContentActivities ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
      * The ContentActivity
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsContentActivity[]
+     * @var \StructType\EwsContentActivity[]
      */
-    public $ContentActivity;
+    protected array $ContentActivity = [];
     /**
      * Constructor method for NonEmptyArrayOfContentActivities
      * @uses EwsNonEmptyArrayOfContentActivities::setContentActivity()
-     * @param \Ews\StructType\EwsContentActivity[] $contentActivity
+     * @param \StructType\EwsContentActivity[] $contentActivity
      */
-    public function __construct(array $contentActivity = array())
+    public function __construct(array $contentActivity = [])
     {
         $this
             ->setContentActivity($contentActivity);
     }
     /**
      * Get ContentActivity value
-     * @return \Ews\StructType\EwsContentActivity[]|null
+     * @return \StructType\EwsContentActivity[]
      */
-    public function getContentActivity()
+    public function getContentActivity(): array
     {
         return $this->ContentActivity;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateContentActivityForArrayConstraintsFromSetContentActivity(array $values = array())
+    public static function validateContentActivityForArrayConstraintsFromSetContentActivity(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfContentActivitiesContentActivityItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfContentActivitiesContentActivityItem instanceof \Ews\StructType\EwsContentActivity) {
+            if (!$nonEmptyArrayOfContentActivitiesContentActivityItem instanceof \StructType\EwsContentActivity) {
                 $invalidValues[] = is_object($nonEmptyArrayOfContentActivitiesContentActivityItem) ? get_class($nonEmptyArrayOfContentActivitiesContentActivityItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfContentActivitiesContentActivityItem), var_export($nonEmptyArrayOfContentActivitiesContentActivityItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ContentActivity property can only contain items of type \Ews\StructType\EwsContentActivity, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ContentActivity property can only contain items of type \StructType\EwsContentActivity, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ContentActivity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContentActivity[] $contentActivity
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContentActivity[] $contentActivity
+     * @return \ArrayType\EwsNonEmptyArrayOfContentActivities
      */
-    public function setContentActivity(array $contentActivity = array())
+    public function setContentActivity(array $contentActivity = []): self
     {
         // validation for constraint: array
         if ('' !== ($contentActivityArrayErrorMessage = self::validateContentActivityForArrayConstraintsFromSetContentActivity($contentActivity))) {
-            throw new \InvalidArgumentException($contentActivityArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contentActivityArrayErrorMessage, __LINE__);
         }
         $this->ContentActivity = $contentActivity;
-        return $this;
-    }
-    /**
-     * Add item to ContentActivity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContentActivity $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
-     */
-    public function addToContentActivity(\Ews\StructType\EwsContentActivity $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsContentActivity) {
-            throw new \InvalidArgumentException(sprintf('The ContentActivity property can only contain items of type \Ews\StructType\EwsContentActivity, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ContentActivity[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsContentActivity|null
+     * @return \StructType\EwsContentActivity|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsContentActivity
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsContentActivity|null
+     * @return \StructType\EwsContentActivity|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsContentActivity
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsContentActivity|null
+     * @return \StructType\EwsContentActivity|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsContentActivity
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsContentActivity|null
+     * @return \StructType\EwsContentActivity|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsContentActivity
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfContentActivities extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsContentActivity|null
+     * @return \StructType\EwsContentActivity|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsContentActivity
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContentActivity $item
+     * @return \ArrayType\EwsNonEmptyArrayOfContentActivities
+     */
+    public function add(\StructType\EwsContentActivity $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ContentActivity
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ContentActivity';
     }

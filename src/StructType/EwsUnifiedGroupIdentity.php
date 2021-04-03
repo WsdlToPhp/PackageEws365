@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupIdentity StructType
@@ -19,7 +22,7 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Type;
+    protected string $Type;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * Constructor method for UnifiedGroupIdentity
      * @uses EwsUnifiedGroupIdentity::setType()
@@ -35,7 +38,7 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      * @param string $type
      * @param string $value
      */
-    public function __construct($type = null, $value = null)
+    public function __construct(string $type, string $value)
     {
         $this
             ->setType($type)
@@ -45,47 +48,49 @@ class EwsUnifiedGroupIdentity extends AbstractStructBase
      * Get Type value
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->Type;
     }
     /**
      * Set Type value
-     * @uses \Ews\EnumType\EwsUnifiedGroupIdentityType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupIdentityType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupIdentityType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupIdentityType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $type
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity
+     * @return \StructType\EwsUnifiedGroupIdentity
      */
-    public function setType($type = null)
+    public function setType(string $type): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupIdentityType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupIdentityType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupIdentityType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupIdentityType::valueIsValid($type)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupIdentityType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \EnumType\EwsUnifiedGroupIdentityType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity
+     * @return \StructType\EwsUnifiedGroupIdentity
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

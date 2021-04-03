@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManagedFolderInformationType StructType
@@ -18,72 +21,72 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      * The CanDelete
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $CanDelete;
+    protected ?bool $CanDelete = null;
     /**
      * The CanRenameOrMove
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $CanRenameOrMove;
+    protected ?bool $CanRenameOrMove = null;
     /**
      * The MustDisplayComment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MustDisplayComment;
+    protected ?bool $MustDisplayComment = null;
     /**
      * The HasQuota
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasQuota;
+    protected ?bool $HasQuota = null;
     /**
      * The IsManagedFoldersRoot
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsManagedFoldersRoot;
+    protected ?bool $IsManagedFoldersRoot = null;
     /**
      * The ManagedFolderId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ManagedFolderId;
+    protected ?string $ManagedFolderId = null;
     /**
      * The Comment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Comment;
+    protected ?string $Comment = null;
     /**
      * The StorageQuota
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $StorageQuota;
+    protected ?int $StorageQuota = null;
     /**
      * The FolderSize
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $FolderSize;
+    protected ?int $FolderSize = null;
     /**
      * The HomePage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $HomePage;
+    protected ?string $HomePage = null;
     /**
      * Constructor method for ManagedFolderInformationType
      * @uses EwsManagedFolderInformationType::setCanDelete()
@@ -107,7 +110,7 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      * @param int $folderSize
      * @param string $homePage
      */
-    public function __construct($canDelete = null, $canRenameOrMove = null, $mustDisplayComment = null, $hasQuota = null, $isManagedFoldersRoot = null, $managedFolderId = null, $comment = null, $storageQuota = null, $folderSize = null, $homePage = null)
+    public function __construct(?bool $canDelete = null, ?bool $canRenameOrMove = null, ?bool $mustDisplayComment = null, ?bool $hasQuota = null, ?bool $isManagedFoldersRoot = null, ?string $managedFolderId = null, ?string $comment = null, ?int $storageQuota = null, ?int $folderSize = null, ?string $homePage = null)
     {
         $this
             ->setCanDelete($canDelete)
@@ -125,220 +128,230 @@ class EwsManagedFolderInformationType extends AbstractStructBase
      * Get CanDelete value
      * @return bool|null
      */
-    public function getCanDelete()
+    public function getCanDelete(): ?bool
     {
         return $this->CanDelete;
     }
     /**
      * Set CanDelete value
      * @param bool $canDelete
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setCanDelete($canDelete = null)
+    public function setCanDelete(?bool $canDelete = null): self
     {
         // validation for constraint: boolean
         if (!is_null($canDelete) && !is_bool($canDelete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canDelete, true), gettype($canDelete)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canDelete, true), gettype($canDelete)), __LINE__);
         }
         $this->CanDelete = $canDelete;
+        
         return $this;
     }
     /**
      * Get CanRenameOrMove value
      * @return bool|null
      */
-    public function getCanRenameOrMove()
+    public function getCanRenameOrMove(): ?bool
     {
         return $this->CanRenameOrMove;
     }
     /**
      * Set CanRenameOrMove value
      * @param bool $canRenameOrMove
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setCanRenameOrMove($canRenameOrMove = null)
+    public function setCanRenameOrMove(?bool $canRenameOrMove = null): self
     {
         // validation for constraint: boolean
         if (!is_null($canRenameOrMove) && !is_bool($canRenameOrMove)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canRenameOrMove, true), gettype($canRenameOrMove)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($canRenameOrMove, true), gettype($canRenameOrMove)), __LINE__);
         }
         $this->CanRenameOrMove = $canRenameOrMove;
+        
         return $this;
     }
     /**
      * Get MustDisplayComment value
      * @return bool|null
      */
-    public function getMustDisplayComment()
+    public function getMustDisplayComment(): ?bool
     {
         return $this->MustDisplayComment;
     }
     /**
      * Set MustDisplayComment value
      * @param bool $mustDisplayComment
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setMustDisplayComment($mustDisplayComment = null)
+    public function setMustDisplayComment(?bool $mustDisplayComment = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mustDisplayComment) && !is_bool($mustDisplayComment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mustDisplayComment, true), gettype($mustDisplayComment)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mustDisplayComment, true), gettype($mustDisplayComment)), __LINE__);
         }
         $this->MustDisplayComment = $mustDisplayComment;
+        
         return $this;
     }
     /**
      * Get HasQuota value
      * @return bool|null
      */
-    public function getHasQuota()
+    public function getHasQuota(): ?bool
     {
         return $this->HasQuota;
     }
     /**
      * Set HasQuota value
      * @param bool $hasQuota
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setHasQuota($hasQuota = null)
+    public function setHasQuota(?bool $hasQuota = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasQuota) && !is_bool($hasQuota)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasQuota, true), gettype($hasQuota)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasQuota, true), gettype($hasQuota)), __LINE__);
         }
         $this->HasQuota = $hasQuota;
+        
         return $this;
     }
     /**
      * Get IsManagedFoldersRoot value
      * @return bool|null
      */
-    public function getIsManagedFoldersRoot()
+    public function getIsManagedFoldersRoot(): ?bool
     {
         return $this->IsManagedFoldersRoot;
     }
     /**
      * Set IsManagedFoldersRoot value
      * @param bool $isManagedFoldersRoot
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setIsManagedFoldersRoot($isManagedFoldersRoot = null)
+    public function setIsManagedFoldersRoot(?bool $isManagedFoldersRoot = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isManagedFoldersRoot) && !is_bool($isManagedFoldersRoot)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isManagedFoldersRoot, true), gettype($isManagedFoldersRoot)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isManagedFoldersRoot, true), gettype($isManagedFoldersRoot)), __LINE__);
         }
         $this->IsManagedFoldersRoot = $isManagedFoldersRoot;
+        
         return $this;
     }
     /**
      * Get ManagedFolderId value
      * @return string|null
      */
-    public function getManagedFolderId()
+    public function getManagedFolderId(): ?string
     {
         return $this->ManagedFolderId;
     }
     /**
      * Set ManagedFolderId value
      * @param string $managedFolderId
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setManagedFolderId($managedFolderId = null)
+    public function setManagedFolderId(?string $managedFolderId = null): self
     {
         // validation for constraint: string
         if (!is_null($managedFolderId) && !is_string($managedFolderId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedFolderId, true), gettype($managedFolderId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedFolderId, true), gettype($managedFolderId)), __LINE__);
         }
         $this->ManagedFolderId = $managedFolderId;
+        
         return $this;
     }
     /**
      * Get Comment value
      * @return string|null
      */
-    public function getComment()
+    public function getComment(): ?string
     {
         return $this->Comment;
     }
     /**
      * Set Comment value
      * @param string $comment
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setComment($comment = null)
+    public function setComment(?string $comment = null): self
     {
         // validation for constraint: string
         if (!is_null($comment) && !is_string($comment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comment, true), gettype($comment)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comment, true), gettype($comment)), __LINE__);
         }
         $this->Comment = $comment;
+        
         return $this;
     }
     /**
      * Get StorageQuota value
      * @return int|null
      */
-    public function getStorageQuota()
+    public function getStorageQuota(): ?int
     {
         return $this->StorageQuota;
     }
     /**
      * Set StorageQuota value
      * @param int $storageQuota
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setStorageQuota($storageQuota = null)
+    public function setStorageQuota(?int $storageQuota = null): self
     {
         // validation for constraint: int
         if (!is_null($storageQuota) && !(is_int($storageQuota) || ctype_digit($storageQuota))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($storageQuota, true), gettype($storageQuota)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($storageQuota, true), gettype($storageQuota)), __LINE__);
         }
         $this->StorageQuota = $storageQuota;
+        
         return $this;
     }
     /**
      * Get FolderSize value
      * @return int|null
      */
-    public function getFolderSize()
+    public function getFolderSize(): ?int
     {
         return $this->FolderSize;
     }
     /**
      * Set FolderSize value
      * @param int $folderSize
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setFolderSize($folderSize = null)
+    public function setFolderSize(?int $folderSize = null): self
     {
         // validation for constraint: int
         if (!is_null($folderSize) && !(is_int($folderSize) || ctype_digit($folderSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($folderSize, true), gettype($folderSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($folderSize, true), gettype($folderSize)), __LINE__);
         }
         $this->FolderSize = $folderSize;
+        
         return $this;
     }
     /**
      * Get HomePage value
      * @return string|null
      */
-    public function getHomePage()
+    public function getHomePage(): ?string
     {
         return $this->HomePage;
     }
     /**
      * Set HomePage value
      * @param string $homePage
-     * @return \Ews\StructType\EwsManagedFolderInformationType
+     * @return \StructType\EwsManagedFolderInformationType
      */
-    public function setHomePage($homePage = null)
+    public function setHomePage(?string $homePage = null): self
     {
         // validation for constraint: string
         if (!is_null($homePage) && !is_string($homePage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homePage, true), gettype($homePage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homePage, true), gettype($homePage)), __LINE__);
         }
         $this->HomePage = $homePage;
+        
         return $this;
     }
 }

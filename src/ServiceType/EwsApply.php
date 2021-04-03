@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Apply ServiceType
@@ -15,59 +18,60 @@ class EwsApply extends SoapClientBase
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsApply
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Sets the ExchangeImpersonation SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation
-     * @param string $nameSpace
+     * @param \StructType\EwsExchangeImpersonationType $exchangeImpersonation
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsApply
      */
-    public function setSoapHeaderExchangeImpersonation(\Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderExchangeImpersonation(\StructType\EwsExchangeImpersonationType $exchangeImpersonation, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named ApplyConversationAction
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion, \StructType\EwsExchangeImpersonationType
      * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsApplyConversationActionType $request
-     * @return \Ews\StructType\EwsApplyConversationActionResponseType|bool
+     * @param \StructType\EwsApplyConversationActionType $request
+     * @return \StructType\EwsApplyConversationActionResponseType|bool
      */
-    public function ApplyConversationAction(\Ews\StructType\EwsApplyConversationActionType $request)
+    public function ApplyConversationAction(\StructType\EwsApplyConversationActionType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('ApplyConversationAction', array(
+            $this->setResult($resultApplyConversationAction = $this->getSoapClient()->__soapCall('ApplyConversationAction', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultApplyConversationAction;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsApplyConversationActionResponseType
+     * @return \StructType\EwsApplyConversationActionResponseType
      */
     public function getResult()
     {

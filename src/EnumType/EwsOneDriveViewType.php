@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for OneDriveViewType EnumType
@@ -40,13 +42,13 @@ class EwsOneDriveViewType extends AbstractStructEnumBase
      * @uses self::VALUE_RECYCLE_BIN
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_SHARED_WITH_ME,
             self::VALUE_MY_DOCUMENTS,
             self::VALUE_RECYCLE_BIN,
-        );
+        ];
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MeetingRequestTypeType EnumType
@@ -58,9 +60,9 @@ class EwsMeetingRequestTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_PRINCIPAL_WANTS_COPY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_FULL_UPDATE,
             self::VALUE_INFORMATIONAL_UPDATE,
@@ -68,6 +70,6 @@ class EwsMeetingRequestTypeType extends AbstractStructEnumBase
             self::VALUE_OUTDATED,
             self::VALUE_SILENT_UPDATE,
             self::VALUE_PRINCIPAL_WANTS_COPY,
-        );
+        ];
     }
 }

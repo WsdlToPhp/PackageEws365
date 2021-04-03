@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ResolveNamesSearchScopeType EnumType
@@ -40,13 +42,13 @@ class EwsResolveNamesSearchScopeType extends AbstractStructEnumBase
      * @uses self::VALUE_CONTACTS_ACTIVE_DIRECTORY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ACTIVE_DIRECTORY,
             self::VALUE_ACTIVE_DIRECTORY_CONTACTS,
             self::VALUE_CONTACTS,
             self::VALUE_CONTACTS_ACTIVE_DIRECTORY,
-        );
+        ];
     }
 }

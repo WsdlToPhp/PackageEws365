@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for InsightValue StructType
@@ -17,17 +20,17 @@ class EwsInsightValue extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InsightSource;
+    protected ?string $InsightSource = null;
     /**
      * The UpdatedUtcTicks
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $UpdatedUtcTicks;
+    protected ?int $UpdatedUtcTicks = null;
     /**
      * Constructor method for InsightValue
      * @uses EwsInsightValue::setInsightSource()
@@ -35,7 +38,7 @@ class EwsInsightValue extends AbstractStructBase
      * @param string $insightSource
      * @param int $updatedUtcTicks
      */
-    public function __construct($insightSource = null, $updatedUtcTicks = null)
+    public function __construct(?string $insightSource = null, ?int $updatedUtcTicks = null)
     {
         $this
             ->setInsightSource($insightSource)
@@ -45,44 +48,46 @@ class EwsInsightValue extends AbstractStructBase
      * Get InsightSource value
      * @return string|null
      */
-    public function getInsightSource()
+    public function getInsightSource(): ?string
     {
         return $this->InsightSource;
     }
     /**
      * Set InsightSource value
      * @param string $insightSource
-     * @return \Ews\StructType\EwsInsightValue
+     * @return \StructType\EwsInsightValue
      */
-    public function setInsightSource($insightSource = null)
+    public function setInsightSource(?string $insightSource = null): self
     {
         // validation for constraint: string
         if (!is_null($insightSource) && !is_string($insightSource)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($insightSource, true), gettype($insightSource)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($insightSource, true), gettype($insightSource)), __LINE__);
         }
         $this->InsightSource = $insightSource;
+        
         return $this;
     }
     /**
      * Get UpdatedUtcTicks value
      * @return int|null
      */
-    public function getUpdatedUtcTicks()
+    public function getUpdatedUtcTicks(): ?int
     {
         return $this->UpdatedUtcTicks;
     }
     /**
      * Set UpdatedUtcTicks value
      * @param int $updatedUtcTicks
-     * @return \Ews\StructType\EwsInsightValue
+     * @return \StructType\EwsInsightValue
      */
-    public function setUpdatedUtcTicks($updatedUtcTicks = null)
+    public function setUpdatedUtcTicks(?int $updatedUtcTicks = null): self
     {
         // validation for constraint: int
         if (!is_null($updatedUtcTicks) && !(is_int($updatedUtcTicks) || ctype_digit($updatedUtcTicks))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($updatedUtcTicks, true), gettype($updatedUtcTicks)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($updatedUtcTicks, true), gettype($updatedUtcTicks)), __LINE__);
         }
         $this->UpdatedUtcTicks = $updatedUtcTicks;
+        
         return $this;
     }
 }

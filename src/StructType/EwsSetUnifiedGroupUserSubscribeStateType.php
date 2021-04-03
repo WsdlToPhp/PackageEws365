@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupUserSubscribeStateType StructType
@@ -19,13 +22,13 @@ class EwsSetUnifiedGroupUserSubscribeStateType extends EwsUnifiedGroupBaseReques
      * - minOccurs: 1
      * @var bool
      */
-    public $IsSubscribed;
+    protected bool $IsSubscribed;
     /**
      * Constructor method for SetUnifiedGroupUserSubscribeStateType
      * @uses EwsSetUnifiedGroupUserSubscribeStateType::setIsSubscribed()
      * @param bool $isSubscribed
      */
-    public function __construct($isSubscribed = null)
+    public function __construct(bool $isSubscribed)
     {
         $this
             ->setIsSubscribed($isSubscribed);
@@ -34,22 +37,23 @@ class EwsSetUnifiedGroupUserSubscribeStateType extends EwsUnifiedGroupBaseReques
      * Get IsSubscribed value
      * @return bool
      */
-    public function getIsSubscribed()
+    public function getIsSubscribed(): bool
     {
         return $this->IsSubscribed;
     }
     /**
      * Set IsSubscribed value
      * @param bool $isSubscribed
-     * @return \Ews\StructType\EwsSetUnifiedGroupUserSubscribeStateType
+     * @return \StructType\EwsSetUnifiedGroupUserSubscribeStateType
      */
-    public function setIsSubscribed($isSubscribed = null)
+    public function setIsSubscribed(bool $isSubscribed): self
     {
         // validation for constraint: boolean
         if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
         }
         $this->IsSubscribed = $isSubscribed;
+        
         return $this;
     }
 }

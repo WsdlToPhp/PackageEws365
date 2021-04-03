@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecurrenceType StructType
@@ -14,49 +17,49 @@ class EwsRecurrenceType extends AbstractStructBase
 {
     /**
      * The RelativeYearlyRecurrence
-     * @var \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
+     * @var \StructType\EwsRelativeYearlyRecurrencePatternType|null
      */
-    public $RelativeYearlyRecurrence;
+    protected ?\StructType\EwsRelativeYearlyRecurrencePatternType $RelativeYearlyRecurrence = null;
     /**
      * The AbsoluteYearlyRecurrence
-     * @var \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
+     * @var \StructType\EwsAbsoluteYearlyRecurrencePatternType|null
      */
-    public $AbsoluteYearlyRecurrence;
+    protected ?\StructType\EwsAbsoluteYearlyRecurrencePatternType $AbsoluteYearlyRecurrence = null;
     /**
      * The RelativeMonthlyRecurrence
-     * @var \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType
+     * @var \StructType\EwsRelativeMonthlyRecurrencePatternType|null
      */
-    public $RelativeMonthlyRecurrence;
+    protected ?\StructType\EwsRelativeMonthlyRecurrencePatternType $RelativeMonthlyRecurrence = null;
     /**
      * The AbsoluteMonthlyRecurrence
-     * @var \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType
+     * @var \StructType\EwsAbsoluteMonthlyRecurrencePatternType|null
      */
-    public $AbsoluteMonthlyRecurrence;
+    protected ?\StructType\EwsAbsoluteMonthlyRecurrencePatternType $AbsoluteMonthlyRecurrence = null;
     /**
      * The WeeklyRecurrence
-     * @var \Ews\StructType\EwsWeeklyRecurrencePatternType
+     * @var \StructType\EwsWeeklyRecurrencePatternType|null
      */
-    public $WeeklyRecurrence;
+    protected ?\StructType\EwsWeeklyRecurrencePatternType $WeeklyRecurrence = null;
     /**
      * The DailyRecurrence
-     * @var \Ews\StructType\EwsDailyRecurrencePatternType
+     * @var \StructType\EwsDailyRecurrencePatternType|null
      */
-    public $DailyRecurrence;
+    protected ?\StructType\EwsDailyRecurrencePatternType $DailyRecurrence = null;
     /**
      * The NoEndRecurrence
-     * @var \Ews\StructType\EwsNoEndRecurrenceRangeType
+     * @var \StructType\EwsNoEndRecurrenceRangeType|null
      */
-    public $NoEndRecurrence;
+    protected ?\StructType\EwsNoEndRecurrenceRangeType $NoEndRecurrence = null;
     /**
      * The EndDateRecurrence
-     * @var \Ews\StructType\EwsEndDateRecurrenceRangeType
+     * @var \StructType\EwsEndDateRecurrenceRangeType|null
      */
-    public $EndDateRecurrence;
+    protected ?\StructType\EwsEndDateRecurrenceRangeType $EndDateRecurrence = null;
     /**
      * The NumberedRecurrence
-     * @var \Ews\StructType\EwsNumberedRecurrenceRangeType
+     * @var \StructType\EwsNumberedRecurrenceRangeType|null
      */
-    public $NumberedRecurrence;
+    protected ?\StructType\EwsNumberedRecurrenceRangeType $NumberedRecurrence = null;
     /**
      * Constructor method for RecurrenceType
      * @uses EwsRecurrenceType::setRelativeYearlyRecurrence()
@@ -68,17 +71,17 @@ class EwsRecurrenceType extends AbstractStructBase
      * @uses EwsRecurrenceType::setNoEndRecurrence()
      * @uses EwsRecurrenceType::setEndDateRecurrence()
      * @uses EwsRecurrenceType::setNumberedRecurrence()
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
-     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
-     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
-     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
-     * @param \Ews\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence
-     * @param \Ews\StructType\EwsDailyRecurrencePatternType $dailyRecurrence
-     * @param \Ews\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence
-     * @param \Ews\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence
-     * @param \Ews\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence
+     * @param \StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
+     * @param \StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
+     * @param \StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
+     * @param \StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
+     * @param \StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence
+     * @param \StructType\EwsDailyRecurrencePatternType $dailyRecurrence
+     * @param \StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence
+     * @param \StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence
+     * @param \StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence
      */
-    public function __construct(\Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null, \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence = null, \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence = null, \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence = null, \Ews\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence = null, \Ews\StructType\EwsDailyRecurrencePatternType $dailyRecurrence = null, \Ews\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence = null, \Ews\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence = null, \Ews\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence = null)
+    public function __construct(?\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null, ?\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence = null, ?\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence = null, ?\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence = null, ?\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence = null, ?\StructType\EwsDailyRecurrencePatternType $dailyRecurrence = null, ?\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence = null, ?\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence = null, ?\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence = null)
     {
         $this
             ->setRelativeYearlyRecurrence($relativeYearlyRecurrence)
@@ -93,164 +96,173 @@ class EwsRecurrenceType extends AbstractStructBase
     }
     /**
      * Get RelativeYearlyRecurrence value
-     * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType|null
+     * @return \StructType\EwsRelativeYearlyRecurrencePatternType|null
      */
-    public function getRelativeYearlyRecurrence()
+    public function getRelativeYearlyRecurrence(): ?\StructType\EwsRelativeYearlyRecurrencePatternType
     {
         return $this->RelativeYearlyRecurrence;
     }
     /**
      * Set RelativeYearlyRecurrence value
-     * @param \Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setRelativeYearlyRecurrence(\Ews\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null)
+    public function setRelativeYearlyRecurrence(?\StructType\EwsRelativeYearlyRecurrencePatternType $relativeYearlyRecurrence = null): self
     {
         $this->RelativeYearlyRecurrence = $relativeYearlyRecurrence;
+        
         return $this;
     }
     /**
      * Get AbsoluteYearlyRecurrence value
-     * @return \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType|null
+     * @return \StructType\EwsAbsoluteYearlyRecurrencePatternType|null
      */
-    public function getAbsoluteYearlyRecurrence()
+    public function getAbsoluteYearlyRecurrence(): ?\StructType\EwsAbsoluteYearlyRecurrencePatternType
     {
         return $this->AbsoluteYearlyRecurrence;
     }
     /**
      * Set AbsoluteYearlyRecurrence value
-     * @param \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setAbsoluteYearlyRecurrence(\Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence = null)
+    public function setAbsoluteYearlyRecurrence(?\StructType\EwsAbsoluteYearlyRecurrencePatternType $absoluteYearlyRecurrence = null): self
     {
         $this->AbsoluteYearlyRecurrence = $absoluteYearlyRecurrence;
+        
         return $this;
     }
     /**
      * Get RelativeMonthlyRecurrence value
-     * @return \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType|null
+     * @return \StructType\EwsRelativeMonthlyRecurrencePatternType|null
      */
-    public function getRelativeMonthlyRecurrence()
+    public function getRelativeMonthlyRecurrence(): ?\StructType\EwsRelativeMonthlyRecurrencePatternType
     {
         return $this->RelativeMonthlyRecurrence;
     }
     /**
      * Set RelativeMonthlyRecurrence value
-     * @param \Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setRelativeMonthlyRecurrence(\Ews\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence = null)
+    public function setRelativeMonthlyRecurrence(?\StructType\EwsRelativeMonthlyRecurrencePatternType $relativeMonthlyRecurrence = null): self
     {
         $this->RelativeMonthlyRecurrence = $relativeMonthlyRecurrence;
+        
         return $this;
     }
     /**
      * Get AbsoluteMonthlyRecurrence value
-     * @return \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType|null
+     * @return \StructType\EwsAbsoluteMonthlyRecurrencePatternType|null
      */
-    public function getAbsoluteMonthlyRecurrence()
+    public function getAbsoluteMonthlyRecurrence(): ?\StructType\EwsAbsoluteMonthlyRecurrencePatternType
     {
         return $this->AbsoluteMonthlyRecurrence;
     }
     /**
      * Set AbsoluteMonthlyRecurrence value
-     * @param \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setAbsoluteMonthlyRecurrence(\Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence = null)
+    public function setAbsoluteMonthlyRecurrence(?\StructType\EwsAbsoluteMonthlyRecurrencePatternType $absoluteMonthlyRecurrence = null): self
     {
         $this->AbsoluteMonthlyRecurrence = $absoluteMonthlyRecurrence;
+        
         return $this;
     }
     /**
      * Get WeeklyRecurrence value
-     * @return \Ews\StructType\EwsWeeklyRecurrencePatternType|null
+     * @return \StructType\EwsWeeklyRecurrencePatternType|null
      */
-    public function getWeeklyRecurrence()
+    public function getWeeklyRecurrence(): ?\StructType\EwsWeeklyRecurrencePatternType
     {
         return $this->WeeklyRecurrence;
     }
     /**
      * Set WeeklyRecurrence value
-     * @param \Ews\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setWeeklyRecurrence(\Ews\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence = null)
+    public function setWeeklyRecurrence(?\StructType\EwsWeeklyRecurrencePatternType $weeklyRecurrence = null): self
     {
         $this->WeeklyRecurrence = $weeklyRecurrence;
+        
         return $this;
     }
     /**
      * Get DailyRecurrence value
-     * @return \Ews\StructType\EwsDailyRecurrencePatternType|null
+     * @return \StructType\EwsDailyRecurrencePatternType|null
      */
-    public function getDailyRecurrence()
+    public function getDailyRecurrence(): ?\StructType\EwsDailyRecurrencePatternType
     {
         return $this->DailyRecurrence;
     }
     /**
      * Set DailyRecurrence value
-     * @param \Ews\StructType\EwsDailyRecurrencePatternType $dailyRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsDailyRecurrencePatternType $dailyRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setDailyRecurrence(\Ews\StructType\EwsDailyRecurrencePatternType $dailyRecurrence = null)
+    public function setDailyRecurrence(?\StructType\EwsDailyRecurrencePatternType $dailyRecurrence = null): self
     {
         $this->DailyRecurrence = $dailyRecurrence;
+        
         return $this;
     }
     /**
      * Get NoEndRecurrence value
-     * @return \Ews\StructType\EwsNoEndRecurrenceRangeType|null
+     * @return \StructType\EwsNoEndRecurrenceRangeType|null
      */
-    public function getNoEndRecurrence()
+    public function getNoEndRecurrence(): ?\StructType\EwsNoEndRecurrenceRangeType
     {
         return $this->NoEndRecurrence;
     }
     /**
      * Set NoEndRecurrence value
-     * @param \Ews\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setNoEndRecurrence(\Ews\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence = null)
+    public function setNoEndRecurrence(?\StructType\EwsNoEndRecurrenceRangeType $noEndRecurrence = null): self
     {
         $this->NoEndRecurrence = $noEndRecurrence;
+        
         return $this;
     }
     /**
      * Get EndDateRecurrence value
-     * @return \Ews\StructType\EwsEndDateRecurrenceRangeType|null
+     * @return \StructType\EwsEndDateRecurrenceRangeType|null
      */
-    public function getEndDateRecurrence()
+    public function getEndDateRecurrence(): ?\StructType\EwsEndDateRecurrenceRangeType
     {
         return $this->EndDateRecurrence;
     }
     /**
      * Set EndDateRecurrence value
-     * @param \Ews\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setEndDateRecurrence(\Ews\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence = null)
+    public function setEndDateRecurrence(?\StructType\EwsEndDateRecurrenceRangeType $endDateRecurrence = null): self
     {
         $this->EndDateRecurrence = $endDateRecurrence;
+        
         return $this;
     }
     /**
      * Get NumberedRecurrence value
-     * @return \Ews\StructType\EwsNumberedRecurrenceRangeType|null
+     * @return \StructType\EwsNumberedRecurrenceRangeType|null
      */
-    public function getNumberedRecurrence()
+    public function getNumberedRecurrence(): ?\StructType\EwsNumberedRecurrenceRangeType
     {
         return $this->NumberedRecurrence;
     }
     /**
      * Set NumberedRecurrence value
-     * @param \Ews\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence
-     * @return \Ews\StructType\EwsRecurrenceType
+     * @param \StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence
+     * @return \StructType\EwsRecurrenceType
      */
-    public function setNumberedRecurrence(\Ews\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence = null)
+    public function setNumberedRecurrence(?\StructType\EwsNumberedRecurrenceRangeType $numberedRecurrence = null): self
     {
         $this->NumberedRecurrence = $numberedRecurrence;
+        
         return $this;
     }
 }

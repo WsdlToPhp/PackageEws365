@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseDelegateType StructType
@@ -14,35 +17,36 @@ abstract class EwsBaseDelegateType extends EwsBaseRequestType
 {
     /**
      * The Mailbox
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * Constructor method for BaseDelegateType
      * @uses EwsBaseDelegateType::setMailbox()
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \StructType\EwsEmailAddressType $mailbox
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function __construct(?\StructType\EwsEmailAddressType $mailbox = null)
     {
         $this
             ->setMailbox($mailbox);
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\StructType\EwsBaseDelegateType
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \StructType\EwsBaseDelegateType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
 }

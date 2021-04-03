@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateFolderType StructType
@@ -14,22 +17,22 @@ class EwsCreateFolderType extends EwsBaseRequestType
 {
     /**
      * The ParentFolderId
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $ParentFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $ParentFolderId = null;
     /**
      * The Folders
-     * @var \Ews\StructType\EwsNonEmptyArrayOfFoldersType
+     * @var \StructType\EwsNonEmptyArrayOfFoldersType|null
      */
-    public $Folders;
+    protected ?\StructType\EwsNonEmptyArrayOfFoldersType $Folders = null;
     /**
      * Constructor method for CreateFolderType
      * @uses EwsCreateFolderType::setParentFolderId()
      * @uses EwsCreateFolderType::setFolders()
-     * @param \Ews\StructType\EwsTargetFolderIdType $parentFolderId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfFoldersType $folders
+     * @param \StructType\EwsTargetFolderIdType $parentFolderId
+     * @param \StructType\EwsNonEmptyArrayOfFoldersType $folders
      */
-    public function __construct(\Ews\StructType\EwsTargetFolderIdType $parentFolderId = null, \Ews\StructType\EwsNonEmptyArrayOfFoldersType $folders = null)
+    public function __construct(?\StructType\EwsTargetFolderIdType $parentFolderId = null, ?\StructType\EwsNonEmptyArrayOfFoldersType $folders = null)
     {
         $this
             ->setParentFolderId($parentFolderId)
@@ -37,38 +40,40 @@ class EwsCreateFolderType extends EwsBaseRequestType
     }
     /**
      * Get ParentFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->ParentFolderId;
     }
     /**
      * Set ParentFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $parentFolderId
-     * @return \Ews\StructType\EwsCreateFolderType
+     * @param \StructType\EwsTargetFolderIdType $parentFolderId
+     * @return \StructType\EwsCreateFolderType
      */
-    public function setParentFolderId(\Ews\StructType\EwsTargetFolderIdType $parentFolderId = null)
+    public function setParentFolderId(?\StructType\EwsTargetFolderIdType $parentFolderId = null): self
     {
         $this->ParentFolderId = $parentFolderId;
+        
         return $this;
     }
     /**
      * Get Folders value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfFoldersType|null
+     * @return \StructType\EwsNonEmptyArrayOfFoldersType|null
      */
-    public function getFolders()
+    public function getFolders(): ?\StructType\EwsNonEmptyArrayOfFoldersType
     {
         return $this->Folders;
     }
     /**
      * Set Folders value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfFoldersType $folders
-     * @return \Ews\StructType\EwsCreateFolderType
+     * @param \StructType\EwsNonEmptyArrayOfFoldersType $folders
+     * @return \StructType\EwsCreateFolderType
      */
-    public function setFolders(\Ews\StructType\EwsNonEmptyArrayOfFoldersType $folders = null)
+    public function setFolders(?\StructType\EwsNonEmptyArrayOfFoldersType $folders = null): self
     {
         $this->Folders = $folders;
+        
         return $this;
     }
 }

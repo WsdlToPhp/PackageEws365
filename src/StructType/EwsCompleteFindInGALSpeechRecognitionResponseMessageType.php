@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CompleteFindInGALSpeechRecognitionResponseMessageType
@@ -18,35 +21,36 @@ class EwsCompleteFindInGALSpeechRecognitionResponseMessageType extends EwsRespon
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRecognitionResultType
+     * @var \StructType\EwsRecognitionResultType|null
      */
-    public $RecognitionResult;
+    protected ?\StructType\EwsRecognitionResultType $RecognitionResult = null;
     /**
      * Constructor method for CompleteFindInGALSpeechRecognitionResponseMessageType
      * @uses EwsCompleteFindInGALSpeechRecognitionResponseMessageType::setRecognitionResult()
-     * @param \Ews\StructType\EwsRecognitionResultType $recognitionResult
+     * @param \StructType\EwsRecognitionResultType $recognitionResult
      */
-    public function __construct(\Ews\StructType\EwsRecognitionResultType $recognitionResult = null)
+    public function __construct(?\StructType\EwsRecognitionResultType $recognitionResult = null)
     {
         $this
             ->setRecognitionResult($recognitionResult);
     }
     /**
      * Get RecognitionResult value
-     * @return \Ews\StructType\EwsRecognitionResultType|null
+     * @return \StructType\EwsRecognitionResultType|null
      */
-    public function getRecognitionResult()
+    public function getRecognitionResult(): ?\StructType\EwsRecognitionResultType
     {
         return $this->RecognitionResult;
     }
     /**
      * Set RecognitionResult value
-     * @param \Ews\StructType\EwsRecognitionResultType $recognitionResult
-     * @return \Ews\StructType\EwsCompleteFindInGALSpeechRecognitionResponseMessageType
+     * @param \StructType\EwsRecognitionResultType $recognitionResult
+     * @return \StructType\EwsCompleteFindInGALSpeechRecognitionResponseMessageType
      */
-    public function setRecognitionResult(\Ews\StructType\EwsRecognitionResultType $recognitionResult = null)
+    public function setRecognitionResult(?\StructType\EwsRecognitionResultType $recognitionResult = null): self
     {
         $this->RecognitionResult = $recognitionResult;
+        
         return $this;
     }
 }

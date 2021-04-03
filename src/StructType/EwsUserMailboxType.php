@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserMailboxType StructType
@@ -20,14 +23,14 @@ class EwsUserMailboxType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Id;
+    protected string $Id;
     /**
      * The IsArchive
      * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
-    public $IsArchive;
+    protected bool $IsArchive;
     /**
      * Constructor method for UserMailboxType
      * @uses EwsUserMailboxType::setId()
@@ -35,7 +38,7 @@ class EwsUserMailboxType extends AbstractStructBase
      * @param string $id
      * @param bool $isArchive
      */
-    public function __construct($id = null, $isArchive = null)
+    public function __construct(string $id, bool $isArchive)
     {
         $this
             ->setId($id)
@@ -45,44 +48,46 @@ class EwsUserMailboxType extends AbstractStructBase
      * Get Id value
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsUserMailboxType
+     * @return \StructType\EwsUserMailboxType
      */
-    public function setId($id = null)
+    public function setId(string $id): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get IsArchive value
      * @return bool
      */
-    public function getIsArchive()
+    public function getIsArchive(): bool
     {
         return $this->IsArchive;
     }
     /**
      * Set IsArchive value
      * @param bool $isArchive
-     * @return \Ews\StructType\EwsUserMailboxType
+     * @return \StructType\EwsUserMailboxType
      */
-    public function setIsArchive($isArchive = null)
+    public function setIsArchive(bool $isArchive): self
     {
         // validation for constraint: boolean
         if (!is_null($isArchive) && !is_bool($isArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
         }
         $this->IsArchive = $isArchive;
+        
         return $this;
     }
 }

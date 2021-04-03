@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupSenderRestrictionsType StructType
@@ -17,45 +20,45 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public $AllowedSenders;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $AllowedSenders = null;
     /**
      * The RejectedSenders
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public $RejectedSenders;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $RejectedSenders = null;
     /**
      * The AllowedDistributionLists
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public $AllowedDistributionLists;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $AllowedDistributionLists = null;
     /**
      * The RejectedDistributionLists
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public $RejectedDistributionLists;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $RejectedDistributionLists = null;
     /**
      * Constructor method for UnifiedGroupSenderRestrictionsType
      * @uses EwsUnifiedGroupSenderRestrictionsType::setAllowedSenders()
      * @uses EwsUnifiedGroupSenderRestrictionsType::setRejectedSenders()
      * @uses EwsUnifiedGroupSenderRestrictionsType::setAllowedDistributionLists()
      * @uses EwsUnifiedGroupSenderRestrictionsType::setRejectedDistributionLists()
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null)
+    public function __construct(?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null, ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null, ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null, ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null)
     {
         $this
             ->setAllowedSenders($allowedSenders)
@@ -65,74 +68,78 @@ class EwsUnifiedGroupSenderRestrictionsType extends AbstractStructBase
     }
     /**
      * Get AllowedSenders value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function getAllowedSenders()
+    public function getAllowedSenders(): ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
     {
         return $this->AllowedSenders;
     }
     /**
      * Set AllowedSenders value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public function setAllowedSenders(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null)
+    public function setAllowedSenders(?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedSenders = null): self
     {
         $this->AllowedSenders = $allowedSenders;
+        
         return $this;
     }
     /**
      * Get RejectedSenders value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function getRejectedSenders()
+    public function getRejectedSenders(): ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
     {
         return $this->RejectedSenders;
     }
     /**
      * Set RejectedSenders value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public function setRejectedSenders(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null)
+    public function setRejectedSenders(?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedSenders = null): self
     {
         $this->RejectedSenders = $rejectedSenders;
+        
         return $this;
     }
     /**
      * Get AllowedDistributionLists value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function getAllowedDistributionLists()
+    public function getAllowedDistributionLists(): ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
     {
         return $this->AllowedDistributionLists;
     }
     /**
      * Set AllowedDistributionLists value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public function setAllowedDistributionLists(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null)
+    public function setAllowedDistributionLists(?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $allowedDistributionLists = null): self
     {
         $this->AllowedDistributionLists = $allowedDistributionLists;
+        
         return $this;
     }
     /**
      * Get RejectedDistributionLists value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function getRejectedDistributionLists()
+    public function getRejectedDistributionLists(): ?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
     {
         return $this->RejectedDistributionLists;
     }
     /**
      * Set RejectedDistributionLists value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public function setRejectedDistributionLists(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null)
+    public function setRejectedDistributionLists(?\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType $rejectedDistributionLists = null): self
     {
         $this->RejectedDistributionLists = $rejectedDistributionLists;
+        
         return $this;
     }
 }

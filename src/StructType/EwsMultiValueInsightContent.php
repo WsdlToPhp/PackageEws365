@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MultiValueInsightContent StructType
@@ -17,35 +20,36 @@ class EwsMultiValueInsightContent extends EwsInsightContent
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfInsightValue
+     * @var \ArrayType\EwsArrayOfInsightValue|null
      */
-    public $ItemList;
+    protected ?\ArrayType\EwsArrayOfInsightValue $ItemList = null;
     /**
      * Constructor method for MultiValueInsightContent
      * @uses EwsMultiValueInsightContent::setItemList()
-     * @param \Ews\ArrayType\EwsArrayOfInsightValue $itemList
+     * @param \ArrayType\EwsArrayOfInsightValue $itemList
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfInsightValue $itemList = null)
+    public function __construct(?\ArrayType\EwsArrayOfInsightValue $itemList = null)
     {
         $this
             ->setItemList($itemList);
     }
     /**
      * Get ItemList value
-     * @return \Ews\ArrayType\EwsArrayOfInsightValue|null
+     * @return \ArrayType\EwsArrayOfInsightValue|null
      */
-    public function getItemList()
+    public function getItemList(): ?\ArrayType\EwsArrayOfInsightValue
     {
         return $this->ItemList;
     }
     /**
      * Set ItemList value
-     * @param \Ews\ArrayType\EwsArrayOfInsightValue $itemList
-     * @return \Ews\StructType\EwsMultiValueInsightContent
+     * @param \ArrayType\EwsArrayOfInsightValue $itemList
+     * @return \StructType\EwsMultiValueInsightContent
      */
-    public function setItemList(\Ews\ArrayType\EwsArrayOfInsightValue $itemList = null)
+    public function setItemList(?\ArrayType\EwsArrayOfInsightValue $itemList = null): self
     {
         $this->ItemList = $itemList;
+        
         return $this;
     }
 }

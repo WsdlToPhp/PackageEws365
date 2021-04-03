@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFindMessageTrackingSearchResultType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
      * - choice: MessageTrackingSearchResult
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsFindMessageTrackingSearchResultType
+     * @var \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public $MessageTrackingSearchResult;
+    protected ?\StructType\EwsFindMessageTrackingSearchResultType $MessageTrackingSearchResult = null;
     /**
      * Constructor method for ArrayOfFindMessageTrackingSearchResultType
      * @uses EwsArrayOfFindMessageTrackingSearchResultType::setMessageTrackingSearchResult()
-     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
+     * @param \StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
      */
-    public function __construct(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
+    public function __construct(?\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
     {
         $this
             ->setMessageTrackingSearchResult($messageTrackingSearchResult);
     }
     /**
      * Get MessageTrackingSearchResult value
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function getMessageTrackingSearchResult()
+    public function getMessageTrackingSearchResult(): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return isset($this->MessageTrackingSearchResult) ? $this->MessageTrackingSearchResult : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMessageTrackingSearchResultForChoiceConstraintsFromSetMessageTrackingSearchResult($value)
+    public function validateMessageTrackingSearchResultForChoiceConstraintsFromSetMessageTrackingSearchResult($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MessageTrackingSearchResult can\'t be set as the property %s is already set. Only one property must be set among these properties: MessageTrackingSearchResult, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MessageTrackingSearchResult can\'t be set as the property %s is already set. Only one property must be set among these properties: MessageTrackingSearchResult, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
-     * @return \Ews\ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult
+     * @return \ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
      */
-    public function setMessageTrackingSearchResult(\Ews\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null)
+    public function setMessageTrackingSearchResult(?\StructType\EwsFindMessageTrackingSearchResultType $messageTrackingSearchResult = null): self
     {
         // validation for constraint: choice(MessageTrackingSearchResult)
         if ('' !== ($messageTrackingSearchResultChoiceErrorMessage = self::validateMessageTrackingSearchResultForChoiceConstraintsFromSetMessageTrackingSearchResult($messageTrackingSearchResult))) {
-            throw new \InvalidArgumentException($messageTrackingSearchResultChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($messageTrackingSearchResultChoiceErrorMessage, __LINE__);
         }
         if (is_null($messageTrackingSearchResult) || (is_array($messageTrackingSearchResult) && empty($messageTrackingSearchResult))) {
             unset($this->MessageTrackingSearchResult);
         } else {
             $this->MessageTrackingSearchResult = $messageTrackingSearchResult;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfFindMessageTrackingSearchResultType extends AbstractStructArrayB
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFindMessageTrackingSearchResultType|null
+     * @return \StructType\EwsFindMessageTrackingSearchResultType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFindMessageTrackingSearchResultType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindMessageTrackingSearchResultType $item
+     * @return \ArrayType\EwsArrayOfFindMessageTrackingSearchResultType
+     */
+    public function add(\StructType\EwsFindMessageTrackingSearchResultType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MessageTrackingSearchResult
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MessageTrackingSearchResult';
     }

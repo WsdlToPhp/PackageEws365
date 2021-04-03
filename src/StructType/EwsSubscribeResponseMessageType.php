@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SubscribeResponseMessageType StructType
@@ -18,18 +21,18 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
      * - base: t:NonEmptyStringType
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SubscriptionId;
+    protected ?string $SubscriptionId = null;
     /**
      * The Watermark
      * Meta information extracted from the WSDL
      * - base: t:NonEmptyStringType
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Watermark;
+    protected ?string $Watermark = null;
     /**
      * Constructor method for SubscribeResponseMessageType
      * @uses EwsSubscribeResponseMessageType::setSubscriptionId()
@@ -37,7 +40,7 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
      * @param string $subscriptionId
      * @param string $watermark
      */
-    public function __construct($subscriptionId = null, $watermark = null)
+    public function __construct(?string $subscriptionId = null, ?string $watermark = null)
     {
         $this
             ->setSubscriptionId($subscriptionId)
@@ -47,52 +50,54 @@ class EwsSubscribeResponseMessageType extends EwsResponseMessageType
      * Get SubscriptionId value
      * @return string|null
      */
-    public function getSubscriptionId()
+    public function getSubscriptionId(): ?string
     {
         return $this->SubscriptionId;
     }
     /**
      * Set SubscriptionId value
      * @param string $subscriptionId
-     * @return \Ews\StructType\EwsSubscribeResponseMessageType
+     * @return \StructType\EwsSubscribeResponseMessageType
      */
-    public function setSubscriptionId($subscriptionId = null)
+    public function setSubscriptionId(?string $subscriptionId = null): self
     {
         // validation for constraint: string
         if (!is_null($subscriptionId) && !is_string($subscriptionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subscriptionId, true), gettype($subscriptionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subscriptionId, true), gettype($subscriptionId)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($subscriptionId) && mb_strlen($subscriptionId) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($subscriptionId)), __LINE__);
+        if (!is_null($subscriptionId) && mb_strlen((string) $subscriptionId) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $subscriptionId)), __LINE__);
         }
         $this->SubscriptionId = $subscriptionId;
+        
         return $this;
     }
     /**
      * Get Watermark value
      * @return string|null
      */
-    public function getWatermark()
+    public function getWatermark(): ?string
     {
         return $this->Watermark;
     }
     /**
      * Set Watermark value
      * @param string $watermark
-     * @return \Ews\StructType\EwsSubscribeResponseMessageType
+     * @return \StructType\EwsSubscribeResponseMessageType
      */
-    public function setWatermark($watermark = null)
+    public function setWatermark(?string $watermark = null): self
     {
         // validation for constraint: string
         if (!is_null($watermark) && !is_string($watermark)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($watermark, true), gettype($watermark)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($watermark, true), gettype($watermark)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($watermark) && mb_strlen($watermark) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($watermark)), __LINE__);
+        if (!is_null($watermark) && mb_strlen((string) $watermark) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $watermark)), __LINE__);
         }
         $this->Watermark = $watermark;
+        
         return $this;
     }
 }

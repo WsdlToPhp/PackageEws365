@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SuggestionType StructType
@@ -19,7 +22,7 @@ class EwsSuggestionType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SuggestedQuery;
+    protected string $SuggestedQuery;
     /**
      * The DisplayText
      * Meta information extracted from the WSDL
@@ -27,33 +30,33 @@ class EwsSuggestionType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayText;
+    protected string $DisplayText;
     /**
      * The SuggestionType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $SuggestionType;
+    protected string $SuggestionType;
     /**
      * The Trigger
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Trigger;
+    protected ?string $Trigger = null;
     /**
      * The TDSuggestionId
-     * @var int
+     * @var int|null
      */
-    public $TDSuggestionId;
+    protected ?int $TDSuggestionId = null;
     /**
      * The IsDeletable
-     * @var bool
+     * @var bool|null
      */
-    public $IsDeletable;
+    protected ?bool $IsDeletable = null;
     /**
      * Constructor method for SuggestionType
      * @uses EwsSuggestionType::setSuggestedQuery()
@@ -64,12 +67,12 @@ class EwsSuggestionType extends AbstractStructBase
      * @uses EwsSuggestionType::setIsDeletable()
      * @param string $suggestedQuery
      * @param string $displayText
-     * @param string[] $suggestionType
+     * @param array|string $suggestionType
      * @param string $trigger
      * @param int $tDSuggestionId
      * @param bool $isDeletable
      */
-    public function __construct($suggestedQuery = null, $displayText = null, array $suggestionType = array(), $trigger = null, $tDSuggestionId = null, $isDeletable = null)
+    public function __construct(string $suggestedQuery, string $displayText, $suggestionType, ?string $trigger = null, ?int $tDSuggestionId = null, ?bool $isDeletable = null)
     {
         $this
             ->setSuggestedQuery($suggestedQuery)
@@ -83,51 +86,53 @@ class EwsSuggestionType extends AbstractStructBase
      * Get SuggestedQuery value
      * @return string
      */
-    public function getSuggestedQuery()
+    public function getSuggestedQuery(): string
     {
         return $this->SuggestedQuery;
     }
     /**
      * Set SuggestedQuery value
      * @param string $suggestedQuery
-     * @return \Ews\StructType\EwsSuggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setSuggestedQuery($suggestedQuery = null)
+    public function setSuggestedQuery(string $suggestedQuery): self
     {
         // validation for constraint: string
         if (!is_null($suggestedQuery) && !is_string($suggestedQuery)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($suggestedQuery, true), gettype($suggestedQuery)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($suggestedQuery, true), gettype($suggestedQuery)), __LINE__);
         }
         $this->SuggestedQuery = $suggestedQuery;
+        
         return $this;
     }
     /**
      * Get DisplayText value
      * @return string
      */
-    public function getDisplayText()
+    public function getDisplayText(): string
     {
         return $this->DisplayText;
     }
     /**
      * Set DisplayText value
      * @param string $displayText
-     * @return \Ews\StructType\EwsSuggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setDisplayText($displayText = null)
+    public function setDisplayText(string $displayText): self
     {
         // validation for constraint: string
         if (!is_null($displayText) && !is_string($displayText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayText, true), gettype($displayText)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayText, true), gettype($displayText)), __LINE__);
         }
         $this->DisplayText = $displayText;
+        
         return $this;
     }
     /**
      * Get SuggestionType value
-     * @return string[]
+     * @return string
      */
-    public function getSuggestionType()
+    public function getSuggestionType(): string
     {
         return $this->SuggestionType;
     }
@@ -137,103 +142,108 @@ class EwsSuggestionType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSuggestionTypeForArrayConstraintsFromSetSuggestionType(array $values = array())
+    public static function validateSuggestionTypeForArrayConstraintsFromSetSuggestionType(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $suggestionTypeSuggestionTypeItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($suggestionTypeSuggestionTypeItem)) {
+            if (!\EnumType\EwsSuggestionKindType::valueIsValid($suggestionTypeSuggestionTypeItem)) {
                 $invalidValues[] = is_object($suggestionTypeSuggestionTypeItem) ? get_class($suggestionTypeSuggestionTypeItem) : sprintf('%s(%s)', gettype($suggestionTypeSuggestionTypeItem), var_export($suggestionTypeSuggestionTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSuggestionKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSuggestionKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsSuggestionKindType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SuggestionType value
-     * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $suggestionType
-     * @return \Ews\StructType\EwsSuggestionType
+     * @uses \EnumType\EwsSuggestionKindType::valueIsValid()
+     * @uses \EnumType\EwsSuggestionKindType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $suggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setSuggestionType(array $suggestionType = array())
+    public function setSuggestionType($suggestionType): self
     {
         // validation for constraint: list
-        if ('' !== ($suggestionTypeArrayErrorMessage = self::validateSuggestionTypeForArrayConstraintsFromSetSuggestionType($suggestionType))) {
-            throw new \InvalidArgumentException($suggestionTypeArrayErrorMessage, __LINE__);
+        if ('' !== ($suggestionTypeArrayErrorMessage = self::validateSuggestionTypeForArrayConstraintsFromSetSuggestionType(is_string($suggestionType) ? explode(' ', $suggestionType) : $suggestionType))) {
+            throw new InvalidArgumentException($suggestionTypeArrayErrorMessage, __LINE__);
         }
-        $this->SuggestionType = is_array($suggestionType) ? implode(' ', $suggestionType) : null;
+        $this->SuggestionType = is_array($suggestionType) ? implode(' ', $suggestionType) : $suggestionType;
+        
         return $this;
     }
     /**
      * Get Trigger value
      * @return string|null
      */
-    public function getTrigger()
+    public function getTrigger(): ?string
     {
         return $this->Trigger;
     }
     /**
      * Set Trigger value
      * @param string $trigger
-     * @return \Ews\StructType\EwsSuggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setTrigger($trigger = null)
+    public function setTrigger(?string $trigger = null): self
     {
         // validation for constraint: string
         if (!is_null($trigger) && !is_string($trigger)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trigger, true), gettype($trigger)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trigger, true), gettype($trigger)), __LINE__);
         }
         $this->Trigger = $trigger;
+        
         return $this;
     }
     /**
      * Get TDSuggestionId value
      * @return int|null
      */
-    public function getTDSuggestionId()
+    public function getTDSuggestionId(): ?int
     {
         return $this->TDSuggestionId;
     }
     /**
      * Set TDSuggestionId value
      * @param int $tDSuggestionId
-     * @return \Ews\StructType\EwsSuggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setTDSuggestionId($tDSuggestionId = null)
+    public function setTDSuggestionId(?int $tDSuggestionId = null): self
     {
         // validation for constraint: int
         if (!is_null($tDSuggestionId) && !(is_int($tDSuggestionId) || ctype_digit($tDSuggestionId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($tDSuggestionId, true), gettype($tDSuggestionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($tDSuggestionId, true), gettype($tDSuggestionId)), __LINE__);
         }
         $this->TDSuggestionId = $tDSuggestionId;
+        
         return $this;
     }
     /**
      * Get IsDeletable value
      * @return bool|null
      */
-    public function getIsDeletable()
+    public function getIsDeletable(): ?bool
     {
         return $this->IsDeletable;
     }
     /**
      * Set IsDeletable value
      * @param bool $isDeletable
-     * @return \Ews\StructType\EwsSuggestionType
+     * @return \StructType\EwsSuggestionType
      */
-    public function setIsDeletable($isDeletable = null)
+    public function setIsDeletable(?bool $isDeletable = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isDeletable) && !is_bool($isDeletable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDeletable, true), gettype($isDeletable)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDeletable, true), gettype($isDeletable)), __LINE__);
         }
         $this->IsDeletable = $isDeletable;
+        
         return $this;
     }
 }

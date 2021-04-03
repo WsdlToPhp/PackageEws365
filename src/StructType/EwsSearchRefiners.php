@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchRefiners StructType
@@ -17,24 +20,24 @@ class EwsSearchRefiners extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0 | 1
-     * @var \Ews\StructType\EwsSearchRefinerType[]
+     * @var \StructType\EwsSearchRefinerType[]
      */
-    public $SearchRefiner;
+    protected array $SearchRefiner = [];
     /**
      * Constructor method for SearchRefiners
      * @uses EwsSearchRefiners::setSearchRefiner()
-     * @param \Ews\StructType\EwsSearchRefinerType[] $searchRefiner
+     * @param \StructType\EwsSearchRefinerType[] $searchRefiner
      */
-    public function __construct(array $searchRefiner = array())
+    public function __construct(array $searchRefiner)
     {
         $this
             ->setSearchRefiner($searchRefiner);
     }
     /**
      * Get SearchRefiner value
-     * @return \Ews\StructType\EwsSearchRefinerType[]
+     * @return \StructType\EwsSearchRefinerType[]
      */
-    public function getSearchRefiner()
+    public function getSearchRefiner(): array
     {
         return $this->SearchRefiner;
     }
@@ -44,50 +47,53 @@ class EwsSearchRefiners extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSearchRefinerForArrayConstraintsFromSetSearchRefiner(array $values = array())
+    public static function validateSearchRefinerForArrayConstraintsFromSetSearchRefiner(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $searchRefinersSearchRefinerItem) {
             // validation for constraint: itemType
-            if (!$searchRefinersSearchRefinerItem instanceof \Ews\StructType\EwsSearchRefinerType) {
+            if (!$searchRefinersSearchRefinerItem instanceof \StructType\EwsSearchRefinerType) {
                 $invalidValues[] = is_object($searchRefinersSearchRefinerItem) ? get_class($searchRefinersSearchRefinerItem) : sprintf('%s(%s)', gettype($searchRefinersSearchRefinerItem), var_export($searchRefinersSearchRefinerItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The SearchRefiner property can only contain items of type \Ews\StructType\EwsSearchRefinerType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The SearchRefiner property can only contain items of type \StructType\EwsSearchRefinerType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SearchRefiner value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchRefinerType[] $searchRefiner
-     * @return \Ews\StructType\EwsSearchRefiners
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchRefinerType[] $searchRefiner
+     * @return \StructType\EwsSearchRefiners
      */
-    public function setSearchRefiner(array $searchRefiner = array())
+    public function setSearchRefiner(array $searchRefiner): self
     {
         // validation for constraint: array
         if ('' !== ($searchRefinerArrayErrorMessage = self::validateSearchRefinerForArrayConstraintsFromSetSearchRefiner($searchRefiner))) {
-            throw new \InvalidArgumentException($searchRefinerArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchRefinerArrayErrorMessage, __LINE__);
         }
         $this->SearchRefiner = $searchRefiner;
+        
         return $this;
     }
     /**
      * Add item to SearchRefiner value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchRefinerType $item
-     * @return \Ews\StructType\EwsSearchRefiners
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchRefinerType $item
+     * @return \StructType\EwsSearchRefiners
      */
-    public function addToSearchRefiner(\Ews\StructType\EwsSearchRefinerType $item)
+    public function addToSearchRefiner(\StructType\EwsSearchRefinerType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSearchRefinerType) {
-            throw new \InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of type \Ews\StructType\EwsSearchRefinerType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsSearchRefinerType) {
+            throw new InvalidArgumentException(sprintf('The SearchRefiner property can only contain items of type \StructType\EwsSearchRefinerType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->SearchRefiner[] = $item;
+        
         return $this;
     }
 }

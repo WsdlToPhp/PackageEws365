@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailTipsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsMailTipsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMailTips
+     * @var \StructType\EwsMailTips|null
      */
-    public $MailTips;
+    protected ?\StructType\EwsMailTips $MailTips = null;
     /**
      * Constructor method for MailTipsResponseMessageType
      * @uses EwsMailTipsResponseMessageType::setMailTips()
-     * @param \Ews\StructType\EwsMailTips $mailTips
+     * @param \StructType\EwsMailTips $mailTips
      */
-    public function __construct(\Ews\StructType\EwsMailTips $mailTips = null)
+    public function __construct(?\StructType\EwsMailTips $mailTips = null)
     {
         $this
             ->setMailTips($mailTips);
     }
     /**
      * Get MailTips value
-     * @return \Ews\StructType\EwsMailTips|null
+     * @return \StructType\EwsMailTips|null
      */
-    public function getMailTips()
+    public function getMailTips(): ?\StructType\EwsMailTips
     {
         return $this->MailTips;
     }
     /**
      * Set MailTips value
-     * @param \Ews\StructType\EwsMailTips $mailTips
-     * @return \Ews\StructType\EwsMailTipsResponseMessageType
+     * @param \StructType\EwsMailTips $mailTips
+     * @return \StructType\EwsMailTipsResponseMessageType
      */
-    public function setMailTips(\Ews\StructType\EwsMailTips $mailTips = null)
+    public function setMailTips(?\StructType\EwsMailTips $mailTips = null): self
     {
         $this->MailTips = $mailTips;
+        
         return $this;
     }
 }

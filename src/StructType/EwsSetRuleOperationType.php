@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetRuleOperationType StructType
@@ -17,35 +20,36 @@ class EwsSetRuleOperationType extends EwsRuleOperationType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsRuleType
+     * @var \StructType\EwsRuleType
      */
-    public $Rule;
+    protected \StructType\EwsRuleType $Rule;
     /**
      * Constructor method for SetRuleOperationType
      * @uses EwsSetRuleOperationType::setRule()
-     * @param \Ews\StructType\EwsRuleType $rule
+     * @param \StructType\EwsRuleType $rule
      */
-    public function __construct(\Ews\StructType\EwsRuleType $rule = null)
+    public function __construct(\StructType\EwsRuleType $rule)
     {
         $this
             ->setRule($rule);
     }
     /**
      * Get Rule value
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function getRule()
+    public function getRule(): \StructType\EwsRuleType
     {
         return $this->Rule;
     }
     /**
      * Set Rule value
-     * @param \Ews\StructType\EwsRuleType $rule
-     * @return \Ews\StructType\EwsSetRuleOperationType
+     * @param \StructType\EwsRuleType $rule
+     * @return \StructType\EwsSetRuleOperationType
      */
-    public function setRule(\Ews\StructType\EwsRuleType $rule = null)
+    public function setRule(\StructType\EwsRuleType $rule): self
     {
         $this->Rule = $rule;
+        
         return $this;
     }
 }

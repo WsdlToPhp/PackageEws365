@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SendPromptType EnumType
@@ -34,12 +36,12 @@ class EwsSendPromptType extends AbstractStructEnumBase
      * @uses self::VALUE_VOTING_OPTION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_SEND,
             self::VALUE_VOTING_OPTION,
-        );
+        ];
     }
 }

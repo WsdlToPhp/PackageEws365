@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateMeetingLocationsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsUpdateMeetingLocationsResponseMessageType extends EwsResponseMessageTyp
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     * @var \ArrayType\EwsArrayOfMeetingLocationItemType
      */
-    public $IgnoredMeetingLocations;
+    protected \ArrayType\EwsArrayOfMeetingLocationItemType $IgnoredMeetingLocations;
     /**
      * Constructor method for UpdateMeetingLocationsResponseMessageType
      * @uses EwsUpdateMeetingLocationsResponseMessageType::setIgnoredMeetingLocations()
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations
+     * @param \ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations = null)
+    public function __construct(\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations)
     {
         $this
             ->setIgnoredMeetingLocations($ignoredMeetingLocations);
     }
     /**
      * Get IgnoredMeetingLocations value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     * @return \ArrayType\EwsArrayOfMeetingLocationItemType
      */
-    public function getIgnoredMeetingLocations()
+    public function getIgnoredMeetingLocations(): \ArrayType\EwsArrayOfMeetingLocationItemType
     {
         return $this->IgnoredMeetingLocations;
     }
     /**
      * Set IgnoredMeetingLocations value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations
-     * @return \Ews\StructType\EwsUpdateMeetingLocationsResponseMessageType
+     * @param \ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations
+     * @return \StructType\EwsUpdateMeetingLocationsResponseMessageType
      */
-    public function setIgnoredMeetingLocations(\Ews\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations = null)
+    public function setIgnoredMeetingLocations(\ArrayType\EwsArrayOfMeetingLocationItemType $ignoredMeetingLocations): self
     {
         $this->IgnoredMeetingLocations = $ignoredMeetingLocations;
+        
         return $this;
     }
 }

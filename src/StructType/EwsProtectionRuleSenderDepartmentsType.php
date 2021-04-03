@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProtectionRuleSenderDepartmentsType StructType
@@ -21,13 +24,13 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $Value;
+    protected array $Value = [];
     /**
      * Constructor method for ProtectionRuleSenderDepartmentsType
      * @uses EwsProtectionRuleSenderDepartmentsType::setValue()
      * @param string[] $value
      */
-    public function __construct(array $value = array())
+    public function __construct(array $value)
     {
         $this
             ->setValue($value);
@@ -36,7 +39,7 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
      * Get Value value
      * @return string[]
      */
-    public function getValue()
+    public function getValue(): array
     {
         return $this->Value;
     }
@@ -46,7 +49,7 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateValueForArrayConstraintsFromSetValue(array $values = array())
+    public static function validateValueForArrayConstraintsFromSetValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -60,6 +63,7 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
             $message = sprintf('The Value property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
@@ -69,13 +73,13 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
      * @param mixed $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateValueForMinLengthConstraintFromSetValue($values)
+    public static function validateValueForMinLengthConstraintFromSetValue($values): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $protectionRuleSenderDepartmentsTypeValueItem) {
             // validation for constraint: minLength(1)
-            if (mb_strlen($protectionRuleSenderDepartmentsTypeValueItem) < 1) {
+            if (mb_strlen((string) $protectionRuleSenderDepartmentsTypeValueItem) < 1) {
                 $invalidValues[] = var_export($protectionRuleSenderDepartmentsTypeValueItem, true);
             }
         }
@@ -83,44 +87,47 @@ class EwsProtectionRuleSenderDepartmentsType extends AbstractStructBase
             $message = sprintf('Invalid length for value(s) %s, the number of characters/octets contained by the literal must be greater than or equal to 1', implode(', ', $invalidValues));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Value value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $value
-     * @return \Ews\StructType\EwsProtectionRuleSenderDepartmentsType
+     * @return \StructType\EwsProtectionRuleSenderDepartmentsType
      */
-    public function setValue(array $value = array())
+    public function setValue(array $value): self
     {
         // validation for constraint: array
         if ('' !== ($valueArrayErrorMessage = self::validateValueForArrayConstraintsFromSetValue($value))) {
-            throw new \InvalidArgumentException($valueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valueArrayErrorMessage, __LINE__);
         }
         // validation for constraint: minLength(1)
         if ('' !== ($valueMinLengthErrorMessage = self::validateValueForMinLengthConstraintFromSetValue($value))) {
-            throw new \InvalidArgumentException($valueMinLengthErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valueMinLengthErrorMessage, __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Add item to Value value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\StructType\EwsProtectionRuleSenderDepartmentsType
+     * @return \StructType\EwsProtectionRuleSenderDepartmentsType
      */
-    public function addToValue($item)
+    public function addToValue(string $item): self
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+            throw new InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (mb_strlen($item) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($item)), __LINE__);
+        if (mb_strlen((string) $item) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $item)), __LINE__);
         }
         $this->Value[] = $item;
+        
         return $this;
     }
 }

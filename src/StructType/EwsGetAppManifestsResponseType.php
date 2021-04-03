@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetAppManifestsResponseType StructType
@@ -16,35 +19,36 @@ class EwsGetAppManifestsResponseType extends EwsResponseMessageType
      * The Manifests
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfAppManifestsType
+     * @var \ArrayType\EwsArrayOfAppManifestsType|null
      */
-    public $Manifests;
+    protected ?\ArrayType\EwsArrayOfAppManifestsType $Manifests = null;
     /**
      * Constructor method for GetAppManifestsResponseType
      * @uses EwsGetAppManifestsResponseType::setManifests()
-     * @param \Ews\ArrayType\EwsArrayOfAppManifestsType $manifests
+     * @param \ArrayType\EwsArrayOfAppManifestsType $manifests
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfAppManifestsType $manifests = null)
+    public function __construct(?\ArrayType\EwsArrayOfAppManifestsType $manifests = null)
     {
         $this
             ->setManifests($manifests);
     }
     /**
      * Get Manifests value
-     * @return \Ews\ArrayType\EwsArrayOfAppManifestsType|null
+     * @return \ArrayType\EwsArrayOfAppManifestsType|null
      */
-    public function getManifests()
+    public function getManifests(): ?\ArrayType\EwsArrayOfAppManifestsType
     {
         return $this->Manifests;
     }
     /**
      * Set Manifests value
-     * @param \Ews\ArrayType\EwsArrayOfAppManifestsType $manifests
-     * @return \Ews\StructType\EwsGetAppManifestsResponseType
+     * @param \ArrayType\EwsArrayOfAppManifestsType $manifests
+     * @return \StructType\EwsGetAppManifestsResponseType
      */
-    public function setManifests(\Ews\ArrayType\EwsArrayOfAppManifestsType $manifests = null)
+    public function setManifests(?\ArrayType\EwsArrayOfAppManifestsType $manifests = null): self
     {
         $this->Manifests = $manifests;
+        
         return $this;
     }
 }

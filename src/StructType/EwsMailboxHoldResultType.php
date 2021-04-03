@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxHoldResultType StructType
@@ -16,21 +19,21 @@ class EwsMailboxHoldResultType extends AbstractStructBase
 {
     /**
      * The HoldId
-     * @var string
+     * @var string|null
      */
-    public $HoldId;
+    protected ?string $HoldId = null;
     /**
      * The Query
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Query;
+    protected ?string $Query = null;
     /**
      * The MailboxHoldStatuses
-     * @var \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType
+     * @var \ArrayType\EwsArrayOfMailboxHoldStatusType|null
      */
-    public $MailboxHoldStatuses;
+    protected ?\ArrayType\EwsArrayOfMailboxHoldStatusType $MailboxHoldStatuses = null;
     /**
      * Constructor method for MailboxHoldResultType
      * @uses EwsMailboxHoldResultType::setHoldId()
@@ -38,9 +41,9 @@ class EwsMailboxHoldResultType extends AbstractStructBase
      * @uses EwsMailboxHoldResultType::setMailboxHoldStatuses()
      * @param string $holdId
      * @param string $query
-     * @param \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses
+     * @param \ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses
      */
-    public function __construct($holdId = null, $query = null, \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses = null)
+    public function __construct(?string $holdId = null, ?string $query = null, ?\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses = null)
     {
         $this
             ->setHoldId($holdId)
@@ -51,62 +54,65 @@ class EwsMailboxHoldResultType extends AbstractStructBase
      * Get HoldId value
      * @return string|null
      */
-    public function getHoldId()
+    public function getHoldId(): ?string
     {
         return $this->HoldId;
     }
     /**
      * Set HoldId value
      * @param string $holdId
-     * @return \Ews\StructType\EwsMailboxHoldResultType
+     * @return \StructType\EwsMailboxHoldResultType
      */
-    public function setHoldId($holdId = null)
+    public function setHoldId(?string $holdId = null): self
     {
         // validation for constraint: string
         if (!is_null($holdId) && !is_string($holdId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($holdId, true), gettype($holdId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($holdId, true), gettype($holdId)), __LINE__);
         }
         $this->HoldId = $holdId;
+        
         return $this;
     }
     /**
      * Get Query value
      * @return string|null
      */
-    public function getQuery()
+    public function getQuery(): ?string
     {
         return $this->Query;
     }
     /**
      * Set Query value
      * @param string $query
-     * @return \Ews\StructType\EwsMailboxHoldResultType
+     * @return \StructType\EwsMailboxHoldResultType
      */
-    public function setQuery($query = null)
+    public function setQuery(?string $query = null): self
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
+        
         return $this;
     }
     /**
      * Get MailboxHoldStatuses value
-     * @return \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType|null
+     * @return \ArrayType\EwsArrayOfMailboxHoldStatusType|null
      */
-    public function getMailboxHoldStatuses()
+    public function getMailboxHoldStatuses(): ?\ArrayType\EwsArrayOfMailboxHoldStatusType
     {
         return $this->MailboxHoldStatuses;
     }
     /**
      * Set MailboxHoldStatuses value
-     * @param \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses
-     * @return \Ews\StructType\EwsMailboxHoldResultType
+     * @param \ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses
+     * @return \StructType\EwsMailboxHoldResultType
      */
-    public function setMailboxHoldStatuses(\Ews\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses = null)
+    public function setMailboxHoldStatuses(?\ArrayType\EwsArrayOfMailboxHoldStatusType $mailboxHoldStatuses = null): self
     {
         $this->MailboxHoldStatuses = $mailboxHoldStatuses;
+        
         return $this;
     }
 }

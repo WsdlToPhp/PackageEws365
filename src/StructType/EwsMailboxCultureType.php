@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxCultureType StructType
@@ -16,15 +19,15 @@ class EwsMailboxCultureType extends AbstractStructBase
 {
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * Constructor method for MailboxCultureType
      * @uses EwsMailboxCultureType::set_()
      * @param string $_
      */
-    public function __construct($_ = null)
+    public function __construct(?string $_ = null)
     {
         $this
             ->set_($_);
@@ -33,22 +36,23 @@ class EwsMailboxCultureType extends AbstractStructBase
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsMailboxCultureType
+     * @return \StructType\EwsMailboxCultureType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
 }

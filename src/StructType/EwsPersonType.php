@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PersonType StructType
@@ -17,217 +20,217 @@ class EwsPersonType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FullName;
+    protected ?string $FullName = null;
     /**
      * The GivenName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GivenName;
+    protected ?string $GivenName = null;
     /**
      * The Surname
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Surname;
+    protected ?string $Surname = null;
     /**
      * The PhoneNumber
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PhoneNumber;
+    protected ?string $PhoneNumber = null;
     /**
      * The SMSNumber
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SMSNumber;
+    protected ?string $SMSNumber = null;
     /**
      * The EmailAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EmailAddress;
+    protected ?string $EmailAddress = null;
     /**
      * The Alias
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Alias;
+    protected ?string $Alias = null;
     /**
      * The Department
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Department;
+    protected ?string $Department = null;
     /**
      * The LinkedInProfileLink
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LinkedInProfileLink;
+    protected ?string $LinkedInProfileLink = null;
     /**
      * The Skills
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSkillInsightValue
+     * @var \ArrayType\EwsArrayOfSkillInsightValue|null
      */
-    public $Skills;
+    protected ?\ArrayType\EwsArrayOfSkillInsightValue $Skills = null;
     /**
      * The ProfessionalBiography
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProfessionalBiography;
+    protected ?string $ProfessionalBiography = null;
     /**
      * The ManagementChain
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
+     * @var \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public $ManagementChain;
+    protected ?\ArrayType\EwsArrayOfProfileInsightValue $ManagementChain = null;
     /**
      * The DirectReports
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
+     * @var \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public $DirectReports;
+    protected ?\ArrayType\EwsArrayOfProfileInsightValue $DirectReports = null;
     /**
      * The Peers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
+     * @var \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public $Peers;
+    protected ?\ArrayType\EwsArrayOfProfileInsightValue $Peers = null;
     /**
      * The TeamSize
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $TeamSize;
+    protected ?string $TeamSize = null;
     /**
      * The CurrentJob
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfJobInsightValue
+     * @var \ArrayType\EwsArrayOfJobInsightValue|null
      */
-    public $CurrentJob;
+    protected ?\ArrayType\EwsArrayOfJobInsightValue $CurrentJob = null;
     /**
      * The Birthday
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Birthday;
+    protected ?string $Birthday = null;
     /**
      * The Hometown
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Hometown;
+    protected ?string $Hometown = null;
     /**
      * The CurrentLocation
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CurrentLocation;
+    protected ?string $CurrentLocation = null;
     /**
      * The CompanyProfile
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfCompanyInsightValue
+     * @var \ArrayType\EwsArrayOfCompanyInsightValue|null
      */
-    public $CompanyProfile;
+    protected ?\ArrayType\EwsArrayOfCompanyInsightValue $CompanyProfile = null;
     /**
      * The Office
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Office;
+    protected ?string $Office = null;
     /**
      * The Headline
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Headline;
+    protected ?string $Headline = null;
     /**
      * The MutualConnections
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfProfileInsightValue
+     * @var \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public $MutualConnections;
+    protected ?\ArrayType\EwsArrayOfProfileInsightValue $MutualConnections = null;
     /**
      * The Title
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Title;
+    protected ?string $Title = null;
     /**
      * The MutualManager
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsProfileInsightValue
+     * @var \StructType\EwsProfileInsightValue|null
      */
-    public $MutualManager;
+    protected ?\StructType\EwsProfileInsightValue $MutualManager = null;
     /**
      * The Insights
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfInsight
+     * @var \ArrayType\EwsArrayOfInsight|null
      */
-    public $Insights;
+    protected ?\ArrayType\EwsArrayOfInsight $Insights = null;
     /**
      * The UserProfilePicture
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUserProfilePicture
+     * @var \StructType\EwsUserProfilePicture|null
      */
-    public $UserProfilePicture;
+    protected ?\StructType\EwsUserProfilePicture $UserProfilePicture = null;
     /**
      * Constructor method for PersonType
      * @uses EwsPersonType::setFullName()
@@ -266,26 +269,26 @@ class EwsPersonType extends AbstractStructBase
      * @param string $alias
      * @param string $department
      * @param string $linkedInProfileLink
-     * @param \Ews\ArrayType\EwsArrayOfSkillInsightValue $skills
+     * @param \ArrayType\EwsArrayOfSkillInsightValue $skills
      * @param string $professionalBiography
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $managementChain
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $directReports
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $peers
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $managementChain
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $directReports
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $peers
      * @param string $teamSize
-     * @param \Ews\ArrayType\EwsArrayOfJobInsightValue $currentJob
+     * @param \ArrayType\EwsArrayOfJobInsightValue $currentJob
      * @param string $birthday
      * @param string $hometown
      * @param string $currentLocation
-     * @param \Ews\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile
+     * @param \ArrayType\EwsArrayOfCompanyInsightValue $companyProfile
      * @param string $office
      * @param string $headline
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $mutualConnections
      * @param string $title
-     * @param \Ews\StructType\EwsProfileInsightValue $mutualManager
-     * @param \Ews\ArrayType\EwsArrayOfInsight $insights
-     * @param \Ews\StructType\EwsUserProfilePicture $userProfilePicture
+     * @param \StructType\EwsProfileInsightValue $mutualManager
+     * @param \ArrayType\EwsArrayOfInsight $insights
+     * @param \StructType\EwsUserProfilePicture $userProfilePicture
      */
-    public function __construct($fullName = null, $givenName = null, $surname = null, $phoneNumber = null, $sMSNumber = null, $emailAddress = null, $alias = null, $department = null, $linkedInProfileLink = null, \Ews\ArrayType\EwsArrayOfSkillInsightValue $skills = null, $professionalBiography = null, \Ews\ArrayType\EwsArrayOfProfileInsightValue $managementChain = null, \Ews\ArrayType\EwsArrayOfProfileInsightValue $directReports = null, \Ews\ArrayType\EwsArrayOfProfileInsightValue $peers = null, $teamSize = null, \Ews\ArrayType\EwsArrayOfJobInsightValue $currentJob = null, $birthday = null, $hometown = null, $currentLocation = null, \Ews\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile = null, $office = null, $headline = null, \Ews\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections = null, $title = null, \Ews\StructType\EwsProfileInsightValue $mutualManager = null, \Ews\ArrayType\EwsArrayOfInsight $insights = null, \Ews\StructType\EwsUserProfilePicture $userProfilePicture = null)
+    public function __construct(?string $fullName = null, ?string $givenName = null, ?string $surname = null, ?string $phoneNumber = null, ?string $sMSNumber = null, ?string $emailAddress = null, ?string $alias = null, ?string $department = null, ?string $linkedInProfileLink = null, ?\ArrayType\EwsArrayOfSkillInsightValue $skills = null, ?string $professionalBiography = null, ?\ArrayType\EwsArrayOfProfileInsightValue $managementChain = null, ?\ArrayType\EwsArrayOfProfileInsightValue $directReports = null, ?\ArrayType\EwsArrayOfProfileInsightValue $peers = null, ?string $teamSize = null, ?\ArrayType\EwsArrayOfJobInsightValue $currentJob = null, ?string $birthday = null, ?string $hometown = null, ?string $currentLocation = null, ?\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile = null, ?string $office = null, ?string $headline = null, ?\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections = null, ?string $title = null, ?\StructType\EwsProfileInsightValue $mutualManager = null, ?\ArrayType\EwsArrayOfInsight $insights = null, ?\StructType\EwsUserProfilePicture $userProfilePicture = null)
     {
         $this
             ->setFullName($fullName)
@@ -320,554 +323,581 @@ class EwsPersonType extends AbstractStructBase
      * Get FullName value
      * @return string|null
      */
-    public function getFullName()
+    public function getFullName(): ?string
     {
         return $this->FullName;
     }
     /**
      * Set FullName value
      * @param string $fullName
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setFullName($fullName = null)
+    public function setFullName(?string $fullName = null): self
     {
         // validation for constraint: string
         if (!is_null($fullName) && !is_string($fullName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fullName, true), gettype($fullName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fullName, true), gettype($fullName)), __LINE__);
         }
         $this->FullName = $fullName;
+        
         return $this;
     }
     /**
      * Get GivenName value
      * @return string|null
      */
-    public function getGivenName()
+    public function getGivenName(): ?string
     {
         return $this->GivenName;
     }
     /**
      * Set GivenName value
      * @param string $givenName
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setGivenName($givenName = null)
+    public function setGivenName(?string $givenName = null): self
     {
         // validation for constraint: string
         if (!is_null($givenName) && !is_string($givenName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
         }
         $this->GivenName = $givenName;
+        
         return $this;
     }
     /**
      * Get Surname value
      * @return string|null
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->Surname;
     }
     /**
      * Set Surname value
      * @param string $surname
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setSurname($surname = null)
+    public function setSurname(?string $surname = null): self
     {
         // validation for constraint: string
         if (!is_null($surname) && !is_string($surname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
         }
         $this->Surname = $surname;
+        
         return $this;
     }
     /**
      * Get PhoneNumber value
      * @return string|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return $this->PhoneNumber;
     }
     /**
      * Set PhoneNumber value
      * @param string $phoneNumber
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setPhoneNumber($phoneNumber = null)
+    public function setPhoneNumber(?string $phoneNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneNumber) && !is_string($phoneNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneNumber, true), gettype($phoneNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneNumber, true), gettype($phoneNumber)), __LINE__);
         }
         $this->PhoneNumber = $phoneNumber;
+        
         return $this;
     }
     /**
      * Get SMSNumber value
      * @return string|null
      */
-    public function getSMSNumber()
+    public function getSMSNumber(): ?string
     {
         return $this->SMSNumber;
     }
     /**
      * Set SMSNumber value
      * @param string $sMSNumber
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setSMSNumber($sMSNumber = null)
+    public function setSMSNumber(?string $sMSNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($sMSNumber) && !is_string($sMSNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sMSNumber, true), gettype($sMSNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sMSNumber, true), gettype($sMSNumber)), __LINE__);
         }
         $this->SMSNumber = $sMSNumber;
+        
         return $this;
     }
     /**
      * Get EmailAddress value
      * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
      * @param string $emailAddress
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setEmailAddress($emailAddress = null)
+    public function setEmailAddress(?string $emailAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get Alias value
      * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->Alias;
     }
     /**
      * Set Alias value
      * @param string $alias
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setAlias($alias = null)
+    public function setAlias(?string $alias = null): self
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
+        
         return $this;
     }
     /**
      * Get Department value
      * @return string|null
      */
-    public function getDepartment()
+    public function getDepartment(): ?string
     {
         return $this->Department;
     }
     /**
      * Set Department value
      * @param string $department
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setDepartment($department = null)
+    public function setDepartment(?string $department = null): self
     {
         // validation for constraint: string
         if (!is_null($department) && !is_string($department)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
         }
         $this->Department = $department;
+        
         return $this;
     }
     /**
      * Get LinkedInProfileLink value
      * @return string|null
      */
-    public function getLinkedInProfileLink()
+    public function getLinkedInProfileLink(): ?string
     {
         return $this->LinkedInProfileLink;
     }
     /**
      * Set LinkedInProfileLink value
      * @param string $linkedInProfileLink
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setLinkedInProfileLink($linkedInProfileLink = null)
+    public function setLinkedInProfileLink(?string $linkedInProfileLink = null): self
     {
         // validation for constraint: string
         if (!is_null($linkedInProfileLink) && !is_string($linkedInProfileLink)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedInProfileLink, true), gettype($linkedInProfileLink)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedInProfileLink, true), gettype($linkedInProfileLink)), __LINE__);
         }
         $this->LinkedInProfileLink = $linkedInProfileLink;
+        
         return $this;
     }
     /**
      * Get Skills value
-     * @return \Ews\ArrayType\EwsArrayOfSkillInsightValue|null
+     * @return \ArrayType\EwsArrayOfSkillInsightValue|null
      */
-    public function getSkills()
+    public function getSkills(): ?\ArrayType\EwsArrayOfSkillInsightValue
     {
         return $this->Skills;
     }
     /**
      * Set Skills value
-     * @param \Ews\ArrayType\EwsArrayOfSkillInsightValue $skills
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfSkillInsightValue $skills
+     * @return \StructType\EwsPersonType
      */
-    public function setSkills(\Ews\ArrayType\EwsArrayOfSkillInsightValue $skills = null)
+    public function setSkills(?\ArrayType\EwsArrayOfSkillInsightValue $skills = null): self
     {
         $this->Skills = $skills;
+        
         return $this;
     }
     /**
      * Get ProfessionalBiography value
      * @return string|null
      */
-    public function getProfessionalBiography()
+    public function getProfessionalBiography(): ?string
     {
         return $this->ProfessionalBiography;
     }
     /**
      * Set ProfessionalBiography value
      * @param string $professionalBiography
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setProfessionalBiography($professionalBiography = null)
+    public function setProfessionalBiography(?string $professionalBiography = null): self
     {
         // validation for constraint: string
         if (!is_null($professionalBiography) && !is_string($professionalBiography)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($professionalBiography, true), gettype($professionalBiography)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($professionalBiography, true), gettype($professionalBiography)), __LINE__);
         }
         $this->ProfessionalBiography = $professionalBiography;
+        
         return $this;
     }
     /**
      * Get ManagementChain value
-     * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue|null
+     * @return \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public function getManagementChain()
+    public function getManagementChain(): ?\ArrayType\EwsArrayOfProfileInsightValue
     {
         return $this->ManagementChain;
     }
     /**
      * Set ManagementChain value
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $managementChain
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $managementChain
+     * @return \StructType\EwsPersonType
      */
-    public function setManagementChain(\Ews\ArrayType\EwsArrayOfProfileInsightValue $managementChain = null)
+    public function setManagementChain(?\ArrayType\EwsArrayOfProfileInsightValue $managementChain = null): self
     {
         $this->ManagementChain = $managementChain;
+        
         return $this;
     }
     /**
      * Get DirectReports value
-     * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue|null
+     * @return \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public function getDirectReports()
+    public function getDirectReports(): ?\ArrayType\EwsArrayOfProfileInsightValue
     {
         return $this->DirectReports;
     }
     /**
      * Set DirectReports value
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $directReports
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $directReports
+     * @return \StructType\EwsPersonType
      */
-    public function setDirectReports(\Ews\ArrayType\EwsArrayOfProfileInsightValue $directReports = null)
+    public function setDirectReports(?\ArrayType\EwsArrayOfProfileInsightValue $directReports = null): self
     {
         $this->DirectReports = $directReports;
+        
         return $this;
     }
     /**
      * Get Peers value
-     * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue|null
+     * @return \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public function getPeers()
+    public function getPeers(): ?\ArrayType\EwsArrayOfProfileInsightValue
     {
         return $this->Peers;
     }
     /**
      * Set Peers value
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $peers
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $peers
+     * @return \StructType\EwsPersonType
      */
-    public function setPeers(\Ews\ArrayType\EwsArrayOfProfileInsightValue $peers = null)
+    public function setPeers(?\ArrayType\EwsArrayOfProfileInsightValue $peers = null): self
     {
         $this->Peers = $peers;
+        
         return $this;
     }
     /**
      * Get TeamSize value
      * @return string|null
      */
-    public function getTeamSize()
+    public function getTeamSize(): ?string
     {
         return $this->TeamSize;
     }
     /**
      * Set TeamSize value
      * @param string $teamSize
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setTeamSize($teamSize = null)
+    public function setTeamSize(?string $teamSize = null): self
     {
         // validation for constraint: string
         if (!is_null($teamSize) && !is_string($teamSize)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($teamSize, true), gettype($teamSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($teamSize, true), gettype($teamSize)), __LINE__);
         }
         $this->TeamSize = $teamSize;
+        
         return $this;
     }
     /**
      * Get CurrentJob value
-     * @return \Ews\ArrayType\EwsArrayOfJobInsightValue|null
+     * @return \ArrayType\EwsArrayOfJobInsightValue|null
      */
-    public function getCurrentJob()
+    public function getCurrentJob(): ?\ArrayType\EwsArrayOfJobInsightValue
     {
         return $this->CurrentJob;
     }
     /**
      * Set CurrentJob value
-     * @param \Ews\ArrayType\EwsArrayOfJobInsightValue $currentJob
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfJobInsightValue $currentJob
+     * @return \StructType\EwsPersonType
      */
-    public function setCurrentJob(\Ews\ArrayType\EwsArrayOfJobInsightValue $currentJob = null)
+    public function setCurrentJob(?\ArrayType\EwsArrayOfJobInsightValue $currentJob = null): self
     {
         $this->CurrentJob = $currentJob;
+        
         return $this;
     }
     /**
      * Get Birthday value
      * @return string|null
      */
-    public function getBirthday()
+    public function getBirthday(): ?string
     {
         return $this->Birthday;
     }
     /**
      * Set Birthday value
      * @param string $birthday
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setBirthday($birthday = null)
+    public function setBirthday(?string $birthday = null): self
     {
         // validation for constraint: string
         if (!is_null($birthday) && !is_string($birthday)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($birthday, true), gettype($birthday)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($birthday, true), gettype($birthday)), __LINE__);
         }
         $this->Birthday = $birthday;
+        
         return $this;
     }
     /**
      * Get Hometown value
      * @return string|null
      */
-    public function getHometown()
+    public function getHometown(): ?string
     {
         return $this->Hometown;
     }
     /**
      * Set Hometown value
      * @param string $hometown
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setHometown($hometown = null)
+    public function setHometown(?string $hometown = null): self
     {
         // validation for constraint: string
         if (!is_null($hometown) && !is_string($hometown)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($hometown, true), gettype($hometown)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($hometown, true), gettype($hometown)), __LINE__);
         }
         $this->Hometown = $hometown;
+        
         return $this;
     }
     /**
      * Get CurrentLocation value
      * @return string|null
      */
-    public function getCurrentLocation()
+    public function getCurrentLocation(): ?string
     {
         return $this->CurrentLocation;
     }
     /**
      * Set CurrentLocation value
      * @param string $currentLocation
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setCurrentLocation($currentLocation = null)
+    public function setCurrentLocation(?string $currentLocation = null): self
     {
         // validation for constraint: string
         if (!is_null($currentLocation) && !is_string($currentLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($currentLocation, true), gettype($currentLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($currentLocation, true), gettype($currentLocation)), __LINE__);
         }
         $this->CurrentLocation = $currentLocation;
+        
         return $this;
     }
     /**
      * Get CompanyProfile value
-     * @return \Ews\ArrayType\EwsArrayOfCompanyInsightValue|null
+     * @return \ArrayType\EwsArrayOfCompanyInsightValue|null
      */
-    public function getCompanyProfile()
+    public function getCompanyProfile(): ?\ArrayType\EwsArrayOfCompanyInsightValue
     {
         return $this->CompanyProfile;
     }
     /**
      * Set CompanyProfile value
-     * @param \Ews\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfCompanyInsightValue $companyProfile
+     * @return \StructType\EwsPersonType
      */
-    public function setCompanyProfile(\Ews\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile = null)
+    public function setCompanyProfile(?\ArrayType\EwsArrayOfCompanyInsightValue $companyProfile = null): self
     {
         $this->CompanyProfile = $companyProfile;
+        
         return $this;
     }
     /**
      * Get Office value
      * @return string|null
      */
-    public function getOffice()
+    public function getOffice(): ?string
     {
         return $this->Office;
     }
     /**
      * Set Office value
      * @param string $office
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setOffice($office = null)
+    public function setOffice(?string $office = null): self
     {
         // validation for constraint: string
         if (!is_null($office) && !is_string($office)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($office, true), gettype($office)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($office, true), gettype($office)), __LINE__);
         }
         $this->Office = $office;
+        
         return $this;
     }
     /**
      * Get Headline value
      * @return string|null
      */
-    public function getHeadline()
+    public function getHeadline(): ?string
     {
         return $this->Headline;
     }
     /**
      * Set Headline value
      * @param string $headline
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setHeadline($headline = null)
+    public function setHeadline(?string $headline = null): self
     {
         // validation for constraint: string
         if (!is_null($headline) && !is_string($headline)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($headline, true), gettype($headline)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($headline, true), gettype($headline)), __LINE__);
         }
         $this->Headline = $headline;
+        
         return $this;
     }
     /**
      * Get MutualConnections value
-     * @return \Ews\ArrayType\EwsArrayOfProfileInsightValue|null
+     * @return \ArrayType\EwsArrayOfProfileInsightValue|null
      */
-    public function getMutualConnections()
+    public function getMutualConnections(): ?\ArrayType\EwsArrayOfProfileInsightValue
     {
         return $this->MutualConnections;
     }
     /**
      * Set MutualConnections value
-     * @param \Ews\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfProfileInsightValue $mutualConnections
+     * @return \StructType\EwsPersonType
      */
-    public function setMutualConnections(\Ews\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections = null)
+    public function setMutualConnections(?\ArrayType\EwsArrayOfProfileInsightValue $mutualConnections = null): self
     {
         $this->MutualConnections = $mutualConnections;
+        
         return $this;
     }
     /**
      * Get Title value
      * @return string|null
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->Title;
     }
     /**
      * Set Title value
      * @param string $title
-     * @return \Ews\StructType\EwsPersonType
+     * @return \StructType\EwsPersonType
      */
-    public function setTitle($title = null)
+    public function setTitle(?string $title = null): self
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
+        
         return $this;
     }
     /**
      * Get MutualManager value
-     * @return \Ews\StructType\EwsProfileInsightValue|null
+     * @return \StructType\EwsProfileInsightValue|null
      */
-    public function getMutualManager()
+    public function getMutualManager(): ?\StructType\EwsProfileInsightValue
     {
         return $this->MutualManager;
     }
     /**
      * Set MutualManager value
-     * @param \Ews\StructType\EwsProfileInsightValue $mutualManager
-     * @return \Ews\StructType\EwsPersonType
+     * @param \StructType\EwsProfileInsightValue $mutualManager
+     * @return \StructType\EwsPersonType
      */
-    public function setMutualManager(\Ews\StructType\EwsProfileInsightValue $mutualManager = null)
+    public function setMutualManager(?\StructType\EwsProfileInsightValue $mutualManager = null): self
     {
         $this->MutualManager = $mutualManager;
+        
         return $this;
     }
     /**
      * Get Insights value
-     * @return \Ews\ArrayType\EwsArrayOfInsight|null
+     * @return \ArrayType\EwsArrayOfInsight|null
      */
-    public function getInsights()
+    public function getInsights(): ?\ArrayType\EwsArrayOfInsight
     {
         return $this->Insights;
     }
     /**
      * Set Insights value
-     * @param \Ews\ArrayType\EwsArrayOfInsight $insights
-     * @return \Ews\StructType\EwsPersonType
+     * @param \ArrayType\EwsArrayOfInsight $insights
+     * @return \StructType\EwsPersonType
      */
-    public function setInsights(\Ews\ArrayType\EwsArrayOfInsight $insights = null)
+    public function setInsights(?\ArrayType\EwsArrayOfInsight $insights = null): self
     {
         $this->Insights = $insights;
+        
         return $this;
     }
     /**
      * Get UserProfilePicture value
-     * @return \Ews\StructType\EwsUserProfilePicture|null
+     * @return \StructType\EwsUserProfilePicture|null
      */
-    public function getUserProfilePicture()
+    public function getUserProfilePicture(): ?\StructType\EwsUserProfilePicture
     {
         return $this->UserProfilePicture;
     }
     /**
      * Set UserProfilePicture value
-     * @param \Ews\StructType\EwsUserProfilePicture $userProfilePicture
-     * @return \Ews\StructType\EwsPersonType
+     * @param \StructType\EwsUserProfilePicture $userProfilePicture
+     * @return \StructType\EwsPersonType
      */
-    public function setUserProfilePicture(\Ews\StructType\EwsUserProfilePicture $userProfilePicture = null)
+    public function setUserProfilePicture(?\StructType\EwsUserProfilePicture $userProfilePicture = null): self
     {
         $this->UserProfilePicture = $userProfilePicture;
+        
         return $this;
     }
 }

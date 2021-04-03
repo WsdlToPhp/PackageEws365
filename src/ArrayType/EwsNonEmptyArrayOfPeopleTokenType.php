@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfPeopleTokenType ArrayType
@@ -17,24 +20,24 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPeopleTokenType[]
+     * @var \StructType\EwsPeopleTokenType[]
      */
-    public $PeopleToken;
+    protected array $PeopleToken = [];
     /**
      * Constructor method for NonEmptyArrayOfPeopleTokenType
      * @uses EwsNonEmptyArrayOfPeopleTokenType::setPeopleToken()
-     * @param \Ews\StructType\EwsPeopleTokenType[] $peopleToken
+     * @param \StructType\EwsPeopleTokenType[] $peopleToken
      */
-    public function __construct(array $peopleToken = array())
+    public function __construct(array $peopleToken)
     {
         $this
             ->setPeopleToken($peopleToken);
     }
     /**
      * Get PeopleToken value
-     * @return \Ews\StructType\EwsPeopleTokenType[]
+     * @return \StructType\EwsPeopleTokenType[]
      */
-    public function getPeopleToken()
+    public function getPeopleToken(): array
     {
         return $this->PeopleToken;
     }
@@ -44,58 +47,45 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePeopleTokenForArrayConstraintsFromSetPeopleToken(array $values = array())
+    public static function validatePeopleTokenForArrayConstraintsFromSetPeopleToken(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfPeopleTokenTypePeopleTokenItem instanceof \Ews\StructType\EwsPeopleTokenType) {
+            if (!$nonEmptyArrayOfPeopleTokenTypePeopleTokenItem instanceof \StructType\EwsPeopleTokenType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) ? get_class($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem), var_export($nonEmptyArrayOfPeopleTokenTypePeopleTokenItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The PeopleToken property can only contain items of type \Ews\StructType\EwsPeopleTokenType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The PeopleToken property can only contain items of type \StructType\EwsPeopleTokenType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set PeopleToken value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPeopleTokenType[] $peopleToken
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPeopleTokenType[] $peopleToken
+     * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public function setPeopleToken(array $peopleToken = array())
+    public function setPeopleToken(array $peopleToken): self
     {
         // validation for constraint: array
         if ('' !== ($peopleTokenArrayErrorMessage = self::validatePeopleTokenForArrayConstraintsFromSetPeopleToken($peopleToken))) {
-            throw new \InvalidArgumentException($peopleTokenArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($peopleTokenArrayErrorMessage, __LINE__);
         }
         $this->PeopleToken = $peopleToken;
-        return $this;
-    }
-    /**
-     * Add item to PeopleToken value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPeopleTokenType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
-     */
-    public function addToPeopleToken(\Ews\StructType\EwsPeopleTokenType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPeopleTokenType) {
-            throw new \InvalidArgumentException(sprintf('The PeopleToken property can only contain items of type \Ews\StructType\EwsPeopleTokenType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->PeopleToken[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPeopleTokenType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPeopleTokenType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPeopleTokenType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPeopleTokenType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPeopleTokenType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPeopleTokenType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     */
+    public function add(\StructType\EwsPeopleTokenType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string PeopleToken
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'PeopleToken';
     }

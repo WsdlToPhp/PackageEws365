@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExtendedPropertyType StructType
@@ -16,37 +19,37 @@ class EwsExtendedPropertyType extends AbstractStructBase
 {
     /**
      * The ExtendedFieldURI
-     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     * @var \StructType\EwsPathToExtendedFieldType|null
      */
-    public $ExtendedFieldURI;
+    protected ?\StructType\EwsPathToExtendedFieldType $ExtendedFieldURI = null;
     /**
      * The Value
      * Meta information extracted from the WSDL
      * - choice: Value | Values
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var string
+     * @var string|null
      */
-    public $Value;
+    protected ?string $Value = null;
     /**
      * The Values
      * Meta information extracted from the WSDL
      * - choice: Value | Values
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType
+     * @var \ArrayType\EwsNonEmptyArrayOfPropertyValuesType|null
      */
-    public $Values;
+    protected ?\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $Values = null;
     /**
      * Constructor method for ExtendedPropertyType
      * @uses EwsExtendedPropertyType::setExtendedFieldURI()
      * @uses EwsExtendedPropertyType::setValue()
      * @uses EwsExtendedPropertyType::setValues()
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
      * @param string $value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values
+     * @param \ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values
      */
-    public function __construct(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null, $value = null, \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values = null)
+    public function __construct(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null, ?string $value = null, ?\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values = null)
     {
         $this
             ->setExtendedFieldURI($extendedFieldURI)
@@ -55,27 +58,28 @@ class EwsExtendedPropertyType extends AbstractStructBase
     }
     /**
      * Get ExtendedFieldURI value
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function getExtendedFieldURI()
+    public function getExtendedFieldURI(): ?\StructType\EwsPathToExtendedFieldType
     {
         return $this->ExtendedFieldURI;
     }
     /**
      * Set ExtendedFieldURI value
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
-     * @return \Ews\StructType\EwsExtendedPropertyType
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \StructType\EwsExtendedPropertyType
      */
-    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function setExtendedFieldURI(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null): self
     {
         $this->ExtendedFieldURI = $extendedFieldURI;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string|null
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return isset($this->Value) ? $this->Value : null;
     }
@@ -86,7 +90,7 @@ class EwsExtendedPropertyType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateValueForChoiceConstraintsFromSetValue($value)
+    public function validateValueForChoiceConstraintsFromSetValue($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -98,12 +102,13 @@ class EwsExtendedPropertyType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Value can\'t be set as the property %s is already set. Only one property must be set among these properties: Value, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Value can\'t be set as the property %s is already set. Only one property must be set among these properties: Value, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -111,32 +116,33 @@ class EwsExtendedPropertyType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $value
-     * @return \Ews\StructType\EwsExtendedPropertyType
+     * @return \StructType\EwsExtendedPropertyType
      */
-    public function setValue($value = null)
+    public function setValue(?string $value = null): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         // validation for constraint: choice(Value, Values)
         if ('' !== ($valueChoiceErrorMessage = self::validateValueForChoiceConstraintsFromSetValue($value))) {
-            throw new \InvalidArgumentException($valueChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valueChoiceErrorMessage, __LINE__);
         }
         if (is_null($value) || (is_array($value) && empty($value))) {
             unset($this->Value);
         } else {
             $this->Value = $value;
         }
+        
         return $this;
     }
     /**
      * Get Values value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfPropertyValuesType|null
      */
-    public function getValues()
+    public function getValues(): ?\ArrayType\EwsNonEmptyArrayOfPropertyValuesType
     {
         return isset($this->Values) ? $this->Values : null;
     }
@@ -147,7 +153,7 @@ class EwsExtendedPropertyType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateValuesForChoiceConstraintsFromSetValues($value)
+    public function validateValuesForChoiceConstraintsFromSetValues($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -159,12 +165,13 @@ class EwsExtendedPropertyType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Values can\'t be set as the property %s is already set. Only one property must be set among these properties: Values, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Values can\'t be set as the property %s is already set. Only one property must be set among these properties: Values, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -172,21 +179,22 @@ class EwsExtendedPropertyType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values
-     * @return \Ews\StructType\EwsExtendedPropertyType
+     * @throws InvalidArgumentException
+     * @param \ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values
+     * @return \StructType\EwsExtendedPropertyType
      */
-    public function setValues(\Ews\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values = null)
+    public function setValues(?\ArrayType\EwsNonEmptyArrayOfPropertyValuesType $values = null): self
     {
         // validation for constraint: choice(Value, Values)
         if ('' !== ($valuesChoiceErrorMessage = self::validateValuesForChoiceConstraintsFromSetValues($values))) {
-            throw new \InvalidArgumentException($valuesChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valuesChoiceErrorMessage, __LINE__);
         }
         if (is_null($values) || (is_array($values) && empty($values))) {
             unset($this->Values);
         } else {
             $this->Values = $values;
         }
+        
         return $this;
     }
 }

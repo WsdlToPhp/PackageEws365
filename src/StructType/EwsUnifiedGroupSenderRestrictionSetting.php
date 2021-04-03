@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupSenderRestrictionSetting StructType
@@ -19,7 +22,7 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $RestrictionAction;
+    protected string $RestrictionAction;
     /**
      * The Restriction
      * Meta information extracted from the WSDL
@@ -27,15 +30,15 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Restriction;
+    protected string $Restriction;
     /**
      * The SenderList
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public $SenderList;
+    protected \ArrayType\EwsArrayOfSmtpAddressType $SenderList;
     /**
      * Constructor method for UnifiedGroupSenderRestrictionSetting
      * @uses EwsUnifiedGroupSenderRestrictionSetting::setRestrictionAction()
@@ -43,9 +46,9 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * @uses EwsUnifiedGroupSenderRestrictionSetting::setSenderList()
      * @param string $restrictionAction
      * @param string $restriction
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $senderList
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $senderList
      */
-    public function __construct($restrictionAction = null, $restriction = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $senderList = null)
+    public function __construct(string $restrictionAction, string $restriction, \ArrayType\EwsArrayOfSmtpAddressType $senderList)
     {
         $this
             ->setRestrictionAction($restrictionAction)
@@ -56,68 +59,71 @@ class EwsUnifiedGroupSenderRestrictionSetting extends AbstractStructBase
      * Get RestrictionAction value
      * @return string
      */
-    public function getRestrictionAction()
+    public function getRestrictionAction(): string
     {
         return $this->RestrictionAction;
     }
     /**
      * Set RestrictionAction value
-     * @uses \Ews\EnumType\EwsSenderRestrictionActionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSenderRestrictionActionType::valueIsValid()
+     * @uses \EnumType\EwsSenderRestrictionActionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $restrictionAction
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionSetting
      */
-    public function setRestrictionAction($restrictionAction = null)
+    public function setRestrictionAction(string $restrictionAction): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSenderRestrictionActionType::valueIsValid($restrictionAction)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSenderRestrictionActionType', is_array($restrictionAction) ? implode(', ', $restrictionAction) : var_export($restrictionAction, true), implode(', ', \Ews\EnumType\EwsSenderRestrictionActionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSenderRestrictionActionType::valueIsValid($restrictionAction)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSenderRestrictionActionType', is_array($restrictionAction) ? implode(', ', $restrictionAction) : var_export($restrictionAction, true), implode(', ', \EnumType\EwsSenderRestrictionActionType::getValidValues())), __LINE__);
         }
         $this->RestrictionAction = $restrictionAction;
+        
         return $this;
     }
     /**
      * Get Restriction value
      * @return string
      */
-    public function getRestriction()
+    public function getRestriction(): string
     {
         return $this->Restriction;
     }
     /**
      * Set Restriction value
-     * @uses \Ews\EnumType\EwsSenderRestrictionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSenderRestrictionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSenderRestrictionType::valueIsValid()
+     * @uses \EnumType\EwsSenderRestrictionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $restriction
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionSetting
      */
-    public function setRestriction($restriction = null)
+    public function setRestriction(string $restriction): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSenderRestrictionType::valueIsValid($restriction)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSenderRestrictionType', is_array($restriction) ? implode(', ', $restriction) : var_export($restriction, true), implode(', ', \Ews\EnumType\EwsSenderRestrictionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSenderRestrictionType::valueIsValid($restriction)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSenderRestrictionType', is_array($restriction) ? implode(', ', $restriction) : var_export($restriction, true), implode(', ', \EnumType\EwsSenderRestrictionType::getValidValues())), __LINE__);
         }
         $this->Restriction = $restriction;
+        
         return $this;
     }
     /**
      * Get SenderList value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @return \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public function getSenderList()
+    public function getSenderList(): \ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->SenderList;
     }
     /**
      * Set SenderList value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $senderList
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionSetting
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $senderList
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionSetting
      */
-    public function setSenderList(\Ews\ArrayType\EwsArrayOfSmtpAddressType $senderList = null)
+    public function setSenderList(\ArrayType\EwsArrayOfSmtpAddressType $senderList): self
     {
         $this->SenderList = $senderList;
+        
         return $this;
     }
 }

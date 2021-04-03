@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfInvalidRecipientsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
      * - choice: InvalidRecipient
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsInvalidRecipientType
+     * @var \StructType\EwsInvalidRecipientType|null
      */
-    public $InvalidRecipient;
+    protected ?\StructType\EwsInvalidRecipientType $InvalidRecipient = null;
     /**
      * Constructor method for ArrayOfInvalidRecipientsType
      * @uses EwsArrayOfInvalidRecipientsType::setInvalidRecipient()
-     * @param \Ews\StructType\EwsInvalidRecipientType $invalidRecipient
+     * @param \StructType\EwsInvalidRecipientType $invalidRecipient
      */
-    public function __construct(\Ews\StructType\EwsInvalidRecipientType $invalidRecipient = null)
+    public function __construct(?\StructType\EwsInvalidRecipientType $invalidRecipient = null)
     {
         $this
             ->setInvalidRecipient($invalidRecipient);
     }
     /**
      * Get InvalidRecipient value
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function getInvalidRecipient()
+    public function getInvalidRecipient(): ?\StructType\EwsInvalidRecipientType
     {
         return isset($this->InvalidRecipient) ? $this->InvalidRecipient : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateInvalidRecipientForChoiceConstraintsFromSetInvalidRecipient($value)
+    public function validateInvalidRecipientForChoiceConstraintsFromSetInvalidRecipient($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property InvalidRecipient can\'t be set as the property %s is already set. Only one property must be set among these properties: InvalidRecipient, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property InvalidRecipient can\'t be set as the property %s is already set. Only one property must be set among these properties: InvalidRecipient, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInvalidRecipientType $invalidRecipient
-     * @return \Ews\ArrayType\EwsArrayOfInvalidRecipientsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInvalidRecipientType $invalidRecipient
+     * @return \ArrayType\EwsArrayOfInvalidRecipientsType
      */
-    public function setInvalidRecipient(\Ews\StructType\EwsInvalidRecipientType $invalidRecipient = null)
+    public function setInvalidRecipient(?\StructType\EwsInvalidRecipientType $invalidRecipient = null): self
     {
         // validation for constraint: choice(InvalidRecipient)
         if ('' !== ($invalidRecipientChoiceErrorMessage = self::validateInvalidRecipientForChoiceConstraintsFromSetInvalidRecipient($invalidRecipient))) {
-            throw new \InvalidArgumentException($invalidRecipientChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($invalidRecipientChoiceErrorMessage, __LINE__);
         }
         if (is_null($invalidRecipient) || (is_array($invalidRecipient) && empty($invalidRecipient))) {
             unset($this->InvalidRecipient);
         } else {
             $this->InvalidRecipient = $invalidRecipient;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsInvalidRecipientType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsInvalidRecipientType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsInvalidRecipientType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsInvalidRecipientType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfInvalidRecipientsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsInvalidRecipientType|null
+     * @return \StructType\EwsInvalidRecipientType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsInvalidRecipientType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInvalidRecipientType $item
+     * @return \ArrayType\EwsArrayOfInvalidRecipientsType
+     */
+    public function add(\StructType\EwsInvalidRecipientType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string InvalidRecipient
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'InvalidRecipient';
     }

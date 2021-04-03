@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUMCallDataRecordsType StructType
@@ -19,47 +22,47 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $FilterBy;
+    protected string $FilterBy;
     /**
      * The StartDateTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartDateTime;
+    protected ?string $StartDateTime = null;
     /**
      * The EndDateTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndDateTime;
+    protected ?string $EndDateTime = null;
     /**
      * The Offset
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Offset;
+    protected ?int $Offset = null;
     /**
      * The NumberOfRecords
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $NumberOfRecords;
+    protected ?int $NumberOfRecords = null;
     /**
      * The UserLegacyExchangeDN
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UserLegacyExchangeDN;
+    protected ?string $UserLegacyExchangeDN = null;
     /**
      * Constructor method for GetUMCallDataRecordsType
      * @uses EwsGetUMCallDataRecordsType::setFilterBy()
@@ -75,7 +78,7 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * @param int $numberOfRecords
      * @param string $userLegacyExchangeDN
      */
-    public function __construct($filterBy = null, $startDateTime = null, $endDateTime = null, $offset = null, $numberOfRecords = null, $userLegacyExchangeDN = null)
+    public function __construct(string $filterBy, ?string $startDateTime = null, ?string $endDateTime = null, ?int $offset = null, ?int $numberOfRecords = null, ?string $userLegacyExchangeDN = null)
     {
         $this
             ->setFilterBy($filterBy)
@@ -89,135 +92,141 @@ class EwsGetUMCallDataRecordsType extends EwsBaseRequestType
      * Get FilterBy value
      * @return string
      */
-    public function getFilterBy()
+    public function getFilterBy(): string
     {
         return $this->FilterBy;
     }
     /**
      * Set FilterBy value
-     * @uses \Ews\EnumType\EwsUMCDRFilterByType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUMCDRFilterByType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUMCDRFilterByType::valueIsValid()
+     * @uses \EnumType\EwsUMCDRFilterByType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $filterBy
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setFilterBy($filterBy = null)
+    public function setFilterBy(string $filterBy): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUMCDRFilterByType::valueIsValid($filterBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUMCDRFilterByType', is_array($filterBy) ? implode(', ', $filterBy) : var_export($filterBy, true), implode(', ', \Ews\EnumType\EwsUMCDRFilterByType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUMCDRFilterByType::valueIsValid($filterBy)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUMCDRFilterByType', is_array($filterBy) ? implode(', ', $filterBy) : var_export($filterBy, true), implode(', ', \EnumType\EwsUMCDRFilterByType::getValidValues())), __LINE__);
         }
         $this->FilterBy = $filterBy;
+        
         return $this;
     }
     /**
      * Get StartDateTime value
      * @return string|null
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): ?string
     {
         return $this->StartDateTime;
     }
     /**
      * Set StartDateTime value
      * @param string $startDateTime
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setStartDateTime($startDateTime = null)
+    public function setStartDateTime(?string $startDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($startDateTime) && !is_string($startDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
         }
         $this->StartDateTime = $startDateTime;
+        
         return $this;
     }
     /**
      * Get EndDateTime value
      * @return string|null
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): ?string
     {
         return $this->EndDateTime;
     }
     /**
      * Set EndDateTime value
      * @param string $endDateTime
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setEndDateTime($endDateTime = null)
+    public function setEndDateTime(?string $endDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($endDateTime) && !is_string($endDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDateTime, true), gettype($endDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDateTime, true), gettype($endDateTime)), __LINE__);
         }
         $this->EndDateTime = $endDateTime;
+        
         return $this;
     }
     /**
      * Get Offset value
      * @return int|null
      */
-    public function getOffset()
+    public function getOffset(): ?int
     {
         return $this->Offset;
     }
     /**
      * Set Offset value
      * @param int $offset
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setOffset($offset = null)
+    public function setOffset(?int $offset = null): self
     {
         // validation for constraint: int
         if (!is_null($offset) && !(is_int($offset) || ctype_digit($offset))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offset, true), gettype($offset)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offset, true), gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
+        
         return $this;
     }
     /**
      * Get NumberOfRecords value
      * @return int|null
      */
-    public function getNumberOfRecords()
+    public function getNumberOfRecords(): ?int
     {
         return $this->NumberOfRecords;
     }
     /**
      * Set NumberOfRecords value
      * @param int $numberOfRecords
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setNumberOfRecords($numberOfRecords = null)
+    public function setNumberOfRecords(?int $numberOfRecords = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfRecords) && !(is_int($numberOfRecords) || ctype_digit($numberOfRecords))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfRecords, true), gettype($numberOfRecords)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfRecords, true), gettype($numberOfRecords)), __LINE__);
         }
         $this->NumberOfRecords = $numberOfRecords;
+        
         return $this;
     }
     /**
      * Get UserLegacyExchangeDN value
      * @return string|null
      */
-    public function getUserLegacyExchangeDN()
+    public function getUserLegacyExchangeDN(): ?string
     {
         return $this->UserLegacyExchangeDN;
     }
     /**
      * Set UserLegacyExchangeDN value
      * @param string $userLegacyExchangeDN
-     * @return \Ews\StructType\EwsGetUMCallDataRecordsType
+     * @return \StructType\EwsGetUMCallDataRecordsType
      */
-    public function setUserLegacyExchangeDN($userLegacyExchangeDN = null)
+    public function setUserLegacyExchangeDN(?string $userLegacyExchangeDN = null): self
     {
         // validation for constraint: string
         if (!is_null($userLegacyExchangeDN) && !is_string($userLegacyExchangeDN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userLegacyExchangeDN, true), gettype($userLegacyExchangeDN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userLegacyExchangeDN, true), gettype($userLegacyExchangeDN)), __LINE__);
         }
         $this->UserLegacyExchangeDN = $userLegacyExchangeDN;
+        
         return $this;
     }
 }

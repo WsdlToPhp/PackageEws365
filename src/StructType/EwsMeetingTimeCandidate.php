@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingTimeCandidate StructType
@@ -14,34 +17,34 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
 {
     /**
      * The MeetingTimeslot
-     * @var \Ews\StructType\EwsTimeSlot
+     * @var \StructType\EwsTimeSlot|null
      */
-    public $MeetingTimeslot;
+    protected ?\StructType\EwsTimeSlot $MeetingTimeslot = null;
     /**
      * The Confidence
-     * @var float
+     * @var float|null
      */
-    public $Confidence;
+    protected ?float $Confidence = null;
     /**
      * The Score
-     * @var int
+     * @var int|null
      */
-    public $Score;
+    protected ?int $Score = null;
     /**
      * The OrganizerAvailability
-     * @var string
+     * @var string|null
      */
-    public $OrganizerAvailability;
+    protected ?string $OrganizerAvailability = null;
     /**
      * The AttendeeAvailabilities
-     * @var \Ews\ArrayType\EwsArrayOfAttendeeAvailability
+     * @var \ArrayType\EwsArrayOfAttendeeAvailability|null
      */
-    public $AttendeeAvailabilities;
+    protected ?\ArrayType\EwsArrayOfAttendeeAvailability $AttendeeAvailabilities = null;
     /**
      * The Locations
-     * @var \Ews\ArrayType\EwsArrayOfMeetingLocation
+     * @var \ArrayType\EwsArrayOfMeetingLocation|null
      */
-    public $Locations;
+    protected ?\ArrayType\EwsArrayOfMeetingLocation $Locations = null;
     /**
      * Constructor method for MeetingTimeCandidate
      * @uses EwsMeetingTimeCandidate::setMeetingTimeslot()
@@ -50,14 +53,14 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
      * @uses EwsMeetingTimeCandidate::setOrganizerAvailability()
      * @uses EwsMeetingTimeCandidate::setAttendeeAvailabilities()
      * @uses EwsMeetingTimeCandidate::setLocations()
-     * @param \Ews\StructType\EwsTimeSlot $meetingTimeslot
+     * @param \StructType\EwsTimeSlot $meetingTimeslot
      * @param float $confidence
      * @param int $score
      * @param string $organizerAvailability
-     * @param \Ews\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocation $locations
+     * @param \ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities
+     * @param \ArrayType\EwsArrayOfMeetingLocation $locations
      */
-    public function __construct(\Ews\StructType\EwsTimeSlot $meetingTimeslot = null, $confidence = null, $score = null, $organizerAvailability = null, \Ews\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities = null, \Ews\ArrayType\EwsArrayOfMeetingLocation $locations = null)
+    public function __construct(?\StructType\EwsTimeSlot $meetingTimeslot = null, ?float $confidence = null, ?int $score = null, ?string $organizerAvailability = null, ?\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities = null, ?\ArrayType\EwsArrayOfMeetingLocation $locations = null)
     {
         $this
             ->setMeetingTimeslot($meetingTimeslot)
@@ -69,125 +72,131 @@ class EwsMeetingTimeCandidate extends AbstractStructBase
     }
     /**
      * Get MeetingTimeslot value
-     * @return \Ews\StructType\EwsTimeSlot|null
+     * @return \StructType\EwsTimeSlot|null
      */
-    public function getMeetingTimeslot()
+    public function getMeetingTimeslot(): ?\StructType\EwsTimeSlot
     {
         return $this->MeetingTimeslot;
     }
     /**
      * Set MeetingTimeslot value
-     * @param \Ews\StructType\EwsTimeSlot $meetingTimeslot
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @param \StructType\EwsTimeSlot $meetingTimeslot
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setMeetingTimeslot(\Ews\StructType\EwsTimeSlot $meetingTimeslot = null)
+    public function setMeetingTimeslot(?\StructType\EwsTimeSlot $meetingTimeslot = null): self
     {
         $this->MeetingTimeslot = $meetingTimeslot;
+        
         return $this;
     }
     /**
      * Get Confidence value
      * @return float|null
      */
-    public function getConfidence()
+    public function getConfidence(): ?float
     {
         return $this->Confidence;
     }
     /**
      * Set Confidence value
      * @param float $confidence
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setConfidence($confidence = null)
+    public function setConfidence(?float $confidence = null): self
     {
         // validation for constraint: float
         if (!is_null($confidence) && !(is_float($confidence) || is_numeric($confidence))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($confidence, true), gettype($confidence)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($confidence, true), gettype($confidence)), __LINE__);
         }
         $this->Confidence = $confidence;
+        
         return $this;
     }
     /**
      * Get Score value
      * @return int|null
      */
-    public function getScore()
+    public function getScore(): ?int
     {
         return $this->Score;
     }
     /**
      * Set Score value
      * @param int $score
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setScore($score = null)
+    public function setScore(?int $score = null): self
     {
         // validation for constraint: int
         if (!is_null($score) && !(is_int($score) || ctype_digit($score))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($score, true), gettype($score)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($score, true), gettype($score)), __LINE__);
         }
         $this->Score = $score;
+        
         return $this;
     }
     /**
      * Get OrganizerAvailability value
      * @return string|null
      */
-    public function getOrganizerAvailability()
+    public function getOrganizerAvailability(): ?string
     {
         return $this->OrganizerAvailability;
     }
     /**
      * Set OrganizerAvailability value
-     * @uses \Ews\EnumType\EwsAvailabilityStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsAvailabilityStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsAvailabilityStatusType::valueIsValid()
+     * @uses \EnumType\EwsAvailabilityStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $organizerAvailability
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setOrganizerAvailability($organizerAvailability = null)
+    public function setOrganizerAvailability(?string $organizerAvailability = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsAvailabilityStatusType::valueIsValid($organizerAvailability)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAvailabilityStatusType', is_array($organizerAvailability) ? implode(', ', $organizerAvailability) : var_export($organizerAvailability, true), implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsAvailabilityStatusType::valueIsValid($organizerAvailability)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsAvailabilityStatusType', is_array($organizerAvailability) ? implode(', ', $organizerAvailability) : var_export($organizerAvailability, true), implode(', ', \EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
         }
         $this->OrganizerAvailability = $organizerAvailability;
+        
         return $this;
     }
     /**
      * Get AttendeeAvailabilities value
-     * @return \Ews\ArrayType\EwsArrayOfAttendeeAvailability|null
+     * @return \ArrayType\EwsArrayOfAttendeeAvailability|null
      */
-    public function getAttendeeAvailabilities()
+    public function getAttendeeAvailabilities(): ?\ArrayType\EwsArrayOfAttendeeAvailability
     {
         return $this->AttendeeAvailabilities;
     }
     /**
      * Set AttendeeAvailabilities value
-     * @param \Ews\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @param \ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setAttendeeAvailabilities(\Ews\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities = null)
+    public function setAttendeeAvailabilities(?\ArrayType\EwsArrayOfAttendeeAvailability $attendeeAvailabilities = null): self
     {
         $this->AttendeeAvailabilities = $attendeeAvailabilities;
+        
         return $this;
     }
     /**
      * Get Locations value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingLocation|null
+     * @return \ArrayType\EwsArrayOfMeetingLocation|null
      */
-    public function getLocations()
+    public function getLocations(): ?\ArrayType\EwsArrayOfMeetingLocation
     {
         return $this->Locations;
     }
     /**
      * Set Locations value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocation $locations
-     * @return \Ews\StructType\EwsMeetingTimeCandidate
+     * @param \ArrayType\EwsArrayOfMeetingLocation $locations
+     * @return \StructType\EwsMeetingTimeCandidate
      */
-    public function setLocations(\Ews\ArrayType\EwsArrayOfMeetingLocation $locations = null)
+    public function setLocations(?\ArrayType\EwsArrayOfMeetingLocation $locations = null): self
     {
         $this->Locations = $locations;
+        
         return $this;
     }
 }

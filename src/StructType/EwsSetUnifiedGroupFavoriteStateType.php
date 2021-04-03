@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupFavoriteStateType StructType
@@ -17,15 +20,15 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsFavoriteUnifiedGroup;
+    protected ?bool $IsFavoriteUnifiedGroup = null;
     /**
      * Constructor method for SetUnifiedGroupFavoriteStateType
      * @uses EwsSetUnifiedGroupFavoriteStateType::setIsFavoriteUnifiedGroup()
      * @param bool $isFavoriteUnifiedGroup
      */
-    public function __construct($isFavoriteUnifiedGroup = null)
+    public function __construct(?bool $isFavoriteUnifiedGroup = null)
     {
         $this
             ->setIsFavoriteUnifiedGroup($isFavoriteUnifiedGroup);
@@ -34,22 +37,23 @@ class EwsSetUnifiedGroupFavoriteStateType extends EwsUnifiedGroupBaseRequestType
      * Get IsFavoriteUnifiedGroup value
      * @return bool|null
      */
-    public function getIsFavoriteUnifiedGroup()
+    public function getIsFavoriteUnifiedGroup(): ?bool
     {
         return $this->IsFavoriteUnifiedGroup;
     }
     /**
      * Set IsFavoriteUnifiedGroup value
      * @param bool $isFavoriteUnifiedGroup
-     * @return \Ews\StructType\EwsSetUnifiedGroupFavoriteStateType
+     * @return \StructType\EwsSetUnifiedGroupFavoriteStateType
      */
-    public function setIsFavoriteUnifiedGroup($isFavoriteUnifiedGroup = null)
+    public function setIsFavoriteUnifiedGroup(?bool $isFavoriteUnifiedGroup = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isFavoriteUnifiedGroup) && !is_bool($isFavoriteUnifiedGroup)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFavoriteUnifiedGroup, true), gettype($isFavoriteUnifiedGroup)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFavoriteUnifiedGroup, true), gettype($isFavoriteUnifiedGroup)), __LINE__);
         }
         $this->IsFavoriteUnifiedGroup = $isFavoriteUnifiedGroup;
+        
         return $this;
     }
 }

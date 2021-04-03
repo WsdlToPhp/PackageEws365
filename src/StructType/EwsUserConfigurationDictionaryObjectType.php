@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserConfigurationDictionaryObjectType StructType
@@ -19,7 +22,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Type;
+    protected string $Type;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $Value;
+    protected array $Value = [];
     /**
      * Constructor method for UserConfigurationDictionaryObjectType
      * @uses EwsUserConfigurationDictionaryObjectType::setType()
@@ -35,7 +38,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * @param string $type
      * @param string[] $value
      */
-    public function __construct($type = null, array $value = array())
+    public function __construct(string $type, array $value)
     {
         $this
             ->setType($type)
@@ -45,32 +48,33 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * Get Type value
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->Type;
     }
     /**
      * Set Type value
-     * @uses \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid()
+     * @uses \EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $type
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @return \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function setType($type = null)
+    public function setType(string $type): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUserConfigurationDictionaryObjectTypesType::valueIsValid($type)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUserConfigurationDictionaryObjectTypesType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \EnumType\EwsUserConfigurationDictionaryObjectTypesType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string[]
      */
-    public function getValue()
+    public function getValue(): array
     {
         return $this->Value;
     }
@@ -80,7 +84,7 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateValueForArrayConstraintsFromSetValue(array $values = array())
+    public static function validateValueForArrayConstraintsFromSetValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -94,36 +98,39 @@ class EwsUserConfigurationDictionaryObjectType extends AbstractStructBase
             $message = sprintf('The Value property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Value value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @return \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function setValue(array $value = array())
+    public function setValue(array $value): self
     {
         // validation for constraint: array
         if ('' !== ($valueArrayErrorMessage = self::validateValueForArrayConstraintsFromSetValue($value))) {
-            throw new \InvalidArgumentException($valueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valueArrayErrorMessage, __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Add item to Value value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @return \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function addToValue($item)
+    public function addToValue(string $item): self
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+            throw new InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Value[] = $item;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RestrictionType StructType
@@ -14,64 +17,64 @@ class EwsRestrictionType extends AbstractStructBase
 {
     /**
      * The Exists
-     * @var \Ews\StructType\EwsExistsType
+     * @var \StructType\EwsExistsType|null
      */
-    public $Exists;
+    protected ?\StructType\EwsExistsType $Exists = null;
     /**
      * The Excludes
-     * @var \Ews\StructType\EwsExcludesType
+     * @var \StructType\EwsExcludesType|null
      */
-    public $Excludes;
+    protected ?\StructType\EwsExcludesType $Excludes = null;
     /**
      * The IsEqualTo
-     * @var \Ews\StructType\EwsIsEqualToType
+     * @var \StructType\EwsIsEqualToType|null
      */
-    public $IsEqualTo;
+    protected ?\StructType\EwsIsEqualToType $IsEqualTo = null;
     /**
      * The IsNotEqualTo
-     * @var \Ews\StructType\EwsIsNotEqualToType
+     * @var \StructType\EwsIsNotEqualToType|null
      */
-    public $IsNotEqualTo;
+    protected ?\StructType\EwsIsNotEqualToType $IsNotEqualTo = null;
     /**
      * The IsGreaterThan
-     * @var \Ews\StructType\EwsIsGreaterThanType
+     * @var \StructType\EwsIsGreaterThanType|null
      */
-    public $IsGreaterThan;
+    protected ?\StructType\EwsIsGreaterThanType $IsGreaterThan = null;
     /**
      * The IsGreaterThanOrEqualTo
-     * @var \Ews\StructType\EwsIsGreaterThanOrEqualToType
+     * @var \StructType\EwsIsGreaterThanOrEqualToType|null
      */
-    public $IsGreaterThanOrEqualTo;
+    protected ?\StructType\EwsIsGreaterThanOrEqualToType $IsGreaterThanOrEqualTo = null;
     /**
      * The IsLessThan
-     * @var \Ews\StructType\EwsIsLessThanType
+     * @var \StructType\EwsIsLessThanType|null
      */
-    public $IsLessThan;
+    protected ?\StructType\EwsIsLessThanType $IsLessThan = null;
     /**
      * The IsLessThanOrEqualTo
-     * @var \Ews\StructType\EwsIsLessThanOrEqualToType
+     * @var \StructType\EwsIsLessThanOrEqualToType|null
      */
-    public $IsLessThanOrEqualTo;
+    protected ?\StructType\EwsIsLessThanOrEqualToType $IsLessThanOrEqualTo = null;
     /**
      * The Contains
-     * @var \Ews\StructType\EwsContainsExpressionType
+     * @var \StructType\EwsContainsExpressionType|null
      */
-    public $Contains;
+    protected ?\StructType\EwsContainsExpressionType $Contains = null;
     /**
      * The Not
-     * @var \Ews\StructType\EwsNotType
+     * @var \StructType\EwsNotType|null
      */
-    public $Not;
+    protected ?\StructType\EwsNotType $Not = null;
     /**
      * The And
-     * @var \Ews\StructType\EwsAndType
+     * @var \StructType\EwsAndType|null
      */
-    public $And;
+    protected ?\StructType\EwsAndType $And = null;
     /**
      * The Or
-     * @var \Ews\StructType\EwsOrType
+     * @var \StructType\EwsOrType|null
      */
-    public $Or;
+    protected ?\StructType\EwsOrType $Or = null;
     /**
      * Constructor method for RestrictionType
      * @uses EwsRestrictionType::setExists()
@@ -86,20 +89,20 @@ class EwsRestrictionType extends AbstractStructBase
      * @uses EwsRestrictionType::setNot()
      * @uses EwsRestrictionType::setAnd()
      * @uses EwsRestrictionType::setOr()
-     * @param \Ews\StructType\EwsExistsType $exists
-     * @param \Ews\StructType\EwsExcludesType $excludes
-     * @param \Ews\StructType\EwsIsEqualToType $isEqualTo
-     * @param \Ews\StructType\EwsIsNotEqualToType $isNotEqualTo
-     * @param \Ews\StructType\EwsIsGreaterThanType $isGreaterThan
-     * @param \Ews\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo
-     * @param \Ews\StructType\EwsIsLessThanType $isLessThan
-     * @param \Ews\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo
-     * @param \Ews\StructType\EwsContainsExpressionType $contains
-     * @param \Ews\StructType\EwsNotType $not
-     * @param \Ews\StructType\EwsAndType $and
-     * @param \Ews\StructType\EwsOrType $or
+     * @param \StructType\EwsExistsType $exists
+     * @param \StructType\EwsExcludesType $excludes
+     * @param \StructType\EwsIsEqualToType $isEqualTo
+     * @param \StructType\EwsIsNotEqualToType $isNotEqualTo
+     * @param \StructType\EwsIsGreaterThanType $isGreaterThan
+     * @param \StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo
+     * @param \StructType\EwsIsLessThanType $isLessThan
+     * @param \StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo
+     * @param \StructType\EwsContainsExpressionType $contains
+     * @param \StructType\EwsNotType $not
+     * @param \StructType\EwsAndType $and
+     * @param \StructType\EwsOrType $or
      */
-    public function __construct(\Ews\StructType\EwsExistsType $exists = null, \Ews\StructType\EwsExcludesType $excludes = null, \Ews\StructType\EwsIsEqualToType $isEqualTo = null, \Ews\StructType\EwsIsNotEqualToType $isNotEqualTo = null, \Ews\StructType\EwsIsGreaterThanType $isGreaterThan = null, \Ews\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo = null, \Ews\StructType\EwsIsLessThanType $isLessThan = null, \Ews\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo = null, \Ews\StructType\EwsContainsExpressionType $contains = null, \Ews\StructType\EwsNotType $not = null, \Ews\StructType\EwsAndType $and = null, \Ews\StructType\EwsOrType $or = null)
+    public function __construct(?\StructType\EwsExistsType $exists = null, ?\StructType\EwsExcludesType $excludes = null, ?\StructType\EwsIsEqualToType $isEqualTo = null, ?\StructType\EwsIsNotEqualToType $isNotEqualTo = null, ?\StructType\EwsIsGreaterThanType $isGreaterThan = null, ?\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo = null, ?\StructType\EwsIsLessThanType $isLessThan = null, ?\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo = null, ?\StructType\EwsContainsExpressionType $contains = null, ?\StructType\EwsNotType $not = null, ?\StructType\EwsAndType $and = null, ?\StructType\EwsOrType $or = null)
     {
         $this
             ->setExists($exists)
@@ -117,218 +120,230 @@ class EwsRestrictionType extends AbstractStructBase
     }
     /**
      * Get Exists value
-     * @return \Ews\StructType\EwsExistsType|null
+     * @return \StructType\EwsExistsType|null
      */
-    public function getExists()
+    public function getExists(): ?\StructType\EwsExistsType
     {
         return $this->Exists;
     }
     /**
      * Set Exists value
-     * @param \Ews\StructType\EwsExistsType $exists
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsExistsType $exists
+     * @return \StructType\EwsRestrictionType
      */
-    public function setExists(\Ews\StructType\EwsExistsType $exists = null)
+    public function setExists(?\StructType\EwsExistsType $exists = null): self
     {
         $this->Exists = $exists;
+        
         return $this;
     }
     /**
      * Get Excludes value
-     * @return \Ews\StructType\EwsExcludesType|null
+     * @return \StructType\EwsExcludesType|null
      */
-    public function getExcludes()
+    public function getExcludes(): ?\StructType\EwsExcludesType
     {
         return $this->Excludes;
     }
     /**
      * Set Excludes value
-     * @param \Ews\StructType\EwsExcludesType $excludes
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsExcludesType $excludes
+     * @return \StructType\EwsRestrictionType
      */
-    public function setExcludes(\Ews\StructType\EwsExcludesType $excludes = null)
+    public function setExcludes(?\StructType\EwsExcludesType $excludes = null): self
     {
         $this->Excludes = $excludes;
+        
         return $this;
     }
     /**
      * Get IsEqualTo value
-     * @return \Ews\StructType\EwsIsEqualToType|null
+     * @return \StructType\EwsIsEqualToType|null
      */
-    public function getIsEqualTo()
+    public function getIsEqualTo(): ?\StructType\EwsIsEqualToType
     {
         return $this->IsEqualTo;
     }
     /**
      * Set IsEqualTo value
-     * @param \Ews\StructType\EwsIsEqualToType $isEqualTo
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsEqualToType $isEqualTo
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsEqualTo(\Ews\StructType\EwsIsEqualToType $isEqualTo = null)
+    public function setIsEqualTo(?\StructType\EwsIsEqualToType $isEqualTo = null): self
     {
         $this->IsEqualTo = $isEqualTo;
+        
         return $this;
     }
     /**
      * Get IsNotEqualTo value
-     * @return \Ews\StructType\EwsIsNotEqualToType|null
+     * @return \StructType\EwsIsNotEqualToType|null
      */
-    public function getIsNotEqualTo()
+    public function getIsNotEqualTo(): ?\StructType\EwsIsNotEqualToType
     {
         return $this->IsNotEqualTo;
     }
     /**
      * Set IsNotEqualTo value
-     * @param \Ews\StructType\EwsIsNotEqualToType $isNotEqualTo
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsNotEqualToType $isNotEqualTo
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsNotEqualTo(\Ews\StructType\EwsIsNotEqualToType $isNotEqualTo = null)
+    public function setIsNotEqualTo(?\StructType\EwsIsNotEqualToType $isNotEqualTo = null): self
     {
         $this->IsNotEqualTo = $isNotEqualTo;
+        
         return $this;
     }
     /**
      * Get IsGreaterThan value
-     * @return \Ews\StructType\EwsIsGreaterThanType|null
+     * @return \StructType\EwsIsGreaterThanType|null
      */
-    public function getIsGreaterThan()
+    public function getIsGreaterThan(): ?\StructType\EwsIsGreaterThanType
     {
         return $this->IsGreaterThan;
     }
     /**
      * Set IsGreaterThan value
-     * @param \Ews\StructType\EwsIsGreaterThanType $isGreaterThan
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsGreaterThanType $isGreaterThan
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsGreaterThan(\Ews\StructType\EwsIsGreaterThanType $isGreaterThan = null)
+    public function setIsGreaterThan(?\StructType\EwsIsGreaterThanType $isGreaterThan = null): self
     {
         $this->IsGreaterThan = $isGreaterThan;
+        
         return $this;
     }
     /**
      * Get IsGreaterThanOrEqualTo value
-     * @return \Ews\StructType\EwsIsGreaterThanOrEqualToType|null
+     * @return \StructType\EwsIsGreaterThanOrEqualToType|null
      */
-    public function getIsGreaterThanOrEqualTo()
+    public function getIsGreaterThanOrEqualTo(): ?\StructType\EwsIsGreaterThanOrEqualToType
     {
         return $this->IsGreaterThanOrEqualTo;
     }
     /**
      * Set IsGreaterThanOrEqualTo value
-     * @param \Ews\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsGreaterThanOrEqualTo(\Ews\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo = null)
+    public function setIsGreaterThanOrEqualTo(?\StructType\EwsIsGreaterThanOrEqualToType $isGreaterThanOrEqualTo = null): self
     {
         $this->IsGreaterThanOrEqualTo = $isGreaterThanOrEqualTo;
+        
         return $this;
     }
     /**
      * Get IsLessThan value
-     * @return \Ews\StructType\EwsIsLessThanType|null
+     * @return \StructType\EwsIsLessThanType|null
      */
-    public function getIsLessThan()
+    public function getIsLessThan(): ?\StructType\EwsIsLessThanType
     {
         return $this->IsLessThan;
     }
     /**
      * Set IsLessThan value
-     * @param \Ews\StructType\EwsIsLessThanType $isLessThan
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsLessThanType $isLessThan
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsLessThan(\Ews\StructType\EwsIsLessThanType $isLessThan = null)
+    public function setIsLessThan(?\StructType\EwsIsLessThanType $isLessThan = null): self
     {
         $this->IsLessThan = $isLessThan;
+        
         return $this;
     }
     /**
      * Get IsLessThanOrEqualTo value
-     * @return \Ews\StructType\EwsIsLessThanOrEqualToType|null
+     * @return \StructType\EwsIsLessThanOrEqualToType|null
      */
-    public function getIsLessThanOrEqualTo()
+    public function getIsLessThanOrEqualTo(): ?\StructType\EwsIsLessThanOrEqualToType
     {
         return $this->IsLessThanOrEqualTo;
     }
     /**
      * Set IsLessThanOrEqualTo value
-     * @param \Ews\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo
+     * @return \StructType\EwsRestrictionType
      */
-    public function setIsLessThanOrEqualTo(\Ews\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo = null)
+    public function setIsLessThanOrEqualTo(?\StructType\EwsIsLessThanOrEqualToType $isLessThanOrEqualTo = null): self
     {
         $this->IsLessThanOrEqualTo = $isLessThanOrEqualTo;
+        
         return $this;
     }
     /**
      * Get Contains value
-     * @return \Ews\StructType\EwsContainsExpressionType|null
+     * @return \StructType\EwsContainsExpressionType|null
      */
-    public function getContains()
+    public function getContains(): ?\StructType\EwsContainsExpressionType
     {
         return $this->Contains;
     }
     /**
      * Set Contains value
-     * @param \Ews\StructType\EwsContainsExpressionType $contains
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsContainsExpressionType $contains
+     * @return \StructType\EwsRestrictionType
      */
-    public function setContains(\Ews\StructType\EwsContainsExpressionType $contains = null)
+    public function setContains(?\StructType\EwsContainsExpressionType $contains = null): self
     {
         $this->Contains = $contains;
+        
         return $this;
     }
     /**
      * Get Not value
-     * @return \Ews\StructType\EwsNotType|null
+     * @return \StructType\EwsNotType|null
      */
-    public function getNot()
+    public function getNot(): ?\StructType\EwsNotType
     {
         return $this->Not;
     }
     /**
      * Set Not value
-     * @param \Ews\StructType\EwsNotType $not
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsNotType $not
+     * @return \StructType\EwsRestrictionType
      */
-    public function setNot(\Ews\StructType\EwsNotType $not = null)
+    public function setNot(?\StructType\EwsNotType $not = null): self
     {
         $this->Not = $not;
+        
         return $this;
     }
     /**
      * Get And value
-     * @return \Ews\StructType\EwsAndType|null
+     * @return \StructType\EwsAndType|null
      */
-    public function getAnd()
+    public function getAnd(): ?\StructType\EwsAndType
     {
         return $this->And;
     }
     /**
      * Set And value
-     * @param \Ews\StructType\EwsAndType $and
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsAndType $and
+     * @return \StructType\EwsRestrictionType
      */
-    public function setAnd(\Ews\StructType\EwsAndType $and = null)
+    public function setAnd(?\StructType\EwsAndType $and = null): self
     {
         $this->And = $and;
+        
         return $this;
     }
     /**
      * Get Or value
-     * @return \Ews\StructType\EwsOrType|null
+     * @return \StructType\EwsOrType|null
      */
-    public function getOr()
+    public function getOr(): ?\StructType\EwsOrType
     {
         return $this->Or;
     }
     /**
      * Set Or value
-     * @param \Ews\StructType\EwsOrType $or
-     * @return \Ews\StructType\EwsRestrictionType
+     * @param \StructType\EwsOrType $or
+     * @return \StructType\EwsRestrictionType
      */
-    public function setOr(\Ews\StructType\EwsOrType $or = null)
+    public function setOr(?\StructType\EwsOrType $or = null): self
     {
         $this->Or = $or;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SearchApplicationIdType EnumType
@@ -52,15 +54,15 @@ class EwsSearchApplicationIdType extends AbstractStructEnumBase
      * @uses self::VALUE_OTHER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_OUTLOOK,
             self::VALUE_OWA,
             self::VALUE_PAW,
             self::VALUE_TEAMSPACE,
             self::VALUE_ONE_DRIVE,
             self::VALUE_OTHER,
-        );
+        ];
     }
 }

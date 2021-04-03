@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Disable ServiceType
@@ -15,46 +18,47 @@ class EwsDisable extends SoapClientBase
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsDisable
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named DisableApp
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsDisableAppType $request
-     * @return \Ews\StructType\EwsDisableAppResponseType|bool
+     * @param \StructType\EwsDisableAppType $request
+     * @return \StructType\EwsDisableAppResponseType|bool
      */
-    public function DisableApp(\Ews\StructType\EwsDisableAppType $request)
+    public function DisableApp(\StructType\EwsDisableAppType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('DisableApp', array(
+            $this->setResult($resultDisableApp = $this->getSoapClient()->__soapCall('DisableApp', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultDisableApp;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsDisableAppResponseType
+     * @return \StructType\EwsDisableAppResponseType
      */
     public function getResult()
     {

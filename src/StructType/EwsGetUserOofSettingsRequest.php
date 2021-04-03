@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserOofSettingsRequest StructType
@@ -20,35 +23,36 @@ class EwsGetUserOofSettingsRequest extends EwsBaseRequestType
      * - maxOccurs: 1
      * - minOccurs: 1
      * - ref: t:Mailbox
-     * @var \Ews\StructType\EwsEmailAddress
+     * @var \StructType\EwsEmailAddress
      */
-    public $Mailbox;
+    protected \StructType\EwsEmailAddress $Mailbox;
     /**
      * Constructor method for GetUserOofSettingsRequest
      * @uses EwsGetUserOofSettingsRequest::setMailbox()
-     * @param \Ews\StructType\EwsEmailAddress $mailbox
+     * @param \StructType\EwsEmailAddress $mailbox
      */
-    public function __construct(\Ews\StructType\EwsEmailAddress $mailbox = null)
+    public function __construct(\StructType\EwsEmailAddress $mailbox)
     {
         $this
             ->setMailbox($mailbox);
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddress
+     * @return \StructType\EwsEmailAddress
      */
-    public function getMailbox()
+    public function getMailbox(): \StructType\EwsEmailAddress
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddress $mailbox
-     * @return \Ews\StructType\EwsGetUserOofSettingsRequest
+     * @param \StructType\EwsEmailAddress $mailbox
+     * @return \StructType\EwsGetUserOofSettingsRequest
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddress $mailbox = null)
+    public function setMailbox(\StructType\EwsEmailAddress $mailbox): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
 }

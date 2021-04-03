@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OutOfOfficeInsightValue StructType
@@ -17,33 +20,33 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartTime;
+    protected ?string $StartTime = null;
     /**
      * The EndTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndTime;
+    protected ?string $EndTime = null;
     /**
      * The Message
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Message;
+    protected ?string $Message = null;
     /**
      * The Culture
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Culture;
+    protected ?string $Culture = null;
     /**
      * Constructor method for OutOfOfficeInsightValue
      * @uses EwsOutOfOfficeInsightValue::setStartTime()
@@ -55,7 +58,7 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * @param string $message
      * @param string $culture
      */
-    public function __construct($startTime = null, $endTime = null, $message = null, $culture = null)
+    public function __construct(?string $startTime = null, ?string $endTime = null, ?string $message = null, ?string $culture = null)
     {
         $this
             ->setStartTime($startTime)
@@ -67,88 +70,92 @@ class EwsOutOfOfficeInsightValue extends EwsInsightValue
      * Get StartTime value
      * @return string|null
      */
-    public function getStartTime()
+    public function getStartTime(): ?string
     {
         return $this->StartTime;
     }
     /**
      * Set StartTime value
      * @param string $startTime
-     * @return \Ews\StructType\EwsOutOfOfficeInsightValue
+     * @return \StructType\EwsOutOfOfficeInsightValue
      */
-    public function setStartTime($startTime = null)
+    public function setStartTime(?string $startTime = null): self
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
+        
         return $this;
     }
     /**
      * Get EndTime value
      * @return string|null
      */
-    public function getEndTime()
+    public function getEndTime(): ?string
     {
         return $this->EndTime;
     }
     /**
      * Set EndTime value
      * @param string $endTime
-     * @return \Ews\StructType\EwsOutOfOfficeInsightValue
+     * @return \StructType\EwsOutOfOfficeInsightValue
      */
-    public function setEndTime($endTime = null)
+    public function setEndTime(?string $endTime = null): self
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
+        
         return $this;
     }
     /**
      * Get Message value
      * @return string|null
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->Message;
     }
     /**
      * Set Message value
      * @param string $message
-     * @return \Ews\StructType\EwsOutOfOfficeInsightValue
+     * @return \StructType\EwsOutOfOfficeInsightValue
      */
-    public function setMessage($message = null)
+    public function setMessage(?string $message = null): self
     {
         // validation for constraint: string
         if (!is_null($message) && !is_string($message)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
         }
         $this->Message = $message;
+        
         return $this;
     }
     /**
      * Get Culture value
      * @return string|null
      */
-    public function getCulture()
+    public function getCulture(): ?string
     {
         return $this->Culture;
     }
     /**
      * Set Culture value
      * @param string $culture
-     * @return \Ews\StructType\EwsOutOfOfficeInsightValue
+     * @return \StructType\EwsOutOfOfficeInsightValue
      */
-    public function setCulture($culture = null)
+    public function setCulture(?string $culture = null): self
     {
         // validation for constraint: string
         if (!is_null($culture) && !is_string($culture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         $this->Culture = $culture;
+        
         return $this;
     }
 }

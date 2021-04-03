@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Conversations StructType
@@ -17,24 +20,24 @@ class EwsConversations extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsConversationType[]
+     * @var \StructType\EwsConversationType[]
      */
-    public $Conversation;
+    protected array $Conversation = [];
     /**
      * Constructor method for Conversations
      * @uses EwsConversations::setConversation()
-     * @param \Ews\StructType\EwsConversationType[] $conversation
+     * @param \StructType\EwsConversationType[] $conversation
      */
-    public function __construct(array $conversation = array())
+    public function __construct(array $conversation = [])
     {
         $this
             ->setConversation($conversation);
     }
     /**
      * Get Conversation value
-     * @return \Ews\StructType\EwsConversationType[]|null
+     * @return \StructType\EwsConversationType[]
      */
-    public function getConversation()
+    public function getConversation(): array
     {
         return $this->Conversation;
     }
@@ -44,50 +47,53 @@ class EwsConversations extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateConversationForArrayConstraintsFromSetConversation(array $values = array())
+    public static function validateConversationForArrayConstraintsFromSetConversation(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $conversationsConversationItem) {
             // validation for constraint: itemType
-            if (!$conversationsConversationItem instanceof \Ews\StructType\EwsConversationType) {
+            if (!$conversationsConversationItem instanceof \StructType\EwsConversationType) {
                 $invalidValues[] = is_object($conversationsConversationItem) ? get_class($conversationsConversationItem) : sprintf('%s(%s)', gettype($conversationsConversationItem), var_export($conversationsConversationItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Conversation property can only contain items of type \Ews\StructType\EwsConversationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Conversation property can only contain items of type \StructType\EwsConversationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Conversation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationType[] $conversation
-     * @return \Ews\StructType\EwsConversations
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationType[] $conversation
+     * @return \StructType\EwsConversations
      */
-    public function setConversation(array $conversation = array())
+    public function setConversation(array $conversation = []): self
     {
         // validation for constraint: array
         if ('' !== ($conversationArrayErrorMessage = self::validateConversationForArrayConstraintsFromSetConversation($conversation))) {
-            throw new \InvalidArgumentException($conversationArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($conversationArrayErrorMessage, __LINE__);
         }
         $this->Conversation = $conversation;
+        
         return $this;
     }
     /**
      * Add item to Conversation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationType $item
-     * @return \Ews\StructType\EwsConversations
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationType $item
+     * @return \StructType\EwsConversations
      */
-    public function addToConversation(\Ews\StructType\EwsConversationType $item)
+    public function addToConversation(\StructType\EwsConversationType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsConversationType) {
-            throw new \InvalidArgumentException(sprintf('The Conversation property can only contain items of type \Ews\StructType\EwsConversationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsConversationType) {
+            throw new InvalidArgumentException(sprintf('The Conversation property can only contain items of type \StructType\EwsConversationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Conversation[] = $item;
+        
         return $this;
     }
 }

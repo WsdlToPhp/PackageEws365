@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteSearchSuggestionResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsDeleteSearchSuggestionResponseMessageType extends EwsResponseMessageTyp
 {
     /**
      * The Response
-     * @var \Ews\StructType\EwsDeleteSearchSuggestionResponseType
+     * @var \StructType\EwsDeleteSearchSuggestionResponseType|null
      */
-    public $Response;
+    protected ?\StructType\EwsDeleteSearchSuggestionResponseType $Response = null;
     /**
      * Constructor method for DeleteSearchSuggestionResponseMessageType
      * @uses EwsDeleteSearchSuggestionResponseMessageType::setResponse()
-     * @param \Ews\StructType\EwsDeleteSearchSuggestionResponseType $response
+     * @param \StructType\EwsDeleteSearchSuggestionResponseType $response
      */
-    public function __construct(\Ews\StructType\EwsDeleteSearchSuggestionResponseType $response = null)
+    public function __construct(?\StructType\EwsDeleteSearchSuggestionResponseType $response = null)
     {
         $this
             ->setResponse($response);
     }
     /**
      * Get Response value
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType|null
+     * @return \StructType\EwsDeleteSearchSuggestionResponseType|null
      */
-    public function getResponse()
+    public function getResponse(): ?\StructType\EwsDeleteSearchSuggestionResponseType
     {
         return $this->Response;
     }
     /**
      * Set Response value
-     * @param \Ews\StructType\EwsDeleteSearchSuggestionResponseType $response
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseMessageType
+     * @param \StructType\EwsDeleteSearchSuggestionResponseType $response
+     * @return \StructType\EwsDeleteSearchSuggestionResponseMessageType
      */
-    public function setResponse(\Ews\StructType\EwsDeleteSearchSuggestionResponseType $response = null)
+    public function setResponse(?\StructType\EwsDeleteSearchSuggestionResponseType $response = null): self
     {
         $this->Response = $response;
+        
         return $this;
     }
 }

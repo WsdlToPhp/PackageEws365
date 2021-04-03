@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfContactsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsContactType[]
+     * @var \StructType\EwsContactType[]
      */
-    public $Contact;
+    protected array $Contact = [];
     /**
      * Constructor method for ArrayOfContactsType
      * @uses EwsArrayOfContactsType::setContact()
-     * @param \Ews\StructType\EwsContactType[] $contact
+     * @param \StructType\EwsContactType[] $contact
      */
-    public function __construct(array $contact = array())
+    public function __construct(array $contact = [])
     {
         $this
             ->setContact($contact);
     }
     /**
      * Get Contact value
-     * @return \Ews\StructType\EwsContactType[]|null
+     * @return \StructType\EwsContactType[]
      */
-    public function getContact()
+    public function getContact(): array
     {
         return $this->Contact;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateContactForArrayConstraintsFromSetContact(array $values = array())
+    public static function validateContactForArrayConstraintsFromSetContact(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfContactsTypeContactItem) {
             // validation for constraint: itemType
-            if (!$arrayOfContactsTypeContactItem instanceof \Ews\StructType\EwsContactType) {
+            if (!$arrayOfContactsTypeContactItem instanceof \StructType\EwsContactType) {
                 $invalidValues[] = is_object($arrayOfContactsTypeContactItem) ? get_class($arrayOfContactsTypeContactItem) : sprintf('%s(%s)', gettype($arrayOfContactsTypeContactItem), var_export($arrayOfContactsTypeContactItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Contact property can only contain items of type \Ews\StructType\EwsContactType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Contact property can only contain items of type \StructType\EwsContactType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Contact value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContactType[] $contact
-     * @return \Ews\ArrayType\EwsArrayOfContactsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContactType[] $contact
+     * @return \ArrayType\EwsArrayOfContactsType
      */
-    public function setContact(array $contact = array())
+    public function setContact(array $contact = []): self
     {
         // validation for constraint: array
         if ('' !== ($contactArrayErrorMessage = self::validateContactForArrayConstraintsFromSetContact($contact))) {
-            throw new \InvalidArgumentException($contactArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contactArrayErrorMessage, __LINE__);
         }
         $this->Contact = $contact;
-        return $this;
-    }
-    /**
-     * Add item to Contact value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContactType $item
-     * @return \Ews\ArrayType\EwsArrayOfContactsType
-     */
-    public function addToContact(\Ews\StructType\EwsContactType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsContactType) {
-            throw new \InvalidArgumentException(sprintf('The Contact property can only contain items of type \Ews\StructType\EwsContactType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Contact[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsContactType|null
+     * @return \StructType\EwsContactType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsContactType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsContactType|null
+     * @return \StructType\EwsContactType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsContactType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsContactType|null
+     * @return \StructType\EwsContactType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsContactType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsContactType|null
+     * @return \StructType\EwsContactType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsContactType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsContactType|null
+     * @return \StructType\EwsContactType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsContactType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContactType $item
+     * @return \ArrayType\EwsArrayOfContactsType
+     */
+    public function add(\StructType\EwsContactType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Contact
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Contact';
     }

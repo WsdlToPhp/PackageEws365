@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProtectionRuleConditionType StructType
@@ -20,36 +23,36 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
      * - length: 0
-     * @var string
+     * @var string|null
      */
-    public $AllInternal;
+    protected ?string $AllInternal = null;
     /**
      * The And
      * Meta information extracted from the WSDL
      * - choice: AllInternal | And | RecipientIs | SenderDepartments | True
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsProtectionRuleAndType
+     * @var \StructType\EwsProtectionRuleAndType|null
      */
-    public $And;
+    protected ?\StructType\EwsProtectionRuleAndType $And = null;
     /**
      * The RecipientIs
      * Meta information extracted from the WSDL
      * - choice: AllInternal | And | RecipientIs | SenderDepartments | True
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsProtectionRuleRecipientIsType
+     * @var \StructType\EwsProtectionRuleRecipientIsType|null
      */
-    public $RecipientIs;
+    protected ?\StructType\EwsProtectionRuleRecipientIsType $RecipientIs = null;
     /**
      * The SenderDepartments
      * Meta information extracted from the WSDL
      * - choice: AllInternal | And | RecipientIs | SenderDepartments | True
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsProtectionRuleSenderDepartmentsType
+     * @var \StructType\EwsProtectionRuleSenderDepartmentsType|null
      */
-    public $SenderDepartments;
+    protected ?\StructType\EwsProtectionRuleSenderDepartmentsType $SenderDepartments = null;
     /**
      * The True
      * Meta information extracted from the WSDL
@@ -58,9 +61,9 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
      * - length: 0
-     * @var string
+     * @var string|null
      */
-    public $True;
+    protected ?string $True = null;
     /**
      * Constructor method for ProtectionRuleConditionType
      * @uses EwsProtectionRuleConditionType::setAllInternal()
@@ -69,12 +72,12 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @uses EwsProtectionRuleConditionType::setSenderDepartments()
      * @uses EwsProtectionRuleConditionType::setTrue()
      * @param string $allInternal
-     * @param \Ews\StructType\EwsProtectionRuleAndType $and
-     * @param \Ews\StructType\EwsProtectionRuleRecipientIsType $recipientIs
-     * @param \Ews\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments
+     * @param \StructType\EwsProtectionRuleAndType $and
+     * @param \StructType\EwsProtectionRuleRecipientIsType $recipientIs
+     * @param \StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments
      * @param string $true
      */
-    public function __construct($allInternal = null, \Ews\StructType\EwsProtectionRuleAndType $and = null, \Ews\StructType\EwsProtectionRuleRecipientIsType $recipientIs = null, \Ews\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments = null, $true = null)
+    public function __construct(?string $allInternal = null, ?\StructType\EwsProtectionRuleAndType $and = null, ?\StructType\EwsProtectionRuleRecipientIsType $recipientIs = null, ?\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments = null, ?string $true = null)
     {
         $this
             ->setAllInternal($allInternal)
@@ -87,7 +90,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * Get AllInternal value
      * @return string|null
      */
-    public function getAllInternal()
+    public function getAllInternal(): ?string
     {
         return isset($this->AllInternal) ? $this->AllInternal : null;
     }
@@ -98,7 +101,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAllInternalForChoiceConstraintsFromSetAllInternal($value)
+    public function validateAllInternalForChoiceConstraintsFromSetAllInternal($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -113,12 +116,13 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AllInternal can\'t be set as the property %s is already set. Only one property must be set among these properties: AllInternal, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AllInternal can\'t be set as the property %s is already set. Only one property must be set among these properties: AllInternal, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -126,36 +130,37 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $allInternal
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function setAllInternal($allInternal = null)
+    public function setAllInternal(?string $allInternal = null): self
     {
         // validation for constraint: string
         if (!is_null($allInternal) && !is_string($allInternal)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($allInternal, true), gettype($allInternal)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($allInternal, true), gettype($allInternal)), __LINE__);
         }
         // validation for constraint: choice(AllInternal, And, RecipientIs, SenderDepartments, True)
         if ('' !== ($allInternalChoiceErrorMessage = self::validateAllInternalForChoiceConstraintsFromSetAllInternal($allInternal))) {
-            throw new \InvalidArgumentException($allInternalChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($allInternalChoiceErrorMessage, __LINE__);
         }
         // validation for constraint: length
-        if (!is_null($allInternal) && mb_strlen($allInternal) !== 0) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be equal to 0', mb_strlen($allInternal)), __LINE__);
+        if (!is_null($allInternal) && mb_strlen((string) $allInternal) !== 0) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be equal to 0', mb_strlen((string) $allInternal)), __LINE__);
         }
         if (is_null($allInternal) || (is_array($allInternal) && empty($allInternal))) {
             unset($this->AllInternal);
         } else {
             $this->AllInternal = $allInternal;
         }
+        
         return $this;
     }
     /**
      * Get And value
-     * @return \Ews\StructType\EwsProtectionRuleAndType|null
+     * @return \StructType\EwsProtectionRuleAndType|null
      */
-    public function getAnd()
+    public function getAnd(): ?\StructType\EwsProtectionRuleAndType
     {
         return isset($this->And) ? $this->And : null;
     }
@@ -166,7 +171,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAndForChoiceConstraintsFromSetAnd($value)
+    public function validateAndForChoiceConstraintsFromSetAnd($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -181,12 +186,13 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property And can\'t be set as the property %s is already set. Only one property must be set among these properties: And, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property And can\'t be set as the property %s is already set. Only one property must be set among these properties: And, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -194,28 +200,29 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProtectionRuleAndType $and
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProtectionRuleAndType $and
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function setAnd(\Ews\StructType\EwsProtectionRuleAndType $and = null)
+    public function setAnd(?\StructType\EwsProtectionRuleAndType $and = null): self
     {
         // validation for constraint: choice(AllInternal, And, RecipientIs, SenderDepartments, True)
         if ('' !== ($andChoiceErrorMessage = self::validateAndForChoiceConstraintsFromSetAnd($and))) {
-            throw new \InvalidArgumentException($andChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($andChoiceErrorMessage, __LINE__);
         }
         if (is_null($and) || (is_array($and) && empty($and))) {
             unset($this->And);
         } else {
             $this->And = $and;
         }
+        
         return $this;
     }
     /**
      * Get RecipientIs value
-     * @return \Ews\StructType\EwsProtectionRuleRecipientIsType|null
+     * @return \StructType\EwsProtectionRuleRecipientIsType|null
      */
-    public function getRecipientIs()
+    public function getRecipientIs(): ?\StructType\EwsProtectionRuleRecipientIsType
     {
         return isset($this->RecipientIs) ? $this->RecipientIs : null;
     }
@@ -226,7 +233,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateRecipientIsForChoiceConstraintsFromSetRecipientIs($value)
+    public function validateRecipientIsForChoiceConstraintsFromSetRecipientIs($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -241,12 +248,13 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property RecipientIs can\'t be set as the property %s is already set. Only one property must be set among these properties: RecipientIs, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property RecipientIs can\'t be set as the property %s is already set. Only one property must be set among these properties: RecipientIs, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -254,28 +262,29 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProtectionRuleRecipientIsType $recipientIs
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProtectionRuleRecipientIsType $recipientIs
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function setRecipientIs(\Ews\StructType\EwsProtectionRuleRecipientIsType $recipientIs = null)
+    public function setRecipientIs(?\StructType\EwsProtectionRuleRecipientIsType $recipientIs = null): self
     {
         // validation for constraint: choice(AllInternal, And, RecipientIs, SenderDepartments, True)
         if ('' !== ($recipientIsChoiceErrorMessage = self::validateRecipientIsForChoiceConstraintsFromSetRecipientIs($recipientIs))) {
-            throw new \InvalidArgumentException($recipientIsChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($recipientIsChoiceErrorMessage, __LINE__);
         }
         if (is_null($recipientIs) || (is_array($recipientIs) && empty($recipientIs))) {
             unset($this->RecipientIs);
         } else {
             $this->RecipientIs = $recipientIs;
         }
+        
         return $this;
     }
     /**
      * Get SenderDepartments value
-     * @return \Ews\StructType\EwsProtectionRuleSenderDepartmentsType|null
+     * @return \StructType\EwsProtectionRuleSenderDepartmentsType|null
      */
-    public function getSenderDepartments()
+    public function getSenderDepartments(): ?\StructType\EwsProtectionRuleSenderDepartmentsType
     {
         return isset($this->SenderDepartments) ? $this->SenderDepartments : null;
     }
@@ -286,7 +295,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSenderDepartmentsForChoiceConstraintsFromSetSenderDepartments($value)
+    public function validateSenderDepartmentsForChoiceConstraintsFromSetSenderDepartments($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -301,12 +310,13 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SenderDepartments can\'t be set as the property %s is already set. Only one property must be set among these properties: SenderDepartments, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SenderDepartments can\'t be set as the property %s is already set. Only one property must be set among these properties: SenderDepartments, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -314,28 +324,29 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function setSenderDepartments(\Ews\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments = null)
+    public function setSenderDepartments(?\StructType\EwsProtectionRuleSenderDepartmentsType $senderDepartments = null): self
     {
         // validation for constraint: choice(AllInternal, And, RecipientIs, SenderDepartments, True)
         if ('' !== ($senderDepartmentsChoiceErrorMessage = self::validateSenderDepartmentsForChoiceConstraintsFromSetSenderDepartments($senderDepartments))) {
-            throw new \InvalidArgumentException($senderDepartmentsChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($senderDepartmentsChoiceErrorMessage, __LINE__);
         }
         if (is_null($senderDepartments) || (is_array($senderDepartments) && empty($senderDepartments))) {
             unset($this->SenderDepartments);
         } else {
             $this->SenderDepartments = $senderDepartments;
         }
+        
         return $this;
     }
     /**
      * Get True value
      * @return string|null
      */
-    public function getTrue()
+    public function getTrue(): ?string
     {
         return isset($this->True) ? $this->True : null;
     }
@@ -346,7 +357,7 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateTrueForChoiceConstraintsFromSetTrue($value)
+    public function validateTrueForChoiceConstraintsFromSetTrue($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -361,12 +372,13 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property True can\'t be set as the property %s is already set. Only one property must be set among these properties: True, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property True can\'t be set as the property %s is already set. Only one property must be set among these properties: True, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -374,29 +386,30 @@ class EwsProtectionRuleConditionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $true
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function setTrue($true = null)
+    public function setTrue(?string $true = null): self
     {
         // validation for constraint: string
         if (!is_null($true) && !is_string($true)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($true, true), gettype($true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($true, true), gettype($true)), __LINE__);
         }
         // validation for constraint: choice(AllInternal, And, RecipientIs, SenderDepartments, True)
         if ('' !== ($trueChoiceErrorMessage = self::validateTrueForChoiceConstraintsFromSetTrue($true))) {
-            throw new \InvalidArgumentException($trueChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($trueChoiceErrorMessage, __LINE__);
         }
         // validation for constraint: length
-        if (!is_null($true) && mb_strlen($true) !== 0) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be equal to 0', mb_strlen($true)), __LINE__);
+        if (!is_null($true) && mb_strlen((string) $true) !== 0) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be equal to 0', mb_strlen((string) $true)), __LINE__);
         }
         if (is_null($true) || (is_array($true) && empty($true))) {
             unset($this->True);
         } else {
             $this->True = $true;
         }
+        
         return $this;
     }
 }

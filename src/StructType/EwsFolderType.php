@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FolderType StructType
@@ -16,24 +19,24 @@ class EwsFolderType extends EwsBaseFolderType
      * The PermissionSet
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPermissionSetType
+     * @var \StructType\EwsPermissionSetType|null
      */
-    public $PermissionSet;
+    protected ?\StructType\EwsPermissionSetType $PermissionSet = null;
     /**
      * The UnreadCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $UnreadCount;
+    protected ?int $UnreadCount = null;
     /**
      * Constructor method for FolderType
      * @uses EwsFolderType::setPermissionSet()
      * @uses EwsFolderType::setUnreadCount()
-     * @param \Ews\StructType\EwsPermissionSetType $permissionSet
+     * @param \StructType\EwsPermissionSetType $permissionSet
      * @param int $unreadCount
      */
-    public function __construct(\Ews\StructType\EwsPermissionSetType $permissionSet = null, $unreadCount = null)
+    public function __construct(?\StructType\EwsPermissionSetType $permissionSet = null, ?int $unreadCount = null)
     {
         $this
             ->setPermissionSet($permissionSet)
@@ -41,42 +44,44 @@ class EwsFolderType extends EwsBaseFolderType
     }
     /**
      * Get PermissionSet value
-     * @return \Ews\StructType\EwsPermissionSetType|null
+     * @return \StructType\EwsPermissionSetType|null
      */
-    public function getPermissionSet()
+    public function getPermissionSet(): ?\StructType\EwsPermissionSetType
     {
         return $this->PermissionSet;
     }
     /**
      * Set PermissionSet value
-     * @param \Ews\StructType\EwsPermissionSetType $permissionSet
-     * @return \Ews\StructType\EwsFolderType
+     * @param \StructType\EwsPermissionSetType $permissionSet
+     * @return \StructType\EwsFolderType
      */
-    public function setPermissionSet(\Ews\StructType\EwsPermissionSetType $permissionSet = null)
+    public function setPermissionSet(?\StructType\EwsPermissionSetType $permissionSet = null): self
     {
         $this->PermissionSet = $permissionSet;
+        
         return $this;
     }
     /**
      * Get UnreadCount value
      * @return int|null
      */
-    public function getUnreadCount()
+    public function getUnreadCount(): ?int
     {
         return $this->UnreadCount;
     }
     /**
      * Set UnreadCount value
      * @param int $unreadCount
-     * @return \Ews\StructType\EwsFolderType
+     * @return \StructType\EwsFolderType
      */
-    public function setUnreadCount($unreadCount = null)
+    public function setUnreadCount(?int $unreadCount = null): self
     {
         // validation for constraint: int
         if (!is_null($unreadCount) && !(is_int($unreadCount) || ctype_digit($unreadCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
+        
         return $this;
     }
 }

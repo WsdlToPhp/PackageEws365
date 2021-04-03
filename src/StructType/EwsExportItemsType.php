@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExportItemsType StructType
@@ -17,35 +20,36 @@ class EwsExportItemsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfItemIdsType
      */
-    public $ItemIds;
+    protected \ArrayType\EwsNonEmptyArrayOfItemIdsType $ItemIds;
     /**
      * Constructor method for ExportItemsType
      * @uses EwsExportItemsType::setItemIds()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds
+     * @param \ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds)
     {
         $this
             ->setItemIds($itemIds);
     }
     /**
      * Get ItemIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType
+     * @return \ArrayType\EwsNonEmptyArrayOfItemIdsType
      */
-    public function getItemIds()
+    public function getItemIds(): \ArrayType\EwsNonEmptyArrayOfItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds
-     * @return \Ews\StructType\EwsExportItemsType
+     * @param \ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds
+     * @return \StructType\EwsExportItemsType
      */
-    public function setItemIds(\Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds = null)
+    public function setItemIds(\ArrayType\EwsNonEmptyArrayOfItemIdsType $itemIds): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
 }

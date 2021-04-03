@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UploadItemsType StructType
@@ -14,35 +17,36 @@ class EwsUploadItemsType extends EwsBaseRequestType
 {
     /**
      * The Items
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType
+     * @var \ArrayType\EwsNonEmptyArrayOfUploadItemsType|null
      */
-    public $Items;
+    protected ?\ArrayType\EwsNonEmptyArrayOfUploadItemsType $Items = null;
     /**
      * Constructor method for UploadItemsType
      * @uses EwsUploadItemsType::setItems()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items
+     * @param \ArrayType\EwsNonEmptyArrayOfUploadItemsType $items
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items = null)
     {
         $this
             ->setItems($items);
     }
     /**
      * Get Items value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfUploadItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\ArrayType\EwsNonEmptyArrayOfUploadItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items
-     * @return \Ews\StructType\EwsUploadItemsType
+     * @param \ArrayType\EwsNonEmptyArrayOfUploadItemsType $items
+     * @return \StructType\EwsUploadItemsType
      */
-    public function setItems(\Ews\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items = null)
+    public function setItems(?\ArrayType\EwsNonEmptyArrayOfUploadItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

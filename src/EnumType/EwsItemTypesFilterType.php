@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ItemTypesFilterType EnumType
@@ -58,9 +60,9 @@ class EwsItemTypesFilterType extends AbstractStructEnumBase
      * @uses self::VALUE_FILE_ITEMS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_MAIL_ITEMS,
             self::VALUE_MAIL_CONVERSATIONS,
@@ -68,6 +70,6 @@ class EwsItemTypesFilterType extends AbstractStructEnumBase
             self::VALUE_PEOPLE,
             self::VALUE_ONE_DRIVE_ITEMS,
             self::VALUE_FILE_ITEMS,
-        );
+        ];
     }
 }

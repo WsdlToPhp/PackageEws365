@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingLocation StructType
@@ -14,14 +17,14 @@ class EwsMeetingLocation extends AbstractStructBase
 {
     /**
      * The EmailAddress
-     * @var string
+     * @var string|null
      */
-    public $EmailAddress;
+    protected ?string $EmailAddress = null;
     /**
      * The DisplayName
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * Constructor method for MeetingLocation
      * @uses EwsMeetingLocation::setEmailAddress()
@@ -29,7 +32,7 @@ class EwsMeetingLocation extends AbstractStructBase
      * @param string $emailAddress
      * @param string $displayName
      */
-    public function __construct($emailAddress = null, $displayName = null)
+    public function __construct(?string $emailAddress = null, ?string $displayName = null)
     {
         $this
             ->setEmailAddress($emailAddress)
@@ -39,44 +42,46 @@ class EwsMeetingLocation extends AbstractStructBase
      * Get EmailAddress value
      * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
      * @param string $emailAddress
-     * @return \Ews\StructType\EwsMeetingLocation
+     * @return \StructType\EwsMeetingLocation
      */
-    public function setEmailAddress($emailAddress = null)
+    public function setEmailAddress(?string $emailAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsMeetingLocation
+     * @return \StructType\EwsMeetingLocation
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
 }

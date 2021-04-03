@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CultureInfoDataType StructType
@@ -14,19 +17,19 @@ class EwsCultureInfoDataType extends AbstractStructBase
 {
     /**
      * The Name
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The NativeName
-     * @var string
+     * @var string|null
      */
-    public $NativeName;
+    protected ?string $NativeName = null;
     /**
      * The LCID
-     * @var int
+     * @var int|null
      */
-    public $LCID;
+    protected ?int $LCID = null;
     /**
      * Constructor method for CultureInfoDataType
      * @uses EwsCultureInfoDataType::setName()
@@ -36,7 +39,7 @@ class EwsCultureInfoDataType extends AbstractStructBase
      * @param string $nativeName
      * @param int $lCID
      */
-    public function __construct($name = null, $nativeName = null, $lCID = null)
+    public function __construct(?string $name = null, ?string $nativeName = null, ?int $lCID = null)
     {
         $this
             ->setName($name)
@@ -47,66 +50,69 @@ class EwsCultureInfoDataType extends AbstractStructBase
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsCultureInfoDataType
+     * @return \StructType\EwsCultureInfoDataType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get NativeName value
      * @return string|null
      */
-    public function getNativeName()
+    public function getNativeName(): ?string
     {
         return $this->NativeName;
     }
     /**
      * Set NativeName value
      * @param string $nativeName
-     * @return \Ews\StructType\EwsCultureInfoDataType
+     * @return \StructType\EwsCultureInfoDataType
      */
-    public function setNativeName($nativeName = null)
+    public function setNativeName(?string $nativeName = null): self
     {
         // validation for constraint: string
         if (!is_null($nativeName) && !is_string($nativeName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nativeName, true), gettype($nativeName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nativeName, true), gettype($nativeName)), __LINE__);
         }
         $this->NativeName = $nativeName;
+        
         return $this;
     }
     /**
      * Get LCID value
      * @return int|null
      */
-    public function getLCID()
+    public function getLCID(): ?int
     {
         return $this->LCID;
     }
     /**
      * Set LCID value
      * @param int $lCID
-     * @return \Ews\StructType\EwsCultureInfoDataType
+     * @return \StructType\EwsCultureInfoDataType
      */
-    public function setLCID($lCID = null)
+    public function setLCID(?int $lCID = null): self
     {
         // validation for constraint: int
         if (!is_null($lCID) && !(is_int($lCID) || ctype_digit($lCID))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($lCID, true), gettype($lCID)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($lCID, true), gettype($lCID)), __LINE__);
         }
         $this->LCID = $lCID;
+        
         return $this;
     }
 }

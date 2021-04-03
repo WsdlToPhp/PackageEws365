@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteUMPromptsType StructType
@@ -22,23 +25,23 @@ class EwsDeleteUMPromptsType extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $ConfigurationObject;
+    protected string $ConfigurationObject;
     /**
      * The PromptNames
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $PromptNames;
+    protected ?\ArrayType\EwsArrayOfStringsType $PromptNames = null;
     /**
      * Constructor method for DeleteUMPromptsType
      * @uses EwsDeleteUMPromptsType::setConfigurationObject()
      * @uses EwsDeleteUMPromptsType::setPromptNames()
      * @param string $configurationObject
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $promptNames
+     * @param \ArrayType\EwsArrayOfStringsType $promptNames
      */
-    public function __construct($configurationObject = null, \Ews\ArrayType\EwsArrayOfStringsType $promptNames = null)
+    public function __construct(string $configurationObject, ?\ArrayType\EwsArrayOfStringsType $promptNames = null)
     {
         $this
             ->setConfigurationObject($configurationObject)
@@ -48,44 +51,46 @@ class EwsDeleteUMPromptsType extends EwsBaseRequestType
      * Get ConfigurationObject value
      * @return string
      */
-    public function getConfigurationObject()
+    public function getConfigurationObject(): string
     {
         return $this->ConfigurationObject;
     }
     /**
      * Set ConfigurationObject value
      * @param string $configurationObject
-     * @return \Ews\StructType\EwsDeleteUMPromptsType
+     * @return \StructType\EwsDeleteUMPromptsType
      */
-    public function setConfigurationObject($configurationObject = null)
+    public function setConfigurationObject(string $configurationObject): self
     {
         // validation for constraint: string
         if (!is_null($configurationObject) && !is_string($configurationObject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationObject, true), gettype($configurationObject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationObject, true), gettype($configurationObject)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($configurationObject) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $configurationObject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($configurationObject, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($configurationObject, true)), __LINE__);
         }
         $this->ConfigurationObject = $configurationObject;
+        
         return $this;
     }
     /**
      * Get PromptNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getPromptNames()
+    public function getPromptNames(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->PromptNames;
     }
     /**
      * Set PromptNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $promptNames
-     * @return \Ews\StructType\EwsDeleteUMPromptsType
+     * @param \ArrayType\EwsArrayOfStringsType $promptNames
+     * @return \StructType\EwsDeleteUMPromptsType
      */
-    public function setPromptNames(\Ews\ArrayType\EwsArrayOfStringsType $promptNames = null)
+    public function setPromptNames(?\ArrayType\EwsArrayOfStringsType $promptNames = null): self
     {
         $this->PromptNames = $promptNames;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseDelegateResponseMessageType StructType
@@ -17,35 +20,36 @@ abstract class EwsBaseDelegateResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
+     * @var \ArrayType\EwsArrayOfDelegateUserResponseMessageType|null
      */
-    public $ResponseMessages;
+    protected ?\ArrayType\EwsArrayOfDelegateUserResponseMessageType $ResponseMessages = null;
     /**
      * Constructor method for BaseDelegateResponseMessageType
      * @uses EwsBaseDelegateResponseMessageType::setResponseMessages()
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
+     * @param \ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null)
+    public function __construct(?\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null)
     {
         $this
             ->setResponseMessages($responseMessages);
     }
     /**
      * Get ResponseMessages value
-     * @return \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType|null
+     * @return \ArrayType\EwsArrayOfDelegateUserResponseMessageType|null
      */
-    public function getResponseMessages()
+    public function getResponseMessages(): ?\ArrayType\EwsArrayOfDelegateUserResponseMessageType
     {
         return $this->ResponseMessages;
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
-     * @return \Ews\StructType\EwsBaseDelegateResponseMessageType
+     * @param \ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages
+     * @return \StructType\EwsBaseDelegateResponseMessageType
      */
-    public function setResponseMessages(\Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null)
+    public function setResponseMessages(?\ArrayType\EwsArrayOfDelegateUserResponseMessageType $responseMessages = null): self
     {
         $this->ResponseMessages = $responseMessages;
+        
         return $this;
     }
 }

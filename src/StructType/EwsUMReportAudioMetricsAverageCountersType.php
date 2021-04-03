@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UMReportAudioMetricsAverageCountersType StructType
@@ -19,55 +22,55 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $TotalAudioQualityCallsSampled;
+    protected int $TotalAudioQualityCallsSampled;
     /**
      * The NMOS
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $NMOS;
+    protected ?\StructType\EwsAudioMetricsAverageType $NMOS = null;
     /**
      * The NMOSDegradation
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $NMOSDegradation;
+    protected ?\StructType\EwsAudioMetricsAverageType $NMOSDegradation = null;
     /**
      * The Jitter
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $Jitter;
+    protected ?\StructType\EwsAudioMetricsAverageType $Jitter = null;
     /**
      * The PercentPacketLoss
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $PercentPacketLoss;
+    protected ?\StructType\EwsAudioMetricsAverageType $PercentPacketLoss = null;
     /**
      * The RoundTrip
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $RoundTrip;
+    protected ?\StructType\EwsAudioMetricsAverageType $RoundTrip = null;
     /**
      * The BurstLossDuration
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAudioMetricsAverageType
+     * @var \StructType\EwsAudioMetricsAverageType|null
      */
-    public $BurstLossDuration;
+    protected ?\StructType\EwsAudioMetricsAverageType $BurstLossDuration = null;
     /**
      * Constructor method for UMReportAudioMetricsAverageCountersType
      * @uses EwsUMReportAudioMetricsAverageCountersType::setTotalAudioQualityCallsSampled()
@@ -78,14 +81,14 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
      * @uses EwsUMReportAudioMetricsAverageCountersType::setRoundTrip()
      * @uses EwsUMReportAudioMetricsAverageCountersType::setBurstLossDuration()
      * @param int $totalAudioQualityCallsSampled
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOS
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOSDegradation
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $jitter
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $percentPacketLoss
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $roundTrip
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $burstLossDuration
+     * @param \StructType\EwsAudioMetricsAverageType $nMOS
+     * @param \StructType\EwsAudioMetricsAverageType $nMOSDegradation
+     * @param \StructType\EwsAudioMetricsAverageType $jitter
+     * @param \StructType\EwsAudioMetricsAverageType $percentPacketLoss
+     * @param \StructType\EwsAudioMetricsAverageType $roundTrip
+     * @param \StructType\EwsAudioMetricsAverageType $burstLossDuration
      */
-    public function __construct($totalAudioQualityCallsSampled = null, \Ews\StructType\EwsAudioMetricsAverageType $nMOS = null, \Ews\StructType\EwsAudioMetricsAverageType $nMOSDegradation = null, \Ews\StructType\EwsAudioMetricsAverageType $jitter = null, \Ews\StructType\EwsAudioMetricsAverageType $percentPacketLoss = null, \Ews\StructType\EwsAudioMetricsAverageType $roundTrip = null, \Ews\StructType\EwsAudioMetricsAverageType $burstLossDuration = null)
+    public function __construct(int $totalAudioQualityCallsSampled, ?\StructType\EwsAudioMetricsAverageType $nMOS = null, ?\StructType\EwsAudioMetricsAverageType $nMOSDegradation = null, ?\StructType\EwsAudioMetricsAverageType $jitter = null, ?\StructType\EwsAudioMetricsAverageType $percentPacketLoss = null, ?\StructType\EwsAudioMetricsAverageType $roundTrip = null, ?\StructType\EwsAudioMetricsAverageType $burstLossDuration = null)
     {
         $this
             ->setTotalAudioQualityCallsSampled($totalAudioQualityCallsSampled)
@@ -100,130 +103,137 @@ class EwsUMReportAudioMetricsAverageCountersType extends AbstractStructBase
      * Get TotalAudioQualityCallsSampled value
      * @return int
      */
-    public function getTotalAudioQualityCallsSampled()
+    public function getTotalAudioQualityCallsSampled(): int
     {
         return $this->TotalAudioQualityCallsSampled;
     }
     /**
      * Set TotalAudioQualityCallsSampled value
      * @param int $totalAudioQualityCallsSampled
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setTotalAudioQualityCallsSampled($totalAudioQualityCallsSampled = null)
+    public function setTotalAudioQualityCallsSampled(int $totalAudioQualityCallsSampled): self
     {
         // validation for constraint: int
         if (!is_null($totalAudioQualityCallsSampled) && !(is_int($totalAudioQualityCallsSampled) || ctype_digit($totalAudioQualityCallsSampled))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalAudioQualityCallsSampled, true), gettype($totalAudioQualityCallsSampled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalAudioQualityCallsSampled, true), gettype($totalAudioQualityCallsSampled)), __LINE__);
         }
         $this->TotalAudioQualityCallsSampled = $totalAudioQualityCallsSampled;
+        
         return $this;
     }
     /**
      * Get NMOS value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getNMOS()
+    public function getNMOS(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->NMOS;
     }
     /**
      * Set NMOS value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOS
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $nMOS
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setNMOS(\Ews\StructType\EwsAudioMetricsAverageType $nMOS = null)
+    public function setNMOS(?\StructType\EwsAudioMetricsAverageType $nMOS = null): self
     {
         $this->NMOS = $nMOS;
+        
         return $this;
     }
     /**
      * Get NMOSDegradation value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getNMOSDegradation()
+    public function getNMOSDegradation(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->NMOSDegradation;
     }
     /**
      * Set NMOSDegradation value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $nMOSDegradation
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $nMOSDegradation
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setNMOSDegradation(\Ews\StructType\EwsAudioMetricsAverageType $nMOSDegradation = null)
+    public function setNMOSDegradation(?\StructType\EwsAudioMetricsAverageType $nMOSDegradation = null): self
     {
         $this->NMOSDegradation = $nMOSDegradation;
+        
         return $this;
     }
     /**
      * Get Jitter value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getJitter()
+    public function getJitter(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->Jitter;
     }
     /**
      * Set Jitter value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $jitter
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $jitter
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setJitter(\Ews\StructType\EwsAudioMetricsAverageType $jitter = null)
+    public function setJitter(?\StructType\EwsAudioMetricsAverageType $jitter = null): self
     {
         $this->Jitter = $jitter;
+        
         return $this;
     }
     /**
      * Get PercentPacketLoss value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getPercentPacketLoss()
+    public function getPercentPacketLoss(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->PercentPacketLoss;
     }
     /**
      * Set PercentPacketLoss value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $percentPacketLoss
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $percentPacketLoss
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setPercentPacketLoss(\Ews\StructType\EwsAudioMetricsAverageType $percentPacketLoss = null)
+    public function setPercentPacketLoss(?\StructType\EwsAudioMetricsAverageType $percentPacketLoss = null): self
     {
         $this->PercentPacketLoss = $percentPacketLoss;
+        
         return $this;
     }
     /**
      * Get RoundTrip value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getRoundTrip()
+    public function getRoundTrip(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->RoundTrip;
     }
     /**
      * Set RoundTrip value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $roundTrip
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $roundTrip
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setRoundTrip(\Ews\StructType\EwsAudioMetricsAverageType $roundTrip = null)
+    public function setRoundTrip(?\StructType\EwsAudioMetricsAverageType $roundTrip = null): self
     {
         $this->RoundTrip = $roundTrip;
+        
         return $this;
     }
     /**
      * Get BurstLossDuration value
-     * @return \Ews\StructType\EwsAudioMetricsAverageType|null
+     * @return \StructType\EwsAudioMetricsAverageType|null
      */
-    public function getBurstLossDuration()
+    public function getBurstLossDuration(): ?\StructType\EwsAudioMetricsAverageType
     {
         return $this->BurstLossDuration;
     }
     /**
      * Set BurstLossDuration value
-     * @param \Ews\StructType\EwsAudioMetricsAverageType $burstLossDuration
-     * @return \Ews\StructType\EwsUMReportAudioMetricsAverageCountersType
+     * @param \StructType\EwsAudioMetricsAverageType $burstLossDuration
+     * @return \StructType\EwsUMReportAudioMetricsAverageCountersType
      */
-    public function setBurstLossDuration(\Ews\StructType\EwsAudioMetricsAverageType $burstLossDuration = null)
+    public function setBurstLossDuration(?\StructType\EwsAudioMetricsAverageType $burstLossDuration = null): self
     {
         $this->BurstLossDuration = $burstLossDuration;
+        
         return $this;
     }
 }

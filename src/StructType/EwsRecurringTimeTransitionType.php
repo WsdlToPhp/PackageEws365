@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecurringTimeTransitionType StructType
@@ -14,14 +17,14 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
 {
     /**
      * The TimeOffset
-     * @var string
+     * @var string|null
      */
-    public $TimeOffset;
+    protected ?string $TimeOffset = null;
     /**
      * The Month
-     * @var int
+     * @var int|null
      */
-    public $Month;
+    protected ?int $Month = null;
     /**
      * Constructor method for RecurringTimeTransitionType
      * @uses EwsRecurringTimeTransitionType::setTimeOffset()
@@ -29,7 +32,7 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
      * @param string $timeOffset
      * @param int $month
      */
-    public function __construct($timeOffset = null, $month = null)
+    public function __construct(?string $timeOffset = null, ?int $month = null)
     {
         $this
             ->setTimeOffset($timeOffset)
@@ -39,44 +42,46 @@ abstract class EwsRecurringTimeTransitionType extends EwsTransitionType
      * Get TimeOffset value
      * @return string|null
      */
-    public function getTimeOffset()
+    public function getTimeOffset(): ?string
     {
         return $this->TimeOffset;
     }
     /**
      * Set TimeOffset value
      * @param string $timeOffset
-     * @return \Ews\StructType\EwsRecurringTimeTransitionType
+     * @return \StructType\EwsRecurringTimeTransitionType
      */
-    public function setTimeOffset($timeOffset = null)
+    public function setTimeOffset(?string $timeOffset = null): self
     {
         // validation for constraint: string
         if (!is_null($timeOffset) && !is_string($timeOffset)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeOffset, true), gettype($timeOffset)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeOffset, true), gettype($timeOffset)), __LINE__);
         }
         $this->TimeOffset = $timeOffset;
+        
         return $this;
     }
     /**
      * Get Month value
      * @return int|null
      */
-    public function getMonth()
+    public function getMonth(): ?int
     {
         return $this->Month;
     }
     /**
      * Set Month value
      * @param int $month
-     * @return \Ews\StructType\EwsRecurringTimeTransitionType
+     * @return \StructType\EwsRecurringTimeTransitionType
      */
-    public function setMonth($month = null)
+    public function setMonth(?int $month = null): self
     {
         // validation for constraint: int
         if (!is_null($month) && !(is_int($month) || ctype_digit($month))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($month, true), gettype($month)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($month, true), gettype($month)), __LINE__);
         }
         $this->Month = $month;
+        
         return $this;
     }
 }

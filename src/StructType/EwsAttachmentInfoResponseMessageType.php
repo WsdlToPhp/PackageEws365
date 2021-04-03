@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttachmentInfoResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsAttachmentInfoResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The Attachments
-     * @var \Ews\StructType\EwsArrayOfAttachmentsType
+     * @var \StructType\EwsArrayOfAttachmentsType|null
      */
-    public $Attachments;
+    protected ?\StructType\EwsArrayOfAttachmentsType $Attachments = null;
     /**
      * Constructor method for AttachmentInfoResponseMessageType
      * @uses EwsAttachmentInfoResponseMessageType::setAttachments()
-     * @param \Ews\StructType\EwsArrayOfAttachmentsType $attachments
+     * @param \StructType\EwsArrayOfAttachmentsType $attachments
      */
-    public function __construct(\Ews\StructType\EwsArrayOfAttachmentsType $attachments = null)
+    public function __construct(?\StructType\EwsArrayOfAttachmentsType $attachments = null)
     {
         $this
             ->setAttachments($attachments);
     }
     /**
      * Get Attachments value
-     * @return \Ews\StructType\EwsArrayOfAttachmentsType|null
+     * @return \StructType\EwsArrayOfAttachmentsType|null
      */
-    public function getAttachments()
+    public function getAttachments(): ?\StructType\EwsArrayOfAttachmentsType
     {
         return $this->Attachments;
     }
     /**
      * Set Attachments value
-     * @param \Ews\StructType\EwsArrayOfAttachmentsType $attachments
-     * @return \Ews\StructType\EwsAttachmentInfoResponseMessageType
+     * @param \StructType\EwsArrayOfAttachmentsType $attachments
+     * @return \StructType\EwsAttachmentInfoResponseMessageType
      */
-    public function setAttachments(\Ews\StructType\EwsArrayOfAttachmentsType $attachments = null)
+    public function setAttachments(?\StructType\EwsArrayOfAttachmentsType $attachments = null): self
     {
         $this->Attachments = $attachments;
+        
         return $this;
     }
 }

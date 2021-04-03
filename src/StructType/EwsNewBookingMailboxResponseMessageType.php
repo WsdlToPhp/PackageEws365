@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NewBookingMailboxResponseMessageType StructType
@@ -19,13 +22,13 @@ class EwsNewBookingMailboxResponseMessageType extends EwsResponseMessageType
      * - minOccurs: 1
      * @var string
      */
-    public $SmtpAddress;
+    protected string $SmtpAddress;
     /**
      * Constructor method for NewBookingMailboxResponseMessageType
      * @uses EwsNewBookingMailboxResponseMessageType::setSmtpAddress()
      * @param string $smtpAddress
      */
-    public function __construct($smtpAddress = null)
+    public function __construct(string $smtpAddress)
     {
         $this
             ->setSmtpAddress($smtpAddress);
@@ -34,22 +37,23 @@ class EwsNewBookingMailboxResponseMessageType extends EwsResponseMessageType
      * Get SmtpAddress value
      * @return string
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): string
     {
         return $this->SmtpAddress;
     }
     /**
      * Set SmtpAddress value
      * @param string $smtpAddress
-     * @return \Ews\StructType\EwsNewBookingMailboxResponseMessageType
+     * @return \StructType\EwsNewBookingMailboxResponseMessageType
      */
-    public function setSmtpAddress($smtpAddress = null)
+    public function setSmtpAddress(string $smtpAddress): self
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
+        
         return $this;
     }
 }

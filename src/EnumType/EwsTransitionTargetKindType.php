@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for TransitionTargetKindType EnumType
@@ -28,11 +30,11 @@ class EwsTransitionTargetKindType extends AbstractStructEnumBase
      * @uses self::VALUE_GROUP
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_PERIOD,
             self::VALUE_GROUP,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfAvailableCulturesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCultureInfoDataType[]
+     * @var \StructType\EwsCultureInfoDataType[]
      */
-    public $AvailableCulture;
+    protected array $AvailableCulture = [];
     /**
      * Constructor method for ArrayOfAvailableCulturesType
      * @uses EwsArrayOfAvailableCulturesType::setAvailableCulture()
-     * @param \Ews\StructType\EwsCultureInfoDataType[] $availableCulture
+     * @param \StructType\EwsCultureInfoDataType[] $availableCulture
      */
-    public function __construct(array $availableCulture = array())
+    public function __construct(array $availableCulture = [])
     {
         $this
             ->setAvailableCulture($availableCulture);
     }
     /**
      * Get AvailableCulture value
-     * @return \Ews\StructType\EwsCultureInfoDataType[]|null
+     * @return \StructType\EwsCultureInfoDataType[]
      */
-    public function getAvailableCulture()
+    public function getAvailableCulture(): array
     {
         return $this->AvailableCulture;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAvailableCultureForArrayConstraintsFromSetAvailableCulture(array $values = array())
+    public static function validateAvailableCultureForArrayConstraintsFromSetAvailableCulture(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfAvailableCulturesTypeAvailableCultureItem) {
             // validation for constraint: itemType
-            if (!$arrayOfAvailableCulturesTypeAvailableCultureItem instanceof \Ews\StructType\EwsCultureInfoDataType) {
+            if (!$arrayOfAvailableCulturesTypeAvailableCultureItem instanceof \StructType\EwsCultureInfoDataType) {
                 $invalidValues[] = is_object($arrayOfAvailableCulturesTypeAvailableCultureItem) ? get_class($arrayOfAvailableCulturesTypeAvailableCultureItem) : sprintf('%s(%s)', gettype($arrayOfAvailableCulturesTypeAvailableCultureItem), var_export($arrayOfAvailableCulturesTypeAvailableCultureItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The AvailableCulture property can only contain items of type \Ews\StructType\EwsCultureInfoDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The AvailableCulture property can only contain items of type \StructType\EwsCultureInfoDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set AvailableCulture value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCultureInfoDataType[] $availableCulture
-     * @return \Ews\ArrayType\EwsArrayOfAvailableCulturesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCultureInfoDataType[] $availableCulture
+     * @return \ArrayType\EwsArrayOfAvailableCulturesType
      */
-    public function setAvailableCulture(array $availableCulture = array())
+    public function setAvailableCulture(array $availableCulture = []): self
     {
         // validation for constraint: array
         if ('' !== ($availableCultureArrayErrorMessage = self::validateAvailableCultureForArrayConstraintsFromSetAvailableCulture($availableCulture))) {
-            throw new \InvalidArgumentException($availableCultureArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($availableCultureArrayErrorMessage, __LINE__);
         }
         $this->AvailableCulture = $availableCulture;
-        return $this;
-    }
-    /**
-     * Add item to AvailableCulture value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCultureInfoDataType $item
-     * @return \Ews\ArrayType\EwsArrayOfAvailableCulturesType
-     */
-    public function addToAvailableCulture(\Ews\StructType\EwsCultureInfoDataType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsCultureInfoDataType) {
-            throw new \InvalidArgumentException(sprintf('The AvailableCulture property can only contain items of type \Ews\StructType\EwsCultureInfoDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->AvailableCulture[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsCultureInfoDataType|null
+     * @return \StructType\EwsCultureInfoDataType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsCultureInfoDataType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsCultureInfoDataType|null
+     * @return \StructType\EwsCultureInfoDataType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsCultureInfoDataType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsCultureInfoDataType|null
+     * @return \StructType\EwsCultureInfoDataType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsCultureInfoDataType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsCultureInfoDataType|null
+     * @return \StructType\EwsCultureInfoDataType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsCultureInfoDataType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfAvailableCulturesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsCultureInfoDataType|null
+     * @return \StructType\EwsCultureInfoDataType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsCultureInfoDataType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCultureInfoDataType $item
+     * @return \ArrayType\EwsArrayOfAvailableCulturesType
+     */
+    public function add(\StructType\EwsCultureInfoDataType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string AvailableCulture
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'AvailableCulture';
     }

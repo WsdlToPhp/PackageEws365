@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfStaffAvailabilityResponseType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsStaffAvailabilityResponseType[]
+     * @var \StructType\EwsStaffAvailabilityResponseType[]
      */
-    public $Response;
+    protected array $Response = [];
     /**
      * Constructor method for ArrayOfStaffAvailabilityResponseType
      * @uses EwsArrayOfStaffAvailabilityResponseType::setResponse()
-     * @param \Ews\StructType\EwsStaffAvailabilityResponseType[] $response
+     * @param \StructType\EwsStaffAvailabilityResponseType[] $response
      */
-    public function __construct(array $response = array())
+    public function __construct(array $response = [])
     {
         $this
             ->setResponse($response);
     }
     /**
      * Get Response value
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType[]|null
+     * @return \StructType\EwsStaffAvailabilityResponseType[]
      */
-    public function getResponse()
+    public function getResponse(): array
     {
         return $this->Response;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateResponseForArrayConstraintsFromSetResponse(array $values = array())
+    public static function validateResponseForArrayConstraintsFromSetResponse(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfStaffAvailabilityResponseTypeResponseItem) {
             // validation for constraint: itemType
-            if (!$arrayOfStaffAvailabilityResponseTypeResponseItem instanceof \Ews\StructType\EwsStaffAvailabilityResponseType) {
+            if (!$arrayOfStaffAvailabilityResponseTypeResponseItem instanceof \StructType\EwsStaffAvailabilityResponseType) {
                 $invalidValues[] = is_object($arrayOfStaffAvailabilityResponseTypeResponseItem) ? get_class($arrayOfStaffAvailabilityResponseTypeResponseItem) : sprintf('%s(%s)', gettype($arrayOfStaffAvailabilityResponseTypeResponseItem), var_export($arrayOfStaffAvailabilityResponseTypeResponseItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Response property can only contain items of type \Ews\StructType\EwsStaffAvailabilityResponseType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Response property can only contain items of type \StructType\EwsStaffAvailabilityResponseType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Response value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsStaffAvailabilityResponseType[] $response
-     * @return \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsStaffAvailabilityResponseType[] $response
+     * @return \ArrayType\EwsArrayOfStaffAvailabilityResponseType
      */
-    public function setResponse(array $response = array())
+    public function setResponse(array $response = []): self
     {
         // validation for constraint: array
         if ('' !== ($responseArrayErrorMessage = self::validateResponseForArrayConstraintsFromSetResponse($response))) {
-            throw new \InvalidArgumentException($responseArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($responseArrayErrorMessage, __LINE__);
         }
         $this->Response = $response;
-        return $this;
-    }
-    /**
-     * Add item to Response value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsStaffAvailabilityResponseType $item
-     * @return \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
-     */
-    public function addToResponse(\Ews\StructType\EwsStaffAvailabilityResponseType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsStaffAvailabilityResponseType) {
-            throw new \InvalidArgumentException(sprintf('The Response property can only contain items of type \Ews\StructType\EwsStaffAvailabilityResponseType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Response[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType|null
+     * @return \StructType\EwsStaffAvailabilityResponseType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsStaffAvailabilityResponseType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType|null
+     * @return \StructType\EwsStaffAvailabilityResponseType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsStaffAvailabilityResponseType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType|null
+     * @return \StructType\EwsStaffAvailabilityResponseType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsStaffAvailabilityResponseType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType|null
+     * @return \StructType\EwsStaffAvailabilityResponseType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsStaffAvailabilityResponseType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType|null
+     * @return \StructType\EwsStaffAvailabilityResponseType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsStaffAvailabilityResponseType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsStaffAvailabilityResponseType $item
+     * @return \ArrayType\EwsArrayOfStaffAvailabilityResponseType
+     */
+    public function add(\StructType\EwsStaffAvailabilityResponseType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Response
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Response';
     }

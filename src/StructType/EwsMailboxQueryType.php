@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxQueryType StructType
@@ -21,23 +24,23 @@ class EwsMailboxQueryType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Query;
+    protected string $Query;
     /**
      * The MailboxSearchScopes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
+     * @var \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
-    public $MailboxSearchScopes;
+    protected \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $MailboxSearchScopes;
     /**
      * Constructor method for MailboxQueryType
      * @uses EwsMailboxQueryType::setQuery()
      * @uses EwsMailboxQueryType::setMailboxSearchScopes()
      * @param string $query
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
+     * @param \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
      */
-    public function __construct($query = null, \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes = null)
+    public function __construct(string $query, \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes)
     {
         $this
             ->setQuery($query)
@@ -47,40 +50,42 @@ class EwsMailboxQueryType extends AbstractStructBase
      * Get Query value
      * @return string
      */
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->Query;
     }
     /**
      * Set Query value
      * @param string $query
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType
      */
-    public function setQuery($query = null)
+    public function setQuery(string $query): self
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
+        
         return $this;
     }
     /**
      * Get MailboxSearchScopes value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
+     * @return \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
-    public function getMailboxSearchScopes()
+    public function getMailboxSearchScopes(): \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
     {
         return $this->MailboxSearchScopes;
     }
     /**
      * Set MailboxSearchScopes value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @param \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes
+     * @return \StructType\EwsMailboxQueryType
      */
-    public function setMailboxSearchScopes(\Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes = null)
+    public function setMailboxSearchScopes(\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType $mailboxSearchScopes): self
     {
         $this->MailboxSearchScopes = $mailboxSearchScopes;
+        
         return $this;
     }
 }

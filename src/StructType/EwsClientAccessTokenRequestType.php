@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ClientAccessTokenRequestType StructType
@@ -14,22 +17,22 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
 {
     /**
      * The Id
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * The TokenType
-     * @var string
+     * @var string|null
      */
-    public $TokenType;
+    protected ?string $TokenType = null;
     /**
      * The Scope
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Scope;
+    protected ?string $Scope = null;
     /**
      * Constructor method for ClientAccessTokenRequestType
      * @uses EwsClientAccessTokenRequestType::setId()
@@ -39,7 +42,7 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
      * @param string $tokenType
      * @param string $scope
      */
-    public function __construct($id = null, $tokenType = null, $scope = null)
+    public function __construct(?string $id = null, ?string $tokenType = null, ?string $scope = null)
     {
         $this
             ->setId($id)
@@ -50,69 +53,72 @@ class EwsClientAccessTokenRequestType extends AbstractStructBase
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get TokenType value
      * @return string|null
      */
-    public function getTokenType()
+    public function getTokenType(): ?string
     {
         return $this->TokenType;
     }
     /**
      * Set TokenType value
-     * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsClientAccessTokenTypeType::valueIsValid()
+     * @uses \EnumType\EwsClientAccessTokenTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $tokenType
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType
      */
-    public function setTokenType($tokenType = null)
+    public function setTokenType(?string $tokenType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsClientAccessTokenTypeType::valueIsValid($tokenType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsClientAccessTokenTypeType', is_array($tokenType) ? implode(', ', $tokenType) : var_export($tokenType, true), implode(', ', \Ews\EnumType\EwsClientAccessTokenTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsClientAccessTokenTypeType::valueIsValid($tokenType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsClientAccessTokenTypeType', is_array($tokenType) ? implode(', ', $tokenType) : var_export($tokenType, true), implode(', ', \EnumType\EwsClientAccessTokenTypeType::getValidValues())), __LINE__);
         }
         $this->TokenType = $tokenType;
+        
         return $this;
     }
     /**
      * Get Scope value
      * @return string|null
      */
-    public function getScope()
+    public function getScope(): ?string
     {
         return $this->Scope;
     }
     /**
      * Set Scope value
      * @param string $scope
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType
      */
-    public function setScope($scope = null)
+    public function setScope(?string $scope = null): self
     {
         // validation for constraint: string
         if (!is_null($scope) && !is_string($scope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
         }
         $this->Scope = $scope;
+        
         return $this;
     }
 }

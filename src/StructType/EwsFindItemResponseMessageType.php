@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindItemResponseMessageType StructType
@@ -16,24 +19,24 @@ class EwsFindItemResponseMessageType extends EwsResponseMessageType
      * The RootFolder
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindItemParentType
+     * @var \StructType\EwsFindItemParentType|null
      */
-    public $RootFolder;
+    protected ?\StructType\EwsFindItemParentType $RootFolder = null;
     /**
      * The HighlightTerms
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfHighlightTermsType
+     * @var \ArrayType\EwsArrayOfHighlightTermsType|null
      */
-    public $HighlightTerms;
+    protected ?\ArrayType\EwsArrayOfHighlightTermsType $HighlightTerms = null;
     /**
      * Constructor method for FindItemResponseMessageType
      * @uses EwsFindItemResponseMessageType::setRootFolder()
      * @uses EwsFindItemResponseMessageType::setHighlightTerms()
-     * @param \Ews\StructType\EwsFindItemParentType $rootFolder
-     * @param \Ews\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms
+     * @param \StructType\EwsFindItemParentType $rootFolder
+     * @param \ArrayType\EwsArrayOfHighlightTermsType $highlightTerms
      */
-    public function __construct(\Ews\StructType\EwsFindItemParentType $rootFolder = null, \Ews\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms = null)
+    public function __construct(?\StructType\EwsFindItemParentType $rootFolder = null, ?\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms = null)
     {
         $this
             ->setRootFolder($rootFolder)
@@ -41,38 +44,40 @@ class EwsFindItemResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get RootFolder value
-     * @return \Ews\StructType\EwsFindItemParentType|null
+     * @return \StructType\EwsFindItemParentType|null
      */
-    public function getRootFolder()
+    public function getRootFolder(): ?\StructType\EwsFindItemParentType
     {
         return $this->RootFolder;
     }
     /**
      * Set RootFolder value
-     * @param \Ews\StructType\EwsFindItemParentType $rootFolder
-     * @return \Ews\StructType\EwsFindItemResponseMessageType
+     * @param \StructType\EwsFindItemParentType $rootFolder
+     * @return \StructType\EwsFindItemResponseMessageType
      */
-    public function setRootFolder(\Ews\StructType\EwsFindItemParentType $rootFolder = null)
+    public function setRootFolder(?\StructType\EwsFindItemParentType $rootFolder = null): self
     {
         $this->RootFolder = $rootFolder;
+        
         return $this;
     }
     /**
      * Get HighlightTerms value
-     * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType|null
+     * @return \ArrayType\EwsArrayOfHighlightTermsType|null
      */
-    public function getHighlightTerms()
+    public function getHighlightTerms(): ?\ArrayType\EwsArrayOfHighlightTermsType
     {
         return $this->HighlightTerms;
     }
     /**
      * Set HighlightTerms value
-     * @param \Ews\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms
-     * @return \Ews\StructType\EwsFindItemResponseMessageType
+     * @param \ArrayType\EwsArrayOfHighlightTermsType $highlightTerms
+     * @return \StructType\EwsFindItemResponseMessageType
      */
-    public function setHighlightTerms(\Ews\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms = null)
+    public function setHighlightTerms(?\ArrayType\EwsArrayOfHighlightTermsType $highlightTerms = null): self
     {
         $this->HighlightTerms = $highlightTerms;
+        
         return $this;
     }
 }

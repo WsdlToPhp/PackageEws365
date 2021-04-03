@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArchiveItemType StructType
@@ -14,22 +17,22 @@ class EwsArchiveItemType extends EwsBaseRequestType
 {
     /**
      * The ArchiveSourceFolderId
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $ArchiveSourceFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $ArchiveSourceFolderId = null;
     /**
      * The ItemIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * Constructor method for ArchiveItemType
      * @uses EwsArchiveItemType::setArchiveSourceFolderId()
      * @uses EwsArchiveItemType::setItemIds()
-     * @param \Ews\StructType\EwsTargetFolderIdType $archiveSourceFolderId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsTargetFolderIdType $archiveSourceFolderId
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      */
-    public function __construct(\Ews\StructType\EwsTargetFolderIdType $archiveSourceFolderId = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function __construct(?\StructType\EwsTargetFolderIdType $archiveSourceFolderId = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
     {
         $this
             ->setArchiveSourceFolderId($archiveSourceFolderId)
@@ -37,38 +40,40 @@ class EwsArchiveItemType extends EwsBaseRequestType
     }
     /**
      * Get ArchiveSourceFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getArchiveSourceFolderId()
+    public function getArchiveSourceFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->ArchiveSourceFolderId;
     }
     /**
      * Set ArchiveSourceFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $archiveSourceFolderId
-     * @return \Ews\StructType\EwsArchiveItemType
+     * @param \StructType\EwsTargetFolderIdType $archiveSourceFolderId
+     * @return \StructType\EwsArchiveItemType
      */
-    public function setArchiveSourceFolderId(\Ews\StructType\EwsTargetFolderIdType $archiveSourceFolderId = null)
+    public function setArchiveSourceFolderId(?\StructType\EwsTargetFolderIdType $archiveSourceFolderId = null): self
     {
         $this->ArchiveSourceFolderId = $archiveSourceFolderId;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsArchiveItemType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsArchiveItemType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
 }

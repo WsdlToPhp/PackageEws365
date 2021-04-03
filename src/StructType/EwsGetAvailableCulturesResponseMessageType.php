@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetAvailableCulturesResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsGetAvailableCulturesResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The AvailableCultures
-     * @var \Ews\ArrayType\EwsArrayOfAvailableCulturesType
+     * @var \ArrayType\EwsArrayOfAvailableCulturesType|null
      */
-    public $AvailableCultures;
+    protected ?\ArrayType\EwsArrayOfAvailableCulturesType $AvailableCultures = null;
     /**
      * Constructor method for GetAvailableCulturesResponseMessageType
      * @uses EwsGetAvailableCulturesResponseMessageType::setAvailableCultures()
-     * @param \Ews\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures
+     * @param \ArrayType\EwsArrayOfAvailableCulturesType $availableCultures
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures = null)
+    public function __construct(?\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures = null)
     {
         $this
             ->setAvailableCultures($availableCultures);
     }
     /**
      * Get AvailableCultures value
-     * @return \Ews\ArrayType\EwsArrayOfAvailableCulturesType|null
+     * @return \ArrayType\EwsArrayOfAvailableCulturesType|null
      */
-    public function getAvailableCultures()
+    public function getAvailableCultures(): ?\ArrayType\EwsArrayOfAvailableCulturesType
     {
         return $this->AvailableCultures;
     }
     /**
      * Set AvailableCultures value
-     * @param \Ews\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures
-     * @return \Ews\StructType\EwsGetAvailableCulturesResponseMessageType
+     * @param \ArrayType\EwsArrayOfAvailableCulturesType $availableCultures
+     * @return \StructType\EwsGetAvailableCulturesResponseMessageType
      */
-    public function setAvailableCultures(\Ews\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures = null)
+    public function setAvailableCultures(?\ArrayType\EwsArrayOfAvailableCulturesType $availableCultures = null): self
     {
         $this->AvailableCultures = $availableCultures;
+        
         return $this;
     }
 }

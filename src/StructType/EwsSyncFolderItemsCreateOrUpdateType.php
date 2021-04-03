@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncFolderItemsCreateOrUpdateType StructType
@@ -18,135 +21,135 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemType
+     * @var \StructType\EwsItemType|null
      */
-    public $Item;
+    protected ?\StructType\EwsItemType $Item = null;
     /**
      * The Message
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMessageType
+     * @var \StructType\EwsMessageType|null
      */
-    public $Message;
+    protected ?\StructType\EwsMessageType $Message = null;
     /**
      * The CalendarItem
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsCalendarItemType
+     * @var \StructType\EwsCalendarItemType|null
      */
-    public $CalendarItem;
+    protected ?\StructType\EwsCalendarItemType $CalendarItem = null;
     /**
      * The Contact
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsContactItemType
+     * @var \StructType\EwsContactItemType|null
      */
-    public $Contact;
+    protected ?\StructType\EwsContactItemType $Contact = null;
     /**
      * The DistributionList
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDistributionListType
+     * @var \StructType\EwsDistributionListType|null
      */
-    public $DistributionList;
+    protected ?\StructType\EwsDistributionListType $DistributionList = null;
     /**
      * The MeetingMessage
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMeetingMessageType
+     * @var \StructType\EwsMeetingMessageType|null
      */
-    public $MeetingMessage;
+    protected ?\StructType\EwsMeetingMessageType $MeetingMessage = null;
     /**
      * The MeetingRequest
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMeetingRequestMessageType
+     * @var \StructType\EwsMeetingRequestMessageType|null
      */
-    public $MeetingRequest;
+    protected ?\StructType\EwsMeetingRequestMessageType $MeetingRequest = null;
     /**
      * The MeetingResponse
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMeetingResponseMessageType
+     * @var \StructType\EwsMeetingResponseMessageType|null
      */
-    public $MeetingResponse;
+    protected ?\StructType\EwsMeetingResponseMessageType $MeetingResponse = null;
     /**
      * The MeetingCancellation
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMeetingCancellationMessageType
+     * @var \StructType\EwsMeetingCancellationMessageType|null
      */
-    public $MeetingCancellation;
+    protected ?\StructType\EwsMeetingCancellationMessageType $MeetingCancellation = null;
     /**
      * The Task
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsTaskType
+     * @var \StructType\EwsTaskType|null
      */
-    public $Task;
+    protected ?\StructType\EwsTaskType $Task = null;
     /**
      * The PostItem
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPostItemType
+     * @var \StructType\EwsPostItemType|null
      */
-    public $PostItem;
+    protected ?\StructType\EwsPostItemType $PostItem = null;
     /**
      * The RoleMember
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsRoleMemberItemType
+     * @var \StructType\EwsRoleMemberItemType|null
      */
-    public $RoleMember;
+    protected ?\StructType\EwsRoleMemberItemType $RoleMember = null;
     /**
      * The Network
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsNetworkItemType
+     * @var \StructType\EwsNetworkItemType|null
      */
-    public $Network;
+    protected ?\StructType\EwsNetworkItemType $Network = null;
     /**
      * The Person
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAbchPersonItemType
+     * @var \StructType\EwsAbchPersonItemType|null
      */
-    public $Person;
+    protected ?\StructType\EwsAbchPersonItemType $Person = null;
     /**
      * The Booking
      * Meta information extracted from the WSDL
      * - choice: Item | Message | CalendarItem | Contact | DistributionList | MeetingMessage | MeetingRequest | MeetingResponse | MeetingCancellation | Task | PostItem | RoleMember | Network | Person | Booking
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsBookingItemType
+     * @var \StructType\EwsBookingItemType|null
      */
-    public $Booking;
+    protected ?\StructType\EwsBookingItemType $Booking = null;
     /**
      * Constructor method for SyncFolderItemsCreateOrUpdateType
      * @uses EwsSyncFolderItemsCreateOrUpdateType::setItem()
@@ -164,23 +167,23 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @uses EwsSyncFolderItemsCreateOrUpdateType::setNetwork()
      * @uses EwsSyncFolderItemsCreateOrUpdateType::setPerson()
      * @uses EwsSyncFolderItemsCreateOrUpdateType::setBooking()
-     * @param \Ews\StructType\EwsItemType $item
-     * @param \Ews\StructType\EwsMessageType $message
-     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
-     * @param \Ews\StructType\EwsContactItemType $contact
-     * @param \Ews\StructType\EwsDistributionListType $distributionList
-     * @param \Ews\StructType\EwsMeetingMessageType $meetingMessage
-     * @param \Ews\StructType\EwsMeetingRequestMessageType $meetingRequest
-     * @param \Ews\StructType\EwsMeetingResponseMessageType $meetingResponse
-     * @param \Ews\StructType\EwsMeetingCancellationMessageType $meetingCancellation
-     * @param \Ews\StructType\EwsTaskType $task
-     * @param \Ews\StructType\EwsPostItemType $postItem
-     * @param \Ews\StructType\EwsRoleMemberItemType $roleMember
-     * @param \Ews\StructType\EwsNetworkItemType $network
-     * @param \Ews\StructType\EwsAbchPersonItemType $person
-     * @param \Ews\StructType\EwsBookingItemType $booking
+     * @param \StructType\EwsItemType $item
+     * @param \StructType\EwsMessageType $message
+     * @param \StructType\EwsCalendarItemType $calendarItem
+     * @param \StructType\EwsContactItemType $contact
+     * @param \StructType\EwsDistributionListType $distributionList
+     * @param \StructType\EwsMeetingMessageType $meetingMessage
+     * @param \StructType\EwsMeetingRequestMessageType $meetingRequest
+     * @param \StructType\EwsMeetingResponseMessageType $meetingResponse
+     * @param \StructType\EwsMeetingCancellationMessageType $meetingCancellation
+     * @param \StructType\EwsTaskType $task
+     * @param \StructType\EwsPostItemType $postItem
+     * @param \StructType\EwsRoleMemberItemType $roleMember
+     * @param \StructType\EwsNetworkItemType $network
+     * @param \StructType\EwsAbchPersonItemType $person
+     * @param \StructType\EwsBookingItemType $booking
      */
-    public function __construct(\Ews\StructType\EwsItemType $item = null, \Ews\StructType\EwsMessageType $message = null, \Ews\StructType\EwsCalendarItemType $calendarItem = null, \Ews\StructType\EwsContactItemType $contact = null, \Ews\StructType\EwsDistributionListType $distributionList = null, \Ews\StructType\EwsMeetingMessageType $meetingMessage = null, \Ews\StructType\EwsMeetingRequestMessageType $meetingRequest = null, \Ews\StructType\EwsMeetingResponseMessageType $meetingResponse = null, \Ews\StructType\EwsMeetingCancellationMessageType $meetingCancellation = null, \Ews\StructType\EwsTaskType $task = null, \Ews\StructType\EwsPostItemType $postItem = null, \Ews\StructType\EwsRoleMemberItemType $roleMember = null, \Ews\StructType\EwsNetworkItemType $network = null, \Ews\StructType\EwsAbchPersonItemType $person = null, \Ews\StructType\EwsBookingItemType $booking = null)
+    public function __construct(?\StructType\EwsItemType $item = null, ?\StructType\EwsMessageType $message = null, ?\StructType\EwsCalendarItemType $calendarItem = null, ?\StructType\EwsContactItemType $contact = null, ?\StructType\EwsDistributionListType $distributionList = null, ?\StructType\EwsMeetingMessageType $meetingMessage = null, ?\StructType\EwsMeetingRequestMessageType $meetingRequest = null, ?\StructType\EwsMeetingResponseMessageType $meetingResponse = null, ?\StructType\EwsMeetingCancellationMessageType $meetingCancellation = null, ?\StructType\EwsTaskType $task = null, ?\StructType\EwsPostItemType $postItem = null, ?\StructType\EwsRoleMemberItemType $roleMember = null, ?\StructType\EwsNetworkItemType $network = null, ?\StructType\EwsAbchPersonItemType $person = null, ?\StructType\EwsBookingItemType $booking = null)
     {
         $this
             ->setItem($item)
@@ -201,9 +204,9 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
     }
     /**
      * Get Item value
-     * @return \Ews\StructType\EwsItemType|null
+     * @return \StructType\EwsItemType|null
      */
-    public function getItem()
+    public function getItem(): ?\StructType\EwsItemType
     {
         return isset($this->Item) ? $this->Item : null;
     }
@@ -214,7 +217,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemForChoiceConstraintsFromSetItem($value)
+    public function validateItemForChoiceConstraintsFromSetItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -239,12 +242,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Item can\'t be set as the property %s is already set. Only one property must be set among these properties: Item, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Item can\'t be set as the property %s is already set. Only one property must be set among these properties: Item, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -252,28 +256,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemType $item
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemType $item
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setItem(\Ews\StructType\EwsItemType $item = null)
+    public function setItem(?\StructType\EwsItemType $item = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($itemChoiceErrorMessage = self::validateItemForChoiceConstraintsFromSetItem($item))) {
-            throw new \InvalidArgumentException($itemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemChoiceErrorMessage, __LINE__);
         }
         if (is_null($item) || (is_array($item) && empty($item))) {
             unset($this->Item);
         } else {
             $this->Item = $item;
         }
+        
         return $this;
     }
     /**
      * Get Message value
-     * @return \Ews\StructType\EwsMessageType|null
+     * @return \StructType\EwsMessageType|null
      */
-    public function getMessage()
+    public function getMessage(): ?\StructType\EwsMessageType
     {
         return isset($this->Message) ? $this->Message : null;
     }
@@ -284,7 +289,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMessageForChoiceConstraintsFromSetMessage($value)
+    public function validateMessageForChoiceConstraintsFromSetMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -309,12 +314,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Message can\'t be set as the property %s is already set. Only one property must be set among these properties: Message, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Message can\'t be set as the property %s is already set. Only one property must be set among these properties: Message, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -322,28 +328,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMessageType $message
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMessageType $message
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setMessage(\Ews\StructType\EwsMessageType $message = null)
+    public function setMessage(?\StructType\EwsMessageType $message = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($messageChoiceErrorMessage = self::validateMessageForChoiceConstraintsFromSetMessage($message))) {
-            throw new \InvalidArgumentException($messageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($messageChoiceErrorMessage, __LINE__);
         }
         if (is_null($message) || (is_array($message) && empty($message))) {
             unset($this->Message);
         } else {
             $this->Message = $message;
         }
+        
         return $this;
     }
     /**
      * Get CalendarItem value
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function getCalendarItem()
+    public function getCalendarItem(): ?\StructType\EwsCalendarItemType
     {
         return isset($this->CalendarItem) ? $this->CalendarItem : null;
     }
@@ -354,7 +361,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCalendarItemForChoiceConstraintsFromSetCalendarItem($value)
+    public function validateCalendarItemForChoiceConstraintsFromSetCalendarItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -379,12 +386,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -392,28 +400,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarItemType $calendarItem
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setCalendarItem(\Ews\StructType\EwsCalendarItemType $calendarItem = null)
+    public function setCalendarItem(?\StructType\EwsCalendarItemType $calendarItem = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($calendarItemChoiceErrorMessage = self::validateCalendarItemForChoiceConstraintsFromSetCalendarItem($calendarItem))) {
-            throw new \InvalidArgumentException($calendarItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($calendarItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($calendarItem) || (is_array($calendarItem) && empty($calendarItem))) {
             unset($this->CalendarItem);
         } else {
             $this->CalendarItem = $calendarItem;
         }
+        
         return $this;
     }
     /**
      * Get Contact value
-     * @return \Ews\StructType\EwsContactItemType|null
+     * @return \StructType\EwsContactItemType|null
      */
-    public function getContact()
+    public function getContact(): ?\StructType\EwsContactItemType
     {
         return isset($this->Contact) ? $this->Contact : null;
     }
@@ -424,7 +433,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateContactForChoiceConstraintsFromSetContact($value)
+    public function validateContactForChoiceConstraintsFromSetContact($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -449,12 +458,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Contact can\'t be set as the property %s is already set. Only one property must be set among these properties: Contact, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Contact can\'t be set as the property %s is already set. Only one property must be set among these properties: Contact, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -462,28 +472,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContactItemType $contact
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContactItemType $contact
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setContact(\Ews\StructType\EwsContactItemType $contact = null)
+    public function setContact(?\StructType\EwsContactItemType $contact = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($contactChoiceErrorMessage = self::validateContactForChoiceConstraintsFromSetContact($contact))) {
-            throw new \InvalidArgumentException($contactChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contactChoiceErrorMessage, __LINE__);
         }
         if (is_null($contact) || (is_array($contact) && empty($contact))) {
             unset($this->Contact);
         } else {
             $this->Contact = $contact;
         }
+        
         return $this;
     }
     /**
      * Get DistributionList value
-     * @return \Ews\StructType\EwsDistributionListType|null
+     * @return \StructType\EwsDistributionListType|null
      */
-    public function getDistributionList()
+    public function getDistributionList(): ?\StructType\EwsDistributionListType
     {
         return isset($this->DistributionList) ? $this->DistributionList : null;
     }
@@ -494,7 +505,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDistributionListForChoiceConstraintsFromSetDistributionList($value)
+    public function validateDistributionListForChoiceConstraintsFromSetDistributionList($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -519,12 +530,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DistributionList can\'t be set as the property %s is already set. Only one property must be set among these properties: DistributionList, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DistributionList can\'t be set as the property %s is already set. Only one property must be set among these properties: DistributionList, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -532,28 +544,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDistributionListType $distributionList
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDistributionListType $distributionList
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setDistributionList(\Ews\StructType\EwsDistributionListType $distributionList = null)
+    public function setDistributionList(?\StructType\EwsDistributionListType $distributionList = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($distributionListChoiceErrorMessage = self::validateDistributionListForChoiceConstraintsFromSetDistributionList($distributionList))) {
-            throw new \InvalidArgumentException($distributionListChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($distributionListChoiceErrorMessage, __LINE__);
         }
         if (is_null($distributionList) || (is_array($distributionList) && empty($distributionList))) {
             unset($this->DistributionList);
         } else {
             $this->DistributionList = $distributionList;
         }
+        
         return $this;
     }
     /**
      * Get MeetingMessage value
-     * @return \Ews\StructType\EwsMeetingMessageType|null
+     * @return \StructType\EwsMeetingMessageType|null
      */
-    public function getMeetingMessage()
+    public function getMeetingMessage(): ?\StructType\EwsMeetingMessageType
     {
         return isset($this->MeetingMessage) ? $this->MeetingMessage : null;
     }
@@ -564,7 +577,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMeetingMessageForChoiceConstraintsFromSetMeetingMessage($value)
+    public function validateMeetingMessageForChoiceConstraintsFromSetMeetingMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -589,12 +602,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MeetingMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MeetingMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -602,28 +616,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingMessageType $meetingMessage
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingMessageType $meetingMessage
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setMeetingMessage(\Ews\StructType\EwsMeetingMessageType $meetingMessage = null)
+    public function setMeetingMessage(?\StructType\EwsMeetingMessageType $meetingMessage = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($meetingMessageChoiceErrorMessage = self::validateMeetingMessageForChoiceConstraintsFromSetMeetingMessage($meetingMessage))) {
-            throw new \InvalidArgumentException($meetingMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($meetingMessage) || (is_array($meetingMessage) && empty($meetingMessage))) {
             unset($this->MeetingMessage);
         } else {
             $this->MeetingMessage = $meetingMessage;
         }
+        
         return $this;
     }
     /**
      * Get MeetingRequest value
-     * @return \Ews\StructType\EwsMeetingRequestMessageType|null
+     * @return \StructType\EwsMeetingRequestMessageType|null
      */
-    public function getMeetingRequest()
+    public function getMeetingRequest(): ?\StructType\EwsMeetingRequestMessageType
     {
         return isset($this->MeetingRequest) ? $this->MeetingRequest : null;
     }
@@ -634,7 +649,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMeetingRequestForChoiceConstraintsFromSetMeetingRequest($value)
+    public function validateMeetingRequestForChoiceConstraintsFromSetMeetingRequest($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -659,12 +674,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MeetingRequest can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingRequest, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MeetingRequest can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingRequest, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -672,28 +688,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingRequestMessageType $meetingRequest
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingRequestMessageType $meetingRequest
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setMeetingRequest(\Ews\StructType\EwsMeetingRequestMessageType $meetingRequest = null)
+    public function setMeetingRequest(?\StructType\EwsMeetingRequestMessageType $meetingRequest = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($meetingRequestChoiceErrorMessage = self::validateMeetingRequestForChoiceConstraintsFromSetMeetingRequest($meetingRequest))) {
-            throw new \InvalidArgumentException($meetingRequestChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingRequestChoiceErrorMessage, __LINE__);
         }
         if (is_null($meetingRequest) || (is_array($meetingRequest) && empty($meetingRequest))) {
             unset($this->MeetingRequest);
         } else {
             $this->MeetingRequest = $meetingRequest;
         }
+        
         return $this;
     }
     /**
      * Get MeetingResponse value
-     * @return \Ews\StructType\EwsMeetingResponseMessageType|null
+     * @return \StructType\EwsMeetingResponseMessageType|null
      */
-    public function getMeetingResponse()
+    public function getMeetingResponse(): ?\StructType\EwsMeetingResponseMessageType
     {
         return isset($this->MeetingResponse) ? $this->MeetingResponse : null;
     }
@@ -704,7 +721,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMeetingResponseForChoiceConstraintsFromSetMeetingResponse($value)
+    public function validateMeetingResponseForChoiceConstraintsFromSetMeetingResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -729,12 +746,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MeetingResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MeetingResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -742,28 +760,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingResponseMessageType $meetingResponse
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingResponseMessageType $meetingResponse
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setMeetingResponse(\Ews\StructType\EwsMeetingResponseMessageType $meetingResponse = null)
+    public function setMeetingResponse(?\StructType\EwsMeetingResponseMessageType $meetingResponse = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($meetingResponseChoiceErrorMessage = self::validateMeetingResponseForChoiceConstraintsFromSetMeetingResponse($meetingResponse))) {
-            throw new \InvalidArgumentException($meetingResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($meetingResponse) || (is_array($meetingResponse) && empty($meetingResponse))) {
             unset($this->MeetingResponse);
         } else {
             $this->MeetingResponse = $meetingResponse;
         }
+        
         return $this;
     }
     /**
      * Get MeetingCancellation value
-     * @return \Ews\StructType\EwsMeetingCancellationMessageType|null
+     * @return \StructType\EwsMeetingCancellationMessageType|null
      */
-    public function getMeetingCancellation()
+    public function getMeetingCancellation(): ?\StructType\EwsMeetingCancellationMessageType
     {
         return isset($this->MeetingCancellation) ? $this->MeetingCancellation : null;
     }
@@ -774,7 +793,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMeetingCancellationForChoiceConstraintsFromSetMeetingCancellation($value)
+    public function validateMeetingCancellationForChoiceConstraintsFromSetMeetingCancellation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -799,12 +818,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MeetingCancellation can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingCancellation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MeetingCancellation can\'t be set as the property %s is already set. Only one property must be set among these properties: MeetingCancellation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -812,28 +832,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingCancellationMessageType $meetingCancellation
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingCancellationMessageType $meetingCancellation
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setMeetingCancellation(\Ews\StructType\EwsMeetingCancellationMessageType $meetingCancellation = null)
+    public function setMeetingCancellation(?\StructType\EwsMeetingCancellationMessageType $meetingCancellation = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($meetingCancellationChoiceErrorMessage = self::validateMeetingCancellationForChoiceConstraintsFromSetMeetingCancellation($meetingCancellation))) {
-            throw new \InvalidArgumentException($meetingCancellationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingCancellationChoiceErrorMessage, __LINE__);
         }
         if (is_null($meetingCancellation) || (is_array($meetingCancellation) && empty($meetingCancellation))) {
             unset($this->MeetingCancellation);
         } else {
             $this->MeetingCancellation = $meetingCancellation;
         }
+        
         return $this;
     }
     /**
      * Get Task value
-     * @return \Ews\StructType\EwsTaskType|null
+     * @return \StructType\EwsTaskType|null
      */
-    public function getTask()
+    public function getTask(): ?\StructType\EwsTaskType
     {
         return isset($this->Task) ? $this->Task : null;
     }
@@ -844,7 +865,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateTaskForChoiceConstraintsFromSetTask($value)
+    public function validateTaskForChoiceConstraintsFromSetTask($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -869,12 +890,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Task can\'t be set as the property %s is already set. Only one property must be set among these properties: Task, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Task can\'t be set as the property %s is already set. Only one property must be set among these properties: Task, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -882,28 +904,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTaskType $task
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsTaskType $task
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setTask(\Ews\StructType\EwsTaskType $task = null)
+    public function setTask(?\StructType\EwsTaskType $task = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($taskChoiceErrorMessage = self::validateTaskForChoiceConstraintsFromSetTask($task))) {
-            throw new \InvalidArgumentException($taskChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($taskChoiceErrorMessage, __LINE__);
         }
         if (is_null($task) || (is_array($task) && empty($task))) {
             unset($this->Task);
         } else {
             $this->Task = $task;
         }
+        
         return $this;
     }
     /**
      * Get PostItem value
-     * @return \Ews\StructType\EwsPostItemType|null
+     * @return \StructType\EwsPostItemType|null
      */
-    public function getPostItem()
+    public function getPostItem(): ?\StructType\EwsPostItemType
     {
         return isset($this->PostItem) ? $this->PostItem : null;
     }
@@ -914,7 +937,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePostItemForChoiceConstraintsFromSetPostItem($value)
+    public function validatePostItemForChoiceConstraintsFromSetPostItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -939,12 +962,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PostItem can\'t be set as the property %s is already set. Only one property must be set among these properties: PostItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PostItem can\'t be set as the property %s is already set. Only one property must be set among these properties: PostItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -952,28 +976,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPostItemType $postItem
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPostItemType $postItem
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setPostItem(\Ews\StructType\EwsPostItemType $postItem = null)
+    public function setPostItem(?\StructType\EwsPostItemType $postItem = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($postItemChoiceErrorMessage = self::validatePostItemForChoiceConstraintsFromSetPostItem($postItem))) {
-            throw new \InvalidArgumentException($postItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($postItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($postItem) || (is_array($postItem) && empty($postItem))) {
             unset($this->PostItem);
         } else {
             $this->PostItem = $postItem;
         }
+        
         return $this;
     }
     /**
      * Get RoleMember value
-     * @return \Ews\StructType\EwsRoleMemberItemType|null
+     * @return \StructType\EwsRoleMemberItemType|null
      */
-    public function getRoleMember()
+    public function getRoleMember(): ?\StructType\EwsRoleMemberItemType
     {
         return isset($this->RoleMember) ? $this->RoleMember : null;
     }
@@ -984,7 +1009,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateRoleMemberForChoiceConstraintsFromSetRoleMember($value)
+    public function validateRoleMemberForChoiceConstraintsFromSetRoleMember($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1009,12 +1034,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property RoleMember can\'t be set as the property %s is already set. Only one property must be set among these properties: RoleMember, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property RoleMember can\'t be set as the property %s is already set. Only one property must be set among these properties: RoleMember, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1022,28 +1048,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRoleMemberItemType $roleMember
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRoleMemberItemType $roleMember
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setRoleMember(\Ews\StructType\EwsRoleMemberItemType $roleMember = null)
+    public function setRoleMember(?\StructType\EwsRoleMemberItemType $roleMember = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($roleMemberChoiceErrorMessage = self::validateRoleMemberForChoiceConstraintsFromSetRoleMember($roleMember))) {
-            throw new \InvalidArgumentException($roleMemberChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($roleMemberChoiceErrorMessage, __LINE__);
         }
         if (is_null($roleMember) || (is_array($roleMember) && empty($roleMember))) {
             unset($this->RoleMember);
         } else {
             $this->RoleMember = $roleMember;
         }
+        
         return $this;
     }
     /**
      * Get Network value
-     * @return \Ews\StructType\EwsNetworkItemType|null
+     * @return \StructType\EwsNetworkItemType|null
      */
-    public function getNetwork()
+    public function getNetwork(): ?\StructType\EwsNetworkItemType
     {
         return isset($this->Network) ? $this->Network : null;
     }
@@ -1054,7 +1081,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateNetworkForChoiceConstraintsFromSetNetwork($value)
+    public function validateNetworkForChoiceConstraintsFromSetNetwork($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1079,12 +1106,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Network can\'t be set as the property %s is already set. Only one property must be set among these properties: Network, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Network can\'t be set as the property %s is already set. Only one property must be set among these properties: Network, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1092,28 +1120,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNetworkItemType $network
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsNetworkItemType $network
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setNetwork(\Ews\StructType\EwsNetworkItemType $network = null)
+    public function setNetwork(?\StructType\EwsNetworkItemType $network = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($networkChoiceErrorMessage = self::validateNetworkForChoiceConstraintsFromSetNetwork($network))) {
-            throw new \InvalidArgumentException($networkChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($networkChoiceErrorMessage, __LINE__);
         }
         if (is_null($network) || (is_array($network) && empty($network))) {
             unset($this->Network);
         } else {
             $this->Network = $network;
         }
+        
         return $this;
     }
     /**
      * Get Person value
-     * @return \Ews\StructType\EwsAbchPersonItemType|null
+     * @return \StructType\EwsAbchPersonItemType|null
      */
-    public function getPerson()
+    public function getPerson(): ?\StructType\EwsAbchPersonItemType
     {
         return isset($this->Person) ? $this->Person : null;
     }
@@ -1124,7 +1153,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePersonForChoiceConstraintsFromSetPerson($value)
+    public function validatePersonForChoiceConstraintsFromSetPerson($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1149,12 +1178,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Person can\'t be set as the property %s is already set. Only one property must be set among these properties: Person, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Person can\'t be set as the property %s is already set. Only one property must be set among these properties: Person, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1162,28 +1192,29 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAbchPersonItemType $person
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAbchPersonItemType $person
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setPerson(\Ews\StructType\EwsAbchPersonItemType $person = null)
+    public function setPerson(?\StructType\EwsAbchPersonItemType $person = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($personChoiceErrorMessage = self::validatePersonForChoiceConstraintsFromSetPerson($person))) {
-            throw new \InvalidArgumentException($personChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($personChoiceErrorMessage, __LINE__);
         }
         if (is_null($person) || (is_array($person) && empty($person))) {
             unset($this->Person);
         } else {
             $this->Person = $person;
         }
+        
         return $this;
     }
     /**
      * Get Booking value
-     * @return \Ews\StructType\EwsBookingItemType|null
+     * @return \StructType\EwsBookingItemType|null
      */
-    public function getBooking()
+    public function getBooking(): ?\StructType\EwsBookingItemType
     {
         return isset($this->Booking) ? $this->Booking : null;
     }
@@ -1194,7 +1225,7 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateBookingForChoiceConstraintsFromSetBooking($value)
+    public function validateBookingForChoiceConstraintsFromSetBooking($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1219,12 +1250,13 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Booking can\'t be set as the property %s is already set. Only one property must be set among these properties: Booking, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Booking can\'t be set as the property %s is already set. Only one property must be set among these properties: Booking, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1232,21 +1264,22 @@ class EwsSyncFolderItemsCreateOrUpdateType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBookingItemType $booking
-     * @return \Ews\StructType\EwsSyncFolderItemsCreateOrUpdateType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsBookingItemType $booking
+     * @return \StructType\EwsSyncFolderItemsCreateOrUpdateType
      */
-    public function setBooking(\Ews\StructType\EwsBookingItemType $booking = null)
+    public function setBooking(?\StructType\EwsBookingItemType $booking = null): self
     {
         // validation for constraint: choice(Item, Message, CalendarItem, Contact, DistributionList, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem, RoleMember, Network, Person, Booking)
         if ('' !== ($bookingChoiceErrorMessage = self::validateBookingForChoiceConstraintsFromSetBooking($booking))) {
-            throw new \InvalidArgumentException($bookingChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($bookingChoiceErrorMessage, __LINE__);
         }
         if (is_null($booking) || (is_array($booking) && empty($booking))) {
             unset($this->Booking);
         } else {
             $this->Booking = $booking;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PlayOnPhoneResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsPlayOnPhoneResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPhoneCallIdType
+     * @var \StructType\EwsPhoneCallIdType|null
      */
-    public $PhoneCallId;
+    protected ?\StructType\EwsPhoneCallIdType $PhoneCallId = null;
     /**
      * Constructor method for PlayOnPhoneResponseMessageType
      * @uses EwsPlayOnPhoneResponseMessageType::setPhoneCallId()
-     * @param \Ews\StructType\EwsPhoneCallIdType $phoneCallId
+     * @param \StructType\EwsPhoneCallIdType $phoneCallId
      */
-    public function __construct(\Ews\StructType\EwsPhoneCallIdType $phoneCallId = null)
+    public function __construct(?\StructType\EwsPhoneCallIdType $phoneCallId = null)
     {
         $this
             ->setPhoneCallId($phoneCallId);
     }
     /**
      * Get PhoneCallId value
-     * @return \Ews\StructType\EwsPhoneCallIdType|null
+     * @return \StructType\EwsPhoneCallIdType|null
      */
-    public function getPhoneCallId()
+    public function getPhoneCallId(): ?\StructType\EwsPhoneCallIdType
     {
         return $this->PhoneCallId;
     }
     /**
      * Set PhoneCallId value
-     * @param \Ews\StructType\EwsPhoneCallIdType $phoneCallId
-     * @return \Ews\StructType\EwsPlayOnPhoneResponseMessageType
+     * @param \StructType\EwsPhoneCallIdType $phoneCallId
+     * @return \StructType\EwsPlayOnPhoneResponseMessageType
      */
-    public function setPhoneCallId(\Ews\StructType\EwsPhoneCallIdType $phoneCallId = null)
+    public function setPhoneCallId(?\StructType\EwsPhoneCallIdType $phoneCallId = null): self
     {
         $this->PhoneCallId = $phoneCallId;
+        
         return $this;
     }
 }

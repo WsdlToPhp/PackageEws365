@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArrayOfRuleOperationsType StructType
@@ -20,37 +23,37 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * - choice: CreateRuleOperation | SetRuleOperation | DeleteRuleOperation
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsCreateRuleOperationType
+     * @var \StructType\EwsCreateRuleOperationType|null
      */
-    public $CreateRuleOperation;
+    protected ?\StructType\EwsCreateRuleOperationType $CreateRuleOperation = null;
     /**
      * The SetRuleOperation
      * Meta information extracted from the WSDL
      * - choice: CreateRuleOperation | SetRuleOperation | DeleteRuleOperation
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSetRuleOperationType
+     * @var \StructType\EwsSetRuleOperationType|null
      */
-    public $SetRuleOperation;
+    protected ?\StructType\EwsSetRuleOperationType $SetRuleOperation = null;
     /**
      * The DeleteRuleOperation
      * Meta information extracted from the WSDL
      * - choice: CreateRuleOperation | SetRuleOperation | DeleteRuleOperation
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDeleteRuleOperationType
+     * @var \StructType\EwsDeleteRuleOperationType|null
      */
-    public $DeleteRuleOperation;
+    protected ?\StructType\EwsDeleteRuleOperationType $DeleteRuleOperation = null;
     /**
      * Constructor method for ArrayOfRuleOperationsType
      * @uses EwsArrayOfRuleOperationsType::setCreateRuleOperation()
      * @uses EwsArrayOfRuleOperationsType::setSetRuleOperation()
      * @uses EwsArrayOfRuleOperationsType::setDeleteRuleOperation()
-     * @param \Ews\StructType\EwsCreateRuleOperationType $createRuleOperation
-     * @param \Ews\StructType\EwsSetRuleOperationType $setRuleOperation
-     * @param \Ews\StructType\EwsDeleteRuleOperationType $deleteRuleOperation
+     * @param \StructType\EwsCreateRuleOperationType $createRuleOperation
+     * @param \StructType\EwsSetRuleOperationType $setRuleOperation
+     * @param \StructType\EwsDeleteRuleOperationType $deleteRuleOperation
      */
-    public function __construct(\Ews\StructType\EwsCreateRuleOperationType $createRuleOperation = null, \Ews\StructType\EwsSetRuleOperationType $setRuleOperation = null, \Ews\StructType\EwsDeleteRuleOperationType $deleteRuleOperation = null)
+    public function __construct(?\StructType\EwsCreateRuleOperationType $createRuleOperation = null, ?\StructType\EwsSetRuleOperationType $setRuleOperation = null, ?\StructType\EwsDeleteRuleOperationType $deleteRuleOperation = null)
     {
         $this
             ->setCreateRuleOperation($createRuleOperation)
@@ -59,9 +62,9 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
     }
     /**
      * Get CreateRuleOperation value
-     * @return \Ews\StructType\EwsCreateRuleOperationType|null
+     * @return \StructType\EwsCreateRuleOperationType|null
      */
-    public function getCreateRuleOperation()
+    public function getCreateRuleOperation(): ?\StructType\EwsCreateRuleOperationType
     {
         return isset($this->CreateRuleOperation) ? $this->CreateRuleOperation : null;
     }
@@ -72,7 +75,7 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateRuleOperationForChoiceConstraintsFromSetCreateRuleOperation($value)
+    public function validateCreateRuleOperationForChoiceConstraintsFromSetCreateRuleOperation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -85,12 +88,13 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -98,28 +102,29 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCreateRuleOperationType $createRuleOperation
-     * @return \Ews\StructType\EwsArrayOfRuleOperationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCreateRuleOperationType $createRuleOperation
+     * @return \StructType\EwsArrayOfRuleOperationsType
      */
-    public function setCreateRuleOperation(\Ews\StructType\EwsCreateRuleOperationType $createRuleOperation = null)
+    public function setCreateRuleOperation(?\StructType\EwsCreateRuleOperationType $createRuleOperation = null): self
     {
         // validation for constraint: choice(CreateRuleOperation, SetRuleOperation, DeleteRuleOperation)
         if ('' !== ($createRuleOperationChoiceErrorMessage = self::validateCreateRuleOperationForChoiceConstraintsFromSetCreateRuleOperation($createRuleOperation))) {
-            throw new \InvalidArgumentException($createRuleOperationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createRuleOperationChoiceErrorMessage, __LINE__);
         }
         if (is_null($createRuleOperation) || (is_array($createRuleOperation) && empty($createRuleOperation))) {
             unset($this->CreateRuleOperation);
         } else {
             $this->CreateRuleOperation = $createRuleOperation;
         }
+        
         return $this;
     }
     /**
      * Get SetRuleOperation value
-     * @return \Ews\StructType\EwsSetRuleOperationType|null
+     * @return \StructType\EwsSetRuleOperationType|null
      */
-    public function getSetRuleOperation()
+    public function getSetRuleOperation(): ?\StructType\EwsSetRuleOperationType
     {
         return isset($this->SetRuleOperation) ? $this->SetRuleOperation : null;
     }
@@ -130,7 +135,7 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetRuleOperationForChoiceConstraintsFromSetSetRuleOperation($value)
+    public function validateSetRuleOperationForChoiceConstraintsFromSetSetRuleOperation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -143,12 +148,13 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: SetRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: SetRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -156,28 +162,29 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSetRuleOperationType $setRuleOperation
-     * @return \Ews\StructType\EwsArrayOfRuleOperationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSetRuleOperationType $setRuleOperation
+     * @return \StructType\EwsArrayOfRuleOperationsType
      */
-    public function setSetRuleOperation(\Ews\StructType\EwsSetRuleOperationType $setRuleOperation = null)
+    public function setSetRuleOperation(?\StructType\EwsSetRuleOperationType $setRuleOperation = null): self
     {
         // validation for constraint: choice(CreateRuleOperation, SetRuleOperation, DeleteRuleOperation)
         if ('' !== ($setRuleOperationChoiceErrorMessage = self::validateSetRuleOperationForChoiceConstraintsFromSetSetRuleOperation($setRuleOperation))) {
-            throw new \InvalidArgumentException($setRuleOperationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setRuleOperationChoiceErrorMessage, __LINE__);
         }
         if (is_null($setRuleOperation) || (is_array($setRuleOperation) && empty($setRuleOperation))) {
             unset($this->SetRuleOperation);
         } else {
             $this->SetRuleOperation = $setRuleOperation;
         }
+        
         return $this;
     }
     /**
      * Get DeleteRuleOperation value
-     * @return \Ews\StructType\EwsDeleteRuleOperationType|null
+     * @return \StructType\EwsDeleteRuleOperationType|null
      */
-    public function getDeleteRuleOperation()
+    public function getDeleteRuleOperation(): ?\StructType\EwsDeleteRuleOperationType
     {
         return isset($this->DeleteRuleOperation) ? $this->DeleteRuleOperation : null;
     }
@@ -188,7 +195,7 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteRuleOperationForChoiceConstraintsFromSetDeleteRuleOperation($value)
+    public function validateDeleteRuleOperationForChoiceConstraintsFromSetDeleteRuleOperation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -201,12 +208,13 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteRuleOperation can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteRuleOperation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -214,21 +222,22 @@ class EwsArrayOfRuleOperationsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteRuleOperationType $deleteRuleOperation
-     * @return \Ews\StructType\EwsArrayOfRuleOperationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteRuleOperationType $deleteRuleOperation
+     * @return \StructType\EwsArrayOfRuleOperationsType
      */
-    public function setDeleteRuleOperation(\Ews\StructType\EwsDeleteRuleOperationType $deleteRuleOperation = null)
+    public function setDeleteRuleOperation(?\StructType\EwsDeleteRuleOperationType $deleteRuleOperation = null): self
     {
         // validation for constraint: choice(CreateRuleOperation, SetRuleOperation, DeleteRuleOperation)
         if ('' !== ($deleteRuleOperationChoiceErrorMessage = self::validateDeleteRuleOperationForChoiceConstraintsFromSetDeleteRuleOperation($deleteRuleOperation))) {
-            throw new \InvalidArgumentException($deleteRuleOperationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteRuleOperationChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteRuleOperation) || (is_array($deleteRuleOperation) && empty($deleteRuleOperation))) {
             unset($this->DeleteRuleOperation);
         } else {
             $this->DeleteRuleOperation = $deleteRuleOperation;
         }
+        
         return $this;
     }
 }

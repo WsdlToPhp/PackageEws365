@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupMembersResponseMessageType StructType
@@ -17,25 +20,25 @@ class EwsGetUnifiedGroupMembersResponseMessageType extends EwsResponseMessageTyp
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupMembersResponseType
+     * @var \StructType\EwsUnifiedGroupMembersResponseType|null
      */
-    public $MembersInfo;
+    protected ?\StructType\EwsUnifiedGroupMembersResponseType $MembersInfo = null;
     /**
      * The OwnersInfo
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupMembersResponseType
+     * @var \StructType\EwsUnifiedGroupMembersResponseType|null
      */
-    public $OwnersInfo;
+    protected ?\StructType\EwsUnifiedGroupMembersResponseType $OwnersInfo = null;
     /**
      * Constructor method for GetUnifiedGroupMembersResponseMessageType
      * @uses EwsGetUnifiedGroupMembersResponseMessageType::setMembersInfo()
      * @uses EwsGetUnifiedGroupMembersResponseMessageType::setOwnersInfo()
-     * @param \Ews\StructType\EwsUnifiedGroupMembersResponseType $membersInfo
-     * @param \Ews\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo
+     * @param \StructType\EwsUnifiedGroupMembersResponseType $membersInfo
+     * @param \StructType\EwsUnifiedGroupMembersResponseType $ownersInfo
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupMembersResponseType $membersInfo = null, \Ews\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo = null)
+    public function __construct(?\StructType\EwsUnifiedGroupMembersResponseType $membersInfo = null, ?\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo = null)
     {
         $this
             ->setMembersInfo($membersInfo)
@@ -43,38 +46,40 @@ class EwsGetUnifiedGroupMembersResponseMessageType extends EwsResponseMessageTyp
     }
     /**
      * Get MembersInfo value
-     * @return \Ews\StructType\EwsUnifiedGroupMembersResponseType|null
+     * @return \StructType\EwsUnifiedGroupMembersResponseType|null
      */
-    public function getMembersInfo()
+    public function getMembersInfo(): ?\StructType\EwsUnifiedGroupMembersResponseType
     {
         return $this->MembersInfo;
     }
     /**
      * Set MembersInfo value
-     * @param \Ews\StructType\EwsUnifiedGroupMembersResponseType $membersInfo
-     * @return \Ews\StructType\EwsGetUnifiedGroupMembersResponseMessageType
+     * @param \StructType\EwsUnifiedGroupMembersResponseType $membersInfo
+     * @return \StructType\EwsGetUnifiedGroupMembersResponseMessageType
      */
-    public function setMembersInfo(\Ews\StructType\EwsUnifiedGroupMembersResponseType $membersInfo = null)
+    public function setMembersInfo(?\StructType\EwsUnifiedGroupMembersResponseType $membersInfo = null): self
     {
         $this->MembersInfo = $membersInfo;
+        
         return $this;
     }
     /**
      * Get OwnersInfo value
-     * @return \Ews\StructType\EwsUnifiedGroupMembersResponseType|null
+     * @return \StructType\EwsUnifiedGroupMembersResponseType|null
      */
-    public function getOwnersInfo()
+    public function getOwnersInfo(): ?\StructType\EwsUnifiedGroupMembersResponseType
     {
         return $this->OwnersInfo;
     }
     /**
      * Set OwnersInfo value
-     * @param \Ews\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo
-     * @return \Ews\StructType\EwsGetUnifiedGroupMembersResponseMessageType
+     * @param \StructType\EwsUnifiedGroupMembersResponseType $ownersInfo
+     * @return \StructType\EwsGetUnifiedGroupMembersResponseMessageType
      */
-    public function setOwnersInfo(\Ews\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo = null)
+    public function setOwnersInfo(?\StructType\EwsUnifiedGroupMembersResponseType $ownersInfo = null): self
     {
         $this->OwnersInfo = $ownersInfo;
+        
         return $this;
     }
 }

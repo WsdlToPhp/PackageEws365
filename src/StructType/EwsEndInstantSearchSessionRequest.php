@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EndInstantSearchSessionRequest StructType
@@ -19,13 +22,13 @@ class EwsEndInstantSearchSessionRequest extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $SessionId;
+    protected string $SessionId;
     /**
      * Constructor method for EndInstantSearchSessionRequest
      * @uses EwsEndInstantSearchSessionRequest::setSessionId()
      * @param string $sessionId
      */
-    public function __construct($sessionId = null)
+    public function __construct(string $sessionId)
     {
         $this
             ->setSessionId($sessionId);
@@ -34,22 +37,23 @@ class EwsEndInstantSearchSessionRequest extends EwsBaseRequestType
      * Get SessionId value
      * @return string
      */
-    public function getSessionId()
+    public function getSessionId(): string
     {
         return $this->SessionId;
     }
     /**
      * Set SessionId value
      * @param string $sessionId
-     * @return \Ews\StructType\EwsEndInstantSearchSessionRequest
+     * @return \StructType\EwsEndInstantSearchSessionRequest
      */
-    public function setSessionId($sessionId = null)
+    public function setSessionId(string $sessionId): self
     {
         // validation for constraint: string
         if (!is_null($sessionId) && !is_string($sessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sessionId, true), gettype($sessionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sessionId, true), gettype($sessionId)), __LINE__);
         }
         $this->SessionId = $sessionId;
+        
         return $this;
     }
 }

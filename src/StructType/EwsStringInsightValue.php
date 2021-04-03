@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StringInsightValue StructType
@@ -17,15 +20,15 @@ class EwsStringInsightValue extends EwsInsightValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Data;
+    protected ?string $Data = null;
     /**
      * Constructor method for StringInsightValue
      * @uses EwsStringInsightValue::setData()
      * @param string $data
      */
-    public function __construct($data = null)
+    public function __construct(?string $data = null)
     {
         $this
             ->setData($data);
@@ -34,22 +37,23 @@ class EwsStringInsightValue extends EwsInsightValue
      * Get Data value
      * @return string|null
      */
-    public function getData()
+    public function getData(): ?string
     {
         return $this->Data;
     }
     /**
      * Set Data value
      * @param string $data
-     * @return \Ews\StructType\EwsStringInsightValue
+     * @return \StructType\EwsStringInsightValue
      */
-    public function setData($data = null)
+    public function setData(?string $data = null): self
     {
         // validation for constraint: string
         if (!is_null($data) && !is_string($data)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($data, true), gettype($data)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($data, true), gettype($data)), __LINE__);
         }
         $this->Data = $data;
+        
         return $this;
     }
 }

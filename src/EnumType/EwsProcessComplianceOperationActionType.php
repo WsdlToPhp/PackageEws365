@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProcessComplianceOperationActionType EnumType
@@ -36,12 +38,12 @@ class EwsProcessComplianceOperationActionType extends AbstractStructEnumBase
      * @uses self::VALUE_SET_REVIEW_STATUS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_GET_REVIEW_COMMENTS,
             self::VALUE_SET_REVIEW_COMMENTS,
             self::VALUE_SET_REVIEW_STATUS,
-        );
+        ];
     }
 }

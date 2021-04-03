@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchMailboxesResponseMessageType StructType
@@ -18,35 +21,36 @@ class EwsSearchMailboxesResponseMessageType extends EwsResponseMessageType
      * The SearchMailboxesResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchMailboxesResultType
+     * @var \StructType\EwsSearchMailboxesResultType|null
      */
-    public $SearchMailboxesResult;
+    protected ?\StructType\EwsSearchMailboxesResultType $SearchMailboxesResult = null;
     /**
      * Constructor method for SearchMailboxesResponseMessageType
      * @uses EwsSearchMailboxesResponseMessageType::setSearchMailboxesResult()
-     * @param \Ews\StructType\EwsSearchMailboxesResultType $searchMailboxesResult
+     * @param \StructType\EwsSearchMailboxesResultType $searchMailboxesResult
      */
-    public function __construct(\Ews\StructType\EwsSearchMailboxesResultType $searchMailboxesResult = null)
+    public function __construct(?\StructType\EwsSearchMailboxesResultType $searchMailboxesResult = null)
     {
         $this
             ->setSearchMailboxesResult($searchMailboxesResult);
     }
     /**
      * Get SearchMailboxesResult value
-     * @return \Ews\StructType\EwsSearchMailboxesResultType|null
+     * @return \StructType\EwsSearchMailboxesResultType|null
      */
-    public function getSearchMailboxesResult()
+    public function getSearchMailboxesResult(): ?\StructType\EwsSearchMailboxesResultType
     {
         return $this->SearchMailboxesResult;
     }
     /**
      * Set SearchMailboxesResult value
-     * @param \Ews\StructType\EwsSearchMailboxesResultType $searchMailboxesResult
-     * @return \Ews\StructType\EwsSearchMailboxesResponseMessageType
+     * @param \StructType\EwsSearchMailboxesResultType $searchMailboxesResult
+     * @return \StructType\EwsSearchMailboxesResponseMessageType
      */
-    public function setSearchMailboxesResult(\Ews\StructType\EwsSearchMailboxesResultType $searchMailboxesResult = null)
+    public function setSearchMailboxesResult(?\StructType\EwsSearchMailboxesResultType $searchMailboxesResult = null): self
     {
         $this->SearchMailboxesResult = $searchMailboxesResult;
+        
         return $this;
     }
 }

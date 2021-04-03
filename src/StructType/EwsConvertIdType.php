@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConvertIdType StructType
@@ -19,24 +22,24 @@ class EwsConvertIdType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
+     * @var \StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
-    public $SourceIds;
+    protected \StructType\EwsNonEmptyArrayOfAlternateIdsType $SourceIds;
     /**
      * The DestinationFormat
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $DestinationFormat;
+    protected string $DestinationFormat;
     /**
      * Constructor method for ConvertIdType
      * @uses EwsConvertIdType::setSourceIds()
      * @uses EwsConvertIdType::setDestinationFormat()
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds
+     * @param \StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds
      * @param string $destinationFormat
      */
-    public function __construct(\Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds = null, $destinationFormat = null)
+    public function __construct(\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds, string $destinationFormat)
     {
         $this
             ->setSourceIds($sourceIds)
@@ -44,45 +47,47 @@ class EwsConvertIdType extends EwsBaseRequestType
     }
     /**
      * Get SourceIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
+     * @return \StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
-    public function getSourceIds()
+    public function getSourceIds(): \StructType\EwsNonEmptyArrayOfAlternateIdsType
     {
         return $this->SourceIds;
     }
     /**
      * Set SourceIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds
-     * @return \Ews\StructType\EwsConvertIdType
+     * @param \StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds
+     * @return \StructType\EwsConvertIdType
      */
-    public function setSourceIds(\Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds = null)
+    public function setSourceIds(\StructType\EwsNonEmptyArrayOfAlternateIdsType $sourceIds): self
     {
         $this->SourceIds = $sourceIds;
+        
         return $this;
     }
     /**
      * Get DestinationFormat value
      * @return string
      */
-    public function getDestinationFormat()
+    public function getDestinationFormat(): string
     {
         return $this->DestinationFormat;
     }
     /**
      * Set DestinationFormat value
-     * @uses \Ews\EnumType\EwsIdFormatType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIdFormatType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIdFormatType::valueIsValid()
+     * @uses \EnumType\EwsIdFormatType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $destinationFormat
-     * @return \Ews\StructType\EwsConvertIdType
+     * @return \StructType\EwsConvertIdType
      */
-    public function setDestinationFormat($destinationFormat = null)
+    public function setDestinationFormat(string $destinationFormat): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIdFormatType::valueIsValid($destinationFormat)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIdFormatType', is_array($destinationFormat) ? implode(', ', $destinationFormat) : var_export($destinationFormat, true), implode(', ', \Ews\EnumType\EwsIdFormatType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIdFormatType::valueIsValid($destinationFormat)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIdFormatType', is_array($destinationFormat) ? implode(', ', $destinationFormat) : var_export($destinationFormat, true), implode(', ', \EnumType\EwsIdFormatType::getValidValues())), __LINE__);
         }
         $this->DestinationFormat = $destinationFormat;
+        
         return $this;
     }
 }

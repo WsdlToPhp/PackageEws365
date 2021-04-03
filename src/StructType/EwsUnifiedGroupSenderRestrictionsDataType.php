@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupSenderRestrictionsDataType StructType
@@ -17,25 +20,25 @@ class EwsUnifiedGroupSenderRestrictionsDataType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPersonaType
+     * @var \StructType\EwsPersonaType
      */
-    public $Persona;
+    protected \StructType\EwsPersonaType $Persona;
     /**
      * The ExternalDirectoryObjectId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExternalDirectoryObjectId;
+    protected ?string $ExternalDirectoryObjectId = null;
     /**
      * Constructor method for UnifiedGroupSenderRestrictionsDataType
      * @uses EwsUnifiedGroupSenderRestrictionsDataType::setPersona()
      * @uses EwsUnifiedGroupSenderRestrictionsDataType::setExternalDirectoryObjectId()
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @param \StructType\EwsPersonaType $persona
      * @param string $externalDirectoryObjectId
      */
-    public function __construct(\Ews\StructType\EwsPersonaType $persona = null, $externalDirectoryObjectId = null)
+    public function __construct(\StructType\EwsPersonaType $persona, ?string $externalDirectoryObjectId = null)
     {
         $this
             ->setPersona($persona)
@@ -43,42 +46,44 @@ class EwsUnifiedGroupSenderRestrictionsDataType extends AbstractStructBase
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function getPersona()
+    public function getPersona(): \StructType\EwsPersonaType
     {
         return $this->Persona;
     }
     /**
      * Set Persona value
-     * @param \Ews\StructType\EwsPersonaType $persona
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType
+     * @param \StructType\EwsPersonaType $persona
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType
      */
-    public function setPersona(\Ews\StructType\EwsPersonaType $persona = null)
+    public function setPersona(\StructType\EwsPersonaType $persona): self
     {
         $this->Persona = $persona;
+        
         return $this;
     }
     /**
      * Get ExternalDirectoryObjectId value
      * @return string|null
      */
-    public function getExternalDirectoryObjectId()
+    public function getExternalDirectoryObjectId(): ?string
     {
         return $this->ExternalDirectoryObjectId;
     }
     /**
      * Set ExternalDirectoryObjectId value
      * @param string $externalDirectoryObjectId
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType
      */
-    public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
+    public function setExternalDirectoryObjectId(?string $externalDirectoryObjectId = null): self
     {
         // validation for constraint: string
         if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
         }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
+        
         return $this;
     }
 }

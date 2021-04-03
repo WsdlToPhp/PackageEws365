@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AlternateIdType StructType
@@ -20,7 +23,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * - use: required
      * @var string
      */
-    public $Id;
+    protected string $Id;
     /**
      * The Mailbox
      * Meta information extracted from the WSDL
@@ -29,14 +32,14 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * - use: required
      * @var string
      */
-    public $Mailbox;
+    protected string $Mailbox;
     /**
      * The IsArchive
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $IsArchive;
+    protected ?bool $IsArchive = null;
     /**
      * Constructor method for AlternateIdType
      * @uses EwsAlternateIdType::setId()
@@ -46,7 +49,7 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * @param string $mailbox
      * @param bool $isArchive
      */
-    public function __construct($id = null, $mailbox = null, $isArchive = null)
+    public function __construct(string $id, string $mailbox, ?bool $isArchive = null)
     {
         $this
             ->setId($id)
@@ -57,70 +60,73 @@ class EwsAlternateIdType extends EwsAlternateIdBaseType
      * Get Id value
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsAlternateIdType
+     * @return \StructType\EwsAlternateIdType
      */
-    public function setId($id = null)
+    public function setId(string $id): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get Mailbox value
      * @return string
      */
-    public function getMailbox()
+    public function getMailbox(): string
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
      * @param string $mailbox
-     * @return \Ews\StructType\EwsAlternateIdType
+     * @return \StructType\EwsAlternateIdType
      */
-    public function setMailbox($mailbox = null)
+    public function setMailbox(string $mailbox): self
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($mailbox) && mb_strlen($mailbox) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($mailbox)), __LINE__);
+        if (!is_null($mailbox) && mb_strlen((string) $mailbox) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get IsArchive value
      * @return bool|null
      */
-    public function getIsArchive()
+    public function getIsArchive(): ?bool
     {
         return $this->IsArchive;
     }
     /**
      * Set IsArchive value
      * @param bool $isArchive
-     * @return \Ews\StructType\EwsAlternateIdType
+     * @return \StructType\EwsAlternateIdType
      */
-    public function setIsArchive($isArchive = null)
+    public function setIsArchive(?bool $isArchive = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isArchive) && !is_bool($isArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isArchive, true), gettype($isArchive)), __LINE__);
         }
         $this->IsArchive = $isArchive;
+        
         return $this;
     }
 }

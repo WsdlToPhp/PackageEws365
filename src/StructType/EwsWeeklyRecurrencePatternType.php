@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WeeklyRecurrencePatternType StructType
@@ -14,24 +17,24 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
 {
     /**
      * The DaysOfWeek
-     * @var string[]
+     * @var string
      */
-    public $DaysOfWeek;
+    protected ?string $DaysOfWeek = null;
     /**
      * The FirstDayOfWeek
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FirstDayOfWeek;
+    protected ?string $FirstDayOfWeek = null;
     /**
      * Constructor method for WeeklyRecurrencePatternType
      * @uses EwsWeeklyRecurrencePatternType::setDaysOfWeek()
      * @uses EwsWeeklyRecurrencePatternType::setFirstDayOfWeek()
-     * @param string[] $daysOfWeek
+     * @param array|string $daysOfWeek
      * @param string $firstDayOfWeek
      */
-    public function __construct(array $daysOfWeek = array(), $firstDayOfWeek = null)
+    public function __construct($daysOfWeek = [], ?string $firstDayOfWeek = null)
     {
         $this
             ->setDaysOfWeek($daysOfWeek)
@@ -39,9 +42,9 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
     }
     /**
      * Get DaysOfWeek value
-     * @return string[]|null
+     * @return string
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): ?string
     {
         return $this->DaysOfWeek;
     }
@@ -51,62 +54,65 @@ class EwsWeeklyRecurrencePatternType extends EwsIntervalRecurrencePatternBaseTyp
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDaysOfWeekForArrayConstraintsFromSetDaysOfWeek(array $values = array())
+    public static function validateDaysOfWeekForArrayConstraintsFromSetDaysOfWeek(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $weeklyRecurrencePatternTypeDaysOfWeekItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($weeklyRecurrencePatternTypeDaysOfWeekItem)) {
+            if (!\EnumType\EwsDayOfWeekType::valueIsValid($weeklyRecurrencePatternTypeDaysOfWeekItem)) {
                 $invalidValues[] = is_object($weeklyRecurrencePatternTypeDaysOfWeekItem) ? get_class($weeklyRecurrencePatternTypeDaysOfWeekItem) : sprintf('%s(%s)', gettype($weeklyRecurrencePatternTypeDaysOfWeekItem), var_export($weeklyRecurrencePatternTypeDaysOfWeekItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsDayOfWeekType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DaysOfWeek value
-     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $daysOfWeek
-     * @return \Ews\StructType\EwsWeeklyRecurrencePatternType
+     * @uses \EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $daysOfWeek
+     * @return \StructType\EwsWeeklyRecurrencePatternType
      */
-    public function setDaysOfWeek(array $daysOfWeek = array())
+    public function setDaysOfWeek($daysOfWeek = []): self
     {
         // validation for constraint: list
-        if ('' !== ($daysOfWeekArrayErrorMessage = self::validateDaysOfWeekForArrayConstraintsFromSetDaysOfWeek($daysOfWeek))) {
-            throw new \InvalidArgumentException($daysOfWeekArrayErrorMessage, __LINE__);
+        if ('' !== ($daysOfWeekArrayErrorMessage = self::validateDaysOfWeekForArrayConstraintsFromSetDaysOfWeek(is_string($daysOfWeek) ? explode(' ', $daysOfWeek) : $daysOfWeek))) {
+            throw new InvalidArgumentException($daysOfWeekArrayErrorMessage, __LINE__);
         }
-        $this->DaysOfWeek = is_array($daysOfWeek) ? implode(' ', $daysOfWeek) : null;
+        $this->DaysOfWeek = is_array($daysOfWeek) ? implode(' ', $daysOfWeek) : $daysOfWeek;
+        
         return $this;
     }
     /**
      * Get FirstDayOfWeek value
      * @return string|null
      */
-    public function getFirstDayOfWeek()
+    public function getFirstDayOfWeek(): ?string
     {
         return $this->FirstDayOfWeek;
     }
     /**
      * Set FirstDayOfWeek value
-     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $firstDayOfWeek
-     * @return \Ews\StructType\EwsWeeklyRecurrencePatternType
+     * @return \StructType\EwsWeeklyRecurrencePatternType
      */
-    public function setFirstDayOfWeek($firstDayOfWeek = null)
+    public function setFirstDayOfWeek(?string $firstDayOfWeek = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($firstDayOfWeek)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($firstDayOfWeek) ? implode(', ', $firstDayOfWeek) : var_export($firstDayOfWeek, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDayOfWeekType::valueIsValid($firstDayOfWeek)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekType', is_array($firstDayOfWeek) ? implode(', ', $firstDayOfWeek) : var_export($firstDayOfWeek, true), implode(', ', \EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
         $this->FirstDayOfWeek = $firstDayOfWeek;
+        
         return $this;
     }
 }

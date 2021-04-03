@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddDelegateType StructType
@@ -14,24 +17,24 @@ class EwsAddDelegateType extends EwsBaseDelegateType
 {
     /**
      * The DelegateUsers
-     * @var \Ews\ArrayType\EwsArrayOfDelegateUserType
+     * @var \ArrayType\EwsArrayOfDelegateUserType|null
      */
-    public $DelegateUsers;
+    protected ?\ArrayType\EwsArrayOfDelegateUserType $DelegateUsers = null;
     /**
      * The DeliverMeetingRequests
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DeliverMeetingRequests;
+    protected ?string $DeliverMeetingRequests = null;
     /**
      * Constructor method for AddDelegateType
      * @uses EwsAddDelegateType::setDelegateUsers()
      * @uses EwsAddDelegateType::setDeliverMeetingRequests()
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserType $delegateUsers
+     * @param \ArrayType\EwsArrayOfDelegateUserType $delegateUsers
      * @param string $deliverMeetingRequests
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfDelegateUserType $delegateUsers = null, $deliverMeetingRequests = null)
+    public function __construct(?\ArrayType\EwsArrayOfDelegateUserType $delegateUsers = null, ?string $deliverMeetingRequests = null)
     {
         $this
             ->setDelegateUsers($delegateUsers)
@@ -39,45 +42,47 @@ class EwsAddDelegateType extends EwsBaseDelegateType
     }
     /**
      * Get DelegateUsers value
-     * @return \Ews\ArrayType\EwsArrayOfDelegateUserType|null
+     * @return \ArrayType\EwsArrayOfDelegateUserType|null
      */
-    public function getDelegateUsers()
+    public function getDelegateUsers(): ?\ArrayType\EwsArrayOfDelegateUserType
     {
         return $this->DelegateUsers;
     }
     /**
      * Set DelegateUsers value
-     * @param \Ews\ArrayType\EwsArrayOfDelegateUserType $delegateUsers
-     * @return \Ews\StructType\EwsAddDelegateType
+     * @param \ArrayType\EwsArrayOfDelegateUserType $delegateUsers
+     * @return \StructType\EwsAddDelegateType
      */
-    public function setDelegateUsers(\Ews\ArrayType\EwsArrayOfDelegateUserType $delegateUsers = null)
+    public function setDelegateUsers(?\ArrayType\EwsArrayOfDelegateUserType $delegateUsers = null): self
     {
         $this->DelegateUsers = $delegateUsers;
+        
         return $this;
     }
     /**
      * Get DeliverMeetingRequests value
      * @return string|null
      */
-    public function getDeliverMeetingRequests()
+    public function getDeliverMeetingRequests(): ?string
     {
         return $this->DeliverMeetingRequests;
     }
     /**
      * Set DeliverMeetingRequests value
-     * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDeliverMeetingRequestsType::valueIsValid()
+     * @uses \EnumType\EwsDeliverMeetingRequestsType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $deliverMeetingRequests
-     * @return \Ews\StructType\EwsAddDelegateType
+     * @return \StructType\EwsAddDelegateType
      */
-    public function setDeliverMeetingRequests($deliverMeetingRequests = null)
+    public function setDeliverMeetingRequests(?string $deliverMeetingRequests = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid($deliverMeetingRequests)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDeliverMeetingRequestsType', is_array($deliverMeetingRequests) ? implode(', ', $deliverMeetingRequests) : var_export($deliverMeetingRequests, true), implode(', ', \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDeliverMeetingRequestsType::valueIsValid($deliverMeetingRequests)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDeliverMeetingRequestsType', is_array($deliverMeetingRequests) ? implode(', ', $deliverMeetingRequests) : var_export($deliverMeetingRequests, true), implode(', ', \EnumType\EwsDeliverMeetingRequestsType::getValidValues())), __LINE__);
         }
         $this->DeliverMeetingRequests = $deliverMeetingRequests;
+        
         return $this;
     }
 }

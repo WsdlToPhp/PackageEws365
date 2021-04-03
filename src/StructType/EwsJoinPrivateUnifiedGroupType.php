@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for JoinPrivateUnifiedGroupType StructType
@@ -17,35 +20,36 @@ class EwsJoinPrivateUnifiedGroupType extends EwsUnifiedGroupBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyContentType
+     * @var \StructType\EwsBodyContentType|null
      */
-    public $MessageBody;
+    protected ?\StructType\EwsBodyContentType $MessageBody = null;
     /**
      * Constructor method for JoinPrivateUnifiedGroupType
      * @uses EwsJoinPrivateUnifiedGroupType::setMessageBody()
-     * @param \Ews\StructType\EwsBodyContentType $messageBody
+     * @param \StructType\EwsBodyContentType $messageBody
      */
-    public function __construct(\Ews\StructType\EwsBodyContentType $messageBody = null)
+    public function __construct(?\StructType\EwsBodyContentType $messageBody = null)
     {
         $this
             ->setMessageBody($messageBody);
     }
     /**
      * Get MessageBody value
-     * @return \Ews\StructType\EwsBodyContentType|null
+     * @return \StructType\EwsBodyContentType|null
      */
-    public function getMessageBody()
+    public function getMessageBody(): ?\StructType\EwsBodyContentType
     {
         return $this->MessageBody;
     }
     /**
      * Set MessageBody value
-     * @param \Ews\StructType\EwsBodyContentType $messageBody
-     * @return \Ews\StructType\EwsJoinPrivateUnifiedGroupType
+     * @param \StructType\EwsBodyContentType $messageBody
+     * @return \StructType\EwsJoinPrivateUnifiedGroupType
      */
-    public function setMessageBody(\Ews\StructType\EwsBodyContentType $messageBody = null)
+    public function setMessageBody(?\StructType\EwsBodyContentType $messageBody = null): self
     {
         $this->MessageBody = $messageBody;
+        
         return $this;
     }
 }

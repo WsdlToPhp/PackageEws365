@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for FolderQueryTraversalType EnumType
@@ -36,12 +38,12 @@ class EwsFolderQueryTraversalType extends AbstractStructEnumBase
      * @uses self::VALUE_SOFT_DELETED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SHALLOW,
             self::VALUE_DEEP,
             self::VALUE_SOFT_DELETED,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchSuggestions StructType
@@ -24,39 +27,39 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $SearchSessionId;
+    protected string $SearchSessionId;
     /**
      * The Query
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Query;
+    protected ?string $Query = null;
     /**
      * The SuggestionTypes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string[]
+     * @var string
      */
-    public $SuggestionTypes;
+    protected ?string $SuggestionTypes = null;
     /**
      * The SuggestionsPrimer
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SuggestionsPrimer;
+    protected ?bool $SuggestionsPrimer = null;
     /**
      * The MaxSuggestionsCountPerSuggestionType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxSuggestionsCountPerSuggestionType;
+    protected ?int $MaxSuggestionsCountPerSuggestionType = null;
     /**
      * Constructor method for GetSearchSuggestions
      * @uses EwsGetSearchSuggestions::setSearchSessionId()
@@ -66,11 +69,11 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      * @uses EwsGetSearchSuggestions::setMaxSuggestionsCountPerSuggestionType()
      * @param string $searchSessionId
      * @param string $query
-     * @param string[] $suggestionTypes
+     * @param array|string $suggestionTypes
      * @param bool $suggestionsPrimer
      * @param int $maxSuggestionsCountPerSuggestionType
      */
-    public function __construct($searchSessionId = null, $query = null, array $suggestionTypes = array(), $suggestionsPrimer = null, $maxSuggestionsCountPerSuggestionType = null)
+    public function __construct(string $searchSessionId, ?string $query = null, $suggestionTypes = [], ?bool $suggestionsPrimer = null, ?int $maxSuggestionsCountPerSuggestionType = null)
     {
         $this
             ->setSearchSessionId($searchSessionId)
@@ -83,55 +86,57 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      * Get SearchSessionId value
      * @return string
      */
-    public function getSearchSessionId()
+    public function getSearchSessionId(): string
     {
         return $this->SearchSessionId;
     }
     /**
      * Set SearchSessionId value
      * @param string $searchSessionId
-     * @return \Ews\StructType\EwsGetSearchSuggestions
+     * @return \StructType\EwsGetSearchSuggestions
      */
-    public function setSearchSessionId($searchSessionId = null)
+    public function setSearchSessionId(string $searchSessionId): self
     {
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($searchSessionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($searchSessionId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($searchSessionId, true)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
+        
         return $this;
     }
     /**
      * Get Query value
      * @return string|null
      */
-    public function getQuery()
+    public function getQuery(): ?string
     {
         return $this->Query;
     }
     /**
      * Set Query value
      * @param string $query
-     * @return \Ews\StructType\EwsGetSearchSuggestions
+     * @return \StructType\EwsGetSearchSuggestions
      */
-    public function setQuery($query = null)
+    public function setQuery(?string $query = null): self
     {
         // validation for constraint: string
         if (!is_null($query) && !is_string($query)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($query, true), gettype($query)), __LINE__);
         }
         $this->Query = $query;
+        
         return $this;
     }
     /**
      * Get SuggestionTypes value
-     * @return string[]|null
+     * @return string
      */
-    public function getSuggestionTypes()
+    public function getSuggestionTypes(): ?string
     {
         return $this->SuggestionTypes;
     }
@@ -141,81 +146,85 @@ class EwsGetSearchSuggestions extends EwsBaseRequestType
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes(array $values = array())
+    public static function validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $getSearchSuggestionsSuggestionTypesItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsSuggestionKindType::valueIsValid($getSearchSuggestionsSuggestionTypesItem)) {
+            if (!\EnumType\EwsSuggestionKindType::valueIsValid($getSearchSuggestionsSuggestionTypesItem)) {
                 $invalidValues[] = is_object($getSearchSuggestionsSuggestionTypesItem) ? get_class($getSearchSuggestionsSuggestionTypesItem) : sprintf('%s(%s)', gettype($getSearchSuggestionsSuggestionTypesItem), var_export($getSearchSuggestionsSuggestionTypesItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSuggestionKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSuggestionKindType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSuggestionKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsSuggestionKindType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SuggestionTypes value
-     * @uses \Ews\EnumType\EwsSuggestionKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSuggestionKindType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $suggestionTypes
-     * @return \Ews\StructType\EwsGetSearchSuggestions
+     * @uses \EnumType\EwsSuggestionKindType::valueIsValid()
+     * @uses \EnumType\EwsSuggestionKindType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $suggestionTypes
+     * @return \StructType\EwsGetSearchSuggestions
      */
-    public function setSuggestionTypes(array $suggestionTypes = array())
+    public function setSuggestionTypes($suggestionTypes = []): self
     {
         // validation for constraint: list
-        if ('' !== ($suggestionTypesArrayErrorMessage = self::validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes($suggestionTypes))) {
-            throw new \InvalidArgumentException($suggestionTypesArrayErrorMessage, __LINE__);
+        if ('' !== ($suggestionTypesArrayErrorMessage = self::validateSuggestionTypesForArrayConstraintsFromSetSuggestionTypes(is_string($suggestionTypes) ? explode(' ', $suggestionTypes) : $suggestionTypes))) {
+            throw new InvalidArgumentException($suggestionTypesArrayErrorMessage, __LINE__);
         }
-        $this->SuggestionTypes = is_array($suggestionTypes) ? implode(' ', $suggestionTypes) : null;
+        $this->SuggestionTypes = is_array($suggestionTypes) ? implode(' ', $suggestionTypes) : $suggestionTypes;
+        
         return $this;
     }
     /**
      * Get SuggestionsPrimer value
      * @return bool|null
      */
-    public function getSuggestionsPrimer()
+    public function getSuggestionsPrimer(): ?bool
     {
         return $this->SuggestionsPrimer;
     }
     /**
      * Set SuggestionsPrimer value
      * @param bool $suggestionsPrimer
-     * @return \Ews\StructType\EwsGetSearchSuggestions
+     * @return \StructType\EwsGetSearchSuggestions
      */
-    public function setSuggestionsPrimer($suggestionsPrimer = null)
+    public function setSuggestionsPrimer(?bool $suggestionsPrimer = null): self
     {
         // validation for constraint: boolean
         if (!is_null($suggestionsPrimer) && !is_bool($suggestionsPrimer)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestionsPrimer, true), gettype($suggestionsPrimer)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestionsPrimer, true), gettype($suggestionsPrimer)), __LINE__);
         }
         $this->SuggestionsPrimer = $suggestionsPrimer;
+        
         return $this;
     }
     /**
      * Get MaxSuggestionsCountPerSuggestionType value
      * @return int|null
      */
-    public function getMaxSuggestionsCountPerSuggestionType()
+    public function getMaxSuggestionsCountPerSuggestionType(): ?int
     {
         return $this->MaxSuggestionsCountPerSuggestionType;
     }
     /**
      * Set MaxSuggestionsCountPerSuggestionType value
      * @param int $maxSuggestionsCountPerSuggestionType
-     * @return \Ews\StructType\EwsGetSearchSuggestions
+     * @return \StructType\EwsGetSearchSuggestions
      */
-    public function setMaxSuggestionsCountPerSuggestionType($maxSuggestionsCountPerSuggestionType = null)
+    public function setMaxSuggestionsCountPerSuggestionType(?int $maxSuggestionsCountPerSuggestionType = null): self
     {
         // validation for constraint: int
         if (!is_null($maxSuggestionsCountPerSuggestionType) && !(is_int($maxSuggestionsCountPerSuggestionType) || ctype_digit($maxSuggestionsCountPerSuggestionType))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxSuggestionsCountPerSuggestionType, true), gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxSuggestionsCountPerSuggestionType, true), gettype($maxSuggestionsCountPerSuggestionType)), __LINE__);
         }
         $this->MaxSuggestionsCountPerSuggestionType = $maxSuggestionsCountPerSuggestionType;
+        
         return $this;
     }
 }

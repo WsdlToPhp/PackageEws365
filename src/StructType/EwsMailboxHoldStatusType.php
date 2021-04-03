@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxHoldStatusType StructType
@@ -21,7 +24,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Mailbox;
+    protected string $Mailbox;
     /**
      * The Status
      * Meta information extracted from the WSDL
@@ -29,15 +32,15 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Status;
+    protected string $Status;
     /**
      * The AdditionalInfo
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AdditionalInfo;
+    protected ?string $AdditionalInfo = null;
     /**
      * Constructor method for MailboxHoldStatusType
      * @uses EwsMailboxHoldStatusType::setMailbox()
@@ -47,7 +50,7 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      * @param string $status
      * @param string $additionalInfo
      */
-    public function __construct($mailbox = null, $status = null, $additionalInfo = null)
+    public function __construct(string $mailbox, string $status, ?string $additionalInfo = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -58,69 +61,72 @@ class EwsMailboxHoldStatusType extends AbstractStructBase
      * Get Mailbox value
      * @return string
      */
-    public function getMailbox()
+    public function getMailbox(): string
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
      * @param string $mailbox
-     * @return \Ews\StructType\EwsMailboxHoldStatusType
+     * @return \StructType\EwsMailboxHoldStatusType
      */
-    public function setMailbox($mailbox = null)
+    public function setMailbox(string $mailbox): self
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get Status value
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->Status;
     }
     /**
      * Set Status value
-     * @uses \Ews\EnumType\EwsHoldStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsHoldStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsHoldStatusType::valueIsValid()
+     * @uses \EnumType\EwsHoldStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $status
-     * @return \Ews\StructType\EwsMailboxHoldStatusType
+     * @return \StructType\EwsMailboxHoldStatusType
      */
-    public function setStatus($status = null)
+    public function setStatus(string $status): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsHoldStatusType::valueIsValid($status)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsHoldStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \Ews\EnumType\EwsHoldStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsHoldStatusType::valueIsValid($status)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsHoldStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \EnumType\EwsHoldStatusType::getValidValues())), __LINE__);
         }
         $this->Status = $status;
+        
         return $this;
     }
     /**
      * Get AdditionalInfo value
      * @return string|null
      */
-    public function getAdditionalInfo()
+    public function getAdditionalInfo(): ?string
     {
         return $this->AdditionalInfo;
     }
     /**
      * Set AdditionalInfo value
      * @param string $additionalInfo
-     * @return \Ews\StructType\EwsMailboxHoldStatusType
+     * @return \StructType\EwsMailboxHoldStatusType
      */
-    public function setAdditionalInfo($additionalInfo = null)
+    public function setAdditionalInfo(?string $additionalInfo = null): self
     {
         // validation for constraint: string
         if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
         }
         $this->AdditionalInfo = $additionalInfo;
+        
         return $this;
     }
 }

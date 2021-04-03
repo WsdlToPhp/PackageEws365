@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateFolderType StructType
@@ -14,35 +17,36 @@ class EwsUpdateFolderType extends EwsBaseRequestType
 {
     /**
      * The FolderChanges
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType
+     * @var \ArrayType\EwsNonEmptyArrayOfFolderChangesType|null
      */
-    public $FolderChanges;
+    protected ?\ArrayType\EwsNonEmptyArrayOfFolderChangesType $FolderChanges = null;
     /**
      * Constructor method for UpdateFolderType
      * @uses EwsUpdateFolderType::setFolderChanges()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges
+     * @param \ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges = null)
     {
         $this
             ->setFolderChanges($folderChanges);
     }
     /**
      * Get FolderChanges value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfFolderChangesType|null
      */
-    public function getFolderChanges()
+    public function getFolderChanges(): ?\ArrayType\EwsNonEmptyArrayOfFolderChangesType
     {
         return $this->FolderChanges;
     }
     /**
      * Set FolderChanges value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges
-     * @return \Ews\StructType\EwsUpdateFolderType
+     * @param \ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges
+     * @return \StructType\EwsUpdateFolderType
      */
-    public function setFolderChanges(\Ews\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges = null)
+    public function setFolderChanges(?\ArrayType\EwsNonEmptyArrayOfFolderChangesType $folderChanges = null): self
     {
         $this->FolderChanges = $folderChanges;
+        
         return $this;
     }
 }

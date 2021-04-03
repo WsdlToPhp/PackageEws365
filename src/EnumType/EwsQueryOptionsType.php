@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for QueryOptionsType EnumType
@@ -64,9 +66,9 @@ class EwsQueryOptionsType extends AbstractStructEnumBase
      * @uses self::VALUE_ALLOW_FUZZING
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_SUGGESTIONS,
             self::VALUE_RESULTS,
@@ -75,6 +77,6 @@ class EwsQueryOptionsType extends AbstractStructEnumBase
             self::VALUE_EXPLICIT_SEARCH,
             self::VALUE_SUGGESTIONS_PRIMER,
             self::VALUE_ALLOW_FUZZING,
-        );
+        ];
     }
 }

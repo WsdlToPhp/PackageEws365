@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMeetingSpaceByJoinUrlResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindMeetingSpaceByJoinUrlResponseMessageType extends EwsResponseMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMeetingSpaceType
+     * @var \StructType\EwsMeetingSpaceType|null
      */
-    public $MeetingSpace;
+    protected ?\StructType\EwsMeetingSpaceType $MeetingSpace = null;
     /**
      * Constructor method for FindMeetingSpaceByJoinUrlResponseMessageType
      * @uses EwsFindMeetingSpaceByJoinUrlResponseMessageType::setMeetingSpace()
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
      */
-    public function __construct(\Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function __construct(?\StructType\EwsMeetingSpaceType $meetingSpace = null)
     {
         $this
             ->setMeetingSpace($meetingSpace);
     }
     /**
      * Get MeetingSpace value
-     * @return \Ews\StructType\EwsMeetingSpaceType|null
+     * @return \StructType\EwsMeetingSpaceType|null
      */
-    public function getMeetingSpace()
+    public function getMeetingSpace(): ?\StructType\EwsMeetingSpaceType
     {
         return $this->MeetingSpace;
     }
     /**
      * Set MeetingSpace value
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
-     * @return \Ews\StructType\EwsFindMeetingSpaceByJoinUrlResponseMessageType
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
+     * @return \StructType\EwsFindMeetingSpaceByJoinUrlResponseMessageType
      */
-    public function setMeetingSpace(\Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function setMeetingSpace(?\StructType\EwsMeetingSpaceType $meetingSpace = null): self
     {
         $this->MeetingSpace = $meetingSpace;
+        
         return $this;
     }
 }

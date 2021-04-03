@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindXrmGraphRelationshipResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindXrmGraphRelationshipResponseMessageType extends EwsResponseMessageT
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType
+     * @var \ArrayType\EwsArrayOfXrmRelationshipBaseType
      */
-    public $XrmRelationships;
+    protected \ArrayType\EwsArrayOfXrmRelationshipBaseType $XrmRelationships;
     /**
      * Constructor method for FindXrmGraphRelationshipResponseMessageType
      * @uses EwsFindXrmGraphRelationshipResponseMessageType::setXrmRelationships()
-     * @param \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships
+     * @param \ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships = null)
+    public function __construct(\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships)
     {
         $this
             ->setXrmRelationships($xrmRelationships);
     }
     /**
      * Get XrmRelationships value
-     * @return \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType
+     * @return \ArrayType\EwsArrayOfXrmRelationshipBaseType
      */
-    public function getXrmRelationships()
+    public function getXrmRelationships(): \ArrayType\EwsArrayOfXrmRelationshipBaseType
     {
         return $this->XrmRelationships;
     }
     /**
      * Set XrmRelationships value
-     * @param \Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships
-     * @return \Ews\StructType\EwsFindXrmGraphRelationshipResponseMessageType
+     * @param \ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships
+     * @return \StructType\EwsFindXrmGraphRelationshipResponseMessageType
      */
-    public function setXrmRelationships(\Ews\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships = null)
+    public function setXrmRelationships(\ArrayType\EwsArrayOfXrmRelationshipBaseType $xrmRelationships): self
     {
         $this->XrmRelationships = $xrmRelationships;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfWorkTimeSlot ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsWorkTimeSlot[]
+     * @var \StructType\EwsWorkTimeSlot[]
      */
-    public $TimeSlot;
+    protected array $TimeSlot = [];
     /**
      * Constructor method for ArrayOfWorkTimeSlot
      * @uses EwsArrayOfWorkTimeSlot::setTimeSlot()
-     * @param \Ews\StructType\EwsWorkTimeSlot[] $timeSlot
+     * @param \StructType\EwsWorkTimeSlot[] $timeSlot
      */
-    public function __construct(array $timeSlot = array())
+    public function __construct(array $timeSlot = [])
     {
         $this
             ->setTimeSlot($timeSlot);
     }
     /**
      * Get TimeSlot value
-     * @return \Ews\StructType\EwsWorkTimeSlot[]|null
+     * @return \StructType\EwsWorkTimeSlot[]
      */
-    public function getTimeSlot()
+    public function getTimeSlot(): array
     {
         return $this->TimeSlot;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTimeSlotForArrayConstraintsFromSetTimeSlot(array $values = array())
+    public static function validateTimeSlotForArrayConstraintsFromSetTimeSlot(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfWorkTimeSlotTimeSlotItem) {
             // validation for constraint: itemType
-            if (!$arrayOfWorkTimeSlotTimeSlotItem instanceof \Ews\StructType\EwsWorkTimeSlot) {
+            if (!$arrayOfWorkTimeSlotTimeSlotItem instanceof \StructType\EwsWorkTimeSlot) {
                 $invalidValues[] = is_object($arrayOfWorkTimeSlotTimeSlotItem) ? get_class($arrayOfWorkTimeSlotTimeSlotItem) : sprintf('%s(%s)', gettype($arrayOfWorkTimeSlotTimeSlotItem), var_export($arrayOfWorkTimeSlotTimeSlotItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The TimeSlot property can only contain items of type \Ews\StructType\EwsWorkTimeSlot, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The TimeSlot property can only contain items of type \StructType\EwsWorkTimeSlot, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set TimeSlot value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkTimeSlot[] $timeSlot
-     * @return \Ews\ArrayType\EwsArrayOfWorkTimeSlot
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkTimeSlot[] $timeSlot
+     * @return \ArrayType\EwsArrayOfWorkTimeSlot
      */
-    public function setTimeSlot(array $timeSlot = array())
+    public function setTimeSlot(array $timeSlot = []): self
     {
         // validation for constraint: array
         if ('' !== ($timeSlotArrayErrorMessage = self::validateTimeSlotForArrayConstraintsFromSetTimeSlot($timeSlot))) {
-            throw new \InvalidArgumentException($timeSlotArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($timeSlotArrayErrorMessage, __LINE__);
         }
         $this->TimeSlot = $timeSlot;
-        return $this;
-    }
-    /**
-     * Add item to TimeSlot value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkTimeSlot $item
-     * @return \Ews\ArrayType\EwsArrayOfWorkTimeSlot
-     */
-    public function addToTimeSlot(\Ews\StructType\EwsWorkTimeSlot $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsWorkTimeSlot) {
-            throw new \InvalidArgumentException(sprintf('The TimeSlot property can only contain items of type \Ews\StructType\EwsWorkTimeSlot, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->TimeSlot[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsWorkTimeSlot|null
+     * @return \StructType\EwsWorkTimeSlot|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsWorkTimeSlot
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsWorkTimeSlot|null
+     * @return \StructType\EwsWorkTimeSlot|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsWorkTimeSlot
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsWorkTimeSlot|null
+     * @return \StructType\EwsWorkTimeSlot|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsWorkTimeSlot
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsWorkTimeSlot|null
+     * @return \StructType\EwsWorkTimeSlot|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsWorkTimeSlot
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfWorkTimeSlot extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsWorkTimeSlot|null
+     * @return \StructType\EwsWorkTimeSlot|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsWorkTimeSlot
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkTimeSlot $item
+     * @return \ArrayType\EwsArrayOfWorkTimeSlot
+     */
+    public function add(\StructType\EwsWorkTimeSlot $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string TimeSlot
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'TimeSlot';
     }

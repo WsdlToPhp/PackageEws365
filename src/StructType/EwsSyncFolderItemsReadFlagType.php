@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncFolderItemsReadFlagType StructType
@@ -14,22 +17,22 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
 {
     /**
      * The ItemId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The IsRead
-     * @var bool
+     * @var bool|null
      */
-    public $IsRead;
+    protected ?bool $IsRead = null;
     /**
      * Constructor method for SyncFolderItemsReadFlagType
      * @uses EwsSyncFolderItemsReadFlagType::setItemId()
      * @uses EwsSyncFolderItemsReadFlagType::setIsRead()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param bool $isRead
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $isRead = null)
+    public function __construct(?\StructType\EwsItemIdType $itemId = null, ?bool $isRead = null)
     {
         $this
             ->setItemId($itemId)
@@ -37,42 +40,44 @@ class EwsSyncFolderItemsReadFlagType extends AbstractStructBase
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsSyncFolderItemsReadFlagType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsSyncFolderItemsReadFlagType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get IsRead value
      * @return bool|null
      */
-    public function getIsRead()
+    public function getIsRead(): ?bool
     {
         return $this->IsRead;
     }
     /**
      * Set IsRead value
      * @param bool $isRead
-     * @return \Ews\StructType\EwsSyncFolderItemsReadFlagType
+     * @return \StructType\EwsSyncFolderItemsReadFlagType
      */
-    public function setIsRead($isRead = null)
+    public function setIsRead(?bool $isRead = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isRead) && !is_bool($isRead)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRead, true), gettype($isRead)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRead, true), gettype($isRead)), __LINE__);
         }
         $this->IsRead = $isRead;
+        
         return $this;
     }
 }

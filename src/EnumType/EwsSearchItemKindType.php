@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SearchItemKindType EnumType
@@ -88,9 +90,9 @@ class EwsSearchItemKindType extends AbstractStructEnumBase
      * @uses self::VALUE_RSSFEEDS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_EMAIL,
             self::VALUE_MEETINGS,
             self::VALUE_TASKS,
@@ -103,6 +105,6 @@ class EwsSearchItemKindType extends AbstractStructEnumBase
             self::VALUE_FAXES,
             self::VALUE_POSTS,
             self::VALUE_RSSFEEDS,
-        );
+        ];
     }
 }

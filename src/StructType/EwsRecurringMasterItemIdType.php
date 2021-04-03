@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecurringMasterItemIdType StructType
@@ -19,14 +22,14 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
      * - use: required
      * @var string
      */
-    public $OccurrenceId;
+    protected string $OccurrenceId;
     /**
      * The ChangeKey
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ChangeKey;
+    protected ?string $ChangeKey = null;
     /**
      * Constructor method for RecurringMasterItemIdType
      * @uses EwsRecurringMasterItemIdType::setOccurrenceId()
@@ -34,7 +37,7 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
      * @param string $occurrenceId
      * @param string $changeKey
      */
-    public function __construct($occurrenceId = null, $changeKey = null)
+    public function __construct(string $occurrenceId, ?string $changeKey = null)
     {
         $this
             ->setOccurrenceId($occurrenceId)
@@ -44,44 +47,46 @@ class EwsRecurringMasterItemIdType extends EwsBaseItemIdType
      * Get OccurrenceId value
      * @return string
      */
-    public function getOccurrenceId()
+    public function getOccurrenceId(): string
     {
         return $this->OccurrenceId;
     }
     /**
      * Set OccurrenceId value
      * @param string $occurrenceId
-     * @return \Ews\StructType\EwsRecurringMasterItemIdType
+     * @return \StructType\EwsRecurringMasterItemIdType
      */
-    public function setOccurrenceId($occurrenceId = null)
+    public function setOccurrenceId(string $occurrenceId): self
     {
         // validation for constraint: string
         if (!is_null($occurrenceId) && !is_string($occurrenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($occurrenceId, true), gettype($occurrenceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($occurrenceId, true), gettype($occurrenceId)), __LINE__);
         }
         $this->OccurrenceId = $occurrenceId;
+        
         return $this;
     }
     /**
      * Get ChangeKey value
      * @return string|null
      */
-    public function getChangeKey()
+    public function getChangeKey(): ?string
     {
         return $this->ChangeKey;
     }
     /**
      * Set ChangeKey value
      * @param string $changeKey
-     * @return \Ews\StructType\EwsRecurringMasterItemIdType
+     * @return \StructType\EwsRecurringMasterItemIdType
      */
-    public function setChangeKey($changeKey = null)
+    public function setChangeKey(?string $changeKey = null): self
     {
         // validation for constraint: string
         if (!is_null($changeKey) && !is_string($changeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
         }
         $this->ChangeKey = $changeKey;
+        
         return $this;
     }
 }

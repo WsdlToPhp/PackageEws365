@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserAvailabilityRequestType StructType
@@ -18,44 +21,44 @@ class EwsGetUserAvailabilityRequestType extends EwsBaseRequestType
      * - maxOccurs: 1
      * - minOccurs: 0
      * - ref: t:TimeZone
-     * @var \Ews\StructType\EwsSerializableTimeZone
+     * @var \StructType\EwsSerializableTimeZone|null
      */
-    public $TimeZone;
+    protected ?\StructType\EwsSerializableTimeZone $TimeZone = null;
     /**
      * The MailboxDataArray
-     * @var \Ews\ArrayType\EwsArrayOfMailboxData
+     * @var \ArrayType\EwsArrayOfMailboxData|null
      */
-    public $MailboxDataArray;
+    protected ?\ArrayType\EwsArrayOfMailboxData $MailboxDataArray = null;
     /**
      * The FreeBusyViewOptions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - ref: t:FreeBusyViewOptions
-     * @var \Ews\StructType\EwsFreeBusyViewOptionsType
+     * @var \StructType\EwsFreeBusyViewOptionsType|null
      */
-    public $FreeBusyViewOptions;
+    protected ?\StructType\EwsFreeBusyViewOptionsType $FreeBusyViewOptions = null;
     /**
      * The SuggestionsViewOptions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - ref: t:SuggestionsViewOptions
-     * @var \Ews\StructType\EwsSuggestionsViewOptionsType
+     * @var \StructType\EwsSuggestionsViewOptionsType|null
      */
-    public $SuggestionsViewOptions;
+    protected ?\StructType\EwsSuggestionsViewOptionsType $SuggestionsViewOptions = null;
     /**
      * Constructor method for GetUserAvailabilityRequestType
      * @uses EwsGetUserAvailabilityRequestType::setTimeZone()
      * @uses EwsGetUserAvailabilityRequestType::setMailboxDataArray()
      * @uses EwsGetUserAvailabilityRequestType::setFreeBusyViewOptions()
      * @uses EwsGetUserAvailabilityRequestType::setSuggestionsViewOptions()
-     * @param \Ews\StructType\EwsSerializableTimeZone $timeZone
-     * @param \Ews\ArrayType\EwsArrayOfMailboxData $mailboxDataArray
-     * @param \Ews\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions
-     * @param \Ews\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions
+     * @param \StructType\EwsSerializableTimeZone $timeZone
+     * @param \ArrayType\EwsArrayOfMailboxData $mailboxDataArray
+     * @param \StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions
+     * @param \StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions
      */
-    public function __construct(\Ews\StructType\EwsSerializableTimeZone $timeZone = null, \Ews\ArrayType\EwsArrayOfMailboxData $mailboxDataArray = null, \Ews\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions = null, \Ews\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions = null)
+    public function __construct(?\StructType\EwsSerializableTimeZone $timeZone = null, ?\ArrayType\EwsArrayOfMailboxData $mailboxDataArray = null, ?\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions = null, ?\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions = null)
     {
         $this
             ->setTimeZone($timeZone)
@@ -65,74 +68,78 @@ class EwsGetUserAvailabilityRequestType extends EwsBaseRequestType
     }
     /**
      * Get TimeZone value
-     * @return \Ews\StructType\EwsSerializableTimeZone|null
+     * @return \StructType\EwsSerializableTimeZone|null
      */
-    public function getTimeZone()
+    public function getTimeZone(): ?\StructType\EwsSerializableTimeZone
     {
         return $this->TimeZone;
     }
     /**
      * Set TimeZone value
-     * @param \Ews\StructType\EwsSerializableTimeZone $timeZone
-     * @return \Ews\StructType\EwsGetUserAvailabilityRequestType
+     * @param \StructType\EwsSerializableTimeZone $timeZone
+     * @return \StructType\EwsGetUserAvailabilityRequestType
      */
-    public function setTimeZone(\Ews\StructType\EwsSerializableTimeZone $timeZone = null)
+    public function setTimeZone(?\StructType\EwsSerializableTimeZone $timeZone = null): self
     {
         $this->TimeZone = $timeZone;
+        
         return $this;
     }
     /**
      * Get MailboxDataArray value
-     * @return \Ews\ArrayType\EwsArrayOfMailboxData|null
+     * @return \ArrayType\EwsArrayOfMailboxData|null
      */
-    public function getMailboxDataArray()
+    public function getMailboxDataArray(): ?\ArrayType\EwsArrayOfMailboxData
     {
         return $this->MailboxDataArray;
     }
     /**
      * Set MailboxDataArray value
-     * @param \Ews\ArrayType\EwsArrayOfMailboxData $mailboxDataArray
-     * @return \Ews\StructType\EwsGetUserAvailabilityRequestType
+     * @param \ArrayType\EwsArrayOfMailboxData $mailboxDataArray
+     * @return \StructType\EwsGetUserAvailabilityRequestType
      */
-    public function setMailboxDataArray(\Ews\ArrayType\EwsArrayOfMailboxData $mailboxDataArray = null)
+    public function setMailboxDataArray(?\ArrayType\EwsArrayOfMailboxData $mailboxDataArray = null): self
     {
         $this->MailboxDataArray = $mailboxDataArray;
+        
         return $this;
     }
     /**
      * Get FreeBusyViewOptions value
-     * @return \Ews\StructType\EwsFreeBusyViewOptionsType|null
+     * @return \StructType\EwsFreeBusyViewOptionsType|null
      */
-    public function getFreeBusyViewOptions()
+    public function getFreeBusyViewOptions(): ?\StructType\EwsFreeBusyViewOptionsType
     {
         return $this->FreeBusyViewOptions;
     }
     /**
      * Set FreeBusyViewOptions value
-     * @param \Ews\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions
-     * @return \Ews\StructType\EwsGetUserAvailabilityRequestType
+     * @param \StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions
+     * @return \StructType\EwsGetUserAvailabilityRequestType
      */
-    public function setFreeBusyViewOptions(\Ews\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions = null)
+    public function setFreeBusyViewOptions(?\StructType\EwsFreeBusyViewOptionsType $freeBusyViewOptions = null): self
     {
         $this->FreeBusyViewOptions = $freeBusyViewOptions;
+        
         return $this;
     }
     /**
      * Get SuggestionsViewOptions value
-     * @return \Ews\StructType\EwsSuggestionsViewOptionsType|null
+     * @return \StructType\EwsSuggestionsViewOptionsType|null
      */
-    public function getSuggestionsViewOptions()
+    public function getSuggestionsViewOptions(): ?\StructType\EwsSuggestionsViewOptionsType
     {
         return $this->SuggestionsViewOptions;
     }
     /**
      * Set SuggestionsViewOptions value
-     * @param \Ews\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions
-     * @return \Ews\StructType\EwsGetUserAvailabilityRequestType
+     * @param \StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions
+     * @return \StructType\EwsGetUserAvailabilityRequestType
      */
-    public function setSuggestionsViewOptions(\Ews\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions = null)
+    public function setSuggestionsViewOptions(?\StructType\EwsSuggestionsViewOptionsType $suggestionsViewOptions = null): self
     {
         $this->SuggestionsViewOptions = $suggestionsViewOptions;
+        
         return $this;
     }
 }

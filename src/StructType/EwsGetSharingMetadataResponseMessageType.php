@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSharingMetadataResponseMessageType StructType
@@ -14,22 +17,22 @@ class EwsGetSharingMetadataResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The EncryptedSharedFolderDataCollection
-     * @var \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
+     * @var \ArrayType\EwsArrayOfEncryptedSharedFolderDataType|null
      */
-    public $EncryptedSharedFolderDataCollection;
+    protected ?\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $EncryptedSharedFolderDataCollection = null;
     /**
      * The InvalidRecipients
-     * @var \Ews\ArrayType\EwsArrayOfInvalidRecipientsType
+     * @var \ArrayType\EwsArrayOfInvalidRecipientsType|null
      */
-    public $InvalidRecipients;
+    protected ?\ArrayType\EwsArrayOfInvalidRecipientsType $InvalidRecipients = null;
     /**
      * Constructor method for GetSharingMetadataResponseMessageType
      * @uses EwsGetSharingMetadataResponseMessageType::setEncryptedSharedFolderDataCollection()
      * @uses EwsGetSharingMetadataResponseMessageType::setInvalidRecipients()
-     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
-     * @param \Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients
+     * @param \ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
+     * @param \ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null, \Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients = null)
+    public function __construct(?\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null, ?\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients = null)
     {
         $this
             ->setEncryptedSharedFolderDataCollection($encryptedSharedFolderDataCollection)
@@ -37,38 +40,40 @@ class EwsGetSharingMetadataResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get EncryptedSharedFolderDataCollection value
-     * @return \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType|null
+     * @return \ArrayType\EwsArrayOfEncryptedSharedFolderDataType|null
      */
-    public function getEncryptedSharedFolderDataCollection()
+    public function getEncryptedSharedFolderDataCollection(): ?\ArrayType\EwsArrayOfEncryptedSharedFolderDataType
     {
         return $this->EncryptedSharedFolderDataCollection;
     }
     /**
      * Set EncryptedSharedFolderDataCollection value
-     * @param \Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
-     * @return \Ews\StructType\EwsGetSharingMetadataResponseMessageType
+     * @param \ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection
+     * @return \StructType\EwsGetSharingMetadataResponseMessageType
      */
-    public function setEncryptedSharedFolderDataCollection(\Ews\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null)
+    public function setEncryptedSharedFolderDataCollection(?\ArrayType\EwsArrayOfEncryptedSharedFolderDataType $encryptedSharedFolderDataCollection = null): self
     {
         $this->EncryptedSharedFolderDataCollection = $encryptedSharedFolderDataCollection;
+        
         return $this;
     }
     /**
      * Get InvalidRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfInvalidRecipientsType|null
+     * @return \ArrayType\EwsArrayOfInvalidRecipientsType|null
      */
-    public function getInvalidRecipients()
+    public function getInvalidRecipients(): ?\ArrayType\EwsArrayOfInvalidRecipientsType
     {
         return $this->InvalidRecipients;
     }
     /**
      * Set InvalidRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients
-     * @return \Ews\StructType\EwsGetSharingMetadataResponseMessageType
+     * @param \ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients
+     * @return \StructType\EwsGetSharingMetadataResponseMessageType
      */
-    public function setInvalidRecipients(\Ews\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients = null)
+    public function setInvalidRecipients(?\ArrayType\EwsArrayOfInvalidRecipientsType $invalidRecipients = null): self
     {
         $this->InvalidRecipients = $invalidRecipients;
+        
         return $this;
     }
 }

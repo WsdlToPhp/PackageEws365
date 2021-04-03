@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Add ServiceType
@@ -15,65 +18,66 @@ class EwsAdd extends SoapClientBase
     /**
      * Sets the ExchangeImpersonation SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation
-     * @param string $nameSpace
+     * @param \StructType\EwsExchangeImpersonationType $exchangeImpersonation
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsAdd
      */
-    public function setSoapHeaderExchangeImpersonation(\Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderExchangeImpersonation(\StructType\EwsExchangeImpersonationType $exchangeImpersonation, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
     }
     /**
      * Sets the MailboxCulture SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsMailboxCultureType $mailboxCulture
-     * @param string $nameSpace
+     * @param \StructType\EwsMailboxCultureType $mailboxCulture
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsAdd
      */
-    public function setSoapHeaderMailboxCulture(\Ews\StructType\EwsMailboxCultureType $mailboxCulture, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderMailboxCulture(\StructType\EwsMailboxCultureType $mailboxCulture, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
     }
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsAdd
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named AddDelegate
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddDelegateType $request
-     * @return \Ews\StructType\EwsAddDelegateResponseMessageType|bool
+     * @param \StructType\EwsAddDelegateType $request
+     * @return \StructType\EwsAddDelegateResponseMessageType|bool
      */
-    public function AddDelegate(\Ews\StructType\EwsAddDelegateType $request)
+    public function AddDelegate(\StructType\EwsAddDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddDelegate', array(
+            $this->setResult($resultAddDelegate = $this->getSoapClient()->__soapCall('AddDelegate', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddDelegate;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -82,24 +86,25 @@ class EwsAdd extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddNewImContactToGroupType $request
-     * @return \Ews\StructType\EwsAddNewImContactToGroupResponseMessageType|bool
+     * @param \StructType\EwsAddNewImContactToGroupType $request
+     * @return \StructType\EwsAddNewImContactToGroupResponseMessageType|bool
      */
-    public function AddNewImContactToGroup(\Ews\StructType\EwsAddNewImContactToGroupType $request)
+    public function AddNewImContactToGroup(\StructType\EwsAddNewImContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddNewImContactToGroup', array(
+            $this->setResult($resultAddNewImContactToGroup = $this->getSoapClient()->__soapCall('AddNewImContactToGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddNewImContactToGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -108,24 +113,25 @@ class EwsAdd extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddNewTelUriContactToGroupType $request
-     * @return \Ews\StructType\EwsAddNewTelUriContactToGroupResponseMessageType|bool
+     * @param \StructType\EwsAddNewTelUriContactToGroupType $request
+     * @return \StructType\EwsAddNewTelUriContactToGroupResponseMessageType|bool
      */
-    public function AddNewTelUriContactToGroup(\Ews\StructType\EwsAddNewTelUriContactToGroupType $request)
+    public function AddNewTelUriContactToGroup(\StructType\EwsAddNewTelUriContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddNewTelUriContactToGroup', array(
+            $this->setResult($resultAddNewTelUriContactToGroup = $this->getSoapClient()->__soapCall('AddNewTelUriContactToGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddNewTelUriContactToGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -134,24 +140,25 @@ class EwsAdd extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddImContactToGroupType $request
-     * @return \Ews\StructType\EwsAddImContactToGroupResponseMessageType|bool
+     * @param \StructType\EwsAddImContactToGroupType $request
+     * @return \StructType\EwsAddImContactToGroupResponseMessageType|bool
      */
-    public function AddImContactToGroup(\Ews\StructType\EwsAddImContactToGroupType $request)
+    public function AddImContactToGroup(\StructType\EwsAddImContactToGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddImContactToGroup', array(
+            $this->setResult($resultAddImContactToGroup = $this->getSoapClient()->__soapCall('AddImContactToGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddImContactToGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -160,24 +167,25 @@ class EwsAdd extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddImGroupType $request
-     * @return \Ews\StructType\EwsAddImGroupResponseMessageType|bool
+     * @param \StructType\EwsAddImGroupType $request
+     * @return \StructType\EwsAddImGroupResponseMessageType|bool
      */
-    public function AddImGroup(\Ews\StructType\EwsAddImGroupType $request)
+    public function AddImGroup(\StructType\EwsAddImGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddImGroup', array(
+            $this->setResult($resultAddImGroup = $this->getSoapClient()->__soapCall('AddImGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddImGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -186,31 +194,32 @@ class EwsAdd extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsAddDistributionGroupToImListType $request
-     * @return \Ews\StructType\EwsAddDistributionGroupToImListResponseMessageType|bool
+     * @param \StructType\EwsAddDistributionGroupToImListType $request
+     * @return \StructType\EwsAddDistributionGroupToImListResponseMessageType|bool
      */
-    public function AddDistributionGroupToImList(\Ews\StructType\EwsAddDistributionGroupToImListType $request)
+    public function AddDistributionGroupToImList(\StructType\EwsAddDistributionGroupToImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('AddDistributionGroupToImList', array(
+            $this->setResult($resultAddDistributionGroupToImList = $this->getSoapClient()->__soapCall('AddDistributionGroupToImList', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultAddDistributionGroupToImList;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsAddDelegateResponseMessageType|\Ews\StructType\EwsAddDistributionGroupToImListResponseMessageType|\Ews\StructType\EwsAddImContactToGroupResponseMessageType|\Ews\StructType\EwsAddImGroupResponseMessageType|\Ews\StructType\EwsAddNewImContactToGroupResponseMessageType|\Ews\StructType\EwsAddNewTelUriContactToGroupResponseMessageType
+     * @return \StructType\EwsAddDelegateResponseMessageType|\StructType\EwsAddDistributionGroupToImListResponseMessageType|\StructType\EwsAddImContactToGroupResponseMessageType|\StructType\EwsAddImGroupResponseMessageType|\StructType\EwsAddNewImContactToGroupResponseMessageType|\StructType\EwsAddNewTelUriContactToGroupResponseMessageType
      */
     public function getResult()
     {

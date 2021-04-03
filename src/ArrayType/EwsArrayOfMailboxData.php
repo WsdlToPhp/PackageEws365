@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfMailboxData ArrayType
@@ -18,15 +21,15 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: true
-     * @var \Ews\StructType\EwsMailboxData[]
+     * @var \StructType\EwsMailboxData[]
      */
-    public $MailboxData;
+    protected array $MailboxData = [];
     /**
      * Constructor method for ArrayOfMailboxData
      * @uses EwsArrayOfMailboxData::setMailboxData()
-     * @param \Ews\StructType\EwsMailboxData[] $mailboxData
+     * @param \StructType\EwsMailboxData[] $mailboxData
      */
-    public function __construct(array $mailboxData = array())
+    public function __construct(array $mailboxData = [])
     {
         $this
             ->setMailboxData($mailboxData);
@@ -36,9 +39,9 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * An additional test has been added (isset) before returning the property value as
      * this property may have been unset before, due to the fact that this property is
      * removable from the request (nillable=true+minOccurs=0)
-     * @return \Ews\StructType\EwsMailboxData[]|null
+     * @return \StructType\EwsMailboxData[]
      */
-    public function getMailboxData()
+    public function getMailboxData(): ?array
     {
         return isset($this->MailboxData) ? $this->MailboxData : null;
     }
@@ -48,64 +51,51 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMailboxDataForArrayConstraintsFromSetMailboxData(array $values = array())
+    public static function validateMailboxDataForArrayConstraintsFromSetMailboxData(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfMailboxDataMailboxDataItem) {
             // validation for constraint: itemType
-            if (!$arrayOfMailboxDataMailboxDataItem instanceof \Ews\StructType\EwsMailboxData) {
+            if (!$arrayOfMailboxDataMailboxDataItem instanceof \StructType\EwsMailboxData) {
                 $invalidValues[] = is_object($arrayOfMailboxDataMailboxDataItem) ? get_class($arrayOfMailboxDataMailboxDataItem) : sprintf('%s(%s)', gettype($arrayOfMailboxDataMailboxDataItem), var_export($arrayOfMailboxDataMailboxDataItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MailboxData property can only contain items of type \Ews\StructType\EwsMailboxData, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MailboxData property can only contain items of type \StructType\EwsMailboxData, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MailboxData value
      * This property is removable from request (nillable=true+minOccurs=0), therefore
      * if the value assigned to this property is null, it is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxData[] $mailboxData
-     * @return \Ews\ArrayType\EwsArrayOfMailboxData
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxData[] $mailboxData
+     * @return \ArrayType\EwsArrayOfMailboxData
      */
-    public function setMailboxData(array $mailboxData = array())
+    public function setMailboxData(array $mailboxData = []): self
     {
         // validation for constraint: array
         if ('' !== ($mailboxDataArrayErrorMessage = self::validateMailboxDataForArrayConstraintsFromSetMailboxData($mailboxData))) {
-            throw new \InvalidArgumentException($mailboxDataArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($mailboxDataArrayErrorMessage, __LINE__);
         }
         if (is_null($mailboxData) || (is_array($mailboxData) && empty($mailboxData))) {
             unset($this->MailboxData);
         } else {
             $this->MailboxData = $mailboxData;
         }
-        return $this;
-    }
-    /**
-     * Add item to MailboxData value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxData $item
-     * @return \Ews\ArrayType\EwsArrayOfMailboxData
-     */
-    public function addToMailboxData(\Ews\StructType\EwsMailboxData $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMailboxData) {
-            throw new \InvalidArgumentException(sprintf('The MailboxData property can only contain items of type \Ews\StructType\EwsMailboxData, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MailboxData[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMailboxData|null
+     * @return \StructType\EwsMailboxData|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMailboxData
     {
         return parent::current();
     }
@@ -113,27 +103,27 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMailboxData|null
+     * @return \StructType\EwsMailboxData|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMailboxData
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMailboxData|null
+     * @return \StructType\EwsMailboxData|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMailboxData
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMailboxData|null
+     * @return \StructType\EwsMailboxData|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMailboxData
     {
         return parent::last();
     }
@@ -141,18 +131,29 @@ class EwsArrayOfMailboxData extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMailboxData|null
+     * @return \StructType\EwsMailboxData|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMailboxData
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxData $item
+     * @return \ArrayType\EwsArrayOfMailboxData
+     */
+    public function add(\StructType\EwsMailboxData $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MailboxData
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MailboxData';
     }

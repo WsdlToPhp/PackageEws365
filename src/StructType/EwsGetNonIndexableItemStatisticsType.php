@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetNonIndexableItemStatisticsType StructType
@@ -18,24 +21,24 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
      * The Mailboxes
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     * @var \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
-    public $Mailboxes;
+    protected \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $Mailboxes;
     /**
      * The SearchArchiveOnly
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SearchArchiveOnly;
+    protected ?bool $SearchArchiveOnly = null;
     /**
      * Constructor method for GetNonIndexableItemStatisticsType
      * @uses EwsGetNonIndexableItemStatisticsType::setMailboxes()
      * @uses EwsGetNonIndexableItemStatisticsType::setSearchArchiveOnly()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
+     * @param \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
      * @param bool $searchArchiveOnly
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null, $searchArchiveOnly = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes, ?bool $searchArchiveOnly = null)
     {
         $this
             ->setMailboxes($mailboxes)
@@ -43,42 +46,44 @@ class EwsGetNonIndexableItemStatisticsType extends EwsBaseRequestType
     }
     /**
      * Get Mailboxes value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     * @return \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
-    public function getMailboxes()
+    public function getMailboxes(): \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
     {
         return $this->Mailboxes;
     }
     /**
      * Set Mailboxes value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
-     * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsType
+     * @param \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
+     * @return \StructType\EwsGetNonIndexableItemStatisticsType
      */
-    public function setMailboxes(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null)
+    public function setMailboxes(\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes): self
     {
         $this->Mailboxes = $mailboxes;
+        
         return $this;
     }
     /**
      * Get SearchArchiveOnly value
      * @return bool|null
      */
-    public function getSearchArchiveOnly()
+    public function getSearchArchiveOnly(): ?bool
     {
         return $this->SearchArchiveOnly;
     }
     /**
      * Set SearchArchiveOnly value
      * @param bool $searchArchiveOnly
-     * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsType
+     * @return \StructType\EwsGetNonIndexableItemStatisticsType
      */
-    public function setSearchArchiveOnly($searchArchiveOnly = null)
+    public function setSearchArchiveOnly(?bool $searchArchiveOnly = null): self
     {
         // validation for constraint: boolean
         if (!is_null($searchArchiveOnly) && !is_bool($searchArchiveOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchArchiveOnly, true), gettype($searchArchiveOnly)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchArchiveOnly, true), gettype($searchArchiveOnly)), __LINE__);
         }
         $this->SearchArchiveOnly = $searchArchiveOnly;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfBookingStaffMember ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBookingStaffMemberType[]
+     * @var \StructType\EwsBookingStaffMemberType[]
      */
-    public $StaffMember;
+    protected array $StaffMember = [];
     /**
      * Constructor method for ArrayOfBookingStaffMember
      * @uses EwsArrayOfBookingStaffMember::setStaffMember()
-     * @param \Ews\StructType\EwsBookingStaffMemberType[] $staffMember
+     * @param \StructType\EwsBookingStaffMemberType[] $staffMember
      */
-    public function __construct(array $staffMember = array())
+    public function __construct(array $staffMember = [])
     {
         $this
             ->setStaffMember($staffMember);
     }
     /**
      * Get StaffMember value
-     * @return \Ews\StructType\EwsBookingStaffMemberType[]|null
+     * @return \StructType\EwsBookingStaffMemberType[]
      */
-    public function getStaffMember()
+    public function getStaffMember(): array
     {
         return $this->StaffMember;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateStaffMemberForArrayConstraintsFromSetStaffMember(array $values = array())
+    public static function validateStaffMemberForArrayConstraintsFromSetStaffMember(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfBookingStaffMemberStaffMemberItem) {
             // validation for constraint: itemType
-            if (!$arrayOfBookingStaffMemberStaffMemberItem instanceof \Ews\StructType\EwsBookingStaffMemberType) {
+            if (!$arrayOfBookingStaffMemberStaffMemberItem instanceof \StructType\EwsBookingStaffMemberType) {
                 $invalidValues[] = is_object($arrayOfBookingStaffMemberStaffMemberItem) ? get_class($arrayOfBookingStaffMemberStaffMemberItem) : sprintf('%s(%s)', gettype($arrayOfBookingStaffMemberStaffMemberItem), var_export($arrayOfBookingStaffMemberStaffMemberItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The StaffMember property can only contain items of type \Ews\StructType\EwsBookingStaffMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The StaffMember property can only contain items of type \StructType\EwsBookingStaffMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set StaffMember value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBookingStaffMemberType[] $staffMember
-     * @return \Ews\ArrayType\EwsArrayOfBookingStaffMember
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsBookingStaffMemberType[] $staffMember
+     * @return \ArrayType\EwsArrayOfBookingStaffMember
      */
-    public function setStaffMember(array $staffMember = array())
+    public function setStaffMember(array $staffMember = []): self
     {
         // validation for constraint: array
         if ('' !== ($staffMemberArrayErrorMessage = self::validateStaffMemberForArrayConstraintsFromSetStaffMember($staffMember))) {
-            throw new \InvalidArgumentException($staffMemberArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($staffMemberArrayErrorMessage, __LINE__);
         }
         $this->StaffMember = $staffMember;
-        return $this;
-    }
-    /**
-     * Add item to StaffMember value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBookingStaffMemberType $item
-     * @return \Ews\ArrayType\EwsArrayOfBookingStaffMember
-     */
-    public function addToStaffMember(\Ews\StructType\EwsBookingStaffMemberType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsBookingStaffMemberType) {
-            throw new \InvalidArgumentException(sprintf('The StaffMember property can only contain items of type \Ews\StructType\EwsBookingStaffMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->StaffMember[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsBookingStaffMemberType|null
+     * @return \StructType\EwsBookingStaffMemberType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsBookingStaffMemberType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsBookingStaffMemberType|null
+     * @return \StructType\EwsBookingStaffMemberType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsBookingStaffMemberType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsBookingStaffMemberType|null
+     * @return \StructType\EwsBookingStaffMemberType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsBookingStaffMemberType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsBookingStaffMemberType|null
+     * @return \StructType\EwsBookingStaffMemberType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsBookingStaffMemberType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfBookingStaffMember extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsBookingStaffMemberType|null
+     * @return \StructType\EwsBookingStaffMemberType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsBookingStaffMemberType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsBookingStaffMemberType $item
+     * @return \ArrayType\EwsArrayOfBookingStaffMember
+     */
+    public function add(\StructType\EwsBookingStaffMemberType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string StaffMember
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'StaffMember';
     }

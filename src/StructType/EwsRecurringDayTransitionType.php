@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecurringDayTransitionType StructType
@@ -14,14 +17,14 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
 {
     /**
      * The DayOfWeek
-     * @var string
+     * @var string|null
      */
-    public $DayOfWeek;
+    protected ?string $DayOfWeek = null;
     /**
      * The Occurrence
-     * @var int
+     * @var int|null
      */
-    public $Occurrence;
+    protected ?int $Occurrence = null;
     /**
      * Constructor method for RecurringDayTransitionType
      * @uses EwsRecurringDayTransitionType::setDayOfWeek()
@@ -29,7 +32,7 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
      * @param string $dayOfWeek
      * @param int $occurrence
      */
-    public function __construct($dayOfWeek = null, $occurrence = null)
+    public function __construct(?string $dayOfWeek = null, ?int $occurrence = null)
     {
         $this
             ->setDayOfWeek($dayOfWeek)
@@ -39,47 +42,49 @@ class EwsRecurringDayTransitionType extends EwsRecurringTimeTransitionType
      * Get DayOfWeek value
      * @return string|null
      */
-    public function getDayOfWeek()
+    public function getDayOfWeek(): ?string
     {
         return $this->DayOfWeek;
     }
     /**
      * Set DayOfWeek value
-     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $dayOfWeek
-     * @return \Ews\StructType\EwsRecurringDayTransitionType
+     * @return \StructType\EwsRecurringDayTransitionType
      */
-    public function setDayOfWeek($dayOfWeek = null)
+    public function setDayOfWeek(?string $dayOfWeek = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($dayOfWeek)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($dayOfWeek) ? implode(', ', $dayOfWeek) : var_export($dayOfWeek, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDayOfWeekType::valueIsValid($dayOfWeek)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekType', is_array($dayOfWeek) ? implode(', ', $dayOfWeek) : var_export($dayOfWeek, true), implode(', ', \EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
         $this->DayOfWeek = $dayOfWeek;
+        
         return $this;
     }
     /**
      * Get Occurrence value
      * @return int|null
      */
-    public function getOccurrence()
+    public function getOccurrence(): ?int
     {
         return $this->Occurrence;
     }
     /**
      * Set Occurrence value
      * @param int $occurrence
-     * @return \Ews\StructType\EwsRecurringDayTransitionType
+     * @return \StructType\EwsRecurringDayTransitionType
      */
-    public function setOccurrence($occurrence = null)
+    public function setOccurrence(?int $occurrence = null): self
     {
         // validation for constraint: int
         if (!is_null($occurrence) && !(is_int($occurrence) || ctype_digit($occurrence))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($occurrence, true), gettype($occurrence)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($occurrence, true), gettype($occurrence)), __LINE__);
         }
         $this->Occurrence = $occurrence;
+        
         return $this;
     }
 }

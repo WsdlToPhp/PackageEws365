@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDlMembersForUnifiedGroupResponseMessageType StructType
@@ -19,23 +22,23 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
      * - minOccurs: 1
      * @var string
      */
-    public $MembershipType;
+    protected string $MembershipType;
     /**
      * The TotalMembersCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $TotalMembersCount;
+    protected ?int $TotalMembersCount = null;
     /**
      * The Members
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPeopleType
+     * @var \ArrayType\EwsArrayOfPeopleType|null
      */
-    public $Members;
+    protected ?\ArrayType\EwsArrayOfPeopleType $Members = null;
     /**
      * Constructor method for GetDlMembersForUnifiedGroupResponseMessageType
      * @uses EwsGetDlMembersForUnifiedGroupResponseMessageType::setMembershipType()
@@ -43,9 +46,9 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
      * @uses EwsGetDlMembersForUnifiedGroupResponseMessageType::setMembers()
      * @param string $membershipType
      * @param int $totalMembersCount
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $members
+     * @param \ArrayType\EwsArrayOfPeopleType $members
      */
-    public function __construct($membershipType = null, $totalMembersCount = null, \Ews\ArrayType\EwsArrayOfPeopleType $members = null)
+    public function __construct(string $membershipType, ?int $totalMembersCount = null, ?\ArrayType\EwsArrayOfPeopleType $members = null)
     {
         $this
             ->setMembershipType($membershipType)
@@ -56,65 +59,68 @@ class EwsGetDlMembersForUnifiedGroupResponseMessageType extends EwsResponseMessa
      * Get MembershipType value
      * @return string
      */
-    public function getMembershipType()
+    public function getMembershipType(): string
     {
         return $this->MembershipType;
     }
     /**
      * Set MembershipType value
-     * @uses \Ews\EnumType\EwsGroupMembershipType::valueIsValid()
-     * @uses \Ews\EnumType\EwsGroupMembershipType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsGroupMembershipType::valueIsValid()
+     * @uses \EnumType\EwsGroupMembershipType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $membershipType
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
+     * @return \StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
      */
-    public function setMembershipType($membershipType = null)
+    public function setMembershipType(string $membershipType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsGroupMembershipType::valueIsValid($membershipType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMembershipType', is_array($membershipType) ? implode(', ', $membershipType) : var_export($membershipType, true), implode(', ', \Ews\EnumType\EwsGroupMembershipType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsGroupMembershipType::valueIsValid($membershipType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsGroupMembershipType', is_array($membershipType) ? implode(', ', $membershipType) : var_export($membershipType, true), implode(', ', \EnumType\EwsGroupMembershipType::getValidValues())), __LINE__);
         }
         $this->MembershipType = $membershipType;
+        
         return $this;
     }
     /**
      * Get TotalMembersCount value
      * @return int|null
      */
-    public function getTotalMembersCount()
+    public function getTotalMembersCount(): ?int
     {
         return $this->TotalMembersCount;
     }
     /**
      * Set TotalMembersCount value
      * @param int $totalMembersCount
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
+     * @return \StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
      */
-    public function setTotalMembersCount($totalMembersCount = null)
+    public function setTotalMembersCount(?int $totalMembersCount = null): self
     {
         // validation for constraint: int
         if (!is_null($totalMembersCount) && !(is_int($totalMembersCount) || ctype_digit($totalMembersCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalMembersCount, true), gettype($totalMembersCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalMembersCount, true), gettype($totalMembersCount)), __LINE__);
         }
         $this->TotalMembersCount = $totalMembersCount;
+        
         return $this;
     }
     /**
      * Get Members value
-     * @return \Ews\ArrayType\EwsArrayOfPeopleType|null
+     * @return \ArrayType\EwsArrayOfPeopleType|null
      */
-    public function getMembers()
+    public function getMembers(): ?\ArrayType\EwsArrayOfPeopleType
     {
         return $this->Members;
     }
     /**
      * Set Members value
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $members
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
+     * @param \ArrayType\EwsArrayOfPeopleType $members
+     * @return \StructType\EwsGetDlMembersForUnifiedGroupResponseMessageType
      */
-    public function setMembers(\Ews\ArrayType\EwsArrayOfPeopleType $members = null)
+    public function setMembers(?\ArrayType\EwsArrayOfPeopleType $members = null): self
     {
         $this->Members = $members;
+        
         return $this;
     }
 }

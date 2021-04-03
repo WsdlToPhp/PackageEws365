@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupMailboxSettingsType StructType
@@ -17,17 +20,17 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ExternalSendersEnabled;
+    protected ?bool $ExternalSendersEnabled = null;
     /**
      * The AutoSubscribeNewMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AutoSubscribeNewMembers;
+    protected ?bool $AutoSubscribeNewMembers = null;
     /**
      * Constructor method for UnifiedGroupMailboxSettingsType
      * @uses EwsUnifiedGroupMailboxSettingsType::setExternalSendersEnabled()
@@ -35,7 +38,7 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      * @param bool $externalSendersEnabled
      * @param bool $autoSubscribeNewMembers
      */
-    public function __construct($externalSendersEnabled = null, $autoSubscribeNewMembers = null)
+    public function __construct(?bool $externalSendersEnabled = null, ?bool $autoSubscribeNewMembers = null)
     {
         $this
             ->setExternalSendersEnabled($externalSendersEnabled)
@@ -45,44 +48,46 @@ class EwsUnifiedGroupMailboxSettingsType extends AbstractStructBase
      * Get ExternalSendersEnabled value
      * @return bool|null
      */
-    public function getExternalSendersEnabled()
+    public function getExternalSendersEnabled(): ?bool
     {
         return $this->ExternalSendersEnabled;
     }
     /**
      * Set ExternalSendersEnabled value
      * @param bool $externalSendersEnabled
-     * @return \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
+     * @return \StructType\EwsUnifiedGroupMailboxSettingsType
      */
-    public function setExternalSendersEnabled($externalSendersEnabled = null)
+    public function setExternalSendersEnabled(?bool $externalSendersEnabled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($externalSendersEnabled) && !is_bool($externalSendersEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($externalSendersEnabled, true), gettype($externalSendersEnabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($externalSendersEnabled, true), gettype($externalSendersEnabled)), __LINE__);
         }
         $this->ExternalSendersEnabled = $externalSendersEnabled;
+        
         return $this;
     }
     /**
      * Get AutoSubscribeNewMembers value
      * @return bool|null
      */
-    public function getAutoSubscribeNewMembers()
+    public function getAutoSubscribeNewMembers(): ?bool
     {
         return $this->AutoSubscribeNewMembers;
     }
     /**
      * Set AutoSubscribeNewMembers value
      * @param bool $autoSubscribeNewMembers
-     * @return \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
+     * @return \StructType\EwsUnifiedGroupMailboxSettingsType
      */
-    public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
+    public function setAutoSubscribeNewMembers(?bool $autoSubscribeNewMembers = null): self
     {
         // validation for constraint: boolean
         if (!is_null($autoSubscribeNewMembers) && !is_bool($autoSubscribeNewMembers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($autoSubscribeNewMembers, true), gettype($autoSubscribeNewMembers)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($autoSubscribeNewMembers, true), gettype($autoSubscribeNewMembers)), __LINE__);
         }
         $this->AutoSubscribeNewMembers = $autoSubscribeNewMembers;
+        
         return $this;
     }
 }

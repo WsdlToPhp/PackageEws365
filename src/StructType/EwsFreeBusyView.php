@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FreeBusyView StructType
@@ -17,45 +20,45 @@ class EwsFreeBusyView extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $FreeBusyViewType;
+    protected string $FreeBusyViewType;
     /**
      * The MergedFreeBusy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MergedFreeBusy;
+    protected ?string $MergedFreeBusy = null;
     /**
      * The CalendarEventArray
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfCalendarEvent
+     * @var \ArrayType\EwsArrayOfCalendarEvent|null
      */
-    public $CalendarEventArray;
+    protected ?\ArrayType\EwsArrayOfCalendarEvent $CalendarEventArray = null;
     /**
      * The WorkingHours
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsWorkingHours
+     * @var \StructType\EwsWorkingHours|null
      */
-    public $WorkingHours;
+    protected ?\StructType\EwsWorkingHours $WorkingHours = null;
     /**
      * Constructor method for FreeBusyView
      * @uses EwsFreeBusyView::setFreeBusyViewType()
      * @uses EwsFreeBusyView::setMergedFreeBusy()
      * @uses EwsFreeBusyView::setCalendarEventArray()
      * @uses EwsFreeBusyView::setWorkingHours()
-     * @param string[] $freeBusyViewType
+     * @param array|string $freeBusyViewType
      * @param string $mergedFreeBusy
-     * @param \Ews\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray
-     * @param \Ews\StructType\EwsWorkingHours $workingHours
+     * @param \ArrayType\EwsArrayOfCalendarEvent $calendarEventArray
+     * @param \StructType\EwsWorkingHours $workingHours
      */
-    public function __construct(array $freeBusyViewType = array(), $mergedFreeBusy = null, \Ews\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray = null, \Ews\StructType\EwsWorkingHours $workingHours = null)
+    public function __construct($freeBusyViewType, ?string $mergedFreeBusy = null, ?\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray = null, ?\StructType\EwsWorkingHours $workingHours = null)
     {
         $this
             ->setFreeBusyViewType($freeBusyViewType)
@@ -65,9 +68,9 @@ class EwsFreeBusyView extends AbstractStructBase
     }
     /**
      * Get FreeBusyViewType value
-     * @return string[]
+     * @return string
      */
-    public function getFreeBusyViewType()
+    public function getFreeBusyViewType(): string
     {
         return $this->FreeBusyViewType;
     }
@@ -77,95 +80,100 @@ class EwsFreeBusyView extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFreeBusyViewTypeForArrayConstraintsFromSetFreeBusyViewType(array $values = array())
+    public static function validateFreeBusyViewTypeForArrayConstraintsFromSetFreeBusyViewType(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $freeBusyViewFreeBusyViewTypeItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsFreeBusyViewType::valueIsValid($freeBusyViewFreeBusyViewTypeItem)) {
+            if (!\EnumType\EwsFreeBusyViewType::valueIsValid($freeBusyViewFreeBusyViewTypeItem)) {
                 $invalidValues[] = is_object($freeBusyViewFreeBusyViewTypeItem) ? get_class($freeBusyViewFreeBusyViewTypeItem) : sprintf('%s(%s)', gettype($freeBusyViewFreeBusyViewTypeItem), var_export($freeBusyViewFreeBusyViewTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFreeBusyViewType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsFreeBusyViewType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsFreeBusyViewType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsFreeBusyViewType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FreeBusyViewType value
-     * @uses \Ews\EnumType\EwsFreeBusyViewType::valueIsValid()
-     * @uses \Ews\EnumType\EwsFreeBusyViewType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $freeBusyViewType
-     * @return \Ews\StructType\EwsFreeBusyView
+     * @uses \EnumType\EwsFreeBusyViewType::valueIsValid()
+     * @uses \EnumType\EwsFreeBusyViewType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $freeBusyViewType
+     * @return \StructType\EwsFreeBusyView
      */
-    public function setFreeBusyViewType(array $freeBusyViewType = array())
+    public function setFreeBusyViewType($freeBusyViewType): self
     {
         // validation for constraint: list
-        if ('' !== ($freeBusyViewTypeArrayErrorMessage = self::validateFreeBusyViewTypeForArrayConstraintsFromSetFreeBusyViewType($freeBusyViewType))) {
-            throw new \InvalidArgumentException($freeBusyViewTypeArrayErrorMessage, __LINE__);
+        if ('' !== ($freeBusyViewTypeArrayErrorMessage = self::validateFreeBusyViewTypeForArrayConstraintsFromSetFreeBusyViewType(is_string($freeBusyViewType) ? explode(' ', $freeBusyViewType) : $freeBusyViewType))) {
+            throw new InvalidArgumentException($freeBusyViewTypeArrayErrorMessage, __LINE__);
         }
-        $this->FreeBusyViewType = is_array($freeBusyViewType) ? implode(' ', $freeBusyViewType) : null;
+        $this->FreeBusyViewType = is_array($freeBusyViewType) ? implode(' ', $freeBusyViewType) : $freeBusyViewType;
+        
         return $this;
     }
     /**
      * Get MergedFreeBusy value
      * @return string|null
      */
-    public function getMergedFreeBusy()
+    public function getMergedFreeBusy(): ?string
     {
         return $this->MergedFreeBusy;
     }
     /**
      * Set MergedFreeBusy value
      * @param string $mergedFreeBusy
-     * @return \Ews\StructType\EwsFreeBusyView
+     * @return \StructType\EwsFreeBusyView
      */
-    public function setMergedFreeBusy($mergedFreeBusy = null)
+    public function setMergedFreeBusy(?string $mergedFreeBusy = null): self
     {
         // validation for constraint: string
         if (!is_null($mergedFreeBusy) && !is_string($mergedFreeBusy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mergedFreeBusy, true), gettype($mergedFreeBusy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mergedFreeBusy, true), gettype($mergedFreeBusy)), __LINE__);
         }
         $this->MergedFreeBusy = $mergedFreeBusy;
+        
         return $this;
     }
     /**
      * Get CalendarEventArray value
-     * @return \Ews\ArrayType\EwsArrayOfCalendarEvent|null
+     * @return \ArrayType\EwsArrayOfCalendarEvent|null
      */
-    public function getCalendarEventArray()
+    public function getCalendarEventArray(): ?\ArrayType\EwsArrayOfCalendarEvent
     {
         return $this->CalendarEventArray;
     }
     /**
      * Set CalendarEventArray value
-     * @param \Ews\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray
-     * @return \Ews\StructType\EwsFreeBusyView
+     * @param \ArrayType\EwsArrayOfCalendarEvent $calendarEventArray
+     * @return \StructType\EwsFreeBusyView
      */
-    public function setCalendarEventArray(\Ews\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray = null)
+    public function setCalendarEventArray(?\ArrayType\EwsArrayOfCalendarEvent $calendarEventArray = null): self
     {
         $this->CalendarEventArray = $calendarEventArray;
+        
         return $this;
     }
     /**
      * Get WorkingHours value
-     * @return \Ews\StructType\EwsWorkingHours|null
+     * @return \StructType\EwsWorkingHours|null
      */
-    public function getWorkingHours()
+    public function getWorkingHours(): ?\StructType\EwsWorkingHours
     {
         return $this->WorkingHours;
     }
     /**
      * Set WorkingHours value
-     * @param \Ews\StructType\EwsWorkingHours $workingHours
-     * @return \Ews\StructType\EwsFreeBusyView
+     * @param \StructType\EwsWorkingHours $workingHours
+     * @return \StructType\EwsFreeBusyView
      */
-    public function setWorkingHours(\Ews\StructType\EwsWorkingHours $workingHours = null)
+    public function setWorkingHours(?\StructType\EwsWorkingHours $workingHours = null): self
     {
         $this->WorkingHours = $workingHours;
+        
         return $this;
     }
 }

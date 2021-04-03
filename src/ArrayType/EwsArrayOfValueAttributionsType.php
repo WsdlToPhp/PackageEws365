@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfValueAttributionsType ArrayType
@@ -19,13 +22,13 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $Attribution;
+    protected array $Attribution = [];
     /**
      * Constructor method for ArrayOfValueAttributionsType
      * @uses EwsArrayOfValueAttributionsType::setAttribution()
      * @param string[] $attribution
      */
-    public function __construct(array $attribution = array())
+    public function __construct(array $attribution)
     {
         $this
             ->setAttribution($attribution);
@@ -34,7 +37,7 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * Get Attribution value
      * @return string[]
      */
-    public function getAttribution()
+    public function getAttribution(): array
     {
         return $this->Attribution;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAttributionForArrayConstraintsFromSetAttribution(array $values = array())
+    public static function validateAttributionForArrayConstraintsFromSetAttribution(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,44 +61,31 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
             $message = sprintf('The Attribution property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Attribution value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $attribution
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function setAttribution(array $attribution = array())
+    public function setAttribution(array $attribution): self
     {
         // validation for constraint: array
         if ('' !== ($attributionArrayErrorMessage = self::validateAttributionForArrayConstraintsFromSetAttribution($attribution))) {
-            throw new \InvalidArgumentException($attributionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($attributionArrayErrorMessage, __LINE__);
         }
         $this->Attribution = $attribution;
-        return $this;
-    }
-    /**
-     * Add item to Attribution value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
-     */
-    public function addToAttribution($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Attribution[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -131,9 +121,9 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfValueAttributionsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Attribution
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Attribution';
     }

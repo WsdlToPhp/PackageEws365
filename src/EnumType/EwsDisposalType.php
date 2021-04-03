@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DisposalType EnumType
@@ -34,12 +36,12 @@ class EwsDisposalType extends AbstractStructEnumBase
      * @uses self::VALUE_MOVE_TO_DELETED_ITEMS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_HARD_DELETE,
             self::VALUE_SOFT_DELETE,
             self::VALUE_MOVE_TO_DELETED_ITEMS,
-        );
+        ];
     }
 }

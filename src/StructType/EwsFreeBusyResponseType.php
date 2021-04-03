@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FreeBusyResponseType StructType
@@ -17,25 +20,25 @@ class EwsFreeBusyResponseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $ResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $ResponseMessage = null;
     /**
      * The FreeBusyView
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFreeBusyView
+     * @var \StructType\EwsFreeBusyView|null
      */
-    public $FreeBusyView;
+    protected ?\StructType\EwsFreeBusyView $FreeBusyView = null;
     /**
      * Constructor method for FreeBusyResponseType
      * @uses EwsFreeBusyResponseType::setResponseMessage()
      * @uses EwsFreeBusyResponseType::setFreeBusyView()
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @param \Ews\StructType\EwsFreeBusyView $freeBusyView
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @param \StructType\EwsFreeBusyView $freeBusyView
      */
-    public function __construct(\Ews\StructType\EwsResponseMessageType $responseMessage = null, \Ews\StructType\EwsFreeBusyView $freeBusyView = null)
+    public function __construct(?\StructType\EwsResponseMessageType $responseMessage = null, ?\StructType\EwsFreeBusyView $freeBusyView = null)
     {
         $this
             ->setResponseMessage($responseMessage)
@@ -43,38 +46,40 @@ class EwsFreeBusyResponseType extends AbstractStructBase
     }
     /**
      * Get ResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getResponseMessage()
+    public function getResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return $this->ResponseMessage;
     }
     /**
      * Set ResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @return \Ews\StructType\EwsFreeBusyResponseType
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @return \StructType\EwsFreeBusyResponseType
      */
-    public function setResponseMessage(\Ews\StructType\EwsResponseMessageType $responseMessage = null)
+    public function setResponseMessage(?\StructType\EwsResponseMessageType $responseMessage = null): self
     {
         $this->ResponseMessage = $responseMessage;
+        
         return $this;
     }
     /**
      * Get FreeBusyView value
-     * @return \Ews\StructType\EwsFreeBusyView|null
+     * @return \StructType\EwsFreeBusyView|null
      */
-    public function getFreeBusyView()
+    public function getFreeBusyView(): ?\StructType\EwsFreeBusyView
     {
         return $this->FreeBusyView;
     }
     /**
      * Set FreeBusyView value
-     * @param \Ews\StructType\EwsFreeBusyView $freeBusyView
-     * @return \Ews\StructType\EwsFreeBusyResponseType
+     * @param \StructType\EwsFreeBusyView $freeBusyView
+     * @return \StructType\EwsFreeBusyResponseType
      */
-    public function setFreeBusyView(\Ews\StructType\EwsFreeBusyView $freeBusyView = null)
+    public function setFreeBusyView(?\StructType\EwsFreeBusyView $freeBusyView = null): self
     {
         $this->FreeBusyView = $freeBusyView;
+        
         return $this;
     }
 }

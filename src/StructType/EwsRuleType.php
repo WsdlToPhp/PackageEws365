@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleType StructType
@@ -21,7 +24,7 @@ class EwsRuleType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayName;
+    protected string $DisplayName;
     /**
      * The Priority
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsRuleType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $Priority;
+    protected int $Priority;
     /**
      * The IsEnabled
      * Meta information extracted from the WSDL
@@ -37,55 +40,55 @@ class EwsRuleType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsEnabled;
+    protected bool $IsEnabled;
     /**
      * The RuleId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $RuleId;
+    protected ?string $RuleId = null;
     /**
      * The IsNotSupported
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsNotSupported;
+    protected ?bool $IsNotSupported = null;
     /**
      * The IsInError
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsInError;
+    protected ?bool $IsInError = null;
     /**
      * The Conditions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRulePredicatesType
+     * @var \StructType\EwsRulePredicatesType|null
      */
-    public $Conditions;
+    protected ?\StructType\EwsRulePredicatesType $Conditions = null;
     /**
      * The Exceptions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRulePredicatesType
+     * @var \StructType\EwsRulePredicatesType|null
      */
-    public $Exceptions;
+    protected ?\StructType\EwsRulePredicatesType $Exceptions = null;
     /**
      * The Actions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRuleActionsType
+     * @var \StructType\EwsRuleActionsType|null
      */
-    public $Actions;
+    protected ?\StructType\EwsRuleActionsType $Actions = null;
     /**
      * Constructor method for RuleType
      * @uses EwsRuleType::setDisplayName()
@@ -103,11 +106,11 @@ class EwsRuleType extends AbstractStructBase
      * @param string $ruleId
      * @param bool $isNotSupported
      * @param bool $isInError
-     * @param \Ews\StructType\EwsRulePredicatesType $conditions
-     * @param \Ews\StructType\EwsRulePredicatesType $exceptions
-     * @param \Ews\StructType\EwsRuleActionsType $actions
+     * @param \StructType\EwsRulePredicatesType $conditions
+     * @param \StructType\EwsRulePredicatesType $exceptions
+     * @param \StructType\EwsRuleActionsType $actions
      */
-    public function __construct($displayName = null, $priority = null, $isEnabled = null, $ruleId = null, $isNotSupported = null, $isInError = null, \Ews\StructType\EwsRulePredicatesType $conditions = null, \Ews\StructType\EwsRulePredicatesType $exceptions = null, \Ews\StructType\EwsRuleActionsType $actions = null)
+    public function __construct(string $displayName, int $priority, bool $isEnabled, ?string $ruleId = null, ?bool $isNotSupported = null, ?bool $isInError = null, ?\StructType\EwsRulePredicatesType $conditions = null, ?\StructType\EwsRulePredicatesType $exceptions = null, ?\StructType\EwsRuleActionsType $actions = null)
     {
         $this
             ->setDisplayName($displayName)
@@ -124,186 +127,195 @@ class EwsRuleType extends AbstractStructBase
      * Get DisplayName value
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(string $displayName): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get Priority value
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return $this->Priority;
     }
     /**
      * Set Priority value
      * @param int $priority
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setPriority($priority = null)
+    public function setPriority(int $priority): self
     {
         // validation for constraint: int
         if (!is_null($priority) && !(is_int($priority) || ctype_digit($priority))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($priority, true), gettype($priority)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($priority, true), gettype($priority)), __LINE__);
         }
         $this->Priority = $priority;
+        
         return $this;
     }
     /**
      * Get IsEnabled value
      * @return bool
      */
-    public function getIsEnabled()
+    public function getIsEnabled(): bool
     {
         return $this->IsEnabled;
     }
     /**
      * Set IsEnabled value
      * @param bool $isEnabled
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setIsEnabled($isEnabled = null)
+    public function setIsEnabled(bool $isEnabled): self
     {
         // validation for constraint: boolean
         if (!is_null($isEnabled) && !is_bool($isEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEnabled, true), gettype($isEnabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEnabled, true), gettype($isEnabled)), __LINE__);
         }
         $this->IsEnabled = $isEnabled;
+        
         return $this;
     }
     /**
      * Get RuleId value
      * @return string|null
      */
-    public function getRuleId()
+    public function getRuleId(): ?string
     {
         return $this->RuleId;
     }
     /**
      * Set RuleId value
      * @param string $ruleId
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setRuleId($ruleId = null)
+    public function setRuleId(?string $ruleId = null): self
     {
         // validation for constraint: string
         if (!is_null($ruleId) && !is_string($ruleId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ruleId, true), gettype($ruleId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ruleId, true), gettype($ruleId)), __LINE__);
         }
         $this->RuleId = $ruleId;
+        
         return $this;
     }
     /**
      * Get IsNotSupported value
      * @return bool|null
      */
-    public function getIsNotSupported()
+    public function getIsNotSupported(): ?bool
     {
         return $this->IsNotSupported;
     }
     /**
      * Set IsNotSupported value
      * @param bool $isNotSupported
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setIsNotSupported($isNotSupported = null)
+    public function setIsNotSupported(?bool $isNotSupported = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isNotSupported) && !is_bool($isNotSupported)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNotSupported, true), gettype($isNotSupported)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNotSupported, true), gettype($isNotSupported)), __LINE__);
         }
         $this->IsNotSupported = $isNotSupported;
+        
         return $this;
     }
     /**
      * Get IsInError value
      * @return bool|null
      */
-    public function getIsInError()
+    public function getIsInError(): ?bool
     {
         return $this->IsInError;
     }
     /**
      * Set IsInError value
      * @param bool $isInError
-     * @return \Ews\StructType\EwsRuleType
+     * @return \StructType\EwsRuleType
      */
-    public function setIsInError($isInError = null)
+    public function setIsInError(?bool $isInError = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isInError) && !is_bool($isInError)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInError, true), gettype($isInError)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInError, true), gettype($isInError)), __LINE__);
         }
         $this->IsInError = $isInError;
+        
         return $this;
     }
     /**
      * Get Conditions value
-     * @return \Ews\StructType\EwsRulePredicatesType|null
+     * @return \StructType\EwsRulePredicatesType|null
      */
-    public function getConditions()
+    public function getConditions(): ?\StructType\EwsRulePredicatesType
     {
         return $this->Conditions;
     }
     /**
      * Set Conditions value
-     * @param \Ews\StructType\EwsRulePredicatesType $conditions
-     * @return \Ews\StructType\EwsRuleType
+     * @param \StructType\EwsRulePredicatesType $conditions
+     * @return \StructType\EwsRuleType
      */
-    public function setConditions(\Ews\StructType\EwsRulePredicatesType $conditions = null)
+    public function setConditions(?\StructType\EwsRulePredicatesType $conditions = null): self
     {
         $this->Conditions = $conditions;
+        
         return $this;
     }
     /**
      * Get Exceptions value
-     * @return \Ews\StructType\EwsRulePredicatesType|null
+     * @return \StructType\EwsRulePredicatesType|null
      */
-    public function getExceptions()
+    public function getExceptions(): ?\StructType\EwsRulePredicatesType
     {
         return $this->Exceptions;
     }
     /**
      * Set Exceptions value
-     * @param \Ews\StructType\EwsRulePredicatesType $exceptions
-     * @return \Ews\StructType\EwsRuleType
+     * @param \StructType\EwsRulePredicatesType $exceptions
+     * @return \StructType\EwsRuleType
      */
-    public function setExceptions(\Ews\StructType\EwsRulePredicatesType $exceptions = null)
+    public function setExceptions(?\StructType\EwsRulePredicatesType $exceptions = null): self
     {
         $this->Exceptions = $exceptions;
+        
         return $this;
     }
     /**
      * Get Actions value
-     * @return \Ews\StructType\EwsRuleActionsType|null
+     * @return \StructType\EwsRuleActionsType|null
      */
-    public function getActions()
+    public function getActions(): ?\StructType\EwsRuleActionsType
     {
         return $this->Actions;
     }
     /**
      * Set Actions value
-     * @param \Ews\StructType\EwsRuleActionsType $actions
-     * @return \Ews\StructType\EwsRuleType
+     * @param \StructType\EwsRuleActionsType $actions
+     * @return \StructType\EwsRuleType
      */
-    public function setActions(\Ews\StructType\EwsRuleActionsType $actions = null)
+    public function setActions(?\StructType\EwsRuleActionsType $actions = null): self
     {
         $this->Actions = $actions;
+        
         return $this;
     }
 }

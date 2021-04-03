@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddEntityFeedbackType StructType
@@ -17,35 +20,36 @@ class EwsAddEntityFeedbackType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
+     * @var \ArrayType\EwsArrayOfEntityFeedbackEntry
      */
-    public $EntityFeedbackEntries;
+    protected \ArrayType\EwsArrayOfEntityFeedbackEntry $EntityFeedbackEntries;
     /**
      * Constructor method for AddEntityFeedbackType
      * @uses EwsAddEntityFeedbackType::setEntityFeedbackEntries()
-     * @param \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries
+     * @param \ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries = null)
+    public function __construct(\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries)
     {
         $this
             ->setEntityFeedbackEntries($entityFeedbackEntries);
     }
     /**
      * Get EntityFeedbackEntries value
-     * @return \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
+     * @return \ArrayType\EwsArrayOfEntityFeedbackEntry
      */
-    public function getEntityFeedbackEntries()
+    public function getEntityFeedbackEntries(): \ArrayType\EwsArrayOfEntityFeedbackEntry
     {
         return $this->EntityFeedbackEntries;
     }
     /**
      * Set EntityFeedbackEntries value
-     * @param \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries
-     * @return \Ews\StructType\EwsAddEntityFeedbackType
+     * @param \ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries
+     * @return \StructType\EwsAddEntityFeedbackType
      */
-    public function setEntityFeedbackEntries(\Ews\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries = null)
+    public function setEntityFeedbackEntries(\ArrayType\EwsArrayOfEntityFeedbackEntry $entityFeedbackEntries): self
     {
         $this->EntityFeedbackEntries = $entityFeedbackEntries;
+        
         return $this;
     }
 }

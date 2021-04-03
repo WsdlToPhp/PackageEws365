@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfParticipantActivities ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
      * The ParticipantActivity
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsParticipantActivity[]
+     * @var \StructType\EwsParticipantActivity[]
      */
-    public $ParticipantActivity;
+    protected array $ParticipantActivity = [];
     /**
      * Constructor method for NonEmptyArrayOfParticipantActivities
      * @uses EwsNonEmptyArrayOfParticipantActivities::setParticipantActivity()
-     * @param \Ews\StructType\EwsParticipantActivity[] $participantActivity
+     * @param \StructType\EwsParticipantActivity[] $participantActivity
      */
-    public function __construct(array $participantActivity = array())
+    public function __construct(array $participantActivity = [])
     {
         $this
             ->setParticipantActivity($participantActivity);
     }
     /**
      * Get ParticipantActivity value
-     * @return \Ews\StructType\EwsParticipantActivity[]|null
+     * @return \StructType\EwsParticipantActivity[]
      */
-    public function getParticipantActivity()
+    public function getParticipantActivity(): array
     {
         return $this->ParticipantActivity;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateParticipantActivityForArrayConstraintsFromSetParticipantActivity(array $values = array())
+    public static function validateParticipantActivityForArrayConstraintsFromSetParticipantActivity(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfParticipantActivitiesParticipantActivityItem instanceof \Ews\StructType\EwsParticipantActivity) {
+            if (!$nonEmptyArrayOfParticipantActivitiesParticipantActivityItem instanceof \StructType\EwsParticipantActivity) {
                 $invalidValues[] = is_object($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) ? get_class($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem), var_export($nonEmptyArrayOfParticipantActivitiesParticipantActivityItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ParticipantActivity property can only contain items of type \Ews\StructType\EwsParticipantActivity, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ParticipantActivity property can only contain items of type \StructType\EwsParticipantActivity, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ParticipantActivity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsParticipantActivity[] $participantActivity
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsParticipantActivity[] $participantActivity
+     * @return \ArrayType\EwsNonEmptyArrayOfParticipantActivities
      */
-    public function setParticipantActivity(array $participantActivity = array())
+    public function setParticipantActivity(array $participantActivity = []): self
     {
         // validation for constraint: array
         if ('' !== ($participantActivityArrayErrorMessage = self::validateParticipantActivityForArrayConstraintsFromSetParticipantActivity($participantActivity))) {
-            throw new \InvalidArgumentException($participantActivityArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($participantActivityArrayErrorMessage, __LINE__);
         }
         $this->ParticipantActivity = $participantActivity;
-        return $this;
-    }
-    /**
-     * Add item to ParticipantActivity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsParticipantActivity $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
-     */
-    public function addToParticipantActivity(\Ews\StructType\EwsParticipantActivity $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsParticipantActivity) {
-            throw new \InvalidArgumentException(sprintf('The ParticipantActivity property can only contain items of type \Ews\StructType\EwsParticipantActivity, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ParticipantActivity[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsParticipantActivity|null
+     * @return \StructType\EwsParticipantActivity|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsParticipantActivity
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsParticipantActivity|null
+     * @return \StructType\EwsParticipantActivity|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsParticipantActivity
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsParticipantActivity|null
+     * @return \StructType\EwsParticipantActivity|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsParticipantActivity
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsParticipantActivity|null
+     * @return \StructType\EwsParticipantActivity|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsParticipantActivity
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfParticipantActivities extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsParticipantActivity|null
+     * @return \StructType\EwsParticipantActivity|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsParticipantActivity
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsParticipantActivity $item
+     * @return \ArrayType\EwsNonEmptyArrayOfParticipantActivities
+     */
+    public function add(\StructType\EwsParticipantActivity $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ParticipantActivity
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ParticipantActivity';
     }

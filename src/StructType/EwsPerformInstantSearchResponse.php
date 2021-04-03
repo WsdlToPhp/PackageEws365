@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PerformInstantSearchResponse StructType
@@ -19,35 +22,36 @@ class EwsPerformInstantSearchResponse extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsInstantSearchPayloadType
+     * @var \StructType\EwsInstantSearchPayloadType|null
      */
-    public $Payload;
+    protected ?\StructType\EwsInstantSearchPayloadType $Payload = null;
     /**
      * Constructor method for PerformInstantSearchResponse
      * @uses EwsPerformInstantSearchResponse::setPayload()
-     * @param \Ews\StructType\EwsInstantSearchPayloadType $payload
+     * @param \StructType\EwsInstantSearchPayloadType $payload
      */
-    public function __construct(\Ews\StructType\EwsInstantSearchPayloadType $payload = null)
+    public function __construct(?\StructType\EwsInstantSearchPayloadType $payload = null)
     {
         $this
             ->setPayload($payload);
     }
     /**
      * Get Payload value
-     * @return \Ews\StructType\EwsInstantSearchPayloadType|null
+     * @return \StructType\EwsInstantSearchPayloadType|null
      */
-    public function getPayload()
+    public function getPayload(): ?\StructType\EwsInstantSearchPayloadType
     {
         return $this->Payload;
     }
     /**
      * Set Payload value
-     * @param \Ews\StructType\EwsInstantSearchPayloadType $payload
-     * @return \Ews\StructType\EwsPerformInstantSearchResponse
+     * @param \StructType\EwsInstantSearchPayloadType $payload
+     * @return \StructType\EwsPerformInstantSearchResponse
      */
-    public function setPayload(\Ews\StructType\EwsInstantSearchPayloadType $payload = null)
+    public function setPayload(?\StructType\EwsInstantSearchPayloadType $payload = null): self
     {
         $this->Payload = $payload;
+        
         return $this;
     }
 }

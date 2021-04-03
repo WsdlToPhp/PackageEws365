@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Unpin ServiceType
@@ -15,46 +18,47 @@ class EwsUnpin extends SoapClientBase
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsUnpin
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named UnpinTeamMailbox
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsUnpinTeamMailboxRequestType $request
-     * @return \Ews\StructType\EwsUnpinTeamMailboxResponseMessageType|bool
+     * @param \StructType\EwsUnpinTeamMailboxRequestType $request
+     * @return \StructType\EwsUnpinTeamMailboxResponseMessageType|bool
      */
-    public function UnpinTeamMailbox(\Ews\StructType\EwsUnpinTeamMailboxRequestType $request)
+    public function UnpinTeamMailbox(\StructType\EwsUnpinTeamMailboxRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('UnpinTeamMailbox', array(
+            $this->setResult($resultUnpinTeamMailbox = $this->getSoapClient()->__soapCall('UnpinTeamMailbox', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultUnpinTeamMailbox;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsUnpinTeamMailboxResponseMessageType
+     * @return \StructType\EwsUnpinTeamMailboxResponseMessageType
      */
     public function getResult()
     {

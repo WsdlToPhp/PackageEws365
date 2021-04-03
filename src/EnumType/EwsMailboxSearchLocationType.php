@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MailboxSearchLocationType EnumType
@@ -34,12 +36,12 @@ class EwsMailboxSearchLocationType extends AbstractStructEnumBase
      * @uses self::VALUE_ALL
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_PRIMARY_ONLY,
             self::VALUE_ARCHIVE_ONLY,
             self::VALUE_ALL,
-        );
+        ];
     }
 }

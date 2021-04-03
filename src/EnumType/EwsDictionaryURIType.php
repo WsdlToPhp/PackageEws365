@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DictionaryURIType EnumType
@@ -76,9 +78,9 @@ class EwsDictionaryURIType extends AbstractStructEnumBase
      * @uses self::VALUE_DISTRIBUTIONLIST_MEMBERS_MEMBER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ITEM_INTERNET_MESSAGE_HEADER,
             self::VALUE_CONTACTS_IM_ADDRESS,
             self::VALUE_CONTACTS_PHYSICAL_ADDRESS_STREET,
@@ -89,6 +91,6 @@ class EwsDictionaryURIType extends AbstractStructEnumBase
             self::VALUE_CONTACTS_PHONE_NUMBER,
             self::VALUE_CONTACTS_EMAIL_ADDRESS,
             self::VALUE_DISTRIBUTIONLIST_MEMBERS_MEMBER,
-        );
+        ];
     }
 }

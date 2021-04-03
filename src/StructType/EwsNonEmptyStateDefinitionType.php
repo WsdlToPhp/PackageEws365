@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyStateDefinitionType StructType
@@ -18,37 +21,37 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * - choice: DeletedOccurrenceStateDefinition | DeleteFromFolderStateDefinition | LocationBasedStateDefinition
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
+     * @var \StructType\EwsDeletedOccurrenceStateDefinitionType|null
      */
-    public $DeletedOccurrenceStateDefinition;
+    protected ?\StructType\EwsDeletedOccurrenceStateDefinitionType $DeletedOccurrenceStateDefinition = null;
     /**
      * The DeleteFromFolderStateDefinition
      * Meta information extracted from the WSDL
      * - choice: DeletedOccurrenceStateDefinition | DeleteFromFolderStateDefinition | LocationBasedStateDefinition
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsDeleteFromFolderStateDefinitionType
+     * @var \StructType\EwsDeleteFromFolderStateDefinitionType|null
      */
-    public $DeleteFromFolderStateDefinition;
+    protected ?\StructType\EwsDeleteFromFolderStateDefinitionType $DeleteFromFolderStateDefinition = null;
     /**
      * The LocationBasedStateDefinition
      * Meta information extracted from the WSDL
      * - choice: DeletedOccurrenceStateDefinition | DeleteFromFolderStateDefinition | LocationBasedStateDefinition
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsLocationBasedStateDefinitionType
+     * @var \StructType\EwsLocationBasedStateDefinitionType|null
      */
-    public $LocationBasedStateDefinition;
+    protected ?\StructType\EwsLocationBasedStateDefinitionType $LocationBasedStateDefinition = null;
     /**
      * Constructor method for NonEmptyStateDefinitionType
      * @uses EwsNonEmptyStateDefinitionType::setDeletedOccurrenceStateDefinition()
      * @uses EwsNonEmptyStateDefinitionType::setDeleteFromFolderStateDefinition()
      * @uses EwsNonEmptyStateDefinitionType::setLocationBasedStateDefinition()
-     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
-     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
-     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
+     * @param \StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
+     * @param \StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
+     * @param \StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
      */
-    public function __construct(\Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null, \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null, \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null)
+    public function __construct(?\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null, ?\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null, ?\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null)
     {
         $this
             ->setDeletedOccurrenceStateDefinition($deletedOccurrenceStateDefinition)
@@ -57,9 +60,9 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
     }
     /**
      * Get DeletedOccurrenceStateDefinition value
-     * @return \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType|null
+     * @return \StructType\EwsDeletedOccurrenceStateDefinitionType|null
      */
-    public function getDeletedOccurrenceStateDefinition()
+    public function getDeletedOccurrenceStateDefinition(): ?\StructType\EwsDeletedOccurrenceStateDefinitionType
     {
         return isset($this->DeletedOccurrenceStateDefinition) ? $this->DeletedOccurrenceStateDefinition : null;
     }
@@ -70,7 +73,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeletedOccurrenceStateDefinitionForChoiceConstraintsFromSetDeletedOccurrenceStateDefinition($value)
+    public function validateDeletedOccurrenceStateDefinitionForChoiceConstraintsFromSetDeletedOccurrenceStateDefinition($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -83,12 +86,13 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeletedOccurrenceStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: DeletedOccurrenceStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeletedOccurrenceStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: DeletedOccurrenceStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -96,28 +100,29 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
-     * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition
+     * @return \StructType\EwsNonEmptyStateDefinitionType
      */
-    public function setDeletedOccurrenceStateDefinition(\Ews\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null)
+    public function setDeletedOccurrenceStateDefinition(?\StructType\EwsDeletedOccurrenceStateDefinitionType $deletedOccurrenceStateDefinition = null): self
     {
         // validation for constraint: choice(DeletedOccurrenceStateDefinition, DeleteFromFolderStateDefinition, LocationBasedStateDefinition)
         if ('' !== ($deletedOccurrenceStateDefinitionChoiceErrorMessage = self::validateDeletedOccurrenceStateDefinitionForChoiceConstraintsFromSetDeletedOccurrenceStateDefinition($deletedOccurrenceStateDefinition))) {
-            throw new \InvalidArgumentException($deletedOccurrenceStateDefinitionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deletedOccurrenceStateDefinitionChoiceErrorMessage, __LINE__);
         }
         if (is_null($deletedOccurrenceStateDefinition) || (is_array($deletedOccurrenceStateDefinition) && empty($deletedOccurrenceStateDefinition))) {
             unset($this->DeletedOccurrenceStateDefinition);
         } else {
             $this->DeletedOccurrenceStateDefinition = $deletedOccurrenceStateDefinition;
         }
+        
         return $this;
     }
     /**
      * Get DeleteFromFolderStateDefinition value
-     * @return \Ews\StructType\EwsDeleteFromFolderStateDefinitionType|null
+     * @return \StructType\EwsDeleteFromFolderStateDefinitionType|null
      */
-    public function getDeleteFromFolderStateDefinition()
+    public function getDeleteFromFolderStateDefinition(): ?\StructType\EwsDeleteFromFolderStateDefinitionType
     {
         return isset($this->DeleteFromFolderStateDefinition) ? $this->DeleteFromFolderStateDefinition : null;
     }
@@ -128,7 +133,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteFromFolderStateDefinitionForChoiceConstraintsFromSetDeleteFromFolderStateDefinition($value)
+    public function validateDeleteFromFolderStateDefinitionForChoiceConstraintsFromSetDeleteFromFolderStateDefinition($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -141,12 +146,13 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteFromFolderStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFromFolderStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteFromFolderStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFromFolderStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -154,28 +160,29 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
-     * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition
+     * @return \StructType\EwsNonEmptyStateDefinitionType
      */
-    public function setDeleteFromFolderStateDefinition(\Ews\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null)
+    public function setDeleteFromFolderStateDefinition(?\StructType\EwsDeleteFromFolderStateDefinitionType $deleteFromFolderStateDefinition = null): self
     {
         // validation for constraint: choice(DeletedOccurrenceStateDefinition, DeleteFromFolderStateDefinition, LocationBasedStateDefinition)
         if ('' !== ($deleteFromFolderStateDefinitionChoiceErrorMessage = self::validateDeleteFromFolderStateDefinitionForChoiceConstraintsFromSetDeleteFromFolderStateDefinition($deleteFromFolderStateDefinition))) {
-            throw new \InvalidArgumentException($deleteFromFolderStateDefinitionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteFromFolderStateDefinitionChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteFromFolderStateDefinition) || (is_array($deleteFromFolderStateDefinition) && empty($deleteFromFolderStateDefinition))) {
             unset($this->DeleteFromFolderStateDefinition);
         } else {
             $this->DeleteFromFolderStateDefinition = $deleteFromFolderStateDefinition;
         }
+        
         return $this;
     }
     /**
      * Get LocationBasedStateDefinition value
-     * @return \Ews\StructType\EwsLocationBasedStateDefinitionType|null
+     * @return \StructType\EwsLocationBasedStateDefinitionType|null
      */
-    public function getLocationBasedStateDefinition()
+    public function getLocationBasedStateDefinition(): ?\StructType\EwsLocationBasedStateDefinitionType
     {
         return isset($this->LocationBasedStateDefinition) ? $this->LocationBasedStateDefinition : null;
     }
@@ -186,7 +193,7 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateLocationBasedStateDefinitionForChoiceConstraintsFromSetLocationBasedStateDefinition($value)
+    public function validateLocationBasedStateDefinitionForChoiceConstraintsFromSetLocationBasedStateDefinition($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -199,12 +206,13 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property LocationBasedStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: LocationBasedStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property LocationBasedStateDefinition can\'t be set as the property %s is already set. Only one property must be set among these properties: LocationBasedStateDefinition, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -212,21 +220,22 @@ class EwsNonEmptyStateDefinitionType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
-     * @return \Ews\StructType\EwsNonEmptyStateDefinitionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition
+     * @return \StructType\EwsNonEmptyStateDefinitionType
      */
-    public function setLocationBasedStateDefinition(\Ews\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null)
+    public function setLocationBasedStateDefinition(?\StructType\EwsLocationBasedStateDefinitionType $locationBasedStateDefinition = null): self
     {
         // validation for constraint: choice(DeletedOccurrenceStateDefinition, DeleteFromFolderStateDefinition, LocationBasedStateDefinition)
         if ('' !== ($locationBasedStateDefinitionChoiceErrorMessage = self::validateLocationBasedStateDefinitionForChoiceConstraintsFromSetLocationBasedStateDefinition($locationBasedStateDefinition))) {
-            throw new \InvalidArgumentException($locationBasedStateDefinitionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($locationBasedStateDefinitionChoiceErrorMessage, __LINE__);
         }
         if (is_null($locationBasedStateDefinition) || (is_array($locationBasedStateDefinition) && empty($locationBasedStateDefinition))) {
             unset($this->LocationBasedStateDefinition);
         } else {
             $this->LocationBasedStateDefinition = $locationBasedStateDefinition;
         }
+        
         return $this;
     }
 }

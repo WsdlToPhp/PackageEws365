@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WorkingPeriod StructType
@@ -17,9 +20,9 @@ class EwsWorkingPeriod extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $DayOfWeek;
+    protected string $DayOfWeek;
     /**
      * The StartTimeInMinutes
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsWorkingPeriod extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $StartTimeInMinutes;
+    protected int $StartTimeInMinutes;
     /**
      * The EndTimeInMinutes
      * Meta information extracted from the WSDL
@@ -35,17 +38,17 @@ class EwsWorkingPeriod extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $EndTimeInMinutes;
+    protected int $EndTimeInMinutes;
     /**
      * Constructor method for WorkingPeriod
      * @uses EwsWorkingPeriod::setDayOfWeek()
      * @uses EwsWorkingPeriod::setStartTimeInMinutes()
      * @uses EwsWorkingPeriod::setEndTimeInMinutes()
-     * @param string[] $dayOfWeek
+     * @param array|string $dayOfWeek
      * @param int $startTimeInMinutes
      * @param int $endTimeInMinutes
      */
-    public function __construct(array $dayOfWeek = array(), $startTimeInMinutes = null, $endTimeInMinutes = null)
+    public function __construct($dayOfWeek, int $startTimeInMinutes, int $endTimeInMinutes)
     {
         $this
             ->setDayOfWeek($dayOfWeek)
@@ -54,9 +57,9 @@ class EwsWorkingPeriod extends AbstractStructBase
     }
     /**
      * Get DayOfWeek value
-     * @return string[]
+     * @return string
      */
-    public function getDayOfWeek()
+    public function getDayOfWeek(): string
     {
         return $this->DayOfWeek;
     }
@@ -66,81 +69,85 @@ class EwsWorkingPeriod extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDayOfWeekForArrayConstraintsFromSetDayOfWeek(array $values = array())
+    public static function validateDayOfWeekForArrayConstraintsFromSetDayOfWeek(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $workingPeriodDayOfWeekItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($workingPeriodDayOfWeekItem)) {
+            if (!\EnumType\EwsDayOfWeekType::valueIsValid($workingPeriodDayOfWeekItem)) {
                 $invalidValues[] = is_object($workingPeriodDayOfWeekItem) ? get_class($workingPeriodDayOfWeekItem) : sprintf('%s(%s)', gettype($workingPeriodDayOfWeekItem), var_export($workingPeriodDayOfWeekItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsDayOfWeekType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DayOfWeek value
-     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $dayOfWeek
-     * @return \Ews\StructType\EwsWorkingPeriod
+     * @uses \EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $dayOfWeek
+     * @return \StructType\EwsWorkingPeriod
      */
-    public function setDayOfWeek(array $dayOfWeek = array())
+    public function setDayOfWeek($dayOfWeek): self
     {
         // validation for constraint: list
-        if ('' !== ($dayOfWeekArrayErrorMessage = self::validateDayOfWeekForArrayConstraintsFromSetDayOfWeek($dayOfWeek))) {
-            throw new \InvalidArgumentException($dayOfWeekArrayErrorMessage, __LINE__);
+        if ('' !== ($dayOfWeekArrayErrorMessage = self::validateDayOfWeekForArrayConstraintsFromSetDayOfWeek(is_string($dayOfWeek) ? explode(' ', $dayOfWeek) : $dayOfWeek))) {
+            throw new InvalidArgumentException($dayOfWeekArrayErrorMessage, __LINE__);
         }
-        $this->DayOfWeek = is_array($dayOfWeek) ? implode(' ', $dayOfWeek) : null;
+        $this->DayOfWeek = is_array($dayOfWeek) ? implode(' ', $dayOfWeek) : $dayOfWeek;
+        
         return $this;
     }
     /**
      * Get StartTimeInMinutes value
      * @return int
      */
-    public function getStartTimeInMinutes()
+    public function getStartTimeInMinutes(): int
     {
         return $this->StartTimeInMinutes;
     }
     /**
      * Set StartTimeInMinutes value
      * @param int $startTimeInMinutes
-     * @return \Ews\StructType\EwsWorkingPeriod
+     * @return \StructType\EwsWorkingPeriod
      */
-    public function setStartTimeInMinutes($startTimeInMinutes = null)
+    public function setStartTimeInMinutes(int $startTimeInMinutes): self
     {
         // validation for constraint: int
         if (!is_null($startTimeInMinutes) && !(is_int($startTimeInMinutes) || ctype_digit($startTimeInMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
         }
         $this->StartTimeInMinutes = $startTimeInMinutes;
+        
         return $this;
     }
     /**
      * Get EndTimeInMinutes value
      * @return int
      */
-    public function getEndTimeInMinutes()
+    public function getEndTimeInMinutes(): int
     {
         return $this->EndTimeInMinutes;
     }
     /**
      * Set EndTimeInMinutes value
      * @param int $endTimeInMinutes
-     * @return \Ews\StructType\EwsWorkingPeriod
+     * @return \StructType\EwsWorkingPeriod
      */
-    public function setEndTimeInMinutes($endTimeInMinutes = null)
+    public function setEndTimeInMinutes(int $endTimeInMinutes): self
     {
         // validation for constraint: int
         if (!is_null($endTimeInMinutes) && !(is_int($endTimeInMinutes) || ctype_digit($endTimeInMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
         }
         $this->EndTimeInMinutes = $endTimeInMinutes;
+        
         return $this;
     }
 }

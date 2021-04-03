@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArrayOfAttachmentsType StructType
@@ -18,37 +21,37 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * - choice: ItemAttachment | FileAttachment | ReferenceAttachment
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsItemAttachmentType
+     * @var \StructType\EwsItemAttachmentType|null
      */
-    public $ItemAttachment;
+    protected ?\StructType\EwsItemAttachmentType $ItemAttachment = null;
     /**
      * The FileAttachment
      * Meta information extracted from the WSDL
      * - choice: ItemAttachment | FileAttachment | ReferenceAttachment
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsFileAttachmentType
+     * @var \StructType\EwsFileAttachmentType|null
      */
-    public $FileAttachment;
+    protected ?\StructType\EwsFileAttachmentType $FileAttachment = null;
     /**
      * The ReferenceAttachment
      * Meta information extracted from the WSDL
      * - choice: ItemAttachment | FileAttachment | ReferenceAttachment
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsReferenceAttachmentType
+     * @var \StructType\EwsReferenceAttachmentType|null
      */
-    public $ReferenceAttachment;
+    protected ?\StructType\EwsReferenceAttachmentType $ReferenceAttachment = null;
     /**
      * Constructor method for ArrayOfAttachmentsType
      * @uses EwsArrayOfAttachmentsType::setItemAttachment()
      * @uses EwsArrayOfAttachmentsType::setFileAttachment()
      * @uses EwsArrayOfAttachmentsType::setReferenceAttachment()
-     * @param \Ews\StructType\EwsItemAttachmentType $itemAttachment
-     * @param \Ews\StructType\EwsFileAttachmentType $fileAttachment
-     * @param \Ews\StructType\EwsReferenceAttachmentType $referenceAttachment
+     * @param \StructType\EwsItemAttachmentType $itemAttachment
+     * @param \StructType\EwsFileAttachmentType $fileAttachment
+     * @param \StructType\EwsReferenceAttachmentType $referenceAttachment
      */
-    public function __construct(\Ews\StructType\EwsItemAttachmentType $itemAttachment = null, \Ews\StructType\EwsFileAttachmentType $fileAttachment = null, \Ews\StructType\EwsReferenceAttachmentType $referenceAttachment = null)
+    public function __construct(?\StructType\EwsItemAttachmentType $itemAttachment = null, ?\StructType\EwsFileAttachmentType $fileAttachment = null, ?\StructType\EwsReferenceAttachmentType $referenceAttachment = null)
     {
         $this
             ->setItemAttachment($itemAttachment)
@@ -57,9 +60,9 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
     }
     /**
      * Get ItemAttachment value
-     * @return \Ews\StructType\EwsItemAttachmentType|null
+     * @return \StructType\EwsItemAttachmentType|null
      */
-    public function getItemAttachment()
+    public function getItemAttachment(): ?\StructType\EwsItemAttachmentType
     {
         return isset($this->ItemAttachment) ? $this->ItemAttachment : null;
     }
@@ -70,7 +73,7 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemAttachmentForChoiceConstraintsFromSetItemAttachment($value)
+    public function validateItemAttachmentForChoiceConstraintsFromSetItemAttachment($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -83,12 +86,13 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ItemAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ItemAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -96,28 +100,29 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemAttachmentType $itemAttachment
-     * @return \Ews\StructType\EwsArrayOfAttachmentsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemAttachmentType $itemAttachment
+     * @return \StructType\EwsArrayOfAttachmentsType
      */
-    public function setItemAttachment(\Ews\StructType\EwsItemAttachmentType $itemAttachment = null)
+    public function setItemAttachment(?\StructType\EwsItemAttachmentType $itemAttachment = null): self
     {
         // validation for constraint: choice(ItemAttachment, FileAttachment, ReferenceAttachment)
         if ('' !== ($itemAttachmentChoiceErrorMessage = self::validateItemAttachmentForChoiceConstraintsFromSetItemAttachment($itemAttachment))) {
-            throw new \InvalidArgumentException($itemAttachmentChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemAttachmentChoiceErrorMessage, __LINE__);
         }
         if (is_null($itemAttachment) || (is_array($itemAttachment) && empty($itemAttachment))) {
             unset($this->ItemAttachment);
         } else {
             $this->ItemAttachment = $itemAttachment;
         }
+        
         return $this;
     }
     /**
      * Get FileAttachment value
-     * @return \Ews\StructType\EwsFileAttachmentType|null
+     * @return \StructType\EwsFileAttachmentType|null
      */
-    public function getFileAttachment()
+    public function getFileAttachment(): ?\StructType\EwsFileAttachmentType
     {
         return isset($this->FileAttachment) ? $this->FileAttachment : null;
     }
@@ -128,7 +133,7 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFileAttachmentForChoiceConstraintsFromSetFileAttachment($value)
+    public function validateFileAttachmentForChoiceConstraintsFromSetFileAttachment($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -141,12 +146,13 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FileAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: FileAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FileAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: FileAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -154,28 +160,29 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFileAttachmentType $fileAttachment
-     * @return \Ews\StructType\EwsArrayOfAttachmentsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFileAttachmentType $fileAttachment
+     * @return \StructType\EwsArrayOfAttachmentsType
      */
-    public function setFileAttachment(\Ews\StructType\EwsFileAttachmentType $fileAttachment = null)
+    public function setFileAttachment(?\StructType\EwsFileAttachmentType $fileAttachment = null): self
     {
         // validation for constraint: choice(ItemAttachment, FileAttachment, ReferenceAttachment)
         if ('' !== ($fileAttachmentChoiceErrorMessage = self::validateFileAttachmentForChoiceConstraintsFromSetFileAttachment($fileAttachment))) {
-            throw new \InvalidArgumentException($fileAttachmentChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($fileAttachmentChoiceErrorMessage, __LINE__);
         }
         if (is_null($fileAttachment) || (is_array($fileAttachment) && empty($fileAttachment))) {
             unset($this->FileAttachment);
         } else {
             $this->FileAttachment = $fileAttachment;
         }
+        
         return $this;
     }
     /**
      * Get ReferenceAttachment value
-     * @return \Ews\StructType\EwsReferenceAttachmentType|null
+     * @return \StructType\EwsReferenceAttachmentType|null
      */
-    public function getReferenceAttachment()
+    public function getReferenceAttachment(): ?\StructType\EwsReferenceAttachmentType
     {
         return isset($this->ReferenceAttachment) ? $this->ReferenceAttachment : null;
     }
@@ -186,7 +193,7 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateReferenceAttachmentForChoiceConstraintsFromSetReferenceAttachment($value)
+    public function validateReferenceAttachmentForChoiceConstraintsFromSetReferenceAttachment($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -199,12 +206,13 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ReferenceAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: ReferenceAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ReferenceAttachment can\'t be set as the property %s is already set. Only one property must be set among these properties: ReferenceAttachment, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -212,21 +220,22 @@ class EwsArrayOfAttachmentsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsReferenceAttachmentType $referenceAttachment
-     * @return \Ews\StructType\EwsArrayOfAttachmentsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsReferenceAttachmentType $referenceAttachment
+     * @return \StructType\EwsArrayOfAttachmentsType
      */
-    public function setReferenceAttachment(\Ews\StructType\EwsReferenceAttachmentType $referenceAttachment = null)
+    public function setReferenceAttachment(?\StructType\EwsReferenceAttachmentType $referenceAttachment = null): self
     {
         // validation for constraint: choice(ItemAttachment, FileAttachment, ReferenceAttachment)
         if ('' !== ($referenceAttachmentChoiceErrorMessage = self::validateReferenceAttachmentForChoiceConstraintsFromSetReferenceAttachment($referenceAttachment))) {
-            throw new \InvalidArgumentException($referenceAttachmentChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($referenceAttachmentChoiceErrorMessage, __LINE__);
         }
         if (is_null($referenceAttachment) || (is_array($referenceAttachment) && empty($referenceAttachment))) {
             unset($this->ReferenceAttachment);
         } else {
             $this->ReferenceAttachment = $referenceAttachment;
         }
+        
         return $this;
     }
 }

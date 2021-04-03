@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfTransitionsGroupsType ArrayType
@@ -16,24 +19,24 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * The TransitionsGroup
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsArrayOfTransitionsType[]
+     * @var \StructType\EwsArrayOfTransitionsType[]
      */
-    public $TransitionsGroup;
+    protected array $TransitionsGroup = [];
     /**
      * Constructor method for ArrayOfTransitionsGroupsType
      * @uses EwsArrayOfTransitionsGroupsType::setTransitionsGroup()
-     * @param \Ews\StructType\EwsArrayOfTransitionsType[] $transitionsGroup
+     * @param \StructType\EwsArrayOfTransitionsType[] $transitionsGroup
      */
-    public function __construct(array $transitionsGroup = array())
+    public function __construct(array $transitionsGroup = [])
     {
         $this
             ->setTransitionsGroup($transitionsGroup);
     }
     /**
      * Get TransitionsGroup value
-     * @return \Ews\StructType\EwsArrayOfTransitionsType[]|null
+     * @return \StructType\EwsArrayOfTransitionsType[]
      */
-    public function getTransitionsGroup()
+    public function getTransitionsGroup(): array
     {
         return $this->TransitionsGroup;
     }
@@ -43,58 +46,45 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTransitionsGroupForArrayConstraintsFromSetTransitionsGroup(array $values = array())
+    public static function validateTransitionsGroupForArrayConstraintsFromSetTransitionsGroup(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfTransitionsGroupsTypeTransitionsGroupItem) {
             // validation for constraint: itemType
-            if (!$arrayOfTransitionsGroupsTypeTransitionsGroupItem instanceof \Ews\StructType\EwsArrayOfTransitionsType) {
+            if (!$arrayOfTransitionsGroupsTypeTransitionsGroupItem instanceof \StructType\EwsArrayOfTransitionsType) {
                 $invalidValues[] = is_object($arrayOfTransitionsGroupsTypeTransitionsGroupItem) ? get_class($arrayOfTransitionsGroupsTypeTransitionsGroupItem) : sprintf('%s(%s)', gettype($arrayOfTransitionsGroupsTypeTransitionsGroupItem), var_export($arrayOfTransitionsGroupsTypeTransitionsGroupItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The TransitionsGroup property can only contain items of type \Ews\StructType\EwsArrayOfTransitionsType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The TransitionsGroup property can only contain items of type \StructType\EwsArrayOfTransitionsType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set TransitionsGroup value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsArrayOfTransitionsType[] $transitionsGroup
-     * @return \Ews\ArrayType\EwsArrayOfTransitionsGroupsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsArrayOfTransitionsType[] $transitionsGroup
+     * @return \ArrayType\EwsArrayOfTransitionsGroupsType
      */
-    public function setTransitionsGroup(array $transitionsGroup = array())
+    public function setTransitionsGroup(array $transitionsGroup = []): self
     {
         // validation for constraint: array
         if ('' !== ($transitionsGroupArrayErrorMessage = self::validateTransitionsGroupForArrayConstraintsFromSetTransitionsGroup($transitionsGroup))) {
-            throw new \InvalidArgumentException($transitionsGroupArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($transitionsGroupArrayErrorMessage, __LINE__);
         }
         $this->TransitionsGroup = $transitionsGroup;
-        return $this;
-    }
-    /**
-     * Add item to TransitionsGroup value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsArrayOfTransitionsType $item
-     * @return \Ews\ArrayType\EwsArrayOfTransitionsGroupsType
-     */
-    public function addToTransitionsGroup(\Ews\StructType\EwsArrayOfTransitionsType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsArrayOfTransitionsType) {
-            throw new \InvalidArgumentException(sprintf('The TransitionsGroup property can only contain items of type \Ews\StructType\EwsArrayOfTransitionsType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->TransitionsGroup[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsArrayOfTransitionsType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsArrayOfTransitionsType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsArrayOfTransitionsType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsArrayOfTransitionsType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsArrayOfTransitionsType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsArrayOfTransitionsType $item
+     * @return \ArrayType\EwsArrayOfTransitionsGroupsType
+     */
+    public function add(\StructType\EwsArrayOfTransitionsType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string TransitionsGroup
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'TransitionsGroup';
     }

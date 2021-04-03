@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ChannelStatusEventType StructType
@@ -14,15 +17,15 @@ class EwsChannelStatusEventType extends EwsChannelEventType
 {
     /**
      * The IsNew
-     * @var bool
+     * @var bool|null
      */
-    public $IsNew;
+    protected ?bool $IsNew = null;
     /**
      * Constructor method for ChannelStatusEventType
      * @uses EwsChannelStatusEventType::setIsNew()
      * @param bool $isNew
      */
-    public function __construct($isNew = null)
+    public function __construct(?bool $isNew = null)
     {
         $this
             ->setIsNew($isNew);
@@ -31,22 +34,23 @@ class EwsChannelStatusEventType extends EwsChannelEventType
      * Get IsNew value
      * @return bool|null
      */
-    public function getIsNew()
+    public function getIsNew(): ?bool
     {
         return $this->IsNew;
     }
     /**
      * Set IsNew value
      * @param bool $isNew
-     * @return \Ews\StructType\EwsChannelStatusEventType
+     * @return \StructType\EwsChannelStatusEventType
      */
-    public function setIsNew($isNew = null)
+    public function setIsNew(?bool $isNew = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isNew) && !is_bool($isNew)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNew, true), gettype($isNew)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNew, true), gettype($isNew)), __LINE__);
         }
         $this->IsNew = $isNew;
+        
         return $this;
     }
 }

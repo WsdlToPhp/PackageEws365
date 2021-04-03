@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateXrmActivityStreamResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsUpdateXrmActivityStreamResponseMessageType extends EwsResponseMessageTy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsXrmActivityStreamType
+     * @var \StructType\EwsXrmActivityStreamType|null
      */
-    public $Activity;
+    protected ?\StructType\EwsXrmActivityStreamType $Activity = null;
     /**
      * Constructor method for UpdateXrmActivityStreamResponseMessageType
      * @uses EwsUpdateXrmActivityStreamResponseMessageType::setActivity()
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
+     * @param \StructType\EwsXrmActivityStreamType $activity
      */
-    public function __construct(\Ews\StructType\EwsXrmActivityStreamType $activity = null)
+    public function __construct(?\StructType\EwsXrmActivityStreamType $activity = null)
     {
         $this
             ->setActivity($activity);
     }
     /**
      * Get Activity value
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function getActivity()
+    public function getActivity(): ?\StructType\EwsXrmActivityStreamType
     {
         return $this->Activity;
     }
     /**
      * Set Activity value
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
-     * @return \Ews\StructType\EwsUpdateXrmActivityStreamResponseMessageType
+     * @param \StructType\EwsXrmActivityStreamType $activity
+     * @return \StructType\EwsUpdateXrmActivityStreamResponseMessageType
      */
-    public function setActivity(\Ews\StructType\EwsXrmActivityStreamType $activity = null)
+    public function setActivity(?\StructType\EwsXrmActivityStreamType $activity = null): self
     {
         $this->Activity = $activity;
+        
         return $this;
     }
 }

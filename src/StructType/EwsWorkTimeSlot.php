@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WorkTimeSlot StructType
@@ -19,7 +22,7 @@ class EwsWorkTimeSlot extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $StartTimeInMinutes;
+    protected int $StartTimeInMinutes;
     /**
      * The EndTimeInMinutes
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsWorkTimeSlot extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $EndTimeInMinutes;
+    protected int $EndTimeInMinutes;
     /**
      * Constructor method for WorkTimeSlot
      * @uses EwsWorkTimeSlot::setStartTimeInMinutes()
@@ -35,7 +38,7 @@ class EwsWorkTimeSlot extends AbstractStructBase
      * @param int $startTimeInMinutes
      * @param int $endTimeInMinutes
      */
-    public function __construct($startTimeInMinutes = null, $endTimeInMinutes = null)
+    public function __construct(int $startTimeInMinutes, int $endTimeInMinutes)
     {
         $this
             ->setStartTimeInMinutes($startTimeInMinutes)
@@ -45,44 +48,46 @@ class EwsWorkTimeSlot extends AbstractStructBase
      * Get StartTimeInMinutes value
      * @return int
      */
-    public function getStartTimeInMinutes()
+    public function getStartTimeInMinutes(): int
     {
         return $this->StartTimeInMinutes;
     }
     /**
      * Set StartTimeInMinutes value
      * @param int $startTimeInMinutes
-     * @return \Ews\StructType\EwsWorkTimeSlot
+     * @return \StructType\EwsWorkTimeSlot
      */
-    public function setStartTimeInMinutes($startTimeInMinutes = null)
+    public function setStartTimeInMinutes(int $startTimeInMinutes): self
     {
         // validation for constraint: int
         if (!is_null($startTimeInMinutes) && !(is_int($startTimeInMinutes) || ctype_digit($startTimeInMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($startTimeInMinutes, true), gettype($startTimeInMinutes)), __LINE__);
         }
         $this->StartTimeInMinutes = $startTimeInMinutes;
+        
         return $this;
     }
     /**
      * Get EndTimeInMinutes value
      * @return int
      */
-    public function getEndTimeInMinutes()
+    public function getEndTimeInMinutes(): int
     {
         return $this->EndTimeInMinutes;
     }
     /**
      * Set EndTimeInMinutes value
      * @param int $endTimeInMinutes
-     * @return \Ews\StructType\EwsWorkTimeSlot
+     * @return \StructType\EwsWorkTimeSlot
      */
-    public function setEndTimeInMinutes($endTimeInMinutes = null)
+    public function setEndTimeInMinutes(int $endTimeInMinutes): self
     {
         // validation for constraint: int
         if (!is_null($endTimeInMinutes) && !(is_int($endTimeInMinutes) || ctype_digit($endTimeInMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($endTimeInMinutes, true), gettype($endTimeInMinutes)), __LINE__);
         }
         $this->EndTimeInMinutes = $endTimeInMinutes;
+        
         return $this;
     }
 }

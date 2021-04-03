@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for CalendarPermissionLevelType EnumType
@@ -88,9 +90,9 @@ class EwsCalendarPermissionLevelType extends AbstractStructEnumBase
      * @uses self::VALUE_CUSTOM
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_OWNER,
             self::VALUE_PUBLISHING_EDITOR,
@@ -103,6 +105,6 @@ class EwsCalendarPermissionLevelType extends AbstractStructEnumBase
             self::VALUE_FREE_BUSY_TIME_ONLY,
             self::VALUE_FREE_BUSY_TIME_AND_SUBJECT_AND_LOCATION,
             self::VALUE_CUSTOM,
-        );
+        ];
     }
 }

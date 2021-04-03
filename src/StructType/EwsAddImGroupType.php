@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddImGroupType StructType
@@ -17,15 +20,15 @@ class EwsAddImGroupType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * Constructor method for AddImGroupType
      * @uses EwsAddImGroupType::setDisplayName()
      * @param string $displayName
      */
-    public function __construct($displayName = null)
+    public function __construct(?string $displayName = null)
     {
         $this
             ->setDisplayName($displayName);
@@ -34,26 +37,27 @@ class EwsAddImGroupType extends EwsBaseRequestType
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsAddImGroupType
+     * @return \StructType\EwsAddImGroupType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($displayName) && mb_strlen($displayName) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($displayName)), __LINE__);
+        if (!is_null($displayName) && mb_strlen((string) $displayName) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
 }

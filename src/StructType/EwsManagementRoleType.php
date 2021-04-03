@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ManagementRoleType StructType
@@ -17,25 +20,25 @@ class EwsManagementRoleType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
+     * @var \ArrayType\EwsNonEmptyArrayOfRoleType|null
      */
-    public $UserRoles;
+    protected ?\ArrayType\EwsNonEmptyArrayOfRoleType $UserRoles = null;
     /**
      * The ApplicationRoles
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
+     * @var \ArrayType\EwsNonEmptyArrayOfRoleType|null
      */
-    public $ApplicationRoles;
+    protected ?\ArrayType\EwsNonEmptyArrayOfRoleType $ApplicationRoles = null;
     /**
      * Constructor method for ManagementRoleType
      * @uses EwsManagementRoleType::setUserRoles()
      * @uses EwsManagementRoleType::setApplicationRoles()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles
+     * @param \ArrayType\EwsNonEmptyArrayOfRoleType $userRoles
+     * @param \ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles = null, \Ews\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles = null, ?\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles = null)
     {
         $this
             ->setUserRoles($userRoles)
@@ -43,38 +46,40 @@ class EwsManagementRoleType extends AbstractStructBase
     }
     /**
      * Get UserRoles value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfRoleType|null
      */
-    public function getUserRoles()
+    public function getUserRoles(): ?\ArrayType\EwsNonEmptyArrayOfRoleType
     {
         return $this->UserRoles;
     }
     /**
      * Set UserRoles value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles
-     * @return \Ews\StructType\EwsManagementRoleType
+     * @param \ArrayType\EwsNonEmptyArrayOfRoleType $userRoles
+     * @return \StructType\EwsManagementRoleType
      */
-    public function setUserRoles(\Ews\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles = null)
+    public function setUserRoles(?\ArrayType\EwsNonEmptyArrayOfRoleType $userRoles = null): self
     {
         $this->UserRoles = $userRoles;
+        
         return $this;
     }
     /**
      * Get ApplicationRoles value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfRoleType|null
      */
-    public function getApplicationRoles()
+    public function getApplicationRoles(): ?\ArrayType\EwsNonEmptyArrayOfRoleType
     {
         return $this->ApplicationRoles;
     }
     /**
      * Set ApplicationRoles value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles
-     * @return \Ews\StructType\EwsManagementRoleType
+     * @param \ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles
+     * @return \StructType\EwsManagementRoleType
      */
-    public function setApplicationRoles(\Ews\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles = null)
+    public function setApplicationRoles(?\ArrayType\EwsNonEmptyArrayOfRoleType $applicationRoles = null): self
     {
         $this->ApplicationRoles = $applicationRoles;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUMPromptNamesResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetUMPromptNamesResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $PromptNames;
+    protected ?\ArrayType\EwsArrayOfStringsType $PromptNames = null;
     /**
      * Constructor method for GetUMPromptNamesResponseMessageType
      * @uses EwsGetUMPromptNamesResponseMessageType::setPromptNames()
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $promptNames
+     * @param \ArrayType\EwsArrayOfStringsType $promptNames
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $promptNames = null)
+    public function __construct(?\ArrayType\EwsArrayOfStringsType $promptNames = null)
     {
         $this
             ->setPromptNames($promptNames);
     }
     /**
      * Get PromptNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getPromptNames()
+    public function getPromptNames(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->PromptNames;
     }
     /**
      * Set PromptNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $promptNames
-     * @return \Ews\StructType\EwsGetUMPromptNamesResponseMessageType
+     * @param \ArrayType\EwsArrayOfStringsType $promptNames
+     * @return \StructType\EwsGetUMPromptNamesResponseMessageType
      */
-    public function setPromptNames(\Ews\ArrayType\EwsArrayOfStringsType $promptNames = null)
+    public function setPromptNames(?\ArrayType\EwsArrayOfStringsType $promptNames = null): self
     {
         $this->PromptNames = $promptNames;
+        
         return $this;
     }
 }

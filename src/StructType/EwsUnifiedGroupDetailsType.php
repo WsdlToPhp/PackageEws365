@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupDetailsType StructType
@@ -17,49 +20,49 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserUnifiedGroupRelationshipType
+     * @var \StructType\EwsUserUnifiedGroupRelationshipType
      */
-    public $UserGroupRelationship;
+    protected \StructType\EwsUserUnifiedGroupRelationshipType $UserGroupRelationship;
     /**
      * The GroupResources
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupResourcesType|null
      */
-    public $GroupResources;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupResourcesType $GroupResources = null;
     /**
      * The MailboxSettings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupMailboxSettingsType
+     * @var \StructType\EwsUnifiedGroupMailboxSettingsType|null
      */
-    public $MailboxSettings;
+    protected ?\StructType\EwsUnifiedGroupMailboxSettingsType $MailboxSettings = null;
     /**
      * The OwnerCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $OwnerCount;
+    protected ?int $OwnerCount = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * The ExternalDirectoryObjectId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExternalDirectoryObjectId;
+    protected ?string $ExternalDirectoryObjectId = null;
     /**
      * Constructor method for UnifiedGroupDetailsType
      * @uses EwsUnifiedGroupDetailsType::setUserGroupRelationship()
@@ -68,14 +71,14 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
      * @uses EwsUnifiedGroupDetailsType::setOwnerCount()
      * @uses EwsUnifiedGroupDetailsType::setDescription()
      * @uses EwsUnifiedGroupDetailsType::setExternalDirectoryObjectId()
-     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources
-     * @param \Ews\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings
+     * @param \StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
+     * @param \ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources
+     * @param \StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings
      * @param int $ownerCount
      * @param string $description
      * @param string $externalDirectoryObjectId
      */
-    public function __construct(\Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources = null, \Ews\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings = null, $ownerCount = null, $description = null, $externalDirectoryObjectId = null)
+    public function __construct(\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship, ?\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources = null, ?\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings = null, ?int $ownerCount = null, ?string $description = null, ?string $externalDirectoryObjectId = null)
     {
         $this
             ->setUserGroupRelationship($userGroupRelationship)
@@ -87,122 +90,128 @@ class EwsUnifiedGroupDetailsType extends EwsUnifiedGroupBaseType
     }
     /**
      * Get UserGroupRelationship value
-     * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
+     * @return \StructType\EwsUserUnifiedGroupRelationshipType
      */
-    public function getUserGroupRelationship()
+    public function getUserGroupRelationship(): \StructType\EwsUserUnifiedGroupRelationshipType
     {
         return $this->UserGroupRelationship;
     }
     /**
      * Set UserGroupRelationship value
-     * @param \Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @param \StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setUserGroupRelationship(\Ews\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship = null)
+    public function setUserGroupRelationship(\StructType\EwsUserUnifiedGroupRelationshipType $userGroupRelationship): self
     {
         $this->UserGroupRelationship = $userGroupRelationship;
+        
         return $this;
     }
     /**
      * Get GroupResources value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupResourcesType|null
      */
-    public function getGroupResources()
+    public function getGroupResources(): ?\ArrayType\EwsArrayOfUnifiedGroupResourcesType
     {
         return $this->GroupResources;
     }
     /**
      * Set GroupResources value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setGroupResources(\Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources = null)
+    public function setGroupResources(?\ArrayType\EwsArrayOfUnifiedGroupResourcesType $groupResources = null): self
     {
         $this->GroupResources = $groupResources;
+        
         return $this;
     }
     /**
      * Get MailboxSettings value
-     * @return \Ews\StructType\EwsUnifiedGroupMailboxSettingsType|null
+     * @return \StructType\EwsUnifiedGroupMailboxSettingsType|null
      */
-    public function getMailboxSettings()
+    public function getMailboxSettings(): ?\StructType\EwsUnifiedGroupMailboxSettingsType
     {
         return $this->MailboxSettings;
     }
     /**
      * Set MailboxSettings value
-     * @param \Ews\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @param \StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setMailboxSettings(\Ews\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings = null)
+    public function setMailboxSettings(?\StructType\EwsUnifiedGroupMailboxSettingsType $mailboxSettings = null): self
     {
         $this->MailboxSettings = $mailboxSettings;
+        
         return $this;
     }
     /**
      * Get OwnerCount value
      * @return int|null
      */
-    public function getOwnerCount()
+    public function getOwnerCount(): ?int
     {
         return $this->OwnerCount;
     }
     /**
      * Set OwnerCount value
      * @param int $ownerCount
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setOwnerCount($ownerCount = null)
+    public function setOwnerCount(?int $ownerCount = null): self
     {
         // validation for constraint: int
         if (!is_null($ownerCount) && !(is_int($ownerCount) || ctype_digit($ownerCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($ownerCount, true), gettype($ownerCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($ownerCount, true), gettype($ownerCount)), __LINE__);
         }
         $this->OwnerCount = $ownerCount;
+        
         return $this;
     }
     /**
      * Get Description value
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->Description;
     }
     /**
      * Set Description value
      * @param string $description
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
+        
         return $this;
     }
     /**
      * Get ExternalDirectoryObjectId value
      * @return string|null
      */
-    public function getExternalDirectoryObjectId()
+    public function getExternalDirectoryObjectId(): ?string
     {
         return $this->ExternalDirectoryObjectId;
     }
     /**
      * Set ExternalDirectoryObjectId value
      * @param string $externalDirectoryObjectId
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
+    public function setExternalDirectoryObjectId(?string $externalDirectoryObjectId = null): self
     {
         // validation for constraint: string
         if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
         }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
+        
         return $this;
     }
 }

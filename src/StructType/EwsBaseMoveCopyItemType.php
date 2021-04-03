@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseMoveCopyItemType StructType
@@ -14,32 +17,32 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
 {
     /**
      * The ToFolderId
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $ToFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $ToFolderId = null;
     /**
      * The ItemIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * The ReturnNewItemIds
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ReturnNewItemIds;
+    protected ?bool $ReturnNewItemIds = null;
     /**
      * Constructor method for BaseMoveCopyItemType
      * @uses EwsBaseMoveCopyItemType::setToFolderId()
      * @uses EwsBaseMoveCopyItemType::setItemIds()
      * @uses EwsBaseMoveCopyItemType::setReturnNewItemIds()
-     * @param \Ews\StructType\EwsTargetFolderIdType $toFolderId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsTargetFolderIdType $toFolderId
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param bool $returnNewItemIds
      */
-    public function __construct(\Ews\StructType\EwsTargetFolderIdType $toFolderId = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $returnNewItemIds = null)
+    public function __construct(?\StructType\EwsTargetFolderIdType $toFolderId = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, ?bool $returnNewItemIds = null)
     {
         $this
             ->setToFolderId($toFolderId)
@@ -48,60 +51,63 @@ class EwsBaseMoveCopyItemType extends EwsBaseRequestType
     }
     /**
      * Get ToFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getToFolderId()
+    public function getToFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->ToFolderId;
     }
     /**
      * Set ToFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $toFolderId
-     * @return \Ews\StructType\EwsBaseMoveCopyItemType
+     * @param \StructType\EwsTargetFolderIdType $toFolderId
+     * @return \StructType\EwsBaseMoveCopyItemType
      */
-    public function setToFolderId(\Ews\StructType\EwsTargetFolderIdType $toFolderId = null)
+    public function setToFolderId(?\StructType\EwsTargetFolderIdType $toFolderId = null): self
     {
         $this->ToFolderId = $toFolderId;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsBaseMoveCopyItemType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsBaseMoveCopyItemType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
     /**
      * Get ReturnNewItemIds value
      * @return bool|null
      */
-    public function getReturnNewItemIds()
+    public function getReturnNewItemIds(): ?bool
     {
         return $this->ReturnNewItemIds;
     }
     /**
      * Set ReturnNewItemIds value
      * @param bool $returnNewItemIds
-     * @return \Ews\StructType\EwsBaseMoveCopyItemType
+     * @return \StructType\EwsBaseMoveCopyItemType
      */
-    public function setReturnNewItemIds($returnNewItemIds = null)
+    public function setReturnNewItemIds(?bool $returnNewItemIds = null): self
     {
         // validation for constraint: boolean
         if (!is_null($returnNewItemIds) && !is_bool($returnNewItemIds)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnNewItemIds, true), gettype($returnNewItemIds)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnNewItemIds, true), gettype($returnNewItemIds)), __LINE__);
         }
         $this->ReturnNewItemIds = $returnNewItemIds;
+        
         return $this;
     }
 }

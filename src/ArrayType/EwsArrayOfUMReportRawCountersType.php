@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUMReportRawCountersType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUMReportRawCountersType[]
+     * @var \StructType\EwsUMReportRawCountersType[]
      */
-    public $UMReportRawCounters;
+    protected array $UMReportRawCounters = [];
     /**
      * Constructor method for ArrayOfUMReportRawCountersType
      * @uses EwsArrayOfUMReportRawCountersType::setUMReportRawCounters()
-     * @param \Ews\StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
+     * @param \StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
      */
-    public function __construct(array $uMReportRawCounters = array())
+    public function __construct(array $uMReportRawCounters = [])
     {
         $this
             ->setUMReportRawCounters($uMReportRawCounters);
     }
     /**
      * Get UMReportRawCounters value
-     * @return \Ews\StructType\EwsUMReportRawCountersType[]|null
+     * @return \StructType\EwsUMReportRawCountersType[]
      */
-    public function getUMReportRawCounters()
+    public function getUMReportRawCounters(): array
     {
         return $this->UMReportRawCounters;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUMReportRawCountersForArrayConstraintsFromSetUMReportRawCounters(array $values = array())
+    public static function validateUMReportRawCountersForArrayConstraintsFromSetUMReportRawCounters(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUMReportRawCountersTypeUMReportRawCountersItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUMReportRawCountersTypeUMReportRawCountersItem instanceof \Ews\StructType\EwsUMReportRawCountersType) {
+            if (!$arrayOfUMReportRawCountersTypeUMReportRawCountersItem instanceof \StructType\EwsUMReportRawCountersType) {
                 $invalidValues[] = is_object($arrayOfUMReportRawCountersTypeUMReportRawCountersItem) ? get_class($arrayOfUMReportRawCountersTypeUMReportRawCountersItem) : sprintf('%s(%s)', gettype($arrayOfUMReportRawCountersTypeUMReportRawCountersItem), var_export($arrayOfUMReportRawCountersTypeUMReportRawCountersItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The UMReportRawCounters property can only contain items of type \Ews\StructType\EwsUMReportRawCountersType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The UMReportRawCounters property can only contain items of type \StructType\EwsUMReportRawCountersType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set UMReportRawCounters value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
-     * @return \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUMReportRawCountersType[] $uMReportRawCounters
+     * @return \ArrayType\EwsArrayOfUMReportRawCountersType
      */
-    public function setUMReportRawCounters(array $uMReportRawCounters = array())
+    public function setUMReportRawCounters(array $uMReportRawCounters = []): self
     {
         // validation for constraint: array
         if ('' !== ($uMReportRawCountersArrayErrorMessage = self::validateUMReportRawCountersForArrayConstraintsFromSetUMReportRawCounters($uMReportRawCounters))) {
-            throw new \InvalidArgumentException($uMReportRawCountersArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($uMReportRawCountersArrayErrorMessage, __LINE__);
         }
         $this->UMReportRawCounters = $uMReportRawCounters;
-        return $this;
-    }
-    /**
-     * Add item to UMReportRawCounters value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUMReportRawCountersType $item
-     * @return \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
-     */
-    public function addToUMReportRawCounters(\Ews\StructType\EwsUMReportRawCountersType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUMReportRawCountersType) {
-            throw new \InvalidArgumentException(sprintf('The UMReportRawCounters property can only contain items of type \Ews\StructType\EwsUMReportRawCountersType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->UMReportRawCounters[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUMReportRawCountersType|null
+     * @return \StructType\EwsUMReportRawCountersType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUMReportRawCountersType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUMReportRawCountersType|null
+     * @return \StructType\EwsUMReportRawCountersType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUMReportRawCountersType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUMReportRawCountersType|null
+     * @return \StructType\EwsUMReportRawCountersType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUMReportRawCountersType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUMReportRawCountersType|null
+     * @return \StructType\EwsUMReportRawCountersType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUMReportRawCountersType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUMReportRawCountersType|null
+     * @return \StructType\EwsUMReportRawCountersType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUMReportRawCountersType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUMReportRawCountersType $item
+     * @return \ArrayType\EwsArrayOfUMReportRawCountersType
+     */
+    public function add(\StructType\EwsUMReportRawCountersType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string UMReportRawCounters
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'UMReportRawCounters';
     }

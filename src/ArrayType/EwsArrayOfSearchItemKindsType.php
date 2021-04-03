@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchItemKindsType ArrayType
@@ -21,13 +24,13 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $SearchItemKind;
+    protected array $SearchItemKind = [];
     /**
      * Constructor method for ArrayOfSearchItemKindsType
      * @uses EwsArrayOfSearchItemKindsType::setSearchItemKind()
      * @param string[] $searchItemKind
      */
-    public function __construct(array $searchItemKind = array())
+    public function __construct(array $searchItemKind)
     {
         $this
             ->setSearchItemKind($searchItemKind);
@@ -36,7 +39,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * Get SearchItemKind value
      * @return string[]
      */
-    public function getSearchItemKind()
+    public function getSearchItemKind(): array
     {
         return $this->SearchItemKind;
     }
@@ -46,62 +49,47 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSearchItemKindForArrayConstraintsFromSetSearchItemKind(array $values = array())
+    public static function validateSearchItemKindForArrayConstraintsFromSetSearchItemKind(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfSearchItemKindsTypeSearchItemKindItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
+            if (!\EnumType\EwsSearchItemKindType::valueIsValid($arrayOfSearchItemKindsTypeSearchItemKindItem)) {
                 $invalidValues[] = is_object($arrayOfSearchItemKindsTypeSearchItemKindItem) ? get_class($arrayOfSearchItemKindsTypeSearchItemKindItem) : sprintf('%s(%s)', gettype($arrayOfSearchItemKindsTypeSearchItemKindItem), var_export($arrayOfSearchItemKindsTypeSearchItemKindItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchItemKindType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsSearchItemKindType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SearchItemKind value
-     * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchItemKindType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSearchItemKindType::valueIsValid()
+     * @uses \EnumType\EwsSearchItemKindType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string[] $searchItemKind
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
+     * @return \ArrayType\EwsArrayOfSearchItemKindsType
      */
-    public function setSearchItemKind(array $searchItemKind = array())
+    public function setSearchItemKind(array $searchItemKind): self
     {
         // validation for constraint: array
         if ('' !== ($searchItemKindArrayErrorMessage = self::validateSearchItemKindForArrayConstraintsFromSetSearchItemKind($searchItemKind))) {
-            throw new \InvalidArgumentException($searchItemKindArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchItemKindArrayErrorMessage, __LINE__);
         }
         $this->SearchItemKind = $searchItemKind;
-        return $this;
-    }
-    /**
-     * Add item to SearchItemKind value
-     * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchItemKindType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
-     */
-    public function addToSearchItemKind($item)
-    {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
-        }
-        $this->SearchItemKind[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -109,27 +97,27 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -137,25 +125,24 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsSearchItemKindType::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType
+     * @return \ArrayType\EwsArrayOfSearchItemKindsType
      */
-    public function add($item)
+    public function add(string $item): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchItemKindType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSearchItemKindType::valueIsValid($item)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchItemKindType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \EnumType\EwsSearchItemKindType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -164,7 +151,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SearchItemKind
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SearchItemKind';
     }

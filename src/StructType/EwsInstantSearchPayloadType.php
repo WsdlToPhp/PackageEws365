@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for InstantSearchPayloadType StructType
@@ -19,7 +22,7 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SearchSessionId;
+    protected string $SearchSessionId;
     /**
      * The SearchRequestId
      * Meta information extracted from the WSDL
@@ -27,39 +30,39 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $SearchRequestId;
+    protected int $SearchRequestId;
     /**
      * The ResultType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $ResultType;
+    protected string $ResultType;
     /**
      * The Items
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfItemsType
+     * @var \ArrayType\EwsArrayOfItemsType|null
      */
-    public $Items;
+    protected ?\ArrayType\EwsArrayOfItemsType $Items = null;
     /**
      * The Conversations
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfConversationsType
+     * @var \ArrayType\EwsArrayOfConversationsType|null
      */
-    public $Conversations;
+    protected ?\ArrayType\EwsArrayOfConversationsType $Conversations = null;
     /**
      * The CalendarItems
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfCalendarItemsType
+     * @var \ArrayType\EwsArrayOfCalendarItemsType|null
      */
-    public $CalendarItems;
+    protected ?\ArrayType\EwsArrayOfCalendarItemsType $CalendarItems = null;
     /**
      * Constructor method for InstantSearchPayloadType
      * @uses EwsInstantSearchPayloadType::setSearchSessionId()
@@ -70,12 +73,12 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * @uses EwsInstantSearchPayloadType::setCalendarItems()
      * @param string $searchSessionId
      * @param int $searchRequestId
-     * @param string[] $resultType
-     * @param \Ews\ArrayType\EwsArrayOfItemsType $items
-     * @param \Ews\ArrayType\EwsArrayOfConversationsType $conversations
-     * @param \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems
+     * @param array|string $resultType
+     * @param \ArrayType\EwsArrayOfItemsType $items
+     * @param \ArrayType\EwsArrayOfConversationsType $conversations
+     * @param \ArrayType\EwsArrayOfCalendarItemsType $calendarItems
      */
-    public function __construct($searchSessionId = null, $searchRequestId = null, array $resultType = array(), \Ews\ArrayType\EwsArrayOfItemsType $items = null, \Ews\ArrayType\EwsArrayOfConversationsType $conversations = null, \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null)
+    public function __construct(string $searchSessionId, int $searchRequestId, $resultType, ?\ArrayType\EwsArrayOfItemsType $items = null, ?\ArrayType\EwsArrayOfConversationsType $conversations = null, ?\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null)
     {
         $this
             ->setSearchSessionId($searchSessionId)
@@ -89,51 +92,53 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * Get SearchSessionId value
      * @return string
      */
-    public function getSearchSessionId()
+    public function getSearchSessionId(): string
     {
         return $this->SearchSessionId;
     }
     /**
      * Set SearchSessionId value
      * @param string $searchSessionId
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setSearchSessionId($searchSessionId = null)
+    public function setSearchSessionId(string $searchSessionId): self
     {
         // validation for constraint: string
         if (!is_null($searchSessionId) && !is_string($searchSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchSessionId, true), gettype($searchSessionId)), __LINE__);
         }
         $this->SearchSessionId = $searchSessionId;
+        
         return $this;
     }
     /**
      * Get SearchRequestId value
      * @return int
      */
-    public function getSearchRequestId()
+    public function getSearchRequestId(): int
     {
         return $this->SearchRequestId;
     }
     /**
      * Set SearchRequestId value
      * @param int $searchRequestId
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setSearchRequestId($searchRequestId = null)
+    public function setSearchRequestId(int $searchRequestId): self
     {
         // validation for constraint: int
         if (!is_null($searchRequestId) && !(is_int($searchRequestId) || ctype_digit($searchRequestId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($searchRequestId, true), gettype($searchRequestId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($searchRequestId, true), gettype($searchRequestId)), __LINE__);
         }
         $this->SearchRequestId = $searchRequestId;
+        
         return $this;
     }
     /**
      * Get ResultType value
-     * @return string[]
+     * @return string
      */
-    public function getResultType()
+    public function getResultType(): string
     {
         return $this->ResultType;
     }
@@ -143,91 +148,96 @@ class EwsInstantSearchPayloadType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateResultTypeForArrayConstraintsFromSetResultType(array $values = array())
+    public static function validateResultTypeForArrayConstraintsFromSetResultType(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $instantSearchPayloadTypeResultTypeItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsInstantSearchResultType::valueIsValid($instantSearchPayloadTypeResultTypeItem)) {
+            if (!\EnumType\EwsInstantSearchResultType::valueIsValid($instantSearchPayloadTypeResultTypeItem)) {
                 $invalidValues[] = is_object($instantSearchPayloadTypeResultTypeItem) ? get_class($instantSearchPayloadTypeResultTypeItem) : sprintf('%s(%s)', gettype($instantSearchPayloadTypeResultTypeItem), var_export($instantSearchPayloadTypeResultTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsInstantSearchResultType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsInstantSearchResultType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsInstantSearchResultType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsInstantSearchResultType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ResultType value
-     * @uses \Ews\EnumType\EwsInstantSearchResultType::valueIsValid()
-     * @uses \Ews\EnumType\EwsInstantSearchResultType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $resultType
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @uses \EnumType\EwsInstantSearchResultType::valueIsValid()
+     * @uses \EnumType\EwsInstantSearchResultType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $resultType
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setResultType(array $resultType = array())
+    public function setResultType($resultType): self
     {
         // validation for constraint: list
-        if ('' !== ($resultTypeArrayErrorMessage = self::validateResultTypeForArrayConstraintsFromSetResultType($resultType))) {
-            throw new \InvalidArgumentException($resultTypeArrayErrorMessage, __LINE__);
+        if ('' !== ($resultTypeArrayErrorMessage = self::validateResultTypeForArrayConstraintsFromSetResultType(is_string($resultType) ? explode(' ', $resultType) : $resultType))) {
+            throw new InvalidArgumentException($resultTypeArrayErrorMessage, __LINE__);
         }
-        $this->ResultType = is_array($resultType) ? implode(' ', $resultType) : null;
+        $this->ResultType = is_array($resultType) ? implode(' ', $resultType) : $resultType;
+        
         return $this;
     }
     /**
      * Get Items value
-     * @return \Ews\ArrayType\EwsArrayOfItemsType|null
+     * @return \ArrayType\EwsArrayOfItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\ArrayType\EwsArrayOfItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\ArrayType\EwsArrayOfItemsType $items
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @param \ArrayType\EwsArrayOfItemsType $items
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setItems(\Ews\ArrayType\EwsArrayOfItemsType $items = null)
+    public function setItems(?\ArrayType\EwsArrayOfItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
     /**
      * Get Conversations value
-     * @return \Ews\ArrayType\EwsArrayOfConversationsType|null
+     * @return \ArrayType\EwsArrayOfConversationsType|null
      */
-    public function getConversations()
+    public function getConversations(): ?\ArrayType\EwsArrayOfConversationsType
     {
         return $this->Conversations;
     }
     /**
      * Set Conversations value
-     * @param \Ews\ArrayType\EwsArrayOfConversationsType $conversations
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @param \ArrayType\EwsArrayOfConversationsType $conversations
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setConversations(\Ews\ArrayType\EwsArrayOfConversationsType $conversations = null)
+    public function setConversations(?\ArrayType\EwsArrayOfConversationsType $conversations = null): self
     {
         $this->Conversations = $conversations;
+        
         return $this;
     }
     /**
      * Get CalendarItems value
-     * @return \Ews\ArrayType\EwsArrayOfCalendarItemsType|null
+     * @return \ArrayType\EwsArrayOfCalendarItemsType|null
      */
-    public function getCalendarItems()
+    public function getCalendarItems(): ?\ArrayType\EwsArrayOfCalendarItemsType
     {
         return $this->CalendarItems;
     }
     /**
      * Set CalendarItems value
-     * @param \Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems
-     * @return \Ews\StructType\EwsInstantSearchPayloadType
+     * @param \ArrayType\EwsArrayOfCalendarItemsType $calendarItems
+     * @return \StructType\EwsInstantSearchPayloadType
      */
-    public function setCalendarItems(\Ews\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null)
+    public function setCalendarItems(?\ArrayType\EwsArrayOfCalendarItemsType $calendarItems = null): self
     {
         $this->CalendarItems = $calendarItems;
+        
         return $this;
     }
 }

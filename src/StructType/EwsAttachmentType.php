@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttachmentType StructType
@@ -17,65 +20,65 @@ class EwsAttachmentType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAttachmentIdType
+     * @var \StructType\EwsAttachmentIdType|null
      */
-    public $AttachmentId;
+    protected ?\StructType\EwsAttachmentIdType $AttachmentId = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The ContentType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ContentType;
+    protected ?string $ContentType = null;
     /**
      * The ContentId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ContentId;
+    protected ?string $ContentId = null;
     /**
      * The ContentLocation
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ContentLocation;
+    protected ?string $ContentLocation = null;
     /**
      * The Size
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Size;
+    protected ?int $Size = null;
     /**
      * The LastModifiedTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastModifiedTime;
+    protected ?string $LastModifiedTime = null;
     /**
      * The IsInline
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsInline;
+    protected ?bool $IsInline = null;
     /**
      * Constructor method for AttachmentType
      * @uses EwsAttachmentType::setAttachmentId()
@@ -86,7 +89,7 @@ class EwsAttachmentType extends AbstractStructBase
      * @uses EwsAttachmentType::setSize()
      * @uses EwsAttachmentType::setLastModifiedTime()
      * @uses EwsAttachmentType::setIsInline()
-     * @param \Ews\StructType\EwsAttachmentIdType $attachmentId
+     * @param \StructType\EwsAttachmentIdType $attachmentId
      * @param string $name
      * @param string $contentType
      * @param string $contentId
@@ -95,7 +98,7 @@ class EwsAttachmentType extends AbstractStructBase
      * @param string $lastModifiedTime
      * @param bool $isInline
      */
-    public function __construct(\Ews\StructType\EwsAttachmentIdType $attachmentId = null, $name = null, $contentType = null, $contentId = null, $contentLocation = null, $size = null, $lastModifiedTime = null, $isInline = null)
+    public function __construct(?\StructType\EwsAttachmentIdType $attachmentId = null, ?string $name = null, ?string $contentType = null, ?string $contentId = null, ?string $contentLocation = null, ?int $size = null, ?string $lastModifiedTime = null, ?bool $isInline = null)
     {
         $this
             ->setAttachmentId($attachmentId)
@@ -109,174 +112,182 @@ class EwsAttachmentType extends AbstractStructBase
     }
     /**
      * Get AttachmentId value
-     * @return \Ews\StructType\EwsAttachmentIdType|null
+     * @return \StructType\EwsAttachmentIdType|null
      */
-    public function getAttachmentId()
+    public function getAttachmentId(): ?\StructType\EwsAttachmentIdType
     {
         return $this->AttachmentId;
     }
     /**
      * Set AttachmentId value
-     * @param \Ews\StructType\EwsAttachmentIdType $attachmentId
-     * @return \Ews\StructType\EwsAttachmentType
+     * @param \StructType\EwsAttachmentIdType $attachmentId
+     * @return \StructType\EwsAttachmentType
      */
-    public function setAttachmentId(\Ews\StructType\EwsAttachmentIdType $attachmentId = null)
+    public function setAttachmentId(?\StructType\EwsAttachmentIdType $attachmentId = null): self
     {
         $this->AttachmentId = $attachmentId;
+        
         return $this;
     }
     /**
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get ContentType value
      * @return string|null
      */
-    public function getContentType()
+    public function getContentType(): ?string
     {
         return $this->ContentType;
     }
     /**
      * Set ContentType value
      * @param string $contentType
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setContentType($contentType = null)
+    public function setContentType(?string $contentType = null): self
     {
         // validation for constraint: string
         if (!is_null($contentType) && !is_string($contentType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentType, true), gettype($contentType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentType, true), gettype($contentType)), __LINE__);
         }
         $this->ContentType = $contentType;
+        
         return $this;
     }
     /**
      * Get ContentId value
      * @return string|null
      */
-    public function getContentId()
+    public function getContentId(): ?string
     {
         return $this->ContentId;
     }
     /**
      * Set ContentId value
      * @param string $contentId
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setContentId($contentId = null)
+    public function setContentId(?string $contentId = null): self
     {
         // validation for constraint: string
         if (!is_null($contentId) && !is_string($contentId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentId, true), gettype($contentId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentId, true), gettype($contentId)), __LINE__);
         }
         $this->ContentId = $contentId;
+        
         return $this;
     }
     /**
      * Get ContentLocation value
      * @return string|null
      */
-    public function getContentLocation()
+    public function getContentLocation(): ?string
     {
         return $this->ContentLocation;
     }
     /**
      * Set ContentLocation value
      * @param string $contentLocation
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setContentLocation($contentLocation = null)
+    public function setContentLocation(?string $contentLocation = null): self
     {
         // validation for constraint: string
         if (!is_null($contentLocation) && !is_string($contentLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentLocation, true), gettype($contentLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contentLocation, true), gettype($contentLocation)), __LINE__);
         }
         $this->ContentLocation = $contentLocation;
+        
         return $this;
     }
     /**
      * Get Size value
      * @return int|null
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->Size;
     }
     /**
      * Set Size value
      * @param int $size
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setSize($size = null)
+    public function setSize(?int $size = null): self
     {
         // validation for constraint: int
         if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
+        
         return $this;
     }
     /**
      * Get LastModifiedTime value
      * @return string|null
      */
-    public function getLastModifiedTime()
+    public function getLastModifiedTime(): ?string
     {
         return $this->LastModifiedTime;
     }
     /**
      * Set LastModifiedTime value
      * @param string $lastModifiedTime
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setLastModifiedTime($lastModifiedTime = null)
+    public function setLastModifiedTime(?string $lastModifiedTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
+        
         return $this;
     }
     /**
      * Get IsInline value
      * @return bool|null
      */
-    public function getIsInline()
+    public function getIsInline(): ?bool
     {
         return $this->IsInline;
     }
     /**
      * Set IsInline value
      * @param bool $isInline
-     * @return \Ews\StructType\EwsAttachmentType
+     * @return \StructType\EwsAttachmentType
      */
-    public function setIsInline($isInline = null)
+    public function setIsInline(?bool $isInline = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isInline) && !is_bool($isInline)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInline, true), gettype($isInline)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isInline, true), gettype($isInline)), __LINE__);
         }
         $this->IsInline = $isInline;
+        
         return $this;
     }
 }

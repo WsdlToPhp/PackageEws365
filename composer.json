@@ -1,15 +1,16 @@
 {
     "name": "wsdltophp/package-ews365",
-    "description": "Package generated from wsdl/services.updated.wsdl using wsdltophp/packagegenerator",
+    "description": "Package generated from /var/www/wsdl/services.updated.wsdl using wsdltophp/packagegenerator",
     "require": {
-        "php": ">=5.3.3",
-        "ext-soap": "*",
+        "php": ">=7.4",
+        "ext-dom": "*",
         "ext-mbstring": "*",
-        "wsdltophp/packagebase": "~2.0"
+        "ext-soap": "*",
+        "wsdltophp/packagebase": "~5.0"
     },
     "autoload": {
         "psr-4": {
-            "Ews\\": "./src/",
+            "": "./src/",
             "SoapClient\\": "./SoapClient/"
         }
     }

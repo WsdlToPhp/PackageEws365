@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUrlsType ArrayType
@@ -19,22 +22,22 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $Url;
+    protected array $Url = [];
     /**
      * Constructor method for ArrayOfUrlsType
      * @uses EwsArrayOfUrlsType::setUrl()
      * @param string[] $url
      */
-    public function __construct(array $url = array())
+    public function __construct(array $url = [])
     {
         $this
             ->setUrl($url);
     }
     /**
      * Get Url value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getUrl()
+    public function getUrl(): array
     {
         return $this->Url;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUrlForArrayConstraintsFromSetUrl(array $values = array())
+    public static function validateUrlForArrayConstraintsFromSetUrl(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,36 +61,23 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
             $message = sprintf('The Url property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Url value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $url
-     * @return \Ews\ArrayType\EwsArrayOfUrlsType
+     * @return \ArrayType\EwsArrayOfUrlsType
      */
-    public function setUrl(array $url = array())
+    public function setUrl(array $url = []): self
     {
         // validation for constraint: array
         if ('' !== ($urlArrayErrorMessage = self::validateUrlForArrayConstraintsFromSetUrl($url))) {
-            throw new \InvalidArgumentException($urlArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($urlArrayErrorMessage, __LINE__);
         }
         $this->Url = $url;
-        return $this;
-    }
-    /**
-     * Add item to Url value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfUrlsType
-     */
-    public function addToUrl($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Url property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Url[] = $item;
+        
         return $this;
     }
     /**
@@ -95,7 +85,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -105,7 +95,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -114,7 +104,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -123,7 +113,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -133,7 +123,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfUrlsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Url
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Url';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateXrmActivityStreamType StructType
@@ -17,35 +20,36 @@ class EwsCreateXrmActivityStreamType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmActivityStreamType
+     * @var \StructType\EwsXrmActivityStreamType
      */
-    public $Activity;
+    protected \StructType\EwsXrmActivityStreamType $Activity;
     /**
      * Constructor method for CreateXrmActivityStreamType
      * @uses EwsCreateXrmActivityStreamType::setActivity()
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
+     * @param \StructType\EwsXrmActivityStreamType $activity
      */
-    public function __construct(\Ews\StructType\EwsXrmActivityStreamType $activity = null)
+    public function __construct(\StructType\EwsXrmActivityStreamType $activity)
     {
         $this
             ->setActivity($activity);
     }
     /**
      * Get Activity value
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function getActivity()
+    public function getActivity(): \StructType\EwsXrmActivityStreamType
     {
         return $this->Activity;
     }
     /**
      * Set Activity value
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
-     * @return \Ews\StructType\EwsCreateXrmActivityStreamType
+     * @param \StructType\EwsXrmActivityStreamType $activity
+     * @return \StructType\EwsCreateXrmActivityStreamType
      */
-    public function setActivity(\Ews\StructType\EwsXrmActivityStreamType $activity = null)
+    public function setActivity(\StructType\EwsXrmActivityStreamType $activity): self
     {
         $this->Activity = $activity;
+        
         return $this;
     }
 }

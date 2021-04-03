@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupBaseType StructType
@@ -19,33 +22,33 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SmtpAddress;
+    protected ?string $SmtpAddress = null;
     /**
      * The LegacyDN
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LegacyDN;
+    protected ?string $LegacyDN = null;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The AccessType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AccessType;
+    protected ?string $AccessType = null;
     /**
      * Constructor method for UnifiedGroupBaseType
      * @uses EwsUnifiedGroupBaseType::setSmtpAddress()
@@ -57,7 +60,7 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
      * @param string $displayName
      * @param string $accessType
      */
-    public function __construct($smtpAddress = null, $legacyDN = null, $displayName = null, $accessType = null)
+    public function __construct(?string $smtpAddress = null, ?string $legacyDN = null, ?string $displayName = null, ?string $accessType = null)
     {
         $this
             ->setSmtpAddress($smtpAddress)
@@ -69,91 +72,95 @@ class EwsUnifiedGroupBaseType extends AbstractStructBase
      * Get SmtpAddress value
      * @return string|null
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): ?string
     {
         return $this->SmtpAddress;
     }
     /**
      * Set SmtpAddress value
      * @param string $smtpAddress
-     * @return \Ews\StructType\EwsUnifiedGroupBaseType
+     * @return \StructType\EwsUnifiedGroupBaseType
      */
-    public function setSmtpAddress($smtpAddress = null)
+    public function setSmtpAddress(?string $smtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
+        
         return $this;
     }
     /**
      * Get LegacyDN value
      * @return string|null
      */
-    public function getLegacyDN()
+    public function getLegacyDN(): ?string
     {
         return $this->LegacyDN;
     }
     /**
      * Set LegacyDN value
      * @param string $legacyDN
-     * @return \Ews\StructType\EwsUnifiedGroupBaseType
+     * @return \StructType\EwsUnifiedGroupBaseType
      */
-    public function setLegacyDN($legacyDN = null)
+    public function setLegacyDN(?string $legacyDN = null): self
     {
         // validation for constraint: string
         if (!is_null($legacyDN) && !is_string($legacyDN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
         }
         $this->LegacyDN = $legacyDN;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsUnifiedGroupBaseType
+     * @return \StructType\EwsUnifiedGroupBaseType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get AccessType value
      * @return string|null
      */
-    public function getAccessType()
+    public function getAccessType(): ?string
     {
         return $this->AccessType;
     }
     /**
      * Set AccessType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupAccessType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupAccessType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $accessType
-     * @return \Ews\StructType\EwsUnifiedGroupBaseType
+     * @return \StructType\EwsUnifiedGroupBaseType
      */
-    public function setAccessType($accessType = null)
+    public function setAccessType(?string $accessType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
         $this->AccessType = $accessType;
+        
         return $this;
     }
 }

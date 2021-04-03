@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateBookingServiceType StructType
@@ -17,35 +20,36 @@ class EwsUpdateBookingServiceType extends EwsBaseBookingRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsBookingServiceType
+     * @var \StructType\EwsBookingServiceType
      */
-    public $Service;
+    protected \StructType\EwsBookingServiceType $Service;
     /**
      * Constructor method for UpdateBookingServiceType
      * @uses EwsUpdateBookingServiceType::setService()
-     * @param \Ews\StructType\EwsBookingServiceType $service
+     * @param \StructType\EwsBookingServiceType $service
      */
-    public function __construct(\Ews\StructType\EwsBookingServiceType $service = null)
+    public function __construct(\StructType\EwsBookingServiceType $service)
     {
         $this
             ->setService($service);
     }
     /**
      * Get Service value
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function getService()
+    public function getService(): \StructType\EwsBookingServiceType
     {
         return $this->Service;
     }
     /**
      * Set Service value
-     * @param \Ews\StructType\EwsBookingServiceType $service
-     * @return \Ews\StructType\EwsUpdateBookingServiceType
+     * @param \StructType\EwsBookingServiceType $service
+     * @return \StructType\EwsUpdateBookingServiceType
      */
-    public function setService(\Ews\StructType\EwsBookingServiceType $service = null)
+    public function setService(\StructType\EwsBookingServiceType $service): self
     {
         $this->Service = $service;
+        
         return $this;
     }
 }

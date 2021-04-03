@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchableMailboxType StructType
@@ -24,7 +27,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $Guid;
+    protected string $Guid;
     /**
      * The PrimarySmtpAddress
      * Meta information extracted from the WSDL
@@ -32,7 +35,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $PrimarySmtpAddress;
+    protected string $PrimarySmtpAddress;
     /**
      * The IsExternalMailbox
      * Meta information extracted from the WSDL
@@ -40,7 +43,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsExternalMailbox;
+    protected bool $IsExternalMailbox;
     /**
      * The ExternalEmailAddress
      * Meta information extracted from the WSDL
@@ -48,7 +51,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ExternalEmailAddress;
+    protected string $ExternalEmailAddress;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
@@ -56,7 +59,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayName;
+    protected string $DisplayName;
     /**
      * The IsMembershipGroup
      * Meta information extracted from the WSDL
@@ -64,7 +67,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsMembershipGroup;
+    protected bool $IsMembershipGroup;
     /**
      * The ReferenceId
      * Meta information extracted from the WSDL
@@ -72,7 +75,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ReferenceId;
+    protected string $ReferenceId;
     /**
      * Constructor method for SearchableMailboxType
      * @uses EwsSearchableMailboxType::setGuid()
@@ -90,7 +93,7 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * @param bool $isMembershipGroup
      * @param string $referenceId
      */
-    public function __construct($guid = null, $primarySmtpAddress = null, $isExternalMailbox = null, $externalEmailAddress = null, $displayName = null, $isMembershipGroup = null, $referenceId = null)
+    public function __construct(string $guid, string $primarySmtpAddress, bool $isExternalMailbox, string $externalEmailAddress, string $displayName, bool $isMembershipGroup, string $referenceId)
     {
         $this
             ->setGuid($guid)
@@ -105,158 +108,165 @@ class EwsSearchableMailboxType extends AbstractStructBase
      * Get Guid value
      * @return string
      */
-    public function getGuid()
+    public function getGuid(): string
     {
         return $this->Guid;
     }
     /**
      * Set Guid value
      * @param string $guid
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setGuid($guid = null)
+    public function setGuid(string $guid): self
     {
         // validation for constraint: string
         if (!is_null($guid) && !is_string($guid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($guid, true), gettype($guid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($guid, true), gettype($guid)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($guid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $guid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($guid, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($guid, true)), __LINE__);
         }
         $this->Guid = $guid;
+        
         return $this;
     }
     /**
      * Get PrimarySmtpAddress value
      * @return string
      */
-    public function getPrimarySmtpAddress()
+    public function getPrimarySmtpAddress(): string
     {
         return $this->PrimarySmtpAddress;
     }
     /**
      * Set PrimarySmtpAddress value
      * @param string $primarySmtpAddress
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setPrimarySmtpAddress($primarySmtpAddress = null)
+    public function setPrimarySmtpAddress(string $primarySmtpAddress): self
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
+        
         return $this;
     }
     /**
      * Get IsExternalMailbox value
      * @return bool
      */
-    public function getIsExternalMailbox()
+    public function getIsExternalMailbox(): bool
     {
         return $this->IsExternalMailbox;
     }
     /**
      * Set IsExternalMailbox value
      * @param bool $isExternalMailbox
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setIsExternalMailbox($isExternalMailbox = null)
+    public function setIsExternalMailbox(bool $isExternalMailbox): self
     {
         // validation for constraint: boolean
         if (!is_null($isExternalMailbox) && !is_bool($isExternalMailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isExternalMailbox, true), gettype($isExternalMailbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isExternalMailbox, true), gettype($isExternalMailbox)), __LINE__);
         }
         $this->IsExternalMailbox = $isExternalMailbox;
+        
         return $this;
     }
     /**
      * Get ExternalEmailAddress value
      * @return string
      */
-    public function getExternalEmailAddress()
+    public function getExternalEmailAddress(): string
     {
         return $this->ExternalEmailAddress;
     }
     /**
      * Set ExternalEmailAddress value
      * @param string $externalEmailAddress
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setExternalEmailAddress($externalEmailAddress = null)
+    public function setExternalEmailAddress(string $externalEmailAddress): self
     {
         // validation for constraint: string
         if (!is_null($externalEmailAddress) && !is_string($externalEmailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalEmailAddress, true), gettype($externalEmailAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalEmailAddress, true), gettype($externalEmailAddress)), __LINE__);
         }
         $this->ExternalEmailAddress = $externalEmailAddress;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(string $displayName): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get IsMembershipGroup value
      * @return bool
      */
-    public function getIsMembershipGroup()
+    public function getIsMembershipGroup(): bool
     {
         return $this->IsMembershipGroup;
     }
     /**
      * Set IsMembershipGroup value
      * @param bool $isMembershipGroup
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setIsMembershipGroup($isMembershipGroup = null)
+    public function setIsMembershipGroup(bool $isMembershipGroup): self
     {
         // validation for constraint: boolean
         if (!is_null($isMembershipGroup) && !is_bool($isMembershipGroup)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMembershipGroup, true), gettype($isMembershipGroup)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMembershipGroup, true), gettype($isMembershipGroup)), __LINE__);
         }
         $this->IsMembershipGroup = $isMembershipGroup;
+        
         return $this;
     }
     /**
      * Get ReferenceId value
      * @return string
      */
-    public function getReferenceId()
+    public function getReferenceId(): string
     {
         return $this->ReferenceId;
     }
     /**
      * Set ReferenceId value
      * @param string $referenceId
-     * @return \Ews\StructType\EwsSearchableMailboxType
+     * @return \StructType\EwsSearchableMailboxType
      */
-    public function setReferenceId($referenceId = null)
+    public function setReferenceId(string $referenceId): self
     {
         // validation for constraint: string
         if (!is_null($referenceId) && !is_string($referenceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($referenceId, true), gettype($referenceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($referenceId, true), gettype($referenceId)), __LINE__);
         }
         $this->ReferenceId = $referenceId;
+        
         return $this;
     }
 }

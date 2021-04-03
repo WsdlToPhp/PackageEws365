@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateItemInRecoverableItemsResponseMessageType StructType
@@ -16,24 +19,24 @@ class EwsUpdateItemInRecoverableItemsResponseMessageType extends EwsItemInfoResp
      * The Attachments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsArrayOfAttachmentsType
+     * @var \StructType\EwsArrayOfAttachmentsType|null
      */
-    public $Attachments;
+    protected ?\StructType\EwsArrayOfAttachmentsType $Attachments = null;
     /**
      * The ConflictResults
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsConflictResultsType
+     * @var \StructType\EwsConflictResultsType|null
      */
-    public $ConflictResults;
+    protected ?\StructType\EwsConflictResultsType $ConflictResults = null;
     /**
      * Constructor method for UpdateItemInRecoverableItemsResponseMessageType
      * @uses EwsUpdateItemInRecoverableItemsResponseMessageType::setAttachments()
      * @uses EwsUpdateItemInRecoverableItemsResponseMessageType::setConflictResults()
-     * @param \Ews\StructType\EwsArrayOfAttachmentsType $attachments
-     * @param \Ews\StructType\EwsConflictResultsType $conflictResults
+     * @param \StructType\EwsArrayOfAttachmentsType $attachments
+     * @param \StructType\EwsConflictResultsType $conflictResults
      */
-    public function __construct(\Ews\StructType\EwsArrayOfAttachmentsType $attachments = null, \Ews\StructType\EwsConflictResultsType $conflictResults = null)
+    public function __construct(?\StructType\EwsArrayOfAttachmentsType $attachments = null, ?\StructType\EwsConflictResultsType $conflictResults = null)
     {
         $this
             ->setAttachments($attachments)
@@ -41,38 +44,40 @@ class EwsUpdateItemInRecoverableItemsResponseMessageType extends EwsItemInfoResp
     }
     /**
      * Get Attachments value
-     * @return \Ews\StructType\EwsArrayOfAttachmentsType|null
+     * @return \StructType\EwsArrayOfAttachmentsType|null
      */
-    public function getAttachments()
+    public function getAttachments(): ?\StructType\EwsArrayOfAttachmentsType
     {
         return $this->Attachments;
     }
     /**
      * Set Attachments value
-     * @param \Ews\StructType\EwsArrayOfAttachmentsType $attachments
-     * @return \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
+     * @param \StructType\EwsArrayOfAttachmentsType $attachments
+     * @return \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
      */
-    public function setAttachments(\Ews\StructType\EwsArrayOfAttachmentsType $attachments = null)
+    public function setAttachments(?\StructType\EwsArrayOfAttachmentsType $attachments = null): self
     {
         $this->Attachments = $attachments;
+        
         return $this;
     }
     /**
      * Get ConflictResults value
-     * @return \Ews\StructType\EwsConflictResultsType|null
+     * @return \StructType\EwsConflictResultsType|null
      */
-    public function getConflictResults()
+    public function getConflictResults(): ?\StructType\EwsConflictResultsType
     {
         return $this->ConflictResults;
     }
     /**
      * Set ConflictResults value
-     * @param \Ews\StructType\EwsConflictResultsType $conflictResults
-     * @return \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
+     * @param \StructType\EwsConflictResultsType $conflictResults
+     * @return \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
      */
-    public function setConflictResults(\Ews\StructType\EwsConflictResultsType $conflictResults = null)
+    public function setConflictResults(?\StructType\EwsConflictResultsType $conflictResults = null): self
     {
         $this->ConflictResults = $conflictResults;
+        
         return $this;
     }
 }

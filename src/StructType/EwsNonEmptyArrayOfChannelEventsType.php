@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfChannelEventsType StructType
@@ -18,72 +21,72 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsChannelStatusEventType
+     * @var \StructType\EwsChannelStatusEventType|null
      */
-    public $ChannelStatusEvent;
+    protected ?\StructType\EwsChannelStatusEventType $ChannelStatusEvent = null;
     /**
      * The ChannelEventDroppedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsChannelEventDroppedChannelEventType
+     * @var \StructType\EwsChannelEventDroppedChannelEventType|null
      */
-    public $ChannelEventDroppedEvent;
+    protected ?\StructType\EwsChannelEventDroppedChannelEventType $ChannelEventDroppedEvent = null;
     /**
      * The SubscriptionEventDroppedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType
+     * @var \StructType\EwsSubscriptionEventDroppedChannelEventType|null
      */
-    public $SubscriptionEventDroppedEvent;
+    protected ?\StructType\EwsSubscriptionEventDroppedChannelEventType $SubscriptionEventDroppedEvent = null;
     /**
      * The SubscriptionRenewFailedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType
+     * @var \StructType\EwsSubscriptionRenewFailedChannelEventType|null
      */
-    public $SubscriptionRenewFailedEvent;
+    protected ?\StructType\EwsSubscriptionRenewFailedChannelEventType $SubscriptionRenewFailedEvent = null;
     /**
      * The UnifiedGroupUnseenChangedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
+     * @var \StructType\EwsUnifiedGroupUnseenChangedChannelEventType|null
      */
-    public $UnifiedGroupUnseenChangedEvent;
+    protected ?\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $UnifiedGroupUnseenChangedEvent = null;
     /**
      * The UnifiedGroupContentChangedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType
+     * @var \StructType\EwsUnifiedGroupContentChangedChannelEventType|null
      */
-    public $UnifiedGroupContentChangedEvent;
+    protected ?\StructType\EwsUnifiedGroupContentChangedChannelEventType $UnifiedGroupContentChangedEvent = null;
     /**
      * The UserMembershipChangedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @var \StructType\EwsUserMembershipChangedChannelEventType|null
      */
-    public $UserMembershipChangedEvent;
+    protected ?\StructType\EwsUserMembershipChangedChannelEventType $UserMembershipChangedEvent = null;
     /**
      * The NewSocialActivityAddedEvent
      * Meta information extracted from the WSDL
      * - choice: ChannelStatusEvent | ChannelEventDroppedEvent | SubscriptionEventDroppedEvent | SubscriptionRenewFailedEvent | UnifiedGroupUnseenChangedEvent | UnifiedGroupContentChangedEvent | UserMembershipChangedEvent | NewSocialActivityAddedEvent
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsNewSocialActivityAddedEventType
+     * @var \StructType\EwsNewSocialActivityAddedEventType|null
      */
-    public $NewSocialActivityAddedEvent;
+    protected ?\StructType\EwsNewSocialActivityAddedEventType $NewSocialActivityAddedEvent = null;
     /**
      * Constructor method for NonEmptyArrayOfChannelEventsType
      * @uses EwsNonEmptyArrayOfChannelEventsType::setChannelStatusEvent()
@@ -94,16 +97,16 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @uses EwsNonEmptyArrayOfChannelEventsType::setUnifiedGroupContentChangedEvent()
      * @uses EwsNonEmptyArrayOfChannelEventsType::setUserMembershipChangedEvent()
      * @uses EwsNonEmptyArrayOfChannelEventsType::setNewSocialActivityAddedEvent()
-     * @param \Ews\StructType\EwsChannelStatusEventType $channelStatusEvent
-     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
-     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
-     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
-     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
+     * @param \StructType\EwsChannelStatusEventType $channelStatusEvent
+     * @param \StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
+     * @param \StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
+     * @param \StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
+     * @param \StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
+     * @param \StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
+     * @param \StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
+     * @param \StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
      */
-    public function __construct(\Ews\StructType\EwsChannelStatusEventType $channelStatusEvent = null, \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null, \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null, \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null, \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null, \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null, \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null, \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null)
+    public function __construct(?\StructType\EwsChannelStatusEventType $channelStatusEvent = null, ?\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null, ?\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null, ?\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null, ?\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null, ?\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null, ?\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null, ?\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null)
     {
         $this
             ->setChannelStatusEvent($channelStatusEvent)
@@ -117,9 +120,9 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
     }
     /**
      * Get ChannelStatusEvent value
-     * @return \Ews\StructType\EwsChannelStatusEventType|null
+     * @return \StructType\EwsChannelStatusEventType|null
      */
-    public function getChannelStatusEvent()
+    public function getChannelStatusEvent(): ?\StructType\EwsChannelStatusEventType
     {
         return isset($this->ChannelStatusEvent) ? $this->ChannelStatusEvent : null;
     }
@@ -130,7 +133,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateChannelStatusEventForChoiceConstraintsFromSetChannelStatusEvent($value)
+    public function validateChannelStatusEventForChoiceConstraintsFromSetChannelStatusEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -148,12 +151,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ChannelStatusEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelStatusEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ChannelStatusEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelStatusEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -161,28 +165,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsChannelStatusEventType $channelStatusEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsChannelStatusEventType $channelStatusEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setChannelStatusEvent(\Ews\StructType\EwsChannelStatusEventType $channelStatusEvent = null)
+    public function setChannelStatusEvent(?\StructType\EwsChannelStatusEventType $channelStatusEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($channelStatusEventChoiceErrorMessage = self::validateChannelStatusEventForChoiceConstraintsFromSetChannelStatusEvent($channelStatusEvent))) {
-            throw new \InvalidArgumentException($channelStatusEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($channelStatusEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($channelStatusEvent) || (is_array($channelStatusEvent) && empty($channelStatusEvent))) {
             unset($this->ChannelStatusEvent);
         } else {
             $this->ChannelStatusEvent = $channelStatusEvent;
         }
+        
         return $this;
     }
     /**
      * Get ChannelEventDroppedEvent value
-     * @return \Ews\StructType\EwsChannelEventDroppedChannelEventType|null
+     * @return \StructType\EwsChannelEventDroppedChannelEventType|null
      */
-    public function getChannelEventDroppedEvent()
+    public function getChannelEventDroppedEvent(): ?\StructType\EwsChannelEventDroppedChannelEventType
     {
         return isset($this->ChannelEventDroppedEvent) ? $this->ChannelEventDroppedEvent : null;
     }
@@ -193,7 +198,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateChannelEventDroppedEventForChoiceConstraintsFromSetChannelEventDroppedEvent($value)
+    public function validateChannelEventDroppedEventForChoiceConstraintsFromSetChannelEventDroppedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -211,12 +216,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ChannelEventDroppedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelEventDroppedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ChannelEventDroppedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelEventDroppedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -224,28 +230,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setChannelEventDroppedEvent(\Ews\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null)
+    public function setChannelEventDroppedEvent(?\StructType\EwsChannelEventDroppedChannelEventType $channelEventDroppedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($channelEventDroppedEventChoiceErrorMessage = self::validateChannelEventDroppedEventForChoiceConstraintsFromSetChannelEventDroppedEvent($channelEventDroppedEvent))) {
-            throw new \InvalidArgumentException($channelEventDroppedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($channelEventDroppedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($channelEventDroppedEvent) || (is_array($channelEventDroppedEvent) && empty($channelEventDroppedEvent))) {
             unset($this->ChannelEventDroppedEvent);
         } else {
             $this->ChannelEventDroppedEvent = $channelEventDroppedEvent;
         }
+        
         return $this;
     }
     /**
      * Get SubscriptionEventDroppedEvent value
-     * @return \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType|null
+     * @return \StructType\EwsSubscriptionEventDroppedChannelEventType|null
      */
-    public function getSubscriptionEventDroppedEvent()
+    public function getSubscriptionEventDroppedEvent(): ?\StructType\EwsSubscriptionEventDroppedChannelEventType
     {
         return isset($this->SubscriptionEventDroppedEvent) ? $this->SubscriptionEventDroppedEvent : null;
     }
@@ -256,7 +263,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSubscriptionEventDroppedEventForChoiceConstraintsFromSetSubscriptionEventDroppedEvent($value)
+    public function validateSubscriptionEventDroppedEventForChoiceConstraintsFromSetSubscriptionEventDroppedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -274,12 +281,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SubscriptionEventDroppedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscriptionEventDroppedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SubscriptionEventDroppedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscriptionEventDroppedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -287,28 +295,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setSubscriptionEventDroppedEvent(\Ews\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null)
+    public function setSubscriptionEventDroppedEvent(?\StructType\EwsSubscriptionEventDroppedChannelEventType $subscriptionEventDroppedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($subscriptionEventDroppedEventChoiceErrorMessage = self::validateSubscriptionEventDroppedEventForChoiceConstraintsFromSetSubscriptionEventDroppedEvent($subscriptionEventDroppedEvent))) {
-            throw new \InvalidArgumentException($subscriptionEventDroppedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($subscriptionEventDroppedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($subscriptionEventDroppedEvent) || (is_array($subscriptionEventDroppedEvent) && empty($subscriptionEventDroppedEvent))) {
             unset($this->SubscriptionEventDroppedEvent);
         } else {
             $this->SubscriptionEventDroppedEvent = $subscriptionEventDroppedEvent;
         }
+        
         return $this;
     }
     /**
      * Get SubscriptionRenewFailedEvent value
-     * @return \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType|null
+     * @return \StructType\EwsSubscriptionRenewFailedChannelEventType|null
      */
-    public function getSubscriptionRenewFailedEvent()
+    public function getSubscriptionRenewFailedEvent(): ?\StructType\EwsSubscriptionRenewFailedChannelEventType
     {
         return isset($this->SubscriptionRenewFailedEvent) ? $this->SubscriptionRenewFailedEvent : null;
     }
@@ -319,7 +328,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSubscriptionRenewFailedEventForChoiceConstraintsFromSetSubscriptionRenewFailedEvent($value)
+    public function validateSubscriptionRenewFailedEventForChoiceConstraintsFromSetSubscriptionRenewFailedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -337,12 +346,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SubscriptionRenewFailedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscriptionRenewFailedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SubscriptionRenewFailedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscriptionRenewFailedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -350,28 +360,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setSubscriptionRenewFailedEvent(\Ews\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null)
+    public function setSubscriptionRenewFailedEvent(?\StructType\EwsSubscriptionRenewFailedChannelEventType $subscriptionRenewFailedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($subscriptionRenewFailedEventChoiceErrorMessage = self::validateSubscriptionRenewFailedEventForChoiceConstraintsFromSetSubscriptionRenewFailedEvent($subscriptionRenewFailedEvent))) {
-            throw new \InvalidArgumentException($subscriptionRenewFailedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($subscriptionRenewFailedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($subscriptionRenewFailedEvent) || (is_array($subscriptionRenewFailedEvent) && empty($subscriptionRenewFailedEvent))) {
             unset($this->SubscriptionRenewFailedEvent);
         } else {
             $this->SubscriptionRenewFailedEvent = $subscriptionRenewFailedEvent;
         }
+        
         return $this;
     }
     /**
      * Get UnifiedGroupUnseenChangedEvent value
-     * @return \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType|null
+     * @return \StructType\EwsUnifiedGroupUnseenChangedChannelEventType|null
      */
-    public function getUnifiedGroupUnseenChangedEvent()
+    public function getUnifiedGroupUnseenChangedEvent(): ?\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
     {
         return isset($this->UnifiedGroupUnseenChangedEvent) ? $this->UnifiedGroupUnseenChangedEvent : null;
     }
@@ -382,7 +393,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnifiedGroupUnseenChangedEventForChoiceConstraintsFromSetUnifiedGroupUnseenChangedEvent($value)
+    public function validateUnifiedGroupUnseenChangedEventForChoiceConstraintsFromSetUnifiedGroupUnseenChangedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -400,12 +411,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnifiedGroupUnseenChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupUnseenChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnifiedGroupUnseenChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupUnseenChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -413,28 +425,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setUnifiedGroupUnseenChangedEvent(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null)
+    public function setUnifiedGroupUnseenChangedEvent(?\StructType\EwsUnifiedGroupUnseenChangedChannelEventType $unifiedGroupUnseenChangedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($unifiedGroupUnseenChangedEventChoiceErrorMessage = self::validateUnifiedGroupUnseenChangedEventForChoiceConstraintsFromSetUnifiedGroupUnseenChangedEvent($unifiedGroupUnseenChangedEvent))) {
-            throw new \InvalidArgumentException($unifiedGroupUnseenChangedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unifiedGroupUnseenChangedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($unifiedGroupUnseenChangedEvent) || (is_array($unifiedGroupUnseenChangedEvent) && empty($unifiedGroupUnseenChangedEvent))) {
             unset($this->UnifiedGroupUnseenChangedEvent);
         } else {
             $this->UnifiedGroupUnseenChangedEvent = $unifiedGroupUnseenChangedEvent;
         }
+        
         return $this;
     }
     /**
      * Get UnifiedGroupContentChangedEvent value
-     * @return \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType|null
+     * @return \StructType\EwsUnifiedGroupContentChangedChannelEventType|null
      */
-    public function getUnifiedGroupContentChangedEvent()
+    public function getUnifiedGroupContentChangedEvent(): ?\StructType\EwsUnifiedGroupContentChangedChannelEventType
     {
         return isset($this->UnifiedGroupContentChangedEvent) ? $this->UnifiedGroupContentChangedEvent : null;
     }
@@ -445,7 +458,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnifiedGroupContentChangedEventForChoiceConstraintsFromSetUnifiedGroupContentChangedEvent($value)
+    public function validateUnifiedGroupContentChangedEventForChoiceConstraintsFromSetUnifiedGroupContentChangedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -463,12 +476,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnifiedGroupContentChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupContentChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnifiedGroupContentChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupContentChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -476,28 +490,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setUnifiedGroupContentChangedEvent(\Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null)
+    public function setUnifiedGroupContentChangedEvent(?\StructType\EwsUnifiedGroupContentChangedChannelEventType $unifiedGroupContentChangedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($unifiedGroupContentChangedEventChoiceErrorMessage = self::validateUnifiedGroupContentChangedEventForChoiceConstraintsFromSetUnifiedGroupContentChangedEvent($unifiedGroupContentChangedEvent))) {
-            throw new \InvalidArgumentException($unifiedGroupContentChangedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unifiedGroupContentChangedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($unifiedGroupContentChangedEvent) || (is_array($unifiedGroupContentChangedEvent) && empty($unifiedGroupContentChangedEvent))) {
             unset($this->UnifiedGroupContentChangedEvent);
         } else {
             $this->UnifiedGroupContentChangedEvent = $unifiedGroupContentChangedEvent;
         }
+        
         return $this;
     }
     /**
      * Get UserMembershipChangedEvent value
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType|null
+     * @return \StructType\EwsUserMembershipChangedChannelEventType|null
      */
-    public function getUserMembershipChangedEvent()
+    public function getUserMembershipChangedEvent(): ?\StructType\EwsUserMembershipChangedChannelEventType
     {
         return isset($this->UserMembershipChangedEvent) ? $this->UserMembershipChangedEvent : null;
     }
@@ -508,7 +523,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUserMembershipChangedEventForChoiceConstraintsFromSetUserMembershipChangedEvent($value)
+    public function validateUserMembershipChangedEventForChoiceConstraintsFromSetUserMembershipChangedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -526,12 +541,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UserMembershipChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UserMembershipChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UserMembershipChangedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: UserMembershipChangedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -539,28 +555,29 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setUserMembershipChangedEvent(\Ews\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null)
+    public function setUserMembershipChangedEvent(?\StructType\EwsUserMembershipChangedChannelEventType $userMembershipChangedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($userMembershipChangedEventChoiceErrorMessage = self::validateUserMembershipChangedEventForChoiceConstraintsFromSetUserMembershipChangedEvent($userMembershipChangedEvent))) {
-            throw new \InvalidArgumentException($userMembershipChangedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($userMembershipChangedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($userMembershipChangedEvent) || (is_array($userMembershipChangedEvent) && empty($userMembershipChangedEvent))) {
             unset($this->UserMembershipChangedEvent);
         } else {
             $this->UserMembershipChangedEvent = $userMembershipChangedEvent;
         }
+        
         return $this;
     }
     /**
      * Get NewSocialActivityAddedEvent value
-     * @return \Ews\StructType\EwsNewSocialActivityAddedEventType|null
+     * @return \StructType\EwsNewSocialActivityAddedEventType|null
      */
-    public function getNewSocialActivityAddedEvent()
+    public function getNewSocialActivityAddedEvent(): ?\StructType\EwsNewSocialActivityAddedEventType
     {
         return isset($this->NewSocialActivityAddedEvent) ? $this->NewSocialActivityAddedEvent : null;
     }
@@ -571,7 +588,7 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateNewSocialActivityAddedEventForChoiceConstraintsFromSetNewSocialActivityAddedEvent($value)
+    public function validateNewSocialActivityAddedEventForChoiceConstraintsFromSetNewSocialActivityAddedEvent($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -589,12 +606,13 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property NewSocialActivityAddedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: NewSocialActivityAddedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property NewSocialActivityAddedEvent can\'t be set as the property %s is already set. Only one property must be set among these properties: NewSocialActivityAddedEvent, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -602,21 +620,22 @@ class EwsNonEmptyArrayOfChannelEventsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelEventsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent
+     * @return \StructType\EwsNonEmptyArrayOfChannelEventsType
      */
-    public function setNewSocialActivityAddedEvent(\Ews\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null)
+    public function setNewSocialActivityAddedEvent(?\StructType\EwsNewSocialActivityAddedEventType $newSocialActivityAddedEvent = null): self
     {
         // validation for constraint: choice(ChannelStatusEvent, ChannelEventDroppedEvent, SubscriptionEventDroppedEvent, SubscriptionRenewFailedEvent, UnifiedGroupUnseenChangedEvent, UnifiedGroupContentChangedEvent, UserMembershipChangedEvent, NewSocialActivityAddedEvent)
         if ('' !== ($newSocialActivityAddedEventChoiceErrorMessage = self::validateNewSocialActivityAddedEventForChoiceConstraintsFromSetNewSocialActivityAddedEvent($newSocialActivityAddedEvent))) {
-            throw new \InvalidArgumentException($newSocialActivityAddedEventChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($newSocialActivityAddedEventChoiceErrorMessage, __LINE__);
         }
         if (is_null($newSocialActivityAddedEvent) || (is_array($newSocialActivityAddedEvent) && empty($newSocialActivityAddedEvent))) {
             unset($this->NewSocialActivityAddedEvent);
         } else {
             $this->NewSocialActivityAddedEvent = $newSocialActivityAddedEvent;
         }
+        
         return $this;
     }
 }

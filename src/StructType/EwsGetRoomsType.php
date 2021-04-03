@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetRoomsType StructType
@@ -17,35 +20,36 @@ class EwsGetRoomsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType
      */
-    public $RoomList;
+    protected \StructType\EwsEmailAddressType $RoomList;
     /**
      * Constructor method for GetRoomsType
      * @uses EwsGetRoomsType::setRoomList()
-     * @param \Ews\StructType\EwsEmailAddressType $roomList
+     * @param \StructType\EwsEmailAddressType $roomList
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $roomList = null)
+    public function __construct(\StructType\EwsEmailAddressType $roomList)
     {
         $this
             ->setRoomList($roomList);
     }
     /**
      * Get RoomList value
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function getRoomList()
+    public function getRoomList(): \StructType\EwsEmailAddressType
     {
         return $this->RoomList;
     }
     /**
      * Set RoomList value
-     * @param \Ews\StructType\EwsEmailAddressType $roomList
-     * @return \Ews\StructType\EwsGetRoomsType
+     * @param \StructType\EwsEmailAddressType $roomList
+     * @return \StructType\EwsGetRoomsType
      */
-    public function setRoomList(\Ews\StructType\EwsEmailAddressType $roomList = null)
+    public function setRoomList(\StructType\EwsEmailAddressType $roomList): self
     {
         $this->RoomList = $roomList;
+        
         return $this;
     }
 }

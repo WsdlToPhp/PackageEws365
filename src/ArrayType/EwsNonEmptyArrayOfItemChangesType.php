@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfItemChangesType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * The ItemChange
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsItemChangeType[]
+     * @var \StructType\EwsItemChangeType[]
      */
-    public $ItemChange;
+    protected array $ItemChange = [];
     /**
      * Constructor method for NonEmptyArrayOfItemChangesType
      * @uses EwsNonEmptyArrayOfItemChangesType::setItemChange()
-     * @param \Ews\StructType\EwsItemChangeType[] $itemChange
+     * @param \StructType\EwsItemChangeType[] $itemChange
      */
-    public function __construct(array $itemChange = array())
+    public function __construct(array $itemChange = [])
     {
         $this
             ->setItemChange($itemChange);
     }
     /**
      * Get ItemChange value
-     * @return \Ews\StructType\EwsItemChangeType[]|null
+     * @return \StructType\EwsItemChangeType[]
      */
-    public function getItemChange()
+    public function getItemChange(): array
     {
         return $this->ItemChange;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateItemChangeForArrayConstraintsFromSetItemChange(array $values = array())
+    public static function validateItemChangeForArrayConstraintsFromSetItemChange(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfItemChangesTypeItemChangeItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfItemChangesTypeItemChangeItem instanceof \Ews\StructType\EwsItemChangeType) {
+            if (!$nonEmptyArrayOfItemChangesTypeItemChangeItem instanceof \StructType\EwsItemChangeType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfItemChangesTypeItemChangeItem) ? get_class($nonEmptyArrayOfItemChangesTypeItemChangeItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfItemChangesTypeItemChangeItem), var_export($nonEmptyArrayOfItemChangesTypeItemChangeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ItemChange property can only contain items of type \Ews\StructType\EwsItemChangeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ItemChange property can only contain items of type \StructType\EwsItemChangeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ItemChange value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemChangeType[] $itemChange
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemChangeType[] $itemChange
+     * @return \ArrayType\EwsNonEmptyArrayOfItemChangesType
      */
-    public function setItemChange(array $itemChange = array())
+    public function setItemChange(array $itemChange = []): self
     {
         // validation for constraint: array
         if ('' !== ($itemChangeArrayErrorMessage = self::validateItemChangeForArrayConstraintsFromSetItemChange($itemChange))) {
-            throw new \InvalidArgumentException($itemChangeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemChangeArrayErrorMessage, __LINE__);
         }
         $this->ItemChange = $itemChange;
-        return $this;
-    }
-    /**
-     * Add item to ItemChange value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemChangeType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType
-     */
-    public function addToItemChange(\Ews\StructType\EwsItemChangeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsItemChangeType) {
-            throw new \InvalidArgumentException(sprintf('The ItemChange property can only contain items of type \Ews\StructType\EwsItemChangeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ItemChange[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsItemChangeType|null
+     * @return \StructType\EwsItemChangeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsItemChangeType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsItemChangeType|null
+     * @return \StructType\EwsItemChangeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsItemChangeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsItemChangeType|null
+     * @return \StructType\EwsItemChangeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsItemChangeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsItemChangeType|null
+     * @return \StructType\EwsItemChangeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsItemChangeType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsItemChangeType|null
+     * @return \StructType\EwsItemChangeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsItemChangeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemChangeType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfItemChangesType
+     */
+    public function add(\StructType\EwsItemChangeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ItemChange
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ItemChange';
     }

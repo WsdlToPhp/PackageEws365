@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for FlaggedForActionType EnumType
@@ -84,9 +86,9 @@ class EwsFlaggedForActionType extends AbstractStructEnumBase
      * @uses self::VALUE_REVIEW
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ANY,
             self::VALUE_CALL,
             self::VALUE_DO_NOT_FORWARD,
@@ -98,6 +100,6 @@ class EwsFlaggedForActionType extends AbstractStructEnumBase
             self::VALUE_REPLY,
             self::VALUE_REPLY_TO_ALL,
             self::VALUE_REVIEW,
-        );
+        ];
     }
 }

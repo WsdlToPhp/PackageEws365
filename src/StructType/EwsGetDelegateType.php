@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDelegateType StructType
@@ -18,23 +21,23 @@ class EwsGetDelegateType extends EwsBaseDelegateType
      * - use: required
      * @var bool
      */
-    public $IncludePermissions;
+    protected bool $IncludePermissions;
     /**
      * The UserIds
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUserIdType
+     * @var \ArrayType\EwsArrayOfUserIdType|null
      */
-    public $UserIds;
+    protected ?\ArrayType\EwsArrayOfUserIdType $UserIds = null;
     /**
      * Constructor method for GetDelegateType
      * @uses EwsGetDelegateType::setIncludePermissions()
      * @uses EwsGetDelegateType::setUserIds()
      * @param bool $includePermissions
-     * @param \Ews\ArrayType\EwsArrayOfUserIdType $userIds
+     * @param \ArrayType\EwsArrayOfUserIdType $userIds
      */
-    public function __construct($includePermissions = null, \Ews\ArrayType\EwsArrayOfUserIdType $userIds = null)
+    public function __construct(bool $includePermissions, ?\ArrayType\EwsArrayOfUserIdType $userIds = null)
     {
         $this
             ->setIncludePermissions($includePermissions)
@@ -44,40 +47,42 @@ class EwsGetDelegateType extends EwsBaseDelegateType
      * Get IncludePermissions value
      * @return bool
      */
-    public function getIncludePermissions()
+    public function getIncludePermissions(): bool
     {
         return $this->IncludePermissions;
     }
     /**
      * Set IncludePermissions value
      * @param bool $includePermissions
-     * @return \Ews\StructType\EwsGetDelegateType
+     * @return \StructType\EwsGetDelegateType
      */
-    public function setIncludePermissions($includePermissions = null)
+    public function setIncludePermissions(bool $includePermissions): self
     {
         // validation for constraint: boolean
         if (!is_null($includePermissions) && !is_bool($includePermissions)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includePermissions, true), gettype($includePermissions)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includePermissions, true), gettype($includePermissions)), __LINE__);
         }
         $this->IncludePermissions = $includePermissions;
+        
         return $this;
     }
     /**
      * Get UserIds value
-     * @return \Ews\ArrayType\EwsArrayOfUserIdType|null
+     * @return \ArrayType\EwsArrayOfUserIdType|null
      */
-    public function getUserIds()
+    public function getUserIds(): ?\ArrayType\EwsArrayOfUserIdType
     {
         return $this->UserIds;
     }
     /**
      * Set UserIds value
-     * @param \Ews\ArrayType\EwsArrayOfUserIdType $userIds
-     * @return \Ews\StructType\EwsGetDelegateType
+     * @param \ArrayType\EwsArrayOfUserIdType $userIds
+     * @return \StructType\EwsGetDelegateType
      */
-    public function setUserIds(\Ews\ArrayType\EwsArrayOfUserIdType $userIds = null)
+    public function setUserIds(?\ArrayType\EwsArrayOfUserIdType $userIds = null): self
     {
         $this->UserIds = $userIds;
+        
         return $this;
     }
 }

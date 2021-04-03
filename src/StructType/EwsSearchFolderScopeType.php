@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchFolderScopeType StructType
@@ -18,26 +21,26 @@ class EwsSearchFolderScopeType extends AbstractStructBase
      * - choice: FolderId | WellKnownFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * The WellKnownFolder
      * Meta information extracted from the WSDL
      * - choice: FolderId | WellKnownFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDistinguishedFolderIdType
+     * @var \StructType\EwsDistinguishedFolderIdType|null
      */
-    public $WellKnownFolder;
+    protected ?\StructType\EwsDistinguishedFolderIdType $WellKnownFolder = null;
     /**
      * Constructor method for SearchFolderScopeType
      * @uses EwsSearchFolderScopeType::setFolderId()
      * @uses EwsSearchFolderScopeType::setWellKnownFolder()
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $wellKnownFolder
+     * @param \StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsDistinguishedFolderIdType $wellKnownFolder
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null, \Ews\StructType\EwsDistinguishedFolderIdType $wellKnownFolder = null)
+    public function __construct(?\StructType\EwsFolderIdType $folderId = null, ?\StructType\EwsDistinguishedFolderIdType $wellKnownFolder = null)
     {
         $this
             ->setFolderId($folderId)
@@ -45,9 +48,9 @@ class EwsSearchFolderScopeType extends AbstractStructBase
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return isset($this->FolderId) ? $this->FolderId : null;
     }
@@ -58,7 +61,7 @@ class EwsSearchFolderScopeType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value)
+    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -70,12 +73,13 @@ class EwsSearchFolderScopeType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -83,28 +87,29 @@ class EwsSearchFolderScopeType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsSearchFolderScopeType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsSearchFolderScopeType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         // validation for constraint: choice(FolderId, WellKnownFolder)
         if ('' !== ($folderIdChoiceErrorMessage = self::validateFolderIdForChoiceConstraintsFromSetFolderId($folderId))) {
-            throw new \InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($folderId) || (is_array($folderId) && empty($folderId))) {
             unset($this->FolderId);
         } else {
             $this->FolderId = $folderId;
         }
+        
         return $this;
     }
     /**
      * Get WellKnownFolder value
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType|null
+     * @return \StructType\EwsDistinguishedFolderIdType|null
      */
-    public function getWellKnownFolder()
+    public function getWellKnownFolder(): ?\StructType\EwsDistinguishedFolderIdType
     {
         return isset($this->WellKnownFolder) ? $this->WellKnownFolder : null;
     }
@@ -115,7 +120,7 @@ class EwsSearchFolderScopeType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateWellKnownFolderForChoiceConstraintsFromSetWellKnownFolder($value)
+    public function validateWellKnownFolderForChoiceConstraintsFromSetWellKnownFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -127,12 +132,13 @@ class EwsSearchFolderScopeType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property WellKnownFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: WellKnownFolder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property WellKnownFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: WellKnownFolder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -140,21 +146,22 @@ class EwsSearchFolderScopeType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $wellKnownFolder
-     * @return \Ews\StructType\EwsSearchFolderScopeType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDistinguishedFolderIdType $wellKnownFolder
+     * @return \StructType\EwsSearchFolderScopeType
      */
-    public function setWellKnownFolder(\Ews\StructType\EwsDistinguishedFolderIdType $wellKnownFolder = null)
+    public function setWellKnownFolder(?\StructType\EwsDistinguishedFolderIdType $wellKnownFolder = null): self
     {
         // validation for constraint: choice(FolderId, WellKnownFolder)
         if ('' !== ($wellKnownFolderChoiceErrorMessage = self::validateWellKnownFolderForChoiceConstraintsFromSetWellKnownFolder($wellKnownFolder))) {
-            throw new \InvalidArgumentException($wellKnownFolderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($wellKnownFolderChoiceErrorMessage, __LINE__);
         }
         if (is_null($wellKnownFolder) || (is_array($wellKnownFolder) && empty($wellKnownFolder))) {
             unset($this->WellKnownFolder);
         } else {
             $this->WellKnownFolder = $wellKnownFolder;
         }
+        
         return $this;
     }
 }

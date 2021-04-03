@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfMailboxSearchScopesType ArrayType
@@ -19,24 +22,24 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsMailboxSearchScopeType[]
+     * @var \StructType\EwsMailboxSearchScopeType[]
      */
-    public $MailboxSearchScope;
+    protected array $MailboxSearchScope = [];
     /**
      * Constructor method for NonEmptyArrayOfMailboxSearchScopesType
      * @uses EwsNonEmptyArrayOfMailboxSearchScopesType::setMailboxSearchScope()
-     * @param \Ews\StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
+     * @param \StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
      */
-    public function __construct(array $mailboxSearchScope = array())
+    public function __construct(array $mailboxSearchScope)
     {
         $this
             ->setMailboxSearchScope($mailboxSearchScope);
     }
     /**
      * Get MailboxSearchScope value
-     * @return \Ews\StructType\EwsMailboxSearchScopeType[]
+     * @return \StructType\EwsMailboxSearchScopeType[]
      */
-    public function getMailboxSearchScope()
+    public function getMailboxSearchScope(): array
     {
         return $this->MailboxSearchScope;
     }
@@ -46,58 +49,45 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMailboxSearchScopeForArrayConstraintsFromSetMailboxSearchScope(array $values = array())
+    public static function validateMailboxSearchScopeForArrayConstraintsFromSetMailboxSearchScope(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem instanceof \Ews\StructType\EwsMailboxSearchScopeType) {
+            if (!$nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem instanceof \StructType\EwsMailboxSearchScopeType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) ? get_class($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem), var_export($nonEmptyArrayOfMailboxSearchScopesTypeMailboxSearchScopeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MailboxSearchScope property can only contain items of type \Ews\StructType\EwsMailboxSearchScopeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MailboxSearchScope property can only contain items of type \StructType\EwsMailboxSearchScopeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MailboxSearchScope value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxSearchScopeType[] $mailboxSearchScope
+     * @return \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
-    public function setMailboxSearchScope(array $mailboxSearchScope = array())
+    public function setMailboxSearchScope(array $mailboxSearchScope): self
     {
         // validation for constraint: array
         if ('' !== ($mailboxSearchScopeArrayErrorMessage = self::validateMailboxSearchScopeForArrayConstraintsFromSetMailboxSearchScope($mailboxSearchScope))) {
-            throw new \InvalidArgumentException($mailboxSearchScopeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($mailboxSearchScopeArrayErrorMessage, __LINE__);
         }
         $this->MailboxSearchScope = $mailboxSearchScope;
-        return $this;
-    }
-    /**
-     * Add item to MailboxSearchScope value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxSearchScopeType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
-     */
-    public function addToMailboxSearchScope(\Ews\StructType\EwsMailboxSearchScopeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMailboxSearchScopeType) {
-            throw new \InvalidArgumentException(sprintf('The MailboxSearchScope property can only contain items of type \Ews\StructType\EwsMailboxSearchScopeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MailboxSearchScope[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMailboxSearchScopeType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMailboxSearchScopeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMailboxSearchScopeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMailboxSearchScopeType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMailboxSearchScopeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxSearchScopeType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
+     */
+    public function add(\StructType\EwsMailboxSearchScopeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MailboxSearchScope
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MailboxSearchScope';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BasePagingType StructType
@@ -16,15 +19,15 @@ abstract class EwsBasePagingType extends AbstractStructBase
      * The MaxEntriesReturned
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $MaxEntriesReturned;
+    protected ?int $MaxEntriesReturned = null;
     /**
      * Constructor method for BasePagingType
      * @uses EwsBasePagingType::setMaxEntriesReturned()
      * @param int $maxEntriesReturned
      */
-    public function __construct($maxEntriesReturned = null)
+    public function __construct(?int $maxEntriesReturned = null)
     {
         $this
             ->setMaxEntriesReturned($maxEntriesReturned);
@@ -33,22 +36,23 @@ abstract class EwsBasePagingType extends AbstractStructBase
      * Get MaxEntriesReturned value
      * @return int|null
      */
-    public function getMaxEntriesReturned()
+    public function getMaxEntriesReturned(): ?int
     {
         return $this->MaxEntriesReturned;
     }
     /**
      * Set MaxEntriesReturned value
      * @param int $maxEntriesReturned
-     * @return \Ews\StructType\EwsBasePagingType
+     * @return \StructType\EwsBasePagingType
      */
-    public function setMaxEntriesReturned($maxEntriesReturned = null)
+    public function setMaxEntriesReturned(?int $maxEntriesReturned = null): self
     {
         // validation for constraint: int
         if (!is_null($maxEntriesReturned) && !(is_int($maxEntriesReturned) || ctype_digit($maxEntriesReturned))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxEntriesReturned, true), gettype($maxEntriesReturned)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxEntriesReturned, true), gettype($maxEntriesReturned)), __LINE__);
         }
         $this->MaxEntriesReturned = $maxEntriesReturned;
+        
         return $this;
     }
 }

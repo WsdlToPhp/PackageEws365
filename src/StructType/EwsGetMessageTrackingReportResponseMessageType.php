@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetMessageTrackingReportResponseMessageType StructType
@@ -16,42 +19,42 @@ class EwsGetMessageTrackingReportResponseMessageType extends EwsResponseMessageT
      * The MessageTrackingReport
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMessageTrackingReportType
+     * @var \StructType\EwsMessageTrackingReportType|null
      */
-    public $MessageTrackingReport;
+    protected ?\StructType\EwsMessageTrackingReportType $MessageTrackingReport = null;
     /**
      * The Diagnostics
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Diagnostics;
+    protected ?\ArrayType\EwsArrayOfStringsType $Diagnostics = null;
     /**
      * The Errors
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType|null
      */
-    public $Errors;
+    protected ?\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $Errors = null;
     /**
      * The Properties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public $Properties;
+    protected ?\ArrayType\EwsArrayOfTrackingPropertiesType $Properties = null;
     /**
      * Constructor method for GetMessageTrackingReportResponseMessageType
      * @uses EwsGetMessageTrackingReportResponseMessageType::setMessageTrackingReport()
      * @uses EwsGetMessageTrackingReportResponseMessageType::setDiagnostics()
      * @uses EwsGetMessageTrackingReportResponseMessageType::setErrors()
      * @uses EwsGetMessageTrackingReportResponseMessageType::setProperties()
-     * @param \Ews\StructType\EwsMessageTrackingReportType $messageTrackingReport
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $diagnostics
-     * @param \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @param \StructType\EwsMessageTrackingReportType $messageTrackingReport
+     * @param \ArrayType\EwsArrayOfStringsType $diagnostics
+     * @param \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
      */
-    public function __construct(\Ews\StructType\EwsMessageTrackingReportType $messageTrackingReport = null, \Ews\ArrayType\EwsArrayOfStringsType $diagnostics = null, \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors = null, \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function __construct(?\StructType\EwsMessageTrackingReportType $messageTrackingReport = null, ?\ArrayType\EwsArrayOfStringsType $diagnostics = null, ?\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors = null, ?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
     {
         $this
             ->setMessageTrackingReport($messageTrackingReport)
@@ -61,74 +64,78 @@ class EwsGetMessageTrackingReportResponseMessageType extends EwsResponseMessageT
     }
     /**
      * Get MessageTrackingReport value
-     * @return \Ews\StructType\EwsMessageTrackingReportType|null
+     * @return \StructType\EwsMessageTrackingReportType|null
      */
-    public function getMessageTrackingReport()
+    public function getMessageTrackingReport(): ?\StructType\EwsMessageTrackingReportType
     {
         return $this->MessageTrackingReport;
     }
     /**
      * Set MessageTrackingReport value
-     * @param \Ews\StructType\EwsMessageTrackingReportType $messageTrackingReport
-     * @return \Ews\StructType\EwsGetMessageTrackingReportResponseMessageType
+     * @param \StructType\EwsMessageTrackingReportType $messageTrackingReport
+     * @return \StructType\EwsGetMessageTrackingReportResponseMessageType
      */
-    public function setMessageTrackingReport(\Ews\StructType\EwsMessageTrackingReportType $messageTrackingReport = null)
+    public function setMessageTrackingReport(?\StructType\EwsMessageTrackingReportType $messageTrackingReport = null): self
     {
         $this->MessageTrackingReport = $messageTrackingReport;
+        
         return $this;
     }
     /**
      * Get Diagnostics value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getDiagnostics()
+    public function getDiagnostics(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Diagnostics;
     }
     /**
      * Set Diagnostics value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $diagnostics
-     * @return \Ews\StructType\EwsGetMessageTrackingReportResponseMessageType
+     * @param \ArrayType\EwsArrayOfStringsType $diagnostics
+     * @return \StructType\EwsGetMessageTrackingReportResponseMessageType
      */
-    public function setDiagnostics(\Ews\ArrayType\EwsArrayOfStringsType $diagnostics = null)
+    public function setDiagnostics(?\ArrayType\EwsArrayOfStringsType $diagnostics = null): self
     {
         $this->Diagnostics = $diagnostics;
+        
         return $this;
     }
     /**
      * Get Errors value
-     * @return \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType|null
      */
-    public function getErrors()
+    public function getErrors(): ?\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
     {
         return $this->Errors;
     }
     /**
      * Set Errors value
-     * @param \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors
-     * @return \Ews\StructType\EwsGetMessageTrackingReportResponseMessageType
+     * @param \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors
+     * @return \StructType\EwsGetMessageTrackingReportResponseMessageType
      */
-    public function setErrors(\Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors = null)
+    public function setErrors(?\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType $errors = null): self
     {
         $this->Errors = $errors;
+        
         return $this;
     }
     /**
      * Get Properties value
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function getProperties()
+    public function getProperties(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return $this->Properties;
     }
     /**
      * Set Properties value
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
-     * @return \Ews\StructType\EwsGetMessageTrackingReportResponseMessageType
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @return \StructType\EwsGetMessageTrackingReportResponseMessageType
      */
-    public function setProperties(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function setProperties(?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null): self
     {
         $this->Properties = $properties;
+        
         return $this;
     }
 }

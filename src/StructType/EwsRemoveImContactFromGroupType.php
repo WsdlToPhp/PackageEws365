@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RemoveImContactFromGroupType StructType
@@ -14,22 +17,22 @@ class EwsRemoveImContactFromGroupType extends EwsBaseRequestType
 {
     /**
      * The ContactId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ContactId;
+    protected ?\StructType\EwsItemIdType $ContactId = null;
     /**
      * The GroupId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $GroupId;
+    protected ?\StructType\EwsItemIdType $GroupId = null;
     /**
      * Constructor method for RemoveImContactFromGroupType
      * @uses EwsRemoveImContactFromGroupType::setContactId()
      * @uses EwsRemoveImContactFromGroupType::setGroupId()
-     * @param \Ews\StructType\EwsItemIdType $contactId
-     * @param \Ews\StructType\EwsItemIdType $groupId
+     * @param \StructType\EwsItemIdType $contactId
+     * @param \StructType\EwsItemIdType $groupId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $contactId = null, \Ews\StructType\EwsItemIdType $groupId = null)
+    public function __construct(?\StructType\EwsItemIdType $contactId = null, ?\StructType\EwsItemIdType $groupId = null)
     {
         $this
             ->setContactId($contactId)
@@ -37,38 +40,40 @@ class EwsRemoveImContactFromGroupType extends EwsBaseRequestType
     }
     /**
      * Get ContactId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getContactId()
+    public function getContactId(): ?\StructType\EwsItemIdType
     {
         return $this->ContactId;
     }
     /**
      * Set ContactId value
-     * @param \Ews\StructType\EwsItemIdType $contactId
-     * @return \Ews\StructType\EwsRemoveImContactFromGroupType
+     * @param \StructType\EwsItemIdType $contactId
+     * @return \StructType\EwsRemoveImContactFromGroupType
      */
-    public function setContactId(\Ews\StructType\EwsItemIdType $contactId = null)
+    public function setContactId(?\StructType\EwsItemIdType $contactId = null): self
     {
         $this->ContactId = $contactId;
+        
         return $this;
     }
     /**
      * Get GroupId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getGroupId()
+    public function getGroupId(): ?\StructType\EwsItemIdType
     {
         return $this->GroupId;
     }
     /**
      * Set GroupId value
-     * @param \Ews\StructType\EwsItemIdType $groupId
-     * @return \Ews\StructType\EwsRemoveImContactFromGroupType
+     * @param \StructType\EwsItemIdType $groupId
+     * @return \StructType\EwsRemoveImContactFromGroupType
      */
-    public function setGroupId(\Ews\StructType\EwsItemIdType $groupId = null)
+    public function setGroupId(?\StructType\EwsItemIdType $groupId = null): self
     {
         $this->GroupId = $groupId;
+        
         return $this;
     }
 }

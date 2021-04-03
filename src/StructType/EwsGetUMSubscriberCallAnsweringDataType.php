@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUMSubscriberCallAnsweringDataType StructType
@@ -19,13 +22,13 @@ class EwsGetUMSubscriberCallAnsweringDataType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Timeout;
+    protected string $Timeout;
     /**
      * Constructor method for GetUMSubscriberCallAnsweringDataType
      * @uses EwsGetUMSubscriberCallAnsweringDataType::setTimeout()
      * @param string $timeout
      */
-    public function __construct($timeout = null)
+    public function __construct(string $timeout)
     {
         $this
             ->setTimeout($timeout);
@@ -34,22 +37,23 @@ class EwsGetUMSubscriberCallAnsweringDataType extends EwsBaseRequestType
      * Get Timeout value
      * @return string
      */
-    public function getTimeout()
+    public function getTimeout(): string
     {
         return $this->Timeout;
     }
     /**
      * Set Timeout value
      * @param string $timeout
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataType
      */
-    public function setTimeout($timeout = null)
+    public function setTimeout(string $timeout): self
     {
         // validation for constraint: string
         if (!is_null($timeout) && !is_string($timeout)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeout, true), gettype($timeout)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeout, true), gettype($timeout)), __LINE__);
         }
         $this->Timeout = $timeout;
+        
         return $this;
     }
 }

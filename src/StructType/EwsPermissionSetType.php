@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PermissionSetType StructType
@@ -16,24 +19,24 @@ class EwsPermissionSetType extends AbstractStructBase
 {
     /**
      * The Permissions
-     * @var \Ews\ArrayType\EwsArrayOfPermissionsType
+     * @var \ArrayType\EwsArrayOfPermissionsType|null
      */
-    public $Permissions;
+    protected ?\ArrayType\EwsArrayOfPermissionsType $Permissions = null;
     /**
      * The UnknownEntries
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnknownEntriesType
+     * @var \ArrayType\EwsArrayOfUnknownEntriesType|null
      */
-    public $UnknownEntries;
+    protected ?\ArrayType\EwsArrayOfUnknownEntriesType $UnknownEntries = null;
     /**
      * Constructor method for PermissionSetType
      * @uses EwsPermissionSetType::setPermissions()
      * @uses EwsPermissionSetType::setUnknownEntries()
-     * @param \Ews\ArrayType\EwsArrayOfPermissionsType $permissions
-     * @param \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
+     * @param \ArrayType\EwsArrayOfPermissionsType $permissions
+     * @param \ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfPermissionsType $permissions = null, \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
+    public function __construct(?\ArrayType\EwsArrayOfPermissionsType $permissions = null, ?\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
     {
         $this
             ->setPermissions($permissions)
@@ -41,38 +44,40 @@ class EwsPermissionSetType extends AbstractStructBase
     }
     /**
      * Get Permissions value
-     * @return \Ews\ArrayType\EwsArrayOfPermissionsType|null
+     * @return \ArrayType\EwsArrayOfPermissionsType|null
      */
-    public function getPermissions()
+    public function getPermissions(): ?\ArrayType\EwsArrayOfPermissionsType
     {
         return $this->Permissions;
     }
     /**
      * Set Permissions value
-     * @param \Ews\ArrayType\EwsArrayOfPermissionsType $permissions
-     * @return \Ews\StructType\EwsPermissionSetType
+     * @param \ArrayType\EwsArrayOfPermissionsType $permissions
+     * @return \StructType\EwsPermissionSetType
      */
-    public function setPermissions(\Ews\ArrayType\EwsArrayOfPermissionsType $permissions = null)
+    public function setPermissions(?\ArrayType\EwsArrayOfPermissionsType $permissions = null): self
     {
         $this->Permissions = $permissions;
+        
         return $this;
     }
     /**
      * Get UnknownEntries value
-     * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType|null
+     * @return \ArrayType\EwsArrayOfUnknownEntriesType|null
      */
-    public function getUnknownEntries()
+    public function getUnknownEntries(): ?\ArrayType\EwsArrayOfUnknownEntriesType
     {
         return $this->UnknownEntries;
     }
     /**
      * Set UnknownEntries value
-     * @param \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
-     * @return \Ews\StructType\EwsPermissionSetType
+     * @param \ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
+     * @return \StructType\EwsPermissionSetType
      */
-    public function setUnknownEntries(\Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
+    public function setUnknownEntries(?\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null): self
     {
         $this->UnknownEntries = $unknownEntries;
+        
         return $this;
     }
 }

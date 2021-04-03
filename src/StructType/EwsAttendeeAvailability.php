@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttendeeAvailability StructType
@@ -14,14 +17,14 @@ class EwsAttendeeAvailability extends AbstractStructBase
 {
     /**
      * The EmailAddress
-     * @var string
+     * @var string|null
      */
-    public $EmailAddress;
+    protected ?string $EmailAddress = null;
     /**
      * The Availability
-     * @var string
+     * @var string|null
      */
-    public $Availability;
+    protected ?string $Availability = null;
     /**
      * Constructor method for AttendeeAvailability
      * @uses EwsAttendeeAvailability::setEmailAddress()
@@ -29,7 +32,7 @@ class EwsAttendeeAvailability extends AbstractStructBase
      * @param string $emailAddress
      * @param string $availability
      */
-    public function __construct($emailAddress = null, $availability = null)
+    public function __construct(?string $emailAddress = null, ?string $availability = null)
     {
         $this
             ->setEmailAddress($emailAddress)
@@ -39,47 +42,49 @@ class EwsAttendeeAvailability extends AbstractStructBase
      * Get EmailAddress value
      * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
      * @param string $emailAddress
-     * @return \Ews\StructType\EwsAttendeeAvailability
+     * @return \StructType\EwsAttendeeAvailability
      */
-    public function setEmailAddress($emailAddress = null)
+    public function setEmailAddress(?string $emailAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get Availability value
      * @return string|null
      */
-    public function getAvailability()
+    public function getAvailability(): ?string
     {
         return $this->Availability;
     }
     /**
      * Set Availability value
-     * @uses \Ews\EnumType\EwsAvailabilityStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsAvailabilityStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsAvailabilityStatusType::valueIsValid()
+     * @uses \EnumType\EwsAvailabilityStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $availability
-     * @return \Ews\StructType\EwsAttendeeAvailability
+     * @return \StructType\EwsAttendeeAvailability
      */
-    public function setAvailability($availability = null)
+    public function setAvailability(?string $availability = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsAvailabilityStatusType::valueIsValid($availability)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAvailabilityStatusType', is_array($availability) ? implode(', ', $availability) : var_export($availability, true), implode(', ', \Ews\EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsAvailabilityStatusType::valueIsValid($availability)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsAvailabilityStatusType', is_array($availability) ? implode(', ', $availability) : var_export($availability, true), implode(', ', \EnumType\EwsAvailabilityStatusType::getValidValues())), __LINE__);
         }
         $this->Availability = $availability;
+        
         return $this;
     }
 }

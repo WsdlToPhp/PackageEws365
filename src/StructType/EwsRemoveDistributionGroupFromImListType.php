@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RemoveDistributionGroupFromImListType StructType
@@ -14,35 +17,36 @@ class EwsRemoveDistributionGroupFromImListType extends EwsBaseRequestType
 {
     /**
      * The GroupId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $GroupId;
+    protected ?\StructType\EwsItemIdType $GroupId = null;
     /**
      * Constructor method for RemoveDistributionGroupFromImListType
      * @uses EwsRemoveDistributionGroupFromImListType::setGroupId()
-     * @param \Ews\StructType\EwsItemIdType $groupId
+     * @param \StructType\EwsItemIdType $groupId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $groupId = null)
+    public function __construct(?\StructType\EwsItemIdType $groupId = null)
     {
         $this
             ->setGroupId($groupId);
     }
     /**
      * Get GroupId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getGroupId()
+    public function getGroupId(): ?\StructType\EwsItemIdType
     {
         return $this->GroupId;
     }
     /**
      * Set GroupId value
-     * @param \Ews\StructType\EwsItemIdType $groupId
-     * @return \Ews\StructType\EwsRemoveDistributionGroupFromImListType
+     * @param \StructType\EwsItemIdType $groupId
+     * @return \StructType\EwsRemoveDistributionGroupFromImListType
      */
-    public function setGroupId(\Ews\StructType\EwsItemIdType $groupId = null)
+    public function setGroupId(?\StructType\EwsItemIdType $groupId = null): self
     {
         $this->GroupId = $groupId;
+        
         return $this;
     }
 }

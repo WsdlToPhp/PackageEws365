@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ChangeHighlightsType StructType
@@ -16,44 +19,44 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * The HasLocationChanged
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasLocationChanged;
+    protected ?bool $HasLocationChanged = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Location;
+    protected ?string $Location = null;
     /**
      * The HasStartTimeChanged
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasStartTimeChanged;
+    protected ?bool $HasStartTimeChanged = null;
     /**
      * The Start
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Start;
+    protected ?string $Start = null;
     /**
      * The HasEndTimeChanged
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasEndTimeChanged;
+    protected ?bool $HasEndTimeChanged = null;
     /**
      * The End
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $End;
+    protected ?string $End = null;
     /**
      * Constructor method for ChangeHighlightsType
      * @uses EwsChangeHighlightsType::setHasLocationChanged()
@@ -69,7 +72,7 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * @param bool $hasEndTimeChanged
      * @param string $end
      */
-    public function __construct($hasLocationChanged = null, $location = null, $hasStartTimeChanged = null, $start = null, $hasEndTimeChanged = null, $end = null)
+    public function __construct(?bool $hasLocationChanged = null, ?string $location = null, ?bool $hasStartTimeChanged = null, ?string $start = null, ?bool $hasEndTimeChanged = null, ?string $end = null)
     {
         $this
             ->setHasLocationChanged($hasLocationChanged)
@@ -83,132 +86,138 @@ class EwsChangeHighlightsType extends AbstractStructBase
      * Get HasLocationChanged value
      * @return bool|null
      */
-    public function getHasLocationChanged()
+    public function getHasLocationChanged(): ?bool
     {
         return $this->HasLocationChanged;
     }
     /**
      * Set HasLocationChanged value
      * @param bool $hasLocationChanged
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setHasLocationChanged($hasLocationChanged = null)
+    public function setHasLocationChanged(?bool $hasLocationChanged = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasLocationChanged) && !is_bool($hasLocationChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasLocationChanged, true), gettype($hasLocationChanged)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasLocationChanged, true), gettype($hasLocationChanged)), __LINE__);
         }
         $this->HasLocationChanged = $hasLocationChanged;
+        
         return $this;
     }
     /**
      * Get Location value
      * @return string|null
      */
-    public function getLocation()
+    public function getLocation(): ?string
     {
         return $this->Location;
     }
     /**
      * Set Location value
      * @param string $location
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setLocation($location = null)
+    public function setLocation(?string $location = null): self
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
+        
         return $this;
     }
     /**
      * Get HasStartTimeChanged value
      * @return bool|null
      */
-    public function getHasStartTimeChanged()
+    public function getHasStartTimeChanged(): ?bool
     {
         return $this->HasStartTimeChanged;
     }
     /**
      * Set HasStartTimeChanged value
      * @param bool $hasStartTimeChanged
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setHasStartTimeChanged($hasStartTimeChanged = null)
+    public function setHasStartTimeChanged(?bool $hasStartTimeChanged = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasStartTimeChanged) && !is_bool($hasStartTimeChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasStartTimeChanged, true), gettype($hasStartTimeChanged)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasStartTimeChanged, true), gettype($hasStartTimeChanged)), __LINE__);
         }
         $this->HasStartTimeChanged = $hasStartTimeChanged;
+        
         return $this;
     }
     /**
      * Get Start value
      * @return string|null
      */
-    public function getStart()
+    public function getStart(): ?string
     {
         return $this->Start;
     }
     /**
      * Set Start value
      * @param string $start
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setStart($start = null)
+    public function setStart(?string $start = null): self
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
+        
         return $this;
     }
     /**
      * Get HasEndTimeChanged value
      * @return bool|null
      */
-    public function getHasEndTimeChanged()
+    public function getHasEndTimeChanged(): ?bool
     {
         return $this->HasEndTimeChanged;
     }
     /**
      * Set HasEndTimeChanged value
      * @param bool $hasEndTimeChanged
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setHasEndTimeChanged($hasEndTimeChanged = null)
+    public function setHasEndTimeChanged(?bool $hasEndTimeChanged = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasEndTimeChanged) && !is_bool($hasEndTimeChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasEndTimeChanged, true), gettype($hasEndTimeChanged)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasEndTimeChanged, true), gettype($hasEndTimeChanged)), __LINE__);
         }
         $this->HasEndTimeChanged = $hasEndTimeChanged;
+        
         return $this;
     }
     /**
      * Get End value
      * @return string|null
      */
-    public function getEnd()
+    public function getEnd(): ?string
     {
         return $this->End;
     }
     /**
      * Set End value
      * @param string $end
-     * @return \Ews\StructType\EwsChangeHighlightsType
+     * @return \StructType\EwsChangeHighlightsType
      */
-    public function setEnd($end = null)
+    public function setEnd(?string $end = null): self
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
+        
         return $this;
     }
 }

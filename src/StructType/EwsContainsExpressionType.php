@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContainsExpressionType StructType
@@ -14,38 +17,38 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
 {
     /**
      * The Constant
-     * @var \Ews\StructType\EwsConstantValueType
+     * @var \StructType\EwsConstantValueType|null
      */
-    public $Constant;
+    protected ?\StructType\EwsConstantValueType $Constant = null;
     /**
      * The FieldURI
-     * @var \Ews\StructType\EwsPathToUnindexedFieldType
+     * @var \StructType\EwsPathToUnindexedFieldType|null
      */
-    public $FieldURI;
+    protected ?\StructType\EwsPathToUnindexedFieldType $FieldURI = null;
     /**
      * The IndexedFieldURI
-     * @var \Ews\StructType\EwsPathToIndexedFieldType
+     * @var \StructType\EwsPathToIndexedFieldType|null
      */
-    public $IndexedFieldURI;
+    protected ?\StructType\EwsPathToIndexedFieldType $IndexedFieldURI = null;
     /**
      * The ExtendedFieldURI
-     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     * @var \StructType\EwsPathToExtendedFieldType|null
      */
-    public $ExtendedFieldURI;
+    protected ?\StructType\EwsPathToExtendedFieldType $ExtendedFieldURI = null;
     /**
      * The ContainmentMode
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ContainmentMode;
+    protected ?string $ContainmentMode = null;
     /**
      * The ContainmentComparison
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ContainmentComparison;
+    protected ?string $ContainmentComparison = null;
     /**
      * Constructor method for ContainsExpressionType
      * @uses EwsContainsExpressionType::setConstant()
@@ -54,14 +57,14 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
      * @uses EwsContainsExpressionType::setExtendedFieldURI()
      * @uses EwsContainsExpressionType::setContainmentMode()
      * @uses EwsContainsExpressionType::setContainmentComparison()
-     * @param \Ews\StructType\EwsConstantValueType $constant
-     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
-     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @param \StructType\EwsConstantValueType $constant
+     * @param \StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @param \StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
      * @param string $containmentMode
      * @param string $containmentComparison
      */
-    public function __construct(\Ews\StructType\EwsConstantValueType $constant = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null, $containmentMode = null, $containmentComparison = null)
+    public function __construct(?\StructType\EwsConstantValueType $constant = null, ?\StructType\EwsPathToUnindexedFieldType $fieldURI = null, ?\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, ?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null, ?string $containmentMode = null, ?string $containmentComparison = null)
     {
         $this
             ->setConstant($constant)
@@ -73,124 +76,130 @@ class EwsContainsExpressionType extends EwsSearchExpressionType
     }
     /**
      * Get Constant value
-     * @return \Ews\StructType\EwsConstantValueType|null
+     * @return \StructType\EwsConstantValueType|null
      */
-    public function getConstant()
+    public function getConstant(): ?\StructType\EwsConstantValueType
     {
         return $this->Constant;
     }
     /**
      * Set Constant value
-     * @param \Ews\StructType\EwsConstantValueType $constant
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @param \StructType\EwsConstantValueType $constant
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setConstant(\Ews\StructType\EwsConstantValueType $constant = null)
+    public function setConstant(?\StructType\EwsConstantValueType $constant = null): self
     {
         $this->Constant = $constant;
+        
         return $this;
     }
     /**
      * Get FieldURI value
-     * @return \Ews\StructType\EwsPathToUnindexedFieldType|null
+     * @return \StructType\EwsPathToUnindexedFieldType|null
      */
-    public function getFieldURI()
+    public function getFieldURI(): ?\StructType\EwsPathToUnindexedFieldType
     {
         return $this->FieldURI;
     }
     /**
      * Set FieldURI value
-     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @param \StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
+    public function setFieldURI(?\StructType\EwsPathToUnindexedFieldType $fieldURI = null): self
     {
         $this->FieldURI = $fieldURI;
+        
         return $this;
     }
     /**
      * Get IndexedFieldURI value
-     * @return \Ews\StructType\EwsPathToIndexedFieldType|null
+     * @return \StructType\EwsPathToIndexedFieldType|null
      */
-    public function getIndexedFieldURI()
+    public function getIndexedFieldURI(): ?\StructType\EwsPathToIndexedFieldType
     {
         return $this->IndexedFieldURI;
     }
     /**
      * Set IndexedFieldURI value
-     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @param \StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
+    public function setIndexedFieldURI(?\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null): self
     {
         $this->IndexedFieldURI = $indexedFieldURI;
+        
         return $this;
     }
     /**
      * Get ExtendedFieldURI value
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function getExtendedFieldURI()
+    public function getExtendedFieldURI(): ?\StructType\EwsPathToExtendedFieldType
     {
         return $this->ExtendedFieldURI;
     }
     /**
      * Set ExtendedFieldURI value
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function setExtendedFieldURI(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null): self
     {
         $this->ExtendedFieldURI = $extendedFieldURI;
+        
         return $this;
     }
     /**
      * Get ContainmentMode value
      * @return string|null
      */
-    public function getContainmentMode()
+    public function getContainmentMode(): ?string
     {
         return $this->ContainmentMode;
     }
     /**
      * Set ContainmentMode value
-     * @uses \Ews\EnumType\EwsContainmentModeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsContainmentModeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsContainmentModeType::valueIsValid()
+     * @uses \EnumType\EwsContainmentModeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $containmentMode
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setContainmentMode($containmentMode = null)
+    public function setContainmentMode(?string $containmentMode = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsContainmentModeType::valueIsValid($containmentMode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsContainmentModeType', is_array($containmentMode) ? implode(', ', $containmentMode) : var_export($containmentMode, true), implode(', ', \Ews\EnumType\EwsContainmentModeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsContainmentModeType::valueIsValid($containmentMode)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsContainmentModeType', is_array($containmentMode) ? implode(', ', $containmentMode) : var_export($containmentMode, true), implode(', ', \EnumType\EwsContainmentModeType::getValidValues())), __LINE__);
         }
         $this->ContainmentMode = $containmentMode;
+        
         return $this;
     }
     /**
      * Get ContainmentComparison value
      * @return string|null
      */
-    public function getContainmentComparison()
+    public function getContainmentComparison(): ?string
     {
         return $this->ContainmentComparison;
     }
     /**
      * Set ContainmentComparison value
-     * @uses \Ews\EnumType\EwsContainmentComparisonType::valueIsValid()
-     * @uses \Ews\EnumType\EwsContainmentComparisonType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsContainmentComparisonType::valueIsValid()
+     * @uses \EnumType\EwsContainmentComparisonType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $containmentComparison
-     * @return \Ews\StructType\EwsContainsExpressionType
+     * @return \StructType\EwsContainsExpressionType
      */
-    public function setContainmentComparison($containmentComparison = null)
+    public function setContainmentComparison(?string $containmentComparison = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsContainmentComparisonType::valueIsValid($containmentComparison)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsContainmentComparisonType', is_array($containmentComparison) ? implode(', ', $containmentComparison) : var_export($containmentComparison, true), implode(', ', \Ews\EnumType\EwsContainmentComparisonType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsContainmentComparisonType::valueIsValid($containmentComparison)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsContainmentComparisonType', is_array($containmentComparison) ? implode(', ', $containmentComparison) : var_export($containmentComparison, true), implode(', ', \EnumType\EwsContainmentComparisonType::getValidValues())), __LINE__);
         }
         $this->ContainmentComparison = $containmentComparison;
+        
         return $this;
     }
 }

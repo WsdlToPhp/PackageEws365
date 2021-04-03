@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PinInfoType StructType
@@ -19,7 +22,7 @@ class EwsPinInfoType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsValid;
+    protected bool $IsValid;
     /**
      * The PinExpired
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsPinInfoType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $PinExpired;
+    protected bool $PinExpired;
     /**
      * The LockedOut
      * Meta information extracted from the WSDL
@@ -35,7 +38,7 @@ class EwsPinInfoType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $LockedOut;
+    protected bool $LockedOut;
     /**
      * The FirstTimeUser
      * Meta information extracted from the WSDL
@@ -43,15 +46,15 @@ class EwsPinInfoType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $FirstTimeUser;
+    protected bool $FirstTimeUser;
     /**
      * The PIN
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PIN;
+    protected ?string $PIN = null;
     /**
      * Constructor method for PinInfoType
      * @uses EwsPinInfoType::setIsValid()
@@ -65,7 +68,7 @@ class EwsPinInfoType extends AbstractStructBase
      * @param bool $firstTimeUser
      * @param string $pIN
      */
-    public function __construct($isValid = null, $pinExpired = null, $lockedOut = null, $firstTimeUser = null, $pIN = null)
+    public function __construct(bool $isValid, bool $pinExpired, bool $lockedOut, bool $firstTimeUser, ?string $pIN = null)
     {
         $this
             ->setIsValid($isValid)
@@ -78,110 +81,115 @@ class EwsPinInfoType extends AbstractStructBase
      * Get IsValid value
      * @return bool
      */
-    public function getIsValid()
+    public function getIsValid(): bool
     {
         return $this->IsValid;
     }
     /**
      * Set IsValid value
      * @param bool $isValid
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function setIsValid($isValid = null)
+    public function setIsValid(bool $isValid): self
     {
         // validation for constraint: boolean
         if (!is_null($isValid) && !is_bool($isValid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isValid, true), gettype($isValid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isValid, true), gettype($isValid)), __LINE__);
         }
         $this->IsValid = $isValid;
+        
         return $this;
     }
     /**
      * Get PinExpired value
      * @return bool
      */
-    public function getPinExpired()
+    public function getPinExpired(): bool
     {
         return $this->PinExpired;
     }
     /**
      * Set PinExpired value
      * @param bool $pinExpired
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function setPinExpired($pinExpired = null)
+    public function setPinExpired(bool $pinExpired): self
     {
         // validation for constraint: boolean
         if (!is_null($pinExpired) && !is_bool($pinExpired)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($pinExpired, true), gettype($pinExpired)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($pinExpired, true), gettype($pinExpired)), __LINE__);
         }
         $this->PinExpired = $pinExpired;
+        
         return $this;
     }
     /**
      * Get LockedOut value
      * @return bool
      */
-    public function getLockedOut()
+    public function getLockedOut(): bool
     {
         return $this->LockedOut;
     }
     /**
      * Set LockedOut value
      * @param bool $lockedOut
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function setLockedOut($lockedOut = null)
+    public function setLockedOut(bool $lockedOut): self
     {
         // validation for constraint: boolean
         if (!is_null($lockedOut) && !is_bool($lockedOut)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($lockedOut, true), gettype($lockedOut)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($lockedOut, true), gettype($lockedOut)), __LINE__);
         }
         $this->LockedOut = $lockedOut;
+        
         return $this;
     }
     /**
      * Get FirstTimeUser value
      * @return bool
      */
-    public function getFirstTimeUser()
+    public function getFirstTimeUser(): bool
     {
         return $this->FirstTimeUser;
     }
     /**
      * Set FirstTimeUser value
      * @param bool $firstTimeUser
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function setFirstTimeUser($firstTimeUser = null)
+    public function setFirstTimeUser(bool $firstTimeUser): self
     {
         // validation for constraint: boolean
         if (!is_null($firstTimeUser) && !is_bool($firstTimeUser)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($firstTimeUser, true), gettype($firstTimeUser)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($firstTimeUser, true), gettype($firstTimeUser)), __LINE__);
         }
         $this->FirstTimeUser = $firstTimeUser;
+        
         return $this;
     }
     /**
      * Get PIN value
      * @return string|null
      */
-    public function getPIN()
+    public function getPIN(): ?string
     {
         return $this->PIN;
     }
     /**
      * Set PIN value
      * @param string $pIN
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function setPIN($pIN = null)
+    public function setPIN(?string $pIN = null): self
     {
         // validation for constraint: string
         if (!is_null($pIN) && !is_string($pIN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pIN, true), gettype($pIN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pIN, true), gettype($pIN)), __LINE__);
         }
         $this->PIN = $pIN;
+        
         return $this;
     }
 }

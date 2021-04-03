@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PostModernGroupItemType StructType
@@ -17,22 +20,22 @@ class EwsPostModernGroupItemType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType
      */
-    public $ModernGroupEmailAddress;
+    protected \StructType\EwsEmailAddressType $ModernGroupEmailAddress;
     /**
      * The Items
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAllItemsType
+     * @var \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public $Items;
+    protected ?\StructType\EwsNonEmptyArrayOfAllItemsType $Items = null;
     /**
      * Constructor method for PostModernGroupItemType
      * @uses EwsPostModernGroupItemType::setModernGroupEmailAddress()
      * @uses EwsPostModernGroupItemType::setItems()
-     * @param \Ews\StructType\EwsEmailAddressType $modernGroupEmailAddress
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items
+     * @param \StructType\EwsEmailAddressType $modernGroupEmailAddress
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $items
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $modernGroupEmailAddress = null, \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
+    public function __construct(\StructType\EwsEmailAddressType $modernGroupEmailAddress, ?\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
     {
         $this
             ->setModernGroupEmailAddress($modernGroupEmailAddress)
@@ -40,38 +43,40 @@ class EwsPostModernGroupItemType extends EwsBaseRequestType
     }
     /**
      * Get ModernGroupEmailAddress value
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function getModernGroupEmailAddress()
+    public function getModernGroupEmailAddress(): \StructType\EwsEmailAddressType
     {
         return $this->ModernGroupEmailAddress;
     }
     /**
      * Set ModernGroupEmailAddress value
-     * @param \Ews\StructType\EwsEmailAddressType $modernGroupEmailAddress
-     * @return \Ews\StructType\EwsPostModernGroupItemType
+     * @param \StructType\EwsEmailAddressType $modernGroupEmailAddress
+     * @return \StructType\EwsPostModernGroupItemType
      */
-    public function setModernGroupEmailAddress(\Ews\StructType\EwsEmailAddressType $modernGroupEmailAddress = null)
+    public function setModernGroupEmailAddress(\StructType\EwsEmailAddressType $modernGroupEmailAddress): self
     {
         $this->ModernGroupEmailAddress = $modernGroupEmailAddress;
+        
         return $this;
     }
     /**
      * Get Items value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAllItemsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\StructType\EwsNonEmptyArrayOfAllItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items
-     * @return \Ews\StructType\EwsPostModernGroupItemType
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $items
+     * @return \StructType\EwsPostModernGroupItemType
      */
-    public function setItems(\Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
+    public function setItems(?\StructType\EwsNonEmptyArrayOfAllItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

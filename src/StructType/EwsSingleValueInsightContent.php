@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SingleValueInsightContent StructType
@@ -17,35 +20,36 @@ class EwsSingleValueInsightContent extends EwsInsightContent
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsInsightValue
+     * @var \StructType\EwsInsightValue|null
      */
-    public $Item;
+    protected ?\StructType\EwsInsightValue $Item = null;
     /**
      * Constructor method for SingleValueInsightContent
      * @uses EwsSingleValueInsightContent::setItem()
-     * @param \Ews\StructType\EwsInsightValue $item
+     * @param \StructType\EwsInsightValue $item
      */
-    public function __construct(\Ews\StructType\EwsInsightValue $item = null)
+    public function __construct(?\StructType\EwsInsightValue $item = null)
     {
         $this
             ->setItem($item);
     }
     /**
      * Get Item value
-     * @return \Ews\StructType\EwsInsightValue|null
+     * @return \StructType\EwsInsightValue|null
      */
-    public function getItem()
+    public function getItem(): ?\StructType\EwsInsightValue
     {
         return $this->Item;
     }
     /**
      * Set Item value
-     * @param \Ews\StructType\EwsInsightValue $item
-     * @return \Ews\StructType\EwsSingleValueInsightContent
+     * @param \StructType\EwsInsightValue $item
+     * @return \StructType\EwsSingleValueInsightContent
      */
-    public function setItem(\Ews\StructType\EwsInsightValue $item = null)
+    public function setItem(?\StructType\EwsInsightValue $item = null): self
     {
         $this->Item = $item;
+        
         return $this;
     }
 }

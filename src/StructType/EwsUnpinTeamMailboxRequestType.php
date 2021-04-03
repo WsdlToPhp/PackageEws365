@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnpinTeamMailboxRequestType StructType
@@ -14,35 +17,36 @@ class EwsUnpinTeamMailboxRequestType extends EwsBaseRequestType
 {
     /**
      * The EmailAddress
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $EmailAddress;
+    protected ?\StructType\EwsEmailAddressType $EmailAddress = null;
     /**
      * Constructor method for UnpinTeamMailboxRequestType
      * @uses EwsUnpinTeamMailboxRequestType::setEmailAddress()
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
+     * @param \StructType\EwsEmailAddressType $emailAddress
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $emailAddress = null)
+    public function __construct(?\StructType\EwsEmailAddressType $emailAddress = null)
     {
         $this
             ->setEmailAddress($emailAddress);
     }
     /**
      * Get EmailAddress value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?\StructType\EwsEmailAddressType
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
-     * @return \Ews\StructType\EwsUnpinTeamMailboxRequestType
+     * @param \StructType\EwsEmailAddressType $emailAddress
+     * @return \StructType\EwsUnpinTeamMailboxRequestType
      */
-    public function setEmailAddress(\Ews\StructType\EwsEmailAddressType $emailAddress = null)
+    public function setEmailAddress(?\StructType\EwsEmailAddressType $emailAddress = null): self
     {
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
 }

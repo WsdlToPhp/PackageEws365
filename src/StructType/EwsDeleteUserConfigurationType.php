@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteUserConfigurationType StructType
@@ -16,35 +19,36 @@ class EwsDeleteUserConfigurationType extends EwsBaseRequestType
      * The UserConfigurationName
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserConfigurationNameType
+     * @var \StructType\EwsUserConfigurationNameType
      */
-    public $UserConfigurationName;
+    protected \StructType\EwsUserConfigurationNameType $UserConfigurationName;
     /**
      * Constructor method for DeleteUserConfigurationType
      * @uses EwsDeleteUserConfigurationType::setUserConfigurationName()
-     * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
+     * @param \StructType\EwsUserConfigurationNameType $userConfigurationName
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null)
+    public function __construct(\StructType\EwsUserConfigurationNameType $userConfigurationName)
     {
         $this
             ->setUserConfigurationName($userConfigurationName);
     }
     /**
      * Get UserConfigurationName value
-     * @return \Ews\StructType\EwsUserConfigurationNameType
+     * @return \StructType\EwsUserConfigurationNameType
      */
-    public function getUserConfigurationName()
+    public function getUserConfigurationName(): \StructType\EwsUserConfigurationNameType
     {
         return $this->UserConfigurationName;
     }
     /**
      * Set UserConfigurationName value
-     * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
-     * @return \Ews\StructType\EwsDeleteUserConfigurationType
+     * @param \StructType\EwsUserConfigurationNameType $userConfigurationName
+     * @return \StructType\EwsDeleteUserConfigurationType
      */
-    public function setUserConfigurationName(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null)
+    public function setUserConfigurationName(\StructType\EwsUserConfigurationNameType $userConfigurationName): self
     {
         $this->UserConfigurationName = $userConfigurationName;
+        
         return $this;
     }
 }

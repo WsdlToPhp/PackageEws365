@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserUnifiedGroupRelationshipType StructType
@@ -17,25 +20,25 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMember;
+    protected ?bool $IsMember = null;
     /**
      * The IsOwner
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsOwner;
+    protected ?bool $IsOwner = null;
     /**
      * The IsSubscribed
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsSubscribed;
+    protected ?bool $IsSubscribed = null;
     /**
      * Constructor method for UserUnifiedGroupRelationshipType
      * @uses EwsUserUnifiedGroupRelationshipType::setIsMember()
@@ -45,7 +48,7 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * @param bool $isOwner
      * @param bool $isSubscribed
      */
-    public function __construct($isMember = null, $isOwner = null, $isSubscribed = null)
+    public function __construct(?bool $isMember = null, ?bool $isOwner = null, ?bool $isSubscribed = null)
     {
         $this
             ->setIsMember($isMember)
@@ -56,66 +59,69 @@ class EwsUserUnifiedGroupRelationshipType extends AbstractStructBase
      * Get IsMember value
      * @return bool|null
      */
-    public function getIsMember()
+    public function getIsMember(): ?bool
     {
         return $this->IsMember;
     }
     /**
      * Set IsMember value
      * @param bool $isMember
-     * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
+     * @return \StructType\EwsUserUnifiedGroupRelationshipType
      */
-    public function setIsMember($isMember = null)
+    public function setIsMember(?bool $isMember = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMember) && !is_bool($isMember)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
         }
         $this->IsMember = $isMember;
+        
         return $this;
     }
     /**
      * Get IsOwner value
      * @return bool|null
      */
-    public function getIsOwner()
+    public function getIsOwner(): ?bool
     {
         return $this->IsOwner;
     }
     /**
      * Set IsOwner value
      * @param bool $isOwner
-     * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
+     * @return \StructType\EwsUserUnifiedGroupRelationshipType
      */
-    public function setIsOwner($isOwner = null)
+    public function setIsOwner(?bool $isOwner = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isOwner) && !is_bool($isOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
         }
         $this->IsOwner = $isOwner;
+        
         return $this;
     }
     /**
      * Get IsSubscribed value
      * @return bool|null
      */
-    public function getIsSubscribed()
+    public function getIsSubscribed(): ?bool
     {
         return $this->IsSubscribed;
     }
     /**
      * Set IsSubscribed value
      * @param bool $isSubscribed
-     * @return \Ews\StructType\EwsUserUnifiedGroupRelationshipType
+     * @return \StructType\EwsUserUnifiedGroupRelationshipType
      */
-    public function setIsSubscribed($isSubscribed = null)
+    public function setIsSubscribed(?bool $isSubscribed = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
         }
         $this->IsSubscribed = $isSubscribed;
+        
         return $this;
     }
 }

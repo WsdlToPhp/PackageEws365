@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetBusinessInformationType StructType
@@ -17,35 +20,36 @@ class EwsSetBusinessInformationType extends EwsBaseBookingRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsBusinessInfoType
+     * @var \StructType\EwsBusinessInfoType
      */
-    public $BusinessInfo;
+    protected \StructType\EwsBusinessInfoType $BusinessInfo;
     /**
      * Constructor method for SetBusinessInformationType
      * @uses EwsSetBusinessInformationType::setBusinessInfo()
-     * @param \Ews\StructType\EwsBusinessInfoType $businessInfo
+     * @param \StructType\EwsBusinessInfoType $businessInfo
      */
-    public function __construct(\Ews\StructType\EwsBusinessInfoType $businessInfo = null)
+    public function __construct(\StructType\EwsBusinessInfoType $businessInfo)
     {
         $this
             ->setBusinessInfo($businessInfo);
     }
     /**
      * Get BusinessInfo value
-     * @return \Ews\StructType\EwsBusinessInfoType
+     * @return \StructType\EwsBusinessInfoType
      */
-    public function getBusinessInfo()
+    public function getBusinessInfo(): \StructType\EwsBusinessInfoType
     {
         return $this->BusinessInfo;
     }
     /**
      * Set BusinessInfo value
-     * @param \Ews\StructType\EwsBusinessInfoType $businessInfo
-     * @return \Ews\StructType\EwsSetBusinessInformationType
+     * @param \StructType\EwsBusinessInfoType $businessInfo
+     * @return \StructType\EwsSetBusinessInformationType
      */
-    public function setBusinessInfo(\Ews\StructType\EwsBusinessInfoType $businessInfo = null)
+    public function setBusinessInfo(\StructType\EwsBusinessInfoType $businessInfo): self
     {
         $this->BusinessInfo = $businessInfo;
+        
         return $this;
     }
 }

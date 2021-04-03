@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateBookingServiceResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsUpdateBookingServiceResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $UpdatedBookingServiceItemId;
+    protected \StructType\EwsItemIdType $UpdatedBookingServiceItemId;
     /**
      * Constructor method for UpdateBookingServiceResponseMessageType
      * @uses EwsUpdateBookingServiceResponseMessageType::setUpdatedBookingServiceItemId()
-     * @param \Ews\StructType\EwsItemIdType $updatedBookingServiceItemId
+     * @param \StructType\EwsItemIdType $updatedBookingServiceItemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $updatedBookingServiceItemId = null)
+    public function __construct(\StructType\EwsItemIdType $updatedBookingServiceItemId)
     {
         $this
             ->setUpdatedBookingServiceItemId($updatedBookingServiceItemId);
     }
     /**
      * Get UpdatedBookingServiceItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getUpdatedBookingServiceItemId()
+    public function getUpdatedBookingServiceItemId(): \StructType\EwsItemIdType
     {
         return $this->UpdatedBookingServiceItemId;
     }
     /**
      * Set UpdatedBookingServiceItemId value
-     * @param \Ews\StructType\EwsItemIdType $updatedBookingServiceItemId
-     * @return \Ews\StructType\EwsUpdateBookingServiceResponseMessageType
+     * @param \StructType\EwsItemIdType $updatedBookingServiceItemId
+     * @return \StructType\EwsUpdateBookingServiceResponseMessageType
      */
-    public function setUpdatedBookingServiceItemId(\Ews\StructType\EwsItemIdType $updatedBookingServiceItemId = null)
+    public function setUpdatedBookingServiceItemId(\StructType\EwsItemIdType $updatedBookingServiceItemId): self
     {
         $this->UpdatedBookingServiceItemId = $updatedBookingServiceItemId;
+        
         return $this;
     }
 }

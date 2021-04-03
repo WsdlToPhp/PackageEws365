@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfStringAttributedValuesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfStringAttributedValuesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsStringAttributedValueType[]
+     * @var \StructType\EwsStringAttributedValueType[]
      */
-    public $StringAttributedValue;
+    protected array $StringAttributedValue = [];
     /**
      * Constructor method for ArrayOfStringAttributedValuesType
      * @uses EwsArrayOfStringAttributedValuesType::setStringAttributedValue()
-     * @param \Ews\StructType\EwsStringAttributedValueType[] $stringAttributedValue
+     * @param \StructType\EwsStringAttributedValueType[] $stringAttributedValue
      */
-    public function __construct(array $stringAttributedValue = array())
+    public function __construct(array $stringAttributedValue = [])
     {
         $this
             ->setStringAttributedValue($stringAttributedValue);
     }
     /**
      * Get StringAttributedValue value
-     * @return \Ews\StructType\EwsStringAttributedValueType[]|null
+     * @return \StructType\EwsStringAttributedValueType[]
      */
-    public function getStringAttributedValue()
+    public function getStringAttributedValue(): array
     {
         return $this->StringAttributedValue;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfStringAttributedValuesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateStringAttributedValueForArrayConstraintsFromSetStringAttributedValue(array $values = array())
+    public static function validateStringAttributedValueForArrayConstraintsFromSetStringAttributedValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfStringAttributedValuesTypeStringAttributedValueItem) {
             // validation for constraint: itemType
-            if (!$arrayOfStringAttributedValuesTypeStringAttributedValueItem instanceof \Ews\StructType\EwsStringAttributedValueType) {
+            if (!$arrayOfStringAttributedValuesTypeStringAttributedValueItem instanceof \StructType\EwsStringAttributedValueType) {
                 $invalidValues[] = is_object($arrayOfStringAttributedValuesTypeStringAttributedValueItem) ? get_class($arrayOfStringAttributedValuesTypeStringAttributedValueItem) : sprintf('%s(%s)', gettype($arrayOfStringAttributedValuesTypeStringAttributedValueItem), var_export($arrayOfStringAttributedValuesTypeStringAttributedValueItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The StringAttributedValue property can only contain items of type \Ews\StructType\EwsStringAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The StringAttributedValue property can only contain items of type \StructType\EwsStringAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set StringAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsStringAttributedValueType[] $stringAttributedValue
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsStringAttributedValueType[] $stringAttributedValue
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType
      */
-    public function setStringAttributedValue(array $stringAttributedValue = array())
+    public function setStringAttributedValue(array $stringAttributedValue = []): self
     {
         // validation for constraint: array
         if ('' !== ($stringAttributedValueArrayErrorMessage = self::validateStringAttributedValueForArrayConstraintsFromSetStringAttributedValue($stringAttributedValue))) {
-            throw new \InvalidArgumentException($stringAttributedValueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($stringAttributedValueArrayErrorMessage, __LINE__);
         }
         $this->StringAttributedValue = $stringAttributedValue;
-        return $this;
-    }
-    /**
-     * Add item to StringAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsStringAttributedValueType $item
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
-     */
-    public function addToStringAttributedValue(\Ews\StructType\EwsStringAttributedValueType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsStringAttributedValueType) {
-            throw new \InvalidArgumentException(sprintf('The StringAttributedValue property can only contain items of type \Ews\StructType\EwsStringAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->StringAttributedValue[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsStringAttributedValueType|null
+     * @return \StructType\EwsStringAttributedValueType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsStringAttributedValueType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfStringAttributedValuesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsStringAttributedValueType|null
+     * @return \StructType\EwsStringAttributedValueType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsStringAttributedValueType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsStringAttributedValueType|null
+     * @return \StructType\EwsStringAttributedValueType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsStringAttributedValueType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsStringAttributedValueType|null
+     * @return \StructType\EwsStringAttributedValueType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsStringAttributedValueType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfStringAttributedValuesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsStringAttributedValueType|null
+     * @return \StructType\EwsStringAttributedValueType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsStringAttributedValueType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsStringAttributedValueType $item
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType
+     */
+    public function add(\StructType\EwsStringAttributedValueType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string StringAttributedValue
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'StringAttributedValue';
     }

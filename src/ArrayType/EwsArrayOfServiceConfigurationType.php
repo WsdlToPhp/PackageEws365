@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfServiceConfigurationType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * - choice: ConfigurationName
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $ConfigurationName;
+    protected ?string $ConfigurationName = null;
     /**
      * Constructor method for ArrayOfServiceConfigurationType
      * @uses EwsArrayOfServiceConfigurationType::setConfigurationName()
-     * @param string[] $configurationName
+     * @param array|string $configurationName
      */
-    public function __construct(array $configurationName = array())
+    public function __construct($configurationName = [])
     {
         $this
             ->setConfigurationName($configurationName);
     }
     /**
      * Get ConfigurationName value
-     * @return string[]|null
+     * @return string
      */
-    public function getConfigurationName()
+    public function getConfigurationName(): ?string
     {
         return isset($this->ConfigurationName) ? $this->ConfigurationName : null;
     }
@@ -45,20 +48,21 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateConfigurationNameForArrayConstraintsFromSetConfigurationName(array $values = array())
+    public static function validateConfigurationNameForArrayConstraintsFromSetConfigurationName(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfServiceConfigurationTypeConfigurationNameItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsServiceConfigurationType::valueIsValid($arrayOfServiceConfigurationTypeConfigurationNameItem)) {
+            if (!\EnumType\EwsServiceConfigurationType::valueIsValid($arrayOfServiceConfigurationTypeConfigurationNameItem)) {
                 $invalidValues[] = is_object($arrayOfServiceConfigurationTypeConfigurationNameItem) ? get_class($arrayOfServiceConfigurationTypeConfigurationNameItem) : sprintf('%s(%s)', gettype($arrayOfServiceConfigurationTypeConfigurationNameItem), var_export($arrayOfServiceConfigurationTypeConfigurationNameItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsServiceConfigurationType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsServiceConfigurationType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsServiceConfigurationType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsServiceConfigurationType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
@@ -68,7 +72,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateConfigurationNameForChoiceConstraintsFromSetConfigurationName($value)
+    public function validateConfigurationNameForChoiceConstraintsFromSetConfigurationName($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -79,12 +83,13 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ConfigurationName can\'t be set as the property %s is already set. Only one property must be set among these properties: ConfigurationName, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ConfigurationName can\'t be set as the property %s is already set. Only one property must be set among these properties: ConfigurationName, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -92,28 +97,29 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsServiceConfigurationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsServiceConfigurationType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $configurationName
-     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
+     * @throws InvalidArgumentException
+     * @uses \EnumType\EwsServiceConfigurationType::valueIsValid()
+     * @uses \EnumType\EwsServiceConfigurationType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $configurationName
+     * @return \ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public function setConfigurationName(array $configurationName = array())
+    public function setConfigurationName($configurationName = []): self
     {
         // validation for constraint: list
-        if ('' !== ($configurationNameArrayErrorMessage = self::validateConfigurationNameForArrayConstraintsFromSetConfigurationName($configurationName))) {
-            throw new \InvalidArgumentException($configurationNameArrayErrorMessage, __LINE__);
+        if ('' !== ($configurationNameArrayErrorMessage = self::validateConfigurationNameForArrayConstraintsFromSetConfigurationName(is_string($configurationName) ? explode(' ', $configurationName) : $configurationName))) {
+            throw new InvalidArgumentException($configurationNameArrayErrorMessage, __LINE__);
         }
         // validation for constraint: choice(ConfigurationName)
         if ('' !== ($configurationNameChoiceErrorMessage = self::validateConfigurationNameForChoiceConstraintsFromSetConfigurationName($configurationName))) {
-            throw new \InvalidArgumentException($configurationNameChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($configurationNameChoiceErrorMessage, __LINE__);
         }
         if (is_null($configurationName) || (is_array($configurationName) && empty($configurationName))) {
             unset($this->ConfigurationName);
         } else {
-            $this->ConfigurationName = is_array($configurationName) ? implode(' ', $configurationName) : null;
+            $this->ConfigurationName = is_array($configurationName) ? implode(' ', $configurationName) : $configurationName;
         }
+        
         return $this;
     }
     /**
@@ -121,7 +127,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -131,7 +137,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -140,7 +146,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -149,7 +155,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -159,23 +165,22 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsServiceConfigurationType::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
+     * @return \ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public function add($item)
+    public function add(string $item): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsServiceConfigurationType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsServiceConfigurationType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsServiceConfigurationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsServiceConfigurationType::valueIsValid($item)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsServiceConfigurationType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \EnumType\EwsServiceConfigurationType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -184,7 +189,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ConfigurationName
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ConfigurationName';
     }

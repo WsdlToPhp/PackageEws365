@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindBookingCustomersResponseMessageType StructType
@@ -16,30 +19,30 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
      * The People
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPeopleType
+     * @var \ArrayType\EwsArrayOfPeopleType|null
      */
-    public $People;
+    protected ?\ArrayType\EwsArrayOfPeopleType $People = null;
     /**
      * The TotalNumberOfPeopleInView
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $TotalNumberOfPeopleInView;
+    protected ?int $TotalNumberOfPeopleInView = null;
     /**
      * The FirstMatchingRowIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $FirstMatchingRowIndex;
+    protected ?int $FirstMatchingRowIndex = null;
     /**
      * The FirstLoadedRowIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $FirstLoadedRowIndex;
+    protected ?int $FirstLoadedRowIndex = null;
     /**
      * The TransactionId
      * Meta information extracted from the WSDL
@@ -47,9 +50,9 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
      * - base: xs:string
      * - minOccurs: 0
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
-     * @var string
+     * @var string|null
      */
-    public $TransactionId;
+    protected ?string $TransactionId = null;
     /**
      * Constructor method for FindBookingCustomersResponseMessageType
      * @uses EwsFindBookingCustomersResponseMessageType::setPeople()
@@ -57,13 +60,13 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
      * @uses EwsFindBookingCustomersResponseMessageType::setFirstMatchingRowIndex()
      * @uses EwsFindBookingCustomersResponseMessageType::setFirstLoadedRowIndex()
      * @uses EwsFindBookingCustomersResponseMessageType::setTransactionId()
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $people
+     * @param \ArrayType\EwsArrayOfPeopleType $people
      * @param int $totalNumberOfPeopleInView
      * @param int $firstMatchingRowIndex
      * @param int $firstLoadedRowIndex
      * @param string $transactionId
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfPeopleType $people = null, $totalNumberOfPeopleInView = null, $firstMatchingRowIndex = null, $firstLoadedRowIndex = null, $transactionId = null)
+    public function __construct(?\ArrayType\EwsArrayOfPeopleType $people = null, ?int $totalNumberOfPeopleInView = null, ?int $firstMatchingRowIndex = null, ?int $firstLoadedRowIndex = null, ?string $transactionId = null)
     {
         $this
             ->setPeople($people)
@@ -74,112 +77,117 @@ class EwsFindBookingCustomersResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get People value
-     * @return \Ews\ArrayType\EwsArrayOfPeopleType|null
+     * @return \ArrayType\EwsArrayOfPeopleType|null
      */
-    public function getPeople()
+    public function getPeople(): ?\ArrayType\EwsArrayOfPeopleType
     {
         return $this->People;
     }
     /**
      * Set People value
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $people
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
+     * @param \ArrayType\EwsArrayOfPeopleType $people
+     * @return \StructType\EwsFindBookingCustomersResponseMessageType
      */
-    public function setPeople(\Ews\ArrayType\EwsArrayOfPeopleType $people = null)
+    public function setPeople(?\ArrayType\EwsArrayOfPeopleType $people = null): self
     {
         $this->People = $people;
+        
         return $this;
     }
     /**
      * Get TotalNumberOfPeopleInView value
      * @return int|null
      */
-    public function getTotalNumberOfPeopleInView()
+    public function getTotalNumberOfPeopleInView(): ?int
     {
         return $this->TotalNumberOfPeopleInView;
     }
     /**
      * Set TotalNumberOfPeopleInView value
      * @param int $totalNumberOfPeopleInView
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
+     * @return \StructType\EwsFindBookingCustomersResponseMessageType
      */
-    public function setTotalNumberOfPeopleInView($totalNumberOfPeopleInView = null)
+    public function setTotalNumberOfPeopleInView(?int $totalNumberOfPeopleInView = null): self
     {
         // validation for constraint: int
         if (!is_null($totalNumberOfPeopleInView) && !(is_int($totalNumberOfPeopleInView) || ctype_digit($totalNumberOfPeopleInView))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalNumberOfPeopleInView, true), gettype($totalNumberOfPeopleInView)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalNumberOfPeopleInView, true), gettype($totalNumberOfPeopleInView)), __LINE__);
         }
         $this->TotalNumberOfPeopleInView = $totalNumberOfPeopleInView;
+        
         return $this;
     }
     /**
      * Get FirstMatchingRowIndex value
      * @return int|null
      */
-    public function getFirstMatchingRowIndex()
+    public function getFirstMatchingRowIndex(): ?int
     {
         return $this->FirstMatchingRowIndex;
     }
     /**
      * Set FirstMatchingRowIndex value
      * @param int $firstMatchingRowIndex
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
+     * @return \StructType\EwsFindBookingCustomersResponseMessageType
      */
-    public function setFirstMatchingRowIndex($firstMatchingRowIndex = null)
+    public function setFirstMatchingRowIndex(?int $firstMatchingRowIndex = null): self
     {
         // validation for constraint: int
         if (!is_null($firstMatchingRowIndex) && !(is_int($firstMatchingRowIndex) || ctype_digit($firstMatchingRowIndex))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstMatchingRowIndex, true), gettype($firstMatchingRowIndex)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstMatchingRowIndex, true), gettype($firstMatchingRowIndex)), __LINE__);
         }
         $this->FirstMatchingRowIndex = $firstMatchingRowIndex;
+        
         return $this;
     }
     /**
      * Get FirstLoadedRowIndex value
      * @return int|null
      */
-    public function getFirstLoadedRowIndex()
+    public function getFirstLoadedRowIndex(): ?int
     {
         return $this->FirstLoadedRowIndex;
     }
     /**
      * Set FirstLoadedRowIndex value
      * @param int $firstLoadedRowIndex
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
+     * @return \StructType\EwsFindBookingCustomersResponseMessageType
      */
-    public function setFirstLoadedRowIndex($firstLoadedRowIndex = null)
+    public function setFirstLoadedRowIndex(?int $firstLoadedRowIndex = null): self
     {
         // validation for constraint: int
         if (!is_null($firstLoadedRowIndex) && !(is_int($firstLoadedRowIndex) || ctype_digit($firstLoadedRowIndex))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstLoadedRowIndex, true), gettype($firstLoadedRowIndex)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($firstLoadedRowIndex, true), gettype($firstLoadedRowIndex)), __LINE__);
         }
         $this->FirstLoadedRowIndex = $firstLoadedRowIndex;
+        
         return $this;
     }
     /**
      * Get TransactionId value
      * @return string|null
      */
-    public function getTransactionId()
+    public function getTransactionId(): ?string
     {
         return $this->TransactionId;
     }
     /**
      * Set TransactionId value
      * @param string $transactionId
-     * @return \Ews\StructType\EwsFindBookingCustomersResponseMessageType
+     * @return \StructType\EwsFindBookingCustomersResponseMessageType
      */
-    public function setTransactionId($transactionId = null)
+    public function setTransactionId(?string $transactionId = null): self
     {
         // validation for constraint: string
         if (!is_null($transactionId) && !is_string($transactionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($transactionId, true), gettype($transactionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($transactionId, true), gettype($transactionId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($transactionId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $transactionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($transactionId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($transactionId, true)), __LINE__);
         }
         $this->TransactionId = $transactionId;
+        
         return $this;
     }
 }

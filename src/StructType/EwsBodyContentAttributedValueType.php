@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BodyContentAttributedValueType StructType
@@ -17,25 +20,25 @@ class EwsBodyContentAttributedValueType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsBodyContentType
+     * @var \StructType\EwsBodyContentType
      */
-    public $Value;
+    protected \StructType\EwsBodyContentType $Value;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @var \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public $Attributions;
+    protected \ArrayType\EwsArrayOfValueAttributionsType $Attributions;
     /**
      * Constructor method for BodyContentAttributedValueType
      * @uses EwsBodyContentAttributedValueType::setValue()
      * @uses EwsBodyContentAttributedValueType::setAttributions()
-     * @param \Ews\StructType\EwsBodyContentType $value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @param \StructType\EwsBodyContentType $value
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
      */
-    public function __construct(\Ews\StructType\EwsBodyContentType $value = null, \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function __construct(\StructType\EwsBodyContentType $value, \ArrayType\EwsArrayOfValueAttributionsType $attributions)
     {
         $this
             ->setValue($value)
@@ -43,38 +46,40 @@ class EwsBodyContentAttributedValueType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return \Ews\StructType\EwsBodyContentType
+     * @return \StructType\EwsBodyContentType
      */
-    public function getValue()
+    public function getValue(): \StructType\EwsBodyContentType
     {
         return $this->Value;
     }
     /**
      * Set Value value
-     * @param \Ews\StructType\EwsBodyContentType $value
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType
+     * @param \StructType\EwsBodyContentType $value
+     * @return \StructType\EwsBodyContentAttributedValueType
      */
-    public function setValue(\Ews\StructType\EwsBodyContentType $value = null)
+    public function setValue(\StructType\EwsBodyContentType $value): self
     {
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function getAttributions()
+    public function getAttributions(): \ArrayType\EwsArrayOfValueAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @return \StructType\EwsBodyContentAttributedValueType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function setAttributions(\ArrayType\EwsArrayOfValueAttributionsType $attributions): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
 }

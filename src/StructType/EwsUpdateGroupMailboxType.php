@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateGroupMailboxType StructType
@@ -21,15 +24,15 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $GroupSmtpAddress;
+    protected string $GroupSmtpAddress;
     /**
      * The ForceConfigurationAction
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $ForceConfigurationAction;
+    protected string $ForceConfigurationAction;
     /**
      * The ExecutingUserSmtpAddress
      * Meta information extracted from the WSDL
@@ -37,81 +40,81 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * - maxOccurs: 1
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExecutingUserSmtpAddress;
+    protected ?string $ExecutingUserSmtpAddress = null;
     /**
      * The DomainController
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DomainController;
+    protected ?string $DomainController = null;
     /**
      * The MemberIdentifierType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MemberIdentifierType;
+    protected ?string $MemberIdentifierType = null;
     /**
      * The AddedMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $AddedMembers;
+    protected ?\ArrayType\EwsArrayOfStringsType $AddedMembers = null;
     /**
      * The RemovedMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $RemovedMembers;
+    protected ?\ArrayType\EwsArrayOfStringsType $RemovedMembers = null;
     /**
      * The AddedPendingMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $AddedPendingMembers;
+    protected ?\ArrayType\EwsArrayOfStringsType $AddedPendingMembers = null;
     /**
      * The RemovedPendingMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $RemovedPendingMembers;
+    protected ?\ArrayType\EwsArrayOfStringsType $RemovedPendingMembers = null;
     /**
      * The CalendarMemberReadOnly
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $CalendarMemberReadOnly;
+    protected ?bool $CalendarMemberReadOnly = null;
     /**
      * The SuppressWarmupMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SuppressWarmupMessage;
+    protected ?bool $SuppressWarmupMessage = null;
     /**
      * The AllowOnlyMembersToPost
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AllowOnlyMembersToPost;
+    protected ?bool $AllowOnlyMembersToPost = null;
     /**
      * Constructor method for UpdateGroupMailboxType
      * @uses EwsUpdateGroupMailboxType::setGroupSmtpAddress()
@@ -127,19 +130,19 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * @uses EwsUpdateGroupMailboxType::setSuppressWarmupMessage()
      * @uses EwsUpdateGroupMailboxType::setAllowOnlyMembersToPost()
      * @param string $groupSmtpAddress
-     * @param string[] $forceConfigurationAction
+     * @param array|string $forceConfigurationAction
      * @param string $executingUserSmtpAddress
      * @param string $domainController
      * @param string $memberIdentifierType
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $addedMembers
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $removedMembers
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers
+     * @param \ArrayType\EwsArrayOfStringsType $addedMembers
+     * @param \ArrayType\EwsArrayOfStringsType $removedMembers
+     * @param \ArrayType\EwsArrayOfStringsType $addedPendingMembers
+     * @param \ArrayType\EwsArrayOfStringsType $removedPendingMembers
      * @param bool $calendarMemberReadOnly
      * @param bool $suppressWarmupMessage
      * @param bool $allowOnlyMembersToPost
      */
-    public function __construct($groupSmtpAddress = null, array $forceConfigurationAction = array(), $executingUserSmtpAddress = null, $domainController = null, $memberIdentifierType = null, \Ews\ArrayType\EwsArrayOfStringsType $addedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null, \Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null, $calendarMemberReadOnly = null, $suppressWarmupMessage = null, $allowOnlyMembersToPost = null)
+    public function __construct(string $groupSmtpAddress, $forceConfigurationAction, ?string $executingUserSmtpAddress = null, ?string $domainController = null, ?string $memberIdentifierType = null, ?\ArrayType\EwsArrayOfStringsType $addedMembers = null, ?\ArrayType\EwsArrayOfStringsType $removedMembers = null, ?\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null, ?\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null, ?bool $calendarMemberReadOnly = null, ?bool $suppressWarmupMessage = null, ?bool $allowOnlyMembersToPost = null)
     {
         $this
             ->setGroupSmtpAddress($groupSmtpAddress)
@@ -159,33 +162,34 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * Get GroupSmtpAddress value
      * @return string
      */
-    public function getGroupSmtpAddress()
+    public function getGroupSmtpAddress(): string
     {
         return $this->GroupSmtpAddress;
     }
     /**
      * Set GroupSmtpAddress value
      * @param string $groupSmtpAddress
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setGroupSmtpAddress($groupSmtpAddress = null)
+    public function setGroupSmtpAddress(string $groupSmtpAddress): self
     {
         // validation for constraint: string
         if (!is_null($groupSmtpAddress) && !is_string($groupSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupSmtpAddress, true), gettype($groupSmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupSmtpAddress, true), gettype($groupSmtpAddress)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($groupSmtpAddress) && mb_strlen($groupSmtpAddress) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($groupSmtpAddress)), __LINE__);
+        if (!is_null($groupSmtpAddress) && mb_strlen((string) $groupSmtpAddress) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $groupSmtpAddress)), __LINE__);
         }
         $this->GroupSmtpAddress = $groupSmtpAddress;
+        
         return $this;
     }
     /**
      * Get ForceConfigurationAction value
-     * @return string[]
+     * @return string
      */
-    public function getForceConfigurationAction()
+    public function getForceConfigurationAction(): string
     {
         return $this->ForceConfigurationAction;
     }
@@ -195,248 +199,260 @@ class EwsUpdateGroupMailboxType extends EwsBaseRequestType
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction(array $values = array())
+    public static function validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $updateGroupMailboxTypeForceConfigurationActionItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid($updateGroupMailboxTypeForceConfigurationActionItem)) {
+            if (!\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid($updateGroupMailboxTypeForceConfigurationActionItem)) {
                 $invalidValues[] = is_object($updateGroupMailboxTypeForceConfigurationActionItem) ? get_class($updateGroupMailboxTypeForceConfigurationActionItem) : sprintf('%s(%s)', gettype($updateGroupMailboxTypeForceConfigurationActionItem), var_export($updateGroupMailboxTypeForceConfigurationActionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMailboxConfigurationActionType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsGroupMailboxConfigurationActionType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ForceConfigurationAction value
-     * @uses \Ews\EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $forceConfigurationAction
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @uses \EnumType\EwsGroupMailboxConfigurationActionType::valueIsValid()
+     * @uses \EnumType\EwsGroupMailboxConfigurationActionType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $forceConfigurationAction
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setForceConfigurationAction(array $forceConfigurationAction = array())
+    public function setForceConfigurationAction($forceConfigurationAction): self
     {
         // validation for constraint: list
-        if ('' !== ($forceConfigurationActionArrayErrorMessage = self::validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction($forceConfigurationAction))) {
-            throw new \InvalidArgumentException($forceConfigurationActionArrayErrorMessage, __LINE__);
+        if ('' !== ($forceConfigurationActionArrayErrorMessage = self::validateForceConfigurationActionForArrayConstraintsFromSetForceConfigurationAction(is_string($forceConfigurationAction) ? explode(' ', $forceConfigurationAction) : $forceConfigurationAction))) {
+            throw new InvalidArgumentException($forceConfigurationActionArrayErrorMessage, __LINE__);
         }
-        $this->ForceConfigurationAction = is_array($forceConfigurationAction) ? implode(' ', $forceConfigurationAction) : null;
+        $this->ForceConfigurationAction = is_array($forceConfigurationAction) ? implode(' ', $forceConfigurationAction) : $forceConfigurationAction;
+        
         return $this;
     }
     /**
      * Get ExecutingUserSmtpAddress value
      * @return string|null
      */
-    public function getExecutingUserSmtpAddress()
+    public function getExecutingUserSmtpAddress(): ?string
     {
         return $this->ExecutingUserSmtpAddress;
     }
     /**
      * Set ExecutingUserSmtpAddress value
      * @param string $executingUserSmtpAddress
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setExecutingUserSmtpAddress($executingUserSmtpAddress = null)
+    public function setExecutingUserSmtpAddress(?string $executingUserSmtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($executingUserSmtpAddress) && !is_string($executingUserSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($executingUserSmtpAddress, true), gettype($executingUserSmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($executingUserSmtpAddress, true), gettype($executingUserSmtpAddress)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($executingUserSmtpAddress) && mb_strlen($executingUserSmtpAddress) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($executingUserSmtpAddress)), __LINE__);
+        if (!is_null($executingUserSmtpAddress) && mb_strlen((string) $executingUserSmtpAddress) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $executingUserSmtpAddress)), __LINE__);
         }
         $this->ExecutingUserSmtpAddress = $executingUserSmtpAddress;
+        
         return $this;
     }
     /**
      * Get DomainController value
      * @return string|null
      */
-    public function getDomainController()
+    public function getDomainController(): ?string
     {
         return $this->DomainController;
     }
     /**
      * Set DomainController value
      * @param string $domainController
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setDomainController($domainController = null)
+    public function setDomainController(?string $domainController = null): self
     {
         // validation for constraint: string
         if (!is_null($domainController) && !is_string($domainController)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainController, true), gettype($domainController)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domainController, true), gettype($domainController)), __LINE__);
         }
         $this->DomainController = $domainController;
+        
         return $this;
     }
     /**
      * Get MemberIdentifierType value
      * @return string|null
      */
-    public function getMemberIdentifierType()
+    public function getMemberIdentifierType(): ?string
     {
         return $this->MemberIdentifierType;
     }
     /**
      * Set MemberIdentifierType value
-     * @uses \Ews\EnumType\EwsGroupMemberIdentifierType::valueIsValid()
-     * @uses \Ews\EnumType\EwsGroupMemberIdentifierType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsGroupMemberIdentifierType::valueIsValid()
+     * @uses \EnumType\EwsGroupMemberIdentifierType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $memberIdentifierType
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setMemberIdentifierType($memberIdentifierType = null)
+    public function setMemberIdentifierType(?string $memberIdentifierType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsGroupMemberIdentifierType::valueIsValid($memberIdentifierType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsGroupMemberIdentifierType', is_array($memberIdentifierType) ? implode(', ', $memberIdentifierType) : var_export($memberIdentifierType, true), implode(', ', \Ews\EnumType\EwsGroupMemberIdentifierType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsGroupMemberIdentifierType::valueIsValid($memberIdentifierType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsGroupMemberIdentifierType', is_array($memberIdentifierType) ? implode(', ', $memberIdentifierType) : var_export($memberIdentifierType, true), implode(', ', \EnumType\EwsGroupMemberIdentifierType::getValidValues())), __LINE__);
         }
         $this->MemberIdentifierType = $memberIdentifierType;
+        
         return $this;
     }
     /**
      * Get AddedMembers value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getAddedMembers()
+    public function getAddedMembers(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->AddedMembers;
     }
     /**
      * Set AddedMembers value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $addedMembers
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @param \ArrayType\EwsArrayOfStringsType $addedMembers
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setAddedMembers(\Ews\ArrayType\EwsArrayOfStringsType $addedMembers = null)
+    public function setAddedMembers(?\ArrayType\EwsArrayOfStringsType $addedMembers = null): self
     {
         $this->AddedMembers = $addedMembers;
+        
         return $this;
     }
     /**
      * Get RemovedMembers value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getRemovedMembers()
+    public function getRemovedMembers(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->RemovedMembers;
     }
     /**
      * Set RemovedMembers value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $removedMembers
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @param \ArrayType\EwsArrayOfStringsType $removedMembers
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setRemovedMembers(\Ews\ArrayType\EwsArrayOfStringsType $removedMembers = null)
+    public function setRemovedMembers(?\ArrayType\EwsArrayOfStringsType $removedMembers = null): self
     {
         $this->RemovedMembers = $removedMembers;
+        
         return $this;
     }
     /**
      * Get AddedPendingMembers value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getAddedPendingMembers()
+    public function getAddedPendingMembers(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->AddedPendingMembers;
     }
     /**
      * Set AddedPendingMembers value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @param \ArrayType\EwsArrayOfStringsType $addedPendingMembers
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setAddedPendingMembers(\Ews\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null)
+    public function setAddedPendingMembers(?\ArrayType\EwsArrayOfStringsType $addedPendingMembers = null): self
     {
         $this->AddedPendingMembers = $addedPendingMembers;
+        
         return $this;
     }
     /**
      * Get RemovedPendingMembers value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getRemovedPendingMembers()
+    public function getRemovedPendingMembers(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->RemovedPendingMembers;
     }
     /**
      * Set RemovedPendingMembers value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @param \ArrayType\EwsArrayOfStringsType $removedPendingMembers
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setRemovedPendingMembers(\Ews\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null)
+    public function setRemovedPendingMembers(?\ArrayType\EwsArrayOfStringsType $removedPendingMembers = null): self
     {
         $this->RemovedPendingMembers = $removedPendingMembers;
+        
         return $this;
     }
     /**
      * Get CalendarMemberReadOnly value
      * @return bool|null
      */
-    public function getCalendarMemberReadOnly()
+    public function getCalendarMemberReadOnly(): ?bool
     {
         return $this->CalendarMemberReadOnly;
     }
     /**
      * Set CalendarMemberReadOnly value
      * @param bool $calendarMemberReadOnly
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setCalendarMemberReadOnly($calendarMemberReadOnly = null)
+    public function setCalendarMemberReadOnly(?bool $calendarMemberReadOnly = null): self
     {
         // validation for constraint: boolean
         if (!is_null($calendarMemberReadOnly) && !is_bool($calendarMemberReadOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($calendarMemberReadOnly, true), gettype($calendarMemberReadOnly)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($calendarMemberReadOnly, true), gettype($calendarMemberReadOnly)), __LINE__);
         }
         $this->CalendarMemberReadOnly = $calendarMemberReadOnly;
+        
         return $this;
     }
     /**
      * Get SuppressWarmupMessage value
      * @return bool|null
      */
-    public function getSuppressWarmupMessage()
+    public function getSuppressWarmupMessage(): ?bool
     {
         return $this->SuppressWarmupMessage;
     }
     /**
      * Set SuppressWarmupMessage value
      * @param bool $suppressWarmupMessage
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setSuppressWarmupMessage($suppressWarmupMessage = null)
+    public function setSuppressWarmupMessage(?bool $suppressWarmupMessage = null): self
     {
         // validation for constraint: boolean
         if (!is_null($suppressWarmupMessage) && !is_bool($suppressWarmupMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressWarmupMessage, true), gettype($suppressWarmupMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressWarmupMessage, true), gettype($suppressWarmupMessage)), __LINE__);
         }
         $this->SuppressWarmupMessage = $suppressWarmupMessage;
+        
         return $this;
     }
     /**
      * Get AllowOnlyMembersToPost value
      * @return bool|null
      */
-    public function getAllowOnlyMembersToPost()
+    public function getAllowOnlyMembersToPost(): ?bool
     {
         return $this->AllowOnlyMembersToPost;
     }
     /**
      * Set AllowOnlyMembersToPost value
      * @param bool $allowOnlyMembersToPost
-     * @return \Ews\StructType\EwsUpdateGroupMailboxType
+     * @return \StructType\EwsUpdateGroupMailboxType
      */
-    public function setAllowOnlyMembersToPost($allowOnlyMembersToPost = null)
+    public function setAllowOnlyMembersToPost(?bool $allowOnlyMembersToPost = null): self
     {
         // validation for constraint: boolean
         if (!is_null($allowOnlyMembersToPost) && !is_bool($allowOnlyMembersToPost)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowOnlyMembersToPost, true), gettype($allowOnlyMembersToPost)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowOnlyMembersToPost, true), gettype($allowOnlyMembersToPost)), __LINE__);
         }
         $this->AllowOnlyMembersToPost = $allowOnlyMembersToPost;
+        
         return $this;
     }
 }

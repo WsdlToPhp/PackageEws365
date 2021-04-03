@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchParametersType StructType
@@ -14,31 +17,31 @@ class EwsSearchParametersType extends AbstractStructBase
 {
     /**
      * The Restriction
-     * @var \Ews\StructType\EwsRestrictionType
+     * @var \StructType\EwsRestrictionType|null
      */
-    public $Restriction;
+    protected ?\StructType\EwsRestrictionType $Restriction = null;
     /**
      * The BaseFolderIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $BaseFolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $BaseFolderIds = null;
     /**
      * The Traversal
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Traversal;
+    protected ?string $Traversal = null;
     /**
      * Constructor method for SearchParametersType
      * @uses EwsSearchParametersType::setRestriction()
      * @uses EwsSearchParametersType::setBaseFolderIds()
      * @uses EwsSearchParametersType::setTraversal()
-     * @param \Ews\StructType\EwsRestrictionType $restriction
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds
+     * @param \StructType\EwsRestrictionType $restriction
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds
      * @param string $traversal
      */
-    public function __construct(\Ews\StructType\EwsRestrictionType $restriction = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds = null, $traversal = null)
+    public function __construct(?\StructType\EwsRestrictionType $restriction = null, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds = null, ?string $traversal = null)
     {
         $this
             ->setRestriction($restriction)
@@ -47,63 +50,66 @@ class EwsSearchParametersType extends AbstractStructBase
     }
     /**
      * Get Restriction value
-     * @return \Ews\StructType\EwsRestrictionType|null
+     * @return \StructType\EwsRestrictionType|null
      */
-    public function getRestriction()
+    public function getRestriction(): ?\StructType\EwsRestrictionType
     {
         return $this->Restriction;
     }
     /**
      * Set Restriction value
-     * @param \Ews\StructType\EwsRestrictionType $restriction
-     * @return \Ews\StructType\EwsSearchParametersType
+     * @param \StructType\EwsRestrictionType $restriction
+     * @return \StructType\EwsSearchParametersType
      */
-    public function setRestriction(\Ews\StructType\EwsRestrictionType $restriction = null)
+    public function setRestriction(?\StructType\EwsRestrictionType $restriction = null): self
     {
         $this->Restriction = $restriction;
+        
         return $this;
     }
     /**
      * Get BaseFolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getBaseFolderIds()
+    public function getBaseFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->BaseFolderIds;
     }
     /**
      * Set BaseFolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds
-     * @return \Ews\StructType\EwsSearchParametersType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds
+     * @return \StructType\EwsSearchParametersType
      */
-    public function setBaseFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds = null)
+    public function setBaseFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $baseFolderIds = null): self
     {
         $this->BaseFolderIds = $baseFolderIds;
+        
         return $this;
     }
     /**
      * Get Traversal value
      * @return string|null
      */
-    public function getTraversal()
+    public function getTraversal(): ?string
     {
         return $this->Traversal;
     }
     /**
      * Set Traversal value
-     * @uses \Ews\EnumType\EwsSearchFolderTraversalType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchFolderTraversalType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSearchFolderTraversalType::valueIsValid()
+     * @uses \EnumType\EwsSearchFolderTraversalType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $traversal
-     * @return \Ews\StructType\EwsSearchParametersType
+     * @return \StructType\EwsSearchParametersType
      */
-    public function setTraversal($traversal = null)
+    public function setTraversal(?string $traversal = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSearchFolderTraversalType::valueIsValid($traversal)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchFolderTraversalType', is_array($traversal) ? implode(', ', $traversal) : var_export($traversal, true), implode(', ', \Ews\EnumType\EwsSearchFolderTraversalType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSearchFolderTraversalType::valueIsValid($traversal)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchFolderTraversalType', is_array($traversal) ? implode(', ', $traversal) : var_export($traversal, true), implode(', ', \EnumType\EwsSearchFolderTraversalType::getValidValues())), __LINE__);
         }
         $this->Traversal = $traversal;
+        
         return $this;
     }
 }

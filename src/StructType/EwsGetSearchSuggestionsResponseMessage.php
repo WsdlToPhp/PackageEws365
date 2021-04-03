@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchSuggestionsResponseMessage StructType
@@ -14,35 +17,36 @@ class EwsGetSearchSuggestionsResponseMessage extends EwsResponseMessageType
 {
     /**
      * The SearchSuggestions
-     * @var \Ews\StructType\EwsSearchSuggestionsType
+     * @var \StructType\EwsSearchSuggestionsType|null
      */
-    public $SearchSuggestions;
+    protected ?\StructType\EwsSearchSuggestionsType $SearchSuggestions = null;
     /**
      * Constructor method for GetSearchSuggestionsResponseMessage
      * @uses EwsGetSearchSuggestionsResponseMessage::setSearchSuggestions()
-     * @param \Ews\StructType\EwsSearchSuggestionsType $searchSuggestions
+     * @param \StructType\EwsSearchSuggestionsType $searchSuggestions
      */
-    public function __construct(\Ews\StructType\EwsSearchSuggestionsType $searchSuggestions = null)
+    public function __construct(?\StructType\EwsSearchSuggestionsType $searchSuggestions = null)
     {
         $this
             ->setSearchSuggestions($searchSuggestions);
     }
     /**
      * Get SearchSuggestions value
-     * @return \Ews\StructType\EwsSearchSuggestionsType|null
+     * @return \StructType\EwsSearchSuggestionsType|null
      */
-    public function getSearchSuggestions()
+    public function getSearchSuggestions(): ?\StructType\EwsSearchSuggestionsType
     {
         return $this->SearchSuggestions;
     }
     /**
      * Set SearchSuggestions value
-     * @param \Ews\StructType\EwsSearchSuggestionsType $searchSuggestions
-     * @return \Ews\StructType\EwsGetSearchSuggestionsResponseMessage
+     * @param \StructType\EwsSearchSuggestionsType $searchSuggestions
+     * @return \StructType\EwsGetSearchSuggestionsResponseMessage
      */
-    public function setSearchSuggestions(\Ews\StructType\EwsSearchSuggestionsType $searchSuggestions = null)
+    public function setSearchSuggestions(?\StructType\EwsSearchSuggestionsType $searchSuggestions = null): self
     {
         $this->SearchSuggestions = $searchSuggestions;
+        
         return $this;
     }
 }

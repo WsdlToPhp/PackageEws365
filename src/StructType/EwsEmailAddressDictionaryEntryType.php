@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EmailAddressDictionaryEntryType StructType
@@ -18,33 +21,33 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Key;
+    protected string $Key;
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * The Name
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The RoutingType
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $RoutingType;
+    protected ?string $RoutingType = null;
     /**
      * The MailboxType
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $MailboxType;
+    protected ?string $MailboxType = null;
     /**
      * Constructor method for EmailAddressDictionaryEntryType
      * @uses EwsEmailAddressDictionaryEntryType::setKey()
@@ -58,7 +61,7 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      * @param string $routingType
      * @param string $mailboxType
      */
-    public function __construct($key = null, $_ = null, $name = null, $routingType = null, $mailboxType = null)
+    public function __construct(string $key, ?string $_ = null, ?string $name = null, ?string $routingType = null, ?string $mailboxType = null)
     {
         $this
             ->setKey($key)
@@ -71,116 +74,121 @@ class EwsEmailAddressDictionaryEntryType extends AbstractStructBase
      * Get Key value
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->Key;
     }
     /**
      * Set Key value
-     * @uses \Ews\EnumType\EwsEmailAddressKeyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsEmailAddressKeyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsEmailAddressKeyType::valueIsValid()
+     * @uses \EnumType\EwsEmailAddressKeyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $key
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @return \StructType\EwsEmailAddressDictionaryEntryType
      */
-    public function setKey($key = null)
+    public function setKey(string $key): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsEmailAddressKeyType::valueIsValid($key)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsEmailAddressKeyType', is_array($key) ? implode(', ', $key) : var_export($key, true), implode(', ', \Ews\EnumType\EwsEmailAddressKeyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsEmailAddressKeyType::valueIsValid($key)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsEmailAddressKeyType', is_array($key) ? implode(', ', $key) : var_export($key, true), implode(', ', \EnumType\EwsEmailAddressKeyType::getValidValues())), __LINE__);
         }
         $this->Key = $key;
+        
         return $this;
     }
     /**
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @return \StructType\EwsEmailAddressDictionaryEntryType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
     /**
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @return \StructType\EwsEmailAddressDictionaryEntryType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get RoutingType value
      * @return string|null
      */
-    public function getRoutingType()
+    public function getRoutingType(): ?string
     {
         return $this->RoutingType;
     }
     /**
      * Set RoutingType value
      * @param string $routingType
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @return \StructType\EwsEmailAddressDictionaryEntryType
      */
-    public function setRoutingType($routingType = null)
+    public function setRoutingType(?string $routingType = null): self
     {
         // validation for constraint: string
         if (!is_null($routingType) && !is_string($routingType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingType, true), gettype($routingType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingType, true), gettype($routingType)), __LINE__);
         }
         $this->RoutingType = $routingType;
+        
         return $this;
     }
     /**
      * Get MailboxType value
      * @return string|null
      */
-    public function getMailboxType()
+    public function getMailboxType(): ?string
     {
         return $this->MailboxType;
     }
     /**
      * Set MailboxType value
-     * @uses \Ews\EnumType\EwsMailboxTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailboxTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMailboxTypeType::valueIsValid()
+     * @uses \EnumType\EwsMailboxTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $mailboxType
-     * @return \Ews\StructType\EwsEmailAddressDictionaryEntryType
+     * @return \StructType\EwsEmailAddressDictionaryEntryType
      */
-    public function setMailboxType($mailboxType = null)
+    public function setMailboxType(?string $mailboxType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxTypeType', is_array($mailboxType) ? implode(', ', $mailboxType) : var_export($mailboxType, true), implode(', ', \Ews\EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailboxTypeType', is_array($mailboxType) ? implode(', ', $mailboxType) : var_export($mailboxType, true), implode(', ', \EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
         }
         $this->MailboxType = $mailboxType;
+        
         return $this;
     }
 }

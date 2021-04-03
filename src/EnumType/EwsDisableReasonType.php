@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DisableReasonType EnumType
@@ -42,13 +44,13 @@ class EwsDisableReasonType extends AbstractStructEnumBase
      * @uses self::VALUE_MOBILE_CLIENT_PERFORMANCE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NO_REASON,
             self::VALUE_OUTLOOK_CLIENT_PERFORMANCE,
             self::VALUE_OWACLIENT_PERFORMANCE,
             self::VALUE_MOBILE_CLIENT_PERFORMANCE,
-        );
+        ];
     }
 }

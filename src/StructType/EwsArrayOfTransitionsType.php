@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArrayOfTransitionsType StructType
@@ -14,36 +17,36 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
 {
     /**
      * The AbsoluteDateTransition
-     * @var \Ews\StructType\EwsAbsoluteDateTransitionType
+     * @var \StructType\EwsAbsoluteDateTransitionType|null
      */
-    public $AbsoluteDateTransition;
+    protected ?\StructType\EwsAbsoluteDateTransitionType $AbsoluteDateTransition = null;
     /**
      * The RecurringDayTransition
-     * @var \Ews\StructType\EwsRecurringDayTransitionType
+     * @var \StructType\EwsRecurringDayTransitionType|null
      */
-    public $RecurringDayTransition;
+    protected ?\StructType\EwsRecurringDayTransitionType $RecurringDayTransition = null;
     /**
      * The RecurringDateTransition
-     * @var \Ews\StructType\EwsRecurringDateTransitionType
+     * @var \StructType\EwsRecurringDateTransitionType|null
      */
-    public $RecurringDateTransition;
+    protected ?\StructType\EwsRecurringDateTransitionType $RecurringDateTransition = null;
     /**
      * The Id
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * Constructor method for ArrayOfTransitionsType
      * @uses EwsArrayOfTransitionsType::setAbsoluteDateTransition()
      * @uses EwsArrayOfTransitionsType::setRecurringDayTransition()
      * @uses EwsArrayOfTransitionsType::setRecurringDateTransition()
      * @uses EwsArrayOfTransitionsType::setId()
-     * @param \Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
-     * @param \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition
-     * @param \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition
+     * @param \StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
+     * @param \StructType\EwsRecurringDayTransitionType $recurringDayTransition
+     * @param \StructType\EwsRecurringDateTransitionType $recurringDateTransition
      * @param string $id
      */
-    public function __construct(\Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null, \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null, \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null, $id = null)
+    public function __construct(?\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null, ?\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null, ?\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null, ?string $id = null)
     {
         $this
             ->setAbsoluteDateTransition($absoluteDateTransition)
@@ -53,78 +56,82 @@ class EwsArrayOfTransitionsType extends AbstractStructBase
     }
     /**
      * Get AbsoluteDateTransition value
-     * @return \Ews\StructType\EwsAbsoluteDateTransitionType|null
+     * @return \StructType\EwsAbsoluteDateTransitionType|null
      */
-    public function getAbsoluteDateTransition()
+    public function getAbsoluteDateTransition(): ?\StructType\EwsAbsoluteDateTransitionType
     {
         return $this->AbsoluteDateTransition;
     }
     /**
      * Set AbsoluteDateTransition value
-     * @param \Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
-     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     * @param \StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition
+     * @return \StructType\EwsArrayOfTransitionsType
      */
-    public function setAbsoluteDateTransition(\Ews\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null)
+    public function setAbsoluteDateTransition(?\StructType\EwsAbsoluteDateTransitionType $absoluteDateTransition = null): self
     {
         $this->AbsoluteDateTransition = $absoluteDateTransition;
+        
         return $this;
     }
     /**
      * Get RecurringDayTransition value
-     * @return \Ews\StructType\EwsRecurringDayTransitionType|null
+     * @return \StructType\EwsRecurringDayTransitionType|null
      */
-    public function getRecurringDayTransition()
+    public function getRecurringDayTransition(): ?\StructType\EwsRecurringDayTransitionType
     {
         return $this->RecurringDayTransition;
     }
     /**
      * Set RecurringDayTransition value
-     * @param \Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition
-     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     * @param \StructType\EwsRecurringDayTransitionType $recurringDayTransition
+     * @return \StructType\EwsArrayOfTransitionsType
      */
-    public function setRecurringDayTransition(\Ews\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null)
+    public function setRecurringDayTransition(?\StructType\EwsRecurringDayTransitionType $recurringDayTransition = null): self
     {
         $this->RecurringDayTransition = $recurringDayTransition;
+        
         return $this;
     }
     /**
      * Get RecurringDateTransition value
-     * @return \Ews\StructType\EwsRecurringDateTransitionType|null
+     * @return \StructType\EwsRecurringDateTransitionType|null
      */
-    public function getRecurringDateTransition()
+    public function getRecurringDateTransition(): ?\StructType\EwsRecurringDateTransitionType
     {
         return $this->RecurringDateTransition;
     }
     /**
      * Set RecurringDateTransition value
-     * @param \Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition
-     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     * @param \StructType\EwsRecurringDateTransitionType $recurringDateTransition
+     * @return \StructType\EwsArrayOfTransitionsType
      */
-    public function setRecurringDateTransition(\Ews\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null)
+    public function setRecurringDateTransition(?\StructType\EwsRecurringDateTransitionType $recurringDateTransition = null): self
     {
         $this->RecurringDateTransition = $recurringDateTransition;
+        
         return $this;
     }
     /**
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsArrayOfTransitionsType
+     * @return \StructType\EwsArrayOfTransitionsType
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
 }

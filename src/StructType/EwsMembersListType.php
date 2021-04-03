@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MembersListType StructType
@@ -17,24 +20,24 @@ class EwsMembersListType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMemberType[]
+     * @var \StructType\EwsMemberType[]
      */
-    public $Member;
+    protected array $Member = [];
     /**
      * Constructor method for MembersListType
      * @uses EwsMembersListType::setMember()
-     * @param \Ews\StructType\EwsMemberType[] $member
+     * @param \StructType\EwsMemberType[] $member
      */
-    public function __construct(array $member = array())
+    public function __construct(array $member = [])
     {
         $this
             ->setMember($member);
     }
     /**
      * Get Member value
-     * @return \Ews\StructType\EwsMemberType[]|null
+     * @return \StructType\EwsMemberType[]
      */
-    public function getMember()
+    public function getMember(): array
     {
         return $this->Member;
     }
@@ -44,50 +47,53 @@ class EwsMembersListType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMemberForArrayConstraintsFromSetMember(array $values = array())
+    public static function validateMemberForArrayConstraintsFromSetMember(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $membersListTypeMemberItem) {
             // validation for constraint: itemType
-            if (!$membersListTypeMemberItem instanceof \Ews\StructType\EwsMemberType) {
+            if (!$membersListTypeMemberItem instanceof \StructType\EwsMemberType) {
                 $invalidValues[] = is_object($membersListTypeMemberItem) ? get_class($membersListTypeMemberItem) : sprintf('%s(%s)', gettype($membersListTypeMemberItem), var_export($membersListTypeMemberItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Member property can only contain items of type \Ews\StructType\EwsMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Member property can only contain items of type \StructType\EwsMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Member value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMemberType[] $member
-     * @return \Ews\StructType\EwsMembersListType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMemberType[] $member
+     * @return \StructType\EwsMembersListType
      */
-    public function setMember(array $member = array())
+    public function setMember(array $member = []): self
     {
         // validation for constraint: array
         if ('' !== ($memberArrayErrorMessage = self::validateMemberForArrayConstraintsFromSetMember($member))) {
-            throw new \InvalidArgumentException($memberArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($memberArrayErrorMessage, __LINE__);
         }
         $this->Member = $member;
+        
         return $this;
     }
     /**
      * Add item to Member value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMemberType $item
-     * @return \Ews\StructType\EwsMembersListType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMemberType $item
+     * @return \StructType\EwsMembersListType
      */
-    public function addToMember(\Ews\StructType\EwsMemberType $item)
+    public function addToMember(\StructType\EwsMemberType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMemberType) {
-            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of type \Ews\StructType\EwsMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsMemberType) {
+            throw new InvalidArgumentException(sprintf('The Member property can only contain items of type \StructType\EwsMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Member[] = $item;
+        
         return $this;
     }
 }

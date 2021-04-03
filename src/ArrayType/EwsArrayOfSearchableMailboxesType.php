@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchableMailboxesType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfSearchableMailboxesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchableMailboxType[]
+     * @var \StructType\EwsSearchableMailboxType[]
      */
-    public $SearchableMailbox;
+    protected array $SearchableMailbox = [];
     /**
      * Constructor method for ArrayOfSearchableMailboxesType
      * @uses EwsArrayOfSearchableMailboxesType::setSearchableMailbox()
-     * @param \Ews\StructType\EwsSearchableMailboxType[] $searchableMailbox
+     * @param \StructType\EwsSearchableMailboxType[] $searchableMailbox
      */
-    public function __construct(array $searchableMailbox = array())
+    public function __construct(array $searchableMailbox = [])
     {
         $this
             ->setSearchableMailbox($searchableMailbox);
     }
     /**
      * Get SearchableMailbox value
-     * @return \Ews\StructType\EwsSearchableMailboxType[]|null
+     * @return \StructType\EwsSearchableMailboxType[]
      */
-    public function getSearchableMailbox()
+    public function getSearchableMailbox(): array
     {
         return $this->SearchableMailbox;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfSearchableMailboxesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSearchableMailboxForArrayConstraintsFromSetSearchableMailbox(array $values = array())
+    public static function validateSearchableMailboxForArrayConstraintsFromSetSearchableMailbox(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfSearchableMailboxesTypeSearchableMailboxItem) {
             // validation for constraint: itemType
-            if (!$arrayOfSearchableMailboxesTypeSearchableMailboxItem instanceof \Ews\StructType\EwsSearchableMailboxType) {
+            if (!$arrayOfSearchableMailboxesTypeSearchableMailboxItem instanceof \StructType\EwsSearchableMailboxType) {
                 $invalidValues[] = is_object($arrayOfSearchableMailboxesTypeSearchableMailboxItem) ? get_class($arrayOfSearchableMailboxesTypeSearchableMailboxItem) : sprintf('%s(%s)', gettype($arrayOfSearchableMailboxesTypeSearchableMailboxItem), var_export($arrayOfSearchableMailboxesTypeSearchableMailboxItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The SearchableMailbox property can only contain items of type \Ews\StructType\EwsSearchableMailboxType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The SearchableMailbox property can only contain items of type \StructType\EwsSearchableMailboxType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SearchableMailbox value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchableMailboxType[] $searchableMailbox
-     * @return \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchableMailboxType[] $searchableMailbox
+     * @return \ArrayType\EwsArrayOfSearchableMailboxesType
      */
-    public function setSearchableMailbox(array $searchableMailbox = array())
+    public function setSearchableMailbox(array $searchableMailbox = []): self
     {
         // validation for constraint: array
         if ('' !== ($searchableMailboxArrayErrorMessage = self::validateSearchableMailboxForArrayConstraintsFromSetSearchableMailbox($searchableMailbox))) {
-            throw new \InvalidArgumentException($searchableMailboxArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchableMailboxArrayErrorMessage, __LINE__);
         }
         $this->SearchableMailbox = $searchableMailbox;
-        return $this;
-    }
-    /**
-     * Add item to SearchableMailbox value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchableMailboxType $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
-     */
-    public function addToSearchableMailbox(\Ews\StructType\EwsSearchableMailboxType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSearchableMailboxType) {
-            throw new \InvalidArgumentException(sprintf('The SearchableMailbox property can only contain items of type \Ews\StructType\EwsSearchableMailboxType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->SearchableMailbox[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsSearchableMailboxType|null
+     * @return \StructType\EwsSearchableMailboxType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsSearchableMailboxType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfSearchableMailboxesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsSearchableMailboxType|null
+     * @return \StructType\EwsSearchableMailboxType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsSearchableMailboxType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsSearchableMailboxType|null
+     * @return \StructType\EwsSearchableMailboxType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsSearchableMailboxType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsSearchableMailboxType|null
+     * @return \StructType\EwsSearchableMailboxType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsSearchableMailboxType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfSearchableMailboxesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsSearchableMailboxType|null
+     * @return \StructType\EwsSearchableMailboxType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsSearchableMailboxType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchableMailboxType $item
+     * @return \ArrayType\EwsArrayOfSearchableMailboxesType
+     */
+    public function add(\StructType\EwsSearchableMailboxType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SearchableMailbox
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SearchableMailbox';
     }

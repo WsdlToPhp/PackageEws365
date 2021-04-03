@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DayOfWeekType EnumType
@@ -76,9 +78,9 @@ class EwsDayOfWeekType extends AbstractStructEnumBase
      * @uses self::VALUE_WEEKEND_DAY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SUNDAY,
             self::VALUE_MONDAY,
             self::VALUE_TUESDAY,
@@ -89,6 +91,6 @@ class EwsDayOfWeekType extends AbstractStructEnumBase
             self::VALUE_DAY,
             self::VALUE_WEEKDAY,
             self::VALUE_WEEKEND_DAY,
-        );
+        ];
     }
 }

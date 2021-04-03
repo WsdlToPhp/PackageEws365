@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateInboxRulesResponseType StructType
@@ -17,35 +20,36 @@ class EwsUpdateInboxRulesResponseType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
+     * @var \ArrayType\EwsArrayOfRuleOperationErrorsType|null
      */
-    public $RuleOperationErrors;
+    protected ?\ArrayType\EwsArrayOfRuleOperationErrorsType $RuleOperationErrors = null;
     /**
      * Constructor method for UpdateInboxRulesResponseType
      * @uses EwsUpdateInboxRulesResponseType::setRuleOperationErrors()
-     * @param \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors
+     * @param \ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors = null)
+    public function __construct(?\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors = null)
     {
         $this
             ->setRuleOperationErrors($ruleOperationErrors);
     }
     /**
      * Get RuleOperationErrors value
-     * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType|null
+     * @return \ArrayType\EwsArrayOfRuleOperationErrorsType|null
      */
-    public function getRuleOperationErrors()
+    public function getRuleOperationErrors(): ?\ArrayType\EwsArrayOfRuleOperationErrorsType
     {
         return $this->RuleOperationErrors;
     }
     /**
      * Set RuleOperationErrors value
-     * @param \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors
-     * @return \Ews\StructType\EwsUpdateInboxRulesResponseType
+     * @param \ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors
+     * @return \StructType\EwsUpdateInboxRulesResponseType
      */
-    public function setRuleOperationErrors(\Ews\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors = null)
+    public function setRuleOperationErrors(?\ArrayType\EwsArrayOfRuleOperationErrorsType $ruleOperationErrors = null): self
     {
         $this->RuleOperationErrors = $ruleOperationErrors;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RequestedUnifiedGroupsSetType StructType
@@ -21,31 +24,31 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $FilterType;
+    protected string $FilterType;
     /**
      * The SortType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SortType;
+    protected ?string $SortType = null;
     /**
      * The SortDirection
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SortDirection;
+    protected ?string $SortDirection = null;
     /**
      * The GroupsLimit
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $GroupsLimit;
+    protected ?int $GroupsLimit = null;
     /**
      * Constructor method for RequestedUnifiedGroupsSetType
      * @uses EwsRequestedUnifiedGroupsSetType::setFilterType()
@@ -57,7 +60,7 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * @param string $sortDirection
      * @param int $groupsLimit
      */
-    public function __construct($filterType = null, $sortType = null, $sortDirection = null, $groupsLimit = null)
+    public function __construct(string $filterType, ?string $sortType = null, ?string $sortDirection = null, ?int $groupsLimit = null)
     {
         $this
             ->setFilterType($filterType)
@@ -69,97 +72,101 @@ class EwsRequestedUnifiedGroupsSetType extends AbstractStructBase
      * Get FilterType value
      * @return string
      */
-    public function getFilterType()
+    public function getFilterType(): string
     {
         return $this->FilterType;
     }
     /**
      * Set FilterType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupsFilterType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $filterType
-     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
+     * @return \StructType\EwsRequestedUnifiedGroupsSetType
      */
-    public function setFilterType($filterType = null)
+    public function setFilterType(string $filterType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
         $this->FilterType = $filterType;
+        
         return $this;
     }
     /**
      * Get SortType value
      * @return string|null
      */
-    public function getSortType()
+    public function getSortType(): ?string
     {
         return $this->SortType;
     }
     /**
      * Set SortType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupsSortType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupsSortType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupsSortType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sortType
-     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
+     * @return \StructType\EwsRequestedUnifiedGroupsSetType
      */
-    public function setSortType($sortType = null)
+    public function setSortType(?string $sortType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupsSortType::valueIsValid($sortType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsSortType', is_array($sortType) ? implode(', ', $sortType) : var_export($sortType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsSortType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupsSortType::valueIsValid($sortType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupsSortType', is_array($sortType) ? implode(', ', $sortType) : var_export($sortType, true), implode(', ', \EnumType\EwsUnifiedGroupsSortType::getValidValues())), __LINE__);
         }
         $this->SortType = $sortType;
+        
         return $this;
     }
     /**
      * Get SortDirection value
      * @return string|null
      */
-    public function getSortDirection()
+    public function getSortDirection(): ?string
     {
         return $this->SortDirection;
     }
     /**
      * Set SortDirection value
-     * @uses \Ews\EnumType\EwsSortDirectionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSortDirectionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSortDirectionType::valueIsValid()
+     * @uses \EnumType\EwsSortDirectionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sortDirection
-     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
+     * @return \StructType\EwsRequestedUnifiedGroupsSetType
      */
-    public function setSortDirection($sortDirection = null)
+    public function setSortDirection(?string $sortDirection = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($sortDirection)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSortDirectionType', is_array($sortDirection) ? implode(', ', $sortDirection) : var_export($sortDirection, true), implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSortDirectionType::valueIsValid($sortDirection)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSortDirectionType', is_array($sortDirection) ? implode(', ', $sortDirection) : var_export($sortDirection, true), implode(', ', \EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }
         $this->SortDirection = $sortDirection;
+        
         return $this;
     }
     /**
      * Get GroupsLimit value
      * @return int|null
      */
-    public function getGroupsLimit()
+    public function getGroupsLimit(): ?int
     {
         return $this->GroupsLimit;
     }
     /**
      * Set GroupsLimit value
      * @param int $groupsLimit
-     * @return \Ews\StructType\EwsRequestedUnifiedGroupsSetType
+     * @return \StructType\EwsRequestedUnifiedGroupsSetType
      */
-    public function setGroupsLimit($groupsLimit = null)
+    public function setGroupsLimit(?int $groupsLimit = null): self
     {
         // validation for constraint: int
         if (!is_null($groupsLimit) && !(is_int($groupsLimit) || ctype_digit($groupsLimit))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($groupsLimit, true), gettype($groupsLimit)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($groupsLimit, true), gettype($groupsLimit)), __LINE__);
         }
         $this->GroupsLimit = $groupsLimit;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetImItemListType StructType
@@ -16,35 +19,36 @@ class EwsGetImItemListType extends EwsBaseRequestType
      * The ExtendedProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs
+     * @var \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs|null
      */
-    public $ExtendedProperties;
+    protected ?\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $ExtendedProperties = null;
     /**
      * Constructor method for GetImItemListType
      * @uses EwsGetImItemListType::setExtendedProperties()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties
+     * @param \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties = null)
     {
         $this
             ->setExtendedProperties($extendedProperties);
     }
     /**
      * Get ExtendedProperties value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs|null
+     * @return \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs|null
      */
-    public function getExtendedProperties()
+    public function getExtendedProperties(): ?\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs
     {
         return $this->ExtendedProperties;
     }
     /**
      * Set ExtendedProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties
-     * @return \Ews\StructType\EwsGetImItemListType
+     * @param \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties
+     * @return \StructType\EwsGetImItemListType
      */
-    public function setExtendedProperties(\Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties = null)
+    public function setExtendedProperties(?\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIs $extendedProperties = null): self
     {
         $this->ExtendedProperties = $extendedProperties;
+        
         return $this;
     }
 }

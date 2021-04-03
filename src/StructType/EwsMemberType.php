@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MemberType StructType
@@ -16,33 +19,33 @@ class EwsMemberType extends AbstractStructBase
      * The Mailbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Status;
+    protected ?string $Status = null;
     /**
      * The Key
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Key;
+    protected ?string $Key = null;
     /**
      * Constructor method for MemberType
      * @uses EwsMemberType::setMailbox()
      * @uses EwsMemberType::setStatus()
      * @uses EwsMemberType::setKey()
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \StructType\EwsEmailAddressType $mailbox
      * @param string $status
      * @param string $key
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null, $status = null, $key = null)
+    public function __construct(?\StructType\EwsEmailAddressType $mailbox = null, ?string $status = null, ?string $key = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -51,67 +54,70 @@ class EwsMemberType extends AbstractStructBase
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\StructType\EwsMemberType
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \StructType\EwsMemberType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get Status value
      * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->Status;
     }
     /**
      * Set Status value
-     * @uses \Ews\EnumType\EwsMemberStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMemberStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMemberStatusType::valueIsValid()
+     * @uses \EnumType\EwsMemberStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $status
-     * @return \Ews\StructType\EwsMemberType
+     * @return \StructType\EwsMemberType
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMemberStatusType::valueIsValid($status)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMemberStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \Ews\EnumType\EwsMemberStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMemberStatusType::valueIsValid($status)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMemberStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \EnumType\EwsMemberStatusType::getValidValues())), __LINE__);
         }
         $this->Status = $status;
+        
         return $this;
     }
     /**
      * Get Key value
      * @return string|null
      */
-    public function getKey()
+    public function getKey(): ?string
     {
         return $this->Key;
     }
     /**
      * Set Key value
      * @param string $key
-     * @return \Ews\StructType\EwsMemberType
+     * @return \StructType\EwsMemberType
      */
-    public function setKey($key = null)
+    public function setKey(?string $key = null): self
     {
         // validation for constraint: string
         if (!is_null($key) && !is_string($key)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($key, true), gettype($key)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($key, true), gettype($key)), __LINE__);
         }
         $this->Key = $key;
+        
         return $this;
     }
 }

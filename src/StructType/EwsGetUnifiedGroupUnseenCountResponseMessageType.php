@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupUnseenCountResponseMessageType StructType
@@ -17,15 +20,15 @@ class EwsGetUnifiedGroupUnseenCountResponseMessageType extends EwsResponseMessag
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $UnseenCount;
+    protected ?int $UnseenCount = null;
     /**
      * Constructor method for GetUnifiedGroupUnseenCountResponseMessageType
      * @uses EwsGetUnifiedGroupUnseenCountResponseMessageType::setUnseenCount()
      * @param int $unseenCount
      */
-    public function __construct($unseenCount = null)
+    public function __construct(?int $unseenCount = null)
     {
         $this
             ->setUnseenCount($unseenCount);
@@ -34,22 +37,23 @@ class EwsGetUnifiedGroupUnseenCountResponseMessageType extends EwsResponseMessag
      * Get UnseenCount value
      * @return int|null
      */
-    public function getUnseenCount()
+    public function getUnseenCount(): ?int
     {
         return $this->UnseenCount;
     }
     /**
      * Set UnseenCount value
      * @param int $unseenCount
-     * @return \Ews\StructType\EwsGetUnifiedGroupUnseenCountResponseMessageType
+     * @return \StructType\EwsGetUnifiedGroupUnseenCountResponseMessageType
      */
-    public function setUnseenCount($unseenCount = null)
+    public function setUnseenCount(?int $unseenCount = null): self
     {
         // validation for constraint: int
         if (!is_null($unseenCount) && !(is_int($unseenCount) || ctype_digit($unseenCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unseenCount, true), gettype($unseenCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unseenCount, true), gettype($unseenCount)), __LINE__);
         }
         $this->UnseenCount = $unseenCount;
+        
         return $this;
     }
 }

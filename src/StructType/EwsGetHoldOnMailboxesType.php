@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetHoldOnMailboxesType StructType
@@ -20,13 +23,13 @@ class EwsGetHoldOnMailboxesType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $HoldId;
+    protected string $HoldId;
     /**
      * Constructor method for GetHoldOnMailboxesType
      * @uses EwsGetHoldOnMailboxesType::setHoldId()
      * @param string $holdId
      */
-    public function __construct($holdId = null)
+    public function __construct(string $holdId)
     {
         $this
             ->setHoldId($holdId);
@@ -35,22 +38,23 @@ class EwsGetHoldOnMailboxesType extends EwsBaseRequestType
      * Get HoldId value
      * @return string
      */
-    public function getHoldId()
+    public function getHoldId(): string
     {
         return $this->HoldId;
     }
     /**
      * Set HoldId value
      * @param string $holdId
-     * @return \Ews\StructType\EwsGetHoldOnMailboxesType
+     * @return \StructType\EwsGetHoldOnMailboxesType
      */
-    public function setHoldId($holdId = null)
+    public function setHoldId(string $holdId): self
     {
         // validation for constraint: string
         if (!is_null($holdId) && !is_string($holdId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($holdId, true), gettype($holdId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($holdId, true), gettype($holdId)), __LINE__);
         }
         $this->HoldId = $holdId;
+        
         return $this;
     }
 }

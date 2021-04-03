@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for HighlightTermType StructType
@@ -19,7 +22,7 @@ class EwsHighlightTermType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Scope;
+    protected string $Scope;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsHighlightTermType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * Constructor method for HighlightTermType
      * @uses EwsHighlightTermType::setScope()
@@ -35,7 +38,7 @@ class EwsHighlightTermType extends AbstractStructBase
      * @param string $scope
      * @param string $value
      */
-    public function __construct($scope = null, $value = null)
+    public function __construct(string $scope, string $value)
     {
         $this
             ->setScope($scope)
@@ -45,44 +48,46 @@ class EwsHighlightTermType extends AbstractStructBase
      * Get Scope value
      * @return string
      */
-    public function getScope()
+    public function getScope(): string
     {
         return $this->Scope;
     }
     /**
      * Set Scope value
      * @param string $scope
-     * @return \Ews\StructType\EwsHighlightTermType
+     * @return \StructType\EwsHighlightTermType
      */
-    public function setScope($scope = null)
+    public function setScope(string $scope): self
     {
         // validation for constraint: string
         if (!is_null($scope) && !is_string($scope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
         }
         $this->Scope = $scope;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsHighlightTermType
+     * @return \StructType\EwsHighlightTermType
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

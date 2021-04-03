@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfItemChangeDescriptionsType StructType
@@ -18,37 +21,37 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * - choice: AppendToItemField | SetItemField | DeleteItemField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAppendToItemFieldType
+     * @var \StructType\EwsAppendToItemFieldType|null
      */
-    public $AppendToItemField;
+    protected ?\StructType\EwsAppendToItemFieldType $AppendToItemField = null;
     /**
      * The SetItemField
      * Meta information extracted from the WSDL
      * - choice: AppendToItemField | SetItemField | DeleteItemField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSetItemFieldType
+     * @var \StructType\EwsSetItemFieldType|null
      */
-    public $SetItemField;
+    protected ?\StructType\EwsSetItemFieldType $SetItemField = null;
     /**
      * The DeleteItemField
      * Meta information extracted from the WSDL
      * - choice: AppendToItemField | SetItemField | DeleteItemField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDeleteItemFieldType
+     * @var \StructType\EwsDeleteItemFieldType|null
      */
-    public $DeleteItemField;
+    protected ?\StructType\EwsDeleteItemFieldType $DeleteItemField = null;
     /**
      * Constructor method for NonEmptyArrayOfItemChangeDescriptionsType
      * @uses EwsNonEmptyArrayOfItemChangeDescriptionsType::setAppendToItemField()
      * @uses EwsNonEmptyArrayOfItemChangeDescriptionsType::setSetItemField()
      * @uses EwsNonEmptyArrayOfItemChangeDescriptionsType::setDeleteItemField()
-     * @param \Ews\StructType\EwsAppendToItemFieldType $appendToItemField
-     * @param \Ews\StructType\EwsSetItemFieldType $setItemField
-     * @param \Ews\StructType\EwsDeleteItemFieldType $deleteItemField
+     * @param \StructType\EwsAppendToItemFieldType $appendToItemField
+     * @param \StructType\EwsSetItemFieldType $setItemField
+     * @param \StructType\EwsDeleteItemFieldType $deleteItemField
      */
-    public function __construct(\Ews\StructType\EwsAppendToItemFieldType $appendToItemField = null, \Ews\StructType\EwsSetItemFieldType $setItemField = null, \Ews\StructType\EwsDeleteItemFieldType $deleteItemField = null)
+    public function __construct(?\StructType\EwsAppendToItemFieldType $appendToItemField = null, ?\StructType\EwsSetItemFieldType $setItemField = null, ?\StructType\EwsDeleteItemFieldType $deleteItemField = null)
     {
         $this
             ->setAppendToItemField($appendToItemField)
@@ -57,9 +60,9 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
     }
     /**
      * Get AppendToItemField value
-     * @return \Ews\StructType\EwsAppendToItemFieldType|null
+     * @return \StructType\EwsAppendToItemFieldType|null
      */
-    public function getAppendToItemField()
+    public function getAppendToItemField(): ?\StructType\EwsAppendToItemFieldType
     {
         return isset($this->AppendToItemField) ? $this->AppendToItemField : null;
     }
@@ -70,7 +73,7 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAppendToItemFieldForChoiceConstraintsFromSetAppendToItemField($value)
+    public function validateAppendToItemFieldForChoiceConstraintsFromSetAppendToItemField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -83,12 +86,13 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AppendToItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: AppendToItemField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AppendToItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: AppendToItemField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -96,28 +100,29 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAppendToItemFieldType $appendToItemField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAppendToItemFieldType $appendToItemField
+     * @return \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
      */
-    public function setAppendToItemField(\Ews\StructType\EwsAppendToItemFieldType $appendToItemField = null)
+    public function setAppendToItemField(?\StructType\EwsAppendToItemFieldType $appendToItemField = null): self
     {
         // validation for constraint: choice(AppendToItemField, SetItemField, DeleteItemField)
         if ('' !== ($appendToItemFieldChoiceErrorMessage = self::validateAppendToItemFieldForChoiceConstraintsFromSetAppendToItemField($appendToItemField))) {
-            throw new \InvalidArgumentException($appendToItemFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($appendToItemFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($appendToItemField) || (is_array($appendToItemField) && empty($appendToItemField))) {
             unset($this->AppendToItemField);
         } else {
             $this->AppendToItemField = $appendToItemField;
         }
+        
         return $this;
     }
     /**
      * Get SetItemField value
-     * @return \Ews\StructType\EwsSetItemFieldType|null
+     * @return \StructType\EwsSetItemFieldType|null
      */
-    public function getSetItemField()
+    public function getSetItemField(): ?\StructType\EwsSetItemFieldType
     {
         return isset($this->SetItemField) ? $this->SetItemField : null;
     }
@@ -128,7 +133,7 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetItemFieldForChoiceConstraintsFromSetSetItemField($value)
+    public function validateSetItemFieldForChoiceConstraintsFromSetSetItemField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -141,12 +146,13 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: SetItemField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: SetItemField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -154,28 +160,29 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSetItemFieldType $setItemField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSetItemFieldType $setItemField
+     * @return \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
      */
-    public function setSetItemField(\Ews\StructType\EwsSetItemFieldType $setItemField = null)
+    public function setSetItemField(?\StructType\EwsSetItemFieldType $setItemField = null): self
     {
         // validation for constraint: choice(AppendToItemField, SetItemField, DeleteItemField)
         if ('' !== ($setItemFieldChoiceErrorMessage = self::validateSetItemFieldForChoiceConstraintsFromSetSetItemField($setItemField))) {
-            throw new \InvalidArgumentException($setItemFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setItemFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($setItemField) || (is_array($setItemField) && empty($setItemField))) {
             unset($this->SetItemField);
         } else {
             $this->SetItemField = $setItemField;
         }
+        
         return $this;
     }
     /**
      * Get DeleteItemField value
-     * @return \Ews\StructType\EwsDeleteItemFieldType|null
+     * @return \StructType\EwsDeleteItemFieldType|null
      */
-    public function getDeleteItemField()
+    public function getDeleteItemField(): ?\StructType\EwsDeleteItemFieldType
     {
         return isset($this->DeleteItemField) ? $this->DeleteItemField : null;
     }
@@ -186,7 +193,7 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteItemFieldForChoiceConstraintsFromSetDeleteItemField($value)
+    public function validateDeleteItemFieldForChoiceConstraintsFromSetDeleteItemField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -199,12 +206,13 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteItemField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteItemField can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteItemField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -212,21 +220,22 @@ class EwsNonEmptyArrayOfItemChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteItemFieldType $deleteItemField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteItemFieldType $deleteItemField
+     * @return \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
      */
-    public function setDeleteItemField(\Ews\StructType\EwsDeleteItemFieldType $deleteItemField = null)
+    public function setDeleteItemField(?\StructType\EwsDeleteItemFieldType $deleteItemField = null): self
     {
         // validation for constraint: choice(AppendToItemField, SetItemField, DeleteItemField)
         if ('' !== ($deleteItemFieldChoiceErrorMessage = self::validateDeleteItemFieldForChoiceConstraintsFromSetDeleteItemField($deleteItemField))) {
-            throw new \InvalidArgumentException($deleteItemFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteItemFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteItemField) || (is_array($deleteItemField) && empty($deleteItemField))) {
             unset($this->DeleteItemField);
         } else {
             $this->DeleteItemField = $deleteItemField;
         }
+        
         return $this;
     }
 }

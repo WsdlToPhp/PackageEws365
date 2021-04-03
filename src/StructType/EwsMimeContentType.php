@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MimeContentType StructType
@@ -14,16 +17,16 @@ class EwsMimeContentType extends AbstractStructBase
 {
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * The CharacterSet
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $CharacterSet;
+    protected ?string $CharacterSet = null;
     /**
      * Constructor method for MimeContentType
      * @uses EwsMimeContentType::set_()
@@ -31,7 +34,7 @@ class EwsMimeContentType extends AbstractStructBase
      * @param string $_
      * @param string $characterSet
      */
-    public function __construct($_ = null, $characterSet = null)
+    public function __construct(?string $_ = null, ?string $characterSet = null)
     {
         $this
             ->set_($_)
@@ -41,44 +44,46 @@ class EwsMimeContentType extends AbstractStructBase
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsMimeContentType
+     * @return \StructType\EwsMimeContentType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
     /**
      * Get CharacterSet value
      * @return string|null
      */
-    public function getCharacterSet()
+    public function getCharacterSet(): ?string
     {
         return $this->CharacterSet;
     }
     /**
      * Set CharacterSet value
      * @param string $characterSet
-     * @return \Ews\StructType\EwsMimeContentType
+     * @return \StructType\EwsMimeContentType
      */
-    public function setCharacterSet($characterSet = null)
+    public function setCharacterSet(?string $characterSet = null): self
     {
         // validation for constraint: string
         if (!is_null($characterSet) && !is_string($characterSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($characterSet, true), gettype($characterSet)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($characterSet, true), gettype($characterSet)), __LINE__);
         }
         $this->CharacterSet = $characterSet;
+        
         return $this;
     }
 }

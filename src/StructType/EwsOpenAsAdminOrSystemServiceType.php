@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OpenAsAdminOrSystemServiceType StructType
@@ -20,29 +23,29 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $LogonType;
+    protected string $LogonType;
     /**
      * The ConnectingSID
-     * @var \Ews\StructType\EwsConnectingSIDType
+     * @var \StructType\EwsConnectingSIDType|null
      */
-    public $ConnectingSID;
+    protected ?\StructType\EwsConnectingSIDType $ConnectingSID = null;
     /**
      * The BudgetType
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $BudgetType;
+    protected ?int $BudgetType = null;
     /**
      * Constructor method for OpenAsAdminOrSystemServiceType
      * @uses EwsOpenAsAdminOrSystemServiceType::setLogonType()
      * @uses EwsOpenAsAdminOrSystemServiceType::setConnectingSID()
      * @uses EwsOpenAsAdminOrSystemServiceType::setBudgetType()
      * @param string $logonType
-     * @param \Ews\StructType\EwsConnectingSIDType $connectingSID
+     * @param \StructType\EwsConnectingSIDType $connectingSID
      * @param int $budgetType
      */
-    public function __construct($logonType = null, \Ews\StructType\EwsConnectingSIDType $connectingSID = null, $budgetType = null)
+    public function __construct(string $logonType, ?\StructType\EwsConnectingSIDType $connectingSID = null, ?int $budgetType = null)
     {
         $this
             ->setLogonType($logonType)
@@ -53,65 +56,68 @@ class EwsOpenAsAdminOrSystemServiceType extends AbstractStructBase
      * Get LogonType value
      * @return string
      */
-    public function getLogonType()
+    public function getLogonType(): string
     {
         return $this->LogonType;
     }
     /**
      * Set LogonType value
-     * @uses \Ews\EnumType\EwsSpecialLogonTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSpecialLogonTypeType::valueIsValid()
+     * @uses \EnumType\EwsSpecialLogonTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $logonType
-     * @return \Ews\StructType\EwsOpenAsAdminOrSystemServiceType
+     * @return \StructType\EwsOpenAsAdminOrSystemServiceType
      */
-    public function setLogonType($logonType = null)
+    public function setLogonType(string $logonType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSpecialLogonTypeType::valueIsValid($logonType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSpecialLogonTypeType', is_array($logonType) ? implode(', ', $logonType) : var_export($logonType, true), implode(', ', \Ews\EnumType\EwsSpecialLogonTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSpecialLogonTypeType::valueIsValid($logonType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSpecialLogonTypeType', is_array($logonType) ? implode(', ', $logonType) : var_export($logonType, true), implode(', ', \EnumType\EwsSpecialLogonTypeType::getValidValues())), __LINE__);
         }
         $this->LogonType = $logonType;
+        
         return $this;
     }
     /**
      * Get ConnectingSID value
-     * @return \Ews\StructType\EwsConnectingSIDType|null
+     * @return \StructType\EwsConnectingSIDType|null
      */
-    public function getConnectingSID()
+    public function getConnectingSID(): ?\StructType\EwsConnectingSIDType
     {
         return $this->ConnectingSID;
     }
     /**
      * Set ConnectingSID value
-     * @param \Ews\StructType\EwsConnectingSIDType $connectingSID
-     * @return \Ews\StructType\EwsOpenAsAdminOrSystemServiceType
+     * @param \StructType\EwsConnectingSIDType $connectingSID
+     * @return \StructType\EwsOpenAsAdminOrSystemServiceType
      */
-    public function setConnectingSID(\Ews\StructType\EwsConnectingSIDType $connectingSID = null)
+    public function setConnectingSID(?\StructType\EwsConnectingSIDType $connectingSID = null): self
     {
         $this->ConnectingSID = $connectingSID;
+        
         return $this;
     }
     /**
      * Get BudgetType value
      * @return int|null
      */
-    public function getBudgetType()
+    public function getBudgetType(): ?int
     {
         return $this->BudgetType;
     }
     /**
      * Set BudgetType value
      * @param int $budgetType
-     * @return \Ews\StructType\EwsOpenAsAdminOrSystemServiceType
+     * @return \StructType\EwsOpenAsAdminOrSystemServiceType
      */
-    public function setBudgetType($budgetType = null)
+    public function setBudgetType(?int $budgetType = null): self
     {
         // validation for constraint: int
         if (!is_null($budgetType) && !(is_int($budgetType) || ctype_digit($budgetType))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($budgetType, true), gettype($budgetType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($budgetType, true), gettype($budgetType)), __LINE__);
         }
         $this->BudgetType = $budgetType;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxLocatorType StructType
@@ -17,17 +20,17 @@ class EwsMailboxLocatorType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExternalDirectoryObjectId;
+    protected ?string $ExternalDirectoryObjectId = null;
     /**
      * The LegacyDn
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LegacyDn;
+    protected ?string $LegacyDn = null;
     /**
      * Constructor method for MailboxLocatorType
      * @uses EwsMailboxLocatorType::setExternalDirectoryObjectId()
@@ -35,7 +38,7 @@ class EwsMailboxLocatorType extends AbstractStructBase
      * @param string $externalDirectoryObjectId
      * @param string $legacyDn
      */
-    public function __construct($externalDirectoryObjectId = null, $legacyDn = null)
+    public function __construct(?string $externalDirectoryObjectId = null, ?string $legacyDn = null)
     {
         $this
             ->setExternalDirectoryObjectId($externalDirectoryObjectId)
@@ -45,44 +48,46 @@ class EwsMailboxLocatorType extends AbstractStructBase
      * Get ExternalDirectoryObjectId value
      * @return string|null
      */
-    public function getExternalDirectoryObjectId()
+    public function getExternalDirectoryObjectId(): ?string
     {
         return $this->ExternalDirectoryObjectId;
     }
     /**
      * Set ExternalDirectoryObjectId value
      * @param string $externalDirectoryObjectId
-     * @return \Ews\StructType\EwsMailboxLocatorType
+     * @return \StructType\EwsMailboxLocatorType
      */
-    public function setExternalDirectoryObjectId($externalDirectoryObjectId = null)
+    public function setExternalDirectoryObjectId(?string $externalDirectoryObjectId = null): self
     {
         // validation for constraint: string
         if (!is_null($externalDirectoryObjectId) && !is_string($externalDirectoryObjectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($externalDirectoryObjectId, true), gettype($externalDirectoryObjectId)), __LINE__);
         }
         $this->ExternalDirectoryObjectId = $externalDirectoryObjectId;
+        
         return $this;
     }
     /**
      * Get LegacyDn value
      * @return string|null
      */
-    public function getLegacyDn()
+    public function getLegacyDn(): ?string
     {
         return $this->LegacyDn;
     }
     /**
      * Set LegacyDn value
      * @param string $legacyDn
-     * @return \Ews\StructType\EwsMailboxLocatorType
+     * @return \StructType\EwsMailboxLocatorType
      */
-    public function setLegacyDn($legacyDn = null)
+    public function setLegacyDn(?string $legacyDn = null): self
     {
         // validation for constraint: string
         if (!is_null($legacyDn) && !is_string($legacyDn)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDn, true), gettype($legacyDn)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDn, true), gettype($legacyDn)), __LINE__);
         }
         $this->LegacyDn = $legacyDn;
+        
         return $this;
     }
 }

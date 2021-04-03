@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfReminderItemActionType ArrayType
@@ -17,24 +20,24 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsReminderItemActionType[]
+     * @var \StructType\EwsReminderItemActionType[]
      */
-    public $ReminderItemAction;
+    protected array $ReminderItemAction = [];
     /**
      * Constructor method for NonEmptyArrayOfReminderItemActionType
      * @uses EwsNonEmptyArrayOfReminderItemActionType::setReminderItemAction()
-     * @param \Ews\StructType\EwsReminderItemActionType[] $reminderItemAction
+     * @param \StructType\EwsReminderItemActionType[] $reminderItemAction
      */
-    public function __construct(array $reminderItemAction = array())
+    public function __construct(array $reminderItemAction)
     {
         $this
             ->setReminderItemAction($reminderItemAction);
     }
     /**
      * Get ReminderItemAction value
-     * @return \Ews\StructType\EwsReminderItemActionType[]
+     * @return \StructType\EwsReminderItemActionType[]
      */
-    public function getReminderItemAction()
+    public function getReminderItemAction(): array
     {
         return $this->ReminderItemAction;
     }
@@ -44,58 +47,45 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateReminderItemActionForArrayConstraintsFromSetReminderItemAction(array $values = array())
+    public static function validateReminderItemActionForArrayConstraintsFromSetReminderItemAction(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem instanceof \Ews\StructType\EwsReminderItemActionType) {
+            if (!$nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem instanceof \StructType\EwsReminderItemActionType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) ? get_class($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem), var_export($nonEmptyArrayOfReminderItemActionTypeReminderItemActionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ReminderItemAction property can only contain items of type \Ews\StructType\EwsReminderItemActionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ReminderItemAction property can only contain items of type \StructType\EwsReminderItemActionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ReminderItemAction value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsReminderItemActionType[] $reminderItemAction
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsReminderItemActionType[] $reminderItemAction
+     * @return \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
      */
-    public function setReminderItemAction(array $reminderItemAction = array())
+    public function setReminderItemAction(array $reminderItemAction): self
     {
         // validation for constraint: array
         if ('' !== ($reminderItemActionArrayErrorMessage = self::validateReminderItemActionForArrayConstraintsFromSetReminderItemAction($reminderItemAction))) {
-            throw new \InvalidArgumentException($reminderItemActionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($reminderItemActionArrayErrorMessage, __LINE__);
         }
         $this->ReminderItemAction = $reminderItemAction;
-        return $this;
-    }
-    /**
-     * Add item to ReminderItemAction value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsReminderItemActionType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
-     */
-    public function addToReminderItemAction(\Ews\StructType\EwsReminderItemActionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsReminderItemActionType) {
-            throw new \InvalidArgumentException(sprintf('The ReminderItemAction property can only contain items of type \Ews\StructType\EwsReminderItemActionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ReminderItemAction[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsReminderItemActionType
+     * @return \StructType\EwsReminderItemActionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsReminderItemActionType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsReminderItemActionType
+     * @return \StructType\EwsReminderItemActionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsReminderItemActionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsReminderItemActionType
+     * @return \StructType\EwsReminderItemActionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsReminderItemActionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsReminderItemActionType
+     * @return \StructType\EwsReminderItemActionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsReminderItemActionType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsReminderItemActionType
+     * @return \StructType\EwsReminderItemActionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsReminderItemActionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsReminderItemActionType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
+     */
+    public function add(\StructType\EwsReminderItemActionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ReminderItemAction
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ReminderItemAction';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DirectoryEntryType StructType
@@ -17,35 +20,36 @@ class EwsDirectoryEntryType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Id;
+    protected ?\StructType\EwsEmailAddressType $Id = null;
     /**
      * Constructor method for DirectoryEntryType
      * @uses EwsDirectoryEntryType::setId()
-     * @param \Ews\StructType\EwsEmailAddressType $id
+     * @param \StructType\EwsEmailAddressType $id
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $id = null)
+    public function __construct(?\StructType\EwsEmailAddressType $id = null)
     {
         $this
             ->setId($id);
     }
     /**
      * Get Id value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getId()
+    public function getId(): ?\StructType\EwsEmailAddressType
     {
         return $this->Id;
     }
     /**
      * Set Id value
-     * @param \Ews\StructType\EwsEmailAddressType $id
-     * @return \Ews\StructType\EwsDirectoryEntryType
+     * @param \StructType\EwsEmailAddressType $id
+     * @return \StructType\EwsDirectoryEntryType
      */
-    public function setId(\Ews\StructType\EwsEmailAddressType $id = null)
+    public function setId(?\StructType\EwsEmailAddressType $id = null): self
     {
         $this->Id = $id;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for LocationSourceType EnumType
@@ -52,15 +54,15 @@ class EwsLocationSourceType extends AbstractStructEnumBase
      * @uses self::VALUE_RESOURCE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_LOCATION_SERVICES,
             self::VALUE_PHONEBOOK_SERVICES,
             self::VALUE_DEVICE,
             self::VALUE_CONTACT,
             self::VALUE_RESOURCE,
-        );
+        ];
     }
 }

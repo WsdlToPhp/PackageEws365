@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for InsightItemType StructType
@@ -17,9 +20,9 @@ class EwsInsightItemType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The InsightId
      * Meta information extracted from the WSDL
@@ -30,71 +33,71 @@ class EwsInsightItemType extends AbstractStructBase
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $InsightId;
+    protected string $InsightId;
     /**
      * The Type
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Type;
+    protected ?string $Type = null;
     /**
      * The StartTimeUtc
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartTimeUtc;
+    protected ?string $StartTimeUtc = null;
     /**
      * The EndTimeUtc
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndTimeUtc;
+    protected ?string $EndTimeUtc = null;
     /**
      * The Status
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Status;
+    protected ?string $Status = null;
     /**
      * The Version
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Version;
+    protected ?string $Version = null;
     /**
      * The Context
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfInsightContextItem
+     * @var \ArrayType\EwsArrayOfInsightContextItem|null
      */
-    public $Context;
+    protected ?\ArrayType\EwsArrayOfInsightContextItem $Context = null;
     /**
      * The Text
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Text;
+    protected ?string $Text = null;
     /**
      * The ApplicationsIds
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ApplicationsIds;
+    protected ?\ArrayType\EwsArrayOfStringsType $ApplicationsIds = null;
     /**
      * Constructor method for InsightItemType
      * @uses EwsInsightItemType::setItemId()
@@ -107,18 +110,18 @@ class EwsInsightItemType extends AbstractStructBase
      * @uses EwsInsightItemType::setContext()
      * @uses EwsInsightItemType::setText()
      * @uses EwsInsightItemType::setApplicationsIds()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param string $insightId
      * @param string $type
      * @param string $startTimeUtc
      * @param string $endTimeUtc
      * @param string $status
      * @param string $version
-     * @param \Ews\ArrayType\EwsArrayOfInsightContextItem $context
+     * @param \ArrayType\EwsArrayOfInsightContextItem $context
      * @param string $text
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $applicationsIds
+     * @param \ArrayType\EwsArrayOfStringsType $applicationsIds
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $insightId = null, $type = null, $startTimeUtc = null, $endTimeUtc = null, $status = null, $version = null, \Ews\ArrayType\EwsArrayOfInsightContextItem $context = null, $text = null, \Ews\ArrayType\EwsArrayOfStringsType $applicationsIds = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, string $insightId, ?string $type = null, ?string $startTimeUtc = null, ?string $endTimeUtc = null, ?string $status = null, ?string $version = null, ?\ArrayType\EwsArrayOfInsightContextItem $context = null, ?string $text = null, ?\ArrayType\EwsArrayOfStringsType $applicationsIds = null)
     {
         $this
             ->setItemId($itemId)
@@ -134,217 +137,227 @@ class EwsInsightItemType extends AbstractStructBase
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsInsightItemType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsInsightItemType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get InsightId value
      * @return string
      */
-    public function getInsightId()
+    public function getInsightId(): string
     {
         return $this->InsightId;
     }
     /**
      * Set InsightId value
      * @param string $insightId
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setInsightId($insightId = null)
+    public function setInsightId(string $insightId): self
     {
         // validation for constraint: string
         if (!is_null($insightId) && !is_string($insightId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($insightId, true), gettype($insightId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($insightId, true), gettype($insightId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($insightId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $insightId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($insightId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($insightId, true)), __LINE__);
         }
         $this->InsightId = $insightId;
+        
         return $this;
     }
     /**
      * Get Type value
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->Type;
     }
     /**
      * Set Type value
      * @param string $type
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setType($type = null)
+    public function setType(?string $type = null): self
     {
         // validation for constraint: string
         if (!is_null($type) && !is_string($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
     /**
      * Get StartTimeUtc value
      * @return string|null
      */
-    public function getStartTimeUtc()
+    public function getStartTimeUtc(): ?string
     {
         return $this->StartTimeUtc;
     }
     /**
      * Set StartTimeUtc value
      * @param string $startTimeUtc
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setStartTimeUtc($startTimeUtc = null)
+    public function setStartTimeUtc(?string $startTimeUtc = null): self
     {
         // validation for constraint: string
         if (!is_null($startTimeUtc) && !is_string($startTimeUtc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeUtc, true), gettype($startTimeUtc)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeUtc, true), gettype($startTimeUtc)), __LINE__);
         }
         $this->StartTimeUtc = $startTimeUtc;
+        
         return $this;
     }
     /**
      * Get EndTimeUtc value
      * @return string|null
      */
-    public function getEndTimeUtc()
+    public function getEndTimeUtc(): ?string
     {
         return $this->EndTimeUtc;
     }
     /**
      * Set EndTimeUtc value
      * @param string $endTimeUtc
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setEndTimeUtc($endTimeUtc = null)
+    public function setEndTimeUtc(?string $endTimeUtc = null): self
     {
         // validation for constraint: string
         if (!is_null($endTimeUtc) && !is_string($endTimeUtc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTimeUtc, true), gettype($endTimeUtc)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTimeUtc, true), gettype($endTimeUtc)), __LINE__);
         }
         $this->EndTimeUtc = $endTimeUtc;
+        
         return $this;
     }
     /**
      * Get Status value
      * @return string|null
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->Status;
     }
     /**
      * Set Status value
-     * @uses \Ews\EnumType\EwsInsightStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsInsightStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsInsightStatusType::valueIsValid()
+     * @uses \EnumType\EwsInsightStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $status
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsInsightStatusType::valueIsValid($status)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsInsightStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \Ews\EnumType\EwsInsightStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsInsightStatusType::valueIsValid($status)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsInsightStatusType', is_array($status) ? implode(', ', $status) : var_export($status, true), implode(', ', \EnumType\EwsInsightStatusType::getValidValues())), __LINE__);
         }
         $this->Status = $status;
+        
         return $this;
     }
     /**
      * Get Version value
      * @return string|null
      */
-    public function getVersion()
+    public function getVersion(): ?string
     {
         return $this->Version;
     }
     /**
      * Set Version value
      * @param string $version
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setVersion($version = null)
+    public function setVersion(?string $version = null): self
     {
         // validation for constraint: string
         if (!is_null($version) && !is_string($version)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($version, true), gettype($version)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($version, true), gettype($version)), __LINE__);
         }
         $this->Version = $version;
+        
         return $this;
     }
     /**
      * Get Context value
-     * @return \Ews\ArrayType\EwsArrayOfInsightContextItem|null
+     * @return \ArrayType\EwsArrayOfInsightContextItem|null
      */
-    public function getContext()
+    public function getContext(): ?\ArrayType\EwsArrayOfInsightContextItem
     {
         return $this->Context;
     }
     /**
      * Set Context value
-     * @param \Ews\ArrayType\EwsArrayOfInsightContextItem $context
-     * @return \Ews\StructType\EwsInsightItemType
+     * @param \ArrayType\EwsArrayOfInsightContextItem $context
+     * @return \StructType\EwsInsightItemType
      */
-    public function setContext(\Ews\ArrayType\EwsArrayOfInsightContextItem $context = null)
+    public function setContext(?\ArrayType\EwsArrayOfInsightContextItem $context = null): self
     {
         $this->Context = $context;
+        
         return $this;
     }
     /**
      * Get Text value
      * @return string|null
      */
-    public function getText()
+    public function getText(): ?string
     {
         return $this->Text;
     }
     /**
      * Set Text value
      * @param string $text
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function setText($text = null)
+    public function setText(?string $text = null): self
     {
         // validation for constraint: string
         if (!is_null($text) && !is_string($text)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($text, true), gettype($text)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($text, true), gettype($text)), __LINE__);
         }
         $this->Text = $text;
+        
         return $this;
     }
     /**
      * Get ApplicationsIds value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getApplicationsIds()
+    public function getApplicationsIds(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ApplicationsIds;
     }
     /**
      * Set ApplicationsIds value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $applicationsIds
-     * @return \Ews\StructType\EwsInsightItemType
+     * @param \ArrayType\EwsArrayOfStringsType $applicationsIds
+     * @return \StructType\EwsInsightItemType
      */
-    public function setApplicationsIds(\Ews\ArrayType\EwsArrayOfStringsType $applicationsIds = null)
+    public function setApplicationsIds(?\ArrayType\EwsArrayOfStringsType $applicationsIds = null): self
     {
         $this->ApplicationsIds = $applicationsIds;
+        
         return $this;
     }
 }

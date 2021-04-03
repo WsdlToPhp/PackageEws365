@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CalendarPermissionType StructType
@@ -19,15 +22,15 @@ class EwsCalendarPermissionType extends EwsBasePermissionType
      * - minOccurs: 1
      * @var string
      */
-    public $CalendarPermissionLevel;
+    protected string $CalendarPermissionLevel;
     /**
      * The ReadItems
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReadItems;
+    protected ?string $ReadItems = null;
     /**
      * Constructor method for CalendarPermissionType
      * @uses EwsCalendarPermissionType::setCalendarPermissionLevel()
@@ -35,7 +38,7 @@ class EwsCalendarPermissionType extends EwsBasePermissionType
      * @param string $calendarPermissionLevel
      * @param string $readItems
      */
-    public function __construct($calendarPermissionLevel = null, $readItems = null)
+    public function __construct(string $calendarPermissionLevel, ?string $readItems = null)
     {
         $this
             ->setCalendarPermissionLevel($calendarPermissionLevel)
@@ -45,50 +48,52 @@ class EwsCalendarPermissionType extends EwsBasePermissionType
      * Get CalendarPermissionLevel value
      * @return string
      */
-    public function getCalendarPermissionLevel()
+    public function getCalendarPermissionLevel(): string
     {
         return $this->CalendarPermissionLevel;
     }
     /**
      * Set CalendarPermissionLevel value
-     * @uses \Ews\EnumType\EwsCalendarPermissionLevelType::valueIsValid()
-     * @uses \Ews\EnumType\EwsCalendarPermissionLevelType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsCalendarPermissionLevelType::valueIsValid()
+     * @uses \EnumType\EwsCalendarPermissionLevelType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $calendarPermissionLevel
-     * @return \Ews\StructType\EwsCalendarPermissionType
+     * @return \StructType\EwsCalendarPermissionType
      */
-    public function setCalendarPermissionLevel($calendarPermissionLevel = null)
+    public function setCalendarPermissionLevel(string $calendarPermissionLevel): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsCalendarPermissionLevelType::valueIsValid($calendarPermissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarPermissionLevelType', is_array($calendarPermissionLevel) ? implode(', ', $calendarPermissionLevel) : var_export($calendarPermissionLevel, true), implode(', ', \Ews\EnumType\EwsCalendarPermissionLevelType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsCalendarPermissionLevelType::valueIsValid($calendarPermissionLevel)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsCalendarPermissionLevelType', is_array($calendarPermissionLevel) ? implode(', ', $calendarPermissionLevel) : var_export($calendarPermissionLevel, true), implode(', ', \EnumType\EwsCalendarPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->CalendarPermissionLevel = $calendarPermissionLevel;
+        
         return $this;
     }
     /**
      * Get ReadItems value
      * @return string|null
      */
-    public function getReadItems()
+    public function getReadItems(): ?string
     {
         return $this->ReadItems;
     }
     /**
      * Set ReadItems value
-     * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid()
-     * @uses \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsCalendarPermissionReadAccessType::valueIsValid()
+     * @uses \EnumType\EwsCalendarPermissionReadAccessType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $readItems
-     * @return \Ews\StructType\EwsCalendarPermissionType
+     * @return \StructType\EwsCalendarPermissionType
      */
-    public function setReadItems($readItems = null)
+    public function setReadItems(?string $readItems = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid($readItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarPermissionReadAccessType', is_array($readItems) ? implode(', ', $readItems) : var_export($readItems, true), implode(', ', \Ews\EnumType\EwsCalendarPermissionReadAccessType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsCalendarPermissionReadAccessType::valueIsValid($readItems)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsCalendarPermissionReadAccessType', is_array($readItems) ? implode(', ', $readItems) : var_export($readItems, true), implode(', ', \EnumType\EwsCalendarPermissionReadAccessType::getValidValues())), __LINE__);
         }
         $this->ReadItems = $readItems;
+        
         return $this;
     }
 }

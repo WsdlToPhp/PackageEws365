@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserOofSettings StructType
@@ -21,7 +24,7 @@ class EwsUserOofSettings extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $OofState;
+    protected string $OofState;
     /**
      * The ExternalAudience
      * Meta information extracted from the WSDL
@@ -29,31 +32,31 @@ class EwsUserOofSettings extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ExternalAudience;
+    protected string $ExternalAudience;
     /**
      * The Duration
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsDuration
+     * @var \StructType\EwsDuration|null
      */
-    public $Duration;
+    protected ?\StructType\EwsDuration $Duration = null;
     /**
      * The InternalReply
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsReplyBody
+     * @var \StructType\EwsReplyBody|null
      */
-    public $InternalReply;
+    protected ?\StructType\EwsReplyBody $InternalReply = null;
     /**
      * The ExternalReply
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsReplyBody
+     * @var \StructType\EwsReplyBody|null
      */
-    public $ExternalReply;
+    protected ?\StructType\EwsReplyBody $ExternalReply = null;
     /**
      * Constructor method for UserOofSettings
      * @uses EwsUserOofSettings::setOofState()
@@ -63,11 +66,11 @@ class EwsUserOofSettings extends AbstractStructBase
      * @uses EwsUserOofSettings::setExternalReply()
      * @param string $oofState
      * @param string $externalAudience
-     * @param \Ews\StructType\EwsDuration $duration
-     * @param \Ews\StructType\EwsReplyBody $internalReply
-     * @param \Ews\StructType\EwsReplyBody $externalReply
+     * @param \StructType\EwsDuration $duration
+     * @param \StructType\EwsReplyBody $internalReply
+     * @param \StructType\EwsReplyBody $externalReply
      */
-    public function __construct($oofState = null, $externalAudience = null, \Ews\StructType\EwsDuration $duration = null, \Ews\StructType\EwsReplyBody $internalReply = null, \Ews\StructType\EwsReplyBody $externalReply = null)
+    public function __construct(string $oofState, string $externalAudience, ?\StructType\EwsDuration $duration = null, ?\StructType\EwsReplyBody $internalReply = null, ?\StructType\EwsReplyBody $externalReply = null)
     {
         $this
             ->setOofState($oofState)
@@ -80,104 +83,109 @@ class EwsUserOofSettings extends AbstractStructBase
      * Get OofState value
      * @return string
      */
-    public function getOofState()
+    public function getOofState(): string
     {
         return $this->OofState;
     }
     /**
      * Set OofState value
-     * @uses \Ews\EnumType\EwsOofState::valueIsValid()
-     * @uses \Ews\EnumType\EwsOofState::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsOofState::valueIsValid()
+     * @uses \EnumType\EwsOofState::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $oofState
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @return \StructType\EwsUserOofSettings
      */
-    public function setOofState($oofState = null)
+    public function setOofState(string $oofState): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsOofState::valueIsValid($oofState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsOofState', is_array($oofState) ? implode(', ', $oofState) : var_export($oofState, true), implode(', ', \Ews\EnumType\EwsOofState::getValidValues())), __LINE__);
+        if (!\EnumType\EwsOofState::valueIsValid($oofState)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsOofState', is_array($oofState) ? implode(', ', $oofState) : var_export($oofState, true), implode(', ', \EnumType\EwsOofState::getValidValues())), __LINE__);
         }
         $this->OofState = $oofState;
+        
         return $this;
     }
     /**
      * Get ExternalAudience value
      * @return string
      */
-    public function getExternalAudience()
+    public function getExternalAudience(): string
     {
         return $this->ExternalAudience;
     }
     /**
      * Set ExternalAudience value
-     * @uses \Ews\EnumType\EwsExternalAudience::valueIsValid()
-     * @uses \Ews\EnumType\EwsExternalAudience::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsExternalAudience::valueIsValid()
+     * @uses \EnumType\EwsExternalAudience::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $externalAudience
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @return \StructType\EwsUserOofSettings
      */
-    public function setExternalAudience($externalAudience = null)
+    public function setExternalAudience(string $externalAudience): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($externalAudience)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExternalAudience', is_array($externalAudience) ? implode(', ', $externalAudience) : var_export($externalAudience, true), implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
+        if (!\EnumType\EwsExternalAudience::valueIsValid($externalAudience)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsExternalAudience', is_array($externalAudience) ? implode(', ', $externalAudience) : var_export($externalAudience, true), implode(', ', \EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }
         $this->ExternalAudience = $externalAudience;
+        
         return $this;
     }
     /**
      * Get Duration value
-     * @return \Ews\StructType\EwsDuration|null
+     * @return \StructType\EwsDuration|null
      */
-    public function getDuration()
+    public function getDuration(): ?\StructType\EwsDuration
     {
         return $this->Duration;
     }
     /**
      * Set Duration value
-     * @param \Ews\StructType\EwsDuration $duration
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @param \StructType\EwsDuration $duration
+     * @return \StructType\EwsUserOofSettings
      */
-    public function setDuration(\Ews\StructType\EwsDuration $duration = null)
+    public function setDuration(?\StructType\EwsDuration $duration = null): self
     {
         $this->Duration = $duration;
+        
         return $this;
     }
     /**
      * Get InternalReply value
-     * @return \Ews\StructType\EwsReplyBody|null
+     * @return \StructType\EwsReplyBody|null
      */
-    public function getInternalReply()
+    public function getInternalReply(): ?\StructType\EwsReplyBody
     {
         return $this->InternalReply;
     }
     /**
      * Set InternalReply value
-     * @param \Ews\StructType\EwsReplyBody $internalReply
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @param \StructType\EwsReplyBody $internalReply
+     * @return \StructType\EwsUserOofSettings
      */
-    public function setInternalReply(\Ews\StructType\EwsReplyBody $internalReply = null)
+    public function setInternalReply(?\StructType\EwsReplyBody $internalReply = null): self
     {
         $this->InternalReply = $internalReply;
+        
         return $this;
     }
     /**
      * Get ExternalReply value
-     * @return \Ews\StructType\EwsReplyBody|null
+     * @return \StructType\EwsReplyBody|null
      */
-    public function getExternalReply()
+    public function getExternalReply(): ?\StructType\EwsReplyBody
     {
         return $this->ExternalReply;
     }
     /**
      * Set ExternalReply value
-     * @param \Ews\StructType\EwsReplyBody $externalReply
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @param \StructType\EwsReplyBody $externalReply
+     * @return \StructType\EwsUserOofSettings
      */
-    public function setExternalReply(\Ews\StructType\EwsReplyBody $externalReply = null)
+    public function setExternalReply(?\StructType\EwsReplyBody $externalReply = null): self
     {
         $this->ExternalReply = $externalReply;
+        
         return $this;
     }
 }

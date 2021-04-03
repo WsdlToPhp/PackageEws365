@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SetClientExtensionActionIdType EnumType
@@ -34,12 +36,12 @@ class EwsSetClientExtensionActionIdType extends AbstractStructEnumBase
      * @uses self::VALUE_CONFIGURE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_INSTALL,
             self::VALUE_UNINSTALL,
             self::VALUE_CONFIGURE,
-        );
+        ];
     }
 }

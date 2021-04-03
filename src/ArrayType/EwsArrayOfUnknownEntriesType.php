@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUnknownEntriesType ArrayType
@@ -18,15 +21,15 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * - choice: UnknownEntry
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UnknownEntry;
+    protected ?string $UnknownEntry = null;
     /**
      * Constructor method for ArrayOfUnknownEntriesType
      * @uses EwsArrayOfUnknownEntriesType::setUnknownEntry()
      * @param string $unknownEntry
      */
-    public function __construct($unknownEntry = null)
+    public function __construct(?string $unknownEntry = null)
     {
         $this
             ->setUnknownEntry($unknownEntry);
@@ -35,7 +38,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * Get UnknownEntry value
      * @return string|null
      */
-    public function getUnknownEntry()
+    public function getUnknownEntry(): ?string
     {
         return isset($this->UnknownEntry) ? $this->UnknownEntry : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnknownEntryForChoiceConstraintsFromSetUnknownEntry($value)
+    public function validateUnknownEntryForChoiceConstraintsFromSetUnknownEntry($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnknownEntry can\'t be set as the property %s is already set. Only one property must be set among these properties: UnknownEntry, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnknownEntry can\'t be set as the property %s is already set. Only one property must be set among these properties: UnknownEntry, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,25 +74,26 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $unknownEntry
-     * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType
+     * @return \ArrayType\EwsArrayOfUnknownEntriesType
      */
-    public function setUnknownEntry($unknownEntry = null)
+    public function setUnknownEntry(?string $unknownEntry = null): self
     {
         // validation for constraint: string
         if (!is_null($unknownEntry) && !is_string($unknownEntry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unknownEntry, true), gettype($unknownEntry)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unknownEntry, true), gettype($unknownEntry)), __LINE__);
         }
         // validation for constraint: choice(UnknownEntry)
         if ('' !== ($unknownEntryChoiceErrorMessage = self::validateUnknownEntryForChoiceConstraintsFromSetUnknownEntry($unknownEntry))) {
-            throw new \InvalidArgumentException($unknownEntryChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unknownEntryChoiceErrorMessage, __LINE__);
         }
         if (is_null($unknownEntry) || (is_array($unknownEntry) && empty($unknownEntry))) {
             unset($this->UnknownEntry);
         } else {
             $this->UnknownEntry = $unknownEntry;
         }
+        
         return $this;
     }
     /**
@@ -96,7 +101,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -106,7 +111,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -115,7 +120,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -124,7 +129,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -134,7 +139,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -143,7 +148,7 @@ class EwsArrayOfUnknownEntriesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string UnknownEntry
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'UnknownEntry';
     }

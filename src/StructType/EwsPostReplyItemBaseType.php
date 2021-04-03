@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PostReplyItemBaseType StructType
@@ -16,30 +19,30 @@ class EwsPostReplyItemBaseType extends AbstractStructBase
      * The Subject
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The Body
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $Body;
+    protected ?\StructType\EwsBodyType $Body = null;
     /**
      * The ReferenceItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ReferenceItemId;
+    protected ?\StructType\EwsItemIdType $ReferenceItemId = null;
     /**
      * The ObjectName
      * Meta information extracted from the WSDL
      * - use: prohibited
-     * @var string
+     * @var string|null
      */
-    public $ObjectName;
+    protected ?string $ObjectName = null;
     /**
      * Constructor method for PostReplyItemBaseType
      * @uses EwsPostReplyItemBaseType::setSubject()
@@ -47,11 +50,11 @@ class EwsPostReplyItemBaseType extends AbstractStructBase
      * @uses EwsPostReplyItemBaseType::setReferenceItemId()
      * @uses EwsPostReplyItemBaseType::setObjectName()
      * @param string $subject
-     * @param \Ews\StructType\EwsBodyType $body
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
+     * @param \StructType\EwsBodyType $body
+     * @param \StructType\EwsItemIdType $referenceItemId
      * @param string $objectName
      */
-    public function __construct($subject = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsItemIdType $referenceItemId = null, $objectName = null)
+    public function __construct(?string $subject = null, ?\StructType\EwsBodyType $body = null, ?\StructType\EwsItemIdType $referenceItemId = null, ?string $objectName = null)
     {
         $this
             ->setSubject($subject)
@@ -63,80 +66,84 @@ class EwsPostReplyItemBaseType extends AbstractStructBase
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsPostReplyItemBaseType
+     * @return \StructType\EwsPostReplyItemBaseType
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get Body value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getBody()
+    public function getBody(): ?\StructType\EwsBodyType
     {
         return $this->Body;
     }
     /**
      * Set Body value
-     * @param \Ews\StructType\EwsBodyType $body
-     * @return \Ews\StructType\EwsPostReplyItemBaseType
+     * @param \StructType\EwsBodyType $body
+     * @return \StructType\EwsPostReplyItemBaseType
      */
-    public function setBody(\Ews\StructType\EwsBodyType $body = null)
+    public function setBody(?\StructType\EwsBodyType $body = null): self
     {
         $this->Body = $body;
+        
         return $this;
     }
     /**
      * Get ReferenceItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getReferenceItemId()
+    public function getReferenceItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ReferenceItemId;
     }
     /**
      * Set ReferenceItemId value
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
-     * @return \Ews\StructType\EwsPostReplyItemBaseType
+     * @param \StructType\EwsItemIdType $referenceItemId
+     * @return \StructType\EwsPostReplyItemBaseType
      */
-    public function setReferenceItemId(\Ews\StructType\EwsItemIdType $referenceItemId = null)
+    public function setReferenceItemId(?\StructType\EwsItemIdType $referenceItemId = null): self
     {
         $this->ReferenceItemId = $referenceItemId;
+        
         return $this;
     }
     /**
      * Get ObjectName value
      * @return string|null
      */
-    public function getObjectName()
+    public function getObjectName(): ?string
     {
         return $this->ObjectName;
     }
     /**
      * Set ObjectName value
      * @param string $objectName
-     * @return \Ews\StructType\EwsPostReplyItemBaseType
+     * @return \StructType\EwsPostReplyItemBaseType
      */
-    public function setObjectName($objectName = null)
+    public function setObjectName(?string $objectName = null): self
     {
         // validation for constraint: string
         if (!is_null($objectName) && !is_string($objectName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
         }
         $this->ObjectName = $objectName;
+        
         return $this;
     }
 }

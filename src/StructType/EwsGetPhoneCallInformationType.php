@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetPhoneCallInformationType StructType
@@ -17,35 +20,36 @@ class EwsGetPhoneCallInformationType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPhoneCallIdType
+     * @var \StructType\EwsPhoneCallIdType
      */
-    public $PhoneCallId;
+    protected \StructType\EwsPhoneCallIdType $PhoneCallId;
     /**
      * Constructor method for GetPhoneCallInformationType
      * @uses EwsGetPhoneCallInformationType::setPhoneCallId()
-     * @param \Ews\StructType\EwsPhoneCallIdType $phoneCallId
+     * @param \StructType\EwsPhoneCallIdType $phoneCallId
      */
-    public function __construct(\Ews\StructType\EwsPhoneCallIdType $phoneCallId = null)
+    public function __construct(\StructType\EwsPhoneCallIdType $phoneCallId)
     {
         $this
             ->setPhoneCallId($phoneCallId);
     }
     /**
      * Get PhoneCallId value
-     * @return \Ews\StructType\EwsPhoneCallIdType
+     * @return \StructType\EwsPhoneCallIdType
      */
-    public function getPhoneCallId()
+    public function getPhoneCallId(): \StructType\EwsPhoneCallIdType
     {
         return $this->PhoneCallId;
     }
     /**
      * Set PhoneCallId value
-     * @param \Ews\StructType\EwsPhoneCallIdType $phoneCallId
-     * @return \Ews\StructType\EwsGetPhoneCallInformationType
+     * @param \StructType\EwsPhoneCallIdType $phoneCallId
+     * @return \StructType\EwsGetPhoneCallInformationType
      */
-    public function setPhoneCallId(\Ews\StructType\EwsPhoneCallIdType $phoneCallId = null)
+    public function setPhoneCallId(\StructType\EwsPhoneCallIdType $phoneCallId): self
     {
         $this->PhoneCallId = $phoneCallId;
+        
         return $this;
     }
 }

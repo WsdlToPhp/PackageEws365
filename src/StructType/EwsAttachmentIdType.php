@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttachmentIdType StructType
@@ -16,16 +19,16 @@ class EwsAttachmentIdType extends EwsRequestAttachmentIdType
      * The RootItemId
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $RootItemId;
+    protected ?string $RootItemId = null;
     /**
      * The RootItemChangeKey
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $RootItemChangeKey;
+    protected ?string $RootItemChangeKey = null;
     /**
      * Constructor method for AttachmentIdType
      * @uses EwsAttachmentIdType::setRootItemId()
@@ -33,7 +36,7 @@ class EwsAttachmentIdType extends EwsRequestAttachmentIdType
      * @param string $rootItemId
      * @param string $rootItemChangeKey
      */
-    public function __construct($rootItemId = null, $rootItemChangeKey = null)
+    public function __construct(?string $rootItemId = null, ?string $rootItemChangeKey = null)
     {
         $this
             ->setRootItemId($rootItemId)
@@ -43,44 +46,46 @@ class EwsAttachmentIdType extends EwsRequestAttachmentIdType
      * Get RootItemId value
      * @return string|null
      */
-    public function getRootItemId()
+    public function getRootItemId(): ?string
     {
         return $this->RootItemId;
     }
     /**
      * Set RootItemId value
      * @param string $rootItemId
-     * @return \Ews\StructType\EwsAttachmentIdType
+     * @return \StructType\EwsAttachmentIdType
      */
-    public function setRootItemId($rootItemId = null)
+    public function setRootItemId(?string $rootItemId = null): self
     {
         // validation for constraint: string
         if (!is_null($rootItemId) && !is_string($rootItemId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemId, true), gettype($rootItemId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemId, true), gettype($rootItemId)), __LINE__);
         }
         $this->RootItemId = $rootItemId;
+        
         return $this;
     }
     /**
      * Get RootItemChangeKey value
      * @return string|null
      */
-    public function getRootItemChangeKey()
+    public function getRootItemChangeKey(): ?string
     {
         return $this->RootItemChangeKey;
     }
     /**
      * Set RootItemChangeKey value
      * @param string $rootItemChangeKey
-     * @return \Ews\StructType\EwsAttachmentIdType
+     * @return \StructType\EwsAttachmentIdType
      */
-    public function setRootItemChangeKey($rootItemChangeKey = null)
+    public function setRootItemChangeKey(?string $rootItemChangeKey = null): self
     {
         // validation for constraint: string
         if (!is_null($rootItemChangeKey) && !is_string($rootItemChangeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemChangeKey, true), gettype($rootItemChangeKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemChangeKey, true), gettype($rootItemChangeKey)), __LINE__);
         }
         $this->RootItemChangeKey = $rootItemChangeKey;
+        
         return $this;
     }
 }

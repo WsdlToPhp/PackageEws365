@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ViewFilterType EnumType
@@ -78,9 +80,9 @@ class EwsViewFilterType extends AbstractStructEnumBase
      * @uses self::VALUE_CLUTTER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL,
             self::VALUE_FLAGGED,
             self::VALUE_HAS_ATTACHMENT,
@@ -91,6 +93,6 @@ class EwsViewFilterType extends AbstractStructEnumBase
             self::VALUE_TASK_COMPLETED,
             self::VALUE_NO_CLUTTER,
             self::VALUE_CLUTTER,
-        );
+        ];
     }
 }

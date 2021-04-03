@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OneDriveItemType StructType
@@ -21,13 +24,13 @@ class EwsOneDriveItemType extends EwsItemType
      * - minOccurs: 1
      * @var string
      */
-    public $ResourceId;
+    protected string $ResourceId;
     /**
      * Constructor method for OneDriveItemType
      * @uses EwsOneDriveItemType::setResourceId()
      * @param string $resourceId
      */
-    public function __construct($resourceId = null)
+    public function __construct(string $resourceId)
     {
         $this
             ->setResourceId($resourceId);
@@ -36,22 +39,23 @@ class EwsOneDriveItemType extends EwsItemType
      * Get ResourceId value
      * @return string
      */
-    public function getResourceId()
+    public function getResourceId(): string
     {
         return $this->ResourceId;
     }
     /**
      * Set ResourceId value
      * @param string $resourceId
-     * @return \Ews\StructType\EwsOneDriveItemType
+     * @return \StructType\EwsOneDriveItemType
      */
-    public function setResourceId($resourceId = null)
+    public function setResourceId(string $resourceId): self
     {
         // validation for constraint: string
         if (!is_null($resourceId) && !is_string($resourceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($resourceId, true), gettype($resourceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($resourceId, true), gettype($resourceId)), __LINE__);
         }
         $this->ResourceId = $resourceId;
+        
         return $this;
     }
 }

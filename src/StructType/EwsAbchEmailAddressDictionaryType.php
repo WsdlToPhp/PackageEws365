@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AbchEmailAddressDictionaryType StructType
@@ -16,24 +19,24 @@ class EwsAbchEmailAddressDictionaryType extends AbstractStructBase
      * The Email
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType[]
+     * @var \StructType\EwsAbchEmailAddressDictionaryEntryType[]
      */
-    public $Email;
+    protected array $Email = [];
     /**
      * Constructor method for AbchEmailAddressDictionaryType
      * @uses EwsAbchEmailAddressDictionaryType::setEmail()
-     * @param \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType[] $email
+     * @param \StructType\EwsAbchEmailAddressDictionaryEntryType[] $email
      */
-    public function __construct(array $email = array())
+    public function __construct(array $email = [])
     {
         $this
             ->setEmail($email);
     }
     /**
      * Get Email value
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType[]|null
+     * @return \StructType\EwsAbchEmailAddressDictionaryEntryType[]
      */
-    public function getEmail()
+    public function getEmail(): array
     {
         return $this->Email;
     }
@@ -43,50 +46,53 @@ class EwsAbchEmailAddressDictionaryType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateEmailForArrayConstraintsFromSetEmail(array $values = array())
+    public static function validateEmailForArrayConstraintsFromSetEmail(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $abchEmailAddressDictionaryTypeEmailItem) {
             // validation for constraint: itemType
-            if (!$abchEmailAddressDictionaryTypeEmailItem instanceof \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType) {
+            if (!$abchEmailAddressDictionaryTypeEmailItem instanceof \StructType\EwsAbchEmailAddressDictionaryEntryType) {
                 $invalidValues[] = is_object($abchEmailAddressDictionaryTypeEmailItem) ? get_class($abchEmailAddressDictionaryTypeEmailItem) : sprintf('%s(%s)', gettype($abchEmailAddressDictionaryTypeEmailItem), var_export($abchEmailAddressDictionaryTypeEmailItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Email property can only contain items of type \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Email property can only contain items of type \StructType\EwsAbchEmailAddressDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Email value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType[] $email
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAbchEmailAddressDictionaryEntryType[] $email
+     * @return \StructType\EwsAbchEmailAddressDictionaryType
      */
-    public function setEmail(array $email = array())
+    public function setEmail(array $email = []): self
     {
         // validation for constraint: array
         if ('' !== ($emailArrayErrorMessage = self::validateEmailForArrayConstraintsFromSetEmail($email))) {
-            throw new \InvalidArgumentException($emailArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($emailArrayErrorMessage, __LINE__);
         }
         $this->Email = $email;
+        
         return $this;
     }
     /**
      * Add item to Email value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType $item
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAbchEmailAddressDictionaryEntryType $item
+     * @return \StructType\EwsAbchEmailAddressDictionaryType
      */
-    public function addToEmail(\Ews\StructType\EwsAbchEmailAddressDictionaryEntryType $item)
+    public function addToEmail(\StructType\EwsAbchEmailAddressDictionaryEntryType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType) {
-            throw new \InvalidArgumentException(sprintf('The Email property can only contain items of type \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsAbchEmailAddressDictionaryEntryType) {
+            throw new InvalidArgumentException(sprintf('The Email property can only contain items of type \StructType\EwsAbchEmailAddressDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Email[] = $item;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExtendedAttributeType StructType
@@ -21,7 +24,7 @@ class EwsExtendedAttributeType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Name;
+    protected string $Name;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsExtendedAttributeType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * Constructor method for ExtendedAttributeType
      * @uses EwsExtendedAttributeType::setName()
@@ -37,7 +40,7 @@ class EwsExtendedAttributeType extends AbstractStructBase
      * @param string $name
      * @param string $value
      */
-    public function __construct($name = null, $value = null)
+    public function __construct(string $name, string $value)
     {
         $this
             ->setName($name)
@@ -47,44 +50,46 @@ class EwsExtendedAttributeType extends AbstractStructBase
      * Get Name value
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsExtendedAttributeType
+     * @return \StructType\EwsExtendedAttributeType
      */
-    public function setName($name = null)
+    public function setName(string $name): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsExtendedAttributeType
+     * @return \StructType\EwsExtendedAttributeType
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

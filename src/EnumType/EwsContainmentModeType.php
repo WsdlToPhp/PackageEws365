@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ContainmentModeType EnumType
@@ -46,14 +48,14 @@ class EwsContainmentModeType extends AbstractStructEnumBase
      * @uses self::VALUE_EXACT_PHRASE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_FULL_STRING,
             self::VALUE_PREFIXED,
             self::VALUE_SUBSTRING,
             self::VALUE_PREFIX_ON_WORDS,
             self::VALUE_EXACT_PHRASE,
-        );
+        ];
     }
 }

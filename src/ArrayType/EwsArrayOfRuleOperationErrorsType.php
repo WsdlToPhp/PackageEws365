@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRuleOperationErrorsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsRuleOperationErrorType[]
+     * @var \StructType\EwsRuleOperationErrorType[]
      */
-    public $RuleOperationError;
+    protected array $RuleOperationError = [];
     /**
      * Constructor method for ArrayOfRuleOperationErrorsType
      * @uses EwsArrayOfRuleOperationErrorsType::setRuleOperationError()
-     * @param \Ews\StructType\EwsRuleOperationErrorType[] $ruleOperationError
+     * @param \StructType\EwsRuleOperationErrorType[] $ruleOperationError
      */
-    public function __construct(array $ruleOperationError = array())
+    public function __construct(array $ruleOperationError)
     {
         $this
             ->setRuleOperationError($ruleOperationError);
     }
     /**
      * Get RuleOperationError value
-     * @return \Ews\StructType\EwsRuleOperationErrorType[]
+     * @return \StructType\EwsRuleOperationErrorType[]
      */
-    public function getRuleOperationError()
+    public function getRuleOperationError(): array
     {
         return $this->RuleOperationError;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRuleOperationErrorForArrayConstraintsFromSetRuleOperationError(array $values = array())
+    public static function validateRuleOperationErrorForArrayConstraintsFromSetRuleOperationError(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) {
             // validation for constraint: itemType
-            if (!$arrayOfRuleOperationErrorsTypeRuleOperationErrorItem instanceof \Ews\StructType\EwsRuleOperationErrorType) {
+            if (!$arrayOfRuleOperationErrorsTypeRuleOperationErrorItem instanceof \StructType\EwsRuleOperationErrorType) {
                 $invalidValues[] = is_object($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) ? get_class($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem) : sprintf('%s(%s)', gettype($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem), var_export($arrayOfRuleOperationErrorsTypeRuleOperationErrorItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The RuleOperationError property can only contain items of type \Ews\StructType\EwsRuleOperationErrorType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The RuleOperationError property can only contain items of type \StructType\EwsRuleOperationErrorType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set RuleOperationError value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRuleOperationErrorType[] $ruleOperationError
-     * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRuleOperationErrorType[] $ruleOperationError
+     * @return \ArrayType\EwsArrayOfRuleOperationErrorsType
      */
-    public function setRuleOperationError(array $ruleOperationError = array())
+    public function setRuleOperationError(array $ruleOperationError): self
     {
         // validation for constraint: array
         if ('' !== ($ruleOperationErrorArrayErrorMessage = self::validateRuleOperationErrorForArrayConstraintsFromSetRuleOperationError($ruleOperationError))) {
-            throw new \InvalidArgumentException($ruleOperationErrorArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($ruleOperationErrorArrayErrorMessage, __LINE__);
         }
         $this->RuleOperationError = $ruleOperationError;
-        return $this;
-    }
-    /**
-     * Add item to RuleOperationError value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRuleOperationErrorType $item
-     * @return \Ews\ArrayType\EwsArrayOfRuleOperationErrorsType
-     */
-    public function addToRuleOperationError(\Ews\StructType\EwsRuleOperationErrorType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsRuleOperationErrorType) {
-            throw new \InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of type \Ews\StructType\EwsRuleOperationErrorType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->RuleOperationError[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsRuleOperationErrorType
+     * @return \StructType\EwsRuleOperationErrorType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsRuleOperationErrorType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsRuleOperationErrorType
+     * @return \StructType\EwsRuleOperationErrorType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsRuleOperationErrorType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsRuleOperationErrorType
+     * @return \StructType\EwsRuleOperationErrorType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsRuleOperationErrorType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsRuleOperationErrorType
+     * @return \StructType\EwsRuleOperationErrorType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsRuleOperationErrorType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsRuleOperationErrorType
+     * @return \StructType\EwsRuleOperationErrorType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsRuleOperationErrorType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRuleOperationErrorType $item
+     * @return \ArrayType\EwsArrayOfRuleOperationErrorsType
+     */
+    public function add(\StructType\EwsRuleOperationErrorType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string RuleOperationError
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'RuleOperationError';
     }

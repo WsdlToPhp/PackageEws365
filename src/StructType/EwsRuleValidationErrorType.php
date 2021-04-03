@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleValidationErrorType StructType
@@ -21,7 +24,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $FieldURI;
+    protected string $FieldURI;
     /**
      * The ErrorCode
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ErrorCode;
+    protected string $ErrorCode;
     /**
      * The ErrorMessage
      * Meta information extracted from the WSDL
@@ -37,7 +40,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ErrorMessage;
+    protected string $ErrorMessage;
     /**
      * The FieldValue
      * Meta information extracted from the WSDL
@@ -45,7 +48,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $FieldValue;
+    protected string $FieldValue;
     /**
      * Constructor method for RuleValidationErrorType
      * @uses EwsRuleValidationErrorType::setFieldURI()
@@ -57,7 +60,7 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * @param string $errorMessage
      * @param string $fieldValue
      */
-    public function __construct($fieldURI = null, $errorCode = null, $errorMessage = null, $fieldValue = null)
+    public function __construct(string $fieldURI, string $errorCode, string $errorMessage, string $fieldValue)
     {
         $this
             ->setFieldURI($fieldURI)
@@ -69,94 +72,98 @@ class EwsRuleValidationErrorType extends AbstractStructBase
      * Get FieldURI value
      * @return string
      */
-    public function getFieldURI()
+    public function getFieldURI(): string
     {
         return $this->FieldURI;
     }
     /**
      * Set FieldURI value
-     * @uses \Ews\EnumType\EwsRuleFieldURIType::valueIsValid()
-     * @uses \Ews\EnumType\EwsRuleFieldURIType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsRuleFieldURIType::valueIsValid()
+     * @uses \EnumType\EwsRuleFieldURIType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $fieldURI
-     * @return \Ews\StructType\EwsRuleValidationErrorType
+     * @return \StructType\EwsRuleValidationErrorType
      */
-    public function setFieldURI($fieldURI = null)
+    public function setFieldURI(string $fieldURI): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsRuleFieldURIType::valueIsValid($fieldURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRuleFieldURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \Ews\EnumType\EwsRuleFieldURIType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsRuleFieldURIType::valueIsValid($fieldURI)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsRuleFieldURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \EnumType\EwsRuleFieldURIType::getValidValues())), __LINE__);
         }
         $this->FieldURI = $fieldURI;
+        
         return $this;
     }
     /**
      * Get ErrorCode value
      * @return string
      */
-    public function getErrorCode()
+    public function getErrorCode(): string
     {
         return $this->ErrorCode;
     }
     /**
      * Set ErrorCode value
-     * @uses \Ews\EnumType\EwsRuleValidationErrorCodeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsRuleValidationErrorCodeType::valueIsValid()
+     * @uses \EnumType\EwsRuleValidationErrorCodeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $errorCode
-     * @return \Ews\StructType\EwsRuleValidationErrorType
+     * @return \StructType\EwsRuleValidationErrorType
      */
-    public function setErrorCode($errorCode = null)
+    public function setErrorCode(string $errorCode): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsRuleValidationErrorCodeType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRuleValidationErrorCodeType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsRuleValidationErrorCodeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsRuleValidationErrorCodeType::valueIsValid($errorCode)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsRuleValidationErrorCodeType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \EnumType\EwsRuleValidationErrorCodeType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
+        
         return $this;
     }
     /**
      * Get ErrorMessage value
      * @return string
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): string
     {
         return $this->ErrorMessage;
     }
     /**
      * Set ErrorMessage value
      * @param string $errorMessage
-     * @return \Ews\StructType\EwsRuleValidationErrorType
+     * @return \StructType\EwsRuleValidationErrorType
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(string $errorMessage): self
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         $this->ErrorMessage = $errorMessage;
+        
         return $this;
     }
     /**
      * Get FieldValue value
      * @return string
      */
-    public function getFieldValue()
+    public function getFieldValue(): string
     {
         return $this->FieldValue;
     }
     /**
      * Set FieldValue value
      * @param string $fieldValue
-     * @return \Ews\StructType\EwsRuleValidationErrorType
+     * @return \StructType\EwsRuleValidationErrorType
      */
-    public function setFieldValue($fieldValue = null)
+    public function setFieldValue(string $fieldValue): self
     {
         // validation for constraint: string
         if (!is_null($fieldValue) && !is_string($fieldValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fieldValue, true), gettype($fieldValue)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fieldValue, true), gettype($fieldValue)), __LINE__);
         }
         $this->FieldValue = $fieldValue;
+        
         return $this;
     }
 }

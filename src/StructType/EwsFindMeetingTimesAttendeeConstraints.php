@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMeetingTimesAttendeeConstraints StructType
@@ -16,35 +19,36 @@ class EwsFindMeetingTimesAttendeeConstraints extends AbstractStructBase
      * The AttendeeEntries
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems
+     * @var \ArrayType\EwsArrayOfAttendeeConstraintItems|null
      */
-    public $AttendeeEntries;
+    protected ?\ArrayType\EwsArrayOfAttendeeConstraintItems $AttendeeEntries = null;
     /**
      * Constructor method for FindMeetingTimesAttendeeConstraints
      * @uses EwsFindMeetingTimesAttendeeConstraints::setAttendeeEntries()
-     * @param \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries
+     * @param \ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries = null)
+    public function __construct(?\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries = null)
     {
         $this
             ->setAttendeeEntries($attendeeEntries);
     }
     /**
      * Get AttendeeEntries value
-     * @return \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems|null
+     * @return \ArrayType\EwsArrayOfAttendeeConstraintItems|null
      */
-    public function getAttendeeEntries()
+    public function getAttendeeEntries(): ?\ArrayType\EwsArrayOfAttendeeConstraintItems
     {
         return $this->AttendeeEntries;
     }
     /**
      * Set AttendeeEntries value
-     * @param \Ews\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries
-     * @return \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints
+     * @param \ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries
+     * @return \StructType\EwsFindMeetingTimesAttendeeConstraints
      */
-    public function setAttendeeEntries(\Ews\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries = null)
+    public function setAttendeeEntries(?\ArrayType\EwsArrayOfAttendeeConstraintItems $attendeeEntries = null): self
     {
         $this->AttendeeEntries = $attendeeEntries;
+        
         return $this;
     }
 }

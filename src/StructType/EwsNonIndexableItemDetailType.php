@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonIndexableItemDetailType StructType
@@ -19,9 +22,9 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The ErrorCode
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ErrorCode;
+    protected string $ErrorCode;
     /**
      * The ErrorDescription
      * Meta information extracted from the WSDL
@@ -37,7 +40,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ErrorDescription;
+    protected string $ErrorDescription;
     /**
      * The IsPartiallyIndexed
      * Meta information extracted from the WSDL
@@ -45,7 +48,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsPartiallyIndexed;
+    protected bool $IsPartiallyIndexed;
     /**
      * The IsPermanentFailure
      * Meta information extracted from the WSDL
@@ -53,7 +56,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $IsPermanentFailure;
+    protected bool $IsPermanentFailure;
     /**
      * The SortValue
      * Meta information extracted from the WSDL
@@ -61,7 +64,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SortValue;
+    protected string $SortValue;
     /**
      * The AttemptCount
      * Meta information extracted from the WSDL
@@ -69,23 +72,23 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $AttemptCount;
+    protected int $AttemptCount;
     /**
      * The LastAttemptTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastAttemptTime;
+    protected ?string $LastAttemptTime = null;
     /**
      * The AdditionalInfo
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AdditionalInfo;
+    protected ?string $AdditionalInfo = null;
     /**
      * Constructor method for NonIndexableItemDetailType
      * @uses EwsNonIndexableItemDetailType::setItemId()
@@ -97,7 +100,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * @uses EwsNonIndexableItemDetailType::setAttemptCount()
      * @uses EwsNonIndexableItemDetailType::setLastAttemptTime()
      * @uses EwsNonIndexableItemDetailType::setAdditionalInfo()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param string $errorCode
      * @param string $errorDescription
      * @param bool $isPartiallyIndexed
@@ -107,7 +110,7 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
      * @param string $lastAttemptTime
      * @param string $additionalInfo
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $errorCode = null, $errorDescription = null, $isPartiallyIndexed = null, $isPermanentFailure = null, $sortValue = null, $attemptCount = null, $lastAttemptTime = null, $additionalInfo = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, string $errorCode, string $errorDescription, bool $isPartiallyIndexed, bool $isPermanentFailure, string $sortValue, int $attemptCount, ?string $lastAttemptTime = null, ?string $additionalInfo = null)
     {
         $this
             ->setItemId($itemId)
@@ -122,199 +125,208 @@ class EwsNonIndexableItemDetailType extends AbstractStructBase
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get ErrorCode value
      * @return string
      */
-    public function getErrorCode()
+    public function getErrorCode(): string
     {
         return $this->ErrorCode;
     }
     /**
      * Set ErrorCode value
-     * @uses \Ews\EnumType\EwsItemIndexErrorType::valueIsValid()
-     * @uses \Ews\EnumType\EwsItemIndexErrorType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsItemIndexErrorType::valueIsValid()
+     * @uses \EnumType\EwsItemIndexErrorType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $errorCode
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setErrorCode($errorCode = null)
+    public function setErrorCode(string $errorCode): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsItemIndexErrorType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsItemIndexErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsItemIndexErrorType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsItemIndexErrorType::valueIsValid($errorCode)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsItemIndexErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \EnumType\EwsItemIndexErrorType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
+        
         return $this;
     }
     /**
      * Get ErrorDescription value
      * @return string
      */
-    public function getErrorDescription()
+    public function getErrorDescription(): string
     {
         return $this->ErrorDescription;
     }
     /**
      * Set ErrorDescription value
      * @param string $errorDescription
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setErrorDescription($errorDescription = null)
+    public function setErrorDescription(string $errorDescription): self
     {
         // validation for constraint: string
         if (!is_null($errorDescription) && !is_string($errorDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDescription, true), gettype($errorDescription)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDescription, true), gettype($errorDescription)), __LINE__);
         }
         $this->ErrorDescription = $errorDescription;
+        
         return $this;
     }
     /**
      * Get IsPartiallyIndexed value
      * @return bool
      */
-    public function getIsPartiallyIndexed()
+    public function getIsPartiallyIndexed(): bool
     {
         return $this->IsPartiallyIndexed;
     }
     /**
      * Set IsPartiallyIndexed value
      * @param bool $isPartiallyIndexed
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setIsPartiallyIndexed($isPartiallyIndexed = null)
+    public function setIsPartiallyIndexed(bool $isPartiallyIndexed): self
     {
         // validation for constraint: boolean
         if (!is_null($isPartiallyIndexed) && !is_bool($isPartiallyIndexed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPartiallyIndexed, true), gettype($isPartiallyIndexed)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPartiallyIndexed, true), gettype($isPartiallyIndexed)), __LINE__);
         }
         $this->IsPartiallyIndexed = $isPartiallyIndexed;
+        
         return $this;
     }
     /**
      * Get IsPermanentFailure value
      * @return bool
      */
-    public function getIsPermanentFailure()
+    public function getIsPermanentFailure(): bool
     {
         return $this->IsPermanentFailure;
     }
     /**
      * Set IsPermanentFailure value
      * @param bool $isPermanentFailure
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setIsPermanentFailure($isPermanentFailure = null)
+    public function setIsPermanentFailure(bool $isPermanentFailure): self
     {
         // validation for constraint: boolean
         if (!is_null($isPermanentFailure) && !is_bool($isPermanentFailure)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermanentFailure, true), gettype($isPermanentFailure)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermanentFailure, true), gettype($isPermanentFailure)), __LINE__);
         }
         $this->IsPermanentFailure = $isPermanentFailure;
+        
         return $this;
     }
     /**
      * Get SortValue value
      * @return string
      */
-    public function getSortValue()
+    public function getSortValue(): string
     {
         return $this->SortValue;
     }
     /**
      * Set SortValue value
      * @param string $sortValue
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setSortValue($sortValue = null)
+    public function setSortValue(string $sortValue): self
     {
         // validation for constraint: string
         if (!is_null($sortValue) && !is_string($sortValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
         }
         $this->SortValue = $sortValue;
+        
         return $this;
     }
     /**
      * Get AttemptCount value
      * @return int
      */
-    public function getAttemptCount()
+    public function getAttemptCount(): int
     {
         return $this->AttemptCount;
     }
     /**
      * Set AttemptCount value
      * @param int $attemptCount
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setAttemptCount($attemptCount = null)
+    public function setAttemptCount(int $attemptCount): self
     {
         // validation for constraint: int
         if (!is_null($attemptCount) && !(is_int($attemptCount) || ctype_digit($attemptCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($attemptCount, true), gettype($attemptCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($attemptCount, true), gettype($attemptCount)), __LINE__);
         }
         $this->AttemptCount = $attemptCount;
+        
         return $this;
     }
     /**
      * Get LastAttemptTime value
      * @return string|null
      */
-    public function getLastAttemptTime()
+    public function getLastAttemptTime(): ?string
     {
         return $this->LastAttemptTime;
     }
     /**
      * Set LastAttemptTime value
      * @param string $lastAttemptTime
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setLastAttemptTime($lastAttemptTime = null)
+    public function setLastAttemptTime(?string $lastAttemptTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastAttemptTime) && !is_string($lastAttemptTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastAttemptTime, true), gettype($lastAttemptTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastAttemptTime, true), gettype($lastAttemptTime)), __LINE__);
         }
         $this->LastAttemptTime = $lastAttemptTime;
+        
         return $this;
     }
     /**
      * Get AdditionalInfo value
      * @return string|null
      */
-    public function getAdditionalInfo()
+    public function getAdditionalInfo(): ?string
     {
         return $this->AdditionalInfo;
     }
     /**
      * Set AdditionalInfo value
      * @param string $additionalInfo
-     * @return \Ews\StructType\EwsNonIndexableItemDetailType
+     * @return \StructType\EwsNonIndexableItemDetailType
      */
-    public function setAdditionalInfo($additionalInfo = null)
+    public function setAdditionalInfo(?string $additionalInfo = null): self
     {
         // validation for constraint: string
         if (!is_null($additionalInfo) && !is_string($additionalInfo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalInfo, true), gettype($additionalInfo)), __LINE__);
         }
         $this->AdditionalInfo = $additionalInfo;
+        
         return $this;
     }
 }

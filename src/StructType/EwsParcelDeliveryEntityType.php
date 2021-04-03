@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ParcelDeliveryEntityType StructType
@@ -16,149 +19,149 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      * The Carrier
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Carrier;
+    protected ?string $Carrier = null;
     /**
      * The TrackingNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $TrackingNumber;
+    protected ?string $TrackingNumber = null;
     /**
      * The TrackingUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $TrackingUrl;
+    protected ?string $TrackingUrl = null;
     /**
      * The ExpectedArrivalFrom
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExpectedArrivalFrom;
+    protected ?string $ExpectedArrivalFrom = null;
     /**
      * The ExpectedArrivalUntil
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExpectedArrivalUntil;
+    protected ?string $ExpectedArrivalUntil = null;
     /**
      * The Product
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Product;
+    protected ?string $Product = null;
     /**
      * The ProductUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductUrl;
+    protected ?string $ProductUrl = null;
     /**
      * The ProductImage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductImage;
+    protected ?string $ProductImage = null;
     /**
      * The ProductSku
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductSku;
+    protected ?string $ProductSku = null;
     /**
      * The ProductDescription
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductDescription;
+    protected ?string $ProductDescription = null;
     /**
      * The ProductBrand
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductBrand;
+    protected ?string $ProductBrand = null;
     /**
      * The ProductColor
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProductColor;
+    protected ?string $ProductColor = null;
     /**
      * The OrderNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OrderNumber;
+    protected ?string $OrderNumber = null;
     /**
      * The Seller
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Seller;
+    protected ?string $Seller = null;
     /**
      * The OrderStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OrderStatus;
+    protected ?string $OrderStatus = null;
     /**
      * The AddressName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AddressName;
+    protected ?string $AddressName = null;
     /**
      * The StreetAddress
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StreetAddress;
+    protected ?string $StreetAddress = null;
     /**
      * The AddressLocality
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AddressLocality;
+    protected ?string $AddressLocality = null;
     /**
      * The AddressRegion
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AddressRegion;
+    protected ?string $AddressRegion = null;
     /**
      * The AddressCountry
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AddressCountry;
+    protected ?string $AddressCountry = null;
     /**
      * The PostalCode
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PostalCode;
+    protected ?string $PostalCode = null;
     /**
      * Constructor method for ParcelDeliveryEntityType
      * @uses EwsParcelDeliveryEntityType::setCarrier()
@@ -204,7 +207,7 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      * @param string $addressCountry
      * @param string $postalCode
      */
-    public function __construct($carrier = null, $trackingNumber = null, $trackingUrl = null, $expectedArrivalFrom = null, $expectedArrivalUntil = null, $product = null, $productUrl = null, $productImage = null, $productSku = null, $productDescription = null, $productBrand = null, $productColor = null, $orderNumber = null, $seller = null, $orderStatus = null, $addressName = null, $streetAddress = null, $addressLocality = null, $addressRegion = null, $addressCountry = null, $postalCode = null)
+    public function __construct(?string $carrier = null, ?string $trackingNumber = null, ?string $trackingUrl = null, ?string $expectedArrivalFrom = null, ?string $expectedArrivalUntil = null, ?string $product = null, ?string $productUrl = null, ?string $productImage = null, ?string $productSku = null, ?string $productDescription = null, ?string $productBrand = null, ?string $productColor = null, ?string $orderNumber = null, ?string $seller = null, ?string $orderStatus = null, ?string $addressName = null, ?string $streetAddress = null, ?string $addressLocality = null, ?string $addressRegion = null, ?string $addressCountry = null, ?string $postalCode = null)
     {
         $this
             ->setCarrier($carrier)
@@ -233,462 +236,483 @@ class EwsParcelDeliveryEntityType extends AbstractStructBase
      * Get Carrier value
      * @return string|null
      */
-    public function getCarrier()
+    public function getCarrier(): ?string
     {
         return $this->Carrier;
     }
     /**
      * Set Carrier value
      * @param string $carrier
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setCarrier($carrier = null)
+    public function setCarrier(?string $carrier = null): self
     {
         // validation for constraint: string
         if (!is_null($carrier) && !is_string($carrier)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($carrier, true), gettype($carrier)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($carrier, true), gettype($carrier)), __LINE__);
         }
         $this->Carrier = $carrier;
+        
         return $this;
     }
     /**
      * Get TrackingNumber value
      * @return string|null
      */
-    public function getTrackingNumber()
+    public function getTrackingNumber(): ?string
     {
         return $this->TrackingNumber;
     }
     /**
      * Set TrackingNumber value
      * @param string $trackingNumber
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setTrackingNumber($trackingNumber = null)
+    public function setTrackingNumber(?string $trackingNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($trackingNumber) && !is_string($trackingNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingNumber, true), gettype($trackingNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingNumber, true), gettype($trackingNumber)), __LINE__);
         }
         $this->TrackingNumber = $trackingNumber;
+        
         return $this;
     }
     /**
      * Get TrackingUrl value
      * @return string|null
      */
-    public function getTrackingUrl()
+    public function getTrackingUrl(): ?string
     {
         return $this->TrackingUrl;
     }
     /**
      * Set TrackingUrl value
      * @param string $trackingUrl
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setTrackingUrl($trackingUrl = null)
+    public function setTrackingUrl(?string $trackingUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($trackingUrl) && !is_string($trackingUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingUrl, true), gettype($trackingUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($trackingUrl, true), gettype($trackingUrl)), __LINE__);
         }
         $this->TrackingUrl = $trackingUrl;
+        
         return $this;
     }
     /**
      * Get ExpectedArrivalFrom value
      * @return string|null
      */
-    public function getExpectedArrivalFrom()
+    public function getExpectedArrivalFrom(): ?string
     {
         return $this->ExpectedArrivalFrom;
     }
     /**
      * Set ExpectedArrivalFrom value
      * @param string $expectedArrivalFrom
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setExpectedArrivalFrom($expectedArrivalFrom = null)
+    public function setExpectedArrivalFrom(?string $expectedArrivalFrom = null): self
     {
         // validation for constraint: string
         if (!is_null($expectedArrivalFrom) && !is_string($expectedArrivalFrom)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expectedArrivalFrom, true), gettype($expectedArrivalFrom)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expectedArrivalFrom, true), gettype($expectedArrivalFrom)), __LINE__);
         }
         $this->ExpectedArrivalFrom = $expectedArrivalFrom;
+        
         return $this;
     }
     /**
      * Get ExpectedArrivalUntil value
      * @return string|null
      */
-    public function getExpectedArrivalUntil()
+    public function getExpectedArrivalUntil(): ?string
     {
         return $this->ExpectedArrivalUntil;
     }
     /**
      * Set ExpectedArrivalUntil value
      * @param string $expectedArrivalUntil
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setExpectedArrivalUntil($expectedArrivalUntil = null)
+    public function setExpectedArrivalUntil(?string $expectedArrivalUntil = null): self
     {
         // validation for constraint: string
         if (!is_null($expectedArrivalUntil) && !is_string($expectedArrivalUntil)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expectedArrivalUntil, true), gettype($expectedArrivalUntil)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expectedArrivalUntil, true), gettype($expectedArrivalUntil)), __LINE__);
         }
         $this->ExpectedArrivalUntil = $expectedArrivalUntil;
+        
         return $this;
     }
     /**
      * Get Product value
      * @return string|null
      */
-    public function getProduct()
+    public function getProduct(): ?string
     {
         return $this->Product;
     }
     /**
      * Set Product value
      * @param string $product
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProduct($product = null)
+    public function setProduct(?string $product = null): self
     {
         // validation for constraint: string
         if (!is_null($product) && !is_string($product)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($product, true), gettype($product)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($product, true), gettype($product)), __LINE__);
         }
         $this->Product = $product;
+        
         return $this;
     }
     /**
      * Get ProductUrl value
      * @return string|null
      */
-    public function getProductUrl()
+    public function getProductUrl(): ?string
     {
         return $this->ProductUrl;
     }
     /**
      * Set ProductUrl value
      * @param string $productUrl
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductUrl($productUrl = null)
+    public function setProductUrl(?string $productUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($productUrl) && !is_string($productUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productUrl, true), gettype($productUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productUrl, true), gettype($productUrl)), __LINE__);
         }
         $this->ProductUrl = $productUrl;
+        
         return $this;
     }
     /**
      * Get ProductImage value
      * @return string|null
      */
-    public function getProductImage()
+    public function getProductImage(): ?string
     {
         return $this->ProductImage;
     }
     /**
      * Set ProductImage value
      * @param string $productImage
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductImage($productImage = null)
+    public function setProductImage(?string $productImage = null): self
     {
         // validation for constraint: string
         if (!is_null($productImage) && !is_string($productImage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productImage, true), gettype($productImage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productImage, true), gettype($productImage)), __LINE__);
         }
         $this->ProductImage = $productImage;
+        
         return $this;
     }
     /**
      * Get ProductSku value
      * @return string|null
      */
-    public function getProductSku()
+    public function getProductSku(): ?string
     {
         return $this->ProductSku;
     }
     /**
      * Set ProductSku value
      * @param string $productSku
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductSku($productSku = null)
+    public function setProductSku(?string $productSku = null): self
     {
         // validation for constraint: string
         if (!is_null($productSku) && !is_string($productSku)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSku, true), gettype($productSku)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productSku, true), gettype($productSku)), __LINE__);
         }
         $this->ProductSku = $productSku;
+        
         return $this;
     }
     /**
      * Get ProductDescription value
      * @return string|null
      */
-    public function getProductDescription()
+    public function getProductDescription(): ?string
     {
         return $this->ProductDescription;
     }
     /**
      * Set ProductDescription value
      * @param string $productDescription
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductDescription($productDescription = null)
+    public function setProductDescription(?string $productDescription = null): self
     {
         // validation for constraint: string
         if (!is_null($productDescription) && !is_string($productDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productDescription, true), gettype($productDescription)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productDescription, true), gettype($productDescription)), __LINE__);
         }
         $this->ProductDescription = $productDescription;
+        
         return $this;
     }
     /**
      * Get ProductBrand value
      * @return string|null
      */
-    public function getProductBrand()
+    public function getProductBrand(): ?string
     {
         return $this->ProductBrand;
     }
     /**
      * Set ProductBrand value
      * @param string $productBrand
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductBrand($productBrand = null)
+    public function setProductBrand(?string $productBrand = null): self
     {
         // validation for constraint: string
         if (!is_null($productBrand) && !is_string($productBrand)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productBrand, true), gettype($productBrand)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productBrand, true), gettype($productBrand)), __LINE__);
         }
         $this->ProductBrand = $productBrand;
+        
         return $this;
     }
     /**
      * Get ProductColor value
      * @return string|null
      */
-    public function getProductColor()
+    public function getProductColor(): ?string
     {
         return $this->ProductColor;
     }
     /**
      * Set ProductColor value
      * @param string $productColor
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setProductColor($productColor = null)
+    public function setProductColor(?string $productColor = null): self
     {
         // validation for constraint: string
         if (!is_null($productColor) && !is_string($productColor)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productColor, true), gettype($productColor)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($productColor, true), gettype($productColor)), __LINE__);
         }
         $this->ProductColor = $productColor;
+        
         return $this;
     }
     /**
      * Get OrderNumber value
      * @return string|null
      */
-    public function getOrderNumber()
+    public function getOrderNumber(): ?string
     {
         return $this->OrderNumber;
     }
     /**
      * Set OrderNumber value
      * @param string $orderNumber
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setOrderNumber($orderNumber = null)
+    public function setOrderNumber(?string $orderNumber = null): self
     {
         // validation for constraint: string
         if (!is_null($orderNumber) && !is_string($orderNumber)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderNumber, true), gettype($orderNumber)), __LINE__);
         }
         $this->OrderNumber = $orderNumber;
+        
         return $this;
     }
     /**
      * Get Seller value
      * @return string|null
      */
-    public function getSeller()
+    public function getSeller(): ?string
     {
         return $this->Seller;
     }
     /**
      * Set Seller value
      * @param string $seller
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setSeller($seller = null)
+    public function setSeller(?string $seller = null): self
     {
         // validation for constraint: string
         if (!is_null($seller) && !is_string($seller)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($seller, true), gettype($seller)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($seller, true), gettype($seller)), __LINE__);
         }
         $this->Seller = $seller;
+        
         return $this;
     }
     /**
      * Get OrderStatus value
      * @return string|null
      */
-    public function getOrderStatus()
+    public function getOrderStatus(): ?string
     {
         return $this->OrderStatus;
     }
     /**
      * Set OrderStatus value
      * @param string $orderStatus
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setOrderStatus($orderStatus = null)
+    public function setOrderStatus(?string $orderStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($orderStatus) && !is_string($orderStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderStatus, true), gettype($orderStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($orderStatus, true), gettype($orderStatus)), __LINE__);
         }
         $this->OrderStatus = $orderStatus;
+        
         return $this;
     }
     /**
      * Get AddressName value
      * @return string|null
      */
-    public function getAddressName()
+    public function getAddressName(): ?string
     {
         return $this->AddressName;
     }
     /**
      * Set AddressName value
      * @param string $addressName
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setAddressName($addressName = null)
+    public function setAddressName(?string $addressName = null): self
     {
         // validation for constraint: string
         if (!is_null($addressName) && !is_string($addressName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressName, true), gettype($addressName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressName, true), gettype($addressName)), __LINE__);
         }
         $this->AddressName = $addressName;
+        
         return $this;
     }
     /**
      * Get StreetAddress value
      * @return string|null
      */
-    public function getStreetAddress()
+    public function getStreetAddress(): ?string
     {
         return $this->StreetAddress;
     }
     /**
      * Set StreetAddress value
      * @param string $streetAddress
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setStreetAddress($streetAddress = null)
+    public function setStreetAddress(?string $streetAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($streetAddress) && !is_string($streetAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($streetAddress, true), gettype($streetAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($streetAddress, true), gettype($streetAddress)), __LINE__);
         }
         $this->StreetAddress = $streetAddress;
+        
         return $this;
     }
     /**
      * Get AddressLocality value
      * @return string|null
      */
-    public function getAddressLocality()
+    public function getAddressLocality(): ?string
     {
         return $this->AddressLocality;
     }
     /**
      * Set AddressLocality value
      * @param string $addressLocality
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setAddressLocality($addressLocality = null)
+    public function setAddressLocality(?string $addressLocality = null): self
     {
         // validation for constraint: string
         if (!is_null($addressLocality) && !is_string($addressLocality)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressLocality, true), gettype($addressLocality)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressLocality, true), gettype($addressLocality)), __LINE__);
         }
         $this->AddressLocality = $addressLocality;
+        
         return $this;
     }
     /**
      * Get AddressRegion value
      * @return string|null
      */
-    public function getAddressRegion()
+    public function getAddressRegion(): ?string
     {
         return $this->AddressRegion;
     }
     /**
      * Set AddressRegion value
      * @param string $addressRegion
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setAddressRegion($addressRegion = null)
+    public function setAddressRegion(?string $addressRegion = null): self
     {
         // validation for constraint: string
         if (!is_null($addressRegion) && !is_string($addressRegion)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressRegion, true), gettype($addressRegion)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressRegion, true), gettype($addressRegion)), __LINE__);
         }
         $this->AddressRegion = $addressRegion;
+        
         return $this;
     }
     /**
      * Get AddressCountry value
      * @return string|null
      */
-    public function getAddressCountry()
+    public function getAddressCountry(): ?string
     {
         return $this->AddressCountry;
     }
     /**
      * Set AddressCountry value
      * @param string $addressCountry
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setAddressCountry($addressCountry = null)
+    public function setAddressCountry(?string $addressCountry = null): self
     {
         // validation for constraint: string
         if (!is_null($addressCountry) && !is_string($addressCountry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressCountry, true), gettype($addressCountry)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($addressCountry, true), gettype($addressCountry)), __LINE__);
         }
         $this->AddressCountry = $addressCountry;
+        
         return $this;
     }
     /**
      * Get PostalCode value
      * @return string|null
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?string
     {
         return $this->PostalCode;
     }
     /**
      * Set PostalCode value
      * @param string $postalCode
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType
+     * @return \StructType\EwsParcelDeliveryEntityType
      */
-    public function setPostalCode($postalCode = null)
+    public function setPostalCode(?string $postalCode = null): self
     {
         // validation for constraint: string
         if (!is_null($postalCode) && !is_string($postalCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postalCode, true), gettype($postalCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postalCode, true), gettype($postalCode)), __LINE__);
         }
         $this->PostalCode = $postalCode;
+        
         return $this;
     }
 }

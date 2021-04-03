@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetBookingMailboxesResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetBookingMailboxesResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfBookingMailbox
+     * @var \ArrayType\EwsArrayOfBookingMailbox
      */
-    public $Mailboxes;
+    protected \ArrayType\EwsArrayOfBookingMailbox $Mailboxes;
     /**
      * Constructor method for GetBookingMailboxesResponseMessageType
      * @uses EwsGetBookingMailboxesResponseMessageType::setMailboxes()
-     * @param \Ews\ArrayType\EwsArrayOfBookingMailbox $mailboxes
+     * @param \ArrayType\EwsArrayOfBookingMailbox $mailboxes
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfBookingMailbox $mailboxes = null)
+    public function __construct(\ArrayType\EwsArrayOfBookingMailbox $mailboxes)
     {
         $this
             ->setMailboxes($mailboxes);
     }
     /**
      * Get Mailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfBookingMailbox
+     * @return \ArrayType\EwsArrayOfBookingMailbox
      */
-    public function getMailboxes()
+    public function getMailboxes(): \ArrayType\EwsArrayOfBookingMailbox
     {
         return $this->Mailboxes;
     }
     /**
      * Set Mailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfBookingMailbox $mailboxes
-     * @return \Ews\StructType\EwsGetBookingMailboxesResponseMessageType
+     * @param \ArrayType\EwsArrayOfBookingMailbox $mailboxes
+     * @return \StructType\EwsGetBookingMailboxesResponseMessageType
      */
-    public function setMailboxes(\Ews\ArrayType\EwsArrayOfBookingMailbox $mailboxes = null)
+    public function setMailboxes(\ArrayType\EwsArrayOfBookingMailbox $mailboxes): self
     {
         $this->Mailboxes = $mailboxes;
+        
         return $this;
     }
 }

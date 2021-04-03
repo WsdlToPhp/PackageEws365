@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExchangeImpersonationType StructType
@@ -16,35 +19,36 @@ class EwsExchangeImpersonationType extends AbstractStructBase
 {
     /**
      * The ConnectingSID
-     * @var \Ews\StructType\EwsConnectingSIDType
+     * @var \StructType\EwsConnectingSIDType|null
      */
-    public $ConnectingSID;
+    protected ?\StructType\EwsConnectingSIDType $ConnectingSID = null;
     /**
      * Constructor method for ExchangeImpersonationType
      * @uses EwsExchangeImpersonationType::setConnectingSID()
-     * @param \Ews\StructType\EwsConnectingSIDType $connectingSID
+     * @param \StructType\EwsConnectingSIDType $connectingSID
      */
-    public function __construct(\Ews\StructType\EwsConnectingSIDType $connectingSID = null)
+    public function __construct(?\StructType\EwsConnectingSIDType $connectingSID = null)
     {
         $this
             ->setConnectingSID($connectingSID);
     }
     /**
      * Get ConnectingSID value
-     * @return \Ews\StructType\EwsConnectingSIDType|null
+     * @return \StructType\EwsConnectingSIDType|null
      */
-    public function getConnectingSID()
+    public function getConnectingSID(): ?\StructType\EwsConnectingSIDType
     {
         return $this->ConnectingSID;
     }
     /**
      * Set ConnectingSID value
-     * @param \Ews\StructType\EwsConnectingSIDType $connectingSID
-     * @return \Ews\StructType\EwsExchangeImpersonationType
+     * @param \StructType\EwsConnectingSIDType $connectingSID
+     * @return \StructType\EwsExchangeImpersonationType
      */
-    public function setConnectingSID(\Ews\StructType\EwsConnectingSIDType $connectingSID = null)
+    public function setConnectingSID(?\StructType\EwsConnectingSIDType $connectingSID = null): self
     {
         $this->ConnectingSID = $connectingSID;
+        
         return $this;
     }
 }

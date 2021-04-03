@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRoomsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRoomType[]
+     * @var \StructType\EwsRoomType[]
      */
-    public $Room;
+    protected array $Room = [];
     /**
      * Constructor method for ArrayOfRoomsType
      * @uses EwsArrayOfRoomsType::setRoom()
-     * @param \Ews\StructType\EwsRoomType[] $room
+     * @param \StructType\EwsRoomType[] $room
      */
-    public function __construct(array $room = array())
+    public function __construct(array $room = [])
     {
         $this
             ->setRoom($room);
     }
     /**
      * Get Room value
-     * @return \Ews\StructType\EwsRoomType[]|null
+     * @return \StructType\EwsRoomType[]
      */
-    public function getRoom()
+    public function getRoom(): array
     {
         return $this->Room;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRoomForArrayConstraintsFromSetRoom(array $values = array())
+    public static function validateRoomForArrayConstraintsFromSetRoom(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfRoomsTypeRoomItem) {
             // validation for constraint: itemType
-            if (!$arrayOfRoomsTypeRoomItem instanceof \Ews\StructType\EwsRoomType) {
+            if (!$arrayOfRoomsTypeRoomItem instanceof \StructType\EwsRoomType) {
                 $invalidValues[] = is_object($arrayOfRoomsTypeRoomItem) ? get_class($arrayOfRoomsTypeRoomItem) : sprintf('%s(%s)', gettype($arrayOfRoomsTypeRoomItem), var_export($arrayOfRoomsTypeRoomItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Room property can only contain items of type \Ews\StructType\EwsRoomType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Room property can only contain items of type \StructType\EwsRoomType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Room value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRoomType[] $room
-     * @return \Ews\ArrayType\EwsArrayOfRoomsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRoomType[] $room
+     * @return \ArrayType\EwsArrayOfRoomsType
      */
-    public function setRoom(array $room = array())
+    public function setRoom(array $room = []): self
     {
         // validation for constraint: array
         if ('' !== ($roomArrayErrorMessage = self::validateRoomForArrayConstraintsFromSetRoom($room))) {
-            throw new \InvalidArgumentException($roomArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($roomArrayErrorMessage, __LINE__);
         }
         $this->Room = $room;
-        return $this;
-    }
-    /**
-     * Add item to Room value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRoomType $item
-     * @return \Ews\ArrayType\EwsArrayOfRoomsType
-     */
-    public function addToRoom(\Ews\StructType\EwsRoomType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsRoomType) {
-            throw new \InvalidArgumentException(sprintf('The Room property can only contain items of type \Ews\StructType\EwsRoomType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Room[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsRoomType|null
+     * @return \StructType\EwsRoomType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsRoomType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsRoomType|null
+     * @return \StructType\EwsRoomType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsRoomType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsRoomType|null
+     * @return \StructType\EwsRoomType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsRoomType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsRoomType|null
+     * @return \StructType\EwsRoomType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsRoomType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfRoomsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsRoomType|null
+     * @return \StructType\EwsRoomType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsRoomType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRoomType $item
+     * @return \ArrayType\EwsArrayOfRoomsType
+     */
+    public function add(\StructType\EwsRoomType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Room
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Room';
     }

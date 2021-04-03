@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetFolderType StructType
@@ -14,22 +17,22 @@ class EwsGetFolderType extends EwsBaseRequestType
 {
     /**
      * The FolderShape
-     * @var \Ews\StructType\EwsFolderResponseShapeType
+     * @var \StructType\EwsFolderResponseShapeType|null
      */
-    public $FolderShape;
+    protected ?\StructType\EwsFolderResponseShapeType $FolderShape = null;
     /**
      * The FolderIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $FolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $FolderIds = null;
     /**
      * Constructor method for GetFolderType
      * @uses EwsGetFolderType::setFolderShape()
      * @uses EwsGetFolderType::setFolderIds()
-     * @param \Ews\StructType\EwsFolderResponseShapeType $folderShape
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @param \StructType\EwsFolderResponseShapeType $folderShape
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
-    public function __construct(\Ews\StructType\EwsFolderResponseShapeType $folderShape = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function __construct(?\StructType\EwsFolderResponseShapeType $folderShape = null, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
     {
         $this
             ->setFolderShape($folderShape)
@@ -37,38 +40,40 @@ class EwsGetFolderType extends EwsBaseRequestType
     }
     /**
      * Get FolderShape value
-     * @return \Ews\StructType\EwsFolderResponseShapeType|null
+     * @return \StructType\EwsFolderResponseShapeType|null
      */
-    public function getFolderShape()
+    public function getFolderShape(): ?\StructType\EwsFolderResponseShapeType
     {
         return $this->FolderShape;
     }
     /**
      * Set FolderShape value
-     * @param \Ews\StructType\EwsFolderResponseShapeType $folderShape
-     * @return \Ews\StructType\EwsGetFolderType
+     * @param \StructType\EwsFolderResponseShapeType $folderShape
+     * @return \StructType\EwsGetFolderType
      */
-    public function setFolderShape(\Ews\StructType\EwsFolderResponseShapeType $folderShape = null)
+    public function setFolderShape(?\StructType\EwsFolderResponseShapeType $folderShape = null): self
     {
         $this->FolderShape = $folderShape;
+        
         return $this;
     }
     /**
      * Get FolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->FolderIds;
     }
     /**
      * Set FolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
-     * @return \Ews\StructType\EwsGetFolderType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @return \StructType\EwsGetFolderType
      */
-    public function setFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function setFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null): self
     {
         $this->FolderIds = $folderIds;
+        
         return $this;
     }
 }

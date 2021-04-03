@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResolveNamesType StructType
@@ -18,34 +21,34 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * - use: required
      * @var bool
      */
-    public $ReturnFullContactData;
+    protected bool $ReturnFullContactData;
     /**
      * The ParentFolderIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $ParentFolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $ParentFolderIds = null;
     /**
      * The UnresolvedEntry
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $UnresolvedEntry;
+    protected ?string $UnresolvedEntry = null;
     /**
      * The SearchScope
      * Meta information extracted from the WSDL
      * - default: ActiveDirectoryContacts
-     * @var string
+     * @var string|null
      */
-    public $SearchScope;
+    protected ?string $SearchScope = null;
     /**
      * The ContactDataShape
-     * @var string
+     * @var string|null
      */
-    public $ContactDataShape;
+    protected ?string $ContactDataShape = null;
     /**
      * Constructor method for ResolveNamesType
      * @uses EwsResolveNamesType::setReturnFullContactData()
@@ -54,12 +57,12 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * @uses EwsResolveNamesType::setSearchScope()
      * @uses EwsResolveNamesType::setContactDataShape()
      * @param bool $returnFullContactData
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds
      * @param string $unresolvedEntry
      * @param string $searchScope
      * @param string $contactDataShape
      */
-    public function __construct($returnFullContactData = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null, $unresolvedEntry = null, $searchScope = null, $contactDataShape = null)
+    public function __construct(bool $returnFullContactData, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null, ?string $unresolvedEntry = null, ?string $searchScope = null, ?string $contactDataShape = null)
     {
         $this
             ->setReturnFullContactData($returnFullContactData)
@@ -72,116 +75,121 @@ class EwsResolveNamesType extends EwsBaseRequestType
      * Get ReturnFullContactData value
      * @return bool
      */
-    public function getReturnFullContactData()
+    public function getReturnFullContactData(): bool
     {
         return $this->ReturnFullContactData;
     }
     /**
      * Set ReturnFullContactData value
      * @param bool $returnFullContactData
-     * @return \Ews\StructType\EwsResolveNamesType
+     * @return \StructType\EwsResolveNamesType
      */
-    public function setReturnFullContactData($returnFullContactData = null)
+    public function setReturnFullContactData(bool $returnFullContactData): self
     {
         // validation for constraint: boolean
         if (!is_null($returnFullContactData) && !is_bool($returnFullContactData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnFullContactData, true), gettype($returnFullContactData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnFullContactData, true), gettype($returnFullContactData)), __LINE__);
         }
         $this->ReturnFullContactData = $returnFullContactData;
+        
         return $this;
     }
     /**
      * Get ParentFolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getParentFolderIds()
+    public function getParentFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->ParentFolderIds;
     }
     /**
      * Set ParentFolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds
-     * @return \Ews\StructType\EwsResolveNamesType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds
+     * @return \StructType\EwsResolveNamesType
      */
-    public function setParentFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null)
+    public function setParentFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $parentFolderIds = null): self
     {
         $this->ParentFolderIds = $parentFolderIds;
+        
         return $this;
     }
     /**
      * Get UnresolvedEntry value
      * @return string|null
      */
-    public function getUnresolvedEntry()
+    public function getUnresolvedEntry(): ?string
     {
         return $this->UnresolvedEntry;
     }
     /**
      * Set UnresolvedEntry value
      * @param string $unresolvedEntry
-     * @return \Ews\StructType\EwsResolveNamesType
+     * @return \StructType\EwsResolveNamesType
      */
-    public function setUnresolvedEntry($unresolvedEntry = null)
+    public function setUnresolvedEntry(?string $unresolvedEntry = null): self
     {
         // validation for constraint: string
         if (!is_null($unresolvedEntry) && !is_string($unresolvedEntry)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unresolvedEntry, true), gettype($unresolvedEntry)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($unresolvedEntry, true), gettype($unresolvedEntry)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($unresolvedEntry) && mb_strlen($unresolvedEntry) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($unresolvedEntry)), __LINE__);
+        if (!is_null($unresolvedEntry) && mb_strlen((string) $unresolvedEntry) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $unresolvedEntry)), __LINE__);
         }
         $this->UnresolvedEntry = $unresolvedEntry;
+        
         return $this;
     }
     /**
      * Get SearchScope value
      * @return string|null
      */
-    public function getSearchScope()
+    public function getSearchScope(): ?string
     {
         return $this->SearchScope;
     }
     /**
      * Set SearchScope value
-     * @uses \Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsResolveNamesSearchScopeType::valueIsValid()
+     * @uses \EnumType\EwsResolveNamesSearchScopeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $searchScope
-     * @return \Ews\StructType\EwsResolveNamesType
+     * @return \StructType\EwsResolveNamesType
      */
-    public function setSearchScope($searchScope = null)
+    public function setSearchScope(?string $searchScope = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsResolveNamesSearchScopeType::valueIsValid($searchScope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResolveNamesSearchScopeType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \Ews\EnumType\EwsResolveNamesSearchScopeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsResolveNamesSearchScopeType::valueIsValid($searchScope)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsResolveNamesSearchScopeType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \EnumType\EwsResolveNamesSearchScopeType::getValidValues())), __LINE__);
         }
         $this->SearchScope = $searchScope;
+        
         return $this;
     }
     /**
      * Get ContactDataShape value
      * @return string|null
      */
-    public function getContactDataShape()
+    public function getContactDataShape(): ?string
     {
         return $this->ContactDataShape;
     }
     /**
      * Set ContactDataShape value
-     * @uses \Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDefaultShapeNamesType::valueIsValid()
+     * @uses \EnumType\EwsDefaultShapeNamesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $contactDataShape
-     * @return \Ews\StructType\EwsResolveNamesType
+     * @return \StructType\EwsResolveNamesType
      */
-    public function setContactDataShape($contactDataShape = null)
+    public function setContactDataShape(?string $contactDataShape = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($contactDataShape)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDefaultShapeNamesType', is_array($contactDataShape) ? implode(', ', $contactDataShape) : var_export($contactDataShape, true), implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDefaultShapeNamesType::valueIsValid($contactDataShape)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDefaultShapeNamesType', is_array($contactDataShape) ? implode(', ', $contactDataShape) : var_export($contactDataShape, true), implode(', ', \EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }
         $this->ContactDataShape = $contactDataShape;
+        
         return $this;
     }
 }

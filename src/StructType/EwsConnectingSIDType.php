@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConnectingSIDType StructType
@@ -18,48 +21,48 @@ class EwsConnectingSIDType extends AbstractStructBase
      * - choice: PrincipalName | SID | PrimarySmtpAddress | SmtpAddress
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPrincipalNameType
+     * @var \StructType\EwsPrincipalNameType|null
      */
-    public $PrincipalName;
+    protected ?\StructType\EwsPrincipalNameType $PrincipalName = null;
     /**
      * The SID
      * Meta information extracted from the WSDL
      * - choice: PrincipalName | SID | PrimarySmtpAddress | SmtpAddress
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSIDType
+     * @var \StructType\EwsSIDType|null
      */
-    public $SID;
+    protected ?\StructType\EwsSIDType $SID = null;
     /**
      * The PrimarySmtpAddress
      * Meta information extracted from the WSDL
      * - choice: PrincipalName | SID | PrimarySmtpAddress | SmtpAddress
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPrimarySmtpAddressType
+     * @var \StructType\EwsPrimarySmtpAddressType|null
      */
-    public $PrimarySmtpAddress;
+    protected ?\StructType\EwsPrimarySmtpAddressType $PrimarySmtpAddress = null;
     /**
      * The SmtpAddress
      * Meta information extracted from the WSDL
      * - choice: PrincipalName | SID | PrimarySmtpAddress | SmtpAddress
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSmtpAddressType
+     * @var \StructType\EwsSmtpAddressType|null
      */
-    public $SmtpAddress;
+    protected ?\StructType\EwsSmtpAddressType $SmtpAddress = null;
     /**
      * Constructor method for ConnectingSIDType
      * @uses EwsConnectingSIDType::setPrincipalName()
      * @uses EwsConnectingSIDType::setSID()
      * @uses EwsConnectingSIDType::setPrimarySmtpAddress()
      * @uses EwsConnectingSIDType::setSmtpAddress()
-     * @param \Ews\StructType\EwsPrincipalNameType $principalName
-     * @param \Ews\StructType\EwsSIDType $sID
-     * @param \Ews\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress
-     * @param \Ews\StructType\EwsSmtpAddressType $smtpAddress
+     * @param \StructType\EwsPrincipalNameType $principalName
+     * @param \StructType\EwsSIDType $sID
+     * @param \StructType\EwsPrimarySmtpAddressType $primarySmtpAddress
+     * @param \StructType\EwsSmtpAddressType $smtpAddress
      */
-    public function __construct(\Ews\StructType\EwsPrincipalNameType $principalName = null, \Ews\StructType\EwsSIDType $sID = null, \Ews\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress = null, \Ews\StructType\EwsSmtpAddressType $smtpAddress = null)
+    public function __construct(?\StructType\EwsPrincipalNameType $principalName = null, ?\StructType\EwsSIDType $sID = null, ?\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress = null, ?\StructType\EwsSmtpAddressType $smtpAddress = null)
     {
         $this
             ->setPrincipalName($principalName)
@@ -69,9 +72,9 @@ class EwsConnectingSIDType extends AbstractStructBase
     }
     /**
      * Get PrincipalName value
-     * @return \Ews\StructType\EwsPrincipalNameType|null
+     * @return \StructType\EwsPrincipalNameType|null
      */
-    public function getPrincipalName()
+    public function getPrincipalName(): ?\StructType\EwsPrincipalNameType
     {
         return isset($this->PrincipalName) ? $this->PrincipalName : null;
     }
@@ -82,7 +85,7 @@ class EwsConnectingSIDType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePrincipalNameForChoiceConstraintsFromSetPrincipalName($value)
+    public function validatePrincipalNameForChoiceConstraintsFromSetPrincipalName($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -96,12 +99,13 @@ class EwsConnectingSIDType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PrincipalName can\'t be set as the property %s is already set. Only one property must be set among these properties: PrincipalName, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PrincipalName can\'t be set as the property %s is already set. Only one property must be set among these properties: PrincipalName, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -109,28 +113,29 @@ class EwsConnectingSIDType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPrincipalNameType $principalName
-     * @return \Ews\StructType\EwsConnectingSIDType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPrincipalNameType $principalName
+     * @return \StructType\EwsConnectingSIDType
      */
-    public function setPrincipalName(\Ews\StructType\EwsPrincipalNameType $principalName = null)
+    public function setPrincipalName(?\StructType\EwsPrincipalNameType $principalName = null): self
     {
         // validation for constraint: choice(PrincipalName, SID, PrimarySmtpAddress, SmtpAddress)
         if ('' !== ($principalNameChoiceErrorMessage = self::validatePrincipalNameForChoiceConstraintsFromSetPrincipalName($principalName))) {
-            throw new \InvalidArgumentException($principalNameChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($principalNameChoiceErrorMessage, __LINE__);
         }
         if (is_null($principalName) || (is_array($principalName) && empty($principalName))) {
             unset($this->PrincipalName);
         } else {
             $this->PrincipalName = $principalName;
         }
+        
         return $this;
     }
     /**
      * Get SID value
-     * @return \Ews\StructType\EwsSIDType|null
+     * @return \StructType\EwsSIDType|null
      */
-    public function getSID()
+    public function getSID(): ?\StructType\EwsSIDType
     {
         return isset($this->SID) ? $this->SID : null;
     }
@@ -141,7 +146,7 @@ class EwsConnectingSIDType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSIDForChoiceConstraintsFromSetSID($value)
+    public function validateSIDForChoiceConstraintsFromSetSID($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -155,12 +160,13 @@ class EwsConnectingSIDType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SID can\'t be set as the property %s is already set. Only one property must be set among these properties: SID, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SID can\'t be set as the property %s is already set. Only one property must be set among these properties: SID, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -168,28 +174,29 @@ class EwsConnectingSIDType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSIDType $sID
-     * @return \Ews\StructType\EwsConnectingSIDType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSIDType $sID
+     * @return \StructType\EwsConnectingSIDType
      */
-    public function setSID(\Ews\StructType\EwsSIDType $sID = null)
+    public function setSID(?\StructType\EwsSIDType $sID = null): self
     {
         // validation for constraint: choice(PrincipalName, SID, PrimarySmtpAddress, SmtpAddress)
         if ('' !== ($sIDChoiceErrorMessage = self::validateSIDForChoiceConstraintsFromSetSID($sID))) {
-            throw new \InvalidArgumentException($sIDChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($sIDChoiceErrorMessage, __LINE__);
         }
         if (is_null($sID) || (is_array($sID) && empty($sID))) {
             unset($this->SID);
         } else {
             $this->SID = $sID;
         }
+        
         return $this;
     }
     /**
      * Get PrimarySmtpAddress value
-     * @return \Ews\StructType\EwsPrimarySmtpAddressType|null
+     * @return \StructType\EwsPrimarySmtpAddressType|null
      */
-    public function getPrimarySmtpAddress()
+    public function getPrimarySmtpAddress(): ?\StructType\EwsPrimarySmtpAddressType
     {
         return isset($this->PrimarySmtpAddress) ? $this->PrimarySmtpAddress : null;
     }
@@ -200,7 +207,7 @@ class EwsConnectingSIDType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePrimarySmtpAddressForChoiceConstraintsFromSetPrimarySmtpAddress($value)
+    public function validatePrimarySmtpAddressForChoiceConstraintsFromSetPrimarySmtpAddress($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -214,12 +221,13 @@ class EwsConnectingSIDType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PrimarySmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: PrimarySmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PrimarySmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: PrimarySmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -227,28 +235,29 @@ class EwsConnectingSIDType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress
-     * @return \Ews\StructType\EwsConnectingSIDType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPrimarySmtpAddressType $primarySmtpAddress
+     * @return \StructType\EwsConnectingSIDType
      */
-    public function setPrimarySmtpAddress(\Ews\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress = null)
+    public function setPrimarySmtpAddress(?\StructType\EwsPrimarySmtpAddressType $primarySmtpAddress = null): self
     {
         // validation for constraint: choice(PrincipalName, SID, PrimarySmtpAddress, SmtpAddress)
         if ('' !== ($primarySmtpAddressChoiceErrorMessage = self::validatePrimarySmtpAddressForChoiceConstraintsFromSetPrimarySmtpAddress($primarySmtpAddress))) {
-            throw new \InvalidArgumentException($primarySmtpAddressChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($primarySmtpAddressChoiceErrorMessage, __LINE__);
         }
         if (is_null($primarySmtpAddress) || (is_array($primarySmtpAddress) && empty($primarySmtpAddress))) {
             unset($this->PrimarySmtpAddress);
         } else {
             $this->PrimarySmtpAddress = $primarySmtpAddress;
         }
+        
         return $this;
     }
     /**
      * Get SmtpAddress value
-     * @return \Ews\StructType\EwsSmtpAddressType|null
+     * @return \StructType\EwsSmtpAddressType|null
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): ?\StructType\EwsSmtpAddressType
     {
         return isset($this->SmtpAddress) ? $this->SmtpAddress : null;
     }
@@ -259,7 +268,7 @@ class EwsConnectingSIDType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($value)
+    public function validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -273,12 +282,13 @@ class EwsConnectingSIDType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: SmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: SmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -286,21 +296,22 @@ class EwsConnectingSIDType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSmtpAddressType $smtpAddress
-     * @return \Ews\StructType\EwsConnectingSIDType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSmtpAddressType $smtpAddress
+     * @return \StructType\EwsConnectingSIDType
      */
-    public function setSmtpAddress(\Ews\StructType\EwsSmtpAddressType $smtpAddress = null)
+    public function setSmtpAddress(?\StructType\EwsSmtpAddressType $smtpAddress = null): self
     {
         // validation for constraint: choice(PrincipalName, SID, PrimarySmtpAddress, SmtpAddress)
         if ('' !== ($smtpAddressChoiceErrorMessage = self::validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($smtpAddress))) {
-            throw new \InvalidArgumentException($smtpAddressChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($smtpAddressChoiceErrorMessage, __LINE__);
         }
         if (is_null($smtpAddress) || (is_array($smtpAddress) && empty($smtpAddress))) {
             unset($this->SmtpAddress);
         } else {
             $this->SmtpAddress = $smtpAddress;
         }
+        
         return $this;
     }
 }

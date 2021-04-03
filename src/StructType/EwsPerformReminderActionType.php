@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PerformReminderActionType StructType
@@ -17,35 +20,36 @@ class EwsPerformReminderActionType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
+     * @var \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
      */
-    public $ReminderItemActions;
+    protected \ArrayType\EwsNonEmptyArrayOfReminderItemActionType $ReminderItemActions;
     /**
      * Constructor method for PerformReminderActionType
      * @uses EwsPerformReminderActionType::setReminderItemActions()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
+     * @param \ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions)
     {
         $this
             ->setReminderItemActions($reminderItemActions);
     }
     /**
      * Get ReminderItemActions value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType
+     * @return \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
      */
-    public function getReminderItemActions()
+    public function getReminderItemActions(): \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
     {
         return $this->ReminderItemActions;
     }
     /**
      * Set ReminderItemActions value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
-     * @return \Ews\StructType\EwsPerformReminderActionType
+     * @param \ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions
+     * @return \StructType\EwsPerformReminderActionType
      */
-    public function setReminderItemActions(\Ews\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions = null)
+    public function setReminderItemActions(\ArrayType\EwsNonEmptyArrayOfReminderItemActionType $reminderItemActions): self
     {
         $this->ReminderItemActions = $reminderItemActions;
+        
         return $this;
     }
 }

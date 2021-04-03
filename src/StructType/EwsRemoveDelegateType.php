@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RemoveDelegateType StructType
@@ -14,35 +17,36 @@ class EwsRemoveDelegateType extends EwsBaseDelegateType
 {
     /**
      * The UserIds
-     * @var \Ews\ArrayType\EwsArrayOfUserIdType
+     * @var \ArrayType\EwsArrayOfUserIdType|null
      */
-    public $UserIds;
+    protected ?\ArrayType\EwsArrayOfUserIdType $UserIds = null;
     /**
      * Constructor method for RemoveDelegateType
      * @uses EwsRemoveDelegateType::setUserIds()
-     * @param \Ews\ArrayType\EwsArrayOfUserIdType $userIds
+     * @param \ArrayType\EwsArrayOfUserIdType $userIds
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUserIdType $userIds = null)
+    public function __construct(?\ArrayType\EwsArrayOfUserIdType $userIds = null)
     {
         $this
             ->setUserIds($userIds);
     }
     /**
      * Get UserIds value
-     * @return \Ews\ArrayType\EwsArrayOfUserIdType|null
+     * @return \ArrayType\EwsArrayOfUserIdType|null
      */
-    public function getUserIds()
+    public function getUserIds(): ?\ArrayType\EwsArrayOfUserIdType
     {
         return $this->UserIds;
     }
     /**
      * Set UserIds value
-     * @param \Ews\ArrayType\EwsArrayOfUserIdType $userIds
-     * @return \Ews\StructType\EwsRemoveDelegateType
+     * @param \ArrayType\EwsArrayOfUserIdType $userIds
+     * @return \StructType\EwsRemoveDelegateType
      */
-    public function setUserIds(\Ews\ArrayType\EwsArrayOfUserIdType $userIds = null)
+    public function setUserIds(?\ArrayType\EwsArrayOfUserIdType $userIds = null): self
     {
         $this->UserIds = $userIds;
+        
         return $this;
     }
 }

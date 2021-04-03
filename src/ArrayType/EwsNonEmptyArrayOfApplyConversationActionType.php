@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfApplyConversationActionType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
      * The ConversationAction
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsConversationActionType[]
+     * @var \StructType\EwsConversationActionType[]
      */
-    public $ConversationAction;
+    protected array $ConversationAction = [];
     /**
      * Constructor method for NonEmptyArrayOfApplyConversationActionType
      * @uses EwsNonEmptyArrayOfApplyConversationActionType::setConversationAction()
-     * @param \Ews\StructType\EwsConversationActionType[] $conversationAction
+     * @param \StructType\EwsConversationActionType[] $conversationAction
      */
-    public function __construct(array $conversationAction = array())
+    public function __construct(array $conversationAction = [])
     {
         $this
             ->setConversationAction($conversationAction);
     }
     /**
      * Get ConversationAction value
-     * @return \Ews\StructType\EwsConversationActionType[]|null
+     * @return \StructType\EwsConversationActionType[]
      */
-    public function getConversationAction()
+    public function getConversationAction(): array
     {
         return $this->ConversationAction;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateConversationActionForArrayConstraintsFromSetConversationAction(array $values = array())
+    public static function validateConversationActionForArrayConstraintsFromSetConversationAction(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfApplyConversationActionTypeConversationActionItem instanceof \Ews\StructType\EwsConversationActionType) {
+            if (!$nonEmptyArrayOfApplyConversationActionTypeConversationActionItem instanceof \StructType\EwsConversationActionType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) ? get_class($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem), var_export($nonEmptyArrayOfApplyConversationActionTypeConversationActionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ConversationAction property can only contain items of type \Ews\StructType\EwsConversationActionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ConversationAction property can only contain items of type \StructType\EwsConversationActionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ConversationAction value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationActionType[] $conversationAction
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationActionType[] $conversationAction
+     * @return \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
      */
-    public function setConversationAction(array $conversationAction = array())
+    public function setConversationAction(array $conversationAction = []): self
     {
         // validation for constraint: array
         if ('' !== ($conversationActionArrayErrorMessage = self::validateConversationActionForArrayConstraintsFromSetConversationAction($conversationAction))) {
-            throw new \InvalidArgumentException($conversationActionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($conversationActionArrayErrorMessage, __LINE__);
         }
         $this->ConversationAction = $conversationAction;
-        return $this;
-    }
-    /**
-     * Add item to ConversationAction value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationActionType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
-     */
-    public function addToConversationAction(\Ews\StructType\EwsConversationActionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsConversationActionType) {
-            throw new \InvalidArgumentException(sprintf('The ConversationAction property can only contain items of type \Ews\StructType\EwsConversationActionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ConversationAction[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsConversationActionType|null
+     * @return \StructType\EwsConversationActionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsConversationActionType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsConversationActionType|null
+     * @return \StructType\EwsConversationActionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsConversationActionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsConversationActionType|null
+     * @return \StructType\EwsConversationActionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsConversationActionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsConversationActionType|null
+     * @return \StructType\EwsConversationActionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsConversationActionType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfApplyConversationActionType extends AbstractStructArrayB
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsConversationActionType|null
+     * @return \StructType\EwsConversationActionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsConversationActionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationActionType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
+     */
+    public function add(\StructType\EwsConversationActionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ConversationAction
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ConversationAction';
     }

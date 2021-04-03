@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConversationResponseType StructType
@@ -17,35 +20,35 @@ class EwsConversationResponseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ConversationId;
+    protected \StructType\EwsItemIdType $ConversationId;
     /**
      * The SyncState
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SyncState;
+    protected ?string $SyncState = null;
     /**
      * The ConversationNodes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfConversationNodesType
+     * @var \ArrayType\EwsArrayOfConversationNodesType|null
      */
-    public $ConversationNodes;
+    protected ?\ArrayType\EwsArrayOfConversationNodesType $ConversationNodes = null;
     /**
      * Constructor method for ConversationResponseType
      * @uses EwsConversationResponseType::setConversationId()
      * @uses EwsConversationResponseType::setSyncState()
      * @uses EwsConversationResponseType::setConversationNodes()
-     * @param \Ews\StructType\EwsItemIdType $conversationId
+     * @param \StructType\EwsItemIdType $conversationId
      * @param string $syncState
-     * @param \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes
+     * @param \ArrayType\EwsArrayOfConversationNodesType $conversationNodes
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $syncState = null, \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null)
+    public function __construct(\StructType\EwsItemIdType $conversationId, ?string $syncState = null, ?\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null)
     {
         $this
             ->setConversationId($conversationId)
@@ -54,60 +57,63 @@ class EwsConversationResponseType extends AbstractStructBase
     }
     /**
      * Get ConversationId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getConversationId()
+    public function getConversationId(): \StructType\EwsItemIdType
     {
         return $this->ConversationId;
     }
     /**
      * Set ConversationId value
-     * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @return \Ews\StructType\EwsConversationResponseType
+     * @param \StructType\EwsItemIdType $conversationId
+     * @return \StructType\EwsConversationResponseType
      */
-    public function setConversationId(\Ews\StructType\EwsItemIdType $conversationId = null)
+    public function setConversationId(\StructType\EwsItemIdType $conversationId): self
     {
         $this->ConversationId = $conversationId;
+        
         return $this;
     }
     /**
      * Get SyncState value
      * @return string|null
      */
-    public function getSyncState()
+    public function getSyncState(): ?string
     {
         return $this->SyncState;
     }
     /**
      * Set SyncState value
      * @param string $syncState
-     * @return \Ews\StructType\EwsConversationResponseType
+     * @return \StructType\EwsConversationResponseType
      */
-    public function setSyncState($syncState = null)
+    public function setSyncState(?string $syncState = null): self
     {
         // validation for constraint: string
         if (!is_null($syncState) && !is_string($syncState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
         }
         $this->SyncState = $syncState;
+        
         return $this;
     }
     /**
      * Get ConversationNodes value
-     * @return \Ews\ArrayType\EwsArrayOfConversationNodesType|null
+     * @return \ArrayType\EwsArrayOfConversationNodesType|null
      */
-    public function getConversationNodes()
+    public function getConversationNodes(): ?\ArrayType\EwsArrayOfConversationNodesType
     {
         return $this->ConversationNodes;
     }
     /**
      * Set ConversationNodes value
-     * @param \Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes
-     * @return \Ews\StructType\EwsConversationResponseType
+     * @param \ArrayType\EwsArrayOfConversationNodesType $conversationNodes
+     * @return \StructType\EwsConversationResponseType
      */
-    public function setConversationNodes(\Ews\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null)
+    public function setConversationNodes(?\ArrayType\EwsArrayOfConversationNodesType $conversationNodes = null): self
     {
         $this->ConversationNodes = $conversationNodes;
+        
         return $this;
     }
 }

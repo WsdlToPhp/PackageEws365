@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetMailTipsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetMailTipsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType
+     * @var \ArrayType\EwsArrayOfMailTipsResponseMessageType|null
      */
-    public $ResponseMessages;
+    protected ?\ArrayType\EwsArrayOfMailTipsResponseMessageType $ResponseMessages = null;
     /**
      * Constructor method for GetMailTipsResponseMessageType
      * @uses EwsGetMailTipsResponseMessageType::setResponseMessages()
-     * @param \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages
+     * @param \ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages = null)
+    public function __construct(?\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages = null)
     {
         $this
             ->setResponseMessages($responseMessages);
     }
     /**
      * Get ResponseMessages value
-     * @return \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType|null
+     * @return \ArrayType\EwsArrayOfMailTipsResponseMessageType|null
      */
-    public function getResponseMessages()
+    public function getResponseMessages(): ?\ArrayType\EwsArrayOfMailTipsResponseMessageType
     {
         return $this->ResponseMessages;
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages
-     * @return \Ews\StructType\EwsGetMailTipsResponseMessageType
+     * @param \ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages
+     * @return \StructType\EwsGetMailTipsResponseMessageType
      */
-    public function setResponseMessages(\Ews\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages = null)
+    public function setResponseMessages(?\ArrayType\EwsArrayOfMailTipsResponseMessageType $responseMessages = null): self
     {
         $this->ResponseMessages = $responseMessages;
+        
         return $this;
     }
 }

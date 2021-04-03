@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserUnifiedGroupsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetUserUnifiedGroupsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupsSetsType
      */
-    public $GroupsSets;
+    protected \ArrayType\EwsArrayOfUnifiedGroupsSetsType $GroupsSets;
     /**
      * Constructor method for GetUserUnifiedGroupsResponseMessageType
      * @uses EwsGetUserUnifiedGroupsResponseMessageType::setGroupsSets()
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets
+     * @param \ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets = null)
+    public function __construct(\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets)
     {
         $this
             ->setGroupsSets($groupsSets);
     }
     /**
      * Get GroupsSets value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType
+     * @return \ArrayType\EwsArrayOfUnifiedGroupsSetsType
      */
-    public function getGroupsSets()
+    public function getGroupsSets(): \ArrayType\EwsArrayOfUnifiedGroupsSetsType
     {
         return $this->GroupsSets;
     }
     /**
      * Set GroupsSets value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets
-     * @return \Ews\StructType\EwsGetUserUnifiedGroupsResponseMessageType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets
+     * @return \StructType\EwsGetUserUnifiedGroupsResponseMessageType
      */
-    public function setGroupsSets(\Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets = null)
+    public function setGroupsSets(\ArrayType\EwsArrayOfUnifiedGroupsSetsType $groupsSets): self
     {
         $this->GroupsSets = $groupsSets;
+        
         return $this;
     }
 }

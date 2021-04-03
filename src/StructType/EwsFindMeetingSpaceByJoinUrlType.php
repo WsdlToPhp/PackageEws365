@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMeetingSpaceByJoinUrlType StructType
@@ -19,13 +22,13 @@ class EwsFindMeetingSpaceByJoinUrlType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $JoinUrl;
+    protected string $JoinUrl;
     /**
      * Constructor method for FindMeetingSpaceByJoinUrlType
      * @uses EwsFindMeetingSpaceByJoinUrlType::setJoinUrl()
      * @param string $joinUrl
      */
-    public function __construct($joinUrl = null)
+    public function __construct(string $joinUrl)
     {
         $this
             ->setJoinUrl($joinUrl);
@@ -34,22 +37,23 @@ class EwsFindMeetingSpaceByJoinUrlType extends EwsBaseRequestType
      * Get JoinUrl value
      * @return string
      */
-    public function getJoinUrl()
+    public function getJoinUrl(): string
     {
         return $this->JoinUrl;
     }
     /**
      * Set JoinUrl value
      * @param string $joinUrl
-     * @return \Ews\StructType\EwsFindMeetingSpaceByJoinUrlType
+     * @return \StructType\EwsFindMeetingSpaceByJoinUrlType
      */
-    public function setJoinUrl($joinUrl = null)
+    public function setJoinUrl(string $joinUrl): self
     {
         // validation for constraint: string
         if (!is_null($joinUrl) && !is_string($joinUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($joinUrl, true), gettype($joinUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($joinUrl, true), gettype($joinUrl)), __LINE__);
         }
         $this->JoinUrl = $joinUrl;
+        
         return $this;
     }
 }

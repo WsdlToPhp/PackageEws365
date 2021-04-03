@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetAttachmentType StructType
@@ -16,22 +19,22 @@ class EwsGetAttachmentType extends EwsBaseRequestType
      * The AttachmentShape
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAttachmentResponseShapeType
+     * @var \StructType\EwsAttachmentResponseShapeType|null
      */
-    public $AttachmentShape;
+    protected ?\StructType\EwsAttachmentResponseShapeType $AttachmentShape = null;
     /**
      * The AttachmentIds
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
      */
-    public $AttachmentIds;
+    protected ?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $AttachmentIds = null;
     /**
      * Constructor method for GetAttachmentType
      * @uses EwsGetAttachmentType::setAttachmentShape()
      * @uses EwsGetAttachmentType::setAttachmentIds()
-     * @param \Ews\StructType\EwsAttachmentResponseShapeType $attachmentShape
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
+     * @param \StructType\EwsAttachmentResponseShapeType $attachmentShape
+     * @param \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
      */
-    public function __construct(\Ews\StructType\EwsAttachmentResponseShapeType $attachmentShape = null, \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
+    public function __construct(?\StructType\EwsAttachmentResponseShapeType $attachmentShape = null, ?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
     {
         $this
             ->setAttachmentShape($attachmentShape)
@@ -39,38 +42,40 @@ class EwsGetAttachmentType extends EwsBaseRequestType
     }
     /**
      * Get AttachmentShape value
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType|null
+     * @return \StructType\EwsAttachmentResponseShapeType|null
      */
-    public function getAttachmentShape()
+    public function getAttachmentShape(): ?\StructType\EwsAttachmentResponseShapeType
     {
         return $this->AttachmentShape;
     }
     /**
      * Set AttachmentShape value
-     * @param \Ews\StructType\EwsAttachmentResponseShapeType $attachmentShape
-     * @return \Ews\StructType\EwsGetAttachmentType
+     * @param \StructType\EwsAttachmentResponseShapeType $attachmentShape
+     * @return \StructType\EwsGetAttachmentType
      */
-    public function setAttachmentShape(\Ews\StructType\EwsAttachmentResponseShapeType $attachmentShape = null)
+    public function setAttachmentShape(?\StructType\EwsAttachmentResponseShapeType $attachmentShape = null): self
     {
         $this->AttachmentShape = $attachmentShape;
+        
         return $this;
     }
     /**
      * Get AttachmentIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
      */
-    public function getAttachmentIds()
+    public function getAttachmentIds(): ?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType
     {
         return $this->AttachmentIds;
     }
     /**
      * Set AttachmentIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
-     * @return \Ews\StructType\EwsGetAttachmentType
+     * @param \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
+     * @return \StructType\EwsGetAttachmentType
      */
-    public function setAttachmentIds(\Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
+    public function setAttachmentIds(?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null): self
     {
         $this->AttachmentIds = $attachmentIds;
+        
         return $this;
     }
 }

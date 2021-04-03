@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfFolderChangeDescriptionsType StructType
@@ -18,37 +21,37 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * - choice: AppendToFolderField | SetFolderField | DeleteFolderField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAppendToFolderFieldType
+     * @var \StructType\EwsAppendToFolderFieldType|null
      */
-    public $AppendToFolderField;
+    protected ?\StructType\EwsAppendToFolderFieldType $AppendToFolderField = null;
     /**
      * The SetFolderField
      * Meta information extracted from the WSDL
      * - choice: AppendToFolderField | SetFolderField | DeleteFolderField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSetFolderFieldType
+     * @var \StructType\EwsSetFolderFieldType|null
      */
-    public $SetFolderField;
+    protected ?\StructType\EwsSetFolderFieldType $SetFolderField = null;
     /**
      * The DeleteFolderField
      * Meta information extracted from the WSDL
      * - choice: AppendToFolderField | SetFolderField | DeleteFolderField
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDeleteFolderFieldType
+     * @var \StructType\EwsDeleteFolderFieldType|null
      */
-    public $DeleteFolderField;
+    protected ?\StructType\EwsDeleteFolderFieldType $DeleteFolderField = null;
     /**
      * Constructor method for NonEmptyArrayOfFolderChangeDescriptionsType
      * @uses EwsNonEmptyArrayOfFolderChangeDescriptionsType::setAppendToFolderField()
      * @uses EwsNonEmptyArrayOfFolderChangeDescriptionsType::setSetFolderField()
      * @uses EwsNonEmptyArrayOfFolderChangeDescriptionsType::setDeleteFolderField()
-     * @param \Ews\StructType\EwsAppendToFolderFieldType $appendToFolderField
-     * @param \Ews\StructType\EwsSetFolderFieldType $setFolderField
-     * @param \Ews\StructType\EwsDeleteFolderFieldType $deleteFolderField
+     * @param \StructType\EwsAppendToFolderFieldType $appendToFolderField
+     * @param \StructType\EwsSetFolderFieldType $setFolderField
+     * @param \StructType\EwsDeleteFolderFieldType $deleteFolderField
      */
-    public function __construct(\Ews\StructType\EwsAppendToFolderFieldType $appendToFolderField = null, \Ews\StructType\EwsSetFolderFieldType $setFolderField = null, \Ews\StructType\EwsDeleteFolderFieldType $deleteFolderField = null)
+    public function __construct(?\StructType\EwsAppendToFolderFieldType $appendToFolderField = null, ?\StructType\EwsSetFolderFieldType $setFolderField = null, ?\StructType\EwsDeleteFolderFieldType $deleteFolderField = null)
     {
         $this
             ->setAppendToFolderField($appendToFolderField)
@@ -57,9 +60,9 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
     }
     /**
      * Get AppendToFolderField value
-     * @return \Ews\StructType\EwsAppendToFolderFieldType|null
+     * @return \StructType\EwsAppendToFolderFieldType|null
      */
-    public function getAppendToFolderField()
+    public function getAppendToFolderField(): ?\StructType\EwsAppendToFolderFieldType
     {
         return isset($this->AppendToFolderField) ? $this->AppendToFolderField : null;
     }
@@ -70,7 +73,7 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAppendToFolderFieldForChoiceConstraintsFromSetAppendToFolderField($value)
+    public function validateAppendToFolderFieldForChoiceConstraintsFromSetAppendToFolderField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -83,12 +86,13 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AppendToFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: AppendToFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AppendToFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: AppendToFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -96,28 +100,29 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAppendToFolderFieldType $appendToFolderField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAppendToFolderFieldType $appendToFolderField
+     * @return \StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
      */
-    public function setAppendToFolderField(\Ews\StructType\EwsAppendToFolderFieldType $appendToFolderField = null)
+    public function setAppendToFolderField(?\StructType\EwsAppendToFolderFieldType $appendToFolderField = null): self
     {
         // validation for constraint: choice(AppendToFolderField, SetFolderField, DeleteFolderField)
         if ('' !== ($appendToFolderFieldChoiceErrorMessage = self::validateAppendToFolderFieldForChoiceConstraintsFromSetAppendToFolderField($appendToFolderField))) {
-            throw new \InvalidArgumentException($appendToFolderFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($appendToFolderFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($appendToFolderField) || (is_array($appendToFolderField) && empty($appendToFolderField))) {
             unset($this->AppendToFolderField);
         } else {
             $this->AppendToFolderField = $appendToFolderField;
         }
+        
         return $this;
     }
     /**
      * Get SetFolderField value
-     * @return \Ews\StructType\EwsSetFolderFieldType|null
+     * @return \StructType\EwsSetFolderFieldType|null
      */
-    public function getSetFolderField()
+    public function getSetFolderField(): ?\StructType\EwsSetFolderFieldType
     {
         return isset($this->SetFolderField) ? $this->SetFolderField : null;
     }
@@ -128,7 +133,7 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetFolderFieldForChoiceConstraintsFromSetSetFolderField($value)
+    public function validateSetFolderFieldForChoiceConstraintsFromSetSetFolderField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -141,12 +146,13 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: SetFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: SetFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -154,28 +160,29 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSetFolderFieldType $setFolderField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSetFolderFieldType $setFolderField
+     * @return \StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
      */
-    public function setSetFolderField(\Ews\StructType\EwsSetFolderFieldType $setFolderField = null)
+    public function setSetFolderField(?\StructType\EwsSetFolderFieldType $setFolderField = null): self
     {
         // validation for constraint: choice(AppendToFolderField, SetFolderField, DeleteFolderField)
         if ('' !== ($setFolderFieldChoiceErrorMessage = self::validateSetFolderFieldForChoiceConstraintsFromSetSetFolderField($setFolderField))) {
-            throw new \InvalidArgumentException($setFolderFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setFolderFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($setFolderField) || (is_array($setFolderField) && empty($setFolderField))) {
             unset($this->SetFolderField);
         } else {
             $this->SetFolderField = $setFolderField;
         }
+        
         return $this;
     }
     /**
      * Get DeleteFolderField value
-     * @return \Ews\StructType\EwsDeleteFolderFieldType|null
+     * @return \StructType\EwsDeleteFolderFieldType|null
      */
-    public function getDeleteFolderField()
+    public function getDeleteFolderField(): ?\StructType\EwsDeleteFolderFieldType
     {
         return isset($this->DeleteFolderField) ? $this->DeleteFolderField : null;
     }
@@ -186,7 +193,7 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteFolderFieldForChoiceConstraintsFromSetDeleteFolderField($value)
+    public function validateDeleteFolderFieldForChoiceConstraintsFromSetDeleteFolderField($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -199,12 +206,13 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteFolderField can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFolderField, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -212,21 +220,22 @@ class EwsNonEmptyArrayOfFolderChangeDescriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteFolderFieldType $deleteFolderField
-     * @return \Ews\StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteFolderFieldType $deleteFolderField
+     * @return \StructType\EwsNonEmptyArrayOfFolderChangeDescriptionsType
      */
-    public function setDeleteFolderField(\Ews\StructType\EwsDeleteFolderFieldType $deleteFolderField = null)
+    public function setDeleteFolderField(?\StructType\EwsDeleteFolderFieldType $deleteFolderField = null): self
     {
         // validation for constraint: choice(AppendToFolderField, SetFolderField, DeleteFolderField)
         if ('' !== ($deleteFolderFieldChoiceErrorMessage = self::validateDeleteFolderFieldForChoiceConstraintsFromSetDeleteFolderField($deleteFolderField))) {
-            throw new \InvalidArgumentException($deleteFolderFieldChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteFolderFieldChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteFolderField) || (is_array($deleteFolderField) && empty($deleteFolderField))) {
             unset($this->DeleteFolderField);
         } else {
             $this->DeleteFolderField = $deleteFolderField;
         }
+        
         return $this;
     }
 }

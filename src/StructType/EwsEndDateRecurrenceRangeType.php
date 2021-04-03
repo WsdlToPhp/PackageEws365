@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EndDateRecurrenceRangeType StructType
@@ -14,15 +17,15 @@ class EwsEndDateRecurrenceRangeType extends EwsRecurrenceRangeBaseType
 {
     /**
      * The EndDate
-     * @var string
+     * @var string|null
      */
-    public $EndDate;
+    protected ?string $EndDate = null;
     /**
      * Constructor method for EndDateRecurrenceRangeType
      * @uses EwsEndDateRecurrenceRangeType::setEndDate()
      * @param string $endDate
      */
-    public function __construct($endDate = null)
+    public function __construct(?string $endDate = null)
     {
         $this
             ->setEndDate($endDate);
@@ -31,22 +34,23 @@ class EwsEndDateRecurrenceRangeType extends EwsRecurrenceRangeBaseType
      * Get EndDate value
      * @return string|null
      */
-    public function getEndDate()
+    public function getEndDate(): ?string
     {
         return $this->EndDate;
     }
     /**
      * Set EndDate value
      * @param string $endDate
-     * @return \Ews\StructType\EwsEndDateRecurrenceRangeType
+     * @return \StructType\EwsEndDateRecurrenceRangeType
      */
-    public function setEndDate($endDate = null)
+    public function setEndDate(?string $endDate = null): self
     {
         // validation for constraint: string
         if (!is_null($endDate) && !is_string($endDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
         }
         $this->EndDate = $endDate;
+        
         return $this;
     }
 }

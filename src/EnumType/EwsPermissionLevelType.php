@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for PermissionLevelType EnumType
@@ -76,9 +78,9 @@ class EwsPermissionLevelType extends AbstractStructEnumBase
      * @uses self::VALUE_CUSTOM
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_OWNER,
             self::VALUE_PUBLISHING_EDITOR,
@@ -89,6 +91,6 @@ class EwsPermissionLevelType extends AbstractStructEnumBase
             self::VALUE_REVIEWER,
             self::VALUE_CONTRIBUTOR,
             self::VALUE_CUSTOM,
-        );
+        ];
     }
 }

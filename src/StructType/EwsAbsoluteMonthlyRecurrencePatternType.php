@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AbsoluteMonthlyRecurrencePatternType StructType
@@ -14,15 +17,15 @@ class EwsAbsoluteMonthlyRecurrencePatternType extends EwsIntervalRecurrencePatte
 {
     /**
      * The DayOfMonth
-     * @var int
+     * @var int|null
      */
-    public $DayOfMonth;
+    protected ?int $DayOfMonth = null;
     /**
      * Constructor method for AbsoluteMonthlyRecurrencePatternType
      * @uses EwsAbsoluteMonthlyRecurrencePatternType::setDayOfMonth()
      * @param int $dayOfMonth
      */
-    public function __construct($dayOfMonth = null)
+    public function __construct(?int $dayOfMonth = null)
     {
         $this
             ->setDayOfMonth($dayOfMonth);
@@ -31,22 +34,23 @@ class EwsAbsoluteMonthlyRecurrencePatternType extends EwsIntervalRecurrencePatte
      * Get DayOfMonth value
      * @return int|null
      */
-    public function getDayOfMonth()
+    public function getDayOfMonth(): ?int
     {
         return $this->DayOfMonth;
     }
     /**
      * Set DayOfMonth value
      * @param int $dayOfMonth
-     * @return \Ews\StructType\EwsAbsoluteMonthlyRecurrencePatternType
+     * @return \StructType\EwsAbsoluteMonthlyRecurrencePatternType
      */
-    public function setDayOfMonth($dayOfMonth = null)
+    public function setDayOfMonth(?int $dayOfMonth = null): self
     {
         // validation for constraint: int
         if (!is_null($dayOfMonth) && !(is_int($dayOfMonth) || ctype_digit($dayOfMonth))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOfMonth, true), gettype($dayOfMonth)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOfMonth, true), gettype($dayOfMonth)), __LINE__);
         }
         $this->DayOfMonth = $dayOfMonth;
+        
         return $this;
     }
 }

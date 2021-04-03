@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUMCallSummaryResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetUMCallSummaryResponseMessageType extends EwsResponseMessageType
      * The UMReportRawCountersCollection
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUMReportRawCountersType
+     * @var \ArrayType\EwsArrayOfUMReportRawCountersType|null
      */
-    public $UMReportRawCountersCollection;
+    protected ?\ArrayType\EwsArrayOfUMReportRawCountersType $UMReportRawCountersCollection = null;
     /**
      * Constructor method for GetUMCallSummaryResponseMessageType
      * @uses EwsGetUMCallSummaryResponseMessageType::setUMReportRawCountersCollection()
-     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
+     * @param \ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null)
+    public function __construct(?\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null)
     {
         $this
             ->setUMReportRawCountersCollection($uMReportRawCountersCollection);
     }
     /**
      * Get UMReportRawCountersCollection value
-     * @return \Ews\ArrayType\EwsArrayOfUMReportRawCountersType|null
+     * @return \ArrayType\EwsArrayOfUMReportRawCountersType|null
      */
-    public function getUMReportRawCountersCollection()
+    public function getUMReportRawCountersCollection(): ?\ArrayType\EwsArrayOfUMReportRawCountersType
     {
         return $this->UMReportRawCountersCollection;
     }
     /**
      * Set UMReportRawCountersCollection value
-     * @param \Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
-     * @return \Ews\StructType\EwsGetUMCallSummaryResponseMessageType
+     * @param \ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection
+     * @return \StructType\EwsGetUMCallSummaryResponseMessageType
      */
-    public function setUMReportRawCountersCollection(\Ews\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null)
+    public function setUMReportRawCountersCollection(?\ArrayType\EwsArrayOfUMReportRawCountersType $uMReportRawCountersCollection = null): self
     {
         $this->UMReportRawCountersCollection = $uMReportRawCountersCollection;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for XrmGraphRelationshipType EnumType
@@ -34,12 +36,12 @@ class EwsXrmGraphRelationshipType extends AbstractStructEnumBase
      * @uses self::VALUE_WORKS_FOR
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_POINTS_OF_CONTACT_FOR,
             self::VALUE_CUSTOMER_OF,
             self::VALUE_WORKS_FOR,
-        );
+        ];
     }
 }

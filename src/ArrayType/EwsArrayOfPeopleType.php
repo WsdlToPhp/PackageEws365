@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfPeopleType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
      * - choice: Persona
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsPersonaType
+     * @var \StructType\EwsPersonaType|null
      */
-    public $Persona;
+    protected ?\StructType\EwsPersonaType $Persona = null;
     /**
      * Constructor method for ArrayOfPeopleType
      * @uses EwsArrayOfPeopleType::setPersona()
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @param \StructType\EwsPersonaType $persona
      */
-    public function __construct(\Ews\StructType\EwsPersonaType $persona = null)
+    public function __construct(?\StructType\EwsPersonaType $persona = null)
     {
         $this
             ->setPersona($persona);
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function getPersona()
+    public function getPersona(): ?\StructType\EwsPersonaType
     {
         return isset($this->Persona) ? $this->Persona : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePersonaForChoiceConstraintsFromSetPersona($value)
+    public function validatePersonaForChoiceConstraintsFromSetPersona($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Persona can\'t be set as the property %s is already set. Only one property must be set among these properties: Persona, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Persona can\'t be set as the property %s is already set. Only one property must be set among these properties: Persona, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPersonaType $persona
-     * @return \Ews\ArrayType\EwsArrayOfPeopleType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaType $persona
+     * @return \ArrayType\EwsArrayOfPeopleType
      */
-    public function setPersona(\Ews\StructType\EwsPersonaType $persona = null)
+    public function setPersona(?\StructType\EwsPersonaType $persona = null): self
     {
         // validation for constraint: choice(Persona)
         if ('' !== ($personaChoiceErrorMessage = self::validatePersonaForChoiceConstraintsFromSetPersona($persona))) {
-            throw new \InvalidArgumentException($personaChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($personaChoiceErrorMessage, __LINE__);
         }
         if (is_null($persona) || (is_array($persona) && empty($persona))) {
             unset($this->Persona);
         } else {
             $this->Persona = $persona;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPersonaType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPersonaType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPersonaType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPersonaType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfPeopleType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPersonaType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaType $item
+     * @return \ArrayType\EwsArrayOfPeopleType
+     */
+    public function add(\StructType\EwsPersonaType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Persona
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Persona';
     }

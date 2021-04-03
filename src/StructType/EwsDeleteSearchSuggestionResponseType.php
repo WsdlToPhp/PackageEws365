@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteSearchSuggestionResponseType StructType
@@ -19,23 +22,23 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      * - minOccurs: 1
      * @var bool
      */
-    public $Success;
+    protected bool $Success;
     /**
      * The StatusMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StatusMessage;
+    protected ?string $StatusMessage = null;
     /**
      * The DiagnosticsData
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchDiagnosticsType
+     * @var \StructType\EwsSearchDiagnosticsType|null
      */
-    public $DiagnosticsData;
+    protected ?\StructType\EwsSearchDiagnosticsType $DiagnosticsData = null;
     /**
      * Constructor method for DeleteSearchSuggestionResponseType
      * @uses EwsDeleteSearchSuggestionResponseType::setSuccess()
@@ -43,9 +46,9 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      * @uses EwsDeleteSearchSuggestionResponseType::setDiagnosticsData()
      * @param bool $success
      * @param string $statusMessage
-     * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
+     * @param \StructType\EwsSearchDiagnosticsType $diagnosticsData
      */
-    public function __construct($success = null, $statusMessage = null, \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
+    public function __construct(bool $success, ?string $statusMessage = null, ?\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
     {
         $this
             ->setSuccess($success)
@@ -56,62 +59,65 @@ class EwsDeleteSearchSuggestionResponseType extends AbstractStructBase
      * Get Success value
      * @return bool
      */
-    public function getSuccess()
+    public function getSuccess(): bool
     {
         return $this->Success;
     }
     /**
      * Set Success value
      * @param bool $success
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType
+     * @return \StructType\EwsDeleteSearchSuggestionResponseType
      */
-    public function setSuccess($success = null)
+    public function setSuccess(bool $success): self
     {
         // validation for constraint: boolean
         if (!is_null($success) && !is_bool($success)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($success, true), gettype($success)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($success, true), gettype($success)), __LINE__);
         }
         $this->Success = $success;
+        
         return $this;
     }
     /**
      * Get StatusMessage value
      * @return string|null
      */
-    public function getStatusMessage()
+    public function getStatusMessage(): ?string
     {
         return $this->StatusMessage;
     }
     /**
      * Set StatusMessage value
      * @param string $statusMessage
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType
+     * @return \StructType\EwsDeleteSearchSuggestionResponseType
      */
-    public function setStatusMessage($statusMessage = null)
+    public function setStatusMessage(?string $statusMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($statusMessage) && !is_string($statusMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusMessage, true), gettype($statusMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($statusMessage, true), gettype($statusMessage)), __LINE__);
         }
         $this->StatusMessage = $statusMessage;
+        
         return $this;
     }
     /**
      * Get DiagnosticsData value
-     * @return \Ews\StructType\EwsSearchDiagnosticsType|null
+     * @return \StructType\EwsSearchDiagnosticsType|null
      */
-    public function getDiagnosticsData()
+    public function getDiagnosticsData(): ?\StructType\EwsSearchDiagnosticsType
     {
         return $this->DiagnosticsData;
     }
     /**
      * Set DiagnosticsData value
-     * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
-     * @return \Ews\StructType\EwsDeleteSearchSuggestionResponseType
+     * @param \StructType\EwsSearchDiagnosticsType $diagnosticsData
+     * @return \StructType\EwsDeleteSearchSuggestionResponseType
      */
-    public function setDiagnosticsData(\Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
+    public function setDiagnosticsData(?\StructType\EwsSearchDiagnosticsType $diagnosticsData = null): self
     {
         $this->DiagnosticsData = $diagnosticsData;
+        
         return $this;
     }
 }

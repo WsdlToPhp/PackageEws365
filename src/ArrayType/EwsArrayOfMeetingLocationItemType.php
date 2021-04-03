@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfMeetingLocationItemType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMeetingLocationItemType[]
+     * @var \StructType\EwsMeetingLocationItemType[]
      */
-    public $MeetingLocation;
+    protected array $MeetingLocation = [];
     /**
      * Constructor method for ArrayOfMeetingLocationItemType
      * @uses EwsArrayOfMeetingLocationItemType::setMeetingLocation()
-     * @param \Ews\StructType\EwsMeetingLocationItemType[] $meetingLocation
+     * @param \StructType\EwsMeetingLocationItemType[] $meetingLocation
      */
-    public function __construct(array $meetingLocation = array())
+    public function __construct(array $meetingLocation = [])
     {
         $this
             ->setMeetingLocation($meetingLocation);
     }
     /**
      * Get MeetingLocation value
-     * @return \Ews\StructType\EwsMeetingLocationItemType[]|null
+     * @return \StructType\EwsMeetingLocationItemType[]
      */
-    public function getMeetingLocation()
+    public function getMeetingLocation(): array
     {
         return $this->MeetingLocation;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMeetingLocationForArrayConstraintsFromSetMeetingLocation(array $values = array())
+    public static function validateMeetingLocationForArrayConstraintsFromSetMeetingLocation(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfMeetingLocationItemTypeMeetingLocationItem) {
             // validation for constraint: itemType
-            if (!$arrayOfMeetingLocationItemTypeMeetingLocationItem instanceof \Ews\StructType\EwsMeetingLocationItemType) {
+            if (!$arrayOfMeetingLocationItemTypeMeetingLocationItem instanceof \StructType\EwsMeetingLocationItemType) {
                 $invalidValues[] = is_object($arrayOfMeetingLocationItemTypeMeetingLocationItem) ? get_class($arrayOfMeetingLocationItemTypeMeetingLocationItem) : sprintf('%s(%s)', gettype($arrayOfMeetingLocationItemTypeMeetingLocationItem), var_export($arrayOfMeetingLocationItemTypeMeetingLocationItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MeetingLocation property can only contain items of type \Ews\StructType\EwsMeetingLocationItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MeetingLocation property can only contain items of type \StructType\EwsMeetingLocationItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MeetingLocation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingLocationItemType[] $meetingLocation
-     * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingLocationItemType[] $meetingLocation
+     * @return \ArrayType\EwsArrayOfMeetingLocationItemType
      */
-    public function setMeetingLocation(array $meetingLocation = array())
+    public function setMeetingLocation(array $meetingLocation = []): self
     {
         // validation for constraint: array
         if ('' !== ($meetingLocationArrayErrorMessage = self::validateMeetingLocationForArrayConstraintsFromSetMeetingLocation($meetingLocation))) {
-            throw new \InvalidArgumentException($meetingLocationArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingLocationArrayErrorMessage, __LINE__);
         }
         $this->MeetingLocation = $meetingLocation;
-        return $this;
-    }
-    /**
-     * Add item to MeetingLocation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingLocationItemType $item
-     * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
-     */
-    public function addToMeetingLocation(\Ews\StructType\EwsMeetingLocationItemType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMeetingLocationItemType) {
-            throw new \InvalidArgumentException(sprintf('The MeetingLocation property can only contain items of type \Ews\StructType\EwsMeetingLocationItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MeetingLocation[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMeetingLocationItemType|null
+     * @return \StructType\EwsMeetingLocationItemType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMeetingLocationItemType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMeetingLocationItemType|null
+     * @return \StructType\EwsMeetingLocationItemType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMeetingLocationItemType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMeetingLocationItemType|null
+     * @return \StructType\EwsMeetingLocationItemType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMeetingLocationItemType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMeetingLocationItemType|null
+     * @return \StructType\EwsMeetingLocationItemType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMeetingLocationItemType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfMeetingLocationItemType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMeetingLocationItemType|null
+     * @return \StructType\EwsMeetingLocationItemType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMeetingLocationItemType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingLocationItemType $item
+     * @return \ArrayType\EwsArrayOfMeetingLocationItemType
+     */
+    public function add(\StructType\EwsMeetingLocationItemType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MeetingLocation
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MeetingLocation';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfPredictedActionReasonType ArrayType
@@ -18,22 +21,22 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * - maxOccurs: unbounded
      * @var string[]
      */
-    public $PredictedActionReason;
+    protected array $PredictedActionReason = [];
     /**
      * Constructor method for NonEmptyArrayOfPredictedActionReasonType
      * @uses EwsNonEmptyArrayOfPredictedActionReasonType::setPredictedActionReason()
      * @param string[] $predictedActionReason
      */
-    public function __construct(array $predictedActionReason = array())
+    public function __construct(array $predictedActionReason = [])
     {
         $this
             ->setPredictedActionReason($predictedActionReason);
     }
     /**
      * Get PredictedActionReason value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getPredictedActionReason()
+    public function getPredictedActionReason(): array
     {
         return $this->PredictedActionReason;
     }
@@ -43,54 +46,39 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePredictedActionReasonForArrayConstraintsFromSetPredictedActionReason(array $values = array())
+    public static function validatePredictedActionReasonForArrayConstraintsFromSetPredictedActionReason(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem)) {
+            if (!\EnumType\EwsPredictedActionReasonType::valueIsValid($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem)) {
                 $invalidValues[] = is_object($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) ? get_class($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem), var_export($nonEmptyArrayOfPredictedActionReasonTypePredictedActionReasonItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPredictedActionReasonType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsPredictedActionReasonType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set PredictedActionReason value
-     * @uses \Ews\EnumType\EwsPredictedActionReasonType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPredictedActionReasonType::valueIsValid()
+     * @uses \EnumType\EwsPredictedActionReasonType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string[] $predictedActionReason
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
+     * @return \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
      */
-    public function setPredictedActionReason(array $predictedActionReason = array())
+    public function setPredictedActionReason(array $predictedActionReason = []): self
     {
         // validation for constraint: array
         if ('' !== ($predictedActionReasonArrayErrorMessage = self::validatePredictedActionReasonForArrayConstraintsFromSetPredictedActionReason($predictedActionReason))) {
-            throw new \InvalidArgumentException($predictedActionReasonArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($predictedActionReasonArrayErrorMessage, __LINE__);
         }
         $this->PredictedActionReason = $predictedActionReason;
-        return $this;
-    }
-    /**
-     * Add item to PredictedActionReason value
-     * @uses \Ews\EnumType\EwsPredictedActionReasonType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPredictedActionReasonType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
-     */
-    public function addToPredictedActionReason($item)
-    {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
-        }
-        $this->PredictedActionReason[] = $item;
+        
         return $this;
     }
     /**
@@ -98,7 +86,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -108,7 +96,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -117,7 +105,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -126,7 +114,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -136,23 +124,22 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsPredictedActionReasonType::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
+     * @return \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
      */
-    public function add($item)
+    public function add(string $item): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPredictedActionReasonType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPredictedActionReasonType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPredictedActionReasonType::valueIsValid($item)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPredictedActionReasonType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \EnumType\EwsPredictedActionReasonType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -161,7 +148,7 @@ class EwsNonEmptyArrayOfPredictedActionReasonType extends AbstractStructArrayBas
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string PredictedActionReason
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'PredictedActionReason';
     }

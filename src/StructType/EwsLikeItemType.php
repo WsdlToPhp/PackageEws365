@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for LikeItemType StructType
@@ -17,22 +20,22 @@ class EwsLikeItemType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The IsUnlike
-     * @var bool
+     * @var bool|null
      */
-    public $IsUnlike;
+    protected ?bool $IsUnlike = null;
     /**
      * Constructor method for LikeItemType
      * @uses EwsLikeItemType::setItemId()
      * @uses EwsLikeItemType::setIsUnlike()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param bool $isUnlike
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $isUnlike = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, ?bool $isUnlike = null)
     {
         $this
             ->setItemId($itemId)
@@ -40,42 +43,44 @@ class EwsLikeItemType extends EwsBaseRequestType
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsLikeItemType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsLikeItemType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get IsUnlike value
      * @return bool|null
      */
-    public function getIsUnlike()
+    public function getIsUnlike(): ?bool
     {
         return $this->IsUnlike;
     }
     /**
      * Set IsUnlike value
      * @param bool $isUnlike
-     * @return \Ews\StructType\EwsLikeItemType
+     * @return \StructType\EwsLikeItemType
      */
-    public function setIsUnlike($isUnlike = null)
+    public function setIsUnlike(?bool $isUnlike = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isUnlike) && !is_bool($isUnlike)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnlike, true), gettype($isUnlike)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnlike, true), gettype($isUnlike)), __LINE__);
         }
         $this->IsUnlike = $isUnlike;
+        
         return $this;
     }
 }

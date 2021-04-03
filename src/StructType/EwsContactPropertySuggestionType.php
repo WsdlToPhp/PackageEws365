@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactPropertySuggestionType StructType
@@ -19,15 +22,15 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $QueryString;
+    protected string $QueryString;
     /**
      * The MaxResultsCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxResultsCount;
+    protected ?int $MaxResultsCount = null;
     /**
      * Constructor method for ContactPropertySuggestionType
      * @uses EwsContactPropertySuggestionType::setQueryString()
@@ -35,7 +38,7 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
      * @param string $queryString
      * @param int $maxResultsCount
      */
-    public function __construct($queryString = null, $maxResultsCount = null)
+    public function __construct(string $queryString, ?int $maxResultsCount = null)
     {
         $this
             ->setQueryString($queryString)
@@ -45,44 +48,46 @@ class EwsContactPropertySuggestionType extends EwsBaseRequestType
      * Get QueryString value
      * @return string
      */
-    public function getQueryString()
+    public function getQueryString(): string
     {
         return $this->QueryString;
     }
     /**
      * Set QueryString value
      * @param string $queryString
-     * @return \Ews\StructType\EwsContactPropertySuggestionType
+     * @return \StructType\EwsContactPropertySuggestionType
      */
-    public function setQueryString($queryString = null)
+    public function setQueryString(string $queryString): self
     {
         // validation for constraint: string
         if (!is_null($queryString) && !is_string($queryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($queryString, true), gettype($queryString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($queryString, true), gettype($queryString)), __LINE__);
         }
         $this->QueryString = $queryString;
+        
         return $this;
     }
     /**
      * Get MaxResultsCount value
      * @return int|null
      */
-    public function getMaxResultsCount()
+    public function getMaxResultsCount(): ?int
     {
         return $this->MaxResultsCount;
     }
     /**
      * Set MaxResultsCount value
      * @param int $maxResultsCount
-     * @return \Ews\StructType\EwsContactPropertySuggestionType
+     * @return \StructType\EwsContactPropertySuggestionType
      */
-    public function setMaxResultsCount($maxResultsCount = null)
+    public function setMaxResultsCount(?int $maxResultsCount = null): self
     {
         // validation for constraint: int
         if (!is_null($maxResultsCount) && !(is_int($maxResultsCount) || ctype_digit($maxResultsCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxResultsCount, true), gettype($maxResultsCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxResultsCount, true), gettype($maxResultsCount)), __LINE__);
         }
         $this->MaxResultsCount = $maxResultsCount;
+        
         return $this;
     }
 }

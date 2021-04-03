@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindXrmActivityStreamResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindXrmActivityStreamResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
+     * @var \ArrayType\EwsArrayOfXrmActivityStreamType
      */
-    public $Deals;
+    protected \ArrayType\EwsArrayOfXrmActivityStreamType $Deals;
     /**
      * Constructor method for FindXrmActivityStreamResponseMessageType
      * @uses EwsFindXrmActivityStreamResponseMessageType::setDeals()
-     * @param \Ews\ArrayType\EwsArrayOfXrmActivityStreamType $deals
+     * @param \ArrayType\EwsArrayOfXrmActivityStreamType $deals
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfXrmActivityStreamType $deals = null)
+    public function __construct(\ArrayType\EwsArrayOfXrmActivityStreamType $deals)
     {
         $this
             ->setDeals($deals);
     }
     /**
      * Get Deals value
-     * @return \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
+     * @return \ArrayType\EwsArrayOfXrmActivityStreamType
      */
-    public function getDeals()
+    public function getDeals(): \ArrayType\EwsArrayOfXrmActivityStreamType
     {
         return $this->Deals;
     }
     /**
      * Set Deals value
-     * @param \Ews\ArrayType\EwsArrayOfXrmActivityStreamType $deals
-     * @return \Ews\StructType\EwsFindXrmActivityStreamResponseMessageType
+     * @param \ArrayType\EwsArrayOfXrmActivityStreamType $deals
+     * @return \StructType\EwsFindXrmActivityStreamResponseMessageType
      */
-    public function setDeals(\Ews\ArrayType\EwsArrayOfXrmActivityStreamType $deals = null)
+    public function setDeals(\ArrayType\EwsArrayOfXrmActivityStreamType $deals): self
     {
         $this->Deals = $deals;
+        
         return $this;
     }
 }

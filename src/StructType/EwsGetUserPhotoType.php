@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserPhotoType StructType
@@ -19,7 +22,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Email;
+    protected string $Email;
     /**
      * The SizeRequested
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $SizeRequested;
+    protected string $SizeRequested;
     /**
      * Constructor method for GetUserPhotoType
      * @uses EwsGetUserPhotoType::setEmail()
@@ -35,7 +38,7 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      * @param string $email
      * @param string $sizeRequested
      */
-    public function __construct($email = null, $sizeRequested = null)
+    public function __construct(string $email, string $sizeRequested)
     {
         $this
             ->setEmail($email)
@@ -45,47 +48,49 @@ class EwsGetUserPhotoType extends EwsBaseRequestType
      * Get Email value
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->Email;
     }
     /**
      * Set Email value
      * @param string $email
-     * @return \Ews\StructType\EwsGetUserPhotoType
+     * @return \StructType\EwsGetUserPhotoType
      */
-    public function setEmail($email = null)
+    public function setEmail(string $email): self
     {
         // validation for constraint: string
         if (!is_null($email) && !is_string($email)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
         }
         $this->Email = $email;
+        
         return $this;
     }
     /**
      * Get SizeRequested value
      * @return string
      */
-    public function getSizeRequested()
+    public function getSizeRequested(): string
     {
         return $this->SizeRequested;
     }
     /**
      * Set SizeRequested value
-     * @uses \Ews\EnumType\EwsUserPhotoSizeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUserPhotoSizeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUserPhotoSizeType::valueIsValid()
+     * @uses \EnumType\EwsUserPhotoSizeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sizeRequested
-     * @return \Ews\StructType\EwsGetUserPhotoType
+     * @return \StructType\EwsGetUserPhotoType
      */
-    public function setSizeRequested($sizeRequested = null)
+    public function setSizeRequested(string $sizeRequested): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUserPhotoSizeType::valueIsValid($sizeRequested)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserPhotoSizeType', is_array($sizeRequested) ? implode(', ', $sizeRequested) : var_export($sizeRequested, true), implode(', ', \Ews\EnumType\EwsUserPhotoSizeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUserPhotoSizeType::valueIsValid($sizeRequested)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUserPhotoSizeType', is_array($sizeRequested) ? implode(', ', $sizeRequested) : var_export($sizeRequested, true), implode(', ', \EnumType\EwsUserPhotoSizeType::getValidValues())), __LINE__);
         }
         $this->SizeRequested = $sizeRequested;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetClientExtensionActionType StructType
@@ -18,32 +21,32 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $ActionId;
+    protected string $ActionId;
     /**
      * The ClientExtension
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsClientExtensionType
+     * @var \StructType\EwsClientExtensionType|null
      */
-    public $ClientExtension;
+    protected ?\StructType\EwsClientExtensionType $ClientExtension = null;
     /**
      * The ExtensionId
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ExtensionId;
+    protected ?string $ExtensionId = null;
     /**
      * Constructor method for SetClientExtensionActionType
      * @uses EwsSetClientExtensionActionType::setActionId()
      * @uses EwsSetClientExtensionActionType::setClientExtension()
      * @uses EwsSetClientExtensionActionType::setExtensionId()
      * @param string $actionId
-     * @param \Ews\StructType\EwsClientExtensionType $clientExtension
+     * @param \StructType\EwsClientExtensionType $clientExtension
      * @param string $extensionId
      */
-    public function __construct($actionId = null, \Ews\StructType\EwsClientExtensionType $clientExtension = null, $extensionId = null)
+    public function __construct(string $actionId, ?\StructType\EwsClientExtensionType $clientExtension = null, ?string $extensionId = null)
     {
         $this
             ->setActionId($actionId)
@@ -54,65 +57,68 @@ class EwsSetClientExtensionActionType extends AbstractStructBase
      * Get ActionId value
      * @return string
      */
-    public function getActionId()
+    public function getActionId(): string
     {
         return $this->ActionId;
     }
     /**
      * Set ActionId value
-     * @uses \Ews\EnumType\EwsSetClientExtensionActionIdType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSetClientExtensionActionIdType::valueIsValid()
+     * @uses \EnumType\EwsSetClientExtensionActionIdType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $actionId
-     * @return \Ews\StructType\EwsSetClientExtensionActionType
+     * @return \StructType\EwsSetClientExtensionActionType
      */
-    public function setActionId($actionId = null)
+    public function setActionId(string $actionId): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSetClientExtensionActionIdType::valueIsValid($actionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSetClientExtensionActionIdType', is_array($actionId) ? implode(', ', $actionId) : var_export($actionId, true), implode(', ', \Ews\EnumType\EwsSetClientExtensionActionIdType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSetClientExtensionActionIdType::valueIsValid($actionId)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSetClientExtensionActionIdType', is_array($actionId) ? implode(', ', $actionId) : var_export($actionId, true), implode(', ', \EnumType\EwsSetClientExtensionActionIdType::getValidValues())), __LINE__);
         }
         $this->ActionId = $actionId;
+        
         return $this;
     }
     /**
      * Get ClientExtension value
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function getClientExtension()
+    public function getClientExtension(): ?\StructType\EwsClientExtensionType
     {
         return $this->ClientExtension;
     }
     /**
      * Set ClientExtension value
-     * @param \Ews\StructType\EwsClientExtensionType $clientExtension
-     * @return \Ews\StructType\EwsSetClientExtensionActionType
+     * @param \StructType\EwsClientExtensionType $clientExtension
+     * @return \StructType\EwsSetClientExtensionActionType
      */
-    public function setClientExtension(\Ews\StructType\EwsClientExtensionType $clientExtension = null)
+    public function setClientExtension(?\StructType\EwsClientExtensionType $clientExtension = null): self
     {
         $this->ClientExtension = $clientExtension;
+        
         return $this;
     }
     /**
      * Get ExtensionId value
      * @return string|null
      */
-    public function getExtensionId()
+    public function getExtensionId(): ?string
     {
         return $this->ExtensionId;
     }
     /**
      * Set ExtensionId value
      * @param string $extensionId
-     * @return \Ews\StructType\EwsSetClientExtensionActionType
+     * @return \StructType\EwsSetClientExtensionActionType
      */
-    public function setExtensionId($extensionId = null)
+    public function setExtensionId(?string $extensionId = null): self
     {
         // validation for constraint: string
         if (!is_null($extensionId) && !is_string($extensionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionId, true), gettype($extensionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($extensionId, true), gettype($extensionId)), __LINE__);
         }
         $this->ExtensionId = $extensionId;
+        
         return $this;
     }
 }

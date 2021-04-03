@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupUnseenDataResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetUnifiedGroupUnseenDataResponseMessageType extends EwsResponseMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnseenDataType
+     * @var \StructType\EwsUnseenDataType|null
      */
-    public $UnseenData;
+    protected ?\StructType\EwsUnseenDataType $UnseenData = null;
     /**
      * Constructor method for GetUnifiedGroupUnseenDataResponseMessageType
      * @uses EwsGetUnifiedGroupUnseenDataResponseMessageType::setUnseenData()
-     * @param \Ews\StructType\EwsUnseenDataType $unseenData
+     * @param \StructType\EwsUnseenDataType $unseenData
      */
-    public function __construct(\Ews\StructType\EwsUnseenDataType $unseenData = null)
+    public function __construct(?\StructType\EwsUnseenDataType $unseenData = null)
     {
         $this
             ->setUnseenData($unseenData);
     }
     /**
      * Get UnseenData value
-     * @return \Ews\StructType\EwsUnseenDataType|null
+     * @return \StructType\EwsUnseenDataType|null
      */
-    public function getUnseenData()
+    public function getUnseenData(): ?\StructType\EwsUnseenDataType
     {
         return $this->UnseenData;
     }
     /**
      * Set UnseenData value
-     * @param \Ews\StructType\EwsUnseenDataType $unseenData
-     * @return \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
+     * @param \StructType\EwsUnseenDataType $unseenData
+     * @return \StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
      */
-    public function setUnseenData(\Ews\StructType\EwsUnseenDataType $unseenData = null)
+    public function setUnseenData(?\StructType\EwsUnseenDataType $unseenData = null): self
     {
         $this->UnseenData = $unseenData;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateXrmGraphRelationshipResponseMessageType StructType
@@ -19,13 +22,13 @@ class EwsCreateXrmGraphRelationshipResponseMessageType extends EwsResponseMessag
      * - minOccurs: 1
      * @var string
      */
-    public $LinkId;
+    protected string $LinkId;
     /**
      * Constructor method for CreateXrmGraphRelationshipResponseMessageType
      * @uses EwsCreateXrmGraphRelationshipResponseMessageType::setLinkId()
      * @param string $linkId
      */
-    public function __construct($linkId = null)
+    public function __construct(string $linkId)
     {
         $this
             ->setLinkId($linkId);
@@ -34,22 +37,23 @@ class EwsCreateXrmGraphRelationshipResponseMessageType extends EwsResponseMessag
      * Get LinkId value
      * @return string
      */
-    public function getLinkId()
+    public function getLinkId(): string
     {
         return $this->LinkId;
     }
     /**
      * Set LinkId value
      * @param string $linkId
-     * @return \Ews\StructType\EwsCreateXrmGraphRelationshipResponseMessageType
+     * @return \StructType\EwsCreateXrmGraphRelationshipResponseMessageType
      */
-    public function setLinkId($linkId = null)
+    public function setLinkId(string $linkId): self
     {
         // validation for constraint: string
         if (!is_null($linkId) && !is_string($linkId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkId, true), gettype($linkId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkId, true), gettype($linkId)), __LINE__);
         }
         $this->LinkId = $linkId;
+        
         return $this;
     }
 }

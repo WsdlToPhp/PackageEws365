@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMessageTrackingReportRequestType StructType
@@ -17,96 +20,96 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $Scope;
+    protected ?string $Scope = null;
     /**
      * The Domain
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $Domain;
+    protected ?string $Domain = null;
     /**
      * The Sender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Sender;
+    protected ?\StructType\EwsEmailAddressType $Sender = null;
     /**
      * The PurportedSender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $PurportedSender;
+    protected ?\StructType\EwsEmailAddressType $PurportedSender = null;
     /**
      * The Recipient
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Recipient;
+    protected ?\StructType\EwsEmailAddressType $Recipient = null;
     /**
      * The Subject
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The StartDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartDateTime;
+    protected ?string $StartDateTime = null;
     /**
      * The EndDateTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndDateTime;
+    protected ?string $EndDateTime = null;
     /**
      * The MessageId
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MessageId;
+    protected ?string $MessageId = null;
     /**
      * The FederatedDeliveryMailbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $FederatedDeliveryMailbox;
+    protected ?\StructType\EwsEmailAddressType $FederatedDeliveryMailbox = null;
     /**
      * The DiagnosticsLevel
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DiagnosticsLevel;
+    protected ?string $DiagnosticsLevel = null;
     /**
      * The ServerHint
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ServerHint;
+    protected ?string $ServerHint = null;
     /**
      * The Properties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public $Properties;
+    protected ?\ArrayType\EwsArrayOfTrackingPropertiesType $Properties = null;
     /**
      * Constructor method for FindMessageTrackingReportRequestType
      * @uses EwsFindMessageTrackingReportRequestType::setScope()
@@ -124,19 +127,19 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * @uses EwsFindMessageTrackingReportRequestType::setProperties()
      * @param string $scope
      * @param string $domain
-     * @param \Ews\StructType\EwsEmailAddressType $sender
-     * @param \Ews\StructType\EwsEmailAddressType $purportedSender
-     * @param \Ews\StructType\EwsEmailAddressType $recipient
+     * @param \StructType\EwsEmailAddressType $sender
+     * @param \StructType\EwsEmailAddressType $purportedSender
+     * @param \StructType\EwsEmailAddressType $recipient
      * @param string $subject
      * @param string $startDateTime
      * @param string $endDateTime
      * @param string $messageId
-     * @param \Ews\StructType\EwsEmailAddressType $federatedDeliveryMailbox
+     * @param \StructType\EwsEmailAddressType $federatedDeliveryMailbox
      * @param string $diagnosticsLevel
      * @param string $serverHint
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
      */
-    public function __construct($scope = null, $domain = null, \Ews\StructType\EwsEmailAddressType $sender = null, \Ews\StructType\EwsEmailAddressType $purportedSender = null, \Ews\StructType\EwsEmailAddressType $recipient = null, $subject = null, $startDateTime = null, $endDateTime = null, $messageId = null, \Ews\StructType\EwsEmailAddressType $federatedDeliveryMailbox = null, $diagnosticsLevel = null, $serverHint = null, \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function __construct(?string $scope = null, ?string $domain = null, ?\StructType\EwsEmailAddressType $sender = null, ?\StructType\EwsEmailAddressType $purportedSender = null, ?\StructType\EwsEmailAddressType $recipient = null, ?string $subject = null, ?string $startDateTime = null, ?string $endDateTime = null, ?string $messageId = null, ?\StructType\EwsEmailAddressType $federatedDeliveryMailbox = null, ?string $diagnosticsLevel = null, ?string $serverHint = null, ?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
     {
         $this
             ->setScope($scope)
@@ -157,278 +160,291 @@ class EwsFindMessageTrackingReportRequestType extends EwsBaseRequestType
      * Get Scope value
      * @return string|null
      */
-    public function getScope()
+    public function getScope(): ?string
     {
         return $this->Scope;
     }
     /**
      * Set Scope value
      * @param string $scope
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setScope($scope = null)
+    public function setScope(?string $scope = null): self
     {
         // validation for constraint: string
         if (!is_null($scope) && !is_string($scope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($scope, true), gettype($scope)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($scope) && mb_strlen($scope) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($scope)), __LINE__);
+        if (!is_null($scope) && mb_strlen((string) $scope) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $scope)), __LINE__);
         }
         $this->Scope = $scope;
+        
         return $this;
     }
     /**
      * Get Domain value
      * @return string|null
      */
-    public function getDomain()
+    public function getDomain(): ?string
     {
         return $this->Domain;
     }
     /**
      * Set Domain value
      * @param string $domain
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setDomain($domain = null)
+    public function setDomain(?string $domain = null): self
     {
         // validation for constraint: string
         if (!is_null($domain) && !is_string($domain)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domain, true), gettype($domain)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($domain, true), gettype($domain)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($domain) && mb_strlen($domain) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($domain)), __LINE__);
+        if (!is_null($domain) && mb_strlen((string) $domain) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $domain)), __LINE__);
         }
         $this->Domain = $domain;
+        
         return $this;
     }
     /**
      * Get Sender value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getSender()
+    public function getSender(): ?\StructType\EwsEmailAddressType
     {
         return $this->Sender;
     }
     /**
      * Set Sender value
-     * @param \Ews\StructType\EwsEmailAddressType $sender
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @param \StructType\EwsEmailAddressType $sender
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setSender(\Ews\StructType\EwsEmailAddressType $sender = null)
+    public function setSender(?\StructType\EwsEmailAddressType $sender = null): self
     {
         $this->Sender = $sender;
+        
         return $this;
     }
     /**
      * Get PurportedSender value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getPurportedSender()
+    public function getPurportedSender(): ?\StructType\EwsEmailAddressType
     {
         return $this->PurportedSender;
     }
     /**
      * Set PurportedSender value
-     * @param \Ews\StructType\EwsEmailAddressType $purportedSender
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @param \StructType\EwsEmailAddressType $purportedSender
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setPurportedSender(\Ews\StructType\EwsEmailAddressType $purportedSender = null)
+    public function setPurportedSender(?\StructType\EwsEmailAddressType $purportedSender = null): self
     {
         $this->PurportedSender = $purportedSender;
+        
         return $this;
     }
     /**
      * Get Recipient value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getRecipient()
+    public function getRecipient(): ?\StructType\EwsEmailAddressType
     {
         return $this->Recipient;
     }
     /**
      * Set Recipient value
-     * @param \Ews\StructType\EwsEmailAddressType $recipient
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @param \StructType\EwsEmailAddressType $recipient
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setRecipient(\Ews\StructType\EwsEmailAddressType $recipient = null)
+    public function setRecipient(?\StructType\EwsEmailAddressType $recipient = null): self
     {
         $this->Recipient = $recipient;
+        
         return $this;
     }
     /**
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get StartDateTime value
      * @return string|null
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): ?string
     {
         return $this->StartDateTime;
     }
     /**
      * Set StartDateTime value
      * @param string $startDateTime
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setStartDateTime($startDateTime = null)
+    public function setStartDateTime(?string $startDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($startDateTime) && !is_string($startDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDateTime, true), gettype($startDateTime)), __LINE__);
         }
         $this->StartDateTime = $startDateTime;
+        
         return $this;
     }
     /**
      * Get EndDateTime value
      * @return string|null
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): ?string
     {
         return $this->EndDateTime;
     }
     /**
      * Set EndDateTime value
      * @param string $endDateTime
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setEndDateTime($endDateTime = null)
+    public function setEndDateTime(?string $endDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($endDateTime) && !is_string($endDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDateTime, true), gettype($endDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDateTime, true), gettype($endDateTime)), __LINE__);
         }
         $this->EndDateTime = $endDateTime;
+        
         return $this;
     }
     /**
      * Get MessageId value
      * @return string|null
      */
-    public function getMessageId()
+    public function getMessageId(): ?string
     {
         return $this->MessageId;
     }
     /**
      * Set MessageId value
      * @param string $messageId
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setMessageId($messageId = null)
+    public function setMessageId(?string $messageId = null): self
     {
         // validation for constraint: string
         if (!is_null($messageId) && !is_string($messageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messageId, true), gettype($messageId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messageId, true), gettype($messageId)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($messageId) && mb_strlen($messageId) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($messageId)), __LINE__);
+        if (!is_null($messageId) && mb_strlen((string) $messageId) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $messageId)), __LINE__);
         }
         $this->MessageId = $messageId;
+        
         return $this;
     }
     /**
      * Get FederatedDeliveryMailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getFederatedDeliveryMailbox()
+    public function getFederatedDeliveryMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->FederatedDeliveryMailbox;
     }
     /**
      * Set FederatedDeliveryMailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $federatedDeliveryMailbox
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @param \StructType\EwsEmailAddressType $federatedDeliveryMailbox
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setFederatedDeliveryMailbox(\Ews\StructType\EwsEmailAddressType $federatedDeliveryMailbox = null)
+    public function setFederatedDeliveryMailbox(?\StructType\EwsEmailAddressType $federatedDeliveryMailbox = null): self
     {
         $this->FederatedDeliveryMailbox = $federatedDeliveryMailbox;
+        
         return $this;
     }
     /**
      * Get DiagnosticsLevel value
      * @return string|null
      */
-    public function getDiagnosticsLevel()
+    public function getDiagnosticsLevel(): ?string
     {
         return $this->DiagnosticsLevel;
     }
     /**
      * Set DiagnosticsLevel value
      * @param string $diagnosticsLevel
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setDiagnosticsLevel($diagnosticsLevel = null)
+    public function setDiagnosticsLevel(?string $diagnosticsLevel = null): self
     {
         // validation for constraint: string
         if (!is_null($diagnosticsLevel) && !is_string($diagnosticsLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($diagnosticsLevel, true), gettype($diagnosticsLevel)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($diagnosticsLevel, true), gettype($diagnosticsLevel)), __LINE__);
         }
         $this->DiagnosticsLevel = $diagnosticsLevel;
+        
         return $this;
     }
     /**
      * Get ServerHint value
      * @return string|null
      */
-    public function getServerHint()
+    public function getServerHint(): ?string
     {
         return $this->ServerHint;
     }
     /**
      * Set ServerHint value
      * @param string $serverHint
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setServerHint($serverHint = null)
+    public function setServerHint(?string $serverHint = null): self
     {
         // validation for constraint: string
         if (!is_null($serverHint) && !is_string($serverHint)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serverHint, true), gettype($serverHint)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serverHint, true), gettype($serverHint)), __LINE__);
         }
         $this->ServerHint = $serverHint;
+        
         return $this;
     }
     /**
      * Get Properties value
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function getProperties()
+    public function getProperties(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return $this->Properties;
     }
     /**
      * Set Properties value
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
-     * @return \Ews\StructType\EwsFindMessageTrackingReportRequestType
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @return \StructType\EwsFindMessageTrackingReportRequestType
      */
-    public function setProperties(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function setProperties(?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null): self
     {
         $this->Properties = $properties;
+        
         return $this;
     }
 }

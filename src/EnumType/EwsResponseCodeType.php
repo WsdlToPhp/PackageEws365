@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ResponseCodeType EnumType
@@ -3048,9 +3050,9 @@ class EwsResponseCodeType extends AbstractStructEnumBase
      * @uses self::VALUE_ERROR_INVALID_LATITUDE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NO_ERROR,
             self::VALUE_ERROR_ACCESS_DENIED,
             self::VALUE_ERROR_ACCESS_MODE_SPECIFIED,
@@ -3556,6 +3558,6 @@ class EwsResponseCodeType extends AbstractStructEnumBase
             self::VALUE_ERROR_EXCEEDED_MAX_RECIPIENT_LIMIT_SHOW_TIER_UPGRADE,
             self::VALUE_ERROR_INVALID_LONGITUDE,
             self::VALUE_ERROR_INVALID_LATITUDE,
-        );
+        ];
     }
 }

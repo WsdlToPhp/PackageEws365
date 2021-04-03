@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfPersonaAttributionsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPersonaAttributionType[]
+     * @var \StructType\EwsPersonaAttributionType[]
      */
-    public $Attribution;
+    protected array $Attribution = [];
     /**
      * Constructor method for ArrayOfPersonaAttributionsType
      * @uses EwsArrayOfPersonaAttributionsType::setAttribution()
-     * @param \Ews\StructType\EwsPersonaAttributionType[] $attribution
+     * @param \StructType\EwsPersonaAttributionType[] $attribution
      */
-    public function __construct(array $attribution = array())
+    public function __construct(array $attribution)
     {
         $this
             ->setAttribution($attribution);
     }
     /**
      * Get Attribution value
-     * @return \Ews\StructType\EwsPersonaAttributionType[]
+     * @return \StructType\EwsPersonaAttributionType[]
      */
-    public function getAttribution()
+    public function getAttribution(): array
     {
         return $this->Attribution;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAttributionForArrayConstraintsFromSetAttribution(array $values = array())
+    public static function validateAttributionForArrayConstraintsFromSetAttribution(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfPersonaAttributionsTypeAttributionItem) {
             // validation for constraint: itemType
-            if (!$arrayOfPersonaAttributionsTypeAttributionItem instanceof \Ews\StructType\EwsPersonaAttributionType) {
+            if (!$arrayOfPersonaAttributionsTypeAttributionItem instanceof \StructType\EwsPersonaAttributionType) {
                 $invalidValues[] = is_object($arrayOfPersonaAttributionsTypeAttributionItem) ? get_class($arrayOfPersonaAttributionsTypeAttributionItem) : sprintf('%s(%s)', gettype($arrayOfPersonaAttributionsTypeAttributionItem), var_export($arrayOfPersonaAttributionsTypeAttributionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Attribution property can only contain items of type \Ews\StructType\EwsPersonaAttributionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Attribution property can only contain items of type \StructType\EwsPersonaAttributionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Attribution value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPersonaAttributionType[] $attribution
-     * @return \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaAttributionType[] $attribution
+     * @return \ArrayType\EwsArrayOfPersonaAttributionsType
      */
-    public function setAttribution(array $attribution = array())
+    public function setAttribution(array $attribution): self
     {
         // validation for constraint: array
         if ('' !== ($attributionArrayErrorMessage = self::validateAttributionForArrayConstraintsFromSetAttribution($attribution))) {
-            throw new \InvalidArgumentException($attributionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($attributionArrayErrorMessage, __LINE__);
         }
         $this->Attribution = $attribution;
-        return $this;
-    }
-    /**
-     * Add item to Attribution value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPersonaAttributionType $item
-     * @return \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
-     */
-    public function addToAttribution(\Ews\StructType\EwsPersonaAttributionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPersonaAttributionType) {
-            throw new \InvalidArgumentException(sprintf('The Attribution property can only contain items of type \Ews\StructType\EwsPersonaAttributionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Attribution[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPersonaAttributionType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPersonaAttributionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPersonaAttributionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPersonaAttributionType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfPersonaAttributionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPersonaAttributionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaAttributionType $item
+     * @return \ArrayType\EwsArrayOfPersonaAttributionsType
+     */
+    public function add(\StructType\EwsPersonaAttributionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Attribution
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Attribution';
     }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ConversationActionTypeType EnumType
@@ -70,9 +72,9 @@ class EwsConversationActionTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_FLAG
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALWAYS_CATEGORIZE,
             self::VALUE_ALWAYS_DELETE,
             self::VALUE_ALWAYS_MOVE,
@@ -82,6 +84,6 @@ class EwsConversationActionTypeType extends AbstractStructEnumBase
             self::VALUE_SET_READ_STATE,
             self::VALUE_SET_RETENTION_POLICY,
             self::VALUE_FLAG,
-        );
+        ];
     }
 }

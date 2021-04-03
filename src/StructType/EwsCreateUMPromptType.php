@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateUMPromptType StructType
@@ -22,7 +25,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $ConfigurationObject;
+    protected string $ConfigurationObject;
     /**
      * The PromptName
      * Meta information extracted from the WSDL
@@ -30,7 +33,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $PromptName;
+    protected string $PromptName;
     /**
      * The AudioData
      * Meta information extracted from the WSDL
@@ -38,7 +41,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $AudioData;
+    protected string $AudioData;
     /**
      * Constructor method for CreateUMPromptType
      * @uses EwsCreateUMPromptType::setConfigurationObject()
@@ -48,7 +51,7 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * @param string $promptName
      * @param string $audioData
      */
-    public function __construct($configurationObject = null, $promptName = null, $audioData = null)
+    public function __construct(string $configurationObject, string $promptName, string $audioData)
     {
         $this
             ->setConfigurationObject($configurationObject)
@@ -59,70 +62,73 @@ class EwsCreateUMPromptType extends EwsBaseRequestType
      * Get ConfigurationObject value
      * @return string
      */
-    public function getConfigurationObject()
+    public function getConfigurationObject(): string
     {
         return $this->ConfigurationObject;
     }
     /**
      * Set ConfigurationObject value
      * @param string $configurationObject
-     * @return \Ews\StructType\EwsCreateUMPromptType
+     * @return \StructType\EwsCreateUMPromptType
      */
-    public function setConfigurationObject($configurationObject = null)
+    public function setConfigurationObject(string $configurationObject): self
     {
         // validation for constraint: string
         if (!is_null($configurationObject) && !is_string($configurationObject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationObject, true), gettype($configurationObject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($configurationObject, true), gettype($configurationObject)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($configurationObject) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $configurationObject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($configurationObject, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($configurationObject, true)), __LINE__);
         }
         $this->ConfigurationObject = $configurationObject;
+        
         return $this;
     }
     /**
      * Get PromptName value
      * @return string
      */
-    public function getPromptName()
+    public function getPromptName(): string
     {
         return $this->PromptName;
     }
     /**
      * Set PromptName value
      * @param string $promptName
-     * @return \Ews\StructType\EwsCreateUMPromptType
+     * @return \StructType\EwsCreateUMPromptType
      */
-    public function setPromptName($promptName = null)
+    public function setPromptName(string $promptName): self
     {
         // validation for constraint: string
         if (!is_null($promptName) && !is_string($promptName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($promptName, true), gettype($promptName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($promptName, true), gettype($promptName)), __LINE__);
         }
         $this->PromptName = $promptName;
+        
         return $this;
     }
     /**
      * Get AudioData value
      * @return string
      */
-    public function getAudioData()
+    public function getAudioData(): string
     {
         return $this->AudioData;
     }
     /**
      * Set AudioData value
      * @param string $audioData
-     * @return \Ews\StructType\EwsCreateUMPromptType
+     * @return \StructType\EwsCreateUMPromptType
      */
-    public function setAudioData($audioData = null)
+    public function setAudioData(string $audioData): self
     {
         // validation for constraint: string
         if (!is_null($audioData) && !is_string($audioData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($audioData, true), gettype($audioData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($audioData, true), gettype($audioData)), __LINE__);
         }
         $this->AudioData = $audioData;
+        
         return $this;
     }
 }

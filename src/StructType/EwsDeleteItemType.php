@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteItemType StructType
@@ -18,33 +21,33 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * - use: required
      * @var string
      */
-    public $DeleteType;
+    protected string $DeleteType;
     /**
      * The ItemIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * The SendMeetingCancellations
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $SendMeetingCancellations;
+    protected ?string $SendMeetingCancellations = null;
     /**
      * The AffectedTaskOccurrences
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $AffectedTaskOccurrences;
+    protected ?string $AffectedTaskOccurrences = null;
     /**
      * The SuppressReadReceipts
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $SuppressReadReceipts;
+    protected ?bool $SuppressReadReceipts = null;
     /**
      * Constructor method for DeleteItemType
      * @uses EwsDeleteItemType::setDeleteType()
@@ -53,12 +56,12 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * @uses EwsDeleteItemType::setAffectedTaskOccurrences()
      * @uses EwsDeleteItemType::setSuppressReadReceipts()
      * @param string $deleteType
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param string $sendMeetingCancellations
      * @param string $affectedTaskOccurrences
      * @param bool $suppressReadReceipts
      */
-    public function __construct($deleteType = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $sendMeetingCancellations = null, $affectedTaskOccurrences = null, $suppressReadReceipts = null)
+    public function __construct(string $deleteType, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, ?string $sendMeetingCancellations = null, ?string $affectedTaskOccurrences = null, ?bool $suppressReadReceipts = null)
     {
         $this
             ->setDeleteType($deleteType)
@@ -71,115 +74,120 @@ class EwsDeleteItemType extends EwsBaseRequestType
      * Get DeleteType value
      * @return string
      */
-    public function getDeleteType()
+    public function getDeleteType(): string
     {
         return $this->DeleteType;
     }
     /**
      * Set DeleteType value
-     * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDisposalType::valueIsValid()
+     * @uses \EnumType\EwsDisposalType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $deleteType
-     * @return \Ews\StructType\EwsDeleteItemType
+     * @return \StructType\EwsDeleteItemType
      */
-    public function setDeleteType($deleteType = null)
+    public function setDeleteType(string $deleteType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
         $this->DeleteType = $deleteType;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsDeleteItemType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsDeleteItemType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
     /**
      * Get SendMeetingCancellations value
      * @return string|null
      */
-    public function getSendMeetingCancellations()
+    public function getSendMeetingCancellations(): ?string
     {
         return $this->SendMeetingCancellations;
     }
     /**
      * Set SendMeetingCancellations value
-     * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid()
+     * @uses \EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sendMeetingCancellations
-     * @return \Ews\StructType\EwsDeleteItemType
+     * @return \StructType\EwsDeleteItemType
      */
-    public function setSendMeetingCancellations($sendMeetingCancellations = null)
+    public function setSendMeetingCancellations(?string $sendMeetingCancellations = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid($sendMeetingCancellations)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType', is_array($sendMeetingCancellations) ? implode(', ', $sendMeetingCancellations) : var_export($sendMeetingCancellations, true), implode(', ', \Ews\EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsCalendarItemCreateOrDeleteOperationType::valueIsValid($sendMeetingCancellations)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsCalendarItemCreateOrDeleteOperationType', is_array($sendMeetingCancellations) ? implode(', ', $sendMeetingCancellations) : var_export($sendMeetingCancellations, true), implode(', ', \EnumType\EwsCalendarItemCreateOrDeleteOperationType::getValidValues())), __LINE__);
         }
         $this->SendMeetingCancellations = $sendMeetingCancellations;
+        
         return $this;
     }
     /**
      * Get AffectedTaskOccurrences value
      * @return string|null
      */
-    public function getAffectedTaskOccurrences()
+    public function getAffectedTaskOccurrences(): ?string
     {
         return $this->AffectedTaskOccurrences;
     }
     /**
      * Set AffectedTaskOccurrences value
-     * @uses \Ews\EnumType\EwsAffectedTaskOccurrencesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsAffectedTaskOccurrencesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsAffectedTaskOccurrencesType::valueIsValid()
+     * @uses \EnumType\EwsAffectedTaskOccurrencesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $affectedTaskOccurrences
-     * @return \Ews\StructType\EwsDeleteItemType
+     * @return \StructType\EwsDeleteItemType
      */
-    public function setAffectedTaskOccurrences($affectedTaskOccurrences = null)
+    public function setAffectedTaskOccurrences(?string $affectedTaskOccurrences = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsAffectedTaskOccurrencesType::valueIsValid($affectedTaskOccurrences)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAffectedTaskOccurrencesType', is_array($affectedTaskOccurrences) ? implode(', ', $affectedTaskOccurrences) : var_export($affectedTaskOccurrences, true), implode(', ', \Ews\EnumType\EwsAffectedTaskOccurrencesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsAffectedTaskOccurrencesType::valueIsValid($affectedTaskOccurrences)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsAffectedTaskOccurrencesType', is_array($affectedTaskOccurrences) ? implode(', ', $affectedTaskOccurrences) : var_export($affectedTaskOccurrences, true), implode(', ', \EnumType\EwsAffectedTaskOccurrencesType::getValidValues())), __LINE__);
         }
         $this->AffectedTaskOccurrences = $affectedTaskOccurrences;
+        
         return $this;
     }
     /**
      * Get SuppressReadReceipts value
      * @return bool|null
      */
-    public function getSuppressReadReceipts()
+    public function getSuppressReadReceipts(): ?bool
     {
         return $this->SuppressReadReceipts;
     }
     /**
      * Set SuppressReadReceipts value
      * @param bool $suppressReadReceipts
-     * @return \Ews\StructType\EwsDeleteItemType
+     * @return \StructType\EwsDeleteItemType
      */
-    public function setSuppressReadReceipts($suppressReadReceipts = null)
+    public function setSuppressReadReceipts(?bool $suppressReadReceipts = null): self
     {
         // validation for constraint: boolean
         if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
         }
         $this->SuppressReadReceipts = $suppressReadReceipts;
+        
         return $this;
     }
 }

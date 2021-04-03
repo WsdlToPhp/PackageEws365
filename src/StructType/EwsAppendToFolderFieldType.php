@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AppendToFolderFieldType StructType
@@ -18,45 +21,45 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * - choice: Folder | CalendarFolder | ContactsFolder | SearchFolder | TasksFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderType
+     * @var \StructType\EwsFolderType|null
      */
-    public $Folder;
+    protected ?\StructType\EwsFolderType $Folder = null;
     /**
      * The CalendarFolder
      * Meta information extracted from the WSDL
      * - choice: Folder | CalendarFolder | ContactsFolder | SearchFolder | TasksFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsCalendarFolderType
+     * @var \StructType\EwsCalendarFolderType|null
      */
-    public $CalendarFolder;
+    protected ?\StructType\EwsCalendarFolderType $CalendarFolder = null;
     /**
      * The ContactsFolder
      * Meta information extracted from the WSDL
      * - choice: Folder | CalendarFolder | ContactsFolder | SearchFolder | TasksFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsContactsFolderType
+     * @var \StructType\EwsContactsFolderType|null
      */
-    public $ContactsFolder;
+    protected ?\StructType\EwsContactsFolderType $ContactsFolder = null;
     /**
      * The SearchFolder
      * Meta information extracted from the WSDL
      * - choice: Folder | CalendarFolder | ContactsFolder | SearchFolder | TasksFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSearchFolderType
+     * @var \StructType\EwsSearchFolderType|null
      */
-    public $SearchFolder;
+    protected ?\StructType\EwsSearchFolderType $SearchFolder = null;
     /**
      * The TasksFolder
      * Meta information extracted from the WSDL
      * - choice: Folder | CalendarFolder | ContactsFolder | SearchFolder | TasksFolder
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsTasksFolderType
+     * @var \StructType\EwsTasksFolderType|null
      */
-    public $TasksFolder;
+    protected ?\StructType\EwsTasksFolderType $TasksFolder = null;
     /**
      * Constructor method for AppendToFolderFieldType
      * @uses EwsAppendToFolderFieldType::setFolder()
@@ -64,13 +67,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @uses EwsAppendToFolderFieldType::setContactsFolder()
      * @uses EwsAppendToFolderFieldType::setSearchFolder()
      * @uses EwsAppendToFolderFieldType::setTasksFolder()
-     * @param \Ews\StructType\EwsFolderType $folder
-     * @param \Ews\StructType\EwsCalendarFolderType $calendarFolder
-     * @param \Ews\StructType\EwsContactsFolderType $contactsFolder
-     * @param \Ews\StructType\EwsSearchFolderType $searchFolder
-     * @param \Ews\StructType\EwsTasksFolderType $tasksFolder
+     * @param \StructType\EwsFolderType $folder
+     * @param \StructType\EwsCalendarFolderType $calendarFolder
+     * @param \StructType\EwsContactsFolderType $contactsFolder
+     * @param \StructType\EwsSearchFolderType $searchFolder
+     * @param \StructType\EwsTasksFolderType $tasksFolder
      */
-    public function __construct(\Ews\StructType\EwsFolderType $folder = null, \Ews\StructType\EwsCalendarFolderType $calendarFolder = null, \Ews\StructType\EwsContactsFolderType $contactsFolder = null, \Ews\StructType\EwsSearchFolderType $searchFolder = null, \Ews\StructType\EwsTasksFolderType $tasksFolder = null)
+    public function __construct(?\StructType\EwsFolderType $folder = null, ?\StructType\EwsCalendarFolderType $calendarFolder = null, ?\StructType\EwsContactsFolderType $contactsFolder = null, ?\StructType\EwsSearchFolderType $searchFolder = null, ?\StructType\EwsTasksFolderType $tasksFolder = null)
     {
         $this
             ->setFolder($folder)
@@ -81,9 +84,9 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
     }
     /**
      * Get Folder value
-     * @return \Ews\StructType\EwsFolderType|null
+     * @return \StructType\EwsFolderType|null
      */
-    public function getFolder()
+    public function getFolder(): ?\StructType\EwsFolderType
     {
         return isset($this->Folder) ? $this->Folder : null;
     }
@@ -94,7 +97,7 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFolderForChoiceConstraintsFromSetFolder($value)
+    public function validateFolderForChoiceConstraintsFromSetFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -109,12 +112,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Folder can\'t be set as the property %s is already set. Only one property must be set among these properties: Folder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Folder can\'t be set as the property %s is already set. Only one property must be set among these properties: Folder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -122,28 +126,29 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderType $folder
-     * @return \Ews\StructType\EwsAppendToFolderFieldType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderType $folder
+     * @return \StructType\EwsAppendToFolderFieldType
      */
-    public function setFolder(\Ews\StructType\EwsFolderType $folder = null)
+    public function setFolder(?\StructType\EwsFolderType $folder = null): self
     {
         // validation for constraint: choice(Folder, CalendarFolder, ContactsFolder, SearchFolder, TasksFolder)
         if ('' !== ($folderChoiceErrorMessage = self::validateFolderForChoiceConstraintsFromSetFolder($folder))) {
-            throw new \InvalidArgumentException($folderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderChoiceErrorMessage, __LINE__);
         }
         if (is_null($folder) || (is_array($folder) && empty($folder))) {
             unset($this->Folder);
         } else {
             $this->Folder = $folder;
         }
+        
         return $this;
     }
     /**
      * Get CalendarFolder value
-     * @return \Ews\StructType\EwsCalendarFolderType|null
+     * @return \StructType\EwsCalendarFolderType|null
      */
-    public function getCalendarFolder()
+    public function getCalendarFolder(): ?\StructType\EwsCalendarFolderType
     {
         return isset($this->CalendarFolder) ? $this->CalendarFolder : null;
     }
@@ -154,7 +159,7 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCalendarFolderForChoiceConstraintsFromSetCalendarFolder($value)
+    public function validateCalendarFolderForChoiceConstraintsFromSetCalendarFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -169,12 +174,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CalendarFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarFolder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CalendarFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarFolder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -182,28 +188,29 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarFolderType $calendarFolder
-     * @return \Ews\StructType\EwsAppendToFolderFieldType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarFolderType $calendarFolder
+     * @return \StructType\EwsAppendToFolderFieldType
      */
-    public function setCalendarFolder(\Ews\StructType\EwsCalendarFolderType $calendarFolder = null)
+    public function setCalendarFolder(?\StructType\EwsCalendarFolderType $calendarFolder = null): self
     {
         // validation for constraint: choice(Folder, CalendarFolder, ContactsFolder, SearchFolder, TasksFolder)
         if ('' !== ($calendarFolderChoiceErrorMessage = self::validateCalendarFolderForChoiceConstraintsFromSetCalendarFolder($calendarFolder))) {
-            throw new \InvalidArgumentException($calendarFolderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($calendarFolderChoiceErrorMessage, __LINE__);
         }
         if (is_null($calendarFolder) || (is_array($calendarFolder) && empty($calendarFolder))) {
             unset($this->CalendarFolder);
         } else {
             $this->CalendarFolder = $calendarFolder;
         }
+        
         return $this;
     }
     /**
      * Get ContactsFolder value
-     * @return \Ews\StructType\EwsContactsFolderType|null
+     * @return \StructType\EwsContactsFolderType|null
      */
-    public function getContactsFolder()
+    public function getContactsFolder(): ?\StructType\EwsContactsFolderType
     {
         return isset($this->ContactsFolder) ? $this->ContactsFolder : null;
     }
@@ -214,7 +221,7 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateContactsFolderForChoiceConstraintsFromSetContactsFolder($value)
+    public function validateContactsFolderForChoiceConstraintsFromSetContactsFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -229,12 +236,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ContactsFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: ContactsFolder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ContactsFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: ContactsFolder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -242,28 +250,29 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContactsFolderType $contactsFolder
-     * @return \Ews\StructType\EwsAppendToFolderFieldType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContactsFolderType $contactsFolder
+     * @return \StructType\EwsAppendToFolderFieldType
      */
-    public function setContactsFolder(\Ews\StructType\EwsContactsFolderType $contactsFolder = null)
+    public function setContactsFolder(?\StructType\EwsContactsFolderType $contactsFolder = null): self
     {
         // validation for constraint: choice(Folder, CalendarFolder, ContactsFolder, SearchFolder, TasksFolder)
         if ('' !== ($contactsFolderChoiceErrorMessage = self::validateContactsFolderForChoiceConstraintsFromSetContactsFolder($contactsFolder))) {
-            throw new \InvalidArgumentException($contactsFolderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contactsFolderChoiceErrorMessage, __LINE__);
         }
         if (is_null($contactsFolder) || (is_array($contactsFolder) && empty($contactsFolder))) {
             unset($this->ContactsFolder);
         } else {
             $this->ContactsFolder = $contactsFolder;
         }
+        
         return $this;
     }
     /**
      * Get SearchFolder value
-     * @return \Ews\StructType\EwsSearchFolderType|null
+     * @return \StructType\EwsSearchFolderType|null
      */
-    public function getSearchFolder()
+    public function getSearchFolder(): ?\StructType\EwsSearchFolderType
     {
         return isset($this->SearchFolder) ? $this->SearchFolder : null;
     }
@@ -274,7 +283,7 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSearchFolderForChoiceConstraintsFromSetSearchFolder($value)
+    public function validateSearchFolderForChoiceConstraintsFromSetSearchFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -289,12 +298,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SearchFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: SearchFolder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SearchFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: SearchFolder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -302,28 +312,29 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchFolderType $searchFolder
-     * @return \Ews\StructType\EwsAppendToFolderFieldType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchFolderType $searchFolder
+     * @return \StructType\EwsAppendToFolderFieldType
      */
-    public function setSearchFolder(\Ews\StructType\EwsSearchFolderType $searchFolder = null)
+    public function setSearchFolder(?\StructType\EwsSearchFolderType $searchFolder = null): self
     {
         // validation for constraint: choice(Folder, CalendarFolder, ContactsFolder, SearchFolder, TasksFolder)
         if ('' !== ($searchFolderChoiceErrorMessage = self::validateSearchFolderForChoiceConstraintsFromSetSearchFolder($searchFolder))) {
-            throw new \InvalidArgumentException($searchFolderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchFolderChoiceErrorMessage, __LINE__);
         }
         if (is_null($searchFolder) || (is_array($searchFolder) && empty($searchFolder))) {
             unset($this->SearchFolder);
         } else {
             $this->SearchFolder = $searchFolder;
         }
+        
         return $this;
     }
     /**
      * Get TasksFolder value
-     * @return \Ews\StructType\EwsTasksFolderType|null
+     * @return \StructType\EwsTasksFolderType|null
      */
-    public function getTasksFolder()
+    public function getTasksFolder(): ?\StructType\EwsTasksFolderType
     {
         return isset($this->TasksFolder) ? $this->TasksFolder : null;
     }
@@ -334,7 +345,7 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateTasksFolderForChoiceConstraintsFromSetTasksFolder($value)
+    public function validateTasksFolderForChoiceConstraintsFromSetTasksFolder($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -349,12 +360,13 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property TasksFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: TasksFolder, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property TasksFolder can\'t be set as the property %s is already set. Only one property must be set among these properties: TasksFolder, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -362,21 +374,22 @@ class EwsAppendToFolderFieldType extends EwsFolderChangeDescriptionType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTasksFolderType $tasksFolder
-     * @return \Ews\StructType\EwsAppendToFolderFieldType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsTasksFolderType $tasksFolder
+     * @return \StructType\EwsAppendToFolderFieldType
      */
-    public function setTasksFolder(\Ews\StructType\EwsTasksFolderType $tasksFolder = null)
+    public function setTasksFolder(?\StructType\EwsTasksFolderType $tasksFolder = null): self
     {
         // validation for constraint: choice(Folder, CalendarFolder, ContactsFolder, SearchFolder, TasksFolder)
         if ('' !== ($tasksFolderChoiceErrorMessage = self::validateTasksFolderForChoiceConstraintsFromSetTasksFolder($tasksFolder))) {
-            throw new \InvalidArgumentException($tasksFolderChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($tasksFolderChoiceErrorMessage, __LINE__);
         }
         if (is_null($tasksFolder) || (is_array($tasksFolder) && empty($tasksFolder))) {
             unset($this->TasksFolder);
         } else {
             $this->TasksFolder = $tasksFolder;
         }
+        
         return $this;
     }
 }

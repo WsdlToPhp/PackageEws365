@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ClientIntentMeetingInquiryActionType EnumType
@@ -70,9 +72,9 @@ class EwsClientIntentMeetingInquiryActionType extends AbstractStructEnumBase
      * @uses self::VALUE_FAILED_TO_REVIVE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SEND_CANCELLATION,
             self::VALUE_REVIVE_MEETING,
             self::VALUE_SEND_UPDATE_FOR_MASTER,
@@ -82,6 +84,6 @@ class EwsClientIntentMeetingInquiryActionType extends AbstractStructEnumBase
             self::VALUE_DELETED_VERSION_NOT_FOUND,
             self::VALUE_PAIRED_CANCELLATION_FOUND,
             self::VALUE_FAILED_TO_REVIVE,
-        );
+        ];
     }
 }

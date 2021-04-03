@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OutOfOfficeMailTip StructType
@@ -17,25 +20,25 @@ class EwsOutOfOfficeMailTip extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsReplyBody
+     * @var \StructType\EwsReplyBody
      */
-    public $ReplyBody;
+    protected \StructType\EwsReplyBody $ReplyBody;
     /**
      * The Duration
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsDuration
+     * @var \StructType\EwsDuration|null
      */
-    public $Duration;
+    protected ?\StructType\EwsDuration $Duration = null;
     /**
      * Constructor method for OutOfOfficeMailTip
      * @uses EwsOutOfOfficeMailTip::setReplyBody()
      * @uses EwsOutOfOfficeMailTip::setDuration()
-     * @param \Ews\StructType\EwsReplyBody $replyBody
-     * @param \Ews\StructType\EwsDuration $duration
+     * @param \StructType\EwsReplyBody $replyBody
+     * @param \StructType\EwsDuration $duration
      */
-    public function __construct(\Ews\StructType\EwsReplyBody $replyBody = null, \Ews\StructType\EwsDuration $duration = null)
+    public function __construct(\StructType\EwsReplyBody $replyBody, ?\StructType\EwsDuration $duration = null)
     {
         $this
             ->setReplyBody($replyBody)
@@ -43,38 +46,40 @@ class EwsOutOfOfficeMailTip extends AbstractStructBase
     }
     /**
      * Get ReplyBody value
-     * @return \Ews\StructType\EwsReplyBody
+     * @return \StructType\EwsReplyBody
      */
-    public function getReplyBody()
+    public function getReplyBody(): \StructType\EwsReplyBody
     {
         return $this->ReplyBody;
     }
     /**
      * Set ReplyBody value
-     * @param \Ews\StructType\EwsReplyBody $replyBody
-     * @return \Ews\StructType\EwsOutOfOfficeMailTip
+     * @param \StructType\EwsReplyBody $replyBody
+     * @return \StructType\EwsOutOfOfficeMailTip
      */
-    public function setReplyBody(\Ews\StructType\EwsReplyBody $replyBody = null)
+    public function setReplyBody(\StructType\EwsReplyBody $replyBody): self
     {
         $this->ReplyBody = $replyBody;
+        
         return $this;
     }
     /**
      * Get Duration value
-     * @return \Ews\StructType\EwsDuration|null
+     * @return \StructType\EwsDuration|null
      */
-    public function getDuration()
+    public function getDuration(): ?\StructType\EwsDuration
     {
         return $this->Duration;
     }
     /**
      * Set Duration value
-     * @param \Ews\StructType\EwsDuration $duration
-     * @return \Ews\StructType\EwsOutOfOfficeMailTip
+     * @param \StructType\EwsDuration $duration
+     * @return \StructType\EwsOutOfOfficeMailTip
      */
-    public function setDuration(\Ews\StructType\EwsDuration $duration = null)
+    public function setDuration(?\StructType\EwsDuration $duration = null): self
     {
         $this->Duration = $duration;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RuleActionsType StructType
@@ -19,105 +22,105 @@ class EwsRuleActionsType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $AssignCategories;
+    protected ?\ArrayType\EwsArrayOfStringsType $AssignCategories = null;
     /**
      * The CopyToFolder
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $CopyToFolder;
+    protected ?\StructType\EwsTargetFolderIdType $CopyToFolder = null;
     /**
      * The Delete
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Delete;
+    protected ?bool $Delete = null;
     /**
      * The ForwardAsAttachmentToRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $ForwardAsAttachmentToRecipients;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $ForwardAsAttachmentToRecipients = null;
     /**
      * The ForwardToRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $ForwardToRecipients;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $ForwardToRecipients = null;
     /**
      * The MarkImportance
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MarkImportance;
+    protected ?string $MarkImportance = null;
     /**
      * The MarkAsRead
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MarkAsRead;
+    protected ?bool $MarkAsRead = null;
     /**
      * The MoveToFolder
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $MoveToFolder;
+    protected ?\StructType\EwsTargetFolderIdType $MoveToFolder = null;
     /**
      * The PermanentDelete
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $PermanentDelete;
+    protected ?bool $PermanentDelete = null;
     /**
      * The RedirectToRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $RedirectToRecipients;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $RedirectToRecipients = null;
     /**
      * The SendSMSAlertToRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $SendSMSAlertToRecipients;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $SendSMSAlertToRecipients = null;
     /**
      * The ServerReplyWithMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ServerReplyWithMessage;
+    protected ?\StructType\EwsItemIdType $ServerReplyWithMessage = null;
     /**
      * The StopProcessingRules
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $StopProcessingRules;
+    protected ?bool $StopProcessingRules = null;
     /**
      * Constructor method for RuleActionsType
      * @uses EwsRuleActionsType::setAssignCategories()
@@ -133,21 +136,21 @@ class EwsRuleActionsType extends AbstractStructBase
      * @uses EwsRuleActionsType::setSendSMSAlertToRecipients()
      * @uses EwsRuleActionsType::setServerReplyWithMessage()
      * @uses EwsRuleActionsType::setStopProcessingRules()
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $assignCategories
-     * @param \Ews\StructType\EwsTargetFolderIdType $copyToFolder
+     * @param \ArrayType\EwsArrayOfStringsType $assignCategories
+     * @param \StructType\EwsTargetFolderIdType $copyToFolder
      * @param bool $delete
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
      * @param string $markImportance
      * @param bool $markAsRead
-     * @param \Ews\StructType\EwsTargetFolderIdType $moveToFolder
+     * @param \StructType\EwsTargetFolderIdType $moveToFolder
      * @param bool $permanentDelete
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients
-     * @param \Ews\StructType\EwsItemIdType $serverReplyWithMessage
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients
+     * @param \StructType\EwsItemIdType $serverReplyWithMessage
      * @param bool $stopProcessingRules
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $assignCategories = null, \Ews\StructType\EwsTargetFolderIdType $copyToFolder = null, $delete = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients = null, $markImportance = null, $markAsRead = null, \Ews\StructType\EwsTargetFolderIdType $moveToFolder = null, $permanentDelete = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients = null, \Ews\StructType\EwsItemIdType $serverReplyWithMessage = null, $stopProcessingRules = null)
+    public function __construct(?\ArrayType\EwsArrayOfStringsType $assignCategories = null, ?\StructType\EwsTargetFolderIdType $copyToFolder = null, ?bool $delete = null, ?\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null, ?\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients = null, ?string $markImportance = null, ?bool $markAsRead = null, ?\StructType\EwsTargetFolderIdType $moveToFolder = null, ?bool $permanentDelete = null, ?\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients = null, ?\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients = null, ?\StructType\EwsItemIdType $serverReplyWithMessage = null, ?bool $stopProcessingRules = null)
     {
         $this
             ->setAssignCategories($assignCategories)
@@ -166,259 +169,272 @@ class EwsRuleActionsType extends AbstractStructBase
     }
     /**
      * Get AssignCategories value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getAssignCategories()
+    public function getAssignCategories(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->AssignCategories;
     }
     /**
      * Set AssignCategories value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $assignCategories
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \ArrayType\EwsArrayOfStringsType $assignCategories
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setAssignCategories(\Ews\ArrayType\EwsArrayOfStringsType $assignCategories = null)
+    public function setAssignCategories(?\ArrayType\EwsArrayOfStringsType $assignCategories = null): self
     {
         $this->AssignCategories = $assignCategories;
+        
         return $this;
     }
     /**
      * Get CopyToFolder value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getCopyToFolder()
+    public function getCopyToFolder(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->CopyToFolder;
     }
     /**
      * Set CopyToFolder value
-     * @param \Ews\StructType\EwsTargetFolderIdType $copyToFolder
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \StructType\EwsTargetFolderIdType $copyToFolder
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setCopyToFolder(\Ews\StructType\EwsTargetFolderIdType $copyToFolder = null)
+    public function setCopyToFolder(?\StructType\EwsTargetFolderIdType $copyToFolder = null): self
     {
         $this->CopyToFolder = $copyToFolder;
+        
         return $this;
     }
     /**
      * Get Delete value
      * @return bool|null
      */
-    public function getDelete()
+    public function getDelete(): ?bool
     {
         return $this->Delete;
     }
     /**
      * Set Delete value
      * @param bool $delete
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setDelete($delete = null)
+    public function setDelete(?bool $delete = null): self
     {
         // validation for constraint: boolean
         if (!is_null($delete) && !is_bool($delete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($delete, true), gettype($delete)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($delete, true), gettype($delete)), __LINE__);
         }
         $this->Delete = $delete;
+        
         return $this;
     }
     /**
      * Get ForwardAsAttachmentToRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getForwardAsAttachmentToRecipients()
+    public function getForwardAsAttachmentToRecipients(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->ForwardAsAttachmentToRecipients;
     }
     /**
      * Set ForwardAsAttachmentToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setForwardAsAttachmentToRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null)
+    public function setForwardAsAttachmentToRecipients(?\ArrayType\EwsArrayOfEmailAddressesType $forwardAsAttachmentToRecipients = null): self
     {
         $this->ForwardAsAttachmentToRecipients = $forwardAsAttachmentToRecipients;
+        
         return $this;
     }
     /**
      * Get ForwardToRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getForwardToRecipients()
+    public function getForwardToRecipients(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->ForwardToRecipients;
     }
     /**
      * Set ForwardToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setForwardToRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients = null)
+    public function setForwardToRecipients(?\ArrayType\EwsArrayOfEmailAddressesType $forwardToRecipients = null): self
     {
         $this->ForwardToRecipients = $forwardToRecipients;
+        
         return $this;
     }
     /**
      * Get MarkImportance value
      * @return string|null
      */
-    public function getMarkImportance()
+    public function getMarkImportance(): ?string
     {
         return $this->MarkImportance;
     }
     /**
      * Set MarkImportance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $markImportance
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setMarkImportance($markImportance = null)
+    public function setMarkImportance(?string $markImportance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($markImportance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($markImportance) ? implode(', ', $markImportance) : var_export($markImportance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($markImportance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($markImportance) ? implode(', ', $markImportance) : var_export($markImportance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->MarkImportance = $markImportance;
+        
         return $this;
     }
     /**
      * Get MarkAsRead value
      * @return bool|null
      */
-    public function getMarkAsRead()
+    public function getMarkAsRead(): ?bool
     {
         return $this->MarkAsRead;
     }
     /**
      * Set MarkAsRead value
      * @param bool $markAsRead
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setMarkAsRead($markAsRead = null)
+    public function setMarkAsRead(?bool $markAsRead = null): self
     {
         // validation for constraint: boolean
         if (!is_null($markAsRead) && !is_bool($markAsRead)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($markAsRead, true), gettype($markAsRead)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($markAsRead, true), gettype($markAsRead)), __LINE__);
         }
         $this->MarkAsRead = $markAsRead;
+        
         return $this;
     }
     /**
      * Get MoveToFolder value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getMoveToFolder()
+    public function getMoveToFolder(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->MoveToFolder;
     }
     /**
      * Set MoveToFolder value
-     * @param \Ews\StructType\EwsTargetFolderIdType $moveToFolder
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \StructType\EwsTargetFolderIdType $moveToFolder
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setMoveToFolder(\Ews\StructType\EwsTargetFolderIdType $moveToFolder = null)
+    public function setMoveToFolder(?\StructType\EwsTargetFolderIdType $moveToFolder = null): self
     {
         $this->MoveToFolder = $moveToFolder;
+        
         return $this;
     }
     /**
      * Get PermanentDelete value
      * @return bool|null
      */
-    public function getPermanentDelete()
+    public function getPermanentDelete(): ?bool
     {
         return $this->PermanentDelete;
     }
     /**
      * Set PermanentDelete value
      * @param bool $permanentDelete
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setPermanentDelete($permanentDelete = null)
+    public function setPermanentDelete(?bool $permanentDelete = null): self
     {
         // validation for constraint: boolean
         if (!is_null($permanentDelete) && !is_bool($permanentDelete)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($permanentDelete, true), gettype($permanentDelete)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($permanentDelete, true), gettype($permanentDelete)), __LINE__);
         }
         $this->PermanentDelete = $permanentDelete;
+        
         return $this;
     }
     /**
      * Get RedirectToRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getRedirectToRecipients()
+    public function getRedirectToRecipients(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->RedirectToRecipients;
     }
     /**
      * Set RedirectToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setRedirectToRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients = null)
+    public function setRedirectToRecipients(?\ArrayType\EwsArrayOfEmailAddressesType $redirectToRecipients = null): self
     {
         $this->RedirectToRecipients = $redirectToRecipients;
+        
         return $this;
     }
     /**
      * Get SendSMSAlertToRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getSendSMSAlertToRecipients()
+    public function getSendSMSAlertToRecipients(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->SendSMSAlertToRecipients;
     }
     /**
      * Set SendSMSAlertToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setSendSMSAlertToRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients = null)
+    public function setSendSMSAlertToRecipients(?\ArrayType\EwsArrayOfEmailAddressesType $sendSMSAlertToRecipients = null): self
     {
         $this->SendSMSAlertToRecipients = $sendSMSAlertToRecipients;
+        
         return $this;
     }
     /**
      * Get ServerReplyWithMessage value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getServerReplyWithMessage()
+    public function getServerReplyWithMessage(): ?\StructType\EwsItemIdType
     {
         return $this->ServerReplyWithMessage;
     }
     /**
      * Set ServerReplyWithMessage value
-     * @param \Ews\StructType\EwsItemIdType $serverReplyWithMessage
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @param \StructType\EwsItemIdType $serverReplyWithMessage
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setServerReplyWithMessage(\Ews\StructType\EwsItemIdType $serverReplyWithMessage = null)
+    public function setServerReplyWithMessage(?\StructType\EwsItemIdType $serverReplyWithMessage = null): self
     {
         $this->ServerReplyWithMessage = $serverReplyWithMessage;
+        
         return $this;
     }
     /**
      * Get StopProcessingRules value
      * @return bool|null
      */
-    public function getStopProcessingRules()
+    public function getStopProcessingRules(): ?bool
     {
         return $this->StopProcessingRules;
     }
     /**
      * Set StopProcessingRules value
      * @param bool $stopProcessingRules
-     * @return \Ews\StructType\EwsRuleActionsType
+     * @return \StructType\EwsRuleActionsType
      */
-    public function setStopProcessingRules($stopProcessingRules = null)
+    public function setStopProcessingRules(?bool $stopProcessingRules = null): self
     {
         // validation for constraint: boolean
         if (!is_null($stopProcessingRules) && !is_bool($stopProcessingRules)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($stopProcessingRules, true), gettype($stopProcessingRules)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($stopProcessingRules, true), gettype($stopProcessingRules)), __LINE__);
         }
         $this->StopProcessingRules = $stopProcessingRules;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ContainmentComparisonType EnumType
@@ -64,9 +66,9 @@ class EwsContainmentComparisonType extends AbstractStructEnumBase
      * @uses self::VALUE_LOOSE_AND_IGNORE_CASE_AND_IGNORE_NON_SPACE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_EXACT,
             self::VALUE_IGNORE_CASE,
             self::VALUE_IGNORE_NON_SPACING_CHARACTERS,
@@ -75,6 +77,6 @@ class EwsContainmentComparisonType extends AbstractStructEnumBase
             self::VALUE_LOOSE_AND_IGNORE_CASE,
             self::VALUE_LOOSE_AND_IGNORE_NON_SPACE,
             self::VALUE_LOOSE_AND_IGNORE_CASE_AND_IGNORE_NON_SPACE,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchDiagnosticsStepType StructType
@@ -17,33 +20,33 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartTime;
+    protected ?string $StartTime = null;
     /**
      * The StepTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $StepTime;
+    protected ?int $StepTime = null;
     /**
      * The StepType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StepType;
+    protected ?string $StepType = null;
     /**
      * The AdditionalEntries
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAdditionalEntries
+     * @var \StructType\EwsAdditionalEntries|null
      */
-    public $AdditionalEntries;
+    protected ?\StructType\EwsAdditionalEntries $AdditionalEntries = null;
     /**
      * Constructor method for SearchDiagnosticsStepType
      * @uses EwsSearchDiagnosticsStepType::setStartTime()
@@ -53,9 +56,9 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      * @param string $startTime
      * @param int $stepTime
      * @param string $stepType
-     * @param \Ews\StructType\EwsAdditionalEntries $additionalEntries
+     * @param \StructType\EwsAdditionalEntries $additionalEntries
      */
-    public function __construct($startTime = null, $stepTime = null, $stepType = null, \Ews\StructType\EwsAdditionalEntries $additionalEntries = null)
+    public function __construct(?string $startTime = null, ?int $stepTime = null, ?string $stepType = null, ?\StructType\EwsAdditionalEntries $additionalEntries = null)
     {
         $this
             ->setStartTime($startTime)
@@ -67,84 +70,88 @@ class EwsSearchDiagnosticsStepType extends AbstractStructBase
      * Get StartTime value
      * @return string|null
      */
-    public function getStartTime()
+    public function getStartTime(): ?string
     {
         return $this->StartTime;
     }
     /**
      * Set StartTime value
      * @param string $startTime
-     * @return \Ews\StructType\EwsSearchDiagnosticsStepType
+     * @return \StructType\EwsSearchDiagnosticsStepType
      */
-    public function setStartTime($startTime = null)
+    public function setStartTime(?string $startTime = null): self
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
+        
         return $this;
     }
     /**
      * Get StepTime value
      * @return int|null
      */
-    public function getStepTime()
+    public function getStepTime(): ?int
     {
         return $this->StepTime;
     }
     /**
      * Set StepTime value
      * @param int $stepTime
-     * @return \Ews\StructType\EwsSearchDiagnosticsStepType
+     * @return \StructType\EwsSearchDiagnosticsStepType
      */
-    public function setStepTime($stepTime = null)
+    public function setStepTime(?int $stepTime = null): self
     {
         // validation for constraint: int
         if (!is_null($stepTime) && !(is_int($stepTime) || ctype_digit($stepTime))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($stepTime, true), gettype($stepTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($stepTime, true), gettype($stepTime)), __LINE__);
         }
         $this->StepTime = $stepTime;
+        
         return $this;
     }
     /**
      * Get StepType value
      * @return string|null
      */
-    public function getStepType()
+    public function getStepType(): ?string
     {
         return $this->StepType;
     }
     /**
      * Set StepType value
      * @param string $stepType
-     * @return \Ews\StructType\EwsSearchDiagnosticsStepType
+     * @return \StructType\EwsSearchDiagnosticsStepType
      */
-    public function setStepType($stepType = null)
+    public function setStepType(?string $stepType = null): self
     {
         // validation for constraint: string
         if (!is_null($stepType) && !is_string($stepType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($stepType, true), gettype($stepType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($stepType, true), gettype($stepType)), __LINE__);
         }
         $this->StepType = $stepType;
+        
         return $this;
     }
     /**
      * Get AdditionalEntries value
-     * @return \Ews\StructType\EwsAdditionalEntries|null
+     * @return \StructType\EwsAdditionalEntries|null
      */
-    public function getAdditionalEntries()
+    public function getAdditionalEntries(): ?\StructType\EwsAdditionalEntries
     {
         return $this->AdditionalEntries;
     }
     /**
      * Set AdditionalEntries value
-     * @param \Ews\StructType\EwsAdditionalEntries $additionalEntries
-     * @return \Ews\StructType\EwsSearchDiagnosticsStepType
+     * @param \StructType\EwsAdditionalEntries $additionalEntries
+     * @return \StructType\EwsSearchDiagnosticsStepType
      */
-    public function setAdditionalEntries(\Ews\StructType\EwsAdditionalEntries $additionalEntries = null)
+    public function setAdditionalEntries(?\StructType\EwsAdditionalEntries $additionalEntries = null): self
     {
         $this->AdditionalEntries = $additionalEntries;
+        
         return $this;
     }
 }

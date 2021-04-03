@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateMeetingInstanceRequestType StructType
@@ -17,45 +20,45 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The MeetingInstance
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMeetingInstanceType
+     * @var \StructType\EwsMeetingInstanceType|null
      */
-    public $MeetingInstance;
+    protected ?\StructType\EwsMeetingInstanceType $MeetingInstance = null;
     /**
      * The ContentActivitiesToAdd
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities
+     * @var \ArrayType\EwsNonEmptyArrayOfContentActivities|null
      */
-    public $ContentActivitiesToAdd;
+    protected ?\ArrayType\EwsNonEmptyArrayOfContentActivities $ContentActivitiesToAdd = null;
     /**
      * The ParticipantActivitiesToAdd
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities
+     * @var \ArrayType\EwsNonEmptyArrayOfParticipantActivities|null
      */
-    public $ParticipantActivitiesToAdd;
+    protected ?\ArrayType\EwsNonEmptyArrayOfParticipantActivities $ParticipantActivitiesToAdd = null;
     /**
      * Constructor method for UpdateMeetingInstanceRequestType
      * @uses EwsUpdateMeetingInstanceRequestType::setItemId()
      * @uses EwsUpdateMeetingInstanceRequestType::setMeetingInstance()
      * @uses EwsUpdateMeetingInstanceRequestType::setContentActivitiesToAdd()
      * @uses EwsUpdateMeetingInstanceRequestType::setParticipantActivitiesToAdd()
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsMeetingInstanceType $meetingInstance
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsMeetingInstanceType $meetingInstance
+     * @param \ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
+     * @param \ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsMeetingInstanceType $meetingInstance = null, \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null, \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, ?\StructType\EwsMeetingInstanceType $meetingInstance = null, ?\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null, ?\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null)
     {
         $this
             ->setItemId($itemId)
@@ -65,74 +68,78 @@ class EwsUpdateMeetingInstanceRequestType extends EwsBaseRequestType
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsUpdateMeetingInstanceRequestType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get MeetingInstance value
-     * @return \Ews\StructType\EwsMeetingInstanceType|null
+     * @return \StructType\EwsMeetingInstanceType|null
      */
-    public function getMeetingInstance()
+    public function getMeetingInstance(): ?\StructType\EwsMeetingInstanceType
     {
         return $this->MeetingInstance;
     }
     /**
      * Set MeetingInstance value
-     * @param \Ews\StructType\EwsMeetingInstanceType $meetingInstance
-     * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
+     * @param \StructType\EwsMeetingInstanceType $meetingInstance
+     * @return \StructType\EwsUpdateMeetingInstanceRequestType
      */
-    public function setMeetingInstance(\Ews\StructType\EwsMeetingInstanceType $meetingInstance = null)
+    public function setMeetingInstance(?\StructType\EwsMeetingInstanceType $meetingInstance = null): self
     {
         $this->MeetingInstance = $meetingInstance;
+        
         return $this;
     }
     /**
      * Get ContentActivitiesToAdd value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities|null
+     * @return \ArrayType\EwsNonEmptyArrayOfContentActivities|null
      */
-    public function getContentActivitiesToAdd()
+    public function getContentActivitiesToAdd(): ?\ArrayType\EwsNonEmptyArrayOfContentActivities
     {
         return $this->ContentActivitiesToAdd;
     }
     /**
      * Set ContentActivitiesToAdd value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
-     * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
+     * @param \ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd
+     * @return \StructType\EwsUpdateMeetingInstanceRequestType
      */
-    public function setContentActivitiesToAdd(\Ews\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null)
+    public function setContentActivitiesToAdd(?\ArrayType\EwsNonEmptyArrayOfContentActivities $contentActivitiesToAdd = null): self
     {
         $this->ContentActivitiesToAdd = $contentActivitiesToAdd;
+        
         return $this;
     }
     /**
      * Get ParticipantActivitiesToAdd value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities|null
+     * @return \ArrayType\EwsNonEmptyArrayOfParticipantActivities|null
      */
-    public function getParticipantActivitiesToAdd()
+    public function getParticipantActivitiesToAdd(): ?\ArrayType\EwsNonEmptyArrayOfParticipantActivities
     {
         return $this->ParticipantActivitiesToAdd;
     }
     /**
      * Set ParticipantActivitiesToAdd value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
-     * @return \Ews\StructType\EwsUpdateMeetingInstanceRequestType
+     * @param \ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd
+     * @return \StructType\EwsUpdateMeetingInstanceRequestType
      */
-    public function setParticipantActivitiesToAdd(\Ews\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null)
+    public function setParticipantActivitiesToAdd(?\ArrayType\EwsNonEmptyArrayOfParticipantActivities $participantActivitiesToAdd = null): self
     {
         $this->ParticipantActivitiesToAdd = $participantActivitiesToAdd;
+        
         return $this;
     }
 }

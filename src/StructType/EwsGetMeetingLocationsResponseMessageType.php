@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetMeetingLocationsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetMeetingLocationsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     * @var \ArrayType\EwsArrayOfMeetingLocationItemType
      */
-    public $MeetingLocations;
+    protected \ArrayType\EwsArrayOfMeetingLocationItemType $MeetingLocations;
     /**
      * Constructor method for GetMeetingLocationsResponseMessageType
      * @uses EwsGetMeetingLocationsResponseMessageType::setMeetingLocations()
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations
+     * @param \ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations = null)
+    public function __construct(\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations)
     {
         $this
             ->setMeetingLocations($meetingLocations);
     }
     /**
      * Get MeetingLocations value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingLocationItemType
+     * @return \ArrayType\EwsArrayOfMeetingLocationItemType
      */
-    public function getMeetingLocations()
+    public function getMeetingLocations(): \ArrayType\EwsArrayOfMeetingLocationItemType
     {
         return $this->MeetingLocations;
     }
     /**
      * Set MeetingLocations value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations
-     * @return \Ews\StructType\EwsGetMeetingLocationsResponseMessageType
+     * @param \ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations
+     * @return \StructType\EwsGetMeetingLocationsResponseMessageType
      */
-    public function setMeetingLocations(\Ews\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations = null)
+    public function setMeetingLocations(\ArrayType\EwsArrayOfMeetingLocationItemType $meetingLocations): self
     {
         $this->MeetingLocations = $meetingLocations;
+        
         return $this;
     }
 }

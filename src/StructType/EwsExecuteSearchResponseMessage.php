@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExecuteSearchResponseMessage StructType
@@ -14,35 +17,36 @@ class EwsExecuteSearchResponseMessage extends EwsResponseMessageType
 {
     /**
      * The SearchResults
-     * @var \Ews\StructType\EwsSearchResultsType
+     * @var \StructType\EwsSearchResultsType|null
      */
-    public $SearchResults;
+    protected ?\StructType\EwsSearchResultsType $SearchResults = null;
     /**
      * Constructor method for ExecuteSearchResponseMessage
      * @uses EwsExecuteSearchResponseMessage::setSearchResults()
-     * @param \Ews\StructType\EwsSearchResultsType $searchResults
+     * @param \StructType\EwsSearchResultsType $searchResults
      */
-    public function __construct(\Ews\StructType\EwsSearchResultsType $searchResults = null)
+    public function __construct(?\StructType\EwsSearchResultsType $searchResults = null)
     {
         $this
             ->setSearchResults($searchResults);
     }
     /**
      * Get SearchResults value
-     * @return \Ews\StructType\EwsSearchResultsType|null
+     * @return \StructType\EwsSearchResultsType|null
      */
-    public function getSearchResults()
+    public function getSearchResults(): ?\StructType\EwsSearchResultsType
     {
         return $this->SearchResults;
     }
     /**
      * Set SearchResults value
-     * @param \Ews\StructType\EwsSearchResultsType $searchResults
-     * @return \Ews\StructType\EwsExecuteSearchResponseMessage
+     * @param \StructType\EwsSearchResultsType $searchResults
+     * @return \StructType\EwsExecuteSearchResponseMessage
      */
-    public function setSearchResults(\Ews\StructType\EwsSearchResultsType $searchResults = null)
+    public function setSearchResults(?\StructType\EwsSearchResultsType $searchResults = null): self
     {
         $this->SearchResults = $searchResults;
+        
         return $this;
     }
 }

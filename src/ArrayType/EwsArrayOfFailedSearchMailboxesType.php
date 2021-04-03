@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFailedSearchMailboxesType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfFailedSearchMailboxesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFailedSearchMailboxType[]
+     * @var \StructType\EwsFailedSearchMailboxType[]
      */
-    public $FailedMailbox;
+    protected array $FailedMailbox = [];
     /**
      * Constructor method for ArrayOfFailedSearchMailboxesType
      * @uses EwsArrayOfFailedSearchMailboxesType::setFailedMailbox()
-     * @param \Ews\StructType\EwsFailedSearchMailboxType[] $failedMailbox
+     * @param \StructType\EwsFailedSearchMailboxType[] $failedMailbox
      */
-    public function __construct(array $failedMailbox = array())
+    public function __construct(array $failedMailbox = [])
     {
         $this
             ->setFailedMailbox($failedMailbox);
     }
     /**
      * Get FailedMailbox value
-     * @return \Ews\StructType\EwsFailedSearchMailboxType[]|null
+     * @return \StructType\EwsFailedSearchMailboxType[]
      */
-    public function getFailedMailbox()
+    public function getFailedMailbox(): array
     {
         return $this->FailedMailbox;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfFailedSearchMailboxesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFailedMailboxForArrayConstraintsFromSetFailedMailbox(array $values = array())
+    public static function validateFailedMailboxForArrayConstraintsFromSetFailedMailbox(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfFailedSearchMailboxesTypeFailedMailboxItem) {
             // validation for constraint: itemType
-            if (!$arrayOfFailedSearchMailboxesTypeFailedMailboxItem instanceof \Ews\StructType\EwsFailedSearchMailboxType) {
+            if (!$arrayOfFailedSearchMailboxesTypeFailedMailboxItem instanceof \StructType\EwsFailedSearchMailboxType) {
                 $invalidValues[] = is_object($arrayOfFailedSearchMailboxesTypeFailedMailboxItem) ? get_class($arrayOfFailedSearchMailboxesTypeFailedMailboxItem) : sprintf('%s(%s)', gettype($arrayOfFailedSearchMailboxesTypeFailedMailboxItem), var_export($arrayOfFailedSearchMailboxesTypeFailedMailboxItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The FailedMailbox property can only contain items of type \Ews\StructType\EwsFailedSearchMailboxType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The FailedMailbox property can only contain items of type \StructType\EwsFailedSearchMailboxType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FailedMailbox value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFailedSearchMailboxType[] $failedMailbox
-     * @return \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFailedSearchMailboxType[] $failedMailbox
+     * @return \ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
-    public function setFailedMailbox(array $failedMailbox = array())
+    public function setFailedMailbox(array $failedMailbox = []): self
     {
         // validation for constraint: array
         if ('' !== ($failedMailboxArrayErrorMessage = self::validateFailedMailboxForArrayConstraintsFromSetFailedMailbox($failedMailbox))) {
-            throw new \InvalidArgumentException($failedMailboxArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($failedMailboxArrayErrorMessage, __LINE__);
         }
         $this->FailedMailbox = $failedMailbox;
-        return $this;
-    }
-    /**
-     * Add item to FailedMailbox value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFailedSearchMailboxType $item
-     * @return \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
-     */
-    public function addToFailedMailbox(\Ews\StructType\EwsFailedSearchMailboxType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsFailedSearchMailboxType) {
-            throw new \InvalidArgumentException(sprintf('The FailedMailbox property can only contain items of type \Ews\StructType\EwsFailedSearchMailboxType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->FailedMailbox[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFailedSearchMailboxType|null
+     * @return \StructType\EwsFailedSearchMailboxType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFailedSearchMailboxType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfFailedSearchMailboxesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFailedSearchMailboxType|null
+     * @return \StructType\EwsFailedSearchMailboxType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFailedSearchMailboxType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFailedSearchMailboxType|null
+     * @return \StructType\EwsFailedSearchMailboxType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFailedSearchMailboxType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFailedSearchMailboxType|null
+     * @return \StructType\EwsFailedSearchMailboxType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFailedSearchMailboxType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfFailedSearchMailboxesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFailedSearchMailboxType|null
+     * @return \StructType\EwsFailedSearchMailboxType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFailedSearchMailboxType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFailedSearchMailboxType $item
+     * @return \ArrayType\EwsArrayOfFailedSearchMailboxesType
+     */
+    public function add(\StructType\EwsFailedSearchMailboxType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FailedMailbox
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FailedMailbox';
     }

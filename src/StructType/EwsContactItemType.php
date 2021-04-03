@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactItemType StructType
@@ -16,513 +19,513 @@ class EwsContactItemType extends EwsItemType
      * The FileAs
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FileAs;
+    protected ?string $FileAs = null;
     /**
      * The FileAsMapping
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FileAsMapping;
+    protected ?string $FileAsMapping = null;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The GivenName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GivenName;
+    protected ?string $GivenName = null;
     /**
      * The Initials
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Initials;
+    protected ?string $Initials = null;
     /**
      * The MiddleName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MiddleName;
+    protected ?string $MiddleName = null;
     /**
      * The Nickname
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Nickname;
+    protected ?string $Nickname = null;
     /**
      * The CompleteName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCompleteNameType
+     * @var \StructType\EwsCompleteNameType|null
      */
-    public $CompleteName;
+    protected ?\StructType\EwsCompleteNameType $CompleteName = null;
     /**
      * The CompanyName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CompanyName;
+    protected ?string $CompanyName = null;
     /**
      * The EmailAddresses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressDictionaryType
+     * @var \StructType\EwsEmailAddressDictionaryType|null
      */
-    public $EmailAddresses;
+    protected ?\StructType\EwsEmailAddressDictionaryType $EmailAddresses = null;
     /**
      * The AbchEmailAddresses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAbchEmailAddressDictionaryType
+     * @var \StructType\EwsAbchEmailAddressDictionaryType|null
      */
-    public $AbchEmailAddresses;
+    protected ?\StructType\EwsAbchEmailAddressDictionaryType $AbchEmailAddresses = null;
     /**
      * The PhysicalAddresses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPhysicalAddressDictionaryType
+     * @var \StructType\EwsPhysicalAddressDictionaryType|null
      */
-    public $PhysicalAddresses;
+    protected ?\StructType\EwsPhysicalAddressDictionaryType $PhysicalAddresses = null;
     /**
      * The PhoneNumbers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPhoneNumberDictionaryType
+     * @var \StructType\EwsPhoneNumberDictionaryType|null
      */
-    public $PhoneNumbers;
+    protected ?\StructType\EwsPhoneNumberDictionaryType $PhoneNumbers = null;
     /**
      * The AssistantName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AssistantName;
+    protected ?string $AssistantName = null;
     /**
      * The Birthday
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Birthday;
+    protected ?string $Birthday = null;
     /**
      * The BusinessHomePage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $BusinessHomePage;
+    protected ?string $BusinessHomePage = null;
     /**
      * The Children
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Children;
+    protected ?\ArrayType\EwsArrayOfStringsType $Children = null;
     /**
      * The Companies
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Companies;
+    protected ?\ArrayType\EwsArrayOfStringsType $Companies = null;
     /**
      * The ContactSource
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ContactSource;
+    protected ?string $ContactSource = null;
     /**
      * The Department
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Department;
+    protected ?string $Department = null;
     /**
      * The Generation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Generation;
+    protected ?string $Generation = null;
     /**
      * The ImAddresses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsImAddressDictionaryType
+     * @var \StructType\EwsImAddressDictionaryType|null
      */
-    public $ImAddresses;
+    protected ?\StructType\EwsImAddressDictionaryType $ImAddresses = null;
     /**
      * The JobTitle
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $JobTitle;
+    protected ?string $JobTitle = null;
     /**
      * The Manager
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Manager;
+    protected ?string $Manager = null;
     /**
      * The Mileage
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Mileage;
+    protected ?string $Mileage = null;
     /**
      * The OfficeLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OfficeLocation;
+    protected ?string $OfficeLocation = null;
     /**
      * The PostalAddressIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PostalAddressIndex;
+    protected ?string $PostalAddressIndex = null;
     /**
      * The Profession
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Profession;
+    protected ?string $Profession = null;
     /**
      * The SpouseName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SpouseName;
+    protected ?string $SpouseName = null;
     /**
      * The Surname
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Surname;
+    protected ?string $Surname = null;
     /**
      * The WeddingAnniversary
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WeddingAnniversary;
+    protected ?string $WeddingAnniversary = null;
     /**
      * The HasPicture
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasPicture;
+    protected ?bool $HasPicture = null;
     /**
      * The PhoneticFullName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PhoneticFullName;
+    protected ?string $PhoneticFullName = null;
     /**
      * The PhoneticFirstName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PhoneticFirstName;
+    protected ?string $PhoneticFirstName = null;
     /**
      * The PhoneticLastName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PhoneticLastName;
+    protected ?string $PhoneticLastName = null;
     /**
      * The Alias
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Alias;
+    protected ?string $Alias = null;
     /**
      * The Notes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Notes;
+    protected ?string $Notes = null;
     /**
      * The Photo
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Photo;
+    protected ?string $Photo = null;
     /**
      * The UserSMIMECertificate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfBinaryType
+     * @var \ArrayType\EwsArrayOfBinaryType|null
      */
-    public $UserSMIMECertificate;
+    protected ?\ArrayType\EwsArrayOfBinaryType $UserSMIMECertificate = null;
     /**
      * The MSExchangeCertificate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfBinaryType
+     * @var \ArrayType\EwsArrayOfBinaryType|null
      */
-    public $MSExchangeCertificate;
+    protected ?\ArrayType\EwsArrayOfBinaryType $MSExchangeCertificate = null;
     /**
      * The DirectoryId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DirectoryId;
+    protected ?string $DirectoryId = null;
     /**
      * The ManagerMailbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSingleRecipientType
+     * @var \StructType\EwsSingleRecipientType|null
      */
-    public $ManagerMailbox;
+    protected ?\StructType\EwsSingleRecipientType $ManagerMailbox = null;
     /**
      * The DirectReports
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRecipientsType
+     * @var \ArrayType\EwsArrayOfRecipientsType|null
      */
-    public $DirectReports;
+    protected ?\ArrayType\EwsArrayOfRecipientsType $DirectReports = null;
     /**
      * The AccountName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AccountName;
+    protected ?string $AccountName = null;
     /**
      * The IsAutoUpdateDisabled
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAutoUpdateDisabled;
+    protected ?bool $IsAutoUpdateDisabled = null;
     /**
      * The IsMessengerEnabled
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMessengerEnabled;
+    protected ?bool $IsMessengerEnabled = null;
     /**
      * The Comment
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Comment;
+    protected ?string $Comment = null;
     /**
      * The ContactShortId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $ContactShortId;
+    protected ?int $ContactShortId = null;
     /**
      * The ContactType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ContactType;
+    protected ?string $ContactType = null;
     /**
      * The Gender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Gender;
+    protected ?string $Gender = null;
     /**
      * The IsHidden
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsHidden;
+    protected ?bool $IsHidden = null;
     /**
      * The ObjectId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ObjectId;
+    protected ?string $ObjectId = null;
     /**
      * The PassportId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PassportId;
+    protected ?int $PassportId = null;
     /**
      * The IsPrivate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsPrivate;
+    protected ?bool $IsPrivate = null;
     /**
      * The SourceId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SourceId;
+    protected ?string $SourceId = null;
     /**
      * The TrustLevel
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $TrustLevel;
+    protected ?int $TrustLevel = null;
     /**
      * The CreatedBy
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CreatedBy;
+    protected ?string $CreatedBy = null;
     /**
      * The Urls
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsContactUrlDictionaryType
+     * @var \StructType\EwsContactUrlDictionaryType|null
      */
-    public $Urls;
+    protected ?\StructType\EwsContactUrlDictionaryType $Urls = null;
     /**
      * The Cid
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Cid;
+    protected ?int $Cid = null;
     /**
      * The SkypeAuthCertificate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SkypeAuthCertificate;
+    protected ?string $SkypeAuthCertificate = null;
     /**
      * The SkypeContext
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SkypeContext;
+    protected ?string $SkypeContext = null;
     /**
      * The SkypeId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SkypeId;
+    protected ?string $SkypeId = null;
     /**
      * The SkypeRelationship
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SkypeRelationship;
+    protected ?string $SkypeRelationship = null;
     /**
      * The YomiNickname
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $YomiNickname;
+    protected ?string $YomiNickname = null;
     /**
      * The XboxLiveTag
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $XboxLiveTag;
+    protected ?string $XboxLiveTag = null;
     /**
      * The InviteFree
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InviteFree;
+    protected ?bool $InviteFree = null;
     /**
      * The HidePresenceAndProfile
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HidePresenceAndProfile;
+    protected ?bool $HidePresenceAndProfile = null;
     /**
      * The IsPendingOutbound
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsPendingOutbound;
+    protected ?bool $IsPendingOutbound = null;
     /**
      * The SupportGroupFeeds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SupportGroupFeeds;
+    protected ?bool $SupportGroupFeeds = null;
     /**
      * The UserTileHash
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UserTileHash;
+    protected ?string $UserTileHash = null;
     /**
      * The UnifiedInbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $UnifiedInbox;
+    protected ?bool $UnifiedInbox = null;
     /**
      * The Mris
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Mris;
+    protected ?\ArrayType\EwsArrayOfStringsType $Mris = null;
     /**
      * The Wlid
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Wlid;
+    protected ?string $Wlid = null;
     /**
      * The AbchContactId
      * Meta information extracted from the WSDL
@@ -530,72 +533,72 @@ class EwsContactItemType extends EwsItemType
      * - base: xs:string
      * - minOccurs: 0
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
-     * @var string
+     * @var string|null
      */
-    public $AbchContactId;
+    protected ?string $AbchContactId = null;
     /**
      * The NotInBirthdayCalendar
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $NotInBirthdayCalendar;
+    protected ?bool $NotInBirthdayCalendar = null;
     /**
      * The ShellContactType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ShellContactType;
+    protected ?string $ShellContactType = null;
     /**
      * The ImMri
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ImMri;
+    protected ?string $ImMri = null;
     /**
      * The PresenceTrustLevel
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PresenceTrustLevel;
+    protected ?int $PresenceTrustLevel = null;
     /**
      * The OtherMri
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OtherMri;
+    protected ?string $OtherMri = null;
     /**
      * The ProfileLastChanged
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProfileLastChanged;
+    protected ?string $ProfileLastChanged = null;
     /**
      * The MobileIMEnabled
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MobileIMEnabled;
+    protected ?bool $MobileIMEnabled = null;
     /**
      * The PartnerNetworkProfilePhotoUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PartnerNetworkProfilePhotoUrl;
+    protected ?string $PartnerNetworkProfilePhotoUrl = null;
     /**
      * The PartnerNetworkThumbnailPhotoUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PartnerNetworkThumbnailPhotoUrl;
+    protected ?string $PartnerNetworkThumbnailPhotoUrl = null;
     /**
      * Constructor method for ContactItemType
      * @uses EwsContactItemType::setFileAs()
@@ -688,21 +691,21 @@ class EwsContactItemType extends EwsItemType
      * @param string $initials
      * @param string $middleName
      * @param string $nickname
-     * @param \Ews\StructType\EwsCompleteNameType $completeName
+     * @param \StructType\EwsCompleteNameType $completeName
      * @param string $companyName
-     * @param \Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses
-     * @param \Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses
-     * @param \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers
+     * @param \StructType\EwsEmailAddressDictionaryType $emailAddresses
+     * @param \StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses
+     * @param \StructType\EwsPhysicalAddressDictionaryType $physicalAddresses
+     * @param \StructType\EwsPhoneNumberDictionaryType $phoneNumbers
      * @param string $assistantName
      * @param string $birthday
      * @param string $businessHomePage
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $children
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $companies
+     * @param \ArrayType\EwsArrayOfStringsType $children
+     * @param \ArrayType\EwsArrayOfStringsType $companies
      * @param string $contactSource
      * @param string $department
      * @param string $generation
-     * @param \Ews\StructType\EwsImAddressDictionaryType $imAddresses
+     * @param \StructType\EwsImAddressDictionaryType $imAddresses
      * @param string $jobTitle
      * @param string $manager
      * @param string $mileage
@@ -719,11 +722,11 @@ class EwsContactItemType extends EwsItemType
      * @param string $alias
      * @param string $notes
      * @param string $photo
-     * @param \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate
-     * @param \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate
+     * @param \ArrayType\EwsArrayOfBinaryType $userSMIMECertificate
+     * @param \ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate
      * @param string $directoryId
-     * @param \Ews\StructType\EwsSingleRecipientType $managerMailbox
-     * @param \Ews\ArrayType\EwsArrayOfRecipientsType $directReports
+     * @param \StructType\EwsSingleRecipientType $managerMailbox
+     * @param \ArrayType\EwsArrayOfRecipientsType $directReports
      * @param string $accountName
      * @param bool $isAutoUpdateDisabled
      * @param bool $isMessengerEnabled
@@ -738,7 +741,7 @@ class EwsContactItemType extends EwsItemType
      * @param string $sourceId
      * @param int $trustLevel
      * @param string $createdBy
-     * @param \Ews\StructType\EwsContactUrlDictionaryType $urls
+     * @param \StructType\EwsContactUrlDictionaryType $urls
      * @param int $cid
      * @param string $skypeAuthCertificate
      * @param string $skypeContext
@@ -752,7 +755,7 @@ class EwsContactItemType extends EwsItemType
      * @param bool $supportGroupFeeds
      * @param string $userTileHash
      * @param bool $unifiedInbox
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $mris
+     * @param \ArrayType\EwsArrayOfStringsType $mris
      * @param string $wlid
      * @param string $abchContactId
      * @param bool $notInBirthdayCalendar
@@ -765,7 +768,7 @@ class EwsContactItemType extends EwsItemType
      * @param string $partnerNetworkProfilePhotoUrl
      * @param string $partnerNetworkThumbnailPhotoUrl
      */
-    public function __construct($fileAs = null, $fileAsMapping = null, $displayName = null, $givenName = null, $initials = null, $middleName = null, $nickname = null, \Ews\StructType\EwsCompleteNameType $completeName = null, $companyName = null, \Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses = null, \Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null, \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null, \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null, $assistantName = null, $birthday = null, $businessHomePage = null, \Ews\ArrayType\EwsArrayOfStringsType $children = null, \Ews\ArrayType\EwsArrayOfStringsType $companies = null, $contactSource = null, $department = null, $generation = null, \Ews\StructType\EwsImAddressDictionaryType $imAddresses = null, $jobTitle = null, $manager = null, $mileage = null, $officeLocation = null, $postalAddressIndex = null, $profession = null, $spouseName = null, $surname = null, $weddingAnniversary = null, $hasPicture = null, $phoneticFullName = null, $phoneticFirstName = null, $phoneticLastName = null, $alias = null, $notes = null, $photo = null, \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null, \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null, $directoryId = null, \Ews\StructType\EwsSingleRecipientType $managerMailbox = null, \Ews\ArrayType\EwsArrayOfRecipientsType $directReports = null, $accountName = null, $isAutoUpdateDisabled = null, $isMessengerEnabled = null, $comment = null, $contactShortId = null, $contactType = null, $gender = null, $isHidden = null, $objectId = null, $passportId = null, $isPrivate = null, $sourceId = null, $trustLevel = null, $createdBy = null, \Ews\StructType\EwsContactUrlDictionaryType $urls = null, $cid = null, $skypeAuthCertificate = null, $skypeContext = null, $skypeId = null, $skypeRelationship = null, $yomiNickname = null, $xboxLiveTag = null, $inviteFree = null, $hidePresenceAndProfile = null, $isPendingOutbound = null, $supportGroupFeeds = null, $userTileHash = null, $unifiedInbox = null, \Ews\ArrayType\EwsArrayOfStringsType $mris = null, $wlid = null, $abchContactId = null, $notInBirthdayCalendar = null, $shellContactType = null, $imMri = null, $presenceTrustLevel = null, $otherMri = null, $profileLastChanged = null, $mobileIMEnabled = null, $partnerNetworkProfilePhotoUrl = null, $partnerNetworkThumbnailPhotoUrl = null)
+    public function __construct(?string $fileAs = null, ?string $fileAsMapping = null, ?string $displayName = null, ?string $givenName = null, ?string $initials = null, ?string $middleName = null, ?string $nickname = null, ?\StructType\EwsCompleteNameType $completeName = null, ?string $companyName = null, ?\StructType\EwsEmailAddressDictionaryType $emailAddresses = null, ?\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null, ?\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null, ?\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null, ?string $assistantName = null, ?string $birthday = null, ?string $businessHomePage = null, ?\ArrayType\EwsArrayOfStringsType $children = null, ?\ArrayType\EwsArrayOfStringsType $companies = null, ?string $contactSource = null, ?string $department = null, ?string $generation = null, ?\StructType\EwsImAddressDictionaryType $imAddresses = null, ?string $jobTitle = null, ?string $manager = null, ?string $mileage = null, ?string $officeLocation = null, ?string $postalAddressIndex = null, ?string $profession = null, ?string $spouseName = null, ?string $surname = null, ?string $weddingAnniversary = null, ?bool $hasPicture = null, ?string $phoneticFullName = null, ?string $phoneticFirstName = null, ?string $phoneticLastName = null, ?string $alias = null, ?string $notes = null, ?string $photo = null, ?\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null, ?\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null, ?string $directoryId = null, ?\StructType\EwsSingleRecipientType $managerMailbox = null, ?\ArrayType\EwsArrayOfRecipientsType $directReports = null, ?string $accountName = null, ?bool $isAutoUpdateDisabled = null, ?bool $isMessengerEnabled = null, ?string $comment = null, ?int $contactShortId = null, ?string $contactType = null, ?string $gender = null, ?bool $isHidden = null, ?string $objectId = null, ?int $passportId = null, ?bool $isPrivate = null, ?string $sourceId = null, ?int $trustLevel = null, ?string $createdBy = null, ?\StructType\EwsContactUrlDictionaryType $urls = null, ?int $cid = null, ?string $skypeAuthCertificate = null, ?string $skypeContext = null, ?string $skypeId = null, ?string $skypeRelationship = null, ?string $yomiNickname = null, ?string $xboxLiveTag = null, ?bool $inviteFree = null, ?bool $hidePresenceAndProfile = null, ?bool $isPendingOutbound = null, ?bool $supportGroupFeeds = null, ?string $userTileHash = null, ?bool $unifiedInbox = null, ?\ArrayType\EwsArrayOfStringsType $mris = null, ?string $wlid = null, ?string $abchContactId = null, ?bool $notInBirthdayCalendar = null, ?string $shellContactType = null, ?string $imMri = null, ?int $presenceTrustLevel = null, ?string $otherMri = null, ?string $profileLastChanged = null, ?bool $mobileIMEnabled = null, ?string $partnerNetworkProfilePhotoUrl = null, ?string $partnerNetworkThumbnailPhotoUrl = null)
     {
         $this
             ->setFileAs($fileAs)
@@ -856,1783 +859,1866 @@ class EwsContactItemType extends EwsItemType
      * Get FileAs value
      * @return string|null
      */
-    public function getFileAs()
+    public function getFileAs(): ?string
     {
         return $this->FileAs;
     }
     /**
      * Set FileAs value
      * @param string $fileAs
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setFileAs($fileAs = null)
+    public function setFileAs(?string $fileAs = null): self
     {
         // validation for constraint: string
         if (!is_null($fileAs) && !is_string($fileAs)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAs, true), gettype($fileAs)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAs, true), gettype($fileAs)), __LINE__);
         }
         $this->FileAs = $fileAs;
+        
         return $this;
     }
     /**
      * Get FileAsMapping value
      * @return string|null
      */
-    public function getFileAsMapping()
+    public function getFileAsMapping(): ?string
     {
         return $this->FileAsMapping;
     }
     /**
      * Set FileAsMapping value
-     * @uses \Ews\EnumType\EwsFileAsMappingType::valueIsValid()
-     * @uses \Ews\EnumType\EwsFileAsMappingType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsFileAsMappingType::valueIsValid()
+     * @uses \EnumType\EwsFileAsMappingType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $fileAsMapping
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setFileAsMapping($fileAsMapping = null)
+    public function setFileAsMapping(?string $fileAsMapping = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsFileAsMappingType::valueIsValid($fileAsMapping)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFileAsMappingType', is_array($fileAsMapping) ? implode(', ', $fileAsMapping) : var_export($fileAsMapping, true), implode(', ', \Ews\EnumType\EwsFileAsMappingType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsFileAsMappingType::valueIsValid($fileAsMapping)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsFileAsMappingType', is_array($fileAsMapping) ? implode(', ', $fileAsMapping) : var_export($fileAsMapping, true), implode(', ', \EnumType\EwsFileAsMappingType::getValidValues())), __LINE__);
         }
         $this->FileAsMapping = $fileAsMapping;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get GivenName value
      * @return string|null
      */
-    public function getGivenName()
+    public function getGivenName(): ?string
     {
         return $this->GivenName;
     }
     /**
      * Set GivenName value
      * @param string $givenName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setGivenName($givenName = null)
+    public function setGivenName(?string $givenName = null): self
     {
         // validation for constraint: string
         if (!is_null($givenName) && !is_string($givenName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
         }
         $this->GivenName = $givenName;
+        
         return $this;
     }
     /**
      * Get Initials value
      * @return string|null
      */
-    public function getInitials()
+    public function getInitials(): ?string
     {
         return $this->Initials;
     }
     /**
      * Set Initials value
      * @param string $initials
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setInitials($initials = null)
+    public function setInitials(?string $initials = null): self
     {
         // validation for constraint: string
         if (!is_null($initials) && !is_string($initials)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initials, true), gettype($initials)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initials, true), gettype($initials)), __LINE__);
         }
         $this->Initials = $initials;
+        
         return $this;
     }
     /**
      * Get MiddleName value
      * @return string|null
      */
-    public function getMiddleName()
+    public function getMiddleName(): ?string
     {
         return $this->MiddleName;
     }
     /**
      * Set MiddleName value
      * @param string $middleName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setMiddleName($middleName = null)
+    public function setMiddleName(?string $middleName = null): self
     {
         // validation for constraint: string
         if (!is_null($middleName) && !is_string($middleName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
         }
         $this->MiddleName = $middleName;
+        
         return $this;
     }
     /**
      * Get Nickname value
      * @return string|null
      */
-    public function getNickname()
+    public function getNickname(): ?string
     {
         return $this->Nickname;
     }
     /**
      * Set Nickname value
      * @param string $nickname
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setNickname($nickname = null)
+    public function setNickname(?string $nickname = null): self
     {
         // validation for constraint: string
         if (!is_null($nickname) && !is_string($nickname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
         }
         $this->Nickname = $nickname;
+        
         return $this;
     }
     /**
      * Get CompleteName value
-     * @return \Ews\StructType\EwsCompleteNameType|null
+     * @return \StructType\EwsCompleteNameType|null
      */
-    public function getCompleteName()
+    public function getCompleteName(): ?\StructType\EwsCompleteNameType
     {
         return $this->CompleteName;
     }
     /**
      * Set CompleteName value
-     * @param \Ews\StructType\EwsCompleteNameType $completeName
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsCompleteNameType $completeName
+     * @return \StructType\EwsContactItemType
      */
-    public function setCompleteName(\Ews\StructType\EwsCompleteNameType $completeName = null)
+    public function setCompleteName(?\StructType\EwsCompleteNameType $completeName = null): self
     {
         $this->CompleteName = $completeName;
+        
         return $this;
     }
     /**
      * Get CompanyName value
      * @return string|null
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->CompanyName;
     }
     /**
      * Set CompanyName value
      * @param string $companyName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setCompanyName($companyName = null)
+    public function setCompanyName(?string $companyName = null): self
     {
         // validation for constraint: string
         if (!is_null($companyName) && !is_string($companyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyName, true), gettype($companyName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyName, true), gettype($companyName)), __LINE__);
         }
         $this->CompanyName = $companyName;
+        
         return $this;
     }
     /**
      * Get EmailAddresses value
-     * @return \Ews\StructType\EwsEmailAddressDictionaryType|null
+     * @return \StructType\EwsEmailAddressDictionaryType|null
      */
-    public function getEmailAddresses()
+    public function getEmailAddresses(): ?\StructType\EwsEmailAddressDictionaryType
     {
         return $this->EmailAddresses;
     }
     /**
      * Set EmailAddresses value
-     * @param \Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsEmailAddressDictionaryType $emailAddresses
+     * @return \StructType\EwsContactItemType
      */
-    public function setEmailAddresses(\Ews\StructType\EwsEmailAddressDictionaryType $emailAddresses = null)
+    public function setEmailAddresses(?\StructType\EwsEmailAddressDictionaryType $emailAddresses = null): self
     {
         $this->EmailAddresses = $emailAddresses;
+        
         return $this;
     }
     /**
      * Get AbchEmailAddresses value
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryType|null
+     * @return \StructType\EwsAbchEmailAddressDictionaryType|null
      */
-    public function getAbchEmailAddresses()
+    public function getAbchEmailAddresses(): ?\StructType\EwsAbchEmailAddressDictionaryType
     {
         return $this->AbchEmailAddresses;
     }
     /**
      * Set AbchEmailAddresses value
-     * @param \Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses
+     * @return \StructType\EwsContactItemType
      */
-    public function setAbchEmailAddresses(\Ews\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null)
+    public function setAbchEmailAddresses(?\StructType\EwsAbchEmailAddressDictionaryType $abchEmailAddresses = null): self
     {
         $this->AbchEmailAddresses = $abchEmailAddresses;
+        
         return $this;
     }
     /**
      * Get PhysicalAddresses value
-     * @return \Ews\StructType\EwsPhysicalAddressDictionaryType|null
+     * @return \StructType\EwsPhysicalAddressDictionaryType|null
      */
-    public function getPhysicalAddresses()
+    public function getPhysicalAddresses(): ?\StructType\EwsPhysicalAddressDictionaryType
     {
         return $this->PhysicalAddresses;
     }
     /**
      * Set PhysicalAddresses value
-     * @param \Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsPhysicalAddressDictionaryType $physicalAddresses
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhysicalAddresses(\Ews\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null)
+    public function setPhysicalAddresses(?\StructType\EwsPhysicalAddressDictionaryType $physicalAddresses = null): self
     {
         $this->PhysicalAddresses = $physicalAddresses;
+        
         return $this;
     }
     /**
      * Get PhoneNumbers value
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryType|null
+     * @return \StructType\EwsPhoneNumberDictionaryType|null
      */
-    public function getPhoneNumbers()
+    public function getPhoneNumbers(): ?\StructType\EwsPhoneNumberDictionaryType
     {
         return $this->PhoneNumbers;
     }
     /**
      * Set PhoneNumbers value
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsPhoneNumberDictionaryType $phoneNumbers
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhoneNumbers(\Ews\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null)
+    public function setPhoneNumbers(?\StructType\EwsPhoneNumberDictionaryType $phoneNumbers = null): self
     {
         $this->PhoneNumbers = $phoneNumbers;
+        
         return $this;
     }
     /**
      * Get AssistantName value
      * @return string|null
      */
-    public function getAssistantName()
+    public function getAssistantName(): ?string
     {
         return $this->AssistantName;
     }
     /**
      * Set AssistantName value
      * @param string $assistantName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setAssistantName($assistantName = null)
+    public function setAssistantName(?string $assistantName = null): self
     {
         // validation for constraint: string
         if (!is_null($assistantName) && !is_string($assistantName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($assistantName, true), gettype($assistantName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($assistantName, true), gettype($assistantName)), __LINE__);
         }
         $this->AssistantName = $assistantName;
+        
         return $this;
     }
     /**
      * Get Birthday value
      * @return string|null
      */
-    public function getBirthday()
+    public function getBirthday(): ?string
     {
         return $this->Birthday;
     }
     /**
      * Set Birthday value
      * @param string $birthday
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setBirthday($birthday = null)
+    public function setBirthday(?string $birthday = null): self
     {
         // validation for constraint: string
         if (!is_null($birthday) && !is_string($birthday)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($birthday, true), gettype($birthday)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($birthday, true), gettype($birthday)), __LINE__);
         }
         $this->Birthday = $birthday;
+        
         return $this;
     }
     /**
      * Get BusinessHomePage value
      * @return string|null
      */
-    public function getBusinessHomePage()
+    public function getBusinessHomePage(): ?string
     {
         return $this->BusinessHomePage;
     }
     /**
      * Set BusinessHomePage value
      * @param string $businessHomePage
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setBusinessHomePage($businessHomePage = null)
+    public function setBusinessHomePage(?string $businessHomePage = null): self
     {
         // validation for constraint: string
         if (!is_null($businessHomePage) && !is_string($businessHomePage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($businessHomePage, true), gettype($businessHomePage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($businessHomePage, true), gettype($businessHomePage)), __LINE__);
         }
         $this->BusinessHomePage = $businessHomePage;
+        
         return $this;
     }
     /**
      * Get Children value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getChildren()
+    public function getChildren(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Children;
     }
     /**
      * Set Children value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $children
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfStringsType $children
+     * @return \StructType\EwsContactItemType
      */
-    public function setChildren(\Ews\ArrayType\EwsArrayOfStringsType $children = null)
+    public function setChildren(?\ArrayType\EwsArrayOfStringsType $children = null): self
     {
         $this->Children = $children;
+        
         return $this;
     }
     /**
      * Get Companies value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getCompanies()
+    public function getCompanies(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Companies;
     }
     /**
      * Set Companies value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $companies
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfStringsType $companies
+     * @return \StructType\EwsContactItemType
      */
-    public function setCompanies(\Ews\ArrayType\EwsArrayOfStringsType $companies = null)
+    public function setCompanies(?\ArrayType\EwsArrayOfStringsType $companies = null): self
     {
         $this->Companies = $companies;
+        
         return $this;
     }
     /**
      * Get ContactSource value
      * @return string|null
      */
-    public function getContactSource()
+    public function getContactSource(): ?string
     {
         return $this->ContactSource;
     }
     /**
      * Set ContactSource value
-     * @uses \Ews\EnumType\EwsContactSourceType::valueIsValid()
-     * @uses \Ews\EnumType\EwsContactSourceType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsContactSourceType::valueIsValid()
+     * @uses \EnumType\EwsContactSourceType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $contactSource
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setContactSource($contactSource = null)
+    public function setContactSource(?string $contactSource = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsContactSourceType::valueIsValid($contactSource)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsContactSourceType', is_array($contactSource) ? implode(', ', $contactSource) : var_export($contactSource, true), implode(', ', \Ews\EnumType\EwsContactSourceType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsContactSourceType::valueIsValid($contactSource)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsContactSourceType', is_array($contactSource) ? implode(', ', $contactSource) : var_export($contactSource, true), implode(', ', \EnumType\EwsContactSourceType::getValidValues())), __LINE__);
         }
         $this->ContactSource = $contactSource;
+        
         return $this;
     }
     /**
      * Get Department value
      * @return string|null
      */
-    public function getDepartment()
+    public function getDepartment(): ?string
     {
         return $this->Department;
     }
     /**
      * Set Department value
      * @param string $department
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setDepartment($department = null)
+    public function setDepartment(?string $department = null): self
     {
         // validation for constraint: string
         if (!is_null($department) && !is_string($department)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
         }
         $this->Department = $department;
+        
         return $this;
     }
     /**
      * Get Generation value
      * @return string|null
      */
-    public function getGeneration()
+    public function getGeneration(): ?string
     {
         return $this->Generation;
     }
     /**
      * Set Generation value
      * @param string $generation
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setGeneration($generation = null)
+    public function setGeneration(?string $generation = null): self
     {
         // validation for constraint: string
         if (!is_null($generation) && !is_string($generation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($generation, true), gettype($generation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($generation, true), gettype($generation)), __LINE__);
         }
         $this->Generation = $generation;
+        
         return $this;
     }
     /**
      * Get ImAddresses value
-     * @return \Ews\StructType\EwsImAddressDictionaryType|null
+     * @return \StructType\EwsImAddressDictionaryType|null
      */
-    public function getImAddresses()
+    public function getImAddresses(): ?\StructType\EwsImAddressDictionaryType
     {
         return $this->ImAddresses;
     }
     /**
      * Set ImAddresses value
-     * @param \Ews\StructType\EwsImAddressDictionaryType $imAddresses
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsImAddressDictionaryType $imAddresses
+     * @return \StructType\EwsContactItemType
      */
-    public function setImAddresses(\Ews\StructType\EwsImAddressDictionaryType $imAddresses = null)
+    public function setImAddresses(?\StructType\EwsImAddressDictionaryType $imAddresses = null): self
     {
         $this->ImAddresses = $imAddresses;
+        
         return $this;
     }
     /**
      * Get JobTitle value
      * @return string|null
      */
-    public function getJobTitle()
+    public function getJobTitle(): ?string
     {
         return $this->JobTitle;
     }
     /**
      * Set JobTitle value
      * @param string $jobTitle
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setJobTitle($jobTitle = null)
+    public function setJobTitle(?string $jobTitle = null): self
     {
         // validation for constraint: string
         if (!is_null($jobTitle) && !is_string($jobTitle)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($jobTitle, true), gettype($jobTitle)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($jobTitle, true), gettype($jobTitle)), __LINE__);
         }
         $this->JobTitle = $jobTitle;
+        
         return $this;
     }
     /**
      * Get Manager value
      * @return string|null
      */
-    public function getManager()
+    public function getManager(): ?string
     {
         return $this->Manager;
     }
     /**
      * Set Manager value
      * @param string $manager
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setManager($manager = null)
+    public function setManager(?string $manager = null): self
     {
         // validation for constraint: string
         if (!is_null($manager) && !is_string($manager)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($manager, true), gettype($manager)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($manager, true), gettype($manager)), __LINE__);
         }
         $this->Manager = $manager;
+        
         return $this;
     }
     /**
      * Get Mileage value
      * @return string|null
      */
-    public function getMileage()
+    public function getMileage(): ?string
     {
         return $this->Mileage;
     }
     /**
      * Set Mileage value
      * @param string $mileage
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setMileage($mileage = null)
+    public function setMileage(?string $mileage = null): self
     {
         // validation for constraint: string
         if (!is_null($mileage) && !is_string($mileage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mileage, true), gettype($mileage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mileage, true), gettype($mileage)), __LINE__);
         }
         $this->Mileage = $mileage;
+        
         return $this;
     }
     /**
      * Get OfficeLocation value
      * @return string|null
      */
-    public function getOfficeLocation()
+    public function getOfficeLocation(): ?string
     {
         return $this->OfficeLocation;
     }
     /**
      * Set OfficeLocation value
      * @param string $officeLocation
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setOfficeLocation($officeLocation = null)
+    public function setOfficeLocation(?string $officeLocation = null): self
     {
         // validation for constraint: string
         if (!is_null($officeLocation) && !is_string($officeLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($officeLocation, true), gettype($officeLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($officeLocation, true), gettype($officeLocation)), __LINE__);
         }
         $this->OfficeLocation = $officeLocation;
+        
         return $this;
     }
     /**
      * Get PostalAddressIndex value
      * @return string|null
      */
-    public function getPostalAddressIndex()
+    public function getPostalAddressIndex(): ?string
     {
         return $this->PostalAddressIndex;
     }
     /**
      * Set PostalAddressIndex value
-     * @uses \Ews\EnumType\EwsPhysicalAddressIndexType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPhysicalAddressIndexType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPhysicalAddressIndexType::valueIsValid()
+     * @uses \EnumType\EwsPhysicalAddressIndexType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $postalAddressIndex
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPostalAddressIndex($postalAddressIndex = null)
+    public function setPostalAddressIndex(?string $postalAddressIndex = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPhysicalAddressIndexType::valueIsValid($postalAddressIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPhysicalAddressIndexType', is_array($postalAddressIndex) ? implode(', ', $postalAddressIndex) : var_export($postalAddressIndex, true), implode(', ', \Ews\EnumType\EwsPhysicalAddressIndexType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPhysicalAddressIndexType::valueIsValid($postalAddressIndex)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPhysicalAddressIndexType', is_array($postalAddressIndex) ? implode(', ', $postalAddressIndex) : var_export($postalAddressIndex, true), implode(', ', \EnumType\EwsPhysicalAddressIndexType::getValidValues())), __LINE__);
         }
         $this->PostalAddressIndex = $postalAddressIndex;
+        
         return $this;
     }
     /**
      * Get Profession value
      * @return string|null
      */
-    public function getProfession()
+    public function getProfession(): ?string
     {
         return $this->Profession;
     }
     /**
      * Set Profession value
      * @param string $profession
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setProfession($profession = null)
+    public function setProfession(?string $profession = null): self
     {
         // validation for constraint: string
         if (!is_null($profession) && !is_string($profession)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($profession, true), gettype($profession)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($profession, true), gettype($profession)), __LINE__);
         }
         $this->Profession = $profession;
+        
         return $this;
     }
     /**
      * Get SpouseName value
      * @return string|null
      */
-    public function getSpouseName()
+    public function getSpouseName(): ?string
     {
         return $this->SpouseName;
     }
     /**
      * Set SpouseName value
      * @param string $spouseName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSpouseName($spouseName = null)
+    public function setSpouseName(?string $spouseName = null): self
     {
         // validation for constraint: string
         if (!is_null($spouseName) && !is_string($spouseName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($spouseName, true), gettype($spouseName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($spouseName, true), gettype($spouseName)), __LINE__);
         }
         $this->SpouseName = $spouseName;
+        
         return $this;
     }
     /**
      * Get Surname value
      * @return string|null
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->Surname;
     }
     /**
      * Set Surname value
      * @param string $surname
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSurname($surname = null)
+    public function setSurname(?string $surname = null): self
     {
         // validation for constraint: string
         if (!is_null($surname) && !is_string($surname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
         }
         $this->Surname = $surname;
+        
         return $this;
     }
     /**
      * Get WeddingAnniversary value
      * @return string|null
      */
-    public function getWeddingAnniversary()
+    public function getWeddingAnniversary(): ?string
     {
         return $this->WeddingAnniversary;
     }
     /**
      * Set WeddingAnniversary value
      * @param string $weddingAnniversary
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setWeddingAnniversary($weddingAnniversary = null)
+    public function setWeddingAnniversary(?string $weddingAnniversary = null): self
     {
         // validation for constraint: string
         if (!is_null($weddingAnniversary) && !is_string($weddingAnniversary)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($weddingAnniversary, true), gettype($weddingAnniversary)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($weddingAnniversary, true), gettype($weddingAnniversary)), __LINE__);
         }
         $this->WeddingAnniversary = $weddingAnniversary;
+        
         return $this;
     }
     /**
      * Get HasPicture value
      * @return bool|null
      */
-    public function getHasPicture()
+    public function getHasPicture(): ?bool
     {
         return $this->HasPicture;
     }
     /**
      * Set HasPicture value
      * @param bool $hasPicture
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setHasPicture($hasPicture = null)
+    public function setHasPicture(?bool $hasPicture = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasPicture) && !is_bool($hasPicture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasPicture, true), gettype($hasPicture)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasPicture, true), gettype($hasPicture)), __LINE__);
         }
         $this->HasPicture = $hasPicture;
+        
         return $this;
     }
     /**
      * Get PhoneticFullName value
      * @return string|null
      */
-    public function getPhoneticFullName()
+    public function getPhoneticFullName(): ?string
     {
         return $this->PhoneticFullName;
     }
     /**
      * Set PhoneticFullName value
      * @param string $phoneticFullName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhoneticFullName($phoneticFullName = null)
+    public function setPhoneticFullName(?string $phoneticFullName = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneticFullName) && !is_string($phoneticFullName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticFullName, true), gettype($phoneticFullName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticFullName, true), gettype($phoneticFullName)), __LINE__);
         }
         $this->PhoneticFullName = $phoneticFullName;
+        
         return $this;
     }
     /**
      * Get PhoneticFirstName value
      * @return string|null
      */
-    public function getPhoneticFirstName()
+    public function getPhoneticFirstName(): ?string
     {
         return $this->PhoneticFirstName;
     }
     /**
      * Set PhoneticFirstName value
      * @param string $phoneticFirstName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhoneticFirstName($phoneticFirstName = null)
+    public function setPhoneticFirstName(?string $phoneticFirstName = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneticFirstName) && !is_string($phoneticFirstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticFirstName, true), gettype($phoneticFirstName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticFirstName, true), gettype($phoneticFirstName)), __LINE__);
         }
         $this->PhoneticFirstName = $phoneticFirstName;
+        
         return $this;
     }
     /**
      * Get PhoneticLastName value
      * @return string|null
      */
-    public function getPhoneticLastName()
+    public function getPhoneticLastName(): ?string
     {
         return $this->PhoneticLastName;
     }
     /**
      * Set PhoneticLastName value
      * @param string $phoneticLastName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhoneticLastName($phoneticLastName = null)
+    public function setPhoneticLastName(?string $phoneticLastName = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneticLastName) && !is_string($phoneticLastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticLastName, true), gettype($phoneticLastName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneticLastName, true), gettype($phoneticLastName)), __LINE__);
         }
         $this->PhoneticLastName = $phoneticLastName;
+        
         return $this;
     }
     /**
      * Get Alias value
      * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->Alias;
     }
     /**
      * Set Alias value
      * @param string $alias
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setAlias($alias = null)
+    public function setAlias(?string $alias = null): self
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
+        
         return $this;
     }
     /**
      * Get Notes value
      * @return string|null
      */
-    public function getNotes()
+    public function getNotes(): ?string
     {
         return $this->Notes;
     }
     /**
      * Set Notes value
      * @param string $notes
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setNotes($notes = null)
+    public function setNotes(?string $notes = null): self
     {
         // validation for constraint: string
         if (!is_null($notes) && !is_string($notes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($notes, true), gettype($notes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($notes, true), gettype($notes)), __LINE__);
         }
         $this->Notes = $notes;
+        
         return $this;
     }
     /**
      * Get Photo value
      * @return string|null
      */
-    public function getPhoto()
+    public function getPhoto(): ?string
     {
         return $this->Photo;
     }
     /**
      * Set Photo value
      * @param string $photo
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPhoto($photo = null)
+    public function setPhoto(?string $photo = null): self
     {
         // validation for constraint: string
         if (!is_null($photo) && !is_string($photo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($photo, true), gettype($photo)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($photo, true), gettype($photo)), __LINE__);
         }
         $this->Photo = $photo;
+        
         return $this;
     }
     /**
      * Get UserSMIMECertificate value
-     * @return \Ews\ArrayType\EwsArrayOfBinaryType|null
+     * @return \ArrayType\EwsArrayOfBinaryType|null
      */
-    public function getUserSMIMECertificate()
+    public function getUserSMIMECertificate(): ?\ArrayType\EwsArrayOfBinaryType
     {
         return $this->UserSMIMECertificate;
     }
     /**
      * Set UserSMIMECertificate value
-     * @param \Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfBinaryType $userSMIMECertificate
+     * @return \StructType\EwsContactItemType
      */
-    public function setUserSMIMECertificate(\Ews\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null)
+    public function setUserSMIMECertificate(?\ArrayType\EwsArrayOfBinaryType $userSMIMECertificate = null): self
     {
         $this->UserSMIMECertificate = $userSMIMECertificate;
+        
         return $this;
     }
     /**
      * Get MSExchangeCertificate value
-     * @return \Ews\ArrayType\EwsArrayOfBinaryType|null
+     * @return \ArrayType\EwsArrayOfBinaryType|null
      */
-    public function getMSExchangeCertificate()
+    public function getMSExchangeCertificate(): ?\ArrayType\EwsArrayOfBinaryType
     {
         return $this->MSExchangeCertificate;
     }
     /**
      * Set MSExchangeCertificate value
-     * @param \Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate
+     * @return \StructType\EwsContactItemType
      */
-    public function setMSExchangeCertificate(\Ews\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null)
+    public function setMSExchangeCertificate(?\ArrayType\EwsArrayOfBinaryType $mSExchangeCertificate = null): self
     {
         $this->MSExchangeCertificate = $mSExchangeCertificate;
+        
         return $this;
     }
     /**
      * Get DirectoryId value
      * @return string|null
      */
-    public function getDirectoryId()
+    public function getDirectoryId(): ?string
     {
         return $this->DirectoryId;
     }
     /**
      * Set DirectoryId value
      * @param string $directoryId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setDirectoryId($directoryId = null)
+    public function setDirectoryId(?string $directoryId = null): self
     {
         // validation for constraint: string
         if (!is_null($directoryId) && !is_string($directoryId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($directoryId, true), gettype($directoryId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($directoryId, true), gettype($directoryId)), __LINE__);
         }
         $this->DirectoryId = $directoryId;
+        
         return $this;
     }
     /**
      * Get ManagerMailbox value
-     * @return \Ews\StructType\EwsSingleRecipientType|null
+     * @return \StructType\EwsSingleRecipientType|null
      */
-    public function getManagerMailbox()
+    public function getManagerMailbox(): ?\StructType\EwsSingleRecipientType
     {
         return $this->ManagerMailbox;
     }
     /**
      * Set ManagerMailbox value
-     * @param \Ews\StructType\EwsSingleRecipientType $managerMailbox
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsSingleRecipientType $managerMailbox
+     * @return \StructType\EwsContactItemType
      */
-    public function setManagerMailbox(\Ews\StructType\EwsSingleRecipientType $managerMailbox = null)
+    public function setManagerMailbox(?\StructType\EwsSingleRecipientType $managerMailbox = null): self
     {
         $this->ManagerMailbox = $managerMailbox;
+        
         return $this;
     }
     /**
      * Get DirectReports value
-     * @return \Ews\ArrayType\EwsArrayOfRecipientsType|null
+     * @return \ArrayType\EwsArrayOfRecipientsType|null
      */
-    public function getDirectReports()
+    public function getDirectReports(): ?\ArrayType\EwsArrayOfRecipientsType
     {
         return $this->DirectReports;
     }
     /**
      * Set DirectReports value
-     * @param \Ews\ArrayType\EwsArrayOfRecipientsType $directReports
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfRecipientsType $directReports
+     * @return \StructType\EwsContactItemType
      */
-    public function setDirectReports(\Ews\ArrayType\EwsArrayOfRecipientsType $directReports = null)
+    public function setDirectReports(?\ArrayType\EwsArrayOfRecipientsType $directReports = null): self
     {
         $this->DirectReports = $directReports;
+        
         return $this;
     }
     /**
      * Get AccountName value
      * @return string|null
      */
-    public function getAccountName()
+    public function getAccountName(): ?string
     {
         return $this->AccountName;
     }
     /**
      * Set AccountName value
      * @param string $accountName
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setAccountName($accountName = null)
+    public function setAccountName(?string $accountName = null): self
     {
         // validation for constraint: string
         if (!is_null($accountName) && !is_string($accountName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($accountName, true), gettype($accountName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($accountName, true), gettype($accountName)), __LINE__);
         }
         $this->AccountName = $accountName;
+        
         return $this;
     }
     /**
      * Get IsAutoUpdateDisabled value
      * @return bool|null
      */
-    public function getIsAutoUpdateDisabled()
+    public function getIsAutoUpdateDisabled(): ?bool
     {
         return $this->IsAutoUpdateDisabled;
     }
     /**
      * Set IsAutoUpdateDisabled value
      * @param bool $isAutoUpdateDisabled
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setIsAutoUpdateDisabled($isAutoUpdateDisabled = null)
+    public function setIsAutoUpdateDisabled(?bool $isAutoUpdateDisabled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAutoUpdateDisabled) && !is_bool($isAutoUpdateDisabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutoUpdateDisabled, true), gettype($isAutoUpdateDisabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutoUpdateDisabled, true), gettype($isAutoUpdateDisabled)), __LINE__);
         }
         $this->IsAutoUpdateDisabled = $isAutoUpdateDisabled;
+        
         return $this;
     }
     /**
      * Get IsMessengerEnabled value
      * @return bool|null
      */
-    public function getIsMessengerEnabled()
+    public function getIsMessengerEnabled(): ?bool
     {
         return $this->IsMessengerEnabled;
     }
     /**
      * Set IsMessengerEnabled value
      * @param bool $isMessengerEnabled
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setIsMessengerEnabled($isMessengerEnabled = null)
+    public function setIsMessengerEnabled(?bool $isMessengerEnabled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMessengerEnabled) && !is_bool($isMessengerEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMessengerEnabled, true), gettype($isMessengerEnabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMessengerEnabled, true), gettype($isMessengerEnabled)), __LINE__);
         }
         $this->IsMessengerEnabled = $isMessengerEnabled;
+        
         return $this;
     }
     /**
      * Get Comment value
      * @return string|null
      */
-    public function getComment()
+    public function getComment(): ?string
     {
         return $this->Comment;
     }
     /**
      * Set Comment value
      * @param string $comment
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setComment($comment = null)
+    public function setComment(?string $comment = null): self
     {
         // validation for constraint: string
         if (!is_null($comment) && !is_string($comment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comment, true), gettype($comment)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($comment, true), gettype($comment)), __LINE__);
         }
         $this->Comment = $comment;
+        
         return $this;
     }
     /**
      * Get ContactShortId value
      * @return int|null
      */
-    public function getContactShortId()
+    public function getContactShortId(): ?int
     {
         return $this->ContactShortId;
     }
     /**
      * Set ContactShortId value
      * @param int $contactShortId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setContactShortId($contactShortId = null)
+    public function setContactShortId(?int $contactShortId = null): self
     {
         // validation for constraint: int
         if (!is_null($contactShortId) && !(is_int($contactShortId) || ctype_digit($contactShortId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($contactShortId, true), gettype($contactShortId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($contactShortId, true), gettype($contactShortId)), __LINE__);
         }
         $this->ContactShortId = $contactShortId;
+        
         return $this;
     }
     /**
      * Get ContactType value
      * @return string|null
      */
-    public function getContactType()
+    public function getContactType(): ?string
     {
         return $this->ContactType;
     }
     /**
      * Set ContactType value
      * @param string $contactType
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setContactType($contactType = null)
+    public function setContactType(?string $contactType = null): self
     {
         // validation for constraint: string
         if (!is_null($contactType) && !is_string($contactType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contactType, true), gettype($contactType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($contactType, true), gettype($contactType)), __LINE__);
         }
         $this->ContactType = $contactType;
+        
         return $this;
     }
     /**
      * Get Gender value
      * @return string|null
      */
-    public function getGender()
+    public function getGender(): ?string
     {
         return $this->Gender;
     }
     /**
      * Set Gender value
      * @param string $gender
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setGender($gender = null)
+    public function setGender(?string $gender = null): self
     {
         // validation for constraint: string
         if (!is_null($gender) && !is_string($gender)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($gender, true), gettype($gender)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($gender, true), gettype($gender)), __LINE__);
         }
         $this->Gender = $gender;
+        
         return $this;
     }
     /**
      * Get IsHidden value
      * @return bool|null
      */
-    public function getIsHidden()
+    public function getIsHidden(): ?bool
     {
         return $this->IsHidden;
     }
     /**
      * Set IsHidden value
      * @param bool $isHidden
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setIsHidden($isHidden = null)
+    public function setIsHidden(?bool $isHidden = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isHidden) && !is_bool($isHidden)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isHidden, true), gettype($isHidden)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isHidden, true), gettype($isHidden)), __LINE__);
         }
         $this->IsHidden = $isHidden;
+        
         return $this;
     }
     /**
      * Get ObjectId value
      * @return string|null
      */
-    public function getObjectId()
+    public function getObjectId(): ?string
     {
         return $this->ObjectId;
     }
     /**
      * Set ObjectId value
      * @param string $objectId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setObjectId($objectId = null)
+    public function setObjectId(?string $objectId = null): self
     {
         // validation for constraint: string
         if (!is_null($objectId) && !is_string($objectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectId, true), gettype($objectId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectId, true), gettype($objectId)), __LINE__);
         }
         $this->ObjectId = $objectId;
+        
         return $this;
     }
     /**
      * Get PassportId value
      * @return int|null
      */
-    public function getPassportId()
+    public function getPassportId(): ?int
     {
         return $this->PassportId;
     }
     /**
      * Set PassportId value
      * @param int $passportId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPassportId($passportId = null)
+    public function setPassportId(?int $passportId = null): self
     {
         // validation for constraint: int
         if (!is_null($passportId) && !(is_int($passportId) || ctype_digit($passportId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($passportId, true), gettype($passportId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($passportId, true), gettype($passportId)), __LINE__);
         }
         $this->PassportId = $passportId;
+        
         return $this;
     }
     /**
      * Get IsPrivate value
      * @return bool|null
      */
-    public function getIsPrivate()
+    public function getIsPrivate(): ?bool
     {
         return $this->IsPrivate;
     }
     /**
      * Set IsPrivate value
      * @param bool $isPrivate
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setIsPrivate($isPrivate = null)
+    public function setIsPrivate(?bool $isPrivate = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isPrivate) && !is_bool($isPrivate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPrivate, true), gettype($isPrivate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPrivate, true), gettype($isPrivate)), __LINE__);
         }
         $this->IsPrivate = $isPrivate;
+        
         return $this;
     }
     /**
      * Get SourceId value
      * @return string|null
      */
-    public function getSourceId()
+    public function getSourceId(): ?string
     {
         return $this->SourceId;
     }
     /**
      * Set SourceId value
      * @param string $sourceId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSourceId($sourceId = null)
+    public function setSourceId(?string $sourceId = null): self
     {
         // validation for constraint: string
         if (!is_null($sourceId) && !is_string($sourceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceId, true), gettype($sourceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceId, true), gettype($sourceId)), __LINE__);
         }
         $this->SourceId = $sourceId;
+        
         return $this;
     }
     /**
      * Get TrustLevel value
      * @return int|null
      */
-    public function getTrustLevel()
+    public function getTrustLevel(): ?int
     {
         return $this->TrustLevel;
     }
     /**
      * Set TrustLevel value
      * @param int $trustLevel
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setTrustLevel($trustLevel = null)
+    public function setTrustLevel(?int $trustLevel = null): self
     {
         // validation for constraint: int
         if (!is_null($trustLevel) && !(is_int($trustLevel) || ctype_digit($trustLevel))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($trustLevel, true), gettype($trustLevel)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($trustLevel, true), gettype($trustLevel)), __LINE__);
         }
         $this->TrustLevel = $trustLevel;
+        
         return $this;
     }
     /**
      * Get CreatedBy value
      * @return string|null
      */
-    public function getCreatedBy()
+    public function getCreatedBy(): ?string
     {
         return $this->CreatedBy;
     }
     /**
      * Set CreatedBy value
      * @param string $createdBy
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setCreatedBy($createdBy = null)
+    public function setCreatedBy(?string $createdBy = null): self
     {
         // validation for constraint: string
         if (!is_null($createdBy) && !is_string($createdBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdBy, true), gettype($createdBy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdBy, true), gettype($createdBy)), __LINE__);
         }
         $this->CreatedBy = $createdBy;
+        
         return $this;
     }
     /**
      * Get Urls value
-     * @return \Ews\StructType\EwsContactUrlDictionaryType|null
+     * @return \StructType\EwsContactUrlDictionaryType|null
      */
-    public function getUrls()
+    public function getUrls(): ?\StructType\EwsContactUrlDictionaryType
     {
         return $this->Urls;
     }
     /**
      * Set Urls value
-     * @param \Ews\StructType\EwsContactUrlDictionaryType $urls
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \StructType\EwsContactUrlDictionaryType $urls
+     * @return \StructType\EwsContactItemType
      */
-    public function setUrls(\Ews\StructType\EwsContactUrlDictionaryType $urls = null)
+    public function setUrls(?\StructType\EwsContactUrlDictionaryType $urls = null): self
     {
         $this->Urls = $urls;
+        
         return $this;
     }
     /**
      * Get Cid value
      * @return int|null
      */
-    public function getCid()
+    public function getCid(): ?int
     {
         return $this->Cid;
     }
     /**
      * Set Cid value
      * @param int $cid
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setCid($cid = null)
+    public function setCid(?int $cid = null): self
     {
         // validation for constraint: int
         if (!is_null($cid) && !(is_int($cid) || ctype_digit($cid))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($cid, true), gettype($cid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($cid, true), gettype($cid)), __LINE__);
         }
         $this->Cid = $cid;
+        
         return $this;
     }
     /**
      * Get SkypeAuthCertificate value
      * @return string|null
      */
-    public function getSkypeAuthCertificate()
+    public function getSkypeAuthCertificate(): ?string
     {
         return $this->SkypeAuthCertificate;
     }
     /**
      * Set SkypeAuthCertificate value
      * @param string $skypeAuthCertificate
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSkypeAuthCertificate($skypeAuthCertificate = null)
+    public function setSkypeAuthCertificate(?string $skypeAuthCertificate = null): self
     {
         // validation for constraint: string
         if (!is_null($skypeAuthCertificate) && !is_string($skypeAuthCertificate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeAuthCertificate, true), gettype($skypeAuthCertificate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeAuthCertificate, true), gettype($skypeAuthCertificate)), __LINE__);
         }
         $this->SkypeAuthCertificate = $skypeAuthCertificate;
+        
         return $this;
     }
     /**
      * Get SkypeContext value
      * @return string|null
      */
-    public function getSkypeContext()
+    public function getSkypeContext(): ?string
     {
         return $this->SkypeContext;
     }
     /**
      * Set SkypeContext value
      * @param string $skypeContext
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSkypeContext($skypeContext = null)
+    public function setSkypeContext(?string $skypeContext = null): self
     {
         // validation for constraint: string
         if (!is_null($skypeContext) && !is_string($skypeContext)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeContext, true), gettype($skypeContext)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeContext, true), gettype($skypeContext)), __LINE__);
         }
         $this->SkypeContext = $skypeContext;
+        
         return $this;
     }
     /**
      * Get SkypeId value
      * @return string|null
      */
-    public function getSkypeId()
+    public function getSkypeId(): ?string
     {
         return $this->SkypeId;
     }
     /**
      * Set SkypeId value
      * @param string $skypeId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSkypeId($skypeId = null)
+    public function setSkypeId(?string $skypeId = null): self
     {
         // validation for constraint: string
         if (!is_null($skypeId) && !is_string($skypeId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeId, true), gettype($skypeId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeId, true), gettype($skypeId)), __LINE__);
         }
         $this->SkypeId = $skypeId;
+        
         return $this;
     }
     /**
      * Get SkypeRelationship value
      * @return string|null
      */
-    public function getSkypeRelationship()
+    public function getSkypeRelationship(): ?string
     {
         return $this->SkypeRelationship;
     }
     /**
      * Set SkypeRelationship value
      * @param string $skypeRelationship
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSkypeRelationship($skypeRelationship = null)
+    public function setSkypeRelationship(?string $skypeRelationship = null): self
     {
         // validation for constraint: string
         if (!is_null($skypeRelationship) && !is_string($skypeRelationship)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeRelationship, true), gettype($skypeRelationship)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($skypeRelationship, true), gettype($skypeRelationship)), __LINE__);
         }
         $this->SkypeRelationship = $skypeRelationship;
+        
         return $this;
     }
     /**
      * Get YomiNickname value
      * @return string|null
      */
-    public function getYomiNickname()
+    public function getYomiNickname(): ?string
     {
         return $this->YomiNickname;
     }
     /**
      * Set YomiNickname value
      * @param string $yomiNickname
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setYomiNickname($yomiNickname = null)
+    public function setYomiNickname(?string $yomiNickname = null): self
     {
         // validation for constraint: string
         if (!is_null($yomiNickname) && !is_string($yomiNickname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiNickname, true), gettype($yomiNickname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiNickname, true), gettype($yomiNickname)), __LINE__);
         }
         $this->YomiNickname = $yomiNickname;
+        
         return $this;
     }
     /**
      * Get XboxLiveTag value
      * @return string|null
      */
-    public function getXboxLiveTag()
+    public function getXboxLiveTag(): ?string
     {
         return $this->XboxLiveTag;
     }
     /**
      * Set XboxLiveTag value
      * @param string $xboxLiveTag
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setXboxLiveTag($xboxLiveTag = null)
+    public function setXboxLiveTag(?string $xboxLiveTag = null): self
     {
         // validation for constraint: string
         if (!is_null($xboxLiveTag) && !is_string($xboxLiveTag)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xboxLiveTag, true), gettype($xboxLiveTag)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xboxLiveTag, true), gettype($xboxLiveTag)), __LINE__);
         }
         $this->XboxLiveTag = $xboxLiveTag;
+        
         return $this;
     }
     /**
      * Get InviteFree value
      * @return bool|null
      */
-    public function getInviteFree()
+    public function getInviteFree(): ?bool
     {
         return $this->InviteFree;
     }
     /**
      * Set InviteFree value
      * @param bool $inviteFree
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setInviteFree($inviteFree = null)
+    public function setInviteFree(?bool $inviteFree = null): self
     {
         // validation for constraint: boolean
         if (!is_null($inviteFree) && !is_bool($inviteFree)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inviteFree, true), gettype($inviteFree)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($inviteFree, true), gettype($inviteFree)), __LINE__);
         }
         $this->InviteFree = $inviteFree;
+        
         return $this;
     }
     /**
      * Get HidePresenceAndProfile value
      * @return bool|null
      */
-    public function getHidePresenceAndProfile()
+    public function getHidePresenceAndProfile(): ?bool
     {
         return $this->HidePresenceAndProfile;
     }
     /**
      * Set HidePresenceAndProfile value
      * @param bool $hidePresenceAndProfile
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setHidePresenceAndProfile($hidePresenceAndProfile = null)
+    public function setHidePresenceAndProfile(?bool $hidePresenceAndProfile = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hidePresenceAndProfile) && !is_bool($hidePresenceAndProfile)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hidePresenceAndProfile, true), gettype($hidePresenceAndProfile)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hidePresenceAndProfile, true), gettype($hidePresenceAndProfile)), __LINE__);
         }
         $this->HidePresenceAndProfile = $hidePresenceAndProfile;
+        
         return $this;
     }
     /**
      * Get IsPendingOutbound value
      * @return bool|null
      */
-    public function getIsPendingOutbound()
+    public function getIsPendingOutbound(): ?bool
     {
         return $this->IsPendingOutbound;
     }
     /**
      * Set IsPendingOutbound value
      * @param bool $isPendingOutbound
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setIsPendingOutbound($isPendingOutbound = null)
+    public function setIsPendingOutbound(?bool $isPendingOutbound = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isPendingOutbound) && !is_bool($isPendingOutbound)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPendingOutbound, true), gettype($isPendingOutbound)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPendingOutbound, true), gettype($isPendingOutbound)), __LINE__);
         }
         $this->IsPendingOutbound = $isPendingOutbound;
+        
         return $this;
     }
     /**
      * Get SupportGroupFeeds value
      * @return bool|null
      */
-    public function getSupportGroupFeeds()
+    public function getSupportGroupFeeds(): ?bool
     {
         return $this->SupportGroupFeeds;
     }
     /**
      * Set SupportGroupFeeds value
      * @param bool $supportGroupFeeds
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setSupportGroupFeeds($supportGroupFeeds = null)
+    public function setSupportGroupFeeds(?bool $supportGroupFeeds = null): self
     {
         // validation for constraint: boolean
         if (!is_null($supportGroupFeeds) && !is_bool($supportGroupFeeds)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($supportGroupFeeds, true), gettype($supportGroupFeeds)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($supportGroupFeeds, true), gettype($supportGroupFeeds)), __LINE__);
         }
         $this->SupportGroupFeeds = $supportGroupFeeds;
+        
         return $this;
     }
     /**
      * Get UserTileHash value
      * @return string|null
      */
-    public function getUserTileHash()
+    public function getUserTileHash(): ?string
     {
         return $this->UserTileHash;
     }
     /**
      * Set UserTileHash value
      * @param string $userTileHash
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setUserTileHash($userTileHash = null)
+    public function setUserTileHash(?string $userTileHash = null): self
     {
         // validation for constraint: string
         if (!is_null($userTileHash) && !is_string($userTileHash)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userTileHash, true), gettype($userTileHash)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userTileHash, true), gettype($userTileHash)), __LINE__);
         }
         $this->UserTileHash = $userTileHash;
+        
         return $this;
     }
     /**
      * Get UnifiedInbox value
      * @return bool|null
      */
-    public function getUnifiedInbox()
+    public function getUnifiedInbox(): ?bool
     {
         return $this->UnifiedInbox;
     }
     /**
      * Set UnifiedInbox value
      * @param bool $unifiedInbox
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setUnifiedInbox($unifiedInbox = null)
+    public function setUnifiedInbox(?bool $unifiedInbox = null): self
     {
         // validation for constraint: boolean
         if (!is_null($unifiedInbox) && !is_bool($unifiedInbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($unifiedInbox, true), gettype($unifiedInbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($unifiedInbox, true), gettype($unifiedInbox)), __LINE__);
         }
         $this->UnifiedInbox = $unifiedInbox;
+        
         return $this;
     }
     /**
      * Get Mris value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getMris()
+    public function getMris(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Mris;
     }
     /**
      * Set Mris value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $mris
-     * @return \Ews\StructType\EwsContactItemType
+     * @param \ArrayType\EwsArrayOfStringsType $mris
+     * @return \StructType\EwsContactItemType
      */
-    public function setMris(\Ews\ArrayType\EwsArrayOfStringsType $mris = null)
+    public function setMris(?\ArrayType\EwsArrayOfStringsType $mris = null): self
     {
         $this->Mris = $mris;
+        
         return $this;
     }
     /**
      * Get Wlid value
      * @return string|null
      */
-    public function getWlid()
+    public function getWlid(): ?string
     {
         return $this->Wlid;
     }
     /**
      * Set Wlid value
      * @param string $wlid
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setWlid($wlid = null)
+    public function setWlid(?string $wlid = null): self
     {
         // validation for constraint: string
         if (!is_null($wlid) && !is_string($wlid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wlid, true), gettype($wlid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($wlid, true), gettype($wlid)), __LINE__);
         }
         $this->Wlid = $wlid;
+        
         return $this;
     }
     /**
      * Get AbchContactId value
      * @return string|null
      */
-    public function getAbchContactId()
+    public function getAbchContactId(): ?string
     {
         return $this->AbchContactId;
     }
     /**
      * Set AbchContactId value
      * @param string $abchContactId
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setAbchContactId($abchContactId = null)
+    public function setAbchContactId(?string $abchContactId = null): self
     {
         // validation for constraint: string
         if (!is_null($abchContactId) && !is_string($abchContactId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($abchContactId, true), gettype($abchContactId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($abchContactId, true), gettype($abchContactId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($abchContactId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $abchContactId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($abchContactId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($abchContactId, true)), __LINE__);
         }
         $this->AbchContactId = $abchContactId;
+        
         return $this;
     }
     /**
      * Get NotInBirthdayCalendar value
      * @return bool|null
      */
-    public function getNotInBirthdayCalendar()
+    public function getNotInBirthdayCalendar(): ?bool
     {
         return $this->NotInBirthdayCalendar;
     }
     /**
      * Set NotInBirthdayCalendar value
      * @param bool $notInBirthdayCalendar
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setNotInBirthdayCalendar($notInBirthdayCalendar = null)
+    public function setNotInBirthdayCalendar(?bool $notInBirthdayCalendar = null): self
     {
         // validation for constraint: boolean
         if (!is_null($notInBirthdayCalendar) && !is_bool($notInBirthdayCalendar)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($notInBirthdayCalendar, true), gettype($notInBirthdayCalendar)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($notInBirthdayCalendar, true), gettype($notInBirthdayCalendar)), __LINE__);
         }
         $this->NotInBirthdayCalendar = $notInBirthdayCalendar;
+        
         return $this;
     }
     /**
      * Get ShellContactType value
      * @return string|null
      */
-    public function getShellContactType()
+    public function getShellContactType(): ?string
     {
         return $this->ShellContactType;
     }
     /**
      * Set ShellContactType value
      * @param string $shellContactType
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setShellContactType($shellContactType = null)
+    public function setShellContactType(?string $shellContactType = null): self
     {
         // validation for constraint: string
         if (!is_null($shellContactType) && !is_string($shellContactType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shellContactType, true), gettype($shellContactType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($shellContactType, true), gettype($shellContactType)), __LINE__);
         }
         $this->ShellContactType = $shellContactType;
+        
         return $this;
     }
     /**
      * Get ImMri value
      * @return string|null
      */
-    public function getImMri()
+    public function getImMri(): ?string
     {
         return $this->ImMri;
     }
     /**
      * Set ImMri value
      * @param string $imMri
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setImMri($imMri = null)
+    public function setImMri(?string $imMri = null): self
     {
         // validation for constraint: string
         if (!is_null($imMri) && !is_string($imMri)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imMri, true), gettype($imMri)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imMri, true), gettype($imMri)), __LINE__);
         }
         $this->ImMri = $imMri;
+        
         return $this;
     }
     /**
      * Get PresenceTrustLevel value
      * @return int|null
      */
-    public function getPresenceTrustLevel()
+    public function getPresenceTrustLevel(): ?int
     {
         return $this->PresenceTrustLevel;
     }
     /**
      * Set PresenceTrustLevel value
      * @param int $presenceTrustLevel
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPresenceTrustLevel($presenceTrustLevel = null)
+    public function setPresenceTrustLevel(?int $presenceTrustLevel = null): self
     {
         // validation for constraint: int
         if (!is_null($presenceTrustLevel) && !(is_int($presenceTrustLevel) || ctype_digit($presenceTrustLevel))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($presenceTrustLevel, true), gettype($presenceTrustLevel)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($presenceTrustLevel, true), gettype($presenceTrustLevel)), __LINE__);
         }
         $this->PresenceTrustLevel = $presenceTrustLevel;
+        
         return $this;
     }
     /**
      * Get OtherMri value
      * @return string|null
      */
-    public function getOtherMri()
+    public function getOtherMri(): ?string
     {
         return $this->OtherMri;
     }
     /**
      * Set OtherMri value
      * @param string $otherMri
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setOtherMri($otherMri = null)
+    public function setOtherMri(?string $otherMri = null): self
     {
         // validation for constraint: string
         if (!is_null($otherMri) && !is_string($otherMri)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($otherMri, true), gettype($otherMri)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($otherMri, true), gettype($otherMri)), __LINE__);
         }
         $this->OtherMri = $otherMri;
+        
         return $this;
     }
     /**
      * Get ProfileLastChanged value
      * @return string|null
      */
-    public function getProfileLastChanged()
+    public function getProfileLastChanged(): ?string
     {
         return $this->ProfileLastChanged;
     }
     /**
      * Set ProfileLastChanged value
      * @param string $profileLastChanged
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setProfileLastChanged($profileLastChanged = null)
+    public function setProfileLastChanged(?string $profileLastChanged = null): self
     {
         // validation for constraint: string
         if (!is_null($profileLastChanged) && !is_string($profileLastChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($profileLastChanged, true), gettype($profileLastChanged)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($profileLastChanged, true), gettype($profileLastChanged)), __LINE__);
         }
         $this->ProfileLastChanged = $profileLastChanged;
+        
         return $this;
     }
     /**
      * Get MobileIMEnabled value
      * @return bool|null
      */
-    public function getMobileIMEnabled()
+    public function getMobileIMEnabled(): ?bool
     {
         return $this->MobileIMEnabled;
     }
     /**
      * Set MobileIMEnabled value
      * @param bool $mobileIMEnabled
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setMobileIMEnabled($mobileIMEnabled = null)
+    public function setMobileIMEnabled(?bool $mobileIMEnabled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mobileIMEnabled) && !is_bool($mobileIMEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mobileIMEnabled, true), gettype($mobileIMEnabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mobileIMEnabled, true), gettype($mobileIMEnabled)), __LINE__);
         }
         $this->MobileIMEnabled = $mobileIMEnabled;
+        
         return $this;
     }
     /**
      * Get PartnerNetworkProfilePhotoUrl value
      * @return string|null
      */
-    public function getPartnerNetworkProfilePhotoUrl()
+    public function getPartnerNetworkProfilePhotoUrl(): ?string
     {
         return $this->PartnerNetworkProfilePhotoUrl;
     }
     /**
      * Set PartnerNetworkProfilePhotoUrl value
      * @param string $partnerNetworkProfilePhotoUrl
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPartnerNetworkProfilePhotoUrl($partnerNetworkProfilePhotoUrl = null)
+    public function setPartnerNetworkProfilePhotoUrl(?string $partnerNetworkProfilePhotoUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($partnerNetworkProfilePhotoUrl) && !is_string($partnerNetworkProfilePhotoUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerNetworkProfilePhotoUrl, true), gettype($partnerNetworkProfilePhotoUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerNetworkProfilePhotoUrl, true), gettype($partnerNetworkProfilePhotoUrl)), __LINE__);
         }
         $this->PartnerNetworkProfilePhotoUrl = $partnerNetworkProfilePhotoUrl;
+        
         return $this;
     }
     /**
      * Get PartnerNetworkThumbnailPhotoUrl value
      * @return string|null
      */
-    public function getPartnerNetworkThumbnailPhotoUrl()
+    public function getPartnerNetworkThumbnailPhotoUrl(): ?string
     {
         return $this->PartnerNetworkThumbnailPhotoUrl;
     }
     /**
      * Set PartnerNetworkThumbnailPhotoUrl value
      * @param string $partnerNetworkThumbnailPhotoUrl
-     * @return \Ews\StructType\EwsContactItemType
+     * @return \StructType\EwsContactItemType
      */
-    public function setPartnerNetworkThumbnailPhotoUrl($partnerNetworkThumbnailPhotoUrl = null)
+    public function setPartnerNetworkThumbnailPhotoUrl(?string $partnerNetworkThumbnailPhotoUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($partnerNetworkThumbnailPhotoUrl) && !is_string($partnerNetworkThumbnailPhotoUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerNetworkThumbnailPhotoUrl, true), gettype($partnerNetworkThumbnailPhotoUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($partnerNetworkThumbnailPhotoUrl, true), gettype($partnerNetworkThumbnailPhotoUrl)), __LINE__);
         }
         $this->PartnerNetworkThumbnailPhotoUrl = $partnerNetworkThumbnailPhotoUrl;
+        
         return $this;
     }
 }

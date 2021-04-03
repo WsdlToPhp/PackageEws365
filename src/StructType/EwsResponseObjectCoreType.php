@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResponseObjectCoreType StructType
@@ -18,35 +21,36 @@ abstract class EwsResponseObjectCoreType extends EwsMessageType
      * The ReferenceItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ReferenceItemId;
+    protected ?\StructType\EwsItemIdType $ReferenceItemId = null;
     /**
      * Constructor method for ResponseObjectCoreType
      * @uses EwsResponseObjectCoreType::setReferenceItemId()
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
+     * @param \StructType\EwsItemIdType $referenceItemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $referenceItemId = null)
+    public function __construct(?\StructType\EwsItemIdType $referenceItemId = null)
     {
         $this
             ->setReferenceItemId($referenceItemId);
     }
     /**
      * Get ReferenceItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getReferenceItemId()
+    public function getReferenceItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ReferenceItemId;
     }
     /**
      * Set ReferenceItemId value
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
-     * @return \Ews\StructType\EwsResponseObjectCoreType
+     * @param \StructType\EwsItemIdType $referenceItemId
+     * @return \StructType\EwsResponseObjectCoreType
      */
-    public function setReferenceItemId(\Ews\StructType\EwsItemIdType $referenceItemId = null)
+    public function setReferenceItemId(?\StructType\EwsItemIdType $referenceItemId = null): self
     {
         $this->ReferenceItemId = $referenceItemId;
+        
         return $this;
     }
 }

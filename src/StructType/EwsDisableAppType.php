@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DisableAppType StructType
@@ -19,7 +22,7 @@ class EwsDisableAppType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $ID;
+    protected string $ID;
     /**
      * The DisableReason
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsDisableAppType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $DisableReason;
+    protected string $DisableReason;
     /**
      * Constructor method for DisableAppType
      * @uses EwsDisableAppType::setID()
@@ -35,7 +38,7 @@ class EwsDisableAppType extends EwsBaseRequestType
      * @param string $iD
      * @param string $disableReason
      */
-    public function __construct($iD = null, $disableReason = null)
+    public function __construct(string $iD, string $disableReason)
     {
         $this
             ->setID($iD)
@@ -45,47 +48,49 @@ class EwsDisableAppType extends EwsBaseRequestType
      * Get ID value
      * @return string
      */
-    public function getID()
+    public function getID(): string
     {
         return $this->ID;
     }
     /**
      * Set ID value
      * @param string $iD
-     * @return \Ews\StructType\EwsDisableAppType
+     * @return \StructType\EwsDisableAppType
      */
-    public function setID($iD = null)
+    public function setID(string $iD): self
     {
         // validation for constraint: string
         if (!is_null($iD) && !is_string($iD)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($iD, true), gettype($iD)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($iD, true), gettype($iD)), __LINE__);
         }
         $this->ID = $iD;
+        
         return $this;
     }
     /**
      * Get DisableReason value
      * @return string
      */
-    public function getDisableReason()
+    public function getDisableReason(): string
     {
         return $this->DisableReason;
     }
     /**
      * Set DisableReason value
-     * @uses \Ews\EnumType\EwsDisableReasonType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDisableReasonType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDisableReasonType::valueIsValid()
+     * @uses \EnumType\EwsDisableReasonType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $disableReason
-     * @return \Ews\StructType\EwsDisableAppType
+     * @return \StructType\EwsDisableAppType
      */
-    public function setDisableReason($disableReason = null)
+    public function setDisableReason(string $disableReason): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDisableReasonType::valueIsValid($disableReason)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisableReasonType', is_array($disableReason) ? implode(', ', $disableReason) : var_export($disableReason, true), implode(', ', \Ews\EnumType\EwsDisableReasonType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDisableReasonType::valueIsValid($disableReason)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDisableReasonType', is_array($disableReason) ? implode(', ', $disableReason) : var_export($disableReason, true), implode(', ', \EnumType\EwsDisableReasonType::getValidValues())), __LINE__);
         }
         $this->DisableReason = $disableReason;
+        
         return $this;
     }
 }

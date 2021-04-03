@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfConversationNodesType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
      * - choice: ConversationNode
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsConversationNodeType
+     * @var \StructType\EwsConversationNodeType|null
      */
-    public $ConversationNode;
+    protected ?\StructType\EwsConversationNodeType $ConversationNode = null;
     /**
      * Constructor method for ArrayOfConversationNodesType
      * @uses EwsArrayOfConversationNodesType::setConversationNode()
-     * @param \Ews\StructType\EwsConversationNodeType $conversationNode
+     * @param \StructType\EwsConversationNodeType $conversationNode
      */
-    public function __construct(\Ews\StructType\EwsConversationNodeType $conversationNode = null)
+    public function __construct(?\StructType\EwsConversationNodeType $conversationNode = null)
     {
         $this
             ->setConversationNode($conversationNode);
     }
     /**
      * Get ConversationNode value
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function getConversationNode()
+    public function getConversationNode(): ?\StructType\EwsConversationNodeType
     {
         return isset($this->ConversationNode) ? $this->ConversationNode : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateConversationNodeForChoiceConstraintsFromSetConversationNode($value)
+    public function validateConversationNodeForChoiceConstraintsFromSetConversationNode($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ConversationNode can\'t be set as the property %s is already set. Only one property must be set among these properties: ConversationNode, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ConversationNode can\'t be set as the property %s is already set. Only one property must be set among these properties: ConversationNode, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationNodeType $conversationNode
-     * @return \Ews\ArrayType\EwsArrayOfConversationNodesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationNodeType $conversationNode
+     * @return \ArrayType\EwsArrayOfConversationNodesType
      */
-    public function setConversationNode(\Ews\StructType\EwsConversationNodeType $conversationNode = null)
+    public function setConversationNode(?\StructType\EwsConversationNodeType $conversationNode = null): self
     {
         // validation for constraint: choice(ConversationNode)
         if ('' !== ($conversationNodeChoiceErrorMessage = self::validateConversationNodeForChoiceConstraintsFromSetConversationNode($conversationNode))) {
-            throw new \InvalidArgumentException($conversationNodeChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($conversationNodeChoiceErrorMessage, __LINE__);
         }
         if (is_null($conversationNode) || (is_array($conversationNode) && empty($conversationNode))) {
             unset($this->ConversationNode);
         } else {
             $this->ConversationNode = $conversationNode;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsConversationNodeType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsConversationNodeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsConversationNodeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsConversationNodeType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfConversationNodesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsConversationNodeType|null
+     * @return \StructType\EwsConversationNodeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsConversationNodeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationNodeType $item
+     * @return \ArrayType\EwsArrayOfConversationNodesType
+     */
+    public function add(\StructType\EwsConversationNodeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ConversationNode
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ConversationNode';
     }

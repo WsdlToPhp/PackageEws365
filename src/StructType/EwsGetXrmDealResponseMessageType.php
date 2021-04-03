@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetXrmDealResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetXrmDealResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmDealType
+     * @var \StructType\EwsXrmDealType
      */
-    public $Deal;
+    protected \StructType\EwsXrmDealType $Deal;
     /**
      * Constructor method for GetXrmDealResponseMessageType
      * @uses EwsGetXrmDealResponseMessageType::setDeal()
-     * @param \Ews\StructType\EwsXrmDealType $deal
+     * @param \StructType\EwsXrmDealType $deal
      */
-    public function __construct(\Ews\StructType\EwsXrmDealType $deal = null)
+    public function __construct(\StructType\EwsXrmDealType $deal)
     {
         $this
             ->setDeal($deal);
     }
     /**
      * Get Deal value
-     * @return \Ews\StructType\EwsXrmDealType
+     * @return \StructType\EwsXrmDealType
      */
-    public function getDeal()
+    public function getDeal(): \StructType\EwsXrmDealType
     {
         return $this->Deal;
     }
     /**
      * Set Deal value
-     * @param \Ews\StructType\EwsXrmDealType $deal
-     * @return \Ews\StructType\EwsGetXrmDealResponseMessageType
+     * @param \StructType\EwsXrmDealType $deal
+     * @return \StructType\EwsGetXrmDealResponseMessageType
      */
-    public function setDeal(\Ews\StructType\EwsXrmDealType $deal = null)
+    public function setDeal(\StructType\EwsXrmDealType $deal): self
     {
         $this->Deal = $deal;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PlayOnPhoneType StructType
@@ -17,9 +20,9 @@ class EwsPlayOnPhoneType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The DialString
      * Meta information extracted from the WSDL
@@ -27,15 +30,15 @@ class EwsPlayOnPhoneType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $DialString;
+    protected string $DialString;
     /**
      * Constructor method for PlayOnPhoneType
      * @uses EwsPlayOnPhoneType::setItemId()
      * @uses EwsPlayOnPhoneType::setDialString()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param string $dialString
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, $dialString = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, string $dialString)
     {
         $this
             ->setItemId($itemId)
@@ -43,42 +46,44 @@ class EwsPlayOnPhoneType extends EwsBaseRequestType
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsPlayOnPhoneType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsPlayOnPhoneType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get DialString value
      * @return string
      */
-    public function getDialString()
+    public function getDialString(): string
     {
         return $this->DialString;
     }
     /**
      * Set DialString value
      * @param string $dialString
-     * @return \Ews\StructType\EwsPlayOnPhoneType
+     * @return \StructType\EwsPlayOnPhoneType
      */
-    public function setDialString($dialString = null)
+    public function setDialString(string $dialString): self
     {
         // validation for constraint: string
         if (!is_null($dialString) && !is_string($dialString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dialString, true), gettype($dialString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dialString, true), gettype($dialString)), __LINE__);
         }
         $this->DialString = $dialString;
+        
         return $this;
     }
 }

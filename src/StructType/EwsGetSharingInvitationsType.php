@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSharingInvitationsType StructType
@@ -18,15 +21,15 @@ class EwsGetSharingInvitationsType extends EwsBaseCalendarRequestType
      * - base: xs:string
      * - minLength: 1
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $SharingInvitationId;
+    protected ?string $SharingInvitationId = null;
     /**
      * Constructor method for GetSharingInvitationsType
      * @uses EwsGetSharingInvitationsType::setSharingInvitationId()
      * @param string $sharingInvitationId
      */
-    public function __construct($sharingInvitationId = null)
+    public function __construct(?string $sharingInvitationId = null)
     {
         $this
             ->setSharingInvitationId($sharingInvitationId);
@@ -35,26 +38,27 @@ class EwsGetSharingInvitationsType extends EwsBaseCalendarRequestType
      * Get SharingInvitationId value
      * @return string|null
      */
-    public function getSharingInvitationId()
+    public function getSharingInvitationId(): ?string
     {
         return $this->SharingInvitationId;
     }
     /**
      * Set SharingInvitationId value
      * @param string $sharingInvitationId
-     * @return \Ews\StructType\EwsGetSharingInvitationsType
+     * @return \StructType\EwsGetSharingInvitationsType
      */
-    public function setSharingInvitationId($sharingInvitationId = null)
+    public function setSharingInvitationId(?string $sharingInvitationId = null): self
     {
         // validation for constraint: string
         if (!is_null($sharingInvitationId) && !is_string($sharingInvitationId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sharingInvitationId, true), gettype($sharingInvitationId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sharingInvitationId, true), gettype($sharingInvitationId)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($sharingInvitationId) && mb_strlen($sharingInvitationId) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($sharingInvitationId)), __LINE__);
+        if (!is_null($sharingInvitationId) && mb_strlen((string) $sharingInvitationId) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $sharingInvitationId)), __LINE__);
         }
         $this->SharingInvitationId = $sharingInvitationId;
+        
         return $this;
     }
 }

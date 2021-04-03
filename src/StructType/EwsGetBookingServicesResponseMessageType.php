@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetBookingServicesResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetBookingServicesResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfBookingService
+     * @var \ArrayType\EwsArrayOfBookingService
      */
-    public $Services;
+    protected \ArrayType\EwsArrayOfBookingService $Services;
     /**
      * Constructor method for GetBookingServicesResponseMessageType
      * @uses EwsGetBookingServicesResponseMessageType::setServices()
-     * @param \Ews\ArrayType\EwsArrayOfBookingService $services
+     * @param \ArrayType\EwsArrayOfBookingService $services
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfBookingService $services = null)
+    public function __construct(\ArrayType\EwsArrayOfBookingService $services)
     {
         $this
             ->setServices($services);
     }
     /**
      * Get Services value
-     * @return \Ews\ArrayType\EwsArrayOfBookingService
+     * @return \ArrayType\EwsArrayOfBookingService
      */
-    public function getServices()
+    public function getServices(): \ArrayType\EwsArrayOfBookingService
     {
         return $this->Services;
     }
     /**
      * Set Services value
-     * @param \Ews\ArrayType\EwsArrayOfBookingService $services
-     * @return \Ews\StructType\EwsGetBookingServicesResponseMessageType
+     * @param \ArrayType\EwsArrayOfBookingService $services
+     * @return \StructType\EwsGetBookingServicesResponseMessageType
      */
-    public function setServices(\Ews\ArrayType\EwsArrayOfBookingService $services = null)
+    public function setServices(\ArrayType\EwsArrayOfBookingService $services): self
     {
         $this->Services = $services;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ModifiedEventType StructType
@@ -17,15 +20,15 @@ class EwsModifiedEventType extends EwsBaseObjectChangedEventType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $UnreadCount;
+    protected ?int $UnreadCount = null;
     /**
      * Constructor method for ModifiedEventType
      * @uses EwsModifiedEventType::setUnreadCount()
      * @param int $unreadCount
      */
-    public function __construct($unreadCount = null)
+    public function __construct(?int $unreadCount = null)
     {
         $this
             ->setUnreadCount($unreadCount);
@@ -34,22 +37,23 @@ class EwsModifiedEventType extends EwsBaseObjectChangedEventType
      * Get UnreadCount value
      * @return int|null
      */
-    public function getUnreadCount()
+    public function getUnreadCount(): ?int
     {
         return $this->UnreadCount;
     }
     /**
      * Set UnreadCount value
      * @param int $unreadCount
-     * @return \Ews\StructType\EwsModifiedEventType
+     * @return \StructType\EwsModifiedEventType
      */
-    public function setUnreadCount($unreadCount = null)
+    public function setUnreadCount(?int $unreadCount = null): self
     {
         // validation for constraint: int
         if (!is_null($unreadCount) && !(is_int($unreadCount) || ctype_digit($unreadCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
+        
         return $this;
     }
 }

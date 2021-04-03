@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactPropertySuggestionResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsContactPropertySuggestionResponseMessageType extends EwsResponseMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Suggestions;
+    protected ?\ArrayType\EwsArrayOfStringsType $Suggestions = null;
     /**
      * Constructor method for ContactPropertySuggestionResponseMessageType
      * @uses EwsContactPropertySuggestionResponseMessageType::setSuggestions()
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $suggestions
+     * @param \ArrayType\EwsArrayOfStringsType $suggestions
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $suggestions = null)
+    public function __construct(?\ArrayType\EwsArrayOfStringsType $suggestions = null)
     {
         $this
             ->setSuggestions($suggestions);
     }
     /**
      * Get Suggestions value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getSuggestions()
+    public function getSuggestions(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Suggestions;
     }
     /**
      * Set Suggestions value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $suggestions
-     * @return \Ews\StructType\EwsContactPropertySuggestionResponseMessageType
+     * @param \ArrayType\EwsArrayOfStringsType $suggestions
+     * @return \StructType\EwsContactPropertySuggestionResponseMessageType
      */
-    public function setSuggestions(\Ews\ArrayType\EwsArrayOfStringsType $suggestions = null)
+    public function setSuggestions(?\ArrayType\EwsArrayOfStringsType $suggestions = null): self
     {
         $this->Suggestions = $suggestions;
+        
         return $this;
     }
 }

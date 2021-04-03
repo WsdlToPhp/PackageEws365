@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateUnifiedGroupAliasResponseMessageType StructType
@@ -17,25 +20,25 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAliasUnique;
+    protected ?bool $IsAliasUnique = null;
     /**
      * The Alias
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Alias;
+    protected ?string $Alias = null;
     /**
      * The SmtpAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SmtpAddress;
+    protected ?string $SmtpAddress = null;
     /**
      * Constructor method for ValidateUnifiedGroupAliasResponseMessageType
      * @uses EwsValidateUnifiedGroupAliasResponseMessageType::setIsAliasUnique()
@@ -45,7 +48,7 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      * @param string $alias
      * @param string $smtpAddress
      */
-    public function __construct($isAliasUnique = null, $alias = null, $smtpAddress = null)
+    public function __construct(?bool $isAliasUnique = null, ?string $alias = null, ?string $smtpAddress = null)
     {
         $this
             ->setIsAliasUnique($isAliasUnique)
@@ -56,66 +59,69 @@ class EwsValidateUnifiedGroupAliasResponseMessageType extends EwsResponseMessage
      * Get IsAliasUnique value
      * @return bool|null
      */
-    public function getIsAliasUnique()
+    public function getIsAliasUnique(): ?bool
     {
         return $this->IsAliasUnique;
     }
     /**
      * Set IsAliasUnique value
      * @param bool $isAliasUnique
-     * @return \Ews\StructType\EwsValidateUnifiedGroupAliasResponseMessageType
+     * @return \StructType\EwsValidateUnifiedGroupAliasResponseMessageType
      */
-    public function setIsAliasUnique($isAliasUnique = null)
+    public function setIsAliasUnique(?bool $isAliasUnique = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAliasUnique) && !is_bool($isAliasUnique)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAliasUnique, true), gettype($isAliasUnique)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAliasUnique, true), gettype($isAliasUnique)), __LINE__);
         }
         $this->IsAliasUnique = $isAliasUnique;
+        
         return $this;
     }
     /**
      * Get Alias value
      * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->Alias;
     }
     /**
      * Set Alias value
      * @param string $alias
-     * @return \Ews\StructType\EwsValidateUnifiedGroupAliasResponseMessageType
+     * @return \StructType\EwsValidateUnifiedGroupAliasResponseMessageType
      */
-    public function setAlias($alias = null)
+    public function setAlias(?string $alias = null): self
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
+        
         return $this;
     }
     /**
      * Get SmtpAddress value
      * @return string|null
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): ?string
     {
         return $this->SmtpAddress;
     }
     /**
      * Set SmtpAddress value
      * @param string $smtpAddress
-     * @return \Ews\StructType\EwsValidateUnifiedGroupAliasResponseMessageType
+     * @return \StructType\EwsValidateUnifiedGroupAliasResponseMessageType
      */
-    public function setSmtpAddress($smtpAddress = null)
+    public function setSmtpAddress(?string $smtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
+        
         return $this;
     }
 }

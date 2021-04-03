@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MarkAsJunkType StructType
@@ -17,33 +20,33 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
-    public $ItemIds;
+    protected \StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds;
     /**
      * The IsJunk
      * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
-    public $IsJunk;
+    protected bool $IsJunk;
     /**
      * The MoveItem
      * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
-    public $MoveItem;
+    protected bool $MoveItem;
     /**
      * Constructor method for MarkAsJunkType
      * @uses EwsMarkAsJunkType::setItemIds()
      * @uses EwsMarkAsJunkType::setIsJunk()
      * @uses EwsMarkAsJunkType::setMoveItem()
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      * @param bool $isJunk
      * @param bool $moveItem
      */
-    public function __construct(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, $isJunk = null, $moveItem = null)
+    public function __construct(\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds, bool $isJunk, bool $moveItem)
     {
         $this
             ->setItemIds($itemIds)
@@ -52,64 +55,67 @@ class EwsMarkAsJunkType extends EwsBaseRequestType
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType
      */
-    public function getItemIds()
+    public function getItemIds(): \StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsMarkAsJunkType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsMarkAsJunkType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
     /**
      * Get IsJunk value
      * @return bool
      */
-    public function getIsJunk()
+    public function getIsJunk(): bool
     {
         return $this->IsJunk;
     }
     /**
      * Set IsJunk value
      * @param bool $isJunk
-     * @return \Ews\StructType\EwsMarkAsJunkType
+     * @return \StructType\EwsMarkAsJunkType
      */
-    public function setIsJunk($isJunk = null)
+    public function setIsJunk(bool $isJunk): self
     {
         // validation for constraint: boolean
         if (!is_null($isJunk) && !is_bool($isJunk)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isJunk, true), gettype($isJunk)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isJunk, true), gettype($isJunk)), __LINE__);
         }
         $this->IsJunk = $isJunk;
+        
         return $this;
     }
     /**
      * Get MoveItem value
      * @return bool
      */
-    public function getMoveItem()
+    public function getMoveItem(): bool
     {
         return $this->MoveItem;
     }
     /**
      * Set MoveItem value
      * @param bool $moveItem
-     * @return \Ews\StructType\EwsMarkAsJunkType
+     * @return \StructType\EwsMarkAsJunkType
      */
-    public function setMoveItem($moveItem = null)
+    public function setMoveItem(bool $moveItem): self
     {
         // validation for constraint: boolean
         if (!is_null($moveItem) && !is_bool($moveItem)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($moveItem, true), gettype($moveItem)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($moveItem, true), gettype($moveItem)), __LINE__);
         }
         $this->MoveItem = $moveItem;
+        
         return $this;
     }
 }

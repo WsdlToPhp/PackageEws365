@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserConfigurationType StructType
@@ -17,41 +20,41 @@ class EwsUserConfigurationType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserConfigurationNameType
+     * @var \StructType\EwsUserConfigurationNameType
      */
-    public $UserConfigurationName;
+    protected \StructType\EwsUserConfigurationNameType $UserConfigurationName;
     /**
      * The ItemId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The Dictionary
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUserConfigurationDictionaryType
+     * @var \StructType\EwsUserConfigurationDictionaryType|null
      */
-    public $Dictionary;
+    protected ?\StructType\EwsUserConfigurationDictionaryType $Dictionary = null;
     /**
      * The XmlData
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $XmlData;
+    protected ?string $XmlData = null;
     /**
      * The BinaryData
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $BinaryData;
+    protected ?string $BinaryData = null;
     /**
      * Constructor method for UserConfigurationType
      * @uses EwsUserConfigurationType::setUserConfigurationName()
@@ -59,13 +62,13 @@ class EwsUserConfigurationType extends AbstractStructBase
      * @uses EwsUserConfigurationType::setDictionary()
      * @uses EwsUserConfigurationType::setXmlData()
      * @uses EwsUserConfigurationType::setBinaryData()
-     * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary
+     * @param \StructType\EwsUserConfigurationNameType $userConfigurationName
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsUserConfigurationDictionaryType $dictionary
      * @param string $xmlData
      * @param string $binaryData
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary = null, $xmlData = null, $binaryData = null)
+    public function __construct(\StructType\EwsUserConfigurationNameType $userConfigurationName, ?\StructType\EwsItemIdType $itemId = null, ?\StructType\EwsUserConfigurationDictionaryType $dictionary = null, ?string $xmlData = null, ?string $binaryData = null)
     {
         $this
             ->setUserConfigurationName($userConfigurationName)
@@ -76,100 +79,105 @@ class EwsUserConfigurationType extends AbstractStructBase
     }
     /**
      * Get UserConfigurationName value
-     * @return \Ews\StructType\EwsUserConfigurationNameType
+     * @return \StructType\EwsUserConfigurationNameType
      */
-    public function getUserConfigurationName()
+    public function getUserConfigurationName(): \StructType\EwsUserConfigurationNameType
     {
         return $this->UserConfigurationName;
     }
     /**
      * Set UserConfigurationName value
-     * @param \Ews\StructType\EwsUserConfigurationNameType $userConfigurationName
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @param \StructType\EwsUserConfigurationNameType $userConfigurationName
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function setUserConfigurationName(\Ews\StructType\EwsUserConfigurationNameType $userConfigurationName = null)
+    public function setUserConfigurationName(\StructType\EwsUserConfigurationNameType $userConfigurationName): self
     {
         $this->UserConfigurationName = $userConfigurationName;
+        
         return $this;
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get Dictionary value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryType|null
+     * @return \StructType\EwsUserConfigurationDictionaryType|null
      */
-    public function getDictionary()
+    public function getDictionary(): ?\StructType\EwsUserConfigurationDictionaryType
     {
         return $this->Dictionary;
     }
     /**
      * Set Dictionary value
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryType $dictionary
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @param \StructType\EwsUserConfigurationDictionaryType $dictionary
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function setDictionary(\Ews\StructType\EwsUserConfigurationDictionaryType $dictionary = null)
+    public function setDictionary(?\StructType\EwsUserConfigurationDictionaryType $dictionary = null): self
     {
         $this->Dictionary = $dictionary;
+        
         return $this;
     }
     /**
      * Get XmlData value
      * @return string|null
      */
-    public function getXmlData()
+    public function getXmlData(): ?string
     {
         return $this->XmlData;
     }
     /**
      * Set XmlData value
      * @param string $xmlData
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function setXmlData($xmlData = null)
+    public function setXmlData(?string $xmlData = null): self
     {
         // validation for constraint: string
         if (!is_null($xmlData) && !is_string($xmlData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xmlData, true), gettype($xmlData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xmlData, true), gettype($xmlData)), __LINE__);
         }
         $this->XmlData = $xmlData;
+        
         return $this;
     }
     /**
      * Get BinaryData value
      * @return string|null
      */
-    public function getBinaryData()
+    public function getBinaryData(): ?string
     {
         return $this->BinaryData;
     }
     /**
      * Set BinaryData value
      * @param string $binaryData
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function setBinaryData($binaryData = null)
+    public function setBinaryData(?string $binaryData = null): self
     {
         // validation for constraint: string
         if (!is_null($binaryData) && !is_string($binaryData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($binaryData, true), gettype($binaryData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($binaryData, true), gettype($binaryData)), __LINE__);
         }
         $this->BinaryData = $binaryData;
+        
         return $this;
     }
 }

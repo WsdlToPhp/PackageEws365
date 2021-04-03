@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for InternetHeaderType StructType
@@ -18,12 +21,12 @@ class EwsInternetHeaderType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $HeaderName;
+    protected string $HeaderName;
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * Constructor method for InternetHeaderType
      * @uses EwsInternetHeaderType::setHeaderName()
@@ -31,7 +34,7 @@ class EwsInternetHeaderType extends AbstractStructBase
      * @param string $headerName
      * @param string $_
      */
-    public function __construct($headerName = null, $_ = null)
+    public function __construct(string $headerName, ?string $_ = null)
     {
         $this
             ->setHeaderName($headerName)
@@ -41,44 +44,46 @@ class EwsInternetHeaderType extends AbstractStructBase
      * Get HeaderName value
      * @return string
      */
-    public function getHeaderName()
+    public function getHeaderName(): string
     {
         return $this->HeaderName;
     }
     /**
      * Set HeaderName value
      * @param string $headerName
-     * @return \Ews\StructType\EwsInternetHeaderType
+     * @return \StructType\EwsInternetHeaderType
      */
-    public function setHeaderName($headerName = null)
+    public function setHeaderName(string $headerName): self
     {
         // validation for constraint: string
         if (!is_null($headerName) && !is_string($headerName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($headerName, true), gettype($headerName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($headerName, true), gettype($headerName)), __LINE__);
         }
         $this->HeaderName = $headerName;
+        
         return $this;
     }
     /**
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsInternetHeaderType
+     * @return \StructType\EwsInternetHeaderType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
 }

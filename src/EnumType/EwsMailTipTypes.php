@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MailTipTypes EnumType
@@ -82,9 +84,9 @@ class EwsMailTipTypes extends AbstractStructEnumBase
      * @uses self::VALUE_SCOPE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ALL,
             self::VALUE_OUT_OF_OFFICE_MESSAGE,
             self::VALUE_MAILBOX_FULL_STATUS,
@@ -96,6 +98,6 @@ class EwsMailTipTypes extends AbstractStructEnumBase
             self::VALUE_MODERATION_STATUS,
             self::VALUE_INVALID_RECIPIENT,
             self::VALUE_SCOPE,
-        );
+        ];
     }
 }

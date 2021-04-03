@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchSuggestionsType StructType
@@ -19,7 +22,7 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $TDSuggestionsBatchId;
+    protected int $TDSuggestionsBatchId;
     /**
      * The TDSuggestionsInstanceId
      * Meta information extracted from the WSDL
@@ -30,23 +33,23 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $TDSuggestionsInstanceId;
+    protected string $TDSuggestionsInstanceId;
     /**
      * The Suggestions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSuggestions
+     * @var \StructType\EwsSuggestions|null
      */
-    public $Suggestions;
+    protected ?\StructType\EwsSuggestions $Suggestions = null;
     /**
      * The DiagnosticsData
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchDiagnosticsType
+     * @var \StructType\EwsSearchDiagnosticsType|null
      */
-    public $DiagnosticsData;
+    protected ?\StructType\EwsSearchDiagnosticsType $DiagnosticsData = null;
     /**
      * Constructor method for SearchSuggestionsType
      * @uses EwsSearchSuggestionsType::setTDSuggestionsBatchId()
@@ -55,10 +58,10 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * @uses EwsSearchSuggestionsType::setDiagnosticsData()
      * @param int $tDSuggestionsBatchId
      * @param string $tDSuggestionsInstanceId
-     * @param \Ews\StructType\EwsSuggestions $suggestions
-     * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
+     * @param \StructType\EwsSuggestions $suggestions
+     * @param \StructType\EwsSearchDiagnosticsType $diagnosticsData
      */
-    public function __construct($tDSuggestionsBatchId = null, $tDSuggestionsInstanceId = null, \Ews\StructType\EwsSuggestions $suggestions = null, \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
+    public function __construct(int $tDSuggestionsBatchId, string $tDSuggestionsInstanceId, ?\StructType\EwsSuggestions $suggestions = null, ?\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
     {
         $this
             ->setTDSuggestionsBatchId($tDSuggestionsBatchId)
@@ -70,84 +73,88 @@ class EwsSearchSuggestionsType extends AbstractStructBase
      * Get TDSuggestionsBatchId value
      * @return int
      */
-    public function getTDSuggestionsBatchId()
+    public function getTDSuggestionsBatchId(): int
     {
         return $this->TDSuggestionsBatchId;
     }
     /**
      * Set TDSuggestionsBatchId value
      * @param int $tDSuggestionsBatchId
-     * @return \Ews\StructType\EwsSearchSuggestionsType
+     * @return \StructType\EwsSearchSuggestionsType
      */
-    public function setTDSuggestionsBatchId($tDSuggestionsBatchId = null)
+    public function setTDSuggestionsBatchId(int $tDSuggestionsBatchId): self
     {
         // validation for constraint: int
         if (!is_null($tDSuggestionsBatchId) && !(is_int($tDSuggestionsBatchId) || ctype_digit($tDSuggestionsBatchId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($tDSuggestionsBatchId, true), gettype($tDSuggestionsBatchId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($tDSuggestionsBatchId, true), gettype($tDSuggestionsBatchId)), __LINE__);
         }
         $this->TDSuggestionsBatchId = $tDSuggestionsBatchId;
+        
         return $this;
     }
     /**
      * Get TDSuggestionsInstanceId value
      * @return string
      */
-    public function getTDSuggestionsInstanceId()
+    public function getTDSuggestionsInstanceId(): string
     {
         return $this->TDSuggestionsInstanceId;
     }
     /**
      * Set TDSuggestionsInstanceId value
      * @param string $tDSuggestionsInstanceId
-     * @return \Ews\StructType\EwsSearchSuggestionsType
+     * @return \StructType\EwsSearchSuggestionsType
      */
-    public function setTDSuggestionsInstanceId($tDSuggestionsInstanceId = null)
+    public function setTDSuggestionsInstanceId(string $tDSuggestionsInstanceId): self
     {
         // validation for constraint: string
         if (!is_null($tDSuggestionsInstanceId) && !is_string($tDSuggestionsInstanceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tDSuggestionsInstanceId, true), gettype($tDSuggestionsInstanceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tDSuggestionsInstanceId, true), gettype($tDSuggestionsInstanceId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($tDSuggestionsInstanceId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tDSuggestionsInstanceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($tDSuggestionsInstanceId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($tDSuggestionsInstanceId, true)), __LINE__);
         }
         $this->TDSuggestionsInstanceId = $tDSuggestionsInstanceId;
+        
         return $this;
     }
     /**
      * Get Suggestions value
-     * @return \Ews\StructType\EwsSuggestions|null
+     * @return \StructType\EwsSuggestions|null
      */
-    public function getSuggestions()
+    public function getSuggestions(): ?\StructType\EwsSuggestions
     {
         return $this->Suggestions;
     }
     /**
      * Set Suggestions value
-     * @param \Ews\StructType\EwsSuggestions $suggestions
-     * @return \Ews\StructType\EwsSearchSuggestionsType
+     * @param \StructType\EwsSuggestions $suggestions
+     * @return \StructType\EwsSearchSuggestionsType
      */
-    public function setSuggestions(\Ews\StructType\EwsSuggestions $suggestions = null)
+    public function setSuggestions(?\StructType\EwsSuggestions $suggestions = null): self
     {
         $this->Suggestions = $suggestions;
+        
         return $this;
     }
     /**
      * Get DiagnosticsData value
-     * @return \Ews\StructType\EwsSearchDiagnosticsType|null
+     * @return \StructType\EwsSearchDiagnosticsType|null
      */
-    public function getDiagnosticsData()
+    public function getDiagnosticsData(): ?\StructType\EwsSearchDiagnosticsType
     {
         return $this->DiagnosticsData;
     }
     /**
      * Set DiagnosticsData value
-     * @param \Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData
-     * @return \Ews\StructType\EwsSearchSuggestionsType
+     * @param \StructType\EwsSearchDiagnosticsType $diagnosticsData
+     * @return \StructType\EwsSearchSuggestionsType
      */
-    public function setDiagnosticsData(\Ews\StructType\EwsSearchDiagnosticsType $diagnosticsData = null)
+    public function setDiagnosticsData(?\StructType\EwsSearchDiagnosticsType $diagnosticsData = null): self
     {
         $this->DiagnosticsData = $diagnosticsData;
+        
         return $this;
     }
 }

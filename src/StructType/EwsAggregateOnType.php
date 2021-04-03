@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AggregateOnType StructType
@@ -20,34 +23,34 @@ class EwsAggregateOnType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Aggregate;
+    protected string $Aggregate;
     /**
      * The FieldURI
      * Meta information extracted from the WSDL
      * - choice: FieldURI | IndexedFieldURI | ExtendedFieldURI
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPathToUnindexedFieldType
+     * @var \StructType\EwsPathToUnindexedFieldType|null
      */
-    public $FieldURI;
+    protected ?\StructType\EwsPathToUnindexedFieldType $FieldURI = null;
     /**
      * The IndexedFieldURI
      * Meta information extracted from the WSDL
      * - choice: FieldURI | IndexedFieldURI | ExtendedFieldURI
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPathToIndexedFieldType
+     * @var \StructType\EwsPathToIndexedFieldType|null
      */
-    public $IndexedFieldURI;
+    protected ?\StructType\EwsPathToIndexedFieldType $IndexedFieldURI = null;
     /**
      * The ExtendedFieldURI
      * Meta information extracted from the WSDL
      * - choice: FieldURI | IndexedFieldURI | ExtendedFieldURI
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     * @var \StructType\EwsPathToExtendedFieldType|null
      */
-    public $ExtendedFieldURI;
+    protected ?\StructType\EwsPathToExtendedFieldType $ExtendedFieldURI = null;
     /**
      * Constructor method for AggregateOnType
      * @uses EwsAggregateOnType::setAggregate()
@@ -55,11 +58,11 @@ class EwsAggregateOnType extends AbstractStructBase
      * @uses EwsAggregateOnType::setIndexedFieldURI()
      * @uses EwsAggregateOnType::setExtendedFieldURI()
      * @param string $aggregate
-     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
-     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @param \StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @param \StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
      */
-    public function __construct($aggregate = null, \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null, \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function __construct(string $aggregate, ?\StructType\EwsPathToUnindexedFieldType $fieldURI = null, ?\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null, ?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
         $this
             ->setAggregate($aggregate)
@@ -71,32 +74,33 @@ class EwsAggregateOnType extends AbstractStructBase
      * Get Aggregate value
      * @return string
      */
-    public function getAggregate()
+    public function getAggregate(): string
     {
         return $this->Aggregate;
     }
     /**
      * Set Aggregate value
-     * @uses \Ews\EnumType\EwsAggregateType::valueIsValid()
-     * @uses \Ews\EnumType\EwsAggregateType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsAggregateType::valueIsValid()
+     * @uses \EnumType\EwsAggregateType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $aggregate
-     * @return \Ews\StructType\EwsAggregateOnType
+     * @return \StructType\EwsAggregateOnType
      */
-    public function setAggregate($aggregate = null)
+    public function setAggregate(string $aggregate): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsAggregateType::valueIsValid($aggregate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAggregateType', is_array($aggregate) ? implode(', ', $aggregate) : var_export($aggregate, true), implode(', ', \Ews\EnumType\EwsAggregateType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsAggregateType::valueIsValid($aggregate)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsAggregateType', is_array($aggregate) ? implode(', ', $aggregate) : var_export($aggregate, true), implode(', ', \EnumType\EwsAggregateType::getValidValues())), __LINE__);
         }
         $this->Aggregate = $aggregate;
+        
         return $this;
     }
     /**
      * Get FieldURI value
-     * @return \Ews\StructType\EwsPathToUnindexedFieldType|null
+     * @return \StructType\EwsPathToUnindexedFieldType|null
      */
-    public function getFieldURI()
+    public function getFieldURI(): ?\StructType\EwsPathToUnindexedFieldType
     {
         return isset($this->FieldURI) ? $this->FieldURI : null;
     }
@@ -107,7 +111,7 @@ class EwsAggregateOnType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFieldURIForChoiceConstraintsFromSetFieldURI($value)
+    public function validateFieldURIForChoiceConstraintsFromSetFieldURI($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -120,12 +124,13 @@ class EwsAggregateOnType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: FieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: FieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -133,28 +138,29 @@ class EwsAggregateOnType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPathToUnindexedFieldType $fieldURI
-     * @return \Ews\StructType\EwsAggregateOnType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPathToUnindexedFieldType $fieldURI
+     * @return \StructType\EwsAggregateOnType
      */
-    public function setFieldURI(\Ews\StructType\EwsPathToUnindexedFieldType $fieldURI = null)
+    public function setFieldURI(?\StructType\EwsPathToUnindexedFieldType $fieldURI = null): self
     {
         // validation for constraint: choice(FieldURI, IndexedFieldURI, ExtendedFieldURI)
         if ('' !== ($fieldURIChoiceErrorMessage = self::validateFieldURIForChoiceConstraintsFromSetFieldURI($fieldURI))) {
-            throw new \InvalidArgumentException($fieldURIChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($fieldURIChoiceErrorMessage, __LINE__);
         }
         if (is_null($fieldURI) || (is_array($fieldURI) && empty($fieldURI))) {
             unset($this->FieldURI);
         } else {
             $this->FieldURI = $fieldURI;
         }
+        
         return $this;
     }
     /**
      * Get IndexedFieldURI value
-     * @return \Ews\StructType\EwsPathToIndexedFieldType|null
+     * @return \StructType\EwsPathToIndexedFieldType|null
      */
-    public function getIndexedFieldURI()
+    public function getIndexedFieldURI(): ?\StructType\EwsPathToIndexedFieldType
     {
         return isset($this->IndexedFieldURI) ? $this->IndexedFieldURI : null;
     }
@@ -165,7 +171,7 @@ class EwsAggregateOnType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateIndexedFieldURIForChoiceConstraintsFromSetIndexedFieldURI($value)
+    public function validateIndexedFieldURIForChoiceConstraintsFromSetIndexedFieldURI($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -178,12 +184,13 @@ class EwsAggregateOnType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property IndexedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: IndexedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property IndexedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: IndexedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -191,28 +198,29 @@ class EwsAggregateOnType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI
-     * @return \Ews\StructType\EwsAggregateOnType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPathToIndexedFieldType $indexedFieldURI
+     * @return \StructType\EwsAggregateOnType
      */
-    public function setIndexedFieldURI(\Ews\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null)
+    public function setIndexedFieldURI(?\StructType\EwsPathToIndexedFieldType $indexedFieldURI = null): self
     {
         // validation for constraint: choice(FieldURI, IndexedFieldURI, ExtendedFieldURI)
         if ('' !== ($indexedFieldURIChoiceErrorMessage = self::validateIndexedFieldURIForChoiceConstraintsFromSetIndexedFieldURI($indexedFieldURI))) {
-            throw new \InvalidArgumentException($indexedFieldURIChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($indexedFieldURIChoiceErrorMessage, __LINE__);
         }
         if (is_null($indexedFieldURI) || (is_array($indexedFieldURI) && empty($indexedFieldURI))) {
             unset($this->IndexedFieldURI);
         } else {
             $this->IndexedFieldURI = $indexedFieldURI;
         }
+        
         return $this;
     }
     /**
      * Get ExtendedFieldURI value
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function getExtendedFieldURI()
+    public function getExtendedFieldURI(): ?\StructType\EwsPathToExtendedFieldType
     {
         return isset($this->ExtendedFieldURI) ? $this->ExtendedFieldURI : null;
     }
@@ -223,7 +231,7 @@ class EwsAggregateOnType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($value)
+    public function validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -236,12 +244,13 @@ class EwsAggregateOnType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ExtendedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ExtendedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -249,21 +258,22 @@ class EwsAggregateOnType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
-     * @return \Ews\StructType\EwsAggregateOnType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \StructType\EwsAggregateOnType
      */
-    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function setExtendedFieldURI(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null): self
     {
         // validation for constraint: choice(FieldURI, IndexedFieldURI, ExtendedFieldURI)
         if ('' !== ($extendedFieldURIChoiceErrorMessage = self::validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($extendedFieldURI))) {
-            throw new \InvalidArgumentException($extendedFieldURIChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($extendedFieldURIChoiceErrorMessage, __LINE__);
         }
         if (is_null($extendedFieldURI) || (is_array($extendedFieldURI) && empty($extendedFieldURI))) {
             unset($this->ExtendedFieldURI);
         } else {
             $this->ExtendedFieldURI = $extendedFieldURI;
         }
+        
         return $this;
     }
 }

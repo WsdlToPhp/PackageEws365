@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfPeriodsType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * The Period
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsPeriodType[]
+     * @var \StructType\EwsPeriodType[]
      */
-    public $Period;
+    protected array $Period = [];
     /**
      * Constructor method for NonEmptyArrayOfPeriodsType
      * @uses EwsNonEmptyArrayOfPeriodsType::setPeriod()
-     * @param \Ews\StructType\EwsPeriodType[] $period
+     * @param \StructType\EwsPeriodType[] $period
      */
-    public function __construct(array $period = array())
+    public function __construct(array $period = [])
     {
         $this
             ->setPeriod($period);
     }
     /**
      * Get Period value
-     * @return \Ews\StructType\EwsPeriodType[]|null
+     * @return \StructType\EwsPeriodType[]
      */
-    public function getPeriod()
+    public function getPeriod(): array
     {
         return $this->Period;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePeriodForArrayConstraintsFromSetPeriod(array $values = array())
+    public static function validatePeriodForArrayConstraintsFromSetPeriod(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfPeriodsTypePeriodItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfPeriodsTypePeriodItem instanceof \Ews\StructType\EwsPeriodType) {
+            if (!$nonEmptyArrayOfPeriodsTypePeriodItem instanceof \StructType\EwsPeriodType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfPeriodsTypePeriodItem) ? get_class($nonEmptyArrayOfPeriodsTypePeriodItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfPeriodsTypePeriodItem), var_export($nonEmptyArrayOfPeriodsTypePeriodItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Period property can only contain items of type \Ews\StructType\EwsPeriodType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Period property can only contain items of type \StructType\EwsPeriodType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Period value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPeriodType[] $period
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPeriodType[] $period
+     * @return \ArrayType\EwsNonEmptyArrayOfPeriodsType
      */
-    public function setPeriod(array $period = array())
+    public function setPeriod(array $period = []): self
     {
         // validation for constraint: array
         if ('' !== ($periodArrayErrorMessage = self::validatePeriodForArrayConstraintsFromSetPeriod($period))) {
-            throw new \InvalidArgumentException($periodArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($periodArrayErrorMessage, __LINE__);
         }
         $this->Period = $period;
-        return $this;
-    }
-    /**
-     * Add item to Period value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPeriodType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType
-     */
-    public function addToPeriod(\Ews\StructType\EwsPeriodType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPeriodType) {
-            throw new \InvalidArgumentException(sprintf('The Period property can only contain items of type \Ews\StructType\EwsPeriodType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Period[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPeriodType|null
+     * @return \StructType\EwsPeriodType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPeriodType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPeriodType|null
+     * @return \StructType\EwsPeriodType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPeriodType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPeriodType|null
+     * @return \StructType\EwsPeriodType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPeriodType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPeriodType|null
+     * @return \StructType\EwsPeriodType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPeriodType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPeriodType|null
+     * @return \StructType\EwsPeriodType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPeriodType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPeriodType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfPeriodsType
+     */
+    public function add(\StructType\EwsPeriodType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Period
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Period';
     }

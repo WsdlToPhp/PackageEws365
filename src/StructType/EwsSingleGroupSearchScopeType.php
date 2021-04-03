@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SingleGroupSearchScopeType StructType
@@ -14,35 +17,36 @@ class EwsSingleGroupSearchScopeType extends AbstractStructBase
 {
     /**
      * The GroupIdentity
-     * @var \Ews\StructType\EwsUnifiedGroupIdentity
+     * @var \StructType\EwsUnifiedGroupIdentity|null
      */
-    public $GroupIdentity;
+    protected ?\StructType\EwsUnifiedGroupIdentity $GroupIdentity = null;
     /**
      * Constructor method for SingleGroupSearchScopeType
      * @uses EwsSingleGroupSearchScopeType::setGroupIdentity()
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null)
+    public function __construct(?\StructType\EwsUnifiedGroupIdentity $groupIdentity = null)
     {
         $this
             ->setGroupIdentity($groupIdentity);
     }
     /**
      * Get GroupIdentity value
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity|null
+     * @return \StructType\EwsUnifiedGroupIdentity|null
      */
-    public function getGroupIdentity()
+    public function getGroupIdentity(): ?\StructType\EwsUnifiedGroupIdentity
     {
         return $this->GroupIdentity;
     }
     /**
      * Set GroupIdentity value
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
-     * @return \Ews\StructType\EwsSingleGroupSearchScopeType
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @return \StructType\EwsSingleGroupSearchScopeType
      */
-    public function setGroupIdentity(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null)
+    public function setGroupIdentity(?\StructType\EwsUnifiedGroupIdentity $groupIdentity = null): self
     {
         $this->GroupIdentity = $groupIdentity;
+        
         return $this;
     }
 }

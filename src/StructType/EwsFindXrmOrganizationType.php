@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindXrmOrganizationType StructType
@@ -17,25 +20,25 @@ class EwsFindXrmOrganizationType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRestrictionType
+     * @var \StructType\EwsRestrictionType|null
      */
-    public $Restriction;
+    protected ?\StructType\EwsRestrictionType $Restriction = null;
     /**
      * The Paging
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsIndexedPageViewType
+     * @var \StructType\EwsIndexedPageViewType|null
      */
-    public $Paging;
+    protected ?\StructType\EwsIndexedPageViewType $Paging = null;
     /**
      * Constructor method for FindXrmOrganizationType
      * @uses EwsFindXrmOrganizationType::setRestriction()
      * @uses EwsFindXrmOrganizationType::setPaging()
-     * @param \Ews\StructType\EwsRestrictionType $restriction
-     * @param \Ews\StructType\EwsIndexedPageViewType $paging
+     * @param \StructType\EwsRestrictionType $restriction
+     * @param \StructType\EwsIndexedPageViewType $paging
      */
-    public function __construct(\Ews\StructType\EwsRestrictionType $restriction = null, \Ews\StructType\EwsIndexedPageViewType $paging = null)
+    public function __construct(?\StructType\EwsRestrictionType $restriction = null, ?\StructType\EwsIndexedPageViewType $paging = null)
     {
         $this
             ->setRestriction($restriction)
@@ -43,38 +46,40 @@ class EwsFindXrmOrganizationType extends EwsBaseRequestType
     }
     /**
      * Get Restriction value
-     * @return \Ews\StructType\EwsRestrictionType|null
+     * @return \StructType\EwsRestrictionType|null
      */
-    public function getRestriction()
+    public function getRestriction(): ?\StructType\EwsRestrictionType
     {
         return $this->Restriction;
     }
     /**
      * Set Restriction value
-     * @param \Ews\StructType\EwsRestrictionType $restriction
-     * @return \Ews\StructType\EwsFindXrmOrganizationType
+     * @param \StructType\EwsRestrictionType $restriction
+     * @return \StructType\EwsFindXrmOrganizationType
      */
-    public function setRestriction(\Ews\StructType\EwsRestrictionType $restriction = null)
+    public function setRestriction(?\StructType\EwsRestrictionType $restriction = null): self
     {
         $this->Restriction = $restriction;
+        
         return $this;
     }
     /**
      * Get Paging value
-     * @return \Ews\StructType\EwsIndexedPageViewType|null
+     * @return \StructType\EwsIndexedPageViewType|null
      */
-    public function getPaging()
+    public function getPaging(): ?\StructType\EwsIndexedPageViewType
     {
         return $this->Paging;
     }
     /**
      * Set Paging value
-     * @param \Ews\StructType\EwsIndexedPageViewType $paging
-     * @return \Ews\StructType\EwsFindXrmOrganizationType
+     * @param \StructType\EwsIndexedPageViewType $paging
+     * @return \StructType\EwsFindXrmOrganizationType
      */
-    public function setPaging(\Ews\StructType\EwsIndexedPageViewType $paging = null)
+    public function setPaging(?\StructType\EwsIndexedPageViewType $paging = null): self
     {
         $this->Paging = $paging;
+        
         return $this;
     }
 }

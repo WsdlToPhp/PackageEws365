@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserRetentionPolicyTagsResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetUserRetentionPolicyTagsResponseMessageType extends EwsResponseMessag
 {
     /**
      * The RetentionPolicyTags
-     * @var \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType
+     * @var \ArrayType\EwsArrayOfRetentionPolicyTagsType|null
      */
-    public $RetentionPolicyTags;
+    protected ?\ArrayType\EwsArrayOfRetentionPolicyTagsType $RetentionPolicyTags = null;
     /**
      * Constructor method for GetUserRetentionPolicyTagsResponseMessageType
      * @uses EwsGetUserRetentionPolicyTagsResponseMessageType::setRetentionPolicyTags()
-     * @param \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags
+     * @param \ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags = null)
+    public function __construct(?\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags = null)
     {
         $this
             ->setRetentionPolicyTags($retentionPolicyTags);
     }
     /**
      * Get RetentionPolicyTags value
-     * @return \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType|null
+     * @return \ArrayType\EwsArrayOfRetentionPolicyTagsType|null
      */
-    public function getRetentionPolicyTags()
+    public function getRetentionPolicyTags(): ?\ArrayType\EwsArrayOfRetentionPolicyTagsType
     {
         return $this->RetentionPolicyTags;
     }
     /**
      * Set RetentionPolicyTags value
-     * @param \Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags
-     * @return \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
+     * @param \ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags
+     * @return \StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
      */
-    public function setRetentionPolicyTags(\Ews\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags = null)
+    public function setRetentionPolicyTags(?\ArrayType\EwsArrayOfRetentionPolicyTagsType $retentionPolicyTags = null): self
     {
         $this->RetentionPolicyTags = $retentionPolicyTags;
+        
         return $this;
     }
 }

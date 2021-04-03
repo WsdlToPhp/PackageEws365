@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMeetingTimesLocationConstraints StructType
@@ -16,33 +19,33 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
      * The LocationEntries
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfLocationConstraintItems
+     * @var \ArrayType\EwsArrayOfLocationConstraintItems|null
      */
-    public $LocationEntries;
+    protected ?\ArrayType\EwsArrayOfLocationConstraintItems $LocationEntries = null;
     /**
      * The IsRequired
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsRequired;
+    protected ?bool $IsRequired = null;
     /**
      * The SuggestLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SuggestLocation;
+    protected ?bool $SuggestLocation = null;
     /**
      * Constructor method for FindMeetingTimesLocationConstraints
      * @uses EwsFindMeetingTimesLocationConstraints::setLocationEntries()
      * @uses EwsFindMeetingTimesLocationConstraints::setIsRequired()
      * @uses EwsFindMeetingTimesLocationConstraints::setSuggestLocation()
-     * @param \Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries
+     * @param \ArrayType\EwsArrayOfLocationConstraintItems $locationEntries
      * @param bool $isRequired
      * @param bool $suggestLocation
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries = null, $isRequired = null, $suggestLocation = null)
+    public function __construct(?\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries = null, ?bool $isRequired = null, ?bool $suggestLocation = null)
     {
         $this
             ->setLocationEntries($locationEntries)
@@ -51,64 +54,67 @@ class EwsFindMeetingTimesLocationConstraints extends AbstractStructBase
     }
     /**
      * Get LocationEntries value
-     * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems|null
+     * @return \ArrayType\EwsArrayOfLocationConstraintItems|null
      */
-    public function getLocationEntries()
+    public function getLocationEntries(): ?\ArrayType\EwsArrayOfLocationConstraintItems
     {
         return $this->LocationEntries;
     }
     /**
      * Set LocationEntries value
-     * @param \Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries
-     * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
+     * @param \ArrayType\EwsArrayOfLocationConstraintItems $locationEntries
+     * @return \StructType\EwsFindMeetingTimesLocationConstraints
      */
-    public function setLocationEntries(\Ews\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries = null)
+    public function setLocationEntries(?\ArrayType\EwsArrayOfLocationConstraintItems $locationEntries = null): self
     {
         $this->LocationEntries = $locationEntries;
+        
         return $this;
     }
     /**
      * Get IsRequired value
      * @return bool|null
      */
-    public function getIsRequired()
+    public function getIsRequired(): ?bool
     {
         return $this->IsRequired;
     }
     /**
      * Set IsRequired value
      * @param bool $isRequired
-     * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
+     * @return \StructType\EwsFindMeetingTimesLocationConstraints
      */
-    public function setIsRequired($isRequired = null)
+    public function setIsRequired(?bool $isRequired = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isRequired) && !is_bool($isRequired)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRequired, true), gettype($isRequired)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRequired, true), gettype($isRequired)), __LINE__);
         }
         $this->IsRequired = $isRequired;
+        
         return $this;
     }
     /**
      * Get SuggestLocation value
      * @return bool|null
      */
-    public function getSuggestLocation()
+    public function getSuggestLocation(): ?bool
     {
         return $this->SuggestLocation;
     }
     /**
      * Set SuggestLocation value
      * @param bool $suggestLocation
-     * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints
+     * @return \StructType\EwsFindMeetingTimesLocationConstraints
      */
-    public function setSuggestLocation($suggestLocation = null)
+    public function setSuggestLocation(?bool $suggestLocation = null): self
     {
         // validation for constraint: boolean
         if (!is_null($suggestLocation) && !is_bool($suggestLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestLocation, true), gettype($suggestLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suggestLocation, true), gettype($suggestLocation)), __LINE__);
         }
         $this->SuggestLocation = $suggestLocation;
+        
         return $this;
     }
 }

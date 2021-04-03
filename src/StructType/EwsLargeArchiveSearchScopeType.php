@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for LargeArchiveSearchScopeType StructType
@@ -14,24 +17,24 @@ class EwsLargeArchiveSearchScopeType extends AbstractStructBase
 {
     /**
      * The ArchiveTypes
-     * @var string[]
+     * @var string
      */
-    public $ArchiveTypes;
+    protected ?string $ArchiveTypes = null;
     /**
      * Constructor method for LargeArchiveSearchScopeType
      * @uses EwsLargeArchiveSearchScopeType::setArchiveTypes()
-     * @param string[] $archiveTypes
+     * @param array|string $archiveTypes
      */
-    public function __construct(array $archiveTypes = array())
+    public function __construct($archiveTypes = [])
     {
         $this
             ->setArchiveTypes($archiveTypes);
     }
     /**
      * Get ArchiveTypes value
-     * @return string[]|null
+     * @return string
      */
-    public function getArchiveTypes()
+    public function getArchiveTypes(): ?string
     {
         return $this->ArchiveTypes;
     }
@@ -41,37 +44,39 @@ class EwsLargeArchiveSearchScopeType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateArchiveTypesForArrayConstraintsFromSetArchiveTypes(array $values = array())
+    public static function validateArchiveTypesForArrayConstraintsFromSetArchiveTypes(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $largeArchiveSearchScopeTypeArchiveTypesItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsSearchScopeArchivesType::valueIsValid($largeArchiveSearchScopeTypeArchiveTypesItem)) {
+            if (!\EnumType\EwsSearchScopeArchivesType::valueIsValid($largeArchiveSearchScopeTypeArchiveTypesItem)) {
                 $invalidValues[] = is_object($largeArchiveSearchScopeTypeArchiveTypesItem) ? get_class($largeArchiveSearchScopeTypeArchiveTypesItem) : sprintf('%s(%s)', gettype($largeArchiveSearchScopeTypeArchiveTypesItem), var_export($largeArchiveSearchScopeTypeArchiveTypesItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchScopeArchivesType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSearchScopeArchivesType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchScopeArchivesType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsSearchScopeArchivesType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ArchiveTypes value
-     * @uses \Ews\EnumType\EwsSearchScopeArchivesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchScopeArchivesType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $archiveTypes
-     * @return \Ews\StructType\EwsLargeArchiveSearchScopeType
+     * @uses \EnumType\EwsSearchScopeArchivesType::valueIsValid()
+     * @uses \EnumType\EwsSearchScopeArchivesType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $archiveTypes
+     * @return \StructType\EwsLargeArchiveSearchScopeType
      */
-    public function setArchiveTypes(array $archiveTypes = array())
+    public function setArchiveTypes($archiveTypes = []): self
     {
         // validation for constraint: list
-        if ('' !== ($archiveTypesArrayErrorMessage = self::validateArchiveTypesForArrayConstraintsFromSetArchiveTypes($archiveTypes))) {
-            throw new \InvalidArgumentException($archiveTypesArrayErrorMessage, __LINE__);
+        if ('' !== ($archiveTypesArrayErrorMessage = self::validateArchiveTypesForArrayConstraintsFromSetArchiveTypes(is_string($archiveTypes) ? explode(' ', $archiveTypes) : $archiveTypes))) {
+            throw new InvalidArgumentException($archiveTypesArrayErrorMessage, __LINE__);
         }
-        $this->ArchiveTypes = is_array($archiveTypes) ? implode(' ', $archiveTypes) : null;
+        $this->ArchiveTypes = is_array($archiveTypes) ? implode(' ', $archiveTypes) : $archiveTypes;
+        
         return $this;
     }
 }

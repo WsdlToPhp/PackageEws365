@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateItemResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsUpdateItemResponseMessageType extends EwsItemInfoResponseMessageType
      * The ConflictResults
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsConflictResultsType
+     * @var \StructType\EwsConflictResultsType|null
      */
-    public $ConflictResults;
+    protected ?\StructType\EwsConflictResultsType $ConflictResults = null;
     /**
      * Constructor method for UpdateItemResponseMessageType
      * @uses EwsUpdateItemResponseMessageType::setConflictResults()
-     * @param \Ews\StructType\EwsConflictResultsType $conflictResults
+     * @param \StructType\EwsConflictResultsType $conflictResults
      */
-    public function __construct(\Ews\StructType\EwsConflictResultsType $conflictResults = null)
+    public function __construct(?\StructType\EwsConflictResultsType $conflictResults = null)
     {
         $this
             ->setConflictResults($conflictResults);
     }
     /**
      * Get ConflictResults value
-     * @return \Ews\StructType\EwsConflictResultsType|null
+     * @return \StructType\EwsConflictResultsType|null
      */
-    public function getConflictResults()
+    public function getConflictResults(): ?\StructType\EwsConflictResultsType
     {
         return $this->ConflictResults;
     }
     /**
      * Set ConflictResults value
-     * @param \Ews\StructType\EwsConflictResultsType $conflictResults
-     * @return \Ews\StructType\EwsUpdateItemResponseMessageType
+     * @param \StructType\EwsConflictResultsType $conflictResults
+     * @return \StructType\EwsUpdateItemResponseMessageType
      */
-    public function setConflictResults(\Ews\StructType\EwsConflictResultsType $conflictResults = null)
+    public function setConflictResults(?\StructType\EwsConflictResultsType $conflictResults = null): self
     {
         $this->ConflictResults = $conflictResults;
+        
         return $this;
     }
 }

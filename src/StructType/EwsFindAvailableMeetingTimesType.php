@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindAvailableMeetingTimesType StructType
@@ -16,47 +19,47 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
      * The Attendees
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $Attendees;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $Attendees = null;
     /**
      * The SearchWindowStart
-     * @var string
+     * @var string|null
      */
-    public $SearchWindowStart;
+    protected ?string $SearchWindowStart = null;
     /**
      * The SearchWindowDuration
-     * @var string
+     * @var string|null
      */
-    public $SearchWindowDuration;
+    protected ?string $SearchWindowDuration = null;
     /**
      * The MeetingDurationInMinutes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MeetingDurationInMinutes;
+    protected ?int $MeetingDurationInMinutes = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Location;
+    protected ?string $Location = null;
     /**
      * The MaxCandidates
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxCandidates;
+    protected ?int $MaxCandidates = null;
     /**
      * The ActivityDomain
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ActivityDomain;
+    protected ?string $ActivityDomain = null;
     /**
      * Constructor method for FindAvailableMeetingTimesType
      * @uses EwsFindAvailableMeetingTimesType::setAttendees()
@@ -66,7 +69,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
      * @uses EwsFindAvailableMeetingTimesType::setLocation()
      * @uses EwsFindAvailableMeetingTimesType::setMaxCandidates()
      * @uses EwsFindAvailableMeetingTimesType::setActivityDomain()
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $attendees
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $attendees
      * @param string $searchWindowStart
      * @param string $searchWindowDuration
      * @param int $meetingDurationInMinutes
@@ -74,7 +77,7 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
      * @param int $maxCandidates
      * @param string $activityDomain
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfSmtpAddressType $attendees = null, $searchWindowStart = null, $searchWindowDuration = null, $meetingDurationInMinutes = null, $location = null, $maxCandidates = null, $activityDomain = null)
+    public function __construct(?\ArrayType\EwsArrayOfSmtpAddressType $attendees = null, ?string $searchWindowStart = null, ?string $searchWindowDuration = null, ?int $meetingDurationInMinutes = null, ?string $location = null, ?int $maxCandidates = null, ?string $activityDomain = null)
     {
         $this
             ->setAttendees($attendees)
@@ -87,155 +90,162 @@ class EwsFindAvailableMeetingTimesType extends EwsBaseRequestType
     }
     /**
      * Get Attendees value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getAttendees()
+    public function getAttendees(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->Attendees;
     }
     /**
      * Set Attendees value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $attendees
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $attendees
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setAttendees(\Ews\ArrayType\EwsArrayOfSmtpAddressType $attendees = null)
+    public function setAttendees(?\ArrayType\EwsArrayOfSmtpAddressType $attendees = null): self
     {
         $this->Attendees = $attendees;
+        
         return $this;
     }
     /**
      * Get SearchWindowStart value
      * @return string|null
      */
-    public function getSearchWindowStart()
+    public function getSearchWindowStart(): ?string
     {
         return $this->SearchWindowStart;
     }
     /**
      * Set SearchWindowStart value
      * @param string $searchWindowStart
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setSearchWindowStart($searchWindowStart = null)
+    public function setSearchWindowStart(?string $searchWindowStart = null): self
     {
         // validation for constraint: string
         if (!is_null($searchWindowStart) && !is_string($searchWindowStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowStart, true), gettype($searchWindowStart)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowStart, true), gettype($searchWindowStart)), __LINE__);
         }
         $this->SearchWindowStart = $searchWindowStart;
+        
         return $this;
     }
     /**
      * Get SearchWindowDuration value
      * @return string|null
      */
-    public function getSearchWindowDuration()
+    public function getSearchWindowDuration(): ?string
     {
         return $this->SearchWindowDuration;
     }
     /**
      * Set SearchWindowDuration value
      * @param string $searchWindowDuration
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setSearchWindowDuration($searchWindowDuration = null)
+    public function setSearchWindowDuration(?string $searchWindowDuration = null): self
     {
         // validation for constraint: string
         if (!is_null($searchWindowDuration) && !is_string($searchWindowDuration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowDuration, true), gettype($searchWindowDuration)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchWindowDuration, true), gettype($searchWindowDuration)), __LINE__);
         }
         $this->SearchWindowDuration = $searchWindowDuration;
+        
         return $this;
     }
     /**
      * Get MeetingDurationInMinutes value
      * @return int|null
      */
-    public function getMeetingDurationInMinutes()
+    public function getMeetingDurationInMinutes(): ?int
     {
         return $this->MeetingDurationInMinutes;
     }
     /**
      * Set MeetingDurationInMinutes value
      * @param int $meetingDurationInMinutes
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setMeetingDurationInMinutes($meetingDurationInMinutes = null)
+    public function setMeetingDurationInMinutes(?int $meetingDurationInMinutes = null): self
     {
         // validation for constraint: int
         if (!is_null($meetingDurationInMinutes) && !(is_int($meetingDurationInMinutes) || ctype_digit($meetingDurationInMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($meetingDurationInMinutes, true), gettype($meetingDurationInMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($meetingDurationInMinutes, true), gettype($meetingDurationInMinutes)), __LINE__);
         }
         $this->MeetingDurationInMinutes = $meetingDurationInMinutes;
+        
         return $this;
     }
     /**
      * Get Location value
      * @return string|null
      */
-    public function getLocation()
+    public function getLocation(): ?string
     {
         return $this->Location;
     }
     /**
      * Set Location value
      * @param string $location
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setLocation($location = null)
+    public function setLocation(?string $location = null): self
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
+        
         return $this;
     }
     /**
      * Get MaxCandidates value
      * @return int|null
      */
-    public function getMaxCandidates()
+    public function getMaxCandidates(): ?int
     {
         return $this->MaxCandidates;
     }
     /**
      * Set MaxCandidates value
      * @param int $maxCandidates
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setMaxCandidates($maxCandidates = null)
+    public function setMaxCandidates(?int $maxCandidates = null): self
     {
         // validation for constraint: int
         if (!is_null($maxCandidates) && !(is_int($maxCandidates) || ctype_digit($maxCandidates))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxCandidates, true), gettype($maxCandidates)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxCandidates, true), gettype($maxCandidates)), __LINE__);
         }
         $this->MaxCandidates = $maxCandidates;
+        
         return $this;
     }
     /**
      * Get ActivityDomain value
      * @return string|null
      */
-    public function getActivityDomain()
+    public function getActivityDomain(): ?string
     {
         return $this->ActivityDomain;
     }
     /**
      * Set ActivityDomain value
-     * @uses \Ews\EnumType\EwsActivityDomainType::valueIsValid()
-     * @uses \Ews\EnumType\EwsActivityDomainType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsActivityDomainType::valueIsValid()
+     * @uses \EnumType\EwsActivityDomainType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $activityDomain
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesType
+     * @return \StructType\EwsFindAvailableMeetingTimesType
      */
-    public function setActivityDomain($activityDomain = null)
+    public function setActivityDomain(?string $activityDomain = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsActivityDomainType', is_array($activityDomain) ? implode(', ', $activityDomain) : var_export($activityDomain, true), implode(', ', \Ews\EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsActivityDomainType::valueIsValid($activityDomain)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsActivityDomainType', is_array($activityDomain) ? implode(', ', $activityDomain) : var_export($activityDomain, true), implode(', ', \EnumType\EwsActivityDomainType::getValidValues())), __LINE__);
         }
         $this->ActivityDomain = $activityDomain;
+        
         return $this;
     }
 }

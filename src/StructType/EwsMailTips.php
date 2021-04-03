@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailTips StructType
@@ -17,97 +20,97 @@ class EwsMailTips extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType
      */
-    public $RecipientAddress;
+    protected \StructType\EwsEmailAddressType $RecipientAddress;
     /**
      * The PendingMailTips
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $PendingMailTips;
+    protected string $PendingMailTips;
     /**
      * The OutOfOffice
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsOutOfOfficeMailTip
+     * @var \StructType\EwsOutOfOfficeMailTip|null
      */
-    public $OutOfOffice;
+    protected ?\StructType\EwsOutOfOfficeMailTip $OutOfOffice = null;
     /**
      * The MailboxFull
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MailboxFull;
+    protected ?bool $MailboxFull = null;
     /**
      * The CustomMailTip
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CustomMailTip;
+    protected ?string $CustomMailTip = null;
     /**
      * The TotalMemberCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $TotalMemberCount;
+    protected ?int $TotalMemberCount = null;
     /**
      * The ExternalMemberCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $ExternalMemberCount;
+    protected ?int $ExternalMemberCount = null;
     /**
      * The MaxMessageSize
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxMessageSize;
+    protected ?int $MaxMessageSize = null;
     /**
      * The DeliveryRestricted
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $DeliveryRestricted;
+    protected ?bool $DeliveryRestricted = null;
     /**
      * The IsModerated
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsModerated;
+    protected ?bool $IsModerated = null;
     /**
      * The InvalidRecipient
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $InvalidRecipient;
+    protected ?bool $InvalidRecipient = null;
     /**
      * The Scope
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Scope;
+    protected ?int $Scope = null;
     /**
      * Constructor method for MailTips
      * @uses EwsMailTips::setRecipientAddress()
@@ -122,9 +125,9 @@ class EwsMailTips extends AbstractStructBase
      * @uses EwsMailTips::setIsModerated()
      * @uses EwsMailTips::setInvalidRecipient()
      * @uses EwsMailTips::setScope()
-     * @param \Ews\StructType\EwsEmailAddressType $recipientAddress
-     * @param string[] $pendingMailTips
-     * @param \Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice
+     * @param \StructType\EwsEmailAddressType $recipientAddress
+     * @param array|string $pendingMailTips
+     * @param \StructType\EwsOutOfOfficeMailTip $outOfOffice
      * @param bool $mailboxFull
      * @param string $customMailTip
      * @param int $totalMemberCount
@@ -135,7 +138,7 @@ class EwsMailTips extends AbstractStructBase
      * @param bool $invalidRecipient
      * @param int $scope
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $recipientAddress = null, array $pendingMailTips = array(), \Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice = null, $mailboxFull = null, $customMailTip = null, $totalMemberCount = null, $externalMemberCount = null, $maxMessageSize = null, $deliveryRestricted = null, $isModerated = null, $invalidRecipient = null, $scope = null)
+    public function __construct(\StructType\EwsEmailAddressType $recipientAddress, $pendingMailTips, ?\StructType\EwsOutOfOfficeMailTip $outOfOffice = null, ?bool $mailboxFull = null, ?string $customMailTip = null, ?int $totalMemberCount = null, ?int $externalMemberCount = null, ?int $maxMessageSize = null, ?bool $deliveryRestricted = null, ?bool $isModerated = null, ?bool $invalidRecipient = null, ?int $scope = null)
     {
         $this
             ->setRecipientAddress($recipientAddress)
@@ -153,27 +156,28 @@ class EwsMailTips extends AbstractStructBase
     }
     /**
      * Get RecipientAddress value
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function getRecipientAddress()
+    public function getRecipientAddress(): \StructType\EwsEmailAddressType
     {
         return $this->RecipientAddress;
     }
     /**
      * Set RecipientAddress value
-     * @param \Ews\StructType\EwsEmailAddressType $recipientAddress
-     * @return \Ews\StructType\EwsMailTips
+     * @param \StructType\EwsEmailAddressType $recipientAddress
+     * @return \StructType\EwsMailTips
      */
-    public function setRecipientAddress(\Ews\StructType\EwsEmailAddressType $recipientAddress = null)
+    public function setRecipientAddress(\StructType\EwsEmailAddressType $recipientAddress): self
     {
         $this->RecipientAddress = $recipientAddress;
+        
         return $this;
     }
     /**
      * Get PendingMailTips value
-     * @return string[]
+     * @return string
      */
-    public function getPendingMailTips()
+    public function getPendingMailTips(): string
     {
         return $this->PendingMailTips;
     }
@@ -183,253 +187,265 @@ class EwsMailTips extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePendingMailTipsForArrayConstraintsFromSetPendingMailTips(array $values = array())
+    public static function validatePendingMailTipsForArrayConstraintsFromSetPendingMailTips(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $mailTipsPendingMailTipsItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsMailTipTypes::valueIsValid($mailTipsPendingMailTipsItem)) {
+            if (!\EnumType\EwsMailTipTypes::valueIsValid($mailTipsPendingMailTipsItem)) {
                 $invalidValues[] = is_object($mailTipsPendingMailTipsItem) ? get_class($mailTipsPendingMailTipsItem) : sprintf('%s(%s)', gettype($mailTipsPendingMailTipsItem), var_export($mailTipsPendingMailTipsItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailTipTypes', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsMailTipTypes::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailTipTypes', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsMailTipTypes::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set PendingMailTips value
-     * @uses \Ews\EnumType\EwsMailTipTypes::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailTipTypes::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $pendingMailTips
-     * @return \Ews\StructType\EwsMailTips
+     * @uses \EnumType\EwsMailTipTypes::valueIsValid()
+     * @uses \EnumType\EwsMailTipTypes::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $pendingMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setPendingMailTips(array $pendingMailTips = array())
+    public function setPendingMailTips($pendingMailTips): self
     {
         // validation for constraint: list
-        if ('' !== ($pendingMailTipsArrayErrorMessage = self::validatePendingMailTipsForArrayConstraintsFromSetPendingMailTips($pendingMailTips))) {
-            throw new \InvalidArgumentException($pendingMailTipsArrayErrorMessage, __LINE__);
+        if ('' !== ($pendingMailTipsArrayErrorMessage = self::validatePendingMailTipsForArrayConstraintsFromSetPendingMailTips(is_string($pendingMailTips) ? explode(' ', $pendingMailTips) : $pendingMailTips))) {
+            throw new InvalidArgumentException($pendingMailTipsArrayErrorMessage, __LINE__);
         }
-        $this->PendingMailTips = is_array($pendingMailTips) ? implode(' ', $pendingMailTips) : null;
+        $this->PendingMailTips = is_array($pendingMailTips) ? implode(' ', $pendingMailTips) : $pendingMailTips;
+        
         return $this;
     }
     /**
      * Get OutOfOffice value
-     * @return \Ews\StructType\EwsOutOfOfficeMailTip|null
+     * @return \StructType\EwsOutOfOfficeMailTip|null
      */
-    public function getOutOfOffice()
+    public function getOutOfOffice(): ?\StructType\EwsOutOfOfficeMailTip
     {
         return $this->OutOfOffice;
     }
     /**
      * Set OutOfOffice value
-     * @param \Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice
-     * @return \Ews\StructType\EwsMailTips
+     * @param \StructType\EwsOutOfOfficeMailTip $outOfOffice
+     * @return \StructType\EwsMailTips
      */
-    public function setOutOfOffice(\Ews\StructType\EwsOutOfOfficeMailTip $outOfOffice = null)
+    public function setOutOfOffice(?\StructType\EwsOutOfOfficeMailTip $outOfOffice = null): self
     {
         $this->OutOfOffice = $outOfOffice;
+        
         return $this;
     }
     /**
      * Get MailboxFull value
      * @return bool|null
      */
-    public function getMailboxFull()
+    public function getMailboxFull(): ?bool
     {
         return $this->MailboxFull;
     }
     /**
      * Set MailboxFull value
      * @param bool $mailboxFull
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setMailboxFull($mailboxFull = null)
+    public function setMailboxFull(?bool $mailboxFull = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mailboxFull) && !is_bool($mailboxFull)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mailboxFull, true), gettype($mailboxFull)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mailboxFull, true), gettype($mailboxFull)), __LINE__);
         }
         $this->MailboxFull = $mailboxFull;
+        
         return $this;
     }
     /**
      * Get CustomMailTip value
      * @return string|null
      */
-    public function getCustomMailTip()
+    public function getCustomMailTip(): ?string
     {
         return $this->CustomMailTip;
     }
     /**
      * Set CustomMailTip value
      * @param string $customMailTip
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setCustomMailTip($customMailTip = null)
+    public function setCustomMailTip(?string $customMailTip = null): self
     {
         // validation for constraint: string
         if (!is_null($customMailTip) && !is_string($customMailTip)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customMailTip, true), gettype($customMailTip)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($customMailTip, true), gettype($customMailTip)), __LINE__);
         }
         $this->CustomMailTip = $customMailTip;
+        
         return $this;
     }
     /**
      * Get TotalMemberCount value
      * @return int|null
      */
-    public function getTotalMemberCount()
+    public function getTotalMemberCount(): ?int
     {
         return $this->TotalMemberCount;
     }
     /**
      * Set TotalMemberCount value
      * @param int $totalMemberCount
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setTotalMemberCount($totalMemberCount = null)
+    public function setTotalMemberCount(?int $totalMemberCount = null): self
     {
         // validation for constraint: int
         if (!is_null($totalMemberCount) && !(is_int($totalMemberCount) || ctype_digit($totalMemberCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalMemberCount, true), gettype($totalMemberCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalMemberCount, true), gettype($totalMemberCount)), __LINE__);
         }
         $this->TotalMemberCount = $totalMemberCount;
+        
         return $this;
     }
     /**
      * Get ExternalMemberCount value
      * @return int|null
      */
-    public function getExternalMemberCount()
+    public function getExternalMemberCount(): ?int
     {
         return $this->ExternalMemberCount;
     }
     /**
      * Set ExternalMemberCount value
      * @param int $externalMemberCount
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setExternalMemberCount($externalMemberCount = null)
+    public function setExternalMemberCount(?int $externalMemberCount = null): self
     {
         // validation for constraint: int
         if (!is_null($externalMemberCount) && !(is_int($externalMemberCount) || ctype_digit($externalMemberCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($externalMemberCount, true), gettype($externalMemberCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($externalMemberCount, true), gettype($externalMemberCount)), __LINE__);
         }
         $this->ExternalMemberCount = $externalMemberCount;
+        
         return $this;
     }
     /**
      * Get MaxMessageSize value
      * @return int|null
      */
-    public function getMaxMessageSize()
+    public function getMaxMessageSize(): ?int
     {
         return $this->MaxMessageSize;
     }
     /**
      * Set MaxMessageSize value
      * @param int $maxMessageSize
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setMaxMessageSize($maxMessageSize = null)
+    public function setMaxMessageSize(?int $maxMessageSize = null): self
     {
         // validation for constraint: int
         if (!is_null($maxMessageSize) && !(is_int($maxMessageSize) || ctype_digit($maxMessageSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxMessageSize, true), gettype($maxMessageSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxMessageSize, true), gettype($maxMessageSize)), __LINE__);
         }
         $this->MaxMessageSize = $maxMessageSize;
+        
         return $this;
     }
     /**
      * Get DeliveryRestricted value
      * @return bool|null
      */
-    public function getDeliveryRestricted()
+    public function getDeliveryRestricted(): ?bool
     {
         return $this->DeliveryRestricted;
     }
     /**
      * Set DeliveryRestricted value
      * @param bool $deliveryRestricted
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setDeliveryRestricted($deliveryRestricted = null)
+    public function setDeliveryRestricted(?bool $deliveryRestricted = null): self
     {
         // validation for constraint: boolean
         if (!is_null($deliveryRestricted) && !is_bool($deliveryRestricted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deliveryRestricted, true), gettype($deliveryRestricted)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deliveryRestricted, true), gettype($deliveryRestricted)), __LINE__);
         }
         $this->DeliveryRestricted = $deliveryRestricted;
+        
         return $this;
     }
     /**
      * Get IsModerated value
      * @return bool|null
      */
-    public function getIsModerated()
+    public function getIsModerated(): ?bool
     {
         return $this->IsModerated;
     }
     /**
      * Set IsModerated value
      * @param bool $isModerated
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setIsModerated($isModerated = null)
+    public function setIsModerated(?bool $isModerated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isModerated) && !is_bool($isModerated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isModerated, true), gettype($isModerated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isModerated, true), gettype($isModerated)), __LINE__);
         }
         $this->IsModerated = $isModerated;
+        
         return $this;
     }
     /**
      * Get InvalidRecipient value
      * @return bool|null
      */
-    public function getInvalidRecipient()
+    public function getInvalidRecipient(): ?bool
     {
         return $this->InvalidRecipient;
     }
     /**
      * Set InvalidRecipient value
      * @param bool $invalidRecipient
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setInvalidRecipient($invalidRecipient = null)
+    public function setInvalidRecipient(?bool $invalidRecipient = null): self
     {
         // validation for constraint: boolean
         if (!is_null($invalidRecipient) && !is_bool($invalidRecipient)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($invalidRecipient, true), gettype($invalidRecipient)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($invalidRecipient, true), gettype($invalidRecipient)), __LINE__);
         }
         $this->InvalidRecipient = $invalidRecipient;
+        
         return $this;
     }
     /**
      * Get Scope value
      * @return int|null
      */
-    public function getScope()
+    public function getScope(): ?int
     {
         return $this->Scope;
     }
     /**
      * Set Scope value
      * @param int $scope
-     * @return \Ews\StructType\EwsMailTips
+     * @return \StructType\EwsMailTips
      */
-    public function setScope($scope = null)
+    public function setScope(?int $scope = null): self
     {
         // validation for constraint: int
         if (!is_null($scope) && !(is_int($scope) || ctype_digit($scope))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($scope, true), gettype($scope)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($scope, true), gettype($scope)), __LINE__);
         }
         $this->Scope = $scope;
+        
         return $this;
     }
 }

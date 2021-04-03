@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ItemInfoResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsItemInfoResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The Items
-     * @var \Ews\StructType\EwsArrayOfRealItemsType
+     * @var \StructType\EwsArrayOfRealItemsType|null
      */
-    public $Items;
+    protected ?\StructType\EwsArrayOfRealItemsType $Items = null;
     /**
      * Constructor method for ItemInfoResponseMessageType
      * @uses EwsItemInfoResponseMessageType::setItems()
-     * @param \Ews\StructType\EwsArrayOfRealItemsType $items
+     * @param \StructType\EwsArrayOfRealItemsType $items
      */
-    public function __construct(\Ews\StructType\EwsArrayOfRealItemsType $items = null)
+    public function __construct(?\StructType\EwsArrayOfRealItemsType $items = null)
     {
         $this
             ->setItems($items);
     }
     /**
      * Get Items value
-     * @return \Ews\StructType\EwsArrayOfRealItemsType|null
+     * @return \StructType\EwsArrayOfRealItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\StructType\EwsArrayOfRealItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\StructType\EwsArrayOfRealItemsType $items
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType
+     * @param \StructType\EwsArrayOfRealItemsType $items
+     * @return \StructType\EwsItemInfoResponseMessageType
      */
-    public function setItems(\Ews\StructType\EwsArrayOfRealItemsType $items = null)
+    public function setItems(?\StructType\EwsArrayOfRealItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

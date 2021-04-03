@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ReferenceAttachmentType StructType
@@ -17,57 +20,57 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AttachLongPathName;
+    protected ?string $AttachLongPathName = null;
     /**
      * The ProviderType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProviderType;
+    protected ?string $ProviderType = null;
     /**
      * The ProviderEndpointUrl
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProviderEndpointUrl;
+    protected ?string $ProviderEndpointUrl = null;
     /**
      * The AttachmentThumbnailUrl
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AttachmentThumbnailUrl;
+    protected ?string $AttachmentThumbnailUrl = null;
     /**
      * The AttachmentPreviewUrl
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AttachmentPreviewUrl;
+    protected ?string $AttachmentPreviewUrl = null;
     /**
      * The PermissionType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PermissionType;
+    protected ?int $PermissionType = null;
     /**
      * The AttachmentIsFolder
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AttachmentIsFolder;
+    protected ?bool $AttachmentIsFolder = null;
     /**
      * Constructor method for ReferenceAttachmentType
      * @uses EwsReferenceAttachmentType::setAttachLongPathName()
@@ -85,7 +88,7 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      * @param int $permissionType
      * @param bool $attachmentIsFolder
      */
-    public function __construct($attachLongPathName = null, $providerType = null, $providerEndpointUrl = null, $attachmentThumbnailUrl = null, $attachmentPreviewUrl = null, $permissionType = null, $attachmentIsFolder = null)
+    public function __construct(?string $attachLongPathName = null, ?string $providerType = null, ?string $providerEndpointUrl = null, ?string $attachmentThumbnailUrl = null, ?string $attachmentPreviewUrl = null, ?int $permissionType = null, ?bool $attachmentIsFolder = null)
     {
         $this
             ->setAttachLongPathName($attachLongPathName)
@@ -100,154 +103,161 @@ class EwsReferenceAttachmentType extends EwsAttachmentType
      * Get AttachLongPathName value
      * @return string|null
      */
-    public function getAttachLongPathName()
+    public function getAttachLongPathName(): ?string
     {
         return $this->AttachLongPathName;
     }
     /**
      * Set AttachLongPathName value
      * @param string $attachLongPathName
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setAttachLongPathName($attachLongPathName = null)
+    public function setAttachLongPathName(?string $attachLongPathName = null): self
     {
         // validation for constraint: string
         if (!is_null($attachLongPathName) && !is_string($attachLongPathName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachLongPathName, true), gettype($attachLongPathName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachLongPathName, true), gettype($attachLongPathName)), __LINE__);
         }
         $this->AttachLongPathName = $attachLongPathName;
+        
         return $this;
     }
     /**
      * Get ProviderType value
      * @return string|null
      */
-    public function getProviderType()
+    public function getProviderType(): ?string
     {
         return $this->ProviderType;
     }
     /**
      * Set ProviderType value
      * @param string $providerType
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setProviderType($providerType = null)
+    public function setProviderType(?string $providerType = null): self
     {
         // validation for constraint: string
         if (!is_null($providerType) && !is_string($providerType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($providerType, true), gettype($providerType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($providerType, true), gettype($providerType)), __LINE__);
         }
         $this->ProviderType = $providerType;
+        
         return $this;
     }
     /**
      * Get ProviderEndpointUrl value
      * @return string|null
      */
-    public function getProviderEndpointUrl()
+    public function getProviderEndpointUrl(): ?string
     {
         return $this->ProviderEndpointUrl;
     }
     /**
      * Set ProviderEndpointUrl value
      * @param string $providerEndpointUrl
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setProviderEndpointUrl($providerEndpointUrl = null)
+    public function setProviderEndpointUrl(?string $providerEndpointUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($providerEndpointUrl) && !is_string($providerEndpointUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($providerEndpointUrl, true), gettype($providerEndpointUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($providerEndpointUrl, true), gettype($providerEndpointUrl)), __LINE__);
         }
         $this->ProviderEndpointUrl = $providerEndpointUrl;
+        
         return $this;
     }
     /**
      * Get AttachmentThumbnailUrl value
      * @return string|null
      */
-    public function getAttachmentThumbnailUrl()
+    public function getAttachmentThumbnailUrl(): ?string
     {
         return $this->AttachmentThumbnailUrl;
     }
     /**
      * Set AttachmentThumbnailUrl value
      * @param string $attachmentThumbnailUrl
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setAttachmentThumbnailUrl($attachmentThumbnailUrl = null)
+    public function setAttachmentThumbnailUrl(?string $attachmentThumbnailUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($attachmentThumbnailUrl) && !is_string($attachmentThumbnailUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachmentThumbnailUrl, true), gettype($attachmentThumbnailUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachmentThumbnailUrl, true), gettype($attachmentThumbnailUrl)), __LINE__);
         }
         $this->AttachmentThumbnailUrl = $attachmentThumbnailUrl;
+        
         return $this;
     }
     /**
      * Get AttachmentPreviewUrl value
      * @return string|null
      */
-    public function getAttachmentPreviewUrl()
+    public function getAttachmentPreviewUrl(): ?string
     {
         return $this->AttachmentPreviewUrl;
     }
     /**
      * Set AttachmentPreviewUrl value
      * @param string $attachmentPreviewUrl
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setAttachmentPreviewUrl($attachmentPreviewUrl = null)
+    public function setAttachmentPreviewUrl(?string $attachmentPreviewUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($attachmentPreviewUrl) && !is_string($attachmentPreviewUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachmentPreviewUrl, true), gettype($attachmentPreviewUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attachmentPreviewUrl, true), gettype($attachmentPreviewUrl)), __LINE__);
         }
         $this->AttachmentPreviewUrl = $attachmentPreviewUrl;
+        
         return $this;
     }
     /**
      * Get PermissionType value
      * @return int|null
      */
-    public function getPermissionType()
+    public function getPermissionType(): ?int
     {
         return $this->PermissionType;
     }
     /**
      * Set PermissionType value
      * @param int $permissionType
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setPermissionType($permissionType = null)
+    public function setPermissionType(?int $permissionType = null): self
     {
         // validation for constraint: int
         if (!is_null($permissionType) && !(is_int($permissionType) || ctype_digit($permissionType))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($permissionType, true), gettype($permissionType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($permissionType, true), gettype($permissionType)), __LINE__);
         }
         $this->PermissionType = $permissionType;
+        
         return $this;
     }
     /**
      * Get AttachmentIsFolder value
      * @return bool|null
      */
-    public function getAttachmentIsFolder()
+    public function getAttachmentIsFolder(): ?bool
     {
         return $this->AttachmentIsFolder;
     }
     /**
      * Set AttachmentIsFolder value
      * @param bool $attachmentIsFolder
-     * @return \Ews\StructType\EwsReferenceAttachmentType
+     * @return \StructType\EwsReferenceAttachmentType
      */
-    public function setAttachmentIsFolder($attachmentIsFolder = null)
+    public function setAttachmentIsFolder(?bool $attachmentIsFolder = null): self
     {
         // validation for constraint: boolean
         if (!is_null($attachmentIsFolder) && !is_bool($attachmentIsFolder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($attachmentIsFolder, true), gettype($attachmentIsFolder)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($attachmentIsFolder, true), gettype($attachmentIsFolder)), __LINE__);
         }
         $this->AttachmentIsFolder = $attachmentIsFolder;
+        
         return $this;
     }
 }

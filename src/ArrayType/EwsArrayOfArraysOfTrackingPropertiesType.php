@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfArraysOfTrackingPropertiesType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
      * - choice: ArrayOfTrackingPropertiesType
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public $ArrayOfTrackingPropertiesType;
+    protected ?\ArrayType\EwsArrayOfTrackingPropertiesType $ArrayOfTrackingPropertiesType = null;
     /**
      * Constructor method for ArrayOfArraysOfTrackingPropertiesType
      * @uses EwsArrayOfArraysOfTrackingPropertiesType::setArrayOfTrackingPropertiesType()
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null)
+    public function __construct(?\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null)
     {
         $this
             ->setArrayOfTrackingPropertiesType($arrayOfTrackingPropertiesType);
     }
     /**
      * Get ArrayOfTrackingPropertiesType value
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function getArrayOfTrackingPropertiesType()
+    public function getArrayOfTrackingPropertiesType(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return isset($this->ArrayOfTrackingPropertiesType) ? $this->ArrayOfTrackingPropertiesType : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateArrayOfTrackingPropertiesTypeForChoiceConstraintsFromSetArrayOfTrackingPropertiesType($value)
+    public function validateArrayOfTrackingPropertiesTypeForChoiceConstraintsFromSetArrayOfTrackingPropertiesType($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ArrayOfTrackingPropertiesType can\'t be set as the property %s is already set. Only one property must be set among these properties: ArrayOfTrackingPropertiesType, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ArrayOfTrackingPropertiesType can\'t be set as the property %s is already set. Only one property must be set among these properties: ArrayOfTrackingPropertiesType, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
-     * @return \Ews\ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
+     * @throws InvalidArgumentException
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType
+     * @return \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
      */
-    public function setArrayOfTrackingPropertiesType(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null)
+    public function setArrayOfTrackingPropertiesType(?\ArrayType\EwsArrayOfTrackingPropertiesType $arrayOfTrackingPropertiesType = null): self
     {
         // validation for constraint: choice(ArrayOfTrackingPropertiesType)
         if ('' !== ($arrayOfTrackingPropertiesTypeChoiceErrorMessage = self::validateArrayOfTrackingPropertiesTypeForChoiceConstraintsFromSetArrayOfTrackingPropertiesType($arrayOfTrackingPropertiesType))) {
-            throw new \InvalidArgumentException($arrayOfTrackingPropertiesTypeChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($arrayOfTrackingPropertiesTypeChoiceErrorMessage, __LINE__);
         }
         if (is_null($arrayOfTrackingPropertiesType) || (is_array($arrayOfTrackingPropertiesType) && empty($arrayOfTrackingPropertiesType))) {
             unset($this->ArrayOfTrackingPropertiesType);
         } else {
             $this->ArrayOfTrackingPropertiesType = $arrayOfTrackingPropertiesType;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function current()
+    public function current(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function item($index)
+    public function item($index): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function first()
+    public function first(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function last()
+    public function last(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfArraysOfTrackingPropertiesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $item
+     * @return \ArrayType\EwsArrayOfArraysOfTrackingPropertiesType
+     */
+    public function add(\ArrayType\EwsArrayOfTrackingPropertiesType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ArrayOfTrackingPropertiesType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ArrayOfTrackingPropertiesType';
     }

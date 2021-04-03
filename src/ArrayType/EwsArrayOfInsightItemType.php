@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfInsightItemType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsInsightItemType[]
+     * @var \StructType\EwsInsightItemType[]
      */
-    public $Insight;
+    protected array $Insight = [];
     /**
      * Constructor method for ArrayOfInsightItemType
      * @uses EwsArrayOfInsightItemType::setInsight()
-     * @param \Ews\StructType\EwsInsightItemType[] $insight
+     * @param \StructType\EwsInsightItemType[] $insight
      */
-    public function __construct(array $insight = array())
+    public function __construct(array $insight = [])
     {
         $this
             ->setInsight($insight);
     }
     /**
      * Get Insight value
-     * @return \Ews\StructType\EwsInsightItemType[]|null
+     * @return \StructType\EwsInsightItemType[]
      */
-    public function getInsight()
+    public function getInsight(): array
     {
         return $this->Insight;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateInsightForArrayConstraintsFromSetInsight(array $values = array())
+    public static function validateInsightForArrayConstraintsFromSetInsight(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfInsightItemTypeInsightItem) {
             // validation for constraint: itemType
-            if (!$arrayOfInsightItemTypeInsightItem instanceof \Ews\StructType\EwsInsightItemType) {
+            if (!$arrayOfInsightItemTypeInsightItem instanceof \StructType\EwsInsightItemType) {
                 $invalidValues[] = is_object($arrayOfInsightItemTypeInsightItem) ? get_class($arrayOfInsightItemTypeInsightItem) : sprintf('%s(%s)', gettype($arrayOfInsightItemTypeInsightItem), var_export($arrayOfInsightItemTypeInsightItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Insight property can only contain items of type \Ews\StructType\EwsInsightItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Insight property can only contain items of type \StructType\EwsInsightItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Insight value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInsightItemType[] $insight
-     * @return \Ews\ArrayType\EwsArrayOfInsightItemType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInsightItemType[] $insight
+     * @return \ArrayType\EwsArrayOfInsightItemType
      */
-    public function setInsight(array $insight = array())
+    public function setInsight(array $insight = []): self
     {
         // validation for constraint: array
         if ('' !== ($insightArrayErrorMessage = self::validateInsightForArrayConstraintsFromSetInsight($insight))) {
-            throw new \InvalidArgumentException($insightArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($insightArrayErrorMessage, __LINE__);
         }
         $this->Insight = $insight;
-        return $this;
-    }
-    /**
-     * Add item to Insight value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInsightItemType $item
-     * @return \Ews\ArrayType\EwsArrayOfInsightItemType
-     */
-    public function addToInsight(\Ews\StructType\EwsInsightItemType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsInsightItemType) {
-            throw new \InvalidArgumentException(sprintf('The Insight property can only contain items of type \Ews\StructType\EwsInsightItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Insight[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsInsightItemType|null
+     * @return \StructType\EwsInsightItemType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsInsightItemType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsInsightItemType|null
+     * @return \StructType\EwsInsightItemType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsInsightItemType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsInsightItemType|null
+     * @return \StructType\EwsInsightItemType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsInsightItemType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsInsightItemType|null
+     * @return \StructType\EwsInsightItemType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsInsightItemType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfInsightItemType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsInsightItemType|null
+     * @return \StructType\EwsInsightItemType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsInsightItemType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInsightItemType $item
+     * @return \ArrayType\EwsArrayOfInsightItemType
+     */
+    public function add(\StructType\EwsInsightItemType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Insight
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Insight';
     }

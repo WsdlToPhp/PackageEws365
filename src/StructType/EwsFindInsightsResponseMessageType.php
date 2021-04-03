@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindInsightsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindInsightsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfInsightItemType
+     * @var \ArrayType\EwsArrayOfInsightItemType
      */
-    public $Insights;
+    protected \ArrayType\EwsArrayOfInsightItemType $Insights;
     /**
      * Constructor method for FindInsightsResponseMessageType
      * @uses EwsFindInsightsResponseMessageType::setInsights()
-     * @param \Ews\ArrayType\EwsArrayOfInsightItemType $insights
+     * @param \ArrayType\EwsArrayOfInsightItemType $insights
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfInsightItemType $insights = null)
+    public function __construct(\ArrayType\EwsArrayOfInsightItemType $insights)
     {
         $this
             ->setInsights($insights);
     }
     /**
      * Get Insights value
-     * @return \Ews\ArrayType\EwsArrayOfInsightItemType
+     * @return \ArrayType\EwsArrayOfInsightItemType
      */
-    public function getInsights()
+    public function getInsights(): \ArrayType\EwsArrayOfInsightItemType
     {
         return $this->Insights;
     }
     /**
      * Set Insights value
-     * @param \Ews\ArrayType\EwsArrayOfInsightItemType $insights
-     * @return \Ews\StructType\EwsFindInsightsResponseMessageType
+     * @param \ArrayType\EwsArrayOfInsightItemType $insights
+     * @return \StructType\EwsFindInsightsResponseMessageType
      */
-    public function setInsights(\Ews\ArrayType\EwsArrayOfInsightItemType $insights = null)
+    public function setInsights(\ArrayType\EwsArrayOfInsightItemType $insights): self
     {
         $this->Insights = $insights;
+        
         return $this;
     }
 }

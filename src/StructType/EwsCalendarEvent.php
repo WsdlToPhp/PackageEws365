@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CalendarEvent StructType
@@ -19,7 +22,7 @@ class EwsCalendarEvent extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $StartTime;
+    protected string $StartTime;
     /**
      * The EndTime
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsCalendarEvent extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $EndTime;
+    protected string $EndTime;
     /**
      * The BusyType
      * Meta information extracted from the WSDL
@@ -35,15 +38,15 @@ class EwsCalendarEvent extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $BusyType;
+    protected string $BusyType;
     /**
      * The CalendarEventDetails
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCalendarEventDetails
+     * @var \StructType\EwsCalendarEventDetails|null
      */
-    public $CalendarEventDetails;
+    protected ?\StructType\EwsCalendarEventDetails $CalendarEventDetails = null;
     /**
      * Constructor method for CalendarEvent
      * @uses EwsCalendarEvent::setStartTime()
@@ -53,9 +56,9 @@ class EwsCalendarEvent extends AbstractStructBase
      * @param string $startTime
      * @param string $endTime
      * @param string $busyType
-     * @param \Ews\StructType\EwsCalendarEventDetails $calendarEventDetails
+     * @param \StructType\EwsCalendarEventDetails $calendarEventDetails
      */
-    public function __construct($startTime = null, $endTime = null, $busyType = null, \Ews\StructType\EwsCalendarEventDetails $calendarEventDetails = null)
+    public function __construct(string $startTime, string $endTime, string $busyType, ?\StructType\EwsCalendarEventDetails $calendarEventDetails = null)
     {
         $this
             ->setStartTime($startTime)
@@ -67,87 +70,91 @@ class EwsCalendarEvent extends AbstractStructBase
      * Get StartTime value
      * @return string
      */
-    public function getStartTime()
+    public function getStartTime(): string
     {
         return $this->StartTime;
     }
     /**
      * Set StartTime value
      * @param string $startTime
-     * @return \Ews\StructType\EwsCalendarEvent
+     * @return \StructType\EwsCalendarEvent
      */
-    public function setStartTime($startTime = null)
+    public function setStartTime(string $startTime): self
     {
         // validation for constraint: string
         if (!is_null($startTime) && !is_string($startTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTime, true), gettype($startTime)), __LINE__);
         }
         $this->StartTime = $startTime;
+        
         return $this;
     }
     /**
      * Get EndTime value
      * @return string
      */
-    public function getEndTime()
+    public function getEndTime(): string
     {
         return $this->EndTime;
     }
     /**
      * Set EndTime value
      * @param string $endTime
-     * @return \Ews\StructType\EwsCalendarEvent
+     * @return \StructType\EwsCalendarEvent
      */
-    public function setEndTime($endTime = null)
+    public function setEndTime(string $endTime): self
     {
         // validation for constraint: string
         if (!is_null($endTime) && !is_string($endTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTime, true), gettype($endTime)), __LINE__);
         }
         $this->EndTime = $endTime;
+        
         return $this;
     }
     /**
      * Get BusyType value
      * @return string
      */
-    public function getBusyType()
+    public function getBusyType(): string
     {
         return $this->BusyType;
     }
     /**
      * Set BusyType value
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLegacyFreeBusyType::valueIsValid()
+     * @uses \EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $busyType
-     * @return \Ews\StructType\EwsCalendarEvent
+     * @return \StructType\EwsCalendarEvent
      */
-    public function setBusyType($busyType = null)
+    public function setBusyType(string $busyType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLegacyFreeBusyType', is_array($busyType) ? implode(', ', $busyType) : var_export($busyType, true), implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLegacyFreeBusyType', is_array($busyType) ? implode(', ', $busyType) : var_export($busyType, true), implode(', ', \EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
         $this->BusyType = $busyType;
+        
         return $this;
     }
     /**
      * Get CalendarEventDetails value
-     * @return \Ews\StructType\EwsCalendarEventDetails|null
+     * @return \StructType\EwsCalendarEventDetails|null
      */
-    public function getCalendarEventDetails()
+    public function getCalendarEventDetails(): ?\StructType\EwsCalendarEventDetails
     {
         return $this->CalendarEventDetails;
     }
     /**
      * Set CalendarEventDetails value
-     * @param \Ews\StructType\EwsCalendarEventDetails $calendarEventDetails
-     * @return \Ews\StructType\EwsCalendarEvent
+     * @param \StructType\EwsCalendarEventDetails $calendarEventDetails
+     * @return \StructType\EwsCalendarEvent
      */
-    public function setCalendarEventDetails(\Ews\StructType\EwsCalendarEventDetails $calendarEventDetails = null)
+    public function setCalendarEventDetails(?\StructType\EwsCalendarEventDetails $calendarEventDetails = null): self
     {
         $this->CalendarEventDetails = $calendarEventDetails;
+        
         return $this;
     }
 }

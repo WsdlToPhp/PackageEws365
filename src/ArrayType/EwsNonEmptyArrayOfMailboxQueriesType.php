@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfMailboxQueriesType ArrayType
@@ -19,24 +22,24 @@ class EwsNonEmptyArrayOfMailboxQueriesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsMailboxQueryType[]
+     * @var \StructType\EwsMailboxQueryType[]
      */
-    public $MailboxQuery;
+    protected array $MailboxQuery = [];
     /**
      * Constructor method for NonEmptyArrayOfMailboxQueriesType
      * @uses EwsNonEmptyArrayOfMailboxQueriesType::setMailboxQuery()
-     * @param \Ews\StructType\EwsMailboxQueryType[] $mailboxQuery
+     * @param \StructType\EwsMailboxQueryType[] $mailboxQuery
      */
-    public function __construct(array $mailboxQuery = array())
+    public function __construct(array $mailboxQuery)
     {
         $this
             ->setMailboxQuery($mailboxQuery);
     }
     /**
      * Get MailboxQuery value
-     * @return \Ews\StructType\EwsMailboxQueryType[]
+     * @return \StructType\EwsMailboxQueryType[]
      */
-    public function getMailboxQuery()
+    public function getMailboxQuery(): array
     {
         return $this->MailboxQuery;
     }
@@ -46,58 +49,45 @@ class EwsNonEmptyArrayOfMailboxQueriesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMailboxQueryForArrayConstraintsFromSetMailboxQuery(array $values = array())
+    public static function validateMailboxQueryForArrayConstraintsFromSetMailboxQuery(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem instanceof \Ews\StructType\EwsMailboxQueryType) {
+            if (!$nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem instanceof \StructType\EwsMailboxQueryType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem) ? get_class($nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem), var_export($nonEmptyArrayOfMailboxQueriesTypeMailboxQueryItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MailboxQuery property can only contain items of type \Ews\StructType\EwsMailboxQueryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MailboxQuery property can only contain items of type \StructType\EwsMailboxQueryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MailboxQuery value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxQueryType[] $mailboxQuery
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxQueryType[] $mailboxQuery
+     * @return \ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
-    public function setMailboxQuery(array $mailboxQuery = array())
+    public function setMailboxQuery(array $mailboxQuery): self
     {
         // validation for constraint: array
         if ('' !== ($mailboxQueryArrayErrorMessage = self::validateMailboxQueryForArrayConstraintsFromSetMailboxQuery($mailboxQuery))) {
-            throw new \InvalidArgumentException($mailboxQueryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($mailboxQueryArrayErrorMessage, __LINE__);
         }
         $this->MailboxQuery = $mailboxQuery;
-        return $this;
-    }
-    /**
-     * Add item to MailboxQuery value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxQueryType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
-     */
-    public function addToMailboxQuery(\Ews\StructType\EwsMailboxQueryType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMailboxQueryType) {
-            throw new \InvalidArgumentException(sprintf('The MailboxQuery property can only contain items of type \Ews\StructType\EwsMailboxQueryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MailboxQuery[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMailboxQueryType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsNonEmptyArrayOfMailboxQueriesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMailboxQueryType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMailboxQueryType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMailboxQueryType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsNonEmptyArrayOfMailboxQueriesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMailboxQueryType
+     * @return \StructType\EwsMailboxQueryType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMailboxQueryType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxQueryType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
+     */
+    public function add(\StructType\EwsMailboxQueryType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MailboxQuery
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MailboxQuery';
     }

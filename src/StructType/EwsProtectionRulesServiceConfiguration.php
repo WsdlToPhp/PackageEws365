@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProtectionRulesServiceConfiguration StructType
@@ -17,17 +20,17 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfProtectionRulesType
+     * @var \ArrayType\EwsArrayOfProtectionRulesType
      */
-    public $Rules;
+    protected \ArrayType\EwsArrayOfProtectionRulesType $Rules;
     /**
      * The InternalDomains
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSmtpDomainList
+     * @var \StructType\EwsSmtpDomainList
      */
-    public $InternalDomains;
+    protected \StructType\EwsSmtpDomainList $InternalDomains;
     /**
      * The RefreshInterval
      * Meta information extracted from the WSDL
@@ -36,17 +39,17 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
      * - use: required
      * @var int
      */
-    public $RefreshInterval;
+    protected int $RefreshInterval;
     /**
      * Constructor method for ProtectionRulesServiceConfiguration
      * @uses EwsProtectionRulesServiceConfiguration::setRules()
      * @uses EwsProtectionRulesServiceConfiguration::setInternalDomains()
      * @uses EwsProtectionRulesServiceConfiguration::setRefreshInterval()
-     * @param \Ews\ArrayType\EwsArrayOfProtectionRulesType $rules
-     * @param \Ews\StructType\EwsSmtpDomainList $internalDomains
+     * @param \ArrayType\EwsArrayOfProtectionRulesType $rules
+     * @param \StructType\EwsSmtpDomainList $internalDomains
      * @param int $refreshInterval
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfProtectionRulesType $rules = null, \Ews\StructType\EwsSmtpDomainList $internalDomains = null, $refreshInterval = null)
+    public function __construct(\ArrayType\EwsArrayOfProtectionRulesType $rules, \StructType\EwsSmtpDomainList $internalDomains, int $refreshInterval)
     {
         $this
             ->setRules($rules)
@@ -55,64 +58,67 @@ class EwsProtectionRulesServiceConfiguration extends EwsServiceConfiguration
     }
     /**
      * Get Rules value
-     * @return \Ews\ArrayType\EwsArrayOfProtectionRulesType
+     * @return \ArrayType\EwsArrayOfProtectionRulesType
      */
-    public function getRules()
+    public function getRules(): \ArrayType\EwsArrayOfProtectionRulesType
     {
         return $this->Rules;
     }
     /**
      * Set Rules value
-     * @param \Ews\ArrayType\EwsArrayOfProtectionRulesType $rules
-     * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
+     * @param \ArrayType\EwsArrayOfProtectionRulesType $rules
+     * @return \StructType\EwsProtectionRulesServiceConfiguration
      */
-    public function setRules(\Ews\ArrayType\EwsArrayOfProtectionRulesType $rules = null)
+    public function setRules(\ArrayType\EwsArrayOfProtectionRulesType $rules): self
     {
         $this->Rules = $rules;
+        
         return $this;
     }
     /**
      * Get InternalDomains value
-     * @return \Ews\StructType\EwsSmtpDomainList
+     * @return \StructType\EwsSmtpDomainList
      */
-    public function getInternalDomains()
+    public function getInternalDomains(): \StructType\EwsSmtpDomainList
     {
         return $this->InternalDomains;
     }
     /**
      * Set InternalDomains value
-     * @param \Ews\StructType\EwsSmtpDomainList $internalDomains
-     * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
+     * @param \StructType\EwsSmtpDomainList $internalDomains
+     * @return \StructType\EwsProtectionRulesServiceConfiguration
      */
-    public function setInternalDomains(\Ews\StructType\EwsSmtpDomainList $internalDomains = null)
+    public function setInternalDomains(\StructType\EwsSmtpDomainList $internalDomains): self
     {
         $this->InternalDomains = $internalDomains;
+        
         return $this;
     }
     /**
      * Get RefreshInterval value
      * @return int
      */
-    public function getRefreshInterval()
+    public function getRefreshInterval(): int
     {
         return $this->RefreshInterval;
     }
     /**
      * Set RefreshInterval value
      * @param int $refreshInterval
-     * @return \Ews\StructType\EwsProtectionRulesServiceConfiguration
+     * @return \StructType\EwsProtectionRulesServiceConfiguration
      */
-    public function setRefreshInterval($refreshInterval = null)
+    public function setRefreshInterval(int $refreshInterval): self
     {
         // validation for constraint: int
         if (!is_null($refreshInterval) && !(is_int($refreshInterval) || ctype_digit($refreshInterval))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($refreshInterval, true), gettype($refreshInterval)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($refreshInterval, true), gettype($refreshInterval)), __LINE__);
         }
         // validation for constraint: minInclusive(1)
         if (!is_null($refreshInterval) && $refreshInterval < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($refreshInterval, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($refreshInterval, true)), __LINE__);
         }
         $this->RefreshInterval = $refreshInterval;
+        
         return $this;
     }
 }

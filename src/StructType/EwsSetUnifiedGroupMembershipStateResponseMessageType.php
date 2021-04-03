@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupMembershipStateResponseMessageType
@@ -17,35 +20,35 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
      * The GroupActionResultType
      * Meta information extracted from the WSDL
      * - ref: t:GroupActionResultType
-     * @var string
+     * @var string|null
      */
-    public $GroupActionResultType;
+    protected ?string $GroupActionResultType = null;
     /**
      * The InvalidMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
+     * @var \ArrayType\EwsArrayOfUnifiedGroupMembers|null
      */
-    public $InvalidMembers;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupMembers $InvalidMembers = null;
     /**
      * The FailedMembers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers
+     * @var \ArrayType\EwsArrayOfUnifiedGroupMembers|null
      */
-    public $FailedMembers;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupMembers $FailedMembers = null;
     /**
      * Constructor method for SetUnifiedGroupMembershipStateResponseMessageType
      * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setGroupActionResultType()
      * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setInvalidMembers()
      * @uses EwsSetUnifiedGroupMembershipStateResponseMessageType::setFailedMembers()
      * @param string $groupActionResultType
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers
+     * @param \ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers
+     * @param \ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers
      */
-    public function __construct($groupActionResultType = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers = null)
+    public function __construct(?string $groupActionResultType = null, ?\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers = null, ?\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers = null)
     {
         $this
             ->setGroupActionResultType($groupActionResultType)
@@ -56,61 +59,64 @@ class EwsSetUnifiedGroupMembershipStateResponseMessageType extends EwsResponseMe
      * Get GroupActionResultType value
      * @return string|null
      */
-    public function getGroupActionResultType()
+    public function getGroupActionResultType(): ?string
     {
         return $this->GroupActionResultType;
     }
     /**
      * Set GroupActionResultType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupActionResultType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupActionResultType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupActionResultType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $groupActionResultType
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
+     * @return \StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
      */
-    public function setGroupActionResultType($groupActionResultType = null)
+    public function setGroupActionResultType(?string $groupActionResultType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupActionResultType::valueIsValid($groupActionResultType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupActionResultType', is_array($groupActionResultType) ? implode(', ', $groupActionResultType) : var_export($groupActionResultType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupActionResultType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupActionResultType::valueIsValid($groupActionResultType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupActionResultType', is_array($groupActionResultType) ? implode(', ', $groupActionResultType) : var_export($groupActionResultType, true), implode(', ', \EnumType\EwsUnifiedGroupActionResultType::getValidValues())), __LINE__);
         }
         $this->GroupActionResultType = $groupActionResultType;
+        
         return $this;
     }
     /**
      * Get InvalidMembers value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupMembers|null
      */
-    public function getInvalidMembers()
+    public function getInvalidMembers(): ?\ArrayType\EwsArrayOfUnifiedGroupMembers
     {
         return $this->InvalidMembers;
     }
     /**
      * Set InvalidMembers value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers
+     * @return \StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
      */
-    public function setInvalidMembers(\Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers = null)
+    public function setInvalidMembers(?\ArrayType\EwsArrayOfUnifiedGroupMembers $invalidMembers = null): self
     {
         $this->InvalidMembers = $invalidMembers;
+        
         return $this;
     }
     /**
      * Get FailedMembers value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupMembers|null
      */
-    public function getFailedMembers()
+    public function getFailedMembers(): ?\ArrayType\EwsArrayOfUnifiedGroupMembers
     {
         return $this->FailedMembers;
     }
     /**
      * Set FailedMembers value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers
+     * @return \StructType\EwsSetUnifiedGroupMembershipStateResponseMessageType
      */
-    public function setFailedMembers(\Ews\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers = null)
+    public function setFailedMembers(?\ArrayType\EwsArrayOfUnifiedGroupMembers $failedMembers = null): self
     {
         $this->FailedMembers = $failedMembers;
+        
         return $this;
     }
 }

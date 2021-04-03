@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SocialActivityAggregatedNotificationType StructType
@@ -14,68 +17,68 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
 {
     /**
      * The LatestTimestamp
-     * @var string
+     * @var string|null
      */
-    public $LatestTimestamp;
+    protected ?string $LatestTimestamp = null;
     /**
      * The IsSeen
-     * @var bool
+     * @var bool|null
      */
-    public $IsSeen;
+    protected ?bool $IsSeen = null;
     /**
      * The Actors
-     * @var \Ews\ArrayType\EwsArrayOfPeopleType
+     * @var \ArrayType\EwsArrayOfPeopleType|null
      */
-    public $Actors;
+    protected ?\ArrayType\EwsArrayOfPeopleType $Actors = null;
     /**
      * The SocialActivityActionType
-     * @var string
+     * @var string|null
      */
-    public $SocialActivityActionType;
+    protected ?string $SocialActivityActionType = null;
     /**
      * The TargetConversationId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $TargetConversationId;
+    protected ?\StructType\EwsItemIdType $TargetConversationId = null;
     /**
      * The TargetItemId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $TargetItemId;
+    protected ?\StructType\EwsItemIdType $TargetItemId = null;
     /**
      * The TargetMailboxGuid
      * Meta information extracted from the WSDL
      * - documentation: The regular expression captures the standard representation of a GUID
      * - base: xs:string
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
-     * @var string
+     * @var string|null
      */
-    public $TargetMailboxGuid;
+    protected ?string $TargetMailboxGuid = null;
     /**
      * The TargetMailboxSmtpAddress
-     * @var string
+     * @var string|null
      */
-    public $TargetMailboxSmtpAddress;
+    protected ?string $TargetMailboxSmtpAddress = null;
     /**
      * The TargetItemType
-     * @var string
+     * @var string|null
      */
-    public $TargetItemType;
+    protected ?string $TargetItemType = null;
     /**
      * The TargetGroupName
-     * @var string
+     * @var string|null
      */
-    public $TargetGroupName;
+    protected ?string $TargetGroupName = null;
     /**
      * The TargetMessagePreview
-     * @var string
+     * @var string|null
      */
-    public $TargetMessagePreview;
+    protected ?string $TargetMessagePreview = null;
     /**
      * The UnseenItemIDs
-     * @var \Ews\ArrayType\EwsArrayOfItemIdsType
+     * @var \ArrayType\EwsArrayOfItemIdsType|null
      */
-    public $UnseenItemIDs;
+    protected ?\ArrayType\EwsArrayOfItemIdsType $UnseenItemIDs = null;
     /**
      * Constructor method for SocialActivityAggregatedNotificationType
      * @uses EwsSocialActivityAggregatedNotificationType::setLatestTimestamp()
@@ -92,18 +95,18 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      * @uses EwsSocialActivityAggregatedNotificationType::setUnseenItemIDs()
      * @param string $latestTimestamp
      * @param bool $isSeen
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $actors
+     * @param \ArrayType\EwsArrayOfPeopleType $actors
      * @param string $socialActivityActionType
-     * @param \Ews\StructType\EwsItemIdType $targetConversationId
-     * @param \Ews\StructType\EwsItemIdType $targetItemId
+     * @param \StructType\EwsItemIdType $targetConversationId
+     * @param \StructType\EwsItemIdType $targetItemId
      * @param string $targetMailboxGuid
      * @param string $targetMailboxSmtpAddress
      * @param string $targetItemType
      * @param string $targetGroupName
      * @param string $targetMessagePreview
-     * @param \Ews\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs
+     * @param \ArrayType\EwsArrayOfItemIdsType $unseenItemIDs
      */
-    public function __construct($latestTimestamp = null, $isSeen = null, \Ews\ArrayType\EwsArrayOfPeopleType $actors = null, $socialActivityActionType = null, \Ews\StructType\EwsItemIdType $targetConversationId = null, \Ews\StructType\EwsItemIdType $targetItemId = null, $targetMailboxGuid = null, $targetMailboxSmtpAddress = null, $targetItemType = null, $targetGroupName = null, $targetMessagePreview = null, \Ews\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs = null)
+    public function __construct(?string $latestTimestamp = null, ?bool $isSeen = null, ?\ArrayType\EwsArrayOfPeopleType $actors = null, ?string $socialActivityActionType = null, ?\StructType\EwsItemIdType $targetConversationId = null, ?\StructType\EwsItemIdType $targetItemId = null, ?string $targetMailboxGuid = null, ?string $targetMailboxSmtpAddress = null, ?string $targetItemType = null, ?string $targetGroupName = null, ?string $targetMessagePreview = null, ?\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs = null)
     {
         $this
             ->setLatestTimestamp($latestTimestamp)
@@ -123,255 +126,267 @@ class EwsSocialActivityAggregatedNotificationType extends AbstractStructBase
      * Get LatestTimestamp value
      * @return string|null
      */
-    public function getLatestTimestamp()
+    public function getLatestTimestamp(): ?string
     {
         return $this->LatestTimestamp;
     }
     /**
      * Set LatestTimestamp value
      * @param string $latestTimestamp
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setLatestTimestamp($latestTimestamp = null)
+    public function setLatestTimestamp(?string $latestTimestamp = null): self
     {
         // validation for constraint: string
         if (!is_null($latestTimestamp) && !is_string($latestTimestamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($latestTimestamp, true), gettype($latestTimestamp)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($latestTimestamp, true), gettype($latestTimestamp)), __LINE__);
         }
         $this->LatestTimestamp = $latestTimestamp;
+        
         return $this;
     }
     /**
      * Get IsSeen value
      * @return bool|null
      */
-    public function getIsSeen()
+    public function getIsSeen(): ?bool
     {
         return $this->IsSeen;
     }
     /**
      * Set IsSeen value
      * @param bool $isSeen
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setIsSeen($isSeen = null)
+    public function setIsSeen(?bool $isSeen = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isSeen) && !is_bool($isSeen)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSeen, true), gettype($isSeen)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSeen, true), gettype($isSeen)), __LINE__);
         }
         $this->IsSeen = $isSeen;
+        
         return $this;
     }
     /**
      * Get Actors value
-     * @return \Ews\ArrayType\EwsArrayOfPeopleType|null
+     * @return \ArrayType\EwsArrayOfPeopleType|null
      */
-    public function getActors()
+    public function getActors(): ?\ArrayType\EwsArrayOfPeopleType
     {
         return $this->Actors;
     }
     /**
      * Set Actors value
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $actors
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @param \ArrayType\EwsArrayOfPeopleType $actors
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setActors(\Ews\ArrayType\EwsArrayOfPeopleType $actors = null)
+    public function setActors(?\ArrayType\EwsArrayOfPeopleType $actors = null): self
     {
         $this->Actors = $actors;
+        
         return $this;
     }
     /**
      * Get SocialActivityActionType value
      * @return string|null
      */
-    public function getSocialActivityActionType()
+    public function getSocialActivityActionType(): ?string
     {
         return $this->SocialActivityActionType;
     }
     /**
      * Set SocialActivityActionType value
-     * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
-     * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
+     * @uses \EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $socialActivityActionType
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setSocialActivityActionType($socialActivityActionType = null)
+    public function setSocialActivityActionType(?string $socialActivityActionType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
         $this->SocialActivityActionType = $socialActivityActionType;
+        
         return $this;
     }
     /**
      * Get TargetConversationId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getTargetConversationId()
+    public function getTargetConversationId(): ?\StructType\EwsItemIdType
     {
         return $this->TargetConversationId;
     }
     /**
      * Set TargetConversationId value
-     * @param \Ews\StructType\EwsItemIdType $targetConversationId
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @param \StructType\EwsItemIdType $targetConversationId
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetConversationId(\Ews\StructType\EwsItemIdType $targetConversationId = null)
+    public function setTargetConversationId(?\StructType\EwsItemIdType $targetConversationId = null): self
     {
         $this->TargetConversationId = $targetConversationId;
+        
         return $this;
     }
     /**
      * Get TargetItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getTargetItemId()
+    public function getTargetItemId(): ?\StructType\EwsItemIdType
     {
         return $this->TargetItemId;
     }
     /**
      * Set TargetItemId value
-     * @param \Ews\StructType\EwsItemIdType $targetItemId
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @param \StructType\EwsItemIdType $targetItemId
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetItemId(\Ews\StructType\EwsItemIdType $targetItemId = null)
+    public function setTargetItemId(?\StructType\EwsItemIdType $targetItemId = null): self
     {
         $this->TargetItemId = $targetItemId;
+        
         return $this;
     }
     /**
      * Get TargetMailboxGuid value
      * @return string|null
      */
-    public function getTargetMailboxGuid()
+    public function getTargetMailboxGuid(): ?string
     {
         return $this->TargetMailboxGuid;
     }
     /**
      * Set TargetMailboxGuid value
      * @param string $targetMailboxGuid
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetMailboxGuid($targetMailboxGuid = null)
+    public function setTargetMailboxGuid(?string $targetMailboxGuid = null): self
     {
         // validation for constraint: string
         if (!is_null($targetMailboxGuid) && !is_string($targetMailboxGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxGuid, true), gettype($targetMailboxGuid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxGuid, true), gettype($targetMailboxGuid)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($targetMailboxGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $targetMailboxGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($targetMailboxGuid, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($targetMailboxGuid, true)), __LINE__);
         }
         $this->TargetMailboxGuid = $targetMailboxGuid;
+        
         return $this;
     }
     /**
      * Get TargetMailboxSmtpAddress value
      * @return string|null
      */
-    public function getTargetMailboxSmtpAddress()
+    public function getTargetMailboxSmtpAddress(): ?string
     {
         return $this->TargetMailboxSmtpAddress;
     }
     /**
      * Set TargetMailboxSmtpAddress value
      * @param string $targetMailboxSmtpAddress
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetMailboxSmtpAddress($targetMailboxSmtpAddress = null)
+    public function setTargetMailboxSmtpAddress(?string $targetMailboxSmtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($targetMailboxSmtpAddress) && !is_string($targetMailboxSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxSmtpAddress, true), gettype($targetMailboxSmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMailboxSmtpAddress, true), gettype($targetMailboxSmtpAddress)), __LINE__);
         }
         $this->TargetMailboxSmtpAddress = $targetMailboxSmtpAddress;
+        
         return $this;
     }
     /**
      * Get TargetItemType value
      * @return string|null
      */
-    public function getTargetItemType()
+    public function getTargetItemType(): ?string
     {
         return $this->TargetItemType;
     }
     /**
      * Set TargetItemType value
      * @param string $targetItemType
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetItemType($targetItemType = null)
+    public function setTargetItemType(?string $targetItemType = null): self
     {
         // validation for constraint: string
         if (!is_null($targetItemType) && !is_string($targetItemType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetItemType, true), gettype($targetItemType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetItemType, true), gettype($targetItemType)), __LINE__);
         }
         $this->TargetItemType = $targetItemType;
+        
         return $this;
     }
     /**
      * Get TargetGroupName value
      * @return string|null
      */
-    public function getTargetGroupName()
+    public function getTargetGroupName(): ?string
     {
         return $this->TargetGroupName;
     }
     /**
      * Set TargetGroupName value
      * @param string $targetGroupName
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetGroupName($targetGroupName = null)
+    public function setTargetGroupName(?string $targetGroupName = null): self
     {
         // validation for constraint: string
         if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
         }
         $this->TargetGroupName = $targetGroupName;
+        
         return $this;
     }
     /**
      * Get TargetMessagePreview value
      * @return string|null
      */
-    public function getTargetMessagePreview()
+    public function getTargetMessagePreview(): ?string
     {
         return $this->TargetMessagePreview;
     }
     /**
      * Set TargetMessagePreview value
      * @param string $targetMessagePreview
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setTargetMessagePreview($targetMessagePreview = null)
+    public function setTargetMessagePreview(?string $targetMessagePreview = null): self
     {
         // validation for constraint: string
         if (!is_null($targetMessagePreview) && !is_string($targetMessagePreview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMessagePreview, true), gettype($targetMessagePreview)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetMessagePreview, true), gettype($targetMessagePreview)), __LINE__);
         }
         $this->TargetMessagePreview = $targetMessagePreview;
+        
         return $this;
     }
     /**
      * Get UnseenItemIDs value
-     * @return \Ews\ArrayType\EwsArrayOfItemIdsType|null
+     * @return \ArrayType\EwsArrayOfItemIdsType|null
      */
-    public function getUnseenItemIDs()
+    public function getUnseenItemIDs(): ?\ArrayType\EwsArrayOfItemIdsType
     {
         return $this->UnseenItemIDs;
     }
     /**
      * Set UnseenItemIDs value
-     * @param \Ews\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs
-     * @return \Ews\StructType\EwsSocialActivityAggregatedNotificationType
+     * @param \ArrayType\EwsArrayOfItemIdsType $unseenItemIDs
+     * @return \StructType\EwsSocialActivityAggregatedNotificationType
      */
-    public function setUnseenItemIDs(\Ews\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs = null)
+    public function setUnseenItemIDs(?\ArrayType\EwsArrayOfItemIdsType $unseenItemIDs = null): self
     {
         $this->UnseenItemIDs = $unseenItemIDs;
+        
         return $this;
     }
 }

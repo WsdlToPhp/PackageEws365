@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetStaffAvailabilityType StructType
@@ -17,25 +20,25 @@ class EwsGetStaffAvailabilityType extends EwsBaseBookingRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public $StaffEmails;
+    protected \ArrayType\EwsArrayOfSmtpAddressType $StaffEmails;
     /**
      * The TimeWindow
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsDuration
+     * @var \StructType\EwsDuration
      */
-    public $TimeWindow;
+    protected \StructType\EwsDuration $TimeWindow;
     /**
      * Constructor method for GetStaffAvailabilityType
      * @uses EwsGetStaffAvailabilityType::setStaffEmails()
      * @uses EwsGetStaffAvailabilityType::setTimeWindow()
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $staffEmails
-     * @param \Ews\StructType\EwsDuration $timeWindow
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $staffEmails
+     * @param \StructType\EwsDuration $timeWindow
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfSmtpAddressType $staffEmails = null, \Ews\StructType\EwsDuration $timeWindow = null)
+    public function __construct(\ArrayType\EwsArrayOfSmtpAddressType $staffEmails, \StructType\EwsDuration $timeWindow)
     {
         $this
             ->setStaffEmails($staffEmails)
@@ -43,38 +46,40 @@ class EwsGetStaffAvailabilityType extends EwsBaseBookingRequestType
     }
     /**
      * Get StaffEmails value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @return \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public function getStaffEmails()
+    public function getStaffEmails(): \ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->StaffEmails;
     }
     /**
      * Set StaffEmails value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $staffEmails
-     * @return \Ews\StructType\EwsGetStaffAvailabilityType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $staffEmails
+     * @return \StructType\EwsGetStaffAvailabilityType
      */
-    public function setStaffEmails(\Ews\ArrayType\EwsArrayOfSmtpAddressType $staffEmails = null)
+    public function setStaffEmails(\ArrayType\EwsArrayOfSmtpAddressType $staffEmails): self
     {
         $this->StaffEmails = $staffEmails;
+        
         return $this;
     }
     /**
      * Get TimeWindow value
-     * @return \Ews\StructType\EwsDuration
+     * @return \StructType\EwsDuration
      */
-    public function getTimeWindow()
+    public function getTimeWindow(): \StructType\EwsDuration
     {
         return $this->TimeWindow;
     }
     /**
      * Set TimeWindow value
-     * @param \Ews\StructType\EwsDuration $timeWindow
-     * @return \Ews\StructType\EwsGetStaffAvailabilityType
+     * @param \StructType\EwsDuration $timeWindow
+     * @return \StructType\EwsGetStaffAvailabilityType
      */
-    public function setTimeWindow(\Ews\StructType\EwsDuration $timeWindow = null)
+    public function setTimeWindow(\StructType\EwsDuration $timeWindow): self
     {
         $this->TimeWindow = $timeWindow;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WorkHoursType StructType
@@ -17,25 +20,25 @@ class EwsWorkHoursType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WorkDay;
+    protected ?string $WorkDay = null;
     /**
      * The TimeSlots
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfWorkTimeSlot
+     * @var \ArrayType\EwsArrayOfWorkTimeSlot|null
      */
-    public $TimeSlots;
+    protected ?\ArrayType\EwsArrayOfWorkTimeSlot $TimeSlots = null;
     /**
      * Constructor method for WorkHoursType
      * @uses EwsWorkHoursType::setWorkDay()
      * @uses EwsWorkHoursType::setTimeSlots()
      * @param string $workDay
-     * @param \Ews\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots
+     * @param \ArrayType\EwsArrayOfWorkTimeSlot $timeSlots
      */
-    public function __construct($workDay = null, \Ews\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots = null)
+    public function __construct(?string $workDay = null, ?\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots = null)
     {
         $this
             ->setWorkDay($workDay)
@@ -45,43 +48,45 @@ class EwsWorkHoursType extends AbstractStructBase
      * Get WorkDay value
      * @return string|null
      */
-    public function getWorkDay()
+    public function getWorkDay(): ?string
     {
         return $this->WorkDay;
     }
     /**
      * Set WorkDay value
-     * @uses \Ews\EnumType\EwsSystemDayOfWeek::valueIsValid()
-     * @uses \Ews\EnumType\EwsSystemDayOfWeek::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSystemDayOfWeek::valueIsValid()
+     * @uses \EnumType\EwsSystemDayOfWeek::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $workDay
-     * @return \Ews\StructType\EwsWorkHoursType
+     * @return \StructType\EwsWorkHoursType
      */
-    public function setWorkDay($workDay = null)
+    public function setWorkDay(?string $workDay = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSystemDayOfWeek::valueIsValid($workDay)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSystemDayOfWeek', is_array($workDay) ? implode(', ', $workDay) : var_export($workDay, true), implode(', ', \Ews\EnumType\EwsSystemDayOfWeek::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSystemDayOfWeek::valueIsValid($workDay)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSystemDayOfWeek', is_array($workDay) ? implode(', ', $workDay) : var_export($workDay, true), implode(', ', \EnumType\EwsSystemDayOfWeek::getValidValues())), __LINE__);
         }
         $this->WorkDay = $workDay;
+        
         return $this;
     }
     /**
      * Get TimeSlots value
-     * @return \Ews\ArrayType\EwsArrayOfWorkTimeSlot|null
+     * @return \ArrayType\EwsArrayOfWorkTimeSlot|null
      */
-    public function getTimeSlots()
+    public function getTimeSlots(): ?\ArrayType\EwsArrayOfWorkTimeSlot
     {
         return $this->TimeSlots;
     }
     /**
      * Set TimeSlots value
-     * @param \Ews\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots
-     * @return \Ews\StructType\EwsWorkHoursType
+     * @param \ArrayType\EwsArrayOfWorkTimeSlot $timeSlots
+     * @return \StructType\EwsWorkHoursType
      */
-    public function setTimeSlots(\Ews\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots = null)
+    public function setTimeSlots(?\ArrayType\EwsArrayOfWorkTimeSlot $timeSlots = null): self
     {
         $this->TimeSlots = $timeSlots;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfTimeZoneIdType ArrayType
@@ -18,22 +21,22 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * @var string[]
      */
-    public $Id;
+    protected array $Id = [];
     /**
      * Constructor method for NonEmptyArrayOfTimeZoneIdType
      * @uses EwsNonEmptyArrayOfTimeZoneIdType::setId()
      * @param string[] $id
      */
-    public function __construct(array $id = array())
+    public function __construct(array $id = [])
     {
         $this
             ->setId($id);
     }
     /**
      * Get Id value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getId()
+    public function getId(): array
     {
         return $this->Id;
     }
@@ -43,7 +46,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateIdForArrayConstraintsFromSetId(array $values = array())
+    public static function validateIdForArrayConstraintsFromSetId(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -57,36 +60,23 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
             $message = sprintf('The Id property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Id value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $id
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
+     * @return \ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
      */
-    public function setId(array $id = array())
+    public function setId(array $id = []): self
     {
         // validation for constraint: array
         if ('' !== ($idArrayErrorMessage = self::validateIdForArrayConstraintsFromSetId($id))) {
-            throw new \InvalidArgumentException($idArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($idArrayErrorMessage, __LINE__);
         }
         $this->Id = $id;
-        return $this;
-    }
-    /**
-     * Add item to Id value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
-     */
-    public function addToId($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Id property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Id[] = $item;
+        
         return $this;
     }
     /**
@@ -94,7 +84,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -104,7 +94,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -113,7 +103,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -122,7 +112,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -132,7 +122,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -141,7 +131,7 @@ class EwsNonEmptyArrayOfTimeZoneIdType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Id
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Id';
     }

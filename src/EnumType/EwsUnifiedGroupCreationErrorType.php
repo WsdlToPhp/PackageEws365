@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UnifiedGroupCreationErrorType EnumType
@@ -34,12 +36,12 @@ class EwsUnifiedGroupCreationErrorType extends AbstractStructEnumBase
      * @uses self::VALUE_FAILED_MAILBOX_PROVISION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NO_ERROR,
             self::VALUE_FAILED_CREATE,
             self::VALUE_FAILED_MAILBOX_PROVISION,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for IntervalRecurrencePatternBaseType StructType
@@ -14,15 +17,15 @@ abstract class EwsIntervalRecurrencePatternBaseType extends EwsRecurrencePattern
 {
     /**
      * The Interval
-     * @var int
+     * @var int|null
      */
-    public $Interval;
+    protected ?int $Interval = null;
     /**
      * Constructor method for IntervalRecurrencePatternBaseType
      * @uses EwsIntervalRecurrencePatternBaseType::setInterval()
      * @param int $interval
      */
-    public function __construct($interval = null)
+    public function __construct(?int $interval = null)
     {
         $this
             ->setInterval($interval);
@@ -31,22 +34,23 @@ abstract class EwsIntervalRecurrencePatternBaseType extends EwsRecurrencePattern
      * Get Interval value
      * @return int|null
      */
-    public function getInterval()
+    public function getInterval(): ?int
     {
         return $this->Interval;
     }
     /**
      * Set Interval value
      * @param int $interval
-     * @return \Ews\StructType\EwsIntervalRecurrencePatternBaseType
+     * @return \StructType\EwsIntervalRecurrencePatternBaseType
      */
-    public function setInterval($interval = null)
+    public function setInterval(?int $interval = null): self
     {
         // validation for constraint: int
         if (!is_null($interval) && !(is_int($interval) || ctype_digit($interval))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($interval, true), gettype($interval)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($interval, true), gettype($interval)), __LINE__);
         }
         $this->Interval = $interval;
+        
         return $this;
     }
 }

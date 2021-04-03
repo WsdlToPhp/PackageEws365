@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsBaseResponseMessageType extends AbstractStructBase
 {
     /**
      * The ResponseMessages
-     * @var \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @var \StructType\EwsArrayOfResponseMessagesType|null
      */
-    public $ResponseMessages;
+    protected ?\StructType\EwsArrayOfResponseMessagesType $ResponseMessages = null;
     /**
      * Constructor method for BaseResponseMessageType
      * @uses EwsBaseResponseMessageType::setResponseMessages()
-     * @param \Ews\StructType\EwsArrayOfResponseMessagesType $responseMessages
+     * @param \StructType\EwsArrayOfResponseMessagesType $responseMessages
      */
-    public function __construct(\Ews\StructType\EwsArrayOfResponseMessagesType $responseMessages = null)
+    public function __construct(?\StructType\EwsArrayOfResponseMessagesType $responseMessages = null)
     {
         $this
             ->setResponseMessages($responseMessages);
     }
     /**
      * Get ResponseMessages value
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType|null
+     * @return \StructType\EwsArrayOfResponseMessagesType|null
      */
-    public function getResponseMessages()
+    public function getResponseMessages(): ?\StructType\EwsArrayOfResponseMessagesType
     {
         return $this->ResponseMessages;
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\StructType\EwsArrayOfResponseMessagesType $responseMessages
-     * @return \Ews\StructType\EwsBaseResponseMessageType
+     * @param \StructType\EwsArrayOfResponseMessagesType $responseMessages
+     * @return \StructType\EwsBaseResponseMessageType
      */
-    public function setResponseMessages(\Ews\StructType\EwsArrayOfResponseMessagesType $responseMessages = null)
+    public function setResponseMessages(?\StructType\EwsArrayOfResponseMessagesType $responseMessages = null): self
     {
         $this->ResponseMessages = $responseMessages;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfLocationConstraintItems ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsLocationConstraintItem[]
+     * @var \StructType\EwsLocationConstraintItem[]
      */
-    public $LocationItem;
+    protected array $LocationItem = [];
     /**
      * Constructor method for ArrayOfLocationConstraintItems
      * @uses EwsArrayOfLocationConstraintItems::setLocationItem()
-     * @param \Ews\StructType\EwsLocationConstraintItem[] $locationItem
+     * @param \StructType\EwsLocationConstraintItem[] $locationItem
      */
-    public function __construct(array $locationItem = array())
+    public function __construct(array $locationItem = [])
     {
         $this
             ->setLocationItem($locationItem);
     }
     /**
      * Get LocationItem value
-     * @return \Ews\StructType\EwsLocationConstraintItem[]|null
+     * @return \StructType\EwsLocationConstraintItem[]
      */
-    public function getLocationItem()
+    public function getLocationItem(): array
     {
         return $this->LocationItem;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateLocationItemForArrayConstraintsFromSetLocationItem(array $values = array())
+    public static function validateLocationItemForArrayConstraintsFromSetLocationItem(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfLocationConstraintItemsLocationItemItem) {
             // validation for constraint: itemType
-            if (!$arrayOfLocationConstraintItemsLocationItemItem instanceof \Ews\StructType\EwsLocationConstraintItem) {
+            if (!$arrayOfLocationConstraintItemsLocationItemItem instanceof \StructType\EwsLocationConstraintItem) {
                 $invalidValues[] = is_object($arrayOfLocationConstraintItemsLocationItemItem) ? get_class($arrayOfLocationConstraintItemsLocationItemItem) : sprintf('%s(%s)', gettype($arrayOfLocationConstraintItemsLocationItemItem), var_export($arrayOfLocationConstraintItemsLocationItemItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The LocationItem property can only contain items of type \Ews\StructType\EwsLocationConstraintItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The LocationItem property can only contain items of type \StructType\EwsLocationConstraintItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set LocationItem value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsLocationConstraintItem[] $locationItem
-     * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsLocationConstraintItem[] $locationItem
+     * @return \ArrayType\EwsArrayOfLocationConstraintItems
      */
-    public function setLocationItem(array $locationItem = array())
+    public function setLocationItem(array $locationItem = []): self
     {
         // validation for constraint: array
         if ('' !== ($locationItemArrayErrorMessage = self::validateLocationItemForArrayConstraintsFromSetLocationItem($locationItem))) {
-            throw new \InvalidArgumentException($locationItemArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($locationItemArrayErrorMessage, __LINE__);
         }
         $this->LocationItem = $locationItem;
-        return $this;
-    }
-    /**
-     * Add item to LocationItem value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsLocationConstraintItem $item
-     * @return \Ews\ArrayType\EwsArrayOfLocationConstraintItems
-     */
-    public function addToLocationItem(\Ews\StructType\EwsLocationConstraintItem $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsLocationConstraintItem) {
-            throw new \InvalidArgumentException(sprintf('The LocationItem property can only contain items of type \Ews\StructType\EwsLocationConstraintItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->LocationItem[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsLocationConstraintItem|null
+     * @return \StructType\EwsLocationConstraintItem|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsLocationConstraintItem
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsLocationConstraintItem|null
+     * @return \StructType\EwsLocationConstraintItem|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsLocationConstraintItem
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsLocationConstraintItem|null
+     * @return \StructType\EwsLocationConstraintItem|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsLocationConstraintItem
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsLocationConstraintItem|null
+     * @return \StructType\EwsLocationConstraintItem|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsLocationConstraintItem
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfLocationConstraintItems extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsLocationConstraintItem|null
+     * @return \StructType\EwsLocationConstraintItem|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsLocationConstraintItem
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsLocationConstraintItem $item
+     * @return \ArrayType\EwsArrayOfLocationConstraintItems
+     */
+    public function add(\StructType\EwsLocationConstraintItem $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string LocationItem
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'LocationItem';
     }

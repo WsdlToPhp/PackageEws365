@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfEntityFeedbackEntry ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsEntityFeedbackEntryType[]
+     * @var \StructType\EwsEntityFeedbackEntryType[]
      */
-    public $EntityFeedbackEntry;
+    protected array $EntityFeedbackEntry = [];
     /**
      * Constructor method for ArrayOfEntityFeedbackEntry
      * @uses EwsArrayOfEntityFeedbackEntry::setEntityFeedbackEntry()
-     * @param \Ews\StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
+     * @param \StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
      */
-    public function __construct(array $entityFeedbackEntry = array())
+    public function __construct(array $entityFeedbackEntry)
     {
         $this
             ->setEntityFeedbackEntry($entityFeedbackEntry);
     }
     /**
      * Get EntityFeedbackEntry value
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType[]
+     * @return \StructType\EwsEntityFeedbackEntryType[]
      */
-    public function getEntityFeedbackEntry()
+    public function getEntityFeedbackEntry(): array
     {
         return $this->EntityFeedbackEntry;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateEntityFeedbackEntryForArrayConstraintsFromSetEntityFeedbackEntry(array $values = array())
+    public static function validateEntityFeedbackEntryForArrayConstraintsFromSetEntityFeedbackEntry(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) {
             // validation for constraint: itemType
-            if (!$arrayOfEntityFeedbackEntryEntityFeedbackEntryItem instanceof \Ews\StructType\EwsEntityFeedbackEntryType) {
+            if (!$arrayOfEntityFeedbackEntryEntityFeedbackEntryItem instanceof \StructType\EwsEntityFeedbackEntryType) {
                 $invalidValues[] = is_object($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) ? get_class($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem) : sprintf('%s(%s)', gettype($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem), var_export($arrayOfEntityFeedbackEntryEntityFeedbackEntryItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The EntityFeedbackEntry property can only contain items of type \Ews\StructType\EwsEntityFeedbackEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The EntityFeedbackEntry property can only contain items of type \StructType\EwsEntityFeedbackEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set EntityFeedbackEntry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
-     * @return \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsEntityFeedbackEntryType[] $entityFeedbackEntry
+     * @return \ArrayType\EwsArrayOfEntityFeedbackEntry
      */
-    public function setEntityFeedbackEntry(array $entityFeedbackEntry = array())
+    public function setEntityFeedbackEntry(array $entityFeedbackEntry): self
     {
         // validation for constraint: array
         if ('' !== ($entityFeedbackEntryArrayErrorMessage = self::validateEntityFeedbackEntryForArrayConstraintsFromSetEntityFeedbackEntry($entityFeedbackEntry))) {
-            throw new \InvalidArgumentException($entityFeedbackEntryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($entityFeedbackEntryArrayErrorMessage, __LINE__);
         }
         $this->EntityFeedbackEntry = $entityFeedbackEntry;
-        return $this;
-    }
-    /**
-     * Add item to EntityFeedbackEntry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsEntityFeedbackEntryType $item
-     * @return \Ews\ArrayType\EwsArrayOfEntityFeedbackEntry
-     */
-    public function addToEntityFeedbackEntry(\Ews\StructType\EwsEntityFeedbackEntryType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsEntityFeedbackEntryType) {
-            throw new \InvalidArgumentException(sprintf('The EntityFeedbackEntry property can only contain items of type \Ews\StructType\EwsEntityFeedbackEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->EntityFeedbackEntry[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
+     * @return \StructType\EwsEntityFeedbackEntryType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsEntityFeedbackEntryType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
+     * @return \StructType\EwsEntityFeedbackEntryType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsEntityFeedbackEntryType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
+     * @return \StructType\EwsEntityFeedbackEntryType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsEntityFeedbackEntryType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
+     * @return \StructType\EwsEntityFeedbackEntryType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsEntityFeedbackEntryType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsEntityFeedbackEntryType
+     * @return \StructType\EwsEntityFeedbackEntryType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsEntityFeedbackEntryType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsEntityFeedbackEntryType $item
+     * @return \ArrayType\EwsArrayOfEntityFeedbackEntry
+     */
+    public function add(\StructType\EwsEntityFeedbackEntryType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string EntityFeedbackEntry
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'EntityFeedbackEntry';
     }

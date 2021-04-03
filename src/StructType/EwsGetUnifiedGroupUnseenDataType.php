@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupUnseenDataType StructType
@@ -17,35 +20,36 @@ class EwsGetUnifiedGroupUnseenDataType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
+     * @var \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
      */
-    public $GroupIdentities;
+    protected \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $GroupIdentities;
     /**
      * Constructor method for GetUnifiedGroupUnseenDataType
      * @uses EwsGetUnifiedGroupUnseenDataType::setGroupIdentities()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
+     * @param \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities)
     {
         $this
             ->setGroupIdentities($groupIdentities);
     }
     /**
      * Get GroupIdentities value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
+     * @return \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
      */
-    public function getGroupIdentities()
+    public function getGroupIdentities(): \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
     {
         return $this->GroupIdentities;
     }
     /**
      * Set GroupIdentities value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
-     * @return \Ews\StructType\EwsGetUnifiedGroupUnseenDataType
+     * @param \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities
+     * @return \StructType\EwsGetUnifiedGroupUnseenDataType
      */
-    public function setGroupIdentities(\Ews\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities = null)
+    public function setGroupIdentities(\ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType $groupIdentities): self
     {
         $this->GroupIdentities = $groupIdentities;
+        
         return $this;
     }
 }

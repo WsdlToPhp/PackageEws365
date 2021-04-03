@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MovedCopiedEventType StructType
@@ -18,33 +21,33 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
      * - choice: OldFolderId | OldItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $OldFolderId;
+    protected ?\StructType\EwsFolderIdType $OldFolderId = null;
     /**
      * The OldItemId
      * Meta information extracted from the WSDL
      * - choice: OldFolderId | OldItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $OldItemId;
+    protected ?\StructType\EwsItemIdType $OldItemId = null;
     /**
      * The OldParentFolderId
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $OldParentFolderId;
+    protected ?\StructType\EwsFolderIdType $OldParentFolderId = null;
     /**
      * Constructor method for MovedCopiedEventType
      * @uses EwsMovedCopiedEventType::setOldFolderId()
      * @uses EwsMovedCopiedEventType::setOldItemId()
      * @uses EwsMovedCopiedEventType::setOldParentFolderId()
-     * @param \Ews\StructType\EwsFolderIdType $oldFolderId
-     * @param \Ews\StructType\EwsItemIdType $oldItemId
-     * @param \Ews\StructType\EwsFolderIdType $oldParentFolderId
+     * @param \StructType\EwsFolderIdType $oldFolderId
+     * @param \StructType\EwsItemIdType $oldItemId
+     * @param \StructType\EwsFolderIdType $oldParentFolderId
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $oldFolderId = null, \Ews\StructType\EwsItemIdType $oldItemId = null, \Ews\StructType\EwsFolderIdType $oldParentFolderId = null)
+    public function __construct(?\StructType\EwsFolderIdType $oldFolderId = null, ?\StructType\EwsItemIdType $oldItemId = null, ?\StructType\EwsFolderIdType $oldParentFolderId = null)
     {
         $this
             ->setOldFolderId($oldFolderId)
@@ -53,9 +56,9 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
     }
     /**
      * Get OldFolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getOldFolderId()
+    public function getOldFolderId(): ?\StructType\EwsFolderIdType
     {
         return isset($this->OldFolderId) ? $this->OldFolderId : null;
     }
@@ -66,7 +69,7 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateOldFolderIdForChoiceConstraintsFromSetOldFolderId($value)
+    public function validateOldFolderIdForChoiceConstraintsFromSetOldFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -78,12 +81,13 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property OldFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: OldFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property OldFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: OldFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -91,28 +95,29 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderIdType $oldFolderId
-     * @return \Ews\StructType\EwsMovedCopiedEventType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $oldFolderId
+     * @return \StructType\EwsMovedCopiedEventType
      */
-    public function setOldFolderId(\Ews\StructType\EwsFolderIdType $oldFolderId = null)
+    public function setOldFolderId(?\StructType\EwsFolderIdType $oldFolderId = null): self
     {
         // validation for constraint: choice(OldFolderId, OldItemId)
         if ('' !== ($oldFolderIdChoiceErrorMessage = self::validateOldFolderIdForChoiceConstraintsFromSetOldFolderId($oldFolderId))) {
-            throw new \InvalidArgumentException($oldFolderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($oldFolderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($oldFolderId) || (is_array($oldFolderId) && empty($oldFolderId))) {
             unset($this->OldFolderId);
         } else {
             $this->OldFolderId = $oldFolderId;
         }
+        
         return $this;
     }
     /**
      * Get OldItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getOldItemId()
+    public function getOldItemId(): ?\StructType\EwsItemIdType
     {
         return isset($this->OldItemId) ? $this->OldItemId : null;
     }
@@ -123,7 +128,7 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateOldItemIdForChoiceConstraintsFromSetOldItemId($value)
+    public function validateOldItemIdForChoiceConstraintsFromSetOldItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -135,12 +140,13 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property OldItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: OldItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property OldItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: OldItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -148,39 +154,41 @@ class EwsMovedCopiedEventType extends EwsBaseObjectChangedEventType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemIdType $oldItemId
-     * @return \Ews\StructType\EwsMovedCopiedEventType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemIdType $oldItemId
+     * @return \StructType\EwsMovedCopiedEventType
      */
-    public function setOldItemId(\Ews\StructType\EwsItemIdType $oldItemId = null)
+    public function setOldItemId(?\StructType\EwsItemIdType $oldItemId = null): self
     {
         // validation for constraint: choice(OldFolderId, OldItemId)
         if ('' !== ($oldItemIdChoiceErrorMessage = self::validateOldItemIdForChoiceConstraintsFromSetOldItemId($oldItemId))) {
-            throw new \InvalidArgumentException($oldItemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($oldItemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($oldItemId) || (is_array($oldItemId) && empty($oldItemId))) {
             unset($this->OldItemId);
         } else {
             $this->OldItemId = $oldItemId;
         }
+        
         return $this;
     }
     /**
      * Get OldParentFolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getOldParentFolderId()
+    public function getOldParentFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->OldParentFolderId;
     }
     /**
      * Set OldParentFolderId value
-     * @param \Ews\StructType\EwsFolderIdType $oldParentFolderId
-     * @return \Ews\StructType\EwsMovedCopiedEventType
+     * @param \StructType\EwsFolderIdType $oldParentFolderId
+     * @return \StructType\EwsMovedCopiedEventType
      */
-    public function setOldParentFolderId(\Ews\StructType\EwsFolderIdType $oldParentFolderId = null)
+    public function setOldParentFolderId(?\StructType\EwsFolderIdType $oldParentFolderId = null): self
     {
         $this->OldParentFolderId = $oldParentFolderId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetServerTimeZonesType StructType
@@ -16,24 +19,24 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
      * The Ids
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
+     * @var \ArrayType\EwsNonEmptyArrayOfTimeZoneIdType|null
      */
-    public $Ids;
+    protected ?\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $Ids = null;
     /**
      * The ReturnFullTimeZoneData
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $ReturnFullTimeZoneData;
+    protected ?bool $ReturnFullTimeZoneData = null;
     /**
      * Constructor method for GetServerTimeZonesType
      * @uses EwsGetServerTimeZonesType::setIds()
      * @uses EwsGetServerTimeZonesType::setReturnFullTimeZoneData()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids
+     * @param \ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids
      * @param bool $returnFullTimeZoneData
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids = null, $returnFullTimeZoneData = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids = null, ?bool $returnFullTimeZoneData = null)
     {
         $this
             ->setIds($ids)
@@ -41,42 +44,44 @@ class EwsGetServerTimeZonesType extends EwsBaseRequestType
     }
     /**
      * Get Ids value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfTimeZoneIdType|null
      */
-    public function getIds()
+    public function getIds(): ?\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType
     {
         return $this->Ids;
     }
     /**
      * Set Ids value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids
-     * @return \Ews\StructType\EwsGetServerTimeZonesType
+     * @param \ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids
+     * @return \StructType\EwsGetServerTimeZonesType
      */
-    public function setIds(\Ews\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids = null)
+    public function setIds(?\ArrayType\EwsNonEmptyArrayOfTimeZoneIdType $ids = null): self
     {
         $this->Ids = $ids;
+        
         return $this;
     }
     /**
      * Get ReturnFullTimeZoneData value
      * @return bool|null
      */
-    public function getReturnFullTimeZoneData()
+    public function getReturnFullTimeZoneData(): ?bool
     {
         return $this->ReturnFullTimeZoneData;
     }
     /**
      * Set ReturnFullTimeZoneData value
      * @param bool $returnFullTimeZoneData
-     * @return \Ews\StructType\EwsGetServerTimeZonesType
+     * @return \StructType\EwsGetServerTimeZonesType
      */
-    public function setReturnFullTimeZoneData($returnFullTimeZoneData = null)
+    public function setReturnFullTimeZoneData(?bool $returnFullTimeZoneData = null): self
     {
         // validation for constraint: boolean
         if (!is_null($returnFullTimeZoneData) && !is_bool($returnFullTimeZoneData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnFullTimeZoneData, true), gettype($returnFullTimeZoneData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($returnFullTimeZoneData, true), gettype($returnFullTimeZoneData)), __LINE__);
         }
         $this->ReturnFullTimeZoneData = $returnFullTimeZoneData;
+        
         return $this;
     }
 }

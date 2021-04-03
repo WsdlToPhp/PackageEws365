@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EmptyFolderType StructType
@@ -18,19 +21,19 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * - use: required
      * @var string
      */
-    public $DeleteType;
+    protected string $DeleteType;
     /**
      * The DeleteSubFolders
      * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
-    public $DeleteSubFolders;
+    protected bool $DeleteSubFolders;
     /**
      * The FolderIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $FolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $FolderIds = null;
     /**
      * Constructor method for EmptyFolderType
      * @uses EwsEmptyFolderType::setDeleteType()
@@ -38,9 +41,9 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * @uses EwsEmptyFolderType::setFolderIds()
      * @param string $deleteType
      * @param bool $deleteSubFolders
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
-    public function __construct($deleteType = null, $deleteSubFolders = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function __construct(string $deleteType, bool $deleteSubFolders, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
     {
         $this
             ->setDeleteType($deleteType)
@@ -51,65 +54,68 @@ class EwsEmptyFolderType extends EwsBaseRequestType
      * Get DeleteType value
      * @return string
      */
-    public function getDeleteType()
+    public function getDeleteType(): string
     {
         return $this->DeleteType;
     }
     /**
      * Set DeleteType value
-     * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDisposalType::valueIsValid()
+     * @uses \EnumType\EwsDisposalType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $deleteType
-     * @return \Ews\StructType\EwsEmptyFolderType
+     * @return \StructType\EwsEmptyFolderType
      */
-    public function setDeleteType($deleteType = null)
+    public function setDeleteType(string $deleteType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
         $this->DeleteType = $deleteType;
+        
         return $this;
     }
     /**
      * Get DeleteSubFolders value
      * @return bool
      */
-    public function getDeleteSubFolders()
+    public function getDeleteSubFolders(): bool
     {
         return $this->DeleteSubFolders;
     }
     /**
      * Set DeleteSubFolders value
      * @param bool $deleteSubFolders
-     * @return \Ews\StructType\EwsEmptyFolderType
+     * @return \StructType\EwsEmptyFolderType
      */
-    public function setDeleteSubFolders($deleteSubFolders = null)
+    public function setDeleteSubFolders(bool $deleteSubFolders): self
     {
         // validation for constraint: boolean
         if (!is_null($deleteSubFolders) && !is_bool($deleteSubFolders)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deleteSubFolders, true), gettype($deleteSubFolders)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($deleteSubFolders, true), gettype($deleteSubFolders)), __LINE__);
         }
         $this->DeleteSubFolders = $deleteSubFolders;
+        
         return $this;
     }
     /**
      * Get FolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->FolderIds;
     }
     /**
      * Set FolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
-     * @return \Ews\StructType\EwsEmptyFolderType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @return \StructType\EwsEmptyFolderType
      */
-    public function setFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function setFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null): self
     {
         $this->FolderIds = $folderIds;
+        
         return $this;
     }
 }

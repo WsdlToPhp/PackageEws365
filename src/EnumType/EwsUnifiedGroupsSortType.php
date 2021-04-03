@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UnifiedGroupsSortType EnumType
@@ -46,14 +48,14 @@ class EwsUnifiedGroupsSortType extends AbstractStructEnumBase
      * @uses self::VALUE_RELEVANCE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_DISPLAY_NAME,
             self::VALUE_JOIN_DATE,
             self::VALUE_FAVORITE_DATE,
             self::VALUE_RELEVANCE,
-        );
+        ];
     }
 }

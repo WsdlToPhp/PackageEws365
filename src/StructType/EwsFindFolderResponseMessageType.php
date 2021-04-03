@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindFolderResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsFindFolderResponseMessageType extends EwsResponseMessageType
      * The RootFolder
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindFolderParentType
+     * @var \StructType\EwsFindFolderParentType|null
      */
-    public $RootFolder;
+    protected ?\StructType\EwsFindFolderParentType $RootFolder = null;
     /**
      * Constructor method for FindFolderResponseMessageType
      * @uses EwsFindFolderResponseMessageType::setRootFolder()
-     * @param \Ews\StructType\EwsFindFolderParentType $rootFolder
+     * @param \StructType\EwsFindFolderParentType $rootFolder
      */
-    public function __construct(\Ews\StructType\EwsFindFolderParentType $rootFolder = null)
+    public function __construct(?\StructType\EwsFindFolderParentType $rootFolder = null)
     {
         $this
             ->setRootFolder($rootFolder);
     }
     /**
      * Get RootFolder value
-     * @return \Ews\StructType\EwsFindFolderParentType|null
+     * @return \StructType\EwsFindFolderParentType|null
      */
-    public function getRootFolder()
+    public function getRootFolder(): ?\StructType\EwsFindFolderParentType
     {
         return $this->RootFolder;
     }
     /**
      * Set RootFolder value
-     * @param \Ews\StructType\EwsFindFolderParentType $rootFolder
-     * @return \Ews\StructType\EwsFindFolderResponseMessageType
+     * @param \StructType\EwsFindFolderParentType $rootFolder
+     * @return \StructType\EwsFindFolderResponseMessageType
      */
-    public function setRootFolder(\Ews\StructType\EwsFindFolderParentType $rootFolder = null)
+    public function setRootFolder(?\StructType\EwsFindFolderParentType $rootFolder = null): self
     {
         $this->RootFolder = $rootFolder;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PostalAddressAttributedValueType StructType
@@ -17,25 +20,25 @@ class EwsPostalAddressAttributedValueType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPersonaPostalAddressType
+     * @var \StructType\EwsPersonaPostalAddressType
      */
-    public $Value;
+    protected \StructType\EwsPersonaPostalAddressType $Value;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @var \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public $Attributions;
+    protected \ArrayType\EwsArrayOfValueAttributionsType $Attributions;
     /**
      * Constructor method for PostalAddressAttributedValueType
      * @uses EwsPostalAddressAttributedValueType::setValue()
      * @uses EwsPostalAddressAttributedValueType::setAttributions()
-     * @param \Ews\StructType\EwsPersonaPostalAddressType $value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @param \StructType\EwsPersonaPostalAddressType $value
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
      */
-    public function __construct(\Ews\StructType\EwsPersonaPostalAddressType $value = null, \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function __construct(\StructType\EwsPersonaPostalAddressType $value, \ArrayType\EwsArrayOfValueAttributionsType $attributions)
     {
         $this
             ->setValue($value)
@@ -43,38 +46,40 @@ class EwsPostalAddressAttributedValueType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function getValue()
+    public function getValue(): \StructType\EwsPersonaPostalAddressType
     {
         return $this->Value;
     }
     /**
      * Set Value value
-     * @param \Ews\StructType\EwsPersonaPostalAddressType $value
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType
+     * @param \StructType\EwsPersonaPostalAddressType $value
+     * @return \StructType\EwsPostalAddressAttributedValueType
      */
-    public function setValue(\Ews\StructType\EwsPersonaPostalAddressType $value = null)
+    public function setValue(\StructType\EwsPersonaPostalAddressType $value): self
     {
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function getAttributions()
+    public function getAttributions(): \ArrayType\EwsArrayOfValueAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @return \StructType\EwsPostalAddressAttributedValueType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function setAttributions(\ArrayType\EwsArrayOfValueAttributionsType $attributions): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
 }

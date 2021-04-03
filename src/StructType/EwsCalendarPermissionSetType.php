@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CalendarPermissionSetType StructType
@@ -16,24 +19,24 @@ class EwsCalendarPermissionSetType extends AbstractStructBase
 {
     /**
      * The CalendarPermissions
-     * @var \Ews\ArrayType\EwsArrayOfCalendarPermissionsType
+     * @var \ArrayType\EwsArrayOfCalendarPermissionsType|null
      */
-    public $CalendarPermissions;
+    protected ?\ArrayType\EwsArrayOfCalendarPermissionsType $CalendarPermissions = null;
     /**
      * The UnknownEntries
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnknownEntriesType
+     * @var \ArrayType\EwsArrayOfUnknownEntriesType|null
      */
-    public $UnknownEntries;
+    protected ?\ArrayType\EwsArrayOfUnknownEntriesType $UnknownEntries = null;
     /**
      * Constructor method for CalendarPermissionSetType
      * @uses EwsCalendarPermissionSetType::setCalendarPermissions()
      * @uses EwsCalendarPermissionSetType::setUnknownEntries()
-     * @param \Ews\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions
-     * @param \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
+     * @param \ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions
+     * @param \ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions = null, \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
+    public function __construct(?\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions = null, ?\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
     {
         $this
             ->setCalendarPermissions($calendarPermissions)
@@ -41,38 +44,40 @@ class EwsCalendarPermissionSetType extends AbstractStructBase
     }
     /**
      * Get CalendarPermissions value
-     * @return \Ews\ArrayType\EwsArrayOfCalendarPermissionsType|null
+     * @return \ArrayType\EwsArrayOfCalendarPermissionsType|null
      */
-    public function getCalendarPermissions()
+    public function getCalendarPermissions(): ?\ArrayType\EwsArrayOfCalendarPermissionsType
     {
         return $this->CalendarPermissions;
     }
     /**
      * Set CalendarPermissions value
-     * @param \Ews\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions
-     * @return \Ews\StructType\EwsCalendarPermissionSetType
+     * @param \ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions
+     * @return \StructType\EwsCalendarPermissionSetType
      */
-    public function setCalendarPermissions(\Ews\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions = null)
+    public function setCalendarPermissions(?\ArrayType\EwsArrayOfCalendarPermissionsType $calendarPermissions = null): self
     {
         $this->CalendarPermissions = $calendarPermissions;
+        
         return $this;
     }
     /**
      * Get UnknownEntries value
-     * @return \Ews\ArrayType\EwsArrayOfUnknownEntriesType|null
+     * @return \ArrayType\EwsArrayOfUnknownEntriesType|null
      */
-    public function getUnknownEntries()
+    public function getUnknownEntries(): ?\ArrayType\EwsArrayOfUnknownEntriesType
     {
         return $this->UnknownEntries;
     }
     /**
      * Set UnknownEntries value
-     * @param \Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
-     * @return \Ews\StructType\EwsCalendarPermissionSetType
+     * @param \ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries
+     * @return \StructType\EwsCalendarPermissionSetType
      */
-    public function setUnknownEntries(\Ews\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null)
+    public function setUnknownEntries(?\ArrayType\EwsArrayOfUnknownEntriesType $unknownEntries = null): self
     {
         $this->UnknownEntries = $unknownEntries;
+        
         return $this;
     }
 }

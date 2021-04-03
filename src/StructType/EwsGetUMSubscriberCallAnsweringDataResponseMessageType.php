@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUMSubscriberCallAnsweringDataResponseMessageType
@@ -20,7 +23,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * - minOccurs: 1
      * @var bool
      */
-    public $IsOOF;
+    protected bool $IsOOF;
     /**
      * The IsTranscriptionEnabledInMailboxConfig
      * Meta information extracted from the WSDL
@@ -28,7 +31,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * - minOccurs: 1
      * @var string
      */
-    public $IsTranscriptionEnabledInMailboxConfig;
+    protected string $IsTranscriptionEnabledInMailboxConfig;
     /**
      * The IsMailboxQuotaExceeded
      * Meta information extracted from the WSDL
@@ -36,7 +39,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * - minOccurs: 1
      * @var bool
      */
-    public $IsMailboxQuotaExceeded;
+    protected bool $IsMailboxQuotaExceeded;
     /**
      * The TaskTimedOut
      * Meta information extracted from the WSDL
@@ -44,23 +47,23 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * - minOccurs: 1
      * @var bool
      */
-    public $TaskTimedOut;
+    protected bool $TaskTimedOut;
     /**
      * The Greeting
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Greeting;
+    protected ?string $Greeting = null;
     /**
      * The GreetingName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GreetingName;
+    protected ?string $GreetingName = null;
     /**
      * Constructor method for GetUMSubscriberCallAnsweringDataResponseMessageType
      * @uses EwsGetUMSubscriberCallAnsweringDataResponseMessageType::setIsOOF()
@@ -76,7 +79,7 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * @param string $greeting
      * @param string $greetingName
      */
-    public function __construct($isOOF = null, $isTranscriptionEnabledInMailboxConfig = null, $isMailboxQuotaExceeded = null, $taskTimedOut = null, $greeting = null, $greetingName = null)
+    public function __construct(bool $isOOF, string $isTranscriptionEnabledInMailboxConfig, bool $isMailboxQuotaExceeded, bool $taskTimedOut, ?string $greeting = null, ?string $greetingName = null)
     {
         $this
             ->setIsOOF($isOOF)
@@ -90,135 +93,141 @@ class EwsGetUMSubscriberCallAnsweringDataResponseMessageType extends EwsResponse
      * Get IsOOF value
      * @return bool
      */
-    public function getIsOOF()
+    public function getIsOOF(): bool
     {
         return $this->IsOOF;
     }
     /**
      * Set IsOOF value
      * @param bool $isOOF
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setIsOOF($isOOF = null)
+    public function setIsOOF(bool $isOOF): self
     {
         // validation for constraint: boolean
         if (!is_null($isOOF) && !is_bool($isOOF)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOOF, true), gettype($isOOF)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOOF, true), gettype($isOOF)), __LINE__);
         }
         $this->IsOOF = $isOOF;
+        
         return $this;
     }
     /**
      * Get IsTranscriptionEnabledInMailboxConfig value
      * @return string
      */
-    public function getIsTranscriptionEnabledInMailboxConfig()
+    public function getIsTranscriptionEnabledInMailboxConfig(): string
     {
         return $this->IsTranscriptionEnabledInMailboxConfig;
     }
     /**
      * Set IsTranscriptionEnabledInMailboxConfig value
-     * @uses \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid()
-     * @uses \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid()
+     * @uses \EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $isTranscriptionEnabledInMailboxConfig
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setIsTranscriptionEnabledInMailboxConfig($isTranscriptionEnabledInMailboxConfig = null)
+    public function setIsTranscriptionEnabledInMailboxConfig(string $isTranscriptionEnabledInMailboxConfig): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid($isTranscriptionEnabledInMailboxConfig)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting', is_array($isTranscriptionEnabledInMailboxConfig) ? implode(', ', $isTranscriptionEnabledInMailboxConfig) : var_export($isTranscriptionEnabledInMailboxConfig, true), implode(', ', \Ews\EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUMMailboxTranscriptionEnabledSetting::valueIsValid($isTranscriptionEnabledInMailboxConfig)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUMMailboxTranscriptionEnabledSetting', is_array($isTranscriptionEnabledInMailboxConfig) ? implode(', ', $isTranscriptionEnabledInMailboxConfig) : var_export($isTranscriptionEnabledInMailboxConfig, true), implode(', ', \EnumType\EwsUMMailboxTranscriptionEnabledSetting::getValidValues())), __LINE__);
         }
         $this->IsTranscriptionEnabledInMailboxConfig = $isTranscriptionEnabledInMailboxConfig;
+        
         return $this;
     }
     /**
      * Get IsMailboxQuotaExceeded value
      * @return bool
      */
-    public function getIsMailboxQuotaExceeded()
+    public function getIsMailboxQuotaExceeded(): bool
     {
         return $this->IsMailboxQuotaExceeded;
     }
     /**
      * Set IsMailboxQuotaExceeded value
      * @param bool $isMailboxQuotaExceeded
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setIsMailboxQuotaExceeded($isMailboxQuotaExceeded = null)
+    public function setIsMailboxQuotaExceeded(bool $isMailboxQuotaExceeded): self
     {
         // validation for constraint: boolean
         if (!is_null($isMailboxQuotaExceeded) && !is_bool($isMailboxQuotaExceeded)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMailboxQuotaExceeded, true), gettype($isMailboxQuotaExceeded)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMailboxQuotaExceeded, true), gettype($isMailboxQuotaExceeded)), __LINE__);
         }
         $this->IsMailboxQuotaExceeded = $isMailboxQuotaExceeded;
+        
         return $this;
     }
     /**
      * Get TaskTimedOut value
      * @return bool
      */
-    public function getTaskTimedOut()
+    public function getTaskTimedOut(): bool
     {
         return $this->TaskTimedOut;
     }
     /**
      * Set TaskTimedOut value
      * @param bool $taskTimedOut
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setTaskTimedOut($taskTimedOut = null)
+    public function setTaskTimedOut(bool $taskTimedOut): self
     {
         // validation for constraint: boolean
         if (!is_null($taskTimedOut) && !is_bool($taskTimedOut)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($taskTimedOut, true), gettype($taskTimedOut)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($taskTimedOut, true), gettype($taskTimedOut)), __LINE__);
         }
         $this->TaskTimedOut = $taskTimedOut;
+        
         return $this;
     }
     /**
      * Get Greeting value
      * @return string|null
      */
-    public function getGreeting()
+    public function getGreeting(): ?string
     {
         return $this->Greeting;
     }
     /**
      * Set Greeting value
      * @param string $greeting
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setGreeting($greeting = null)
+    public function setGreeting(?string $greeting = null): self
     {
         // validation for constraint: string
         if (!is_null($greeting) && !is_string($greeting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($greeting, true), gettype($greeting)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($greeting, true), gettype($greeting)), __LINE__);
         }
         $this->Greeting = $greeting;
+        
         return $this;
     }
     /**
      * Get GreetingName value
      * @return string|null
      */
-    public function getGreetingName()
+    public function getGreetingName(): ?string
     {
         return $this->GreetingName;
     }
     /**
      * Set GreetingName value
      * @param string $greetingName
-     * @return \Ews\StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
+     * @return \StructType\EwsGetUMSubscriberCallAnsweringDataResponseMessageType
      */
-    public function setGreetingName($greetingName = null)
+    public function setGreetingName(?string $greetingName = null): self
     {
         // validation for constraint: string
         if (!is_null($greetingName) && !is_string($greetingName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($greetingName, true), gettype($greetingName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($greetingName, true), gettype($greetingName)), __LINE__);
         }
         $this->GreetingName = $greetingName;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProtectionRuleActionType StructType
@@ -18,23 +21,23 @@ class EwsProtectionRuleActionType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Name;
+    protected string $Name;
     /**
      * The Argument
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsProtectionRuleArgumentType[]
+     * @var \StructType\EwsProtectionRuleArgumentType[]
      */
-    public $Argument;
+    protected array $Argument = [];
     /**
      * Constructor method for ProtectionRuleActionType
      * @uses EwsProtectionRuleActionType::setName()
      * @uses EwsProtectionRuleActionType::setArgument()
      * @param string $name
-     * @param \Ews\StructType\EwsProtectionRuleArgumentType[] $argument
+     * @param \StructType\EwsProtectionRuleArgumentType[] $argument
      */
-    public function __construct($name = null, array $argument = array())
+    public function __construct(string $name, array $argument = [])
     {
         $this
             ->setName($name)
@@ -44,32 +47,33 @@ class EwsProtectionRuleActionType extends AbstractStructBase
      * Get Name value
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->Name;
     }
     /**
      * Set Name value
-     * @uses \Ews\EnumType\EwsProtectionRuleActionKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsProtectionRuleActionKindType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsProtectionRuleActionKindType::valueIsValid()
+     * @uses \EnumType\EwsProtectionRuleActionKindType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $name
-     * @return \Ews\StructType\EwsProtectionRuleActionType
+     * @return \StructType\EwsProtectionRuleActionType
      */
-    public function setName($name = null)
+    public function setName(string $name): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsProtectionRuleActionKindType::valueIsValid($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsProtectionRuleActionKindType', is_array($name) ? implode(', ', $name) : var_export($name, true), implode(', ', \Ews\EnumType\EwsProtectionRuleActionKindType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsProtectionRuleActionKindType::valueIsValid($name)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsProtectionRuleActionKindType', is_array($name) ? implode(', ', $name) : var_export($name, true), implode(', ', \EnumType\EwsProtectionRuleActionKindType::getValidValues())), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Argument value
-     * @return \Ews\StructType\EwsProtectionRuleArgumentType[]|null
+     * @return \StructType\EwsProtectionRuleArgumentType[]
      */
-    public function getArgument()
+    public function getArgument(): array
     {
         return $this->Argument;
     }
@@ -79,50 +83,53 @@ class EwsProtectionRuleActionType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateArgumentForArrayConstraintsFromSetArgument(array $values = array())
+    public static function validateArgumentForArrayConstraintsFromSetArgument(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $protectionRuleActionTypeArgumentItem) {
             // validation for constraint: itemType
-            if (!$protectionRuleActionTypeArgumentItem instanceof \Ews\StructType\EwsProtectionRuleArgumentType) {
+            if (!$protectionRuleActionTypeArgumentItem instanceof \StructType\EwsProtectionRuleArgumentType) {
                 $invalidValues[] = is_object($protectionRuleActionTypeArgumentItem) ? get_class($protectionRuleActionTypeArgumentItem) : sprintf('%s(%s)', gettype($protectionRuleActionTypeArgumentItem), var_export($protectionRuleActionTypeArgumentItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Argument property can only contain items of type \Ews\StructType\EwsProtectionRuleArgumentType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Argument property can only contain items of type \StructType\EwsProtectionRuleArgumentType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Argument value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProtectionRuleArgumentType[] $argument
-     * @return \Ews\StructType\EwsProtectionRuleActionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProtectionRuleArgumentType[] $argument
+     * @return \StructType\EwsProtectionRuleActionType
      */
-    public function setArgument(array $argument = array())
+    public function setArgument(array $argument = []): self
     {
         // validation for constraint: array
         if ('' !== ($argumentArrayErrorMessage = self::validateArgumentForArrayConstraintsFromSetArgument($argument))) {
-            throw new \InvalidArgumentException($argumentArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($argumentArrayErrorMessage, __LINE__);
         }
         $this->Argument = $argument;
+        
         return $this;
     }
     /**
      * Add item to Argument value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProtectionRuleArgumentType $item
-     * @return \Ews\StructType\EwsProtectionRuleActionType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProtectionRuleArgumentType $item
+     * @return \StructType\EwsProtectionRuleActionType
      */
-    public function addToArgument(\Ews\StructType\EwsProtectionRuleArgumentType $item)
+    public function addToArgument(\StructType\EwsProtectionRuleArgumentType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsProtectionRuleArgumentType) {
-            throw new \InvalidArgumentException(sprintf('The Argument property can only contain items of type \Ews\StructType\EwsProtectionRuleArgumentType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsProtectionRuleArgumentType) {
+            throw new InvalidArgumentException(sprintf('The Argument property can only contain items of type \StructType\EwsProtectionRuleArgumentType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Argument[] = $item;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetItemType StructType
@@ -14,22 +17,22 @@ class EwsGetItemType extends EwsBaseRequestType
 {
     /**
      * The ItemShape
-     * @var \Ews\StructType\EwsItemResponseShapeType
+     * @var \StructType\EwsItemResponseShapeType|null
      */
-    public $ItemShape;
+    protected ?\StructType\EwsItemResponseShapeType $ItemShape = null;
     /**
      * The ItemIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * Constructor method for GetItemType
      * @uses EwsGetItemType::setItemShape()
      * @uses EwsGetItemType::setItemIds()
-     * @param \Ews\StructType\EwsItemResponseShapeType $itemShape
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsItemResponseShapeType $itemShape
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
      */
-    public function __construct(\Ews\StructType\EwsItemResponseShapeType $itemShape = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function __construct(?\StructType\EwsItemResponseShapeType $itemShape = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
     {
         $this
             ->setItemShape($itemShape)
@@ -37,38 +40,40 @@ class EwsGetItemType extends EwsBaseRequestType
     }
     /**
      * Get ItemShape value
-     * @return \Ews\StructType\EwsItemResponseShapeType|null
+     * @return \StructType\EwsItemResponseShapeType|null
      */
-    public function getItemShape()
+    public function getItemShape(): ?\StructType\EwsItemResponseShapeType
     {
         return $this->ItemShape;
     }
     /**
      * Set ItemShape value
-     * @param \Ews\StructType\EwsItemResponseShapeType $itemShape
-     * @return \Ews\StructType\EwsGetItemType
+     * @param \StructType\EwsItemResponseShapeType $itemShape
+     * @return \StructType\EwsGetItemType
      */
-    public function setItemShape(\Ews\StructType\EwsItemResponseShapeType $itemShape = null)
+    public function setItemShape(?\StructType\EwsItemResponseShapeType $itemShape = null): self
     {
         $this->ItemShape = $itemShape;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsGetItemType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsGetItemType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
 }

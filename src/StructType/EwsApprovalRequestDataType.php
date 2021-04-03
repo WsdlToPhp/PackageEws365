@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ApprovalRequestDataType StructType
@@ -16,30 +19,30 @@ class EwsApprovalRequestDataType extends AbstractStructBase
      * The IsUndecidedApprovalRequest
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsUndecidedApprovalRequest;
+    protected ?bool $IsUndecidedApprovalRequest = null;
     /**
      * The ApprovalDecision
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $ApprovalDecision;
+    protected ?int $ApprovalDecision = null;
     /**
      * The ApprovalDecisionMaker
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ApprovalDecisionMaker;
+    protected ?string $ApprovalDecisionMaker = null;
     /**
      * The ApprovalDecisionTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ApprovalDecisionTime;
+    protected ?string $ApprovalDecisionTime = null;
     /**
      * Constructor method for ApprovalRequestDataType
      * @uses EwsApprovalRequestDataType::setIsUndecidedApprovalRequest()
@@ -51,7 +54,7 @@ class EwsApprovalRequestDataType extends AbstractStructBase
      * @param string $approvalDecisionMaker
      * @param string $approvalDecisionTime
      */
-    public function __construct($isUndecidedApprovalRequest = null, $approvalDecision = null, $approvalDecisionMaker = null, $approvalDecisionTime = null)
+    public function __construct(?bool $isUndecidedApprovalRequest = null, ?int $approvalDecision = null, ?string $approvalDecisionMaker = null, ?string $approvalDecisionTime = null)
     {
         $this
             ->setIsUndecidedApprovalRequest($isUndecidedApprovalRequest)
@@ -63,88 +66,92 @@ class EwsApprovalRequestDataType extends AbstractStructBase
      * Get IsUndecidedApprovalRequest value
      * @return bool|null
      */
-    public function getIsUndecidedApprovalRequest()
+    public function getIsUndecidedApprovalRequest(): ?bool
     {
         return $this->IsUndecidedApprovalRequest;
     }
     /**
      * Set IsUndecidedApprovalRequest value
      * @param bool $isUndecidedApprovalRequest
-     * @return \Ews\StructType\EwsApprovalRequestDataType
+     * @return \StructType\EwsApprovalRequestDataType
      */
-    public function setIsUndecidedApprovalRequest($isUndecidedApprovalRequest = null)
+    public function setIsUndecidedApprovalRequest(?bool $isUndecidedApprovalRequest = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isUndecidedApprovalRequest) && !is_bool($isUndecidedApprovalRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUndecidedApprovalRequest, true), gettype($isUndecidedApprovalRequest)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUndecidedApprovalRequest, true), gettype($isUndecidedApprovalRequest)), __LINE__);
         }
         $this->IsUndecidedApprovalRequest = $isUndecidedApprovalRequest;
+        
         return $this;
     }
     /**
      * Get ApprovalDecision value
      * @return int|null
      */
-    public function getApprovalDecision()
+    public function getApprovalDecision(): ?int
     {
         return $this->ApprovalDecision;
     }
     /**
      * Set ApprovalDecision value
      * @param int $approvalDecision
-     * @return \Ews\StructType\EwsApprovalRequestDataType
+     * @return \StructType\EwsApprovalRequestDataType
      */
-    public function setApprovalDecision($approvalDecision = null)
+    public function setApprovalDecision(?int $approvalDecision = null): self
     {
         // validation for constraint: int
         if (!is_null($approvalDecision) && !(is_int($approvalDecision) || ctype_digit($approvalDecision))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($approvalDecision, true), gettype($approvalDecision)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($approvalDecision, true), gettype($approvalDecision)), __LINE__);
         }
         $this->ApprovalDecision = $approvalDecision;
+        
         return $this;
     }
     /**
      * Get ApprovalDecisionMaker value
      * @return string|null
      */
-    public function getApprovalDecisionMaker()
+    public function getApprovalDecisionMaker(): ?string
     {
         return $this->ApprovalDecisionMaker;
     }
     /**
      * Set ApprovalDecisionMaker value
      * @param string $approvalDecisionMaker
-     * @return \Ews\StructType\EwsApprovalRequestDataType
+     * @return \StructType\EwsApprovalRequestDataType
      */
-    public function setApprovalDecisionMaker($approvalDecisionMaker = null)
+    public function setApprovalDecisionMaker(?string $approvalDecisionMaker = null): self
     {
         // validation for constraint: string
         if (!is_null($approvalDecisionMaker) && !is_string($approvalDecisionMaker)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionMaker, true), gettype($approvalDecisionMaker)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionMaker, true), gettype($approvalDecisionMaker)), __LINE__);
         }
         $this->ApprovalDecisionMaker = $approvalDecisionMaker;
+        
         return $this;
     }
     /**
      * Get ApprovalDecisionTime value
      * @return string|null
      */
-    public function getApprovalDecisionTime()
+    public function getApprovalDecisionTime(): ?string
     {
         return $this->ApprovalDecisionTime;
     }
     /**
      * Set ApprovalDecisionTime value
      * @param string $approvalDecisionTime
-     * @return \Ews\StructType\EwsApprovalRequestDataType
+     * @return \StructType\EwsApprovalRequestDataType
      */
-    public function setApprovalDecisionTime($approvalDecisionTime = null)
+    public function setApprovalDecisionTime(?string $approvalDecisionTime = null): self
     {
         // validation for constraint: string
         if (!is_null($approvalDecisionTime) && !is_string($approvalDecisionTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionTime, true), gettype($approvalDecisionTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($approvalDecisionTime, true), gettype($approvalDecisionTime)), __LINE__);
         }
         $this->ApprovalDecisionTime = $approvalDecisionTime;
+        
         return $this;
     }
 }

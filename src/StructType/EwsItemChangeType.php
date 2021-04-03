@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ItemChangeType StructType
@@ -18,44 +21,44 @@ class EwsItemChangeType extends AbstractStructBase
      * - choice: ItemId | OccurrenceItemId | RecurringMasterItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The OccurrenceItemId
      * Meta information extracted from the WSDL
      * - choice: ItemId | OccurrenceItemId | RecurringMasterItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsOccurrenceItemIdType
+     * @var \StructType\EwsOccurrenceItemIdType|null
      */
-    public $OccurrenceItemId;
+    protected ?\StructType\EwsOccurrenceItemIdType $OccurrenceItemId = null;
     /**
      * The RecurringMasterItemId
      * Meta information extracted from the WSDL
      * - choice: ItemId | OccurrenceItemId | RecurringMasterItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsRecurringMasterItemIdType
+     * @var \StructType\EwsRecurringMasterItemIdType|null
      */
-    public $RecurringMasterItemId;
+    protected ?\StructType\EwsRecurringMasterItemIdType $RecurringMasterItemId = null;
     /**
      * The Updates
-     * @var \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
+     * @var \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType|null
      */
-    public $Updates;
+    protected ?\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $Updates = null;
     /**
      * Constructor method for ItemChangeType
      * @uses EwsItemChangeType::setItemId()
      * @uses EwsItemChangeType::setOccurrenceItemId()
      * @uses EwsItemChangeType::setRecurringMasterItemId()
      * @uses EwsItemChangeType::setUpdates()
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId
-     * @param \Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsOccurrenceItemIdType $occurrenceItemId
+     * @param \StructType\EwsRecurringMasterItemIdType $recurringMasterItemId
+     * @param \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId = null, \Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId = null, \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates = null)
+    public function __construct(?\StructType\EwsItemIdType $itemId = null, ?\StructType\EwsOccurrenceItemIdType $occurrenceItemId = null, ?\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId = null, ?\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates = null)
     {
         $this
             ->setItemId($itemId)
@@ -65,9 +68,9 @@ class EwsItemChangeType extends AbstractStructBase
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return isset($this->ItemId) ? $this->ItemId : null;
     }
@@ -78,7 +81,7 @@ class EwsItemChangeType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemIdForChoiceConstraintsFromSetItemId($value)
+    public function validateItemIdForChoiceConstraintsFromSetItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -91,12 +94,13 @@ class EwsItemChangeType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -104,28 +108,29 @@ class EwsItemChangeType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsItemChangeType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsItemChangeType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         // validation for constraint: choice(ItemId, OccurrenceItemId, RecurringMasterItemId)
         if ('' !== ($itemIdChoiceErrorMessage = self::validateItemIdForChoiceConstraintsFromSetItemId($itemId))) {
-            throw new \InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($itemId) || (is_array($itemId) && empty($itemId))) {
             unset($this->ItemId);
         } else {
             $this->ItemId = $itemId;
         }
+        
         return $this;
     }
     /**
      * Get OccurrenceItemId value
-     * @return \Ews\StructType\EwsOccurrenceItemIdType|null
+     * @return \StructType\EwsOccurrenceItemIdType|null
      */
-    public function getOccurrenceItemId()
+    public function getOccurrenceItemId(): ?\StructType\EwsOccurrenceItemIdType
     {
         return isset($this->OccurrenceItemId) ? $this->OccurrenceItemId : null;
     }
@@ -136,7 +141,7 @@ class EwsItemChangeType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateOccurrenceItemIdForChoiceConstraintsFromSetOccurrenceItemId($value)
+    public function validateOccurrenceItemIdForChoiceConstraintsFromSetOccurrenceItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -149,12 +154,13 @@ class EwsItemChangeType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property OccurrenceItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: OccurrenceItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property OccurrenceItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: OccurrenceItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -162,28 +168,29 @@ class EwsItemChangeType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId
-     * @return \Ews\StructType\EwsItemChangeType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsOccurrenceItemIdType $occurrenceItemId
+     * @return \StructType\EwsItemChangeType
      */
-    public function setOccurrenceItemId(\Ews\StructType\EwsOccurrenceItemIdType $occurrenceItemId = null)
+    public function setOccurrenceItemId(?\StructType\EwsOccurrenceItemIdType $occurrenceItemId = null): self
     {
         // validation for constraint: choice(ItemId, OccurrenceItemId, RecurringMasterItemId)
         if ('' !== ($occurrenceItemIdChoiceErrorMessage = self::validateOccurrenceItemIdForChoiceConstraintsFromSetOccurrenceItemId($occurrenceItemId))) {
-            throw new \InvalidArgumentException($occurrenceItemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($occurrenceItemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($occurrenceItemId) || (is_array($occurrenceItemId) && empty($occurrenceItemId))) {
             unset($this->OccurrenceItemId);
         } else {
             $this->OccurrenceItemId = $occurrenceItemId;
         }
+        
         return $this;
     }
     /**
      * Get RecurringMasterItemId value
-     * @return \Ews\StructType\EwsRecurringMasterItemIdType|null
+     * @return \StructType\EwsRecurringMasterItemIdType|null
      */
-    public function getRecurringMasterItemId()
+    public function getRecurringMasterItemId(): ?\StructType\EwsRecurringMasterItemIdType
     {
         return isset($this->RecurringMasterItemId) ? $this->RecurringMasterItemId : null;
     }
@@ -194,7 +201,7 @@ class EwsItemChangeType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateRecurringMasterItemIdForChoiceConstraintsFromSetRecurringMasterItemId($value)
+    public function validateRecurringMasterItemIdForChoiceConstraintsFromSetRecurringMasterItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -207,12 +214,13 @@ class EwsItemChangeType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property RecurringMasterItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: RecurringMasterItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property RecurringMasterItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: RecurringMasterItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -220,39 +228,41 @@ class EwsItemChangeType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId
-     * @return \Ews\StructType\EwsItemChangeType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRecurringMasterItemIdType $recurringMasterItemId
+     * @return \StructType\EwsItemChangeType
      */
-    public function setRecurringMasterItemId(\Ews\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId = null)
+    public function setRecurringMasterItemId(?\StructType\EwsRecurringMasterItemIdType $recurringMasterItemId = null): self
     {
         // validation for constraint: choice(ItemId, OccurrenceItemId, RecurringMasterItemId)
         if ('' !== ($recurringMasterItemIdChoiceErrorMessage = self::validateRecurringMasterItemIdForChoiceConstraintsFromSetRecurringMasterItemId($recurringMasterItemId))) {
-            throw new \InvalidArgumentException($recurringMasterItemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($recurringMasterItemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($recurringMasterItemId) || (is_array($recurringMasterItemId) && empty($recurringMasterItemId))) {
             unset($this->RecurringMasterItemId);
         } else {
             $this->RecurringMasterItemId = $recurringMasterItemId;
         }
+        
         return $this;
     }
     /**
      * Get Updates value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType|null
+     * @return \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType|null
      */
-    public function getUpdates()
+    public function getUpdates(): ?\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType
     {
         return $this->Updates;
     }
     /**
      * Set Updates value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates
-     * @return \Ews\StructType\EwsItemChangeType
+     * @param \StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates
+     * @return \StructType\EwsItemChangeType
      */
-    public function setUpdates(\Ews\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates = null)
+    public function setUpdates(?\StructType\EwsNonEmptyArrayOfItemChangeDescriptionsType $updates = null): self
     {
         $this->Updates = $updates;
+        
         return $this;
     }
 }

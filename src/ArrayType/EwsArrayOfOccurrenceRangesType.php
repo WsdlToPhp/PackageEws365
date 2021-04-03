@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfOccurrenceRangesType ArrayType
@@ -16,24 +19,24 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
      * The Range
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsOccurrencesRangeType[]
+     * @var \StructType\EwsOccurrencesRangeType[]
      */
-    public $Range;
+    protected array $Range = [];
     /**
      * Constructor method for ArrayOfOccurrenceRangesType
      * @uses EwsArrayOfOccurrenceRangesType::setRange()
-     * @param \Ews\StructType\EwsOccurrencesRangeType[] $range
+     * @param \StructType\EwsOccurrencesRangeType[] $range
      */
-    public function __construct(array $range = array())
+    public function __construct(array $range = [])
     {
         $this
             ->setRange($range);
     }
     /**
      * Get Range value
-     * @return \Ews\StructType\EwsOccurrencesRangeType[]|null
+     * @return \StructType\EwsOccurrencesRangeType[]
      */
-    public function getRange()
+    public function getRange(): array
     {
         return $this->Range;
     }
@@ -43,58 +46,45 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRangeForArrayConstraintsFromSetRange(array $values = array())
+    public static function validateRangeForArrayConstraintsFromSetRange(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfOccurrenceRangesTypeRangeItem) {
             // validation for constraint: itemType
-            if (!$arrayOfOccurrenceRangesTypeRangeItem instanceof \Ews\StructType\EwsOccurrencesRangeType) {
+            if (!$arrayOfOccurrenceRangesTypeRangeItem instanceof \StructType\EwsOccurrencesRangeType) {
                 $invalidValues[] = is_object($arrayOfOccurrenceRangesTypeRangeItem) ? get_class($arrayOfOccurrenceRangesTypeRangeItem) : sprintf('%s(%s)', gettype($arrayOfOccurrenceRangesTypeRangeItem), var_export($arrayOfOccurrenceRangesTypeRangeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Range property can only contain items of type \Ews\StructType\EwsOccurrencesRangeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Range property can only contain items of type \StructType\EwsOccurrencesRangeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Range value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsOccurrencesRangeType[] $range
-     * @return \Ews\ArrayType\EwsArrayOfOccurrenceRangesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsOccurrencesRangeType[] $range
+     * @return \ArrayType\EwsArrayOfOccurrenceRangesType
      */
-    public function setRange(array $range = array())
+    public function setRange(array $range = []): self
     {
         // validation for constraint: array
         if ('' !== ($rangeArrayErrorMessage = self::validateRangeForArrayConstraintsFromSetRange($range))) {
-            throw new \InvalidArgumentException($rangeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($rangeArrayErrorMessage, __LINE__);
         }
         $this->Range = $range;
-        return $this;
-    }
-    /**
-     * Add item to Range value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsOccurrencesRangeType $item
-     * @return \Ews\ArrayType\EwsArrayOfOccurrenceRangesType
-     */
-    public function addToRange(\Ews\StructType\EwsOccurrencesRangeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsOccurrencesRangeType) {
-            throw new \InvalidArgumentException(sprintf('The Range property can only contain items of type \Ews\StructType\EwsOccurrencesRangeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Range[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsOccurrencesRangeType|null
+     * @return \StructType\EwsOccurrencesRangeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsOccurrencesRangeType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsOccurrencesRangeType|null
+     * @return \StructType\EwsOccurrencesRangeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsOccurrencesRangeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsOccurrencesRangeType|null
+     * @return \StructType\EwsOccurrencesRangeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsOccurrencesRangeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsOccurrencesRangeType|null
+     * @return \StructType\EwsOccurrencesRangeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsOccurrencesRangeType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsArrayOfOccurrenceRangesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsOccurrencesRangeType|null
+     * @return \StructType\EwsOccurrencesRangeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsOccurrencesRangeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsOccurrencesRangeType $item
+     * @return \ArrayType\EwsArrayOfOccurrenceRangesType
+     */
+    public function add(\StructType\EwsOccurrencesRangeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Range
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Range';
     }

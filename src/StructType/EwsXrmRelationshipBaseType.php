@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for XrmRelationshipBaseType StructType
@@ -19,7 +22,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $LinkId;
+    protected string $LinkId;
     /**
      * The FromEntityId
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $FromEntityId;
+    protected string $FromEntityId;
     /**
      * The FromEntityType
      * Meta information extracted from the WSDL
@@ -35,7 +38,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $FromEntityType;
+    protected string $FromEntityType;
     /**
      * The ToEntityId
      * Meta information extracted from the WSDL
@@ -43,7 +46,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ToEntityId;
+    protected string $ToEntityId;
     /**
      * The ToEntityType
      * Meta information extracted from the WSDL
@@ -51,7 +54,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $ToEntityType;
+    protected string $ToEntityType;
     /**
      * The RelationshipType
      * Meta information extracted from the WSDL
@@ -59,7 +62,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $RelationshipType;
+    protected string $RelationshipType;
     /**
      * Constructor method for XrmRelationshipBaseType
      * @uses EwsXrmRelationshipBaseType::setLinkId()
@@ -75,7 +78,7 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * @param string $toEntityType
      * @param string $relationshipType
      */
-    public function __construct($linkId = null, $fromEntityId = null, $fromEntityType = null, $toEntityId = null, $toEntityType = null, $relationshipType = null)
+    public function __construct(string $linkId, string $fromEntityId, string $fromEntityType, string $toEntityId, string $toEntityType, string $relationshipType)
     {
         $this
             ->setLinkId($linkId)
@@ -89,135 +92,141 @@ class EwsXrmRelationshipBaseType extends AbstractStructBase
      * Get LinkId value
      * @return string
      */
-    public function getLinkId()
+    public function getLinkId(): string
     {
         return $this->LinkId;
     }
     /**
      * Set LinkId value
      * @param string $linkId
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setLinkId($linkId = null)
+    public function setLinkId(string $linkId): self
     {
         // validation for constraint: string
         if (!is_null($linkId) && !is_string($linkId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkId, true), gettype($linkId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkId, true), gettype($linkId)), __LINE__);
         }
         $this->LinkId = $linkId;
+        
         return $this;
     }
     /**
      * Get FromEntityId value
      * @return string
      */
-    public function getFromEntityId()
+    public function getFromEntityId(): string
     {
         return $this->FromEntityId;
     }
     /**
      * Set FromEntityId value
      * @param string $fromEntityId
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setFromEntityId($fromEntityId = null)
+    public function setFromEntityId(string $fromEntityId): self
     {
         // validation for constraint: string
         if (!is_null($fromEntityId) && !is_string($fromEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityId, true), gettype($fromEntityId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityId, true), gettype($fromEntityId)), __LINE__);
         }
         $this->FromEntityId = $fromEntityId;
+        
         return $this;
     }
     /**
      * Get FromEntityType value
      * @return string
      */
-    public function getFromEntityType()
+    public function getFromEntityType(): string
     {
         return $this->FromEntityType;
     }
     /**
      * Set FromEntityType value
      * @param string $fromEntityType
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setFromEntityType($fromEntityType = null)
+    public function setFromEntityType(string $fromEntityType): self
     {
         // validation for constraint: string
         if (!is_null($fromEntityType) && !is_string($fromEntityType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityType, true), gettype($fromEntityType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromEntityType, true), gettype($fromEntityType)), __LINE__);
         }
         $this->FromEntityType = $fromEntityType;
+        
         return $this;
     }
     /**
      * Get ToEntityId value
      * @return string
      */
-    public function getToEntityId()
+    public function getToEntityId(): string
     {
         return $this->ToEntityId;
     }
     /**
      * Set ToEntityId value
      * @param string $toEntityId
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setToEntityId($toEntityId = null)
+    public function setToEntityId(string $toEntityId): self
     {
         // validation for constraint: string
         if (!is_null($toEntityId) && !is_string($toEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityId, true), gettype($toEntityId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityId, true), gettype($toEntityId)), __LINE__);
         }
         $this->ToEntityId = $toEntityId;
+        
         return $this;
     }
     /**
      * Get ToEntityType value
      * @return string
      */
-    public function getToEntityType()
+    public function getToEntityType(): string
     {
         return $this->ToEntityType;
     }
     /**
      * Set ToEntityType value
      * @param string $toEntityType
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setToEntityType($toEntityType = null)
+    public function setToEntityType(string $toEntityType): self
     {
         // validation for constraint: string
         if (!is_null($toEntityType) && !is_string($toEntityType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityType, true), gettype($toEntityType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toEntityType, true), gettype($toEntityType)), __LINE__);
         }
         $this->ToEntityType = $toEntityType;
+        
         return $this;
     }
     /**
      * Get RelationshipType value
      * @return string
      */
-    public function getRelationshipType()
+    public function getRelationshipType(): string
     {
         return $this->RelationshipType;
     }
     /**
      * Set RelationshipType value
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsXrmGraphRelationshipType::valueIsValid()
+     * @uses \EnumType\EwsXrmGraphRelationshipType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $relationshipType
-     * @return \Ews\StructType\EwsXrmRelationshipBaseType
+     * @return \StructType\EwsXrmRelationshipBaseType
      */
-    public function setRelationshipType($relationshipType = null)
+    public function setRelationshipType(string $relationshipType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($relationshipType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmGraphRelationshipType', is_array($relationshipType) ? implode(', ', $relationshipType) : var_export($relationshipType, true), implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsXrmGraphRelationshipType::valueIsValid($relationshipType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsXrmGraphRelationshipType', is_array($relationshipType) ? implode(', ', $relationshipType) : var_export($relationshipType, true), implode(', ', \EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
         }
         $this->RelationshipType = $relationshipType;
+        
         return $this;
     }
 }

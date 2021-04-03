@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetClientIntentType StructType
@@ -19,20 +22,20 @@ class EwsGetClientIntentType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $GlobalObjectId;
+    protected string $GlobalObjectId;
     /**
      * The StateDefinition
-     * @var \Ews\StructType\EwsNonEmptyStateDefinitionType
+     * @var \StructType\EwsNonEmptyStateDefinitionType|null
      */
-    public $StateDefinition;
+    protected ?\StructType\EwsNonEmptyStateDefinitionType $StateDefinition = null;
     /**
      * Constructor method for GetClientIntentType
      * @uses EwsGetClientIntentType::setGlobalObjectId()
      * @uses EwsGetClientIntentType::setStateDefinition()
      * @param string $globalObjectId
-     * @param \Ews\StructType\EwsNonEmptyStateDefinitionType $stateDefinition
+     * @param \StructType\EwsNonEmptyStateDefinitionType $stateDefinition
      */
-    public function __construct($globalObjectId = null, \Ews\StructType\EwsNonEmptyStateDefinitionType $stateDefinition = null)
+    public function __construct(string $globalObjectId, ?\StructType\EwsNonEmptyStateDefinitionType $stateDefinition = null)
     {
         $this
             ->setGlobalObjectId($globalObjectId)
@@ -42,40 +45,42 @@ class EwsGetClientIntentType extends EwsBaseRequestType
      * Get GlobalObjectId value
      * @return string
      */
-    public function getGlobalObjectId()
+    public function getGlobalObjectId(): string
     {
         return $this->GlobalObjectId;
     }
     /**
      * Set GlobalObjectId value
      * @param string $globalObjectId
-     * @return \Ews\StructType\EwsGetClientIntentType
+     * @return \StructType\EwsGetClientIntentType
      */
-    public function setGlobalObjectId($globalObjectId = null)
+    public function setGlobalObjectId(string $globalObjectId): self
     {
         // validation for constraint: string
         if (!is_null($globalObjectId) && !is_string($globalObjectId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($globalObjectId, true), gettype($globalObjectId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($globalObjectId, true), gettype($globalObjectId)), __LINE__);
         }
         $this->GlobalObjectId = $globalObjectId;
+        
         return $this;
     }
     /**
      * Get StateDefinition value
-     * @return \Ews\StructType\EwsNonEmptyStateDefinitionType|null
+     * @return \StructType\EwsNonEmptyStateDefinitionType|null
      */
-    public function getStateDefinition()
+    public function getStateDefinition(): ?\StructType\EwsNonEmptyStateDefinitionType
     {
         return $this->StateDefinition;
     }
     /**
      * Set StateDefinition value
-     * @param \Ews\StructType\EwsNonEmptyStateDefinitionType $stateDefinition
-     * @return \Ews\StructType\EwsGetClientIntentType
+     * @param \StructType\EwsNonEmptyStateDefinitionType $stateDefinition
+     * @return \StructType\EwsGetClientIntentType
      */
-    public function setStateDefinition(\Ews\StructType\EwsNonEmptyStateDefinitionType $stateDefinition = null)
+    public function setStateDefinition(?\StructType\EwsNonEmptyStateDefinitionType $stateDefinition = null): self
     {
         $this->StateDefinition = $stateDefinition;
+        
         return $this;
     }
 }

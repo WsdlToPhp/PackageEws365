@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserConfigurationDictionaryEntryType StructType
@@ -17,26 +20,26 @@ class EwsUserConfigurationDictionaryEntryType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @var \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public $DictionaryKey;
+    protected \StructType\EwsUserConfigurationDictionaryObjectType $DictionaryKey;
     /**
      * The DictionaryValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * - nillable: true
-     * @var \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @var \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public $DictionaryValue;
+    protected \StructType\EwsUserConfigurationDictionaryObjectType $DictionaryValue;
     /**
      * Constructor method for UserConfigurationDictionaryEntryType
      * @uses EwsUserConfigurationDictionaryEntryType::setDictionaryKey()
      * @uses EwsUserConfigurationDictionaryEntryType::setDictionaryValue()
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue
+     * @param \StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey
+     * @param \StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey = null, \Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue = null)
+    public function __construct(\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey, \StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue)
     {
         $this
             ->setDictionaryKey($dictionaryKey)
@@ -44,38 +47,40 @@ class EwsUserConfigurationDictionaryEntryType extends AbstractStructBase
     }
     /**
      * Get DictionaryKey value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @return \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function getDictionaryKey()
+    public function getDictionaryKey(): \StructType\EwsUserConfigurationDictionaryObjectType
     {
         return $this->DictionaryKey;
     }
     /**
      * Set DictionaryKey value
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryEntryType
+     * @param \StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey
+     * @return \StructType\EwsUserConfigurationDictionaryEntryType
      */
-    public function setDictionaryKey(\Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey = null)
+    public function setDictionaryKey(\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryKey): self
     {
         $this->DictionaryKey = $dictionaryKey;
+        
         return $this;
     }
     /**
      * Get DictionaryValue value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryObjectType
+     * @return \StructType\EwsUserConfigurationDictionaryObjectType
      */
-    public function getDictionaryValue()
+    public function getDictionaryValue(): \StructType\EwsUserConfigurationDictionaryObjectType
     {
         return $this->DictionaryValue;
     }
     /**
      * Set DictionaryValue value
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryEntryType
+     * @param \StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue
+     * @return \StructType\EwsUserConfigurationDictionaryEntryType
      */
-    public function setDictionaryValue(\Ews\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue = null)
+    public function setDictionaryValue(\StructType\EwsUserConfigurationDictionaryObjectType $dictionaryValue): self
     {
         $this->DictionaryValue = $dictionaryValue;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateXrmDealType StructType
@@ -17,25 +20,25 @@ class EwsUpdateXrmDealType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $EntityId;
+    protected \StructType\EwsItemIdType $EntityId;
     /**
      * The Deal
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmDealType
+     * @var \StructType\EwsXrmDealType
      */
-    public $Deal;
+    protected \StructType\EwsXrmDealType $Deal;
     /**
      * Constructor method for UpdateXrmDealType
      * @uses EwsUpdateXrmDealType::setEntityId()
      * @uses EwsUpdateXrmDealType::setDeal()
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @param \Ews\StructType\EwsXrmDealType $deal
+     * @param \StructType\EwsItemIdType $entityId
+     * @param \StructType\EwsXrmDealType $deal
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $entityId = null, \Ews\StructType\EwsXrmDealType $deal = null)
+    public function __construct(\StructType\EwsItemIdType $entityId, \StructType\EwsXrmDealType $deal)
     {
         $this
             ->setEntityId($entityId)
@@ -43,38 +46,40 @@ class EwsUpdateXrmDealType extends EwsBaseRequestType
     }
     /**
      * Get EntityId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getEntityId()
+    public function getEntityId(): \StructType\EwsItemIdType
     {
         return $this->EntityId;
     }
     /**
      * Set EntityId value
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @return \Ews\StructType\EwsUpdateXrmDealType
+     * @param \StructType\EwsItemIdType $entityId
+     * @return \StructType\EwsUpdateXrmDealType
      */
-    public function setEntityId(\Ews\StructType\EwsItemIdType $entityId = null)
+    public function setEntityId(\StructType\EwsItemIdType $entityId): self
     {
         $this->EntityId = $entityId;
+        
         return $this;
     }
     /**
      * Get Deal value
-     * @return \Ews\StructType\EwsXrmDealType
+     * @return \StructType\EwsXrmDealType
      */
-    public function getDeal()
+    public function getDeal(): \StructType\EwsXrmDealType
     {
         return $this->Deal;
     }
     /**
      * Set Deal value
-     * @param \Ews\StructType\EwsXrmDealType $deal
-     * @return \Ews\StructType\EwsUpdateXrmDealType
+     * @param \StructType\EwsXrmDealType $deal
+     * @return \StructType\EwsUpdateXrmDealType
      */
-    public function setDeal(\Ews\StructType\EwsXrmDealType $deal = null)
+    public function setDeal(\StructType\EwsXrmDealType $deal): self
     {
         $this->Deal = $deal;
+        
         return $this;
     }
 }

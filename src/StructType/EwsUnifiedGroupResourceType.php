@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupResourceType StructType
@@ -17,17 +20,17 @@ class EwsUnifiedGroupResourceType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The Url
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Url;
+    protected ?string $Url = null;
     /**
      * Constructor method for UnifiedGroupResourceType
      * @uses EwsUnifiedGroupResourceType::setName()
@@ -35,7 +38,7 @@ class EwsUnifiedGroupResourceType extends AbstractStructBase
      * @param string $name
      * @param string $url
      */
-    public function __construct($name = null, $url = null)
+    public function __construct(?string $name = null, ?string $url = null)
     {
         $this
             ->setName($name)
@@ -45,44 +48,46 @@ class EwsUnifiedGroupResourceType extends AbstractStructBase
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType
+     * @return \StructType\EwsUnifiedGroupResourceType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Url value
      * @return string|null
      */
-    public function getUrl()
+    public function getUrl(): ?string
     {
         return $this->Url;
     }
     /**
      * Set Url value
      * @param string $url
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType
+     * @return \StructType\EwsUnifiedGroupResourceType
      */
-    public function setUrl($url = null)
+    public function setUrl(?string $url = null): self
     {
         // validation for constraint: string
         if (!is_null($url) && !is_string($url)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($url, true), gettype($url)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($url, true), gettype($url)), __LINE__);
         }
         $this->Url = $url;
+        
         return $this;
     }
 }

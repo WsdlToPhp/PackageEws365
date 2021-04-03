@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfAppManifestsType ArrayType
@@ -19,22 +22,22 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $Manifest;
+    protected array $Manifest = [];
     /**
      * Constructor method for ArrayOfAppManifestsType
      * @uses EwsArrayOfAppManifestsType::setManifest()
      * @param string[] $manifest
      */
-    public function __construct(array $manifest = array())
+    public function __construct(array $manifest = [])
     {
         $this
             ->setManifest($manifest);
     }
     /**
      * Get Manifest value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getManifest()
+    public function getManifest(): array
     {
         return $this->Manifest;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateManifestForArrayConstraintsFromSetManifest(array $values = array())
+    public static function validateManifestForArrayConstraintsFromSetManifest(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -55,39 +58,26 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Manifest property can only contain items of type base64Binary, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Manifest property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Manifest value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $manifest
-     * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
+     * @return \ArrayType\EwsArrayOfAppManifestsType
      */
-    public function setManifest(array $manifest = array())
+    public function setManifest(array $manifest = []): self
     {
         // validation for constraint: array
         if ('' !== ($manifestArrayErrorMessage = self::validateManifestForArrayConstraintsFromSetManifest($manifest))) {
-            throw new \InvalidArgumentException($manifestArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($manifestArrayErrorMessage, __LINE__);
         }
         $this->Manifest = $manifest;
-        return $this;
-    }
-    /**
-     * Add item to Manifest value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfAppManifestsType
-     */
-    public function addToManifest($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Manifest property can only contain items of type base64Binary, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Manifest[] = $item;
+        
         return $this;
     }
     /**
@@ -95,7 +85,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -105,7 +95,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -114,7 +104,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -123,7 +113,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -133,7 +123,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfAppManifestsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Manifest
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Manifest';
     }

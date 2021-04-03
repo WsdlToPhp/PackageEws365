@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PostReplyItemType StructType
@@ -16,35 +19,36 @@ class EwsPostReplyItemType extends EwsPostReplyItemBaseType
      * The NewBodyContent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $NewBodyContent;
+    protected ?\StructType\EwsBodyType $NewBodyContent = null;
     /**
      * Constructor method for PostReplyItemType
      * @uses EwsPostReplyItemType::setNewBodyContent()
-     * @param \Ews\StructType\EwsBodyType $newBodyContent
+     * @param \StructType\EwsBodyType $newBodyContent
      */
-    public function __construct(\Ews\StructType\EwsBodyType $newBodyContent = null)
+    public function __construct(?\StructType\EwsBodyType $newBodyContent = null)
     {
         $this
             ->setNewBodyContent($newBodyContent);
     }
     /**
      * Get NewBodyContent value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getNewBodyContent()
+    public function getNewBodyContent(): ?\StructType\EwsBodyType
     {
         return $this->NewBodyContent;
     }
     /**
      * Set NewBodyContent value
-     * @param \Ews\StructType\EwsBodyType $newBodyContent
-     * @return \Ews\StructType\EwsPostReplyItemType
+     * @param \StructType\EwsBodyType $newBodyContent
+     * @return \StructType\EwsPostReplyItemType
      */
-    public function setNewBodyContent(\Ews\StructType\EwsBodyType $newBodyContent = null)
+    public function setNewBodyContent(?\StructType\EwsBodyType $newBodyContent = null): self
     {
         $this->NewBodyContent = $newBodyContent;
+        
         return $this;
     }
 }

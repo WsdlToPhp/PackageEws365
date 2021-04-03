@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserUnifiedGroupsType StructType
@@ -17,25 +20,25 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
+     * @var \ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType|null
      */
-    public $RequestedGroupsSets;
+    protected ?\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $RequestedGroupsSets = null;
     /**
      * The UserSmtpAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UserSmtpAddress;
+    protected ?string $UserSmtpAddress = null;
     /**
      * Constructor method for GetUserUnifiedGroupsType
      * @uses EwsGetUserUnifiedGroupsType::setRequestedGroupsSets()
      * @uses EwsGetUserUnifiedGroupsType::setUserSmtpAddress()
-     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
+     * @param \ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
      * @param string $userSmtpAddress
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null, $userSmtpAddress = null)
+    public function __construct(?\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null, ?string $userSmtpAddress = null)
     {
         $this
             ->setRequestedGroupsSets($requestedGroupsSets)
@@ -43,42 +46,44 @@ class EwsGetUserUnifiedGroupsType extends EwsBaseRequestType
     }
     /**
      * Get RequestedGroupsSets value
-     * @return \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType|null
+     * @return \ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType|null
      */
-    public function getRequestedGroupsSets()
+    public function getRequestedGroupsSets(): ?\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
     {
         return $this->RequestedGroupsSets;
     }
     /**
      * Set RequestedGroupsSets value
-     * @param \Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
-     * @return \Ews\StructType\EwsGetUserUnifiedGroupsType
+     * @param \ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets
+     * @return \StructType\EwsGetUserUnifiedGroupsType
      */
-    public function setRequestedGroupsSets(\Ews\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null)
+    public function setRequestedGroupsSets(?\ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType $requestedGroupsSets = null): self
     {
         $this->RequestedGroupsSets = $requestedGroupsSets;
+        
         return $this;
     }
     /**
      * Get UserSmtpAddress value
      * @return string|null
      */
-    public function getUserSmtpAddress()
+    public function getUserSmtpAddress(): ?string
     {
         return $this->UserSmtpAddress;
     }
     /**
      * Set UserSmtpAddress value
      * @param string $userSmtpAddress
-     * @return \Ews\StructType\EwsGetUserUnifiedGroupsType
+     * @return \StructType\EwsGetUserUnifiedGroupsType
      */
-    public function setUserSmtpAddress($userSmtpAddress = null)
+    public function setUserSmtpAddress(?string $userSmtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($userSmtpAddress) && !is_string($userSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userSmtpAddress, true), gettype($userSmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userSmtpAddress, true), gettype($userSmtpAddress)), __LINE__);
         }
         $this->UserSmtpAddress = $userSmtpAddress;
+        
         return $this;
     }
 }

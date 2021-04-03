@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DefaultShapeNamesType EnumType
@@ -34,12 +36,12 @@ class EwsDefaultShapeNamesType extends AbstractStructEnumBase
      * @uses self::VALUE_ALL_PROPERTIES
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ID_ONLY,
             self::VALUE_DEFAULT,
             self::VALUE_ALL_PROPERTIES,
-        );
+        ];
     }
 }

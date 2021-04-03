@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseMoveCopyFolderType StructType
@@ -14,22 +17,22 @@ class EwsBaseMoveCopyFolderType extends EwsBaseRequestType
 {
     /**
      * The ToFolderId
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $ToFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $ToFolderId = null;
     /**
      * The FolderIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $FolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $FolderIds = null;
     /**
      * Constructor method for BaseMoveCopyFolderType
      * @uses EwsBaseMoveCopyFolderType::setToFolderId()
      * @uses EwsBaseMoveCopyFolderType::setFolderIds()
-     * @param \Ews\StructType\EwsTargetFolderIdType $toFolderId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @param \StructType\EwsTargetFolderIdType $toFolderId
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
-    public function __construct(\Ews\StructType\EwsTargetFolderIdType $toFolderId = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function __construct(?\StructType\EwsTargetFolderIdType $toFolderId = null, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
     {
         $this
             ->setToFolderId($toFolderId)
@@ -37,38 +40,40 @@ class EwsBaseMoveCopyFolderType extends EwsBaseRequestType
     }
     /**
      * Get ToFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getToFolderId()
+    public function getToFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->ToFolderId;
     }
     /**
      * Set ToFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $toFolderId
-     * @return \Ews\StructType\EwsBaseMoveCopyFolderType
+     * @param \StructType\EwsTargetFolderIdType $toFolderId
+     * @return \StructType\EwsBaseMoveCopyFolderType
      */
-    public function setToFolderId(\Ews\StructType\EwsTargetFolderIdType $toFolderId = null)
+    public function setToFolderId(?\StructType\EwsTargetFolderIdType $toFolderId = null): self
     {
         $this->ToFolderId = $toFolderId;
+        
         return $this;
     }
     /**
      * Get FolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->FolderIds;
     }
     /**
      * Set FolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
-     * @return \Ews\StructType\EwsBaseMoveCopyFolderType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @return \StructType\EwsBaseMoveCopyFolderType
      */
-    public function setFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function setFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null): self
     {
         $this->FolderIds = $folderIds;
+        
         return $this;
     }
 }

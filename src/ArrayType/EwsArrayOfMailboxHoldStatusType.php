@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfMailboxHoldStatusType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfMailboxHoldStatusType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMailboxHoldStatusType[]
+     * @var \StructType\EwsMailboxHoldStatusType[]
      */
-    public $MailboxHoldStatus;
+    protected array $MailboxHoldStatus = [];
     /**
      * Constructor method for ArrayOfMailboxHoldStatusType
      * @uses EwsArrayOfMailboxHoldStatusType::setMailboxHoldStatus()
-     * @param \Ews\StructType\EwsMailboxHoldStatusType[] $mailboxHoldStatus
+     * @param \StructType\EwsMailboxHoldStatusType[] $mailboxHoldStatus
      */
-    public function __construct(array $mailboxHoldStatus = array())
+    public function __construct(array $mailboxHoldStatus = [])
     {
         $this
             ->setMailboxHoldStatus($mailboxHoldStatus);
     }
     /**
      * Get MailboxHoldStatus value
-     * @return \Ews\StructType\EwsMailboxHoldStatusType[]|null
+     * @return \StructType\EwsMailboxHoldStatusType[]
      */
-    public function getMailboxHoldStatus()
+    public function getMailboxHoldStatus(): array
     {
         return $this->MailboxHoldStatus;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfMailboxHoldStatusType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMailboxHoldStatusForArrayConstraintsFromSetMailboxHoldStatus(array $values = array())
+    public static function validateMailboxHoldStatusForArrayConstraintsFromSetMailboxHoldStatus(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem) {
             // validation for constraint: itemType
-            if (!$arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem instanceof \Ews\StructType\EwsMailboxHoldStatusType) {
+            if (!$arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem instanceof \StructType\EwsMailboxHoldStatusType) {
                 $invalidValues[] = is_object($arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem) ? get_class($arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem) : sprintf('%s(%s)', gettype($arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem), var_export($arrayOfMailboxHoldStatusTypeMailboxHoldStatusItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MailboxHoldStatus property can only contain items of type \Ews\StructType\EwsMailboxHoldStatusType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MailboxHoldStatus property can only contain items of type \StructType\EwsMailboxHoldStatusType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MailboxHoldStatus value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxHoldStatusType[] $mailboxHoldStatus
-     * @return \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxHoldStatusType[] $mailboxHoldStatus
+     * @return \ArrayType\EwsArrayOfMailboxHoldStatusType
      */
-    public function setMailboxHoldStatus(array $mailboxHoldStatus = array())
+    public function setMailboxHoldStatus(array $mailboxHoldStatus = []): self
     {
         // validation for constraint: array
         if ('' !== ($mailboxHoldStatusArrayErrorMessage = self::validateMailboxHoldStatusForArrayConstraintsFromSetMailboxHoldStatus($mailboxHoldStatus))) {
-            throw new \InvalidArgumentException($mailboxHoldStatusArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($mailboxHoldStatusArrayErrorMessage, __LINE__);
         }
         $this->MailboxHoldStatus = $mailboxHoldStatus;
-        return $this;
-    }
-    /**
-     * Add item to MailboxHoldStatus value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMailboxHoldStatusType $item
-     * @return \Ews\ArrayType\EwsArrayOfMailboxHoldStatusType
-     */
-    public function addToMailboxHoldStatus(\Ews\StructType\EwsMailboxHoldStatusType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMailboxHoldStatusType) {
-            throw new \InvalidArgumentException(sprintf('The MailboxHoldStatus property can only contain items of type \Ews\StructType\EwsMailboxHoldStatusType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MailboxHoldStatus[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMailboxHoldStatusType|null
+     * @return \StructType\EwsMailboxHoldStatusType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMailboxHoldStatusType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfMailboxHoldStatusType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMailboxHoldStatusType|null
+     * @return \StructType\EwsMailboxHoldStatusType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMailboxHoldStatusType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMailboxHoldStatusType|null
+     * @return \StructType\EwsMailboxHoldStatusType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMailboxHoldStatusType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMailboxHoldStatusType|null
+     * @return \StructType\EwsMailboxHoldStatusType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMailboxHoldStatusType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfMailboxHoldStatusType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMailboxHoldStatusType|null
+     * @return \StructType\EwsMailboxHoldStatusType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMailboxHoldStatusType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMailboxHoldStatusType $item
+     * @return \ArrayType\EwsArrayOfMailboxHoldStatusType
+     */
+    public function add(\StructType\EwsMailboxHoldStatusType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MailboxHoldStatus
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MailboxHoldStatus';
     }

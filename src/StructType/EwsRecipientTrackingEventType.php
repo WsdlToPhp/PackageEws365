@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecipientTrackingEventType StructType
@@ -14,83 +17,83 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
 {
     /**
      * The Date
-     * @var string
+     * @var string|null
      */
-    public $Date;
+    protected ?string $Date = null;
     /**
      * The Recipient
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Recipient;
+    protected ?\StructType\EwsEmailAddressType $Recipient = null;
     /**
      * The DeliveryStatus
-     * @var string
+     * @var string|null
      */
-    public $DeliveryStatus;
+    protected ?string $DeliveryStatus = null;
     /**
      * The EventDescription
-     * @var string
+     * @var string|null
      */
-    public $EventDescription;
+    protected ?string $EventDescription = null;
     /**
      * The EventData
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $EventData;
+    protected ?\ArrayType\EwsArrayOfStringsType $EventData = null;
     /**
      * The Server
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $Server;
+    protected ?string $Server = null;
     /**
      * The InternalId
-     * @var int
+     * @var int|null
      */
-    public $InternalId;
+    protected ?int $InternalId = null;
     /**
      * The BccRecipient
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $BccRecipient;
+    protected ?bool $BccRecipient = null;
     /**
      * The HiddenRecipient
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HiddenRecipient;
+    protected ?bool $HiddenRecipient = null;
     /**
      * The UniquePathId
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UniquePathId;
+    protected ?string $UniquePathId = null;
     /**
      * The RootAddress
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $RootAddress;
+    protected ?string $RootAddress = null;
     /**
      * The Properties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public $Properties;
+    protected ?\ArrayType\EwsArrayOfTrackingPropertiesType $Properties = null;
     /**
      * Constructor method for RecipientTrackingEventType
      * @uses EwsRecipientTrackingEventType::setDate()
@@ -106,19 +109,19 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      * @uses EwsRecipientTrackingEventType::setRootAddress()
      * @uses EwsRecipientTrackingEventType::setProperties()
      * @param string $date
-     * @param \Ews\StructType\EwsEmailAddressType $recipient
+     * @param \StructType\EwsEmailAddressType $recipient
      * @param string $deliveryStatus
      * @param string $eventDescription
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $eventData
+     * @param \ArrayType\EwsArrayOfStringsType $eventData
      * @param string $server
      * @param int $internalId
      * @param bool $bccRecipient
      * @param bool $hiddenRecipient
      * @param string $uniquePathId
      * @param string $rootAddress
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
      */
-    public function __construct($date = null, \Ews\StructType\EwsEmailAddressType $recipient = null, $deliveryStatus = null, $eventDescription = null, \Ews\ArrayType\EwsArrayOfStringsType $eventData = null, $server = null, $internalId = null, $bccRecipient = null, $hiddenRecipient = null, $uniquePathId = null, $rootAddress = null, \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function __construct(?string $date = null, ?\StructType\EwsEmailAddressType $recipient = null, ?string $deliveryStatus = null, ?string $eventDescription = null, ?\ArrayType\EwsArrayOfStringsType $eventData = null, ?string $server = null, ?int $internalId = null, ?bool $bccRecipient = null, ?bool $hiddenRecipient = null, ?string $uniquePathId = null, ?string $rootAddress = null, ?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
     {
         $this
             ->setDate($date)
@@ -138,264 +141,276 @@ class EwsRecipientTrackingEventType extends AbstractStructBase
      * Get Date value
      * @return string|null
      */
-    public function getDate()
+    public function getDate(): ?string
     {
         return $this->Date;
     }
     /**
      * Set Date value
      * @param string $date
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setDate($date = null)
+    public function setDate(?string $date = null): self
     {
         // validation for constraint: string
         if (!is_null($date) && !is_string($date)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($date, true), gettype($date)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($date, true), gettype($date)), __LINE__);
         }
         $this->Date = $date;
+        
         return $this;
     }
     /**
      * Get Recipient value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getRecipient()
+    public function getRecipient(): ?\StructType\EwsEmailAddressType
     {
         return $this->Recipient;
     }
     /**
      * Set Recipient value
-     * @param \Ews\StructType\EwsEmailAddressType $recipient
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @param \StructType\EwsEmailAddressType $recipient
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setRecipient(\Ews\StructType\EwsEmailAddressType $recipient = null)
+    public function setRecipient(?\StructType\EwsEmailAddressType $recipient = null): self
     {
         $this->Recipient = $recipient;
+        
         return $this;
     }
     /**
      * Get DeliveryStatus value
      * @return string|null
      */
-    public function getDeliveryStatus()
+    public function getDeliveryStatus(): ?string
     {
         return $this->DeliveryStatus;
     }
     /**
      * Set DeliveryStatus value
      * @param string $deliveryStatus
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setDeliveryStatus($deliveryStatus = null)
+    public function setDeliveryStatus(?string $deliveryStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($deliveryStatus) && !is_string($deliveryStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($deliveryStatus, true), gettype($deliveryStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($deliveryStatus, true), gettype($deliveryStatus)), __LINE__);
         }
         $this->DeliveryStatus = $deliveryStatus;
+        
         return $this;
     }
     /**
      * Get EventDescription value
      * @return string|null
      */
-    public function getEventDescription()
+    public function getEventDescription(): ?string
     {
         return $this->EventDescription;
     }
     /**
      * Set EventDescription value
      * @param string $eventDescription
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setEventDescription($eventDescription = null)
+    public function setEventDescription(?string $eventDescription = null): self
     {
         // validation for constraint: string
         if (!is_null($eventDescription) && !is_string($eventDescription)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventDescription, true), gettype($eventDescription)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventDescription, true), gettype($eventDescription)), __LINE__);
         }
         $this->EventDescription = $eventDescription;
+        
         return $this;
     }
     /**
      * Get EventData value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getEventData()
+    public function getEventData(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->EventData;
     }
     /**
      * Set EventData value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $eventData
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @param \ArrayType\EwsArrayOfStringsType $eventData
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setEventData(\Ews\ArrayType\EwsArrayOfStringsType $eventData = null)
+    public function setEventData(?\ArrayType\EwsArrayOfStringsType $eventData = null): self
     {
         $this->EventData = $eventData;
+        
         return $this;
     }
     /**
      * Get Server value
      * @return string|null
      */
-    public function getServer()
+    public function getServer(): ?string
     {
         return $this->Server;
     }
     /**
      * Set Server value
      * @param string $server
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setServer($server = null)
+    public function setServer(?string $server = null): self
     {
         // validation for constraint: string
         if (!is_null($server) && !is_string($server)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($server, true), gettype($server)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($server, true), gettype($server)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($server) && mb_strlen($server) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($server)), __LINE__);
+        if (!is_null($server) && mb_strlen((string) $server) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $server)), __LINE__);
         }
         $this->Server = $server;
+        
         return $this;
     }
     /**
      * Get InternalId value
      * @return int|null
      */
-    public function getInternalId()
+    public function getInternalId(): ?int
     {
         return $this->InternalId;
     }
     /**
      * Set InternalId value
      * @param int $internalId
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setInternalId($internalId = null)
+    public function setInternalId(?int $internalId = null): self
     {
         // validation for constraint: int
         if (!is_null($internalId) && !(is_int($internalId) || ctype_digit($internalId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($internalId, true), gettype($internalId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($internalId, true), gettype($internalId)), __LINE__);
         }
         $this->InternalId = $internalId;
+        
         return $this;
     }
     /**
      * Get BccRecipient value
      * @return bool|null
      */
-    public function getBccRecipient()
+    public function getBccRecipient(): ?bool
     {
         return $this->BccRecipient;
     }
     /**
      * Set BccRecipient value
      * @param bool $bccRecipient
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setBccRecipient($bccRecipient = null)
+    public function setBccRecipient(?bool $bccRecipient = null): self
     {
         // validation for constraint: boolean
         if (!is_null($bccRecipient) && !is_bool($bccRecipient)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($bccRecipient, true), gettype($bccRecipient)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($bccRecipient, true), gettype($bccRecipient)), __LINE__);
         }
         $this->BccRecipient = $bccRecipient;
+        
         return $this;
     }
     /**
      * Get HiddenRecipient value
      * @return bool|null
      */
-    public function getHiddenRecipient()
+    public function getHiddenRecipient(): ?bool
     {
         return $this->HiddenRecipient;
     }
     /**
      * Set HiddenRecipient value
      * @param bool $hiddenRecipient
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setHiddenRecipient($hiddenRecipient = null)
+    public function setHiddenRecipient(?bool $hiddenRecipient = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hiddenRecipient) && !is_bool($hiddenRecipient)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hiddenRecipient, true), gettype($hiddenRecipient)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hiddenRecipient, true), gettype($hiddenRecipient)), __LINE__);
         }
         $this->HiddenRecipient = $hiddenRecipient;
+        
         return $this;
     }
     /**
      * Get UniquePathId value
      * @return string|null
      */
-    public function getUniquePathId()
+    public function getUniquePathId(): ?string
     {
         return $this->UniquePathId;
     }
     /**
      * Set UniquePathId value
      * @param string $uniquePathId
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setUniquePathId($uniquePathId = null)
+    public function setUniquePathId(?string $uniquePathId = null): self
     {
         // validation for constraint: string
         if (!is_null($uniquePathId) && !is_string($uniquePathId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniquePathId, true), gettype($uniquePathId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniquePathId, true), gettype($uniquePathId)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($uniquePathId) && mb_strlen($uniquePathId) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($uniquePathId)), __LINE__);
+        if (!is_null($uniquePathId) && mb_strlen((string) $uniquePathId) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $uniquePathId)), __LINE__);
         }
         $this->UniquePathId = $uniquePathId;
+        
         return $this;
     }
     /**
      * Get RootAddress value
      * @return string|null
      */
-    public function getRootAddress()
+    public function getRootAddress(): ?string
     {
         return $this->RootAddress;
     }
     /**
      * Set RootAddress value
      * @param string $rootAddress
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setRootAddress($rootAddress = null)
+    public function setRootAddress(?string $rootAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($rootAddress) && !is_string($rootAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootAddress, true), gettype($rootAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootAddress, true), gettype($rootAddress)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($rootAddress) && mb_strlen($rootAddress) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($rootAddress)), __LINE__);
+        if (!is_null($rootAddress) && mb_strlen((string) $rootAddress) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $rootAddress)), __LINE__);
         }
         $this->RootAddress = $rootAddress;
+        
         return $this;
     }
     /**
      * Get Properties value
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function getProperties()
+    public function getProperties(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return $this->Properties;
     }
     /**
      * Set Properties value
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
-     * @return \Ews\StructType\EwsRecipientTrackingEventType
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @return \StructType\EwsRecipientTrackingEventType
      */
-    public function setProperties(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function setProperties(?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null): self
     {
         $this->Properties = $properties;
+        
         return $this;
     }
 }

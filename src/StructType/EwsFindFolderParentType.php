@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindFolderParentType StructType
@@ -16,49 +19,49 @@ class EwsFindFolderParentType extends AbstractStructBase
      * The Folders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsArrayOfFoldersType
+     * @var \StructType\EwsArrayOfFoldersType|null
      */
-    public $Folders;
+    protected ?\StructType\EwsArrayOfFoldersType $Folders = null;
     /**
      * The IndexedPagingOffset
      * Meta information extracted from the WSDL
      * - type: xs:int
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $IndexedPagingOffset;
+    protected ?int $IndexedPagingOffset = null;
     /**
      * The NumeratorOffset
      * Meta information extracted from the WSDL
      * - type: xs:int
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $NumeratorOffset;
+    protected ?int $NumeratorOffset = null;
     /**
      * The AbsoluteDenominator
      * Meta information extracted from the WSDL
      * - type: xs:int
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $AbsoluteDenominator;
+    protected ?int $AbsoluteDenominator = null;
     /**
      * The IncludesLastItemInRange
      * Meta information extracted from the WSDL
      * - type: xs:boolean
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $IncludesLastItemInRange;
+    protected ?bool $IncludesLastItemInRange = null;
     /**
      * The TotalItemsInView
      * Meta information extracted from the WSDL
      * - type: xs:int
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $TotalItemsInView;
+    protected ?int $TotalItemsInView = null;
     /**
      * Constructor method for FindFolderParentType
      * @uses EwsFindFolderParentType::setFolders()
@@ -67,14 +70,14 @@ class EwsFindFolderParentType extends AbstractStructBase
      * @uses EwsFindFolderParentType::setAbsoluteDenominator()
      * @uses EwsFindFolderParentType::setIncludesLastItemInRange()
      * @uses EwsFindFolderParentType::setTotalItemsInView()
-     * @param \Ews\StructType\EwsArrayOfFoldersType $folders
+     * @param \StructType\EwsArrayOfFoldersType $folders
      * @param int $indexedPagingOffset
      * @param int $numeratorOffset
      * @param int $absoluteDenominator
      * @param bool $includesLastItemInRange
      * @param int $totalItemsInView
      */
-    public function __construct(\Ews\StructType\EwsArrayOfFoldersType $folders = null, $indexedPagingOffset = null, $numeratorOffset = null, $absoluteDenominator = null, $includesLastItemInRange = null, $totalItemsInView = null)
+    public function __construct(?\StructType\EwsArrayOfFoldersType $folders = null, ?int $indexedPagingOffset = null, ?int $numeratorOffset = null, ?int $absoluteDenominator = null, ?bool $includesLastItemInRange = null, ?int $totalItemsInView = null)
     {
         $this
             ->setFolders($folders)
@@ -86,130 +89,136 @@ class EwsFindFolderParentType extends AbstractStructBase
     }
     /**
      * Get Folders value
-     * @return \Ews\StructType\EwsArrayOfFoldersType|null
+     * @return \StructType\EwsArrayOfFoldersType|null
      */
-    public function getFolders()
+    public function getFolders(): ?\StructType\EwsArrayOfFoldersType
     {
         return $this->Folders;
     }
     /**
      * Set Folders value
-     * @param \Ews\StructType\EwsArrayOfFoldersType $folders
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @param \StructType\EwsArrayOfFoldersType $folders
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setFolders(\Ews\StructType\EwsArrayOfFoldersType $folders = null)
+    public function setFolders(?\StructType\EwsArrayOfFoldersType $folders = null): self
     {
         $this->Folders = $folders;
+        
         return $this;
     }
     /**
      * Get IndexedPagingOffset value
      * @return int|null
      */
-    public function getIndexedPagingOffset()
+    public function getIndexedPagingOffset(): ?int
     {
         return $this->IndexedPagingOffset;
     }
     /**
      * Set IndexedPagingOffset value
      * @param int $indexedPagingOffset
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setIndexedPagingOffset($indexedPagingOffset = null)
+    public function setIndexedPagingOffset(?int $indexedPagingOffset = null): self
     {
         // validation for constraint: int
         if (!is_null($indexedPagingOffset) && !(is_int($indexedPagingOffset) || ctype_digit($indexedPagingOffset))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedPagingOffset, true), gettype($indexedPagingOffset)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($indexedPagingOffset, true), gettype($indexedPagingOffset)), __LINE__);
         }
         $this->IndexedPagingOffset = $indexedPagingOffset;
+        
         return $this;
     }
     /**
      * Get NumeratorOffset value
      * @return int|null
      */
-    public function getNumeratorOffset()
+    public function getNumeratorOffset(): ?int
     {
         return $this->NumeratorOffset;
     }
     /**
      * Set NumeratorOffset value
      * @param int $numeratorOffset
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setNumeratorOffset($numeratorOffset = null)
+    public function setNumeratorOffset(?int $numeratorOffset = null): self
     {
         // validation for constraint: int
         if (!is_null($numeratorOffset) && !(is_int($numeratorOffset) || ctype_digit($numeratorOffset))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numeratorOffset, true), gettype($numeratorOffset)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numeratorOffset, true), gettype($numeratorOffset)), __LINE__);
         }
         $this->NumeratorOffset = $numeratorOffset;
+        
         return $this;
     }
     /**
      * Get AbsoluteDenominator value
      * @return int|null
      */
-    public function getAbsoluteDenominator()
+    public function getAbsoluteDenominator(): ?int
     {
         return $this->AbsoluteDenominator;
     }
     /**
      * Set AbsoluteDenominator value
      * @param int $absoluteDenominator
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setAbsoluteDenominator($absoluteDenominator = null)
+    public function setAbsoluteDenominator(?int $absoluteDenominator = null): self
     {
         // validation for constraint: int
         if (!is_null($absoluteDenominator) && !(is_int($absoluteDenominator) || ctype_digit($absoluteDenominator))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($absoluteDenominator, true), gettype($absoluteDenominator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($absoluteDenominator, true), gettype($absoluteDenominator)), __LINE__);
         }
         $this->AbsoluteDenominator = $absoluteDenominator;
+        
         return $this;
     }
     /**
      * Get IncludesLastItemInRange value
      * @return bool|null
      */
-    public function getIncludesLastItemInRange()
+    public function getIncludesLastItemInRange(): ?bool
     {
         return $this->IncludesLastItemInRange;
     }
     /**
      * Set IncludesLastItemInRange value
      * @param bool $includesLastItemInRange
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setIncludesLastItemInRange($includesLastItemInRange = null)
+    public function setIncludesLastItemInRange(?bool $includesLastItemInRange = null): self
     {
         // validation for constraint: boolean
         if (!is_null($includesLastItemInRange) && !is_bool($includesLastItemInRange)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includesLastItemInRange, true), gettype($includesLastItemInRange)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includesLastItemInRange, true), gettype($includesLastItemInRange)), __LINE__);
         }
         $this->IncludesLastItemInRange = $includesLastItemInRange;
+        
         return $this;
     }
     /**
      * Get TotalItemsInView value
      * @return int|null
      */
-    public function getTotalItemsInView()
+    public function getTotalItemsInView(): ?int
     {
         return $this->TotalItemsInView;
     }
     /**
      * Set TotalItemsInView value
      * @param int $totalItemsInView
-     * @return \Ews\StructType\EwsFindFolderParentType
+     * @return \StructType\EwsFindFolderParentType
      */
-    public function setTotalItemsInView($totalItemsInView = null)
+    public function setTotalItemsInView(?int $totalItemsInView = null): self
     {
         // validation for constraint: int
         if (!is_null($totalItemsInView) && !(is_int($totalItemsInView) || ctype_digit($totalItemsInView))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalItemsInView, true), gettype($totalItemsInView)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalItemsInView, true), gettype($totalItemsInView)), __LINE__);
         }
         $this->TotalItemsInView = $totalItemsInView;
+        
         return $this;
     }
 }

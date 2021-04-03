@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TransitionTargetType StructType
@@ -18,12 +21,12 @@ class EwsTransitionTargetType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Kind;
+    protected string $Kind;
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * Constructor method for TransitionTargetType
      * @uses EwsTransitionTargetType::setKind()
@@ -31,7 +34,7 @@ class EwsTransitionTargetType extends AbstractStructBase
      * @param string $kind
      * @param string $_
      */
-    public function __construct($kind = null, $_ = null)
+    public function __construct(string $kind, ?string $_ = null)
     {
         $this
             ->setKind($kind)
@@ -41,47 +44,49 @@ class EwsTransitionTargetType extends AbstractStructBase
      * Get Kind value
      * @return string
      */
-    public function getKind()
+    public function getKind(): string
     {
         return $this->Kind;
     }
     /**
      * Set Kind value
-     * @uses \Ews\EnumType\EwsTransitionTargetKindType::valueIsValid()
-     * @uses \Ews\EnumType\EwsTransitionTargetKindType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsTransitionTargetKindType::valueIsValid()
+     * @uses \EnumType\EwsTransitionTargetKindType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $kind
-     * @return \Ews\StructType\EwsTransitionTargetType
+     * @return \StructType\EwsTransitionTargetType
      */
-    public function setKind($kind = null)
+    public function setKind(string $kind): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsTransitionTargetKindType::valueIsValid($kind)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTransitionTargetKindType', is_array($kind) ? implode(', ', $kind) : var_export($kind, true), implode(', ', \Ews\EnumType\EwsTransitionTargetKindType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsTransitionTargetKindType::valueIsValid($kind)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsTransitionTargetKindType', is_array($kind) ? implode(', ', $kind) : var_export($kind, true), implode(', ', \EnumType\EwsTransitionTargetKindType::getValidValues())), __LINE__);
         }
         $this->Kind = $kind;
+        
         return $this;
     }
     /**
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsTransitionTargetType
+     * @return \StructType\EwsTransitionTargetType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfInternetHeadersType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * The InternetMessageHeader
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsInternetHeaderType[]
+     * @var \StructType\EwsInternetHeaderType[]
      */
-    public $InternetMessageHeader;
+    protected array $InternetMessageHeader = [];
     /**
      * Constructor method for NonEmptyArrayOfInternetHeadersType
      * @uses EwsNonEmptyArrayOfInternetHeadersType::setInternetMessageHeader()
-     * @param \Ews\StructType\EwsInternetHeaderType[] $internetMessageHeader
+     * @param \StructType\EwsInternetHeaderType[] $internetMessageHeader
      */
-    public function __construct(array $internetMessageHeader = array())
+    public function __construct(array $internetMessageHeader = [])
     {
         $this
             ->setInternetMessageHeader($internetMessageHeader);
     }
     /**
      * Get InternetMessageHeader value
-     * @return \Ews\StructType\EwsInternetHeaderType[]|null
+     * @return \StructType\EwsInternetHeaderType[]
      */
-    public function getInternetMessageHeader()
+    public function getInternetMessageHeader(): array
     {
         return $this->InternetMessageHeader;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateInternetMessageHeaderForArrayConstraintsFromSetInternetMessageHeader(array $values = array())
+    public static function validateInternetMessageHeaderForArrayConstraintsFromSetInternetMessageHeader(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem instanceof \Ews\StructType\EwsInternetHeaderType) {
+            if (!$nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem instanceof \StructType\EwsInternetHeaderType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) ? get_class($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem), var_export($nonEmptyArrayOfInternetHeadersTypeInternetMessageHeaderItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The InternetMessageHeader property can only contain items of type \Ews\StructType\EwsInternetHeaderType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The InternetMessageHeader property can only contain items of type \StructType\EwsInternetHeaderType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set InternetMessageHeader value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInternetHeaderType[] $internetMessageHeader
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInternetHeaderType[] $internetMessageHeader
+     * @return \ArrayType\EwsNonEmptyArrayOfInternetHeadersType
      */
-    public function setInternetMessageHeader(array $internetMessageHeader = array())
+    public function setInternetMessageHeader(array $internetMessageHeader = []): self
     {
         // validation for constraint: array
         if ('' !== ($internetMessageHeaderArrayErrorMessage = self::validateInternetMessageHeaderForArrayConstraintsFromSetInternetMessageHeader($internetMessageHeader))) {
-            throw new \InvalidArgumentException($internetMessageHeaderArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($internetMessageHeaderArrayErrorMessage, __LINE__);
         }
         $this->InternetMessageHeader = $internetMessageHeader;
-        return $this;
-    }
-    /**
-     * Add item to InternetMessageHeader value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInternetHeaderType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
-     */
-    public function addToInternetMessageHeader(\Ews\StructType\EwsInternetHeaderType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsInternetHeaderType) {
-            throw new \InvalidArgumentException(sprintf('The InternetMessageHeader property can only contain items of type \Ews\StructType\EwsInternetHeaderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->InternetMessageHeader[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsInternetHeaderType|null
+     * @return \StructType\EwsInternetHeaderType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsInternetHeaderType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsInternetHeaderType|null
+     * @return \StructType\EwsInternetHeaderType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsInternetHeaderType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsInternetHeaderType|null
+     * @return \StructType\EwsInternetHeaderType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsInternetHeaderType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsInternetHeaderType|null
+     * @return \StructType\EwsInternetHeaderType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsInternetHeaderType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsInternetHeaderType|null
+     * @return \StructType\EwsInternetHeaderType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsInternetHeaderType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInternetHeaderType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfInternetHeadersType
+     */
+    public function add(\StructType\EwsInternetHeaderType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string InternetMessageHeader
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'InternetMessageHeader';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUserOofSettingsRequest StructType
@@ -20,26 +23,26 @@ class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
      * - maxOccurs: 1
      * - minOccurs: 1
      * - ref: t:Mailbox
-     * @var \Ews\StructType\EwsEmailAddress
+     * @var \StructType\EwsEmailAddress
      */
-    public $Mailbox;
+    protected \StructType\EwsEmailAddress $Mailbox;
     /**
      * The UserOofSettings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
      * - ref: t:UserOofSettings
-     * @var \Ews\StructType\EwsUserOofSettings
+     * @var \StructType\EwsUserOofSettings
      */
-    public $UserOofSettings;
+    protected \StructType\EwsUserOofSettings $UserOofSettings;
     /**
      * Constructor method for SetUserOofSettingsRequest
      * @uses EwsSetUserOofSettingsRequest::setMailbox()
      * @uses EwsSetUserOofSettingsRequest::setUserOofSettings()
-     * @param \Ews\StructType\EwsEmailAddress $mailbox
-     * @param \Ews\StructType\EwsUserOofSettings $userOofSettings
+     * @param \StructType\EwsEmailAddress $mailbox
+     * @param \StructType\EwsUserOofSettings $userOofSettings
      */
-    public function __construct(\Ews\StructType\EwsEmailAddress $mailbox = null, \Ews\StructType\EwsUserOofSettings $userOofSettings = null)
+    public function __construct(\StructType\EwsEmailAddress $mailbox, \StructType\EwsUserOofSettings $userOofSettings)
     {
         $this
             ->setMailbox($mailbox)
@@ -47,38 +50,40 @@ class EwsSetUserOofSettingsRequest extends EwsBaseRequestType
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddress
+     * @return \StructType\EwsEmailAddress
      */
-    public function getMailbox()
+    public function getMailbox(): \StructType\EwsEmailAddress
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddress $mailbox
-     * @return \Ews\StructType\EwsSetUserOofSettingsRequest
+     * @param \StructType\EwsEmailAddress $mailbox
+     * @return \StructType\EwsSetUserOofSettingsRequest
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddress $mailbox = null)
+    public function setMailbox(\StructType\EwsEmailAddress $mailbox): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get UserOofSettings value
-     * @return \Ews\StructType\EwsUserOofSettings
+     * @return \StructType\EwsUserOofSettings
      */
-    public function getUserOofSettings()
+    public function getUserOofSettings(): \StructType\EwsUserOofSettings
     {
         return $this->UserOofSettings;
     }
     /**
      * Set UserOofSettings value
-     * @param \Ews\StructType\EwsUserOofSettings $userOofSettings
-     * @return \Ews\StructType\EwsSetUserOofSettingsRequest
+     * @param \StructType\EwsUserOofSettings $userOofSettings
+     * @return \StructType\EwsSetUserOofSettingsRequest
      */
-    public function setUserOofSettings(\Ews\StructType\EwsUserOofSettings $userOofSettings = null)
+    public function setUserOofSettings(\StructType\EwsUserOofSettings $userOofSettings): self
     {
         $this->UserOofSettings = $userOofSettings;
+        
         return $this;
     }
 }

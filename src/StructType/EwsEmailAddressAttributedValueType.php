@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EmailAddressAttributedValueType StructType
@@ -17,25 +20,25 @@ class EwsEmailAddressAttributedValueType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType
      */
-    public $Value;
+    protected \StructType\EwsEmailAddressType $Value;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @var \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public $Attributions;
+    protected \ArrayType\EwsArrayOfValueAttributionsType $Attributions;
     /**
      * Constructor method for EmailAddressAttributedValueType
      * @uses EwsEmailAddressAttributedValueType::setValue()
      * @uses EwsEmailAddressAttributedValueType::setAttributions()
-     * @param \Ews\StructType\EwsEmailAddressType $value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @param \StructType\EwsEmailAddressType $value
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $value = null, \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function __construct(\StructType\EwsEmailAddressType $value, \ArrayType\EwsArrayOfValueAttributionsType $attributions)
     {
         $this
             ->setValue($value)
@@ -43,38 +46,40 @@ class EwsEmailAddressAttributedValueType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function getValue()
+    public function getValue(): \StructType\EwsEmailAddressType
     {
         return $this->Value;
     }
     /**
      * Set Value value
-     * @param \Ews\StructType\EwsEmailAddressType $value
-     * @return \Ews\StructType\EwsEmailAddressAttributedValueType
+     * @param \StructType\EwsEmailAddressType $value
+     * @return \StructType\EwsEmailAddressAttributedValueType
      */
-    public function setValue(\Ews\StructType\EwsEmailAddressType $value = null)
+    public function setValue(\StructType\EwsEmailAddressType $value): self
     {
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function getAttributions()
+    public function getAttributions(): \ArrayType\EwsArrayOfValueAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
-     * @return \Ews\StructType\EwsEmailAddressAttributedValueType
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @return \StructType\EwsEmailAddressAttributedValueType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function setAttributions(\ArrayType\EwsArrayOfValueAttributionsType $attributions): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
 }

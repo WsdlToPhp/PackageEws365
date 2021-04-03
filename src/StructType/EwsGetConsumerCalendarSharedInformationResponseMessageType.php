@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetConsumerCalendarSharedInformationResponseMessageType
@@ -18,35 +21,36 @@ class EwsGetConsumerCalendarSharedInformationResponseMessageType extends EwsResp
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsConsumerCalendarSharedInformation
+     * @var \StructType\EwsConsumerCalendarSharedInformation
      */
-    public $ConsumerCalendarSharedInformation;
+    protected \StructType\EwsConsumerCalendarSharedInformation $ConsumerCalendarSharedInformation;
     /**
      * Constructor method for GetConsumerCalendarSharedInformationResponseMessageType
      * @uses EwsGetConsumerCalendarSharedInformationResponseMessageType::setConsumerCalendarSharedInformation()
-     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
+     * @param \StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
      */
-    public function __construct(\Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation = null)
+    public function __construct(\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation)
     {
         $this
             ->setConsumerCalendarSharedInformation($consumerCalendarSharedInformation);
     }
     /**
      * Get ConsumerCalendarSharedInformation value
-     * @return \Ews\StructType\EwsConsumerCalendarSharedInformation
+     * @return \StructType\EwsConsumerCalendarSharedInformation
      */
-    public function getConsumerCalendarSharedInformation()
+    public function getConsumerCalendarSharedInformation(): \StructType\EwsConsumerCalendarSharedInformation
     {
         return $this->ConsumerCalendarSharedInformation;
     }
     /**
      * Set ConsumerCalendarSharedInformation value
-     * @param \Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
-     * @return \Ews\StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
+     * @param \StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation
+     * @return \StructType\EwsGetConsumerCalendarSharedInformationResponseMessageType
      */
-    public function setConsumerCalendarSharedInformation(\Ews\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation = null)
+    public function setConsumerCalendarSharedInformation(\StructType\EwsConsumerCalendarSharedInformation $consumerCalendarSharedInformation): self
     {
         $this->ConsumerCalendarSharedInformation = $consumerCalendarSharedInformation;
+        
         return $this;
     }
 }

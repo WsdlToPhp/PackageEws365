@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfInsightContextItem ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsInsightContextItem[]
+     * @var \StructType\EwsInsightContextItem[]
      */
-    public $Context;
+    protected array $Context = [];
     /**
      * Constructor method for ArrayOfInsightContextItem
      * @uses EwsArrayOfInsightContextItem::setContext()
-     * @param \Ews\StructType\EwsInsightContextItem[] $context
+     * @param \StructType\EwsInsightContextItem[] $context
      */
-    public function __construct(array $context = array())
+    public function __construct(array $context = [])
     {
         $this
             ->setContext($context);
     }
     /**
      * Get Context value
-     * @return \Ews\StructType\EwsInsightContextItem[]|null
+     * @return \StructType\EwsInsightContextItem[]
      */
-    public function getContext()
+    public function getContext(): array
     {
         return $this->Context;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateContextForArrayConstraintsFromSetContext(array $values = array())
+    public static function validateContextForArrayConstraintsFromSetContext(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfInsightContextItemContextItem) {
             // validation for constraint: itemType
-            if (!$arrayOfInsightContextItemContextItem instanceof \Ews\StructType\EwsInsightContextItem) {
+            if (!$arrayOfInsightContextItemContextItem instanceof \StructType\EwsInsightContextItem) {
                 $invalidValues[] = is_object($arrayOfInsightContextItemContextItem) ? get_class($arrayOfInsightContextItemContextItem) : sprintf('%s(%s)', gettype($arrayOfInsightContextItemContextItem), var_export($arrayOfInsightContextItemContextItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Context property can only contain items of type \Ews\StructType\EwsInsightContextItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Context property can only contain items of type \StructType\EwsInsightContextItem, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Context value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInsightContextItem[] $context
-     * @return \Ews\ArrayType\EwsArrayOfInsightContextItem
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInsightContextItem[] $context
+     * @return \ArrayType\EwsArrayOfInsightContextItem
      */
-    public function setContext(array $context = array())
+    public function setContext(array $context = []): self
     {
         // validation for constraint: array
         if ('' !== ($contextArrayErrorMessage = self::validateContextForArrayConstraintsFromSetContext($context))) {
-            throw new \InvalidArgumentException($contextArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contextArrayErrorMessage, __LINE__);
         }
         $this->Context = $context;
-        return $this;
-    }
-    /**
-     * Add item to Context value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsInsightContextItem $item
-     * @return \Ews\ArrayType\EwsArrayOfInsightContextItem
-     */
-    public function addToContext(\Ews\StructType\EwsInsightContextItem $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsInsightContextItem) {
-            throw new \InvalidArgumentException(sprintf('The Context property can only contain items of type \Ews\StructType\EwsInsightContextItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Context[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsInsightContextItem|null
+     * @return \StructType\EwsInsightContextItem|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsInsightContextItem
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsInsightContextItem|null
+     * @return \StructType\EwsInsightContextItem|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsInsightContextItem
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsInsightContextItem|null
+     * @return \StructType\EwsInsightContextItem|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsInsightContextItem
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsInsightContextItem|null
+     * @return \StructType\EwsInsightContextItem|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsInsightContextItem
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsInsightContextItem|null
+     * @return \StructType\EwsInsightContextItem|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsInsightContextItem
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsInsightContextItem $item
+     * @return \ArrayType\EwsArrayOfInsightContextItem
+     */
+    public function add(\StructType\EwsInsightContextItem $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Context
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Context';
     }

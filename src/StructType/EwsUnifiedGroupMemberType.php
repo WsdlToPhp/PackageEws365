@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupMemberType StructType
@@ -17,25 +20,25 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonaType
+     * @var \StructType\EwsPersonaType|null
      */
-    public $Persona;
+    protected ?\StructType\EwsPersonaType $Persona = null;
     /**
      * The IsOwner
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsOwner;
+    protected ?bool $IsOwner = null;
     /**
      * Constructor method for UnifiedGroupMemberType
      * @uses EwsUnifiedGroupMemberType::setPersona()
      * @uses EwsUnifiedGroupMemberType::setIsOwner()
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @param \StructType\EwsPersonaType $persona
      * @param bool $isOwner
      */
-    public function __construct(\Ews\StructType\EwsPersonaType $persona = null, $isOwner = null)
+    public function __construct(?\StructType\EwsPersonaType $persona = null, ?bool $isOwner = null)
     {
         $this
             ->setPersona($persona)
@@ -43,42 +46,44 @@ class EwsUnifiedGroupMemberType extends AbstractStructBase
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function getPersona()
+    public function getPersona(): ?\StructType\EwsPersonaType
     {
         return $this->Persona;
     }
     /**
      * Set Persona value
-     * @param \Ews\StructType\EwsPersonaType $persona
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType
+     * @param \StructType\EwsPersonaType $persona
+     * @return \StructType\EwsUnifiedGroupMemberType
      */
-    public function setPersona(\Ews\StructType\EwsPersonaType $persona = null)
+    public function setPersona(?\StructType\EwsPersonaType $persona = null): self
     {
         $this->Persona = $persona;
+        
         return $this;
     }
     /**
      * Get IsOwner value
      * @return bool|null
      */
-    public function getIsOwner()
+    public function getIsOwner(): ?bool
     {
         return $this->IsOwner;
     }
     /**
      * Set IsOwner value
      * @param bool $isOwner
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType
+     * @return \StructType\EwsUnifiedGroupMemberType
      */
-    public function setIsOwner($isOwner = null)
+    public function setIsOwner(?bool $isOwner = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isOwner) && !is_bool($isOwner)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOwner, true), gettype($isOwner)), __LINE__);
         }
         $this->IsOwner = $isOwner;
+        
         return $this;
     }
 }

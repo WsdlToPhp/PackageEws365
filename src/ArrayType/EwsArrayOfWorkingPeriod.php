@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfWorkingPeriod ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsWorkingPeriod[]
+     * @var \StructType\EwsWorkingPeriod[]
      */
-    public $WorkingPeriod;
+    protected array $WorkingPeriod = [];
     /**
      * Constructor method for ArrayOfWorkingPeriod
      * @uses EwsArrayOfWorkingPeriod::setWorkingPeriod()
-     * @param \Ews\StructType\EwsWorkingPeriod[] $workingPeriod
+     * @param \StructType\EwsWorkingPeriod[] $workingPeriod
      */
-    public function __construct(array $workingPeriod = array())
+    public function __construct(array $workingPeriod = [])
     {
         $this
             ->setWorkingPeriod($workingPeriod);
     }
     /**
      * Get WorkingPeriod value
-     * @return \Ews\StructType\EwsWorkingPeriod[]|null
+     * @return \StructType\EwsWorkingPeriod[]
      */
-    public function getWorkingPeriod()
+    public function getWorkingPeriod(): array
     {
         return $this->WorkingPeriod;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateWorkingPeriodForArrayConstraintsFromSetWorkingPeriod(array $values = array())
+    public static function validateWorkingPeriodForArrayConstraintsFromSetWorkingPeriod(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfWorkingPeriodWorkingPeriodItem) {
             // validation for constraint: itemType
-            if (!$arrayOfWorkingPeriodWorkingPeriodItem instanceof \Ews\StructType\EwsWorkingPeriod) {
+            if (!$arrayOfWorkingPeriodWorkingPeriodItem instanceof \StructType\EwsWorkingPeriod) {
                 $invalidValues[] = is_object($arrayOfWorkingPeriodWorkingPeriodItem) ? get_class($arrayOfWorkingPeriodWorkingPeriodItem) : sprintf('%s(%s)', gettype($arrayOfWorkingPeriodWorkingPeriodItem), var_export($arrayOfWorkingPeriodWorkingPeriodItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The WorkingPeriod property can only contain items of type \Ews\StructType\EwsWorkingPeriod, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The WorkingPeriod property can only contain items of type \StructType\EwsWorkingPeriod, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set WorkingPeriod value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkingPeriod[] $workingPeriod
-     * @return \Ews\ArrayType\EwsArrayOfWorkingPeriod
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkingPeriod[] $workingPeriod
+     * @return \ArrayType\EwsArrayOfWorkingPeriod
      */
-    public function setWorkingPeriod(array $workingPeriod = array())
+    public function setWorkingPeriod(array $workingPeriod = []): self
     {
         // validation for constraint: array
         if ('' !== ($workingPeriodArrayErrorMessage = self::validateWorkingPeriodForArrayConstraintsFromSetWorkingPeriod($workingPeriod))) {
-            throw new \InvalidArgumentException($workingPeriodArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($workingPeriodArrayErrorMessage, __LINE__);
         }
         $this->WorkingPeriod = $workingPeriod;
-        return $this;
-    }
-    /**
-     * Add item to WorkingPeriod value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkingPeriod $item
-     * @return \Ews\ArrayType\EwsArrayOfWorkingPeriod
-     */
-    public function addToWorkingPeriod(\Ews\StructType\EwsWorkingPeriod $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsWorkingPeriod) {
-            throw new \InvalidArgumentException(sprintf('The WorkingPeriod property can only contain items of type \Ews\StructType\EwsWorkingPeriod, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->WorkingPeriod[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsWorkingPeriod|null
+     * @return \StructType\EwsWorkingPeriod|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsWorkingPeriod
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsWorkingPeriod|null
+     * @return \StructType\EwsWorkingPeriod|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsWorkingPeriod
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsWorkingPeriod|null
+     * @return \StructType\EwsWorkingPeriod|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsWorkingPeriod
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsWorkingPeriod|null
+     * @return \StructType\EwsWorkingPeriod|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsWorkingPeriod
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfWorkingPeriod extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsWorkingPeriod|null
+     * @return \StructType\EwsWorkingPeriod|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsWorkingPeriod
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkingPeriod $item
+     * @return \ArrayType\EwsArrayOfWorkingPeriod
+     */
+    public function add(\StructType\EwsWorkingPeriod $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string WorkingPeriod
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'WorkingPeriod';
     }

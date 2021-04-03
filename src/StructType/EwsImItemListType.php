@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ImItemListType StructType
@@ -18,24 +21,24 @@ class EwsImItemListType extends AbstractStructBase
      * The Groups
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfImGroupType
+     * @var \ArrayType\EwsArrayOfImGroupType|null
      */
-    public $Groups;
+    protected ?\ArrayType\EwsArrayOfImGroupType $Groups = null;
     /**
      * The Personas
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPeopleType
+     * @var \ArrayType\EwsArrayOfPeopleType|null
      */
-    public $Personas;
+    protected ?\ArrayType\EwsArrayOfPeopleType $Personas = null;
     /**
      * Constructor method for ImItemListType
      * @uses EwsImItemListType::setGroups()
      * @uses EwsImItemListType::setPersonas()
-     * @param \Ews\ArrayType\EwsArrayOfImGroupType $groups
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $personas
+     * @param \ArrayType\EwsArrayOfImGroupType $groups
+     * @param \ArrayType\EwsArrayOfPeopleType $personas
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfImGroupType $groups = null, \Ews\ArrayType\EwsArrayOfPeopleType $personas = null)
+    public function __construct(?\ArrayType\EwsArrayOfImGroupType $groups = null, ?\ArrayType\EwsArrayOfPeopleType $personas = null)
     {
         $this
             ->setGroups($groups)
@@ -43,38 +46,40 @@ class EwsImItemListType extends AbstractStructBase
     }
     /**
      * Get Groups value
-     * @return \Ews\ArrayType\EwsArrayOfImGroupType|null
+     * @return \ArrayType\EwsArrayOfImGroupType|null
      */
-    public function getGroups()
+    public function getGroups(): ?\ArrayType\EwsArrayOfImGroupType
     {
         return $this->Groups;
     }
     /**
      * Set Groups value
-     * @param \Ews\ArrayType\EwsArrayOfImGroupType $groups
-     * @return \Ews\StructType\EwsImItemListType
+     * @param \ArrayType\EwsArrayOfImGroupType $groups
+     * @return \StructType\EwsImItemListType
      */
-    public function setGroups(\Ews\ArrayType\EwsArrayOfImGroupType $groups = null)
+    public function setGroups(?\ArrayType\EwsArrayOfImGroupType $groups = null): self
     {
         $this->Groups = $groups;
+        
         return $this;
     }
     /**
      * Get Personas value
-     * @return \Ews\ArrayType\EwsArrayOfPeopleType|null
+     * @return \ArrayType\EwsArrayOfPeopleType|null
      */
-    public function getPersonas()
+    public function getPersonas(): ?\ArrayType\EwsArrayOfPeopleType
     {
         return $this->Personas;
     }
     /**
      * Set Personas value
-     * @param \Ews\ArrayType\EwsArrayOfPeopleType $personas
-     * @return \Ews\StructType\EwsImItemListType
+     * @param \ArrayType\EwsArrayOfPeopleType $personas
+     * @return \StructType\EwsImItemListType
      */
-    public function setPersonas(\Ews\ArrayType\EwsArrayOfPeopleType $personas = null)
+    public function setPersonas(?\ArrayType\EwsArrayOfPeopleType $personas = null): self
     {
         $this->Personas = $personas;
+        
         return $this;
     }
 }

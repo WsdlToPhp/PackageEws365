@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TargetFolderIdType StructType
@@ -18,48 +21,48 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * - choice: FolderId | DistinguishedFolderId | AddressListId | ConsumerCalendarId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * The DistinguishedFolderId
      * Meta information extracted from the WSDL
      * - choice: FolderId | DistinguishedFolderId | AddressListId | ConsumerCalendarId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDistinguishedFolderIdType
+     * @var \StructType\EwsDistinguishedFolderIdType|null
      */
-    public $DistinguishedFolderId;
+    protected ?\StructType\EwsDistinguishedFolderIdType $DistinguishedFolderId = null;
     /**
      * The AddressListId
      * Meta information extracted from the WSDL
      * - choice: FolderId | DistinguishedFolderId | AddressListId | ConsumerCalendarId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAddressListIdType
+     * @var \StructType\EwsAddressListIdType|null
      */
-    public $AddressListId;
+    protected ?\StructType\EwsAddressListIdType $AddressListId = null;
     /**
      * The ConsumerCalendarId
      * Meta information extracted from the WSDL
      * - choice: FolderId | DistinguishedFolderId | AddressListId | ConsumerCalendarId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsConsumerCalendarIdType
+     * @var \StructType\EwsConsumerCalendarIdType|null
      */
-    public $ConsumerCalendarId;
+    protected ?\StructType\EwsConsumerCalendarIdType $ConsumerCalendarId = null;
     /**
      * Constructor method for TargetFolderIdType
      * @uses EwsTargetFolderIdType::setFolderId()
      * @uses EwsTargetFolderIdType::setDistinguishedFolderId()
      * @uses EwsTargetFolderIdType::setAddressListId()
      * @uses EwsTargetFolderIdType::setConsumerCalendarId()
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
-     * @param \Ews\StructType\EwsAddressListIdType $addressListId
-     * @param \Ews\StructType\EwsConsumerCalendarIdType $consumerCalendarId
+     * @param \StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
+     * @param \StructType\EwsAddressListIdType $addressListId
+     * @param \StructType\EwsConsumerCalendarIdType $consumerCalendarId
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null, \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null, \Ews\StructType\EwsAddressListIdType $addressListId = null, \Ews\StructType\EwsConsumerCalendarIdType $consumerCalendarId = null)
+    public function __construct(?\StructType\EwsFolderIdType $folderId = null, ?\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null, ?\StructType\EwsAddressListIdType $addressListId = null, ?\StructType\EwsConsumerCalendarIdType $consumerCalendarId = null)
     {
         $this
             ->setFolderId($folderId)
@@ -69,9 +72,9 @@ class EwsTargetFolderIdType extends AbstractStructBase
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return isset($this->FolderId) ? $this->FolderId : null;
     }
@@ -82,7 +85,7 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value)
+    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -96,12 +99,13 @@ class EwsTargetFolderIdType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -109,28 +113,29 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsTargetFolderIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsTargetFolderIdType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         // validation for constraint: choice(FolderId, DistinguishedFolderId, AddressListId, ConsumerCalendarId)
         if ('' !== ($folderIdChoiceErrorMessage = self::validateFolderIdForChoiceConstraintsFromSetFolderId($folderId))) {
-            throw new \InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($folderId) || (is_array($folderId) && empty($folderId))) {
             unset($this->FolderId);
         } else {
             $this->FolderId = $folderId;
         }
+        
         return $this;
     }
     /**
      * Get DistinguishedFolderId value
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType|null
+     * @return \StructType\EwsDistinguishedFolderIdType|null
      */
-    public function getDistinguishedFolderId()
+    public function getDistinguishedFolderId(): ?\StructType\EwsDistinguishedFolderIdType
     {
         return isset($this->DistinguishedFolderId) ? $this->DistinguishedFolderId : null;
     }
@@ -141,7 +146,7 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDistinguishedFolderIdForChoiceConstraintsFromSetDistinguishedFolderId($value)
+    public function validateDistinguishedFolderIdForChoiceConstraintsFromSetDistinguishedFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -155,12 +160,13 @@ class EwsTargetFolderIdType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DistinguishedFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: DistinguishedFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DistinguishedFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: DistinguishedFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -168,28 +174,29 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
-     * @return \Ews\StructType\EwsTargetFolderIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
+     * @return \StructType\EwsTargetFolderIdType
      */
-    public function setDistinguishedFolderId(\Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
+    public function setDistinguishedFolderId(?\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null): self
     {
         // validation for constraint: choice(FolderId, DistinguishedFolderId, AddressListId, ConsumerCalendarId)
         if ('' !== ($distinguishedFolderIdChoiceErrorMessage = self::validateDistinguishedFolderIdForChoiceConstraintsFromSetDistinguishedFolderId($distinguishedFolderId))) {
-            throw new \InvalidArgumentException($distinguishedFolderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($distinguishedFolderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($distinguishedFolderId) || (is_array($distinguishedFolderId) && empty($distinguishedFolderId))) {
             unset($this->DistinguishedFolderId);
         } else {
             $this->DistinguishedFolderId = $distinguishedFolderId;
         }
+        
         return $this;
     }
     /**
      * Get AddressListId value
-     * @return \Ews\StructType\EwsAddressListIdType|null
+     * @return \StructType\EwsAddressListIdType|null
      */
-    public function getAddressListId()
+    public function getAddressListId(): ?\StructType\EwsAddressListIdType
     {
         return isset($this->AddressListId) ? $this->AddressListId : null;
     }
@@ -200,7 +207,7 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAddressListIdForChoiceConstraintsFromSetAddressListId($value)
+    public function validateAddressListIdForChoiceConstraintsFromSetAddressListId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -214,12 +221,13 @@ class EwsTargetFolderIdType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AddressListId can\'t be set as the property %s is already set. Only one property must be set among these properties: AddressListId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AddressListId can\'t be set as the property %s is already set. Only one property must be set among these properties: AddressListId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -227,28 +235,29 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAddressListIdType $addressListId
-     * @return \Ews\StructType\EwsTargetFolderIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAddressListIdType $addressListId
+     * @return \StructType\EwsTargetFolderIdType
      */
-    public function setAddressListId(\Ews\StructType\EwsAddressListIdType $addressListId = null)
+    public function setAddressListId(?\StructType\EwsAddressListIdType $addressListId = null): self
     {
         // validation for constraint: choice(FolderId, DistinguishedFolderId, AddressListId, ConsumerCalendarId)
         if ('' !== ($addressListIdChoiceErrorMessage = self::validateAddressListIdForChoiceConstraintsFromSetAddressListId($addressListId))) {
-            throw new \InvalidArgumentException($addressListIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($addressListIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($addressListId) || (is_array($addressListId) && empty($addressListId))) {
             unset($this->AddressListId);
         } else {
             $this->AddressListId = $addressListId;
         }
+        
         return $this;
     }
     /**
      * Get ConsumerCalendarId value
-     * @return \Ews\StructType\EwsConsumerCalendarIdType|null
+     * @return \StructType\EwsConsumerCalendarIdType|null
      */
-    public function getConsumerCalendarId()
+    public function getConsumerCalendarId(): ?\StructType\EwsConsumerCalendarIdType
     {
         return isset($this->ConsumerCalendarId) ? $this->ConsumerCalendarId : null;
     }
@@ -259,7 +268,7 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateConsumerCalendarIdForChoiceConstraintsFromSetConsumerCalendarId($value)
+    public function validateConsumerCalendarIdForChoiceConstraintsFromSetConsumerCalendarId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -273,12 +282,13 @@ class EwsTargetFolderIdType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ConsumerCalendarId can\'t be set as the property %s is already set. Only one property must be set among these properties: ConsumerCalendarId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ConsumerCalendarId can\'t be set as the property %s is already set. Only one property must be set among these properties: ConsumerCalendarId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -286,21 +296,22 @@ class EwsTargetFolderIdType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConsumerCalendarIdType $consumerCalendarId
-     * @return \Ews\StructType\EwsTargetFolderIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConsumerCalendarIdType $consumerCalendarId
+     * @return \StructType\EwsTargetFolderIdType
      */
-    public function setConsumerCalendarId(\Ews\StructType\EwsConsumerCalendarIdType $consumerCalendarId = null)
+    public function setConsumerCalendarId(?\StructType\EwsConsumerCalendarIdType $consumerCalendarId = null): self
     {
         // validation for constraint: choice(FolderId, DistinguishedFolderId, AddressListId, ConsumerCalendarId)
         if ('' !== ($consumerCalendarIdChoiceErrorMessage = self::validateConsumerCalendarIdForChoiceConstraintsFromSetConsumerCalendarId($consumerCalendarId))) {
-            throw new \InvalidArgumentException($consumerCalendarIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($consumerCalendarIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($consumerCalendarId) || (is_array($consumerCalendarId) && empty($consumerCalendarId))) {
             unset($this->ConsumerCalendarId);
         } else {
             $this->ConsumerCalendarId = $consumerCalendarId;
         }
+        
         return $this;
     }
 }

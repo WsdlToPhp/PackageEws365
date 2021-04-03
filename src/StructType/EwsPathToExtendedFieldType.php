@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PathToExtendedFieldType StructType
@@ -21,14 +24,14 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * - use: required
      * @var string
      */
-    public $PropertyType;
+    protected string $PropertyType;
     /**
      * The DistinguishedPropertySetId
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $DistinguishedPropertySetId;
+    protected ?string $DistinguishedPropertySetId = null;
     /**
      * The PropertySetId
      * Meta information extracted from the WSDL
@@ -36,32 +39,32 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * - base: xs:string
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $PropertySetId;
+    protected ?string $PropertySetId = null;
     /**
      * The PropertyTag
      * Meta information extracted from the WSDL
      * - documentation: This type represents the property tag (MINUS the type part). There are two options for representation: 1. Hex ==> 0x3fa4 2. Decimal ==> 0-65535
      * - union: unsignedShort | string
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $PropertyTag;
+    protected ?string $PropertyTag = null;
     /**
      * The PropertyName
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $PropertyName;
+    protected ?string $PropertyName = null;
     /**
      * The PropertyId
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $PropertyId;
+    protected ?int $PropertyId = null;
     /**
      * Constructor method for PathToExtendedFieldType
      * @uses EwsPathToExtendedFieldType::setPropertyType()
@@ -77,7 +80,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * @param string $propertyName
      * @param int $propertyId
      */
-    public function __construct($propertyType = null, $distinguishedPropertySetId = null, $propertySetId = null, $propertyTag = null, $propertyName = null, $propertyId = null)
+    public function __construct(string $propertyType, ?string $distinguishedPropertySetId = null, ?string $propertySetId = null, ?string $propertyTag = null, ?string $propertyName = null, ?int $propertyId = null)
     {
         $this
             ->setPropertyType($propertyType)
@@ -91,83 +94,86 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * Get PropertyType value
      * @return string
      */
-    public function getPropertyType()
+    public function getPropertyType(): string
     {
         return $this->PropertyType;
     }
     /**
      * Set PropertyType value
-     * @uses \Ews\EnumType\EwsMapiPropertyTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMapiPropertyTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMapiPropertyTypeType::valueIsValid()
+     * @uses \EnumType\EwsMapiPropertyTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $propertyType
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setPropertyType($propertyType = null)
+    public function setPropertyType(string $propertyType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMapiPropertyTypeType::valueIsValid($propertyType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMapiPropertyTypeType', is_array($propertyType) ? implode(', ', $propertyType) : var_export($propertyType, true), implode(', ', \Ews\EnumType\EwsMapiPropertyTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMapiPropertyTypeType::valueIsValid($propertyType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMapiPropertyTypeType', is_array($propertyType) ? implode(', ', $propertyType) : var_export($propertyType, true), implode(', ', \EnumType\EwsMapiPropertyTypeType::getValidValues())), __LINE__);
         }
         $this->PropertyType = $propertyType;
+        
         return $this;
     }
     /**
      * Get DistinguishedPropertySetId value
      * @return string|null
      */
-    public function getDistinguishedPropertySetId()
+    public function getDistinguishedPropertySetId(): ?string
     {
         return $this->DistinguishedPropertySetId;
     }
     /**
      * Set DistinguishedPropertySetId value
-     * @uses \Ews\EnumType\EwsDistinguishedPropertySetType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDistinguishedPropertySetType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDistinguishedPropertySetType::valueIsValid()
+     * @uses \EnumType\EwsDistinguishedPropertySetType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $distinguishedPropertySetId
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setDistinguishedPropertySetId($distinguishedPropertySetId = null)
+    public function setDistinguishedPropertySetId(?string $distinguishedPropertySetId = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDistinguishedPropertySetType::valueIsValid($distinguishedPropertySetId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDistinguishedPropertySetType', is_array($distinguishedPropertySetId) ? implode(', ', $distinguishedPropertySetId) : var_export($distinguishedPropertySetId, true), implode(', ', \Ews\EnumType\EwsDistinguishedPropertySetType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDistinguishedPropertySetType::valueIsValid($distinguishedPropertySetId)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDistinguishedPropertySetType', is_array($distinguishedPropertySetId) ? implode(', ', $distinguishedPropertySetId) : var_export($distinguishedPropertySetId, true), implode(', ', \EnumType\EwsDistinguishedPropertySetType::getValidValues())), __LINE__);
         }
         $this->DistinguishedPropertySetId = $distinguishedPropertySetId;
+        
         return $this;
     }
     /**
      * Get PropertySetId value
      * @return string|null
      */
-    public function getPropertySetId()
+    public function getPropertySetId(): ?string
     {
         return $this->PropertySetId;
     }
     /**
      * Set PropertySetId value
      * @param string $propertySetId
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setPropertySetId($propertySetId = null)
+    public function setPropertySetId(?string $propertySetId = null): self
     {
         // validation for constraint: string
         if (!is_null($propertySetId) && !is_string($propertySetId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertySetId, true), gettype($propertySetId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertySetId, true), gettype($propertySetId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($propertySetId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $propertySetId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($propertySetId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($propertySetId, true)), __LINE__);
         }
         $this->PropertySetId = $propertySetId;
+        
         return $this;
     }
     /**
      * Get PropertyTag value
      * @return string|null
      */
-    public function getPropertyTag()
+    public function getPropertyTag(): ?string
     {
         return $this->PropertyTag;
     }
@@ -178,79 +184,83 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePropertyTagForUnionConstraintsFromSetPropertyTag($value)
+    public static function validatePropertyTagForUnionConstraintsFromSetPropertyTag($value): string
     {
         $message = '';
         // validation for constraint: int
         if (!is_null($value) && !(is_int($value) || ctype_digit($value))) {
-            $exception0 = new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
+            $exception0 = new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (isset($exception0)) {
-            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(\InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
+            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
         }
         unset($exception0);
+        
         return $message;
     }
     /**
      * Set PropertyTag value
      * @param string $propertyTag
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setPropertyTag($propertyTag = null)
+    public function setPropertyTag(?string $propertyTag = null): self
     {
         // validation for constraint: string
         if (!is_null($propertyTag) && !is_string($propertyTag)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyTag, true), gettype($propertyTag)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyTag, true), gettype($propertyTag)), __LINE__);
         }
         // validation for constraint: union(unsignedShort, string)
         if ('' !== ($propertyTagUnionErrorMessage = self::validatePropertyTagForUnionConstraintsFromSetPropertyTag($propertyTag))) {
-            throw new \InvalidArgumentException($propertyTagUnionErrorMessage, __LINE__);
+            throw new InvalidArgumentException($propertyTagUnionErrorMessage, __LINE__);
         }
         $this->PropertyTag = $propertyTag;
+        
         return $this;
     }
     /**
      * Get PropertyName value
      * @return string|null
      */
-    public function getPropertyName()
+    public function getPropertyName(): ?string
     {
         return $this->PropertyName;
     }
     /**
      * Set PropertyName value
      * @param string $propertyName
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setPropertyName($propertyName = null)
+    public function setPropertyName(?string $propertyName = null): self
     {
         // validation for constraint: string
         if (!is_null($propertyName) && !is_string($propertyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyName, true), gettype($propertyName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyName, true), gettype($propertyName)), __LINE__);
         }
         $this->PropertyName = $propertyName;
+        
         return $this;
     }
     /**
      * Get PropertyId value
      * @return int|null
      */
-    public function getPropertyId()
+    public function getPropertyId(): ?int
     {
         return $this->PropertyId;
     }
     /**
      * Set PropertyId value
      * @param int $propertyId
-     * @return \Ews\StructType\EwsPathToExtendedFieldType
+     * @return \StructType\EwsPathToExtendedFieldType
      */
-    public function setPropertyId($propertyId = null)
+    public function setPropertyId(?int $propertyId = null): self
     {
         // validation for constraint: int
         if (!is_null($propertyId) && !(is_int($propertyId) || ctype_digit($propertyId))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($propertyId, true), gettype($propertyId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($propertyId, true), gettype($propertyId)), __LINE__);
         }
         $this->PropertyId = $propertyId;
+        
         return $this;
     }
 }

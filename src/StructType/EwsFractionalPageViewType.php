@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FractionalPageViewType StructType
@@ -18,14 +21,14 @@ class EwsFractionalPageViewType extends EwsBasePagingType
      * - use: required
      * @var int
      */
-    public $Numerator;
+    protected int $Numerator;
     /**
      * The Denominator
      * Meta information extracted from the WSDL
      * - use: required
      * @var int
      */
-    public $Denominator;
+    protected int $Denominator;
     /**
      * Constructor method for FractionalPageViewType
      * @uses EwsFractionalPageViewType::setNumerator()
@@ -33,7 +36,7 @@ class EwsFractionalPageViewType extends EwsBasePagingType
      * @param int $numerator
      * @param int $denominator
      */
-    public function __construct($numerator = null, $denominator = null)
+    public function __construct(int $numerator, int $denominator)
     {
         $this
             ->setNumerator($numerator)
@@ -43,44 +46,46 @@ class EwsFractionalPageViewType extends EwsBasePagingType
      * Get Numerator value
      * @return int
      */
-    public function getNumerator()
+    public function getNumerator(): int
     {
         return $this->Numerator;
     }
     /**
      * Set Numerator value
      * @param int $numerator
-     * @return \Ews\StructType\EwsFractionalPageViewType
+     * @return \StructType\EwsFractionalPageViewType
      */
-    public function setNumerator($numerator = null)
+    public function setNumerator(int $numerator): self
     {
         // validation for constraint: int
         if (!is_null($numerator) && !(is_int($numerator) || ctype_digit($numerator))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numerator, true), gettype($numerator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numerator, true), gettype($numerator)), __LINE__);
         }
         $this->Numerator = $numerator;
+        
         return $this;
     }
     /**
      * Get Denominator value
      * @return int
      */
-    public function getDenominator()
+    public function getDenominator(): int
     {
         return $this->Denominator;
     }
     /**
      * Set Denominator value
      * @param int $denominator
-     * @return \Ews\StructType\EwsFractionalPageViewType
+     * @return \StructType\EwsFractionalPageViewType
      */
-    public function setDenominator($denominator = null)
+    public function setDenominator(int $denominator): self
     {
         // validation for constraint: int
         if (!is_null($denominator) && !(is_int($denominator) || ctype_digit($denominator))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($denominator, true), gettype($denominator)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($denominator, true), gettype($denominator)), __LINE__);
         }
         $this->Denominator = $denominator;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OneDriveSearchScopeType StructType
@@ -17,24 +20,24 @@ class EwsOneDriveSearchScopeType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var string[]
+     * @var string
      */
-    public $OneDriveView;
+    protected string $OneDriveView;
     /**
      * Constructor method for OneDriveSearchScopeType
      * @uses EwsOneDriveSearchScopeType::setOneDriveView()
-     * @param string[] $oneDriveView
+     * @param array|string $oneDriveView
      */
-    public function __construct(array $oneDriveView = array())
+    public function __construct($oneDriveView)
     {
         $this
             ->setOneDriveView($oneDriveView);
     }
     /**
      * Get OneDriveView value
-     * @return string[]
+     * @return string
      */
-    public function getOneDriveView()
+    public function getOneDriveView(): string
     {
         return $this->OneDriveView;
     }
@@ -44,37 +47,39 @@ class EwsOneDriveSearchScopeType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateOneDriveViewForArrayConstraintsFromSetOneDriveView(array $values = array())
+    public static function validateOneDriveViewForArrayConstraintsFromSetOneDriveView(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $oneDriveSearchScopeTypeOneDriveViewItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsOneDriveViewType::valueIsValid($oneDriveSearchScopeTypeOneDriveViewItem)) {
+            if (!\EnumType\EwsOneDriveViewType::valueIsValid($oneDriveSearchScopeTypeOneDriveViewItem)) {
                 $invalidValues[] = is_object($oneDriveSearchScopeTypeOneDriveViewItem) ? get_class($oneDriveSearchScopeTypeOneDriveViewItem) : sprintf('%s(%s)', gettype($oneDriveSearchScopeTypeOneDriveViewItem), var_export($oneDriveSearchScopeTypeOneDriveViewItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsOneDriveViewType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsOneDriveViewType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsOneDriveViewType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsOneDriveViewType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set OneDriveView value
-     * @uses \Ews\EnumType\EwsOneDriveViewType::valueIsValid()
-     * @uses \Ews\EnumType\EwsOneDriveViewType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $oneDriveView
-     * @return \Ews\StructType\EwsOneDriveSearchScopeType
+     * @uses \EnumType\EwsOneDriveViewType::valueIsValid()
+     * @uses \EnumType\EwsOneDriveViewType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $oneDriveView
+     * @return \StructType\EwsOneDriveSearchScopeType
      */
-    public function setOneDriveView(array $oneDriveView = array())
+    public function setOneDriveView($oneDriveView): self
     {
         // validation for constraint: list
-        if ('' !== ($oneDriveViewArrayErrorMessage = self::validateOneDriveViewForArrayConstraintsFromSetOneDriveView($oneDriveView))) {
-            throw new \InvalidArgumentException($oneDriveViewArrayErrorMessage, __LINE__);
+        if ('' !== ($oneDriveViewArrayErrorMessage = self::validateOneDriveViewForArrayConstraintsFromSetOneDriveView(is_string($oneDriveView) ? explode(' ', $oneDriveView) : $oneDriveView))) {
+            throw new InvalidArgumentException($oneDriveViewArrayErrorMessage, __LINE__);
         }
-        $this->OneDriveView = is_array($oneDriveView) ? implode(' ', $oneDriveView) : null;
+        $this->OneDriveView = is_array($oneDriveView) ? implode(' ', $oneDriveView) : $oneDriveView;
+        
         return $this;
     }
 }

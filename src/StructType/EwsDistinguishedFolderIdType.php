@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DistinguishedFolderIdType StructType
@@ -20,31 +23,31 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      * - use: required
      * @var string
      */
-    public $Id;
+    protected string $Id;
     /**
      * The Mailbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * The ChangeKey
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ChangeKey;
+    protected ?string $ChangeKey = null;
     /**
      * Constructor method for DistinguishedFolderIdType
      * @uses EwsDistinguishedFolderIdType::setId()
      * @uses EwsDistinguishedFolderIdType::setMailbox()
      * @uses EwsDistinguishedFolderIdType::setChangeKey()
      * @param string $id
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \StructType\EwsEmailAddressType $mailbox
      * @param string $changeKey
      */
-    public function __construct($id = null, \Ews\StructType\EwsEmailAddressType $mailbox = null, $changeKey = null)
+    public function __construct(string $id, ?\StructType\EwsEmailAddressType $mailbox = null, ?string $changeKey = null)
     {
         $this
             ->setId($id)
@@ -55,65 +58,68 @@ class EwsDistinguishedFolderIdType extends EwsBaseFolderIdType
      * Get Id value
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->Id;
     }
     /**
      * Set Id value
-     * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDistinguishedFolderIdNameType::valueIsValid()
+     * @uses \EnumType\EwsDistinguishedFolderIdNameType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $id
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType
+     * @return \StructType\EwsDistinguishedFolderIdType
      */
-    public function setId($id = null)
+    public function setId(string $id): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDistinguishedFolderIdNameType', is_array($id) ? implode(', ', $id) : var_export($id, true), implode(', ', \Ews\EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDistinguishedFolderIdNameType::valueIsValid($id)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDistinguishedFolderIdNameType', is_array($id) ? implode(', ', $id) : var_export($id, true), implode(', ', \EnumType\EwsDistinguishedFolderIdNameType::getValidValues())), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \StructType\EwsDistinguishedFolderIdType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get ChangeKey value
      * @return string|null
      */
-    public function getChangeKey()
+    public function getChangeKey(): ?string
     {
         return $this->ChangeKey;
     }
     /**
      * Set ChangeKey value
      * @param string $changeKey
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType
+     * @return \StructType\EwsDistinguishedFolderIdType
      */
-    public function setChangeKey($changeKey = null)
+    public function setChangeKey(?string $changeKey = null): self
     {
         // validation for constraint: string
         if (!is_null($changeKey) && !is_string($changeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($changeKey, true), gettype($changeKey)), __LINE__);
         }
         $this->ChangeKey = $changeKey;
+        
         return $this;
     }
 }

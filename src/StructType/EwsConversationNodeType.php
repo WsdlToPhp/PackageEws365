@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConversationNodeType StructType
@@ -17,25 +20,25 @@ class EwsConversationNodeType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InternetMessageId;
+    protected ?string $InternetMessageId = null;
     /**
      * The ParentInternetMessageId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ParentInternetMessageId;
+    protected ?string $ParentInternetMessageId = null;
     /**
      * The Items
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAllItemsType
+     * @var \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public $Items;
+    protected ?\StructType\EwsNonEmptyArrayOfAllItemsType $Items = null;
     /**
      * Constructor method for ConversationNodeType
      * @uses EwsConversationNodeType::setInternetMessageId()
@@ -43,9 +46,9 @@ class EwsConversationNodeType extends AbstractStructBase
      * @uses EwsConversationNodeType::setItems()
      * @param string $internetMessageId
      * @param string $parentInternetMessageId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $items
      */
-    public function __construct($internetMessageId = null, $parentInternetMessageId = null, \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
+    public function __construct(?string $internetMessageId = null, ?string $parentInternetMessageId = null, ?\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
     {
         $this
             ->setInternetMessageId($internetMessageId)
@@ -56,62 +59,65 @@ class EwsConversationNodeType extends AbstractStructBase
      * Get InternetMessageId value
      * @return string|null
      */
-    public function getInternetMessageId()
+    public function getInternetMessageId(): ?string
     {
         return $this->InternetMessageId;
     }
     /**
      * Set InternetMessageId value
      * @param string $internetMessageId
-     * @return \Ews\StructType\EwsConversationNodeType
+     * @return \StructType\EwsConversationNodeType
      */
-    public function setInternetMessageId($internetMessageId = null)
+    public function setInternetMessageId(?string $internetMessageId = null): self
     {
         // validation for constraint: string
         if (!is_null($internetMessageId) && !is_string($internetMessageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internetMessageId, true), gettype($internetMessageId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internetMessageId, true), gettype($internetMessageId)), __LINE__);
         }
         $this->InternetMessageId = $internetMessageId;
+        
         return $this;
     }
     /**
      * Get ParentInternetMessageId value
      * @return string|null
      */
-    public function getParentInternetMessageId()
+    public function getParentInternetMessageId(): ?string
     {
         return $this->ParentInternetMessageId;
     }
     /**
      * Set ParentInternetMessageId value
      * @param string $parentInternetMessageId
-     * @return \Ews\StructType\EwsConversationNodeType
+     * @return \StructType\EwsConversationNodeType
      */
-    public function setParentInternetMessageId($parentInternetMessageId = null)
+    public function setParentInternetMessageId(?string $parentInternetMessageId = null): self
     {
         // validation for constraint: string
         if (!is_null($parentInternetMessageId) && !is_string($parentInternetMessageId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parentInternetMessageId, true), gettype($parentInternetMessageId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($parentInternetMessageId, true), gettype($parentInternetMessageId)), __LINE__);
         }
         $this->ParentInternetMessageId = $parentInternetMessageId;
+        
         return $this;
     }
     /**
      * Get Items value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAllItemsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\StructType\EwsNonEmptyArrayOfAllItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items
-     * @return \Ews\StructType\EwsConversationNodeType
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $items
+     * @return \StructType\EwsConversationNodeType
      */
-    public function setItems(\Ews\StructType\EwsNonEmptyArrayOfAllItemsType $items = null)
+    public function setItems(?\StructType\EwsNonEmptyArrayOfAllItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

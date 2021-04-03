@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateUnifiedGroupResponseMessageType StructType
@@ -16,44 +19,44 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
      * The GroupIdentity
      * Meta information extracted from the WSDL
      * - ref: t:GroupIdentity
-     * @var \Ews\StructType\EwsUnifiedGroupIdentity
+     * @var \StructType\EwsUnifiedGroupIdentity|null
      */
-    public $GroupIdentity;
+    protected ?\StructType\EwsUnifiedGroupIdentity $GroupIdentity = null;
     /**
      * The ErrorCode
      * Meta information extracted from the WSDL
      * - ref: t:ErrorCode
-     * @var string
+     * @var string|null
      */
-    public $ErrorCode;
+    protected ?string $ErrorCode = null;
     /**
      * The LegacyDN
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LegacyDN;
+    protected ?string $LegacyDN = null;
     /**
      * The MailboxDatabase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MailboxDatabase;
+    protected ?string $MailboxDatabase = null;
     /**
      * Constructor method for CreateUnifiedGroupResponseMessageType
      * @uses EwsCreateUnifiedGroupResponseMessageType::setGroupIdentity()
      * @uses EwsCreateUnifiedGroupResponseMessageType::setErrorCode()
      * @uses EwsCreateUnifiedGroupResponseMessageType::setLegacyDN()
      * @uses EwsCreateUnifiedGroupResponseMessageType::setMailboxDatabase()
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
      * @param string $errorCode
      * @param string $legacyDN
      * @param string $mailboxDatabase
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null, $errorCode = null, $legacyDN = null, $mailboxDatabase = null)
+    public function __construct(?\StructType\EwsUnifiedGroupIdentity $groupIdentity = null, ?string $errorCode = null, ?string $legacyDN = null, ?string $mailboxDatabase = null)
     {
         $this
             ->setGroupIdentity($groupIdentity)
@@ -63,89 +66,93 @@ class EwsCreateUnifiedGroupResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get GroupIdentity value
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity|null
+     * @return \StructType\EwsUnifiedGroupIdentity|null
      */
-    public function getGroupIdentity()
+    public function getGroupIdentity(): ?\StructType\EwsUnifiedGroupIdentity
     {
         return $this->GroupIdentity;
     }
     /**
      * Set GroupIdentity value
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
-     * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @return \StructType\EwsCreateUnifiedGroupResponseMessageType
      */
-    public function setGroupIdentity(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null)
+    public function setGroupIdentity(?\StructType\EwsUnifiedGroupIdentity $groupIdentity = null): self
     {
         $this->GroupIdentity = $groupIdentity;
+        
         return $this;
     }
     /**
      * Get ErrorCode value
      * @return string|null
      */
-    public function getErrorCode()
+    public function getErrorCode(): ?string
     {
         return $this->ErrorCode;
     }
     /**
      * Set ErrorCode value
-     * @uses \Ews\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupCreationErrorType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $errorCode
-     * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
+     * @return \StructType\EwsCreateUnifiedGroupResponseMessageType
      */
-    public function setErrorCode($errorCode = null)
+    public function setErrorCode(?string $errorCode = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid($errorCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupCreationErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupCreationErrorType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupCreationErrorType::valueIsValid($errorCode)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupCreationErrorType', is_array($errorCode) ? implode(', ', $errorCode) : var_export($errorCode, true), implode(', ', \EnumType\EwsUnifiedGroupCreationErrorType::getValidValues())), __LINE__);
         }
         $this->ErrorCode = $errorCode;
+        
         return $this;
     }
     /**
      * Get LegacyDN value
      * @return string|null
      */
-    public function getLegacyDN()
+    public function getLegacyDN(): ?string
     {
         return $this->LegacyDN;
     }
     /**
      * Set LegacyDN value
      * @param string $legacyDN
-     * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
+     * @return \StructType\EwsCreateUnifiedGroupResponseMessageType
      */
-    public function setLegacyDN($legacyDN = null)
+    public function setLegacyDN(?string $legacyDN = null): self
     {
         // validation for constraint: string
         if (!is_null($legacyDN) && !is_string($legacyDN)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($legacyDN, true), gettype($legacyDN)), __LINE__);
         }
         $this->LegacyDN = $legacyDN;
+        
         return $this;
     }
     /**
      * Get MailboxDatabase value
      * @return string|null
      */
-    public function getMailboxDatabase()
+    public function getMailboxDatabase(): ?string
     {
         return $this->MailboxDatabase;
     }
     /**
      * Set MailboxDatabase value
      * @param string $mailboxDatabase
-     * @return \Ews\StructType\EwsCreateUnifiedGroupResponseMessageType
+     * @return \StructType\EwsCreateUnifiedGroupResponseMessageType
      */
-    public function setMailboxDatabase($mailboxDatabase = null)
+    public function setMailboxDatabase(?string $mailboxDatabase = null): self
     {
         // validation for constraint: string
         if (!is_null($mailboxDatabase) && !is_string($mailboxDatabase)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxDatabase, true), gettype($mailboxDatabase)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxDatabase, true), gettype($mailboxDatabase)), __LINE__);
         }
         $this->MailboxDatabase = $mailboxDatabase;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetClientAccessTokenResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetClientAccessTokenResponseMessageType extends EwsResponseMessageType
      * The Token
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsClientAccessTokenType
+     * @var \StructType\EwsClientAccessTokenType|null
      */
-    public $Token;
+    protected ?\StructType\EwsClientAccessTokenType $Token = null;
     /**
      * Constructor method for GetClientAccessTokenResponseMessageType
      * @uses EwsGetClientAccessTokenResponseMessageType::setToken()
-     * @param \Ews\StructType\EwsClientAccessTokenType $token
+     * @param \StructType\EwsClientAccessTokenType $token
      */
-    public function __construct(\Ews\StructType\EwsClientAccessTokenType $token = null)
+    public function __construct(?\StructType\EwsClientAccessTokenType $token = null)
     {
         $this
             ->setToken($token);
     }
     /**
      * Get Token value
-     * @return \Ews\StructType\EwsClientAccessTokenType|null
+     * @return \StructType\EwsClientAccessTokenType|null
      */
-    public function getToken()
+    public function getToken(): ?\StructType\EwsClientAccessTokenType
     {
         return $this->Token;
     }
     /**
      * Set Token value
-     * @param \Ews\StructType\EwsClientAccessTokenType $token
-     * @return \Ews\StructType\EwsGetClientAccessTokenResponseMessageType
+     * @param \StructType\EwsClientAccessTokenType $token
+     * @return \StructType\EwsGetClientAccessTokenResponseMessageType
      */
-    public function setToken(\Ews\StructType\EwsClientAccessTokenType $token = null)
+    public function setToken(?\StructType\EwsClientAccessTokenType $token = null): self
     {
         $this->Token = $token;
+        
         return $this;
     }
 }

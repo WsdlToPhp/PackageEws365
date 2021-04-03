@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PeriodType StructType
@@ -14,19 +17,19 @@ class EwsPeriodType extends AbstractStructBase
 {
     /**
      * The Bias
-     * @var string
+     * @var string|null
      */
-    public $Bias;
+    protected ?string $Bias = null;
     /**
      * The Name
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The Id
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * Constructor method for PeriodType
      * @uses EwsPeriodType::setBias()
@@ -36,7 +39,7 @@ class EwsPeriodType extends AbstractStructBase
      * @param string $name
      * @param string $id
      */
-    public function __construct($bias = null, $name = null, $id = null)
+    public function __construct(?string $bias = null, ?string $name = null, ?string $id = null)
     {
         $this
             ->setBias($bias)
@@ -47,66 +50,69 @@ class EwsPeriodType extends AbstractStructBase
      * Get Bias value
      * @return string|null
      */
-    public function getBias()
+    public function getBias(): ?string
     {
         return $this->Bias;
     }
     /**
      * Set Bias value
      * @param string $bias
-     * @return \Ews\StructType\EwsPeriodType
+     * @return \StructType\EwsPeriodType
      */
-    public function setBias($bias = null)
+    public function setBias(?string $bias = null): self
     {
         // validation for constraint: string
         if (!is_null($bias) && !is_string($bias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($bias, true), gettype($bias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($bias, true), gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
+        
         return $this;
     }
     /**
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsPeriodType
+     * @return \StructType\EwsPeriodType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsPeriodType
+     * @return \StructType\EwsPeriodType
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
 }

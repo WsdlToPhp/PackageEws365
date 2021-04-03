@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for TeamMailboxLifecycleStateType EnumType
@@ -40,13 +42,13 @@ class EwsTeamMailboxLifecycleStateType extends AbstractStructEnumBase
      * @uses self::VALUE_PENDING_DELETE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ACTIVE,
             self::VALUE_CLOSED,
             self::VALUE_UNLINKED,
             self::VALUE_PENDING_DELETE,
-        );
+        ];
     }
 }

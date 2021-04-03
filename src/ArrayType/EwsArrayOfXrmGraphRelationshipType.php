@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfXrmGraphRelationshipType ArrayType
@@ -19,22 +22,22 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $XrmGraphRelationshipType;
+    protected array $XrmGraphRelationshipType = [];
     /**
      * Constructor method for ArrayOfXrmGraphRelationshipType
      * @uses EwsArrayOfXrmGraphRelationshipType::setXrmGraphRelationshipType()
      * @param string[] $xrmGraphRelationshipType
      */
-    public function __construct(array $xrmGraphRelationshipType = array())
+    public function __construct(array $xrmGraphRelationshipType = [])
     {
         $this
             ->setXrmGraphRelationshipType($xrmGraphRelationshipType);
     }
     /**
      * Get XrmGraphRelationshipType value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getXrmGraphRelationshipType()
+    public function getXrmGraphRelationshipType(): array
     {
         return $this->XrmGraphRelationshipType;
     }
@@ -44,54 +47,39 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateXrmGraphRelationshipTypeForArrayConstraintsFromSetXrmGraphRelationshipType(array $values = array())
+    public static function validateXrmGraphRelationshipTypeForArrayConstraintsFromSetXrmGraphRelationshipType(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem)) {
+            if (!\EnumType\EwsXrmGraphRelationshipType::valueIsValid($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem)) {
                 $invalidValues[] = is_object($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem) ? get_class($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem) : sprintf('%s(%s)', gettype($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem), var_export($arrayOfXrmGraphRelationshipTypeXrmGraphRelationshipTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmGraphRelationshipType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsXrmGraphRelationshipType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsXrmGraphRelationshipType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set XrmGraphRelationshipType value
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsXrmGraphRelationshipType::valueIsValid()
+     * @uses \EnumType\EwsXrmGraphRelationshipType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string[] $xrmGraphRelationshipType
-     * @return \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
+     * @return \ArrayType\EwsArrayOfXrmGraphRelationshipType
      */
-    public function setXrmGraphRelationshipType(array $xrmGraphRelationshipType = array())
+    public function setXrmGraphRelationshipType(array $xrmGraphRelationshipType = []): self
     {
         // validation for constraint: array
         if ('' !== ($xrmGraphRelationshipTypeArrayErrorMessage = self::validateXrmGraphRelationshipTypeForArrayConstraintsFromSetXrmGraphRelationshipType($xrmGraphRelationshipType))) {
-            throw new \InvalidArgumentException($xrmGraphRelationshipTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($xrmGraphRelationshipTypeArrayErrorMessage, __LINE__);
         }
         $this->XrmGraphRelationshipType = $xrmGraphRelationshipType;
-        return $this;
-    }
-    /**
-     * Add item to XrmGraphRelationshipType value
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
-     */
-    public function addToXrmGraphRelationshipType($item)
-    {
-        // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmGraphRelationshipType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
-        }
-        $this->XrmGraphRelationshipType[] = $item;
+        
         return $this;
     }
     /**
@@ -99,7 +87,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -109,7 +97,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -118,7 +106,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -127,7 +115,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -137,23 +125,22 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
     /**
      * Add element to array
      * @see AbstractStructArrayBase::add()
-     * @throws \InvalidArgumentException
-     * @uses \Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid()
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
+     * @return \ArrayType\EwsArrayOfXrmGraphRelationshipType
      */
-    public function add($item)
+    public function add(string $item): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsXrmGraphRelationshipType::valueIsValid($item)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmGraphRelationshipType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \Ews\EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsXrmGraphRelationshipType::valueIsValid($item)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsXrmGraphRelationshipType', is_array($item) ? implode(', ', $item) : var_export($item, true), implode(', ', \EnumType\EwsXrmGraphRelationshipType::getValidValues())), __LINE__);
         }
         return parent::add($item);
     }
@@ -162,7 +149,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string XrmGraphRelationshipType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'XrmGraphRelationshipType';
     }

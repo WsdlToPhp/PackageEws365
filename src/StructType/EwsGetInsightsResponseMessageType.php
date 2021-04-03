@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetInsightsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetInsightsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsInsightItemType
+     * @var \StructType\EwsInsightItemType
      */
-    public $Insight;
+    protected \StructType\EwsInsightItemType $Insight;
     /**
      * Constructor method for GetInsightsResponseMessageType
      * @uses EwsGetInsightsResponseMessageType::setInsight()
-     * @param \Ews\StructType\EwsInsightItemType $insight
+     * @param \StructType\EwsInsightItemType $insight
      */
-    public function __construct(\Ews\StructType\EwsInsightItemType $insight = null)
+    public function __construct(\StructType\EwsInsightItemType $insight)
     {
         $this
             ->setInsight($insight);
     }
     /**
      * Get Insight value
-     * @return \Ews\StructType\EwsInsightItemType
+     * @return \StructType\EwsInsightItemType
      */
-    public function getInsight()
+    public function getInsight(): \StructType\EwsInsightItemType
     {
         return $this->Insight;
     }
     /**
      * Set Insight value
-     * @param \Ews\StructType\EwsInsightItemType $insight
-     * @return \Ews\StructType\EwsGetInsightsResponseMessageType
+     * @param \StructType\EwsInsightItemType $insight
+     * @return \StructType\EwsGetInsightsResponseMessageType
      */
-    public function setInsight(\Ews\StructType\EwsInsightItemType $insight = null)
+    public function setInsight(\StructType\EwsInsightItemType $insight): self
     {
         $this->Insight = $insight;
+        
         return $this;
     }
 }

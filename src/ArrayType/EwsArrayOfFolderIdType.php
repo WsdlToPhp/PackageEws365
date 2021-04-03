@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFolderIdType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * - choice: FolderId
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * Constructor method for ArrayOfFolderIdType
      * @uses EwsArrayOfFolderIdType::setFolderId()
-     * @param \Ews\StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsFolderIdType $folderId
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function __construct(?\StructType\EwsFolderIdType $folderId = null)
     {
         $this
             ->setFolderId($folderId);
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return isset($this->FolderId) ? $this->FolderId : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value)
+    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\ArrayType\EwsArrayOfFolderIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \ArrayType\EwsArrayOfFolderIdType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         // validation for constraint: choice(FolderId)
         if ('' !== ($folderIdChoiceErrorMessage = self::validateFolderIdForChoiceConstraintsFromSetFolderId($folderId))) {
-            throw new \InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($folderId) || (is_array($folderId) && empty($folderId))) {
             unset($this->FolderId);
         } else {
             $this->FolderId = $folderId;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFolderIdType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFolderIdType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFolderIdType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFolderIdType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFolderIdType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $item
+     * @return \ArrayType\EwsArrayOfFolderIdType
+     */
+    public function add(\StructType\EwsFolderIdType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FolderId
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FolderId';
     }

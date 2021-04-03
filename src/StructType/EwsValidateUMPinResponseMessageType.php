@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ValidateUMPinResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsValidateUMPinResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPinInfoType
+     * @var \StructType\EwsPinInfoType
      */
-    public $PinInfo;
+    protected \StructType\EwsPinInfoType $PinInfo;
     /**
      * Constructor method for ValidateUMPinResponseMessageType
      * @uses EwsValidateUMPinResponseMessageType::setPinInfo()
-     * @param \Ews\StructType\EwsPinInfoType $pinInfo
+     * @param \StructType\EwsPinInfoType $pinInfo
      */
-    public function __construct(\Ews\StructType\EwsPinInfoType $pinInfo = null)
+    public function __construct(\StructType\EwsPinInfoType $pinInfo)
     {
         $this
             ->setPinInfo($pinInfo);
     }
     /**
      * Get PinInfo value
-     * @return \Ews\StructType\EwsPinInfoType
+     * @return \StructType\EwsPinInfoType
      */
-    public function getPinInfo()
+    public function getPinInfo(): \StructType\EwsPinInfoType
     {
         return $this->PinInfo;
     }
     /**
      * Set PinInfo value
-     * @param \Ews\StructType\EwsPinInfoType $pinInfo
-     * @return \Ews\StructType\EwsValidateUMPinResponseMessageType
+     * @param \StructType\EwsPinInfoType $pinInfo
+     * @return \StructType\EwsValidateUMPinResponseMessageType
      */
-    public function setPinInfo(\Ews\StructType\EwsPinInfoType $pinInfo = null)
+    public function setPinInfo(\StructType\EwsPinInfoType $pinInfo): self
     {
         $this->PinInfo = $pinInfo;
+        
         return $this;
     }
 }

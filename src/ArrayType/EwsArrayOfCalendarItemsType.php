@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCalendarItemsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
      * - choice: CalendarItem
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsCalendarItemType
+     * @var \StructType\EwsCalendarItemType|null
      */
-    public $CalendarItem;
+    protected ?\StructType\EwsCalendarItemType $CalendarItem = null;
     /**
      * Constructor method for ArrayOfCalendarItemsType
      * @uses EwsArrayOfCalendarItemsType::setCalendarItem()
-     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
+     * @param \StructType\EwsCalendarItemType $calendarItem
      */
-    public function __construct(\Ews\StructType\EwsCalendarItemType $calendarItem = null)
+    public function __construct(?\StructType\EwsCalendarItemType $calendarItem = null)
     {
         $this
             ->setCalendarItem($calendarItem);
     }
     /**
      * Get CalendarItem value
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function getCalendarItem()
+    public function getCalendarItem(): ?\StructType\EwsCalendarItemType
     {
         return isset($this->CalendarItem) ? $this->CalendarItem : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCalendarItemForChoiceConstraintsFromSetCalendarItem($value)
+    public function validateCalendarItemForChoiceConstraintsFromSetCalendarItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarItemType $calendarItem
-     * @return \Ews\ArrayType\EwsArrayOfCalendarItemsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarItemType $calendarItem
+     * @return \ArrayType\EwsArrayOfCalendarItemsType
      */
-    public function setCalendarItem(\Ews\StructType\EwsCalendarItemType $calendarItem = null)
+    public function setCalendarItem(?\StructType\EwsCalendarItemType $calendarItem = null): self
     {
         // validation for constraint: choice(CalendarItem)
         if ('' !== ($calendarItemChoiceErrorMessage = self::validateCalendarItemForChoiceConstraintsFromSetCalendarItem($calendarItem))) {
-            throw new \InvalidArgumentException($calendarItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($calendarItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($calendarItem) || (is_array($calendarItem) && empty($calendarItem))) {
             unset($this->CalendarItem);
         } else {
             $this->CalendarItem = $calendarItem;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsCalendarItemType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsCalendarItemType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsCalendarItemType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsCalendarItemType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfCalendarItemsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsCalendarItemType|null
+     * @return \StructType\EwsCalendarItemType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsCalendarItemType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarItemType $item
+     * @return \ArrayType\EwsArrayOfCalendarItemsType
+     */
+    public function add(\StructType\EwsCalendarItemType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CalendarItem
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CalendarItem';
     }

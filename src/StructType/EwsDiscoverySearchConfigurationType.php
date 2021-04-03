@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DiscoverySearchConfigurationType StructType
@@ -21,7 +24,7 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SearchId;
+    protected string $SearchId;
     /**
      * The SearchQuery
      * Meta information extracted from the WSDL
@@ -29,39 +32,39 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SearchQuery;
+    protected string $SearchQuery;
     /**
      * The SearchableMailboxes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
+     * @var \ArrayType\EwsArrayOfSearchableMailboxesType|null
      */
-    public $SearchableMailboxes;
+    protected ?\ArrayType\EwsArrayOfSearchableMailboxesType $SearchableMailboxes = null;
     /**
      * The InPlaceHoldIdentity
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InPlaceHoldIdentity;
+    protected ?string $InPlaceHoldIdentity = null;
     /**
      * The ManagedByOrganization
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ManagedByOrganization;
+    protected ?string $ManagedByOrganization = null;
     /**
      * The Language
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Language;
+    protected ?string $Language = null;
     /**
      * Constructor method for DiscoverySearchConfigurationType
      * @uses EwsDiscoverySearchConfigurationType::setSearchId()
@@ -72,12 +75,12 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      * @uses EwsDiscoverySearchConfigurationType::setLanguage()
      * @param string $searchId
      * @param string $searchQuery
-     * @param \Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
+     * @param \ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
      * @param string $inPlaceHoldIdentity
      * @param string $managedByOrganization
      * @param string $language
      */
-    public function __construct($searchId = null, $searchQuery = null, \Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null, $inPlaceHoldIdentity = null, $managedByOrganization = null, $language = null)
+    public function __construct(string $searchId, string $searchQuery, ?\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null, ?string $inPlaceHoldIdentity = null, ?string $managedByOrganization = null, ?string $language = null)
     {
         $this
             ->setSearchId($searchId)
@@ -91,128 +94,134 @@ class EwsDiscoverySearchConfigurationType extends AbstractStructBase
      * Get SearchId value
      * @return string
      */
-    public function getSearchId()
+    public function getSearchId(): string
     {
         return $this->SearchId;
     }
     /**
      * Set SearchId value
      * @param string $searchId
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setSearchId($searchId = null)
+    public function setSearchId(string $searchId): self
     {
         // validation for constraint: string
         if (!is_null($searchId) && !is_string($searchId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchId, true), gettype($searchId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchId, true), gettype($searchId)), __LINE__);
         }
         $this->SearchId = $searchId;
+        
         return $this;
     }
     /**
      * Get SearchQuery value
      * @return string
      */
-    public function getSearchQuery()
+    public function getSearchQuery(): string
     {
         return $this->SearchQuery;
     }
     /**
      * Set SearchQuery value
      * @param string $searchQuery
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setSearchQuery($searchQuery = null)
+    public function setSearchQuery(string $searchQuery): self
     {
         // validation for constraint: string
         if (!is_null($searchQuery) && !is_string($searchQuery)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchQuery, true), gettype($searchQuery)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchQuery, true), gettype($searchQuery)), __LINE__);
         }
         $this->SearchQuery = $searchQuery;
+        
         return $this;
     }
     /**
      * Get SearchableMailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfSearchableMailboxesType|null
+     * @return \ArrayType\EwsArrayOfSearchableMailboxesType|null
      */
-    public function getSearchableMailboxes()
+    public function getSearchableMailboxes(): ?\ArrayType\EwsArrayOfSearchableMailboxesType
     {
         return $this->SearchableMailboxes;
     }
     /**
      * Set SearchableMailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @param \ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setSearchableMailboxes(\Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null)
+    public function setSearchableMailboxes(?\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null): self
     {
         $this->SearchableMailboxes = $searchableMailboxes;
+        
         return $this;
     }
     /**
      * Get InPlaceHoldIdentity value
      * @return string|null
      */
-    public function getInPlaceHoldIdentity()
+    public function getInPlaceHoldIdentity(): ?string
     {
         return $this->InPlaceHoldIdentity;
     }
     /**
      * Set InPlaceHoldIdentity value
      * @param string $inPlaceHoldIdentity
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setInPlaceHoldIdentity($inPlaceHoldIdentity = null)
+    public function setInPlaceHoldIdentity(?string $inPlaceHoldIdentity = null): self
     {
         // validation for constraint: string
         if (!is_null($inPlaceHoldIdentity) && !is_string($inPlaceHoldIdentity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inPlaceHoldIdentity, true), gettype($inPlaceHoldIdentity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inPlaceHoldIdentity, true), gettype($inPlaceHoldIdentity)), __LINE__);
         }
         $this->InPlaceHoldIdentity = $inPlaceHoldIdentity;
+        
         return $this;
     }
     /**
      * Get ManagedByOrganization value
      * @return string|null
      */
-    public function getManagedByOrganization()
+    public function getManagedByOrganization(): ?string
     {
         return $this->ManagedByOrganization;
     }
     /**
      * Set ManagedByOrganization value
      * @param string $managedByOrganization
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setManagedByOrganization($managedByOrganization = null)
+    public function setManagedByOrganization(?string $managedByOrganization = null): self
     {
         // validation for constraint: string
         if (!is_null($managedByOrganization) && !is_string($managedByOrganization)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedByOrganization, true), gettype($managedByOrganization)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($managedByOrganization, true), gettype($managedByOrganization)), __LINE__);
         }
         $this->ManagedByOrganization = $managedByOrganization;
+        
         return $this;
     }
     /**
      * Get Language value
      * @return string|null
      */
-    public function getLanguage()
+    public function getLanguage(): ?string
     {
         return $this->Language;
     }
     /**
      * Set Language value
      * @param string $language
-     * @return \Ews\StructType\EwsDiscoverySearchConfigurationType
+     * @return \StructType\EwsDiscoverySearchConfigurationType
      */
-    public function setLanguage($language = null)
+    public function setLanguage(?string $language = null): self
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
+        
         return $this;
     }
 }

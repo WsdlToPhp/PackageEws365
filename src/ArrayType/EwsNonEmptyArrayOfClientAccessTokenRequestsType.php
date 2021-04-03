@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfClientAccessTokenRequestsType ArrayType
@@ -17,24 +20,24 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsClientAccessTokenRequestType[]
+     * @var \StructType\EwsClientAccessTokenRequestType[]
      */
-    public $TokenRequest;
+    protected array $TokenRequest = [];
     /**
      * Constructor method for NonEmptyArrayOfClientAccessTokenRequestsType
      * @uses EwsNonEmptyArrayOfClientAccessTokenRequestsType::setTokenRequest()
-     * @param \Ews\StructType\EwsClientAccessTokenRequestType[] $tokenRequest
+     * @param \StructType\EwsClientAccessTokenRequestType[] $tokenRequest
      */
-    public function __construct(array $tokenRequest = array())
+    public function __construct(array $tokenRequest)
     {
         $this
             ->setTokenRequest($tokenRequest);
     }
     /**
      * Get TokenRequest value
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType[]
+     * @return \StructType\EwsClientAccessTokenRequestType[]
      */
-    public function getTokenRequest()
+    public function getTokenRequest(): array
     {
         return $this->TokenRequest;
     }
@@ -44,58 +47,45 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTokenRequestForArrayConstraintsFromSetTokenRequest(array $values = array())
+    public static function validateTokenRequestForArrayConstraintsFromSetTokenRequest(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem instanceof \Ews\StructType\EwsClientAccessTokenRequestType) {
+            if (!$nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem instanceof \StructType\EwsClientAccessTokenRequestType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) ? get_class($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem), var_export($nonEmptyArrayOfClientAccessTokenRequestsTypeTokenRequestItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The TokenRequest property can only contain items of type \Ews\StructType\EwsClientAccessTokenRequestType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The TokenRequest property can only contain items of type \StructType\EwsClientAccessTokenRequestType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set TokenRequest value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsClientAccessTokenRequestType[] $tokenRequest
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsClientAccessTokenRequestType[] $tokenRequest
+     * @return \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
      */
-    public function setTokenRequest(array $tokenRequest = array())
+    public function setTokenRequest(array $tokenRequest): self
     {
         // validation for constraint: array
         if ('' !== ($tokenRequestArrayErrorMessage = self::validateTokenRequestForArrayConstraintsFromSetTokenRequest($tokenRequest))) {
-            throw new \InvalidArgumentException($tokenRequestArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($tokenRequestArrayErrorMessage, __LINE__);
         }
         $this->TokenRequest = $tokenRequest;
-        return $this;
-    }
-    /**
-     * Add item to TokenRequest value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsClientAccessTokenRequestType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
-     */
-    public function addToTokenRequest(\Ews\StructType\EwsClientAccessTokenRequestType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsClientAccessTokenRequestType) {
-            throw new \InvalidArgumentException(sprintf('The TokenRequest property can only contain items of type \Ews\StructType\EwsClientAccessTokenRequestType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->TokenRequest[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsClientAccessTokenRequestType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsClientAccessTokenRequestType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsClientAccessTokenRequestType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsClientAccessTokenRequestType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsClientAccessTokenRequestType
+     * @return \StructType\EwsClientAccessTokenRequestType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsClientAccessTokenRequestType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsClientAccessTokenRequestType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
+     */
+    public function add(\StructType\EwsClientAccessTokenRequestType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string TokenRequest
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'TokenRequest';
     }

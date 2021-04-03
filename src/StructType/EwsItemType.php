@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ItemType StructType
@@ -16,432 +19,432 @@ class EwsItemType extends AbstractStructBase
      * The MimeContent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMimeContentType
+     * @var \StructType\EwsMimeContentType|null
      */
-    public $MimeContent;
+    protected ?\StructType\EwsMimeContentType $MimeContent = null;
     /**
      * The ItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The ParentFolderId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $ParentFolderId;
+    protected ?\StructType\EwsFolderIdType $ParentFolderId = null;
     /**
      * The ItemClass
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ItemClass;
+    protected ?string $ItemClass = null;
     /**
      * The Subject
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The Sensitivity
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Sensitivity;
+    protected ?string $Sensitivity = null;
     /**
      * The Body
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $Body;
+    protected ?\StructType\EwsBodyType $Body = null;
     /**
      * The Attachments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType
+     * @var \StructType\EwsNonEmptyArrayOfAttachmentsType|null
      */
-    public $Attachments;
+    protected ?\StructType\EwsNonEmptyArrayOfAttachmentsType $Attachments = null;
     /**
      * The DateTimeReceived
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DateTimeReceived;
+    protected ?string $DateTimeReceived = null;
     /**
      * The Size
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Size;
+    protected ?int $Size = null;
     /**
      * The Categories
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Categories;
+    protected ?\ArrayType\EwsArrayOfStringsType $Categories = null;
     /**
      * The Importance
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Importance;
+    protected ?string $Importance = null;
     /**
      * The InReplyTo
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InReplyTo;
+    protected ?string $InReplyTo = null;
     /**
      * The IsSubmitted
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsSubmitted;
+    protected ?bool $IsSubmitted = null;
     /**
      * The IsDraft
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsDraft;
+    protected ?bool $IsDraft = null;
     /**
      * The IsFromMe
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsFromMe;
+    protected ?bool $IsFromMe = null;
     /**
      * The IsResend
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsResend;
+    protected ?bool $IsResend = null;
     /**
      * The IsUnmodified
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsUnmodified;
+    protected ?bool $IsUnmodified = null;
     /**
      * The InternetMessageHeaders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
+     * @var \ArrayType\EwsNonEmptyArrayOfInternetHeadersType|null
      */
-    public $InternetMessageHeaders;
+    protected ?\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $InternetMessageHeaders = null;
     /**
      * The DateTimeSent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DateTimeSent;
+    protected ?string $DateTimeSent = null;
     /**
      * The DateTimeCreated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DateTimeCreated;
+    protected ?string $DateTimeCreated = null;
     /**
      * The ResponseObjects
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @var \StructType\EwsNonEmptyArrayOfResponseObjectsType|null
      */
-    public $ResponseObjects;
+    protected ?\StructType\EwsNonEmptyArrayOfResponseObjectsType $ResponseObjects = null;
     /**
      * The ReminderDueBy
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReminderDueBy;
+    protected ?string $ReminderDueBy = null;
     /**
      * The ReminderIsSet
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ReminderIsSet;
+    protected ?bool $ReminderIsSet = null;
     /**
      * The ReminderNextTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReminderNextTime;
+    protected ?string $ReminderNextTime = null;
     /**
      * The ReminderMinutesBeforeStart
      * Meta information extracted from the WSDL
      * - minOccurs: 0
      * - union: int
-     * @var string
+     * @var string|null
      */
-    public $ReminderMinutesBeforeStart;
+    protected ?string $ReminderMinutesBeforeStart = null;
     /**
      * The DisplayCc
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayCc;
+    protected ?string $DisplayCc = null;
     /**
      * The DisplayTo
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayTo;
+    protected ?string $DisplayTo = null;
     /**
      * The HasAttachments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasAttachments;
+    protected ?bool $HasAttachments = null;
     /**
      * The ExtendedProperty
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsExtendedPropertyType[]
+     * @var \StructType\EwsExtendedPropertyType[]
      */
-    public $ExtendedProperty;
+    protected array $ExtendedProperty = [];
     /**
      * The Culture
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Culture;
+    protected ?string $Culture = null;
     /**
      * The EffectiveRights
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEffectiveRightsType
+     * @var \StructType\EwsEffectiveRightsType|null
      */
-    public $EffectiveRights;
+    protected ?\StructType\EwsEffectiveRightsType $EffectiveRights = null;
     /**
      * The LastModifiedName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastModifiedName;
+    protected ?string $LastModifiedName = null;
     /**
      * The LastModifiedTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastModifiedTime;
+    protected ?string $LastModifiedTime = null;
     /**
      * The IsAssociated
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAssociated;
+    protected ?bool $IsAssociated = null;
     /**
      * The WebClientReadFormQueryString
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WebClientReadFormQueryString;
+    protected ?string $WebClientReadFormQueryString = null;
     /**
      * The WebClientEditFormQueryString
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WebClientEditFormQueryString;
+    protected ?string $WebClientEditFormQueryString = null;
     /**
      * The ConversationId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ConversationId;
+    protected ?\StructType\EwsItemIdType $ConversationId = null;
     /**
      * The UniqueBody
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $UniqueBody;
+    protected ?\StructType\EwsBodyType $UniqueBody = null;
     /**
      * The Flag
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFlagType
+     * @var \StructType\EwsFlagType|null
      */
-    public $Flag;
+    protected ?\StructType\EwsFlagType $Flag = null;
     /**
      * The StoreEntryId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StoreEntryId;
+    protected ?string $StoreEntryId = null;
     /**
      * The InstanceKey
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InstanceKey;
+    protected ?string $InstanceKey = null;
     /**
      * The NormalizedBody
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $NormalizedBody;
+    protected ?\StructType\EwsBodyType $NormalizedBody = null;
     /**
      * The EntityExtractionResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEntityExtractionResultType
+     * @var \StructType\EwsEntityExtractionResultType|null
      */
-    public $EntityExtractionResult;
+    protected ?\StructType\EwsEntityExtractionResultType $EntityExtractionResult = null;
     /**
      * The PolicyTag
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRetentionTagType
+     * @var \StructType\EwsRetentionTagType|null
      */
-    public $PolicyTag;
+    protected ?\StructType\EwsRetentionTagType $PolicyTag = null;
     /**
      * The ArchiveTag
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRetentionTagType
+     * @var \StructType\EwsRetentionTagType|null
      */
-    public $ArchiveTag;
+    protected ?\StructType\EwsRetentionTagType $ArchiveTag = null;
     /**
      * The RetentionDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $RetentionDate;
+    protected ?string $RetentionDate = null;
     /**
      * The Preview
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Preview;
+    protected ?string $Preview = null;
     /**
      * The RightsManagementLicenseData
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRightsManagementLicenseDataType
+     * @var \StructType\EwsRightsManagementLicenseDataType|null
      */
-    public $RightsManagementLicenseData;
+    protected ?\StructType\EwsRightsManagementLicenseDataType $RightsManagementLicenseData = null;
     /**
      * The PredictedActionReasons
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
+     * @var \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType|null
      */
-    public $PredictedActionReasons;
+    protected ?\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $PredictedActionReasons = null;
     /**
      * The IsClutter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsClutter;
+    protected ?bool $IsClutter = null;
     /**
      * The BlockStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $BlockStatus;
+    protected ?bool $BlockStatus = null;
     /**
      * The HasBlockedImages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasBlockedImages;
+    protected ?bool $HasBlockedImages = null;
     /**
      * The TextBody
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyType
+     * @var \StructType\EwsBodyType|null
      */
-    public $TextBody;
+    protected ?\StructType\EwsBodyType $TextBody = null;
     /**
      * The IconIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $IconIndex;
+    protected ?string $IconIndex = null;
     /**
      * The SearchKey
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SearchKey;
+    protected ?string $SearchKey = null;
     /**
      * The SortKey
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $SortKey;
+    protected ?int $SortKey = null;
     /**
      * The Hashtags
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Hashtags;
+    protected ?\ArrayType\EwsArrayOfStringsType $Hashtags = null;
     /**
      * The Mentions
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRecipientsType
+     * @var \ArrayType\EwsArrayOfRecipientsType|null
      */
-    public $Mentions;
+    protected ?\ArrayType\EwsArrayOfRecipientsType $Mentions = null;
     /**
      * The MentionedMe
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MentionedMe;
+    protected ?bool $MentionedMe = null;
     /**
      * The PendingSocialActivityTagIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $PendingSocialActivityTagIds;
+    protected ?\ArrayType\EwsArrayOfStringsType $PendingSocialActivityTagIds = null;
     /**
      * Constructor method for ItemType
      * @uses EwsItemType::setMimeContent()
@@ -505,17 +508,17 @@ class EwsItemType extends AbstractStructBase
      * @uses EwsItemType::setMentions()
      * @uses EwsItemType::setMentionedMe()
      * @uses EwsItemType::setPendingSocialActivityTagIds()
-     * @param \Ews\StructType\EwsMimeContentType $mimeContent
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsFolderIdType $parentFolderId
+     * @param \StructType\EwsMimeContentType $mimeContent
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsFolderIdType $parentFolderId
      * @param string $itemClass
      * @param string $subject
      * @param string $sensitivity
-     * @param \Ews\StructType\EwsBodyType $body
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
+     * @param \StructType\EwsBodyType $body
+     * @param \StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
      * @param string $dateTimeReceived
      * @param int $size
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
+     * @param \ArrayType\EwsArrayOfStringsType $categories
      * @param string $importance
      * @param string $inReplyTo
      * @param bool $isSubmitted
@@ -523,10 +526,10 @@ class EwsItemType extends AbstractStructBase
      * @param bool $isFromMe
      * @param bool $isResend
      * @param bool $isUnmodified
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
+     * @param \ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
      * @param string $dateTimeSent
      * @param string $dateTimeCreated
-     * @param \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
+     * @param \StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
      * @param string $reminderDueBy
      * @param bool $reminderIsSet
      * @param string $reminderNextTime
@@ -534,40 +537,40 @@ class EwsItemType extends AbstractStructBase
      * @param string $displayCc
      * @param string $displayTo
      * @param bool $hasAttachments
-     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
+     * @param \StructType\EwsExtendedPropertyType[] $extendedProperty
      * @param string $culture
-     * @param \Ews\StructType\EwsEffectiveRightsType $effectiveRights
+     * @param \StructType\EwsEffectiveRightsType $effectiveRights
      * @param string $lastModifiedName
      * @param string $lastModifiedTime
      * @param bool $isAssociated
      * @param string $webClientReadFormQueryString
      * @param string $webClientEditFormQueryString
-     * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @param \Ews\StructType\EwsBodyType $uniqueBody
-     * @param \Ews\StructType\EwsFlagType $flag
+     * @param \StructType\EwsItemIdType $conversationId
+     * @param \StructType\EwsBodyType $uniqueBody
+     * @param \StructType\EwsFlagType $flag
      * @param string $storeEntryId
      * @param string $instanceKey
-     * @param \Ews\StructType\EwsBodyType $normalizedBody
-     * @param \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult
-     * @param \Ews\StructType\EwsRetentionTagType $policyTag
-     * @param \Ews\StructType\EwsRetentionTagType $archiveTag
+     * @param \StructType\EwsBodyType $normalizedBody
+     * @param \StructType\EwsEntityExtractionResultType $entityExtractionResult
+     * @param \StructType\EwsRetentionTagType $policyTag
+     * @param \StructType\EwsRetentionTagType $archiveTag
      * @param string $retentionDate
      * @param string $preview
-     * @param \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
+     * @param \StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
+     * @param \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
      * @param bool $isClutter
      * @param bool $blockStatus
      * @param bool $hasBlockedImages
-     * @param \Ews\StructType\EwsBodyType $textBody
+     * @param \StructType\EwsBodyType $textBody
      * @param string $iconIndex
      * @param string $searchKey
      * @param int $sortKey
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $hashtags
-     * @param \Ews\ArrayType\EwsArrayOfRecipientsType $mentions
+     * @param \ArrayType\EwsArrayOfStringsType $hashtags
+     * @param \ArrayType\EwsArrayOfRecipientsType $mentions
      * @param bool $mentionedMe
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
+     * @param \ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
      */
-    public function __construct(\Ews\StructType\EwsMimeContentType $mimeContent = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null, $itemClass = null, $subject = null, $sensitivity = null, \Ews\StructType\EwsBodyType $body = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, $dateTimeReceived = null, $size = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, $importance = null, $inReplyTo = null, $isSubmitted = null, $isDraft = null, $isFromMe = null, $isResend = null, $isUnmodified = null, \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, $dateTimeSent = null, $dateTimeCreated = null, \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, $reminderDueBy = null, $reminderIsSet = null, $reminderNextTime = null, $reminderMinutesBeforeStart = null, $displayCc = null, $displayTo = null, $hasAttachments = null, array $extendedProperty = array(), $culture = null, \Ews\StructType\EwsEffectiveRightsType $effectiveRights = null, $lastModifiedName = null, $lastModifiedTime = null, $isAssociated = null, $webClientReadFormQueryString = null, $webClientEditFormQueryString = null, \Ews\StructType\EwsItemIdType $conversationId = null, \Ews\StructType\EwsBodyType $uniqueBody = null, \Ews\StructType\EwsFlagType $flag = null, $storeEntryId = null, $instanceKey = null, \Ews\StructType\EwsBodyType $normalizedBody = null, \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, \Ews\StructType\EwsRetentionTagType $policyTag = null, \Ews\StructType\EwsRetentionTagType $archiveTag = null, $retentionDate = null, $preview = null, \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, $isClutter = null, $blockStatus = null, $hasBlockedImages = null, \Ews\StructType\EwsBodyType $textBody = null, $iconIndex = null, $searchKey = null, $sortKey = null, \Ews\ArrayType\EwsArrayOfStringsType $hashtags = null, \Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null, $mentionedMe = null, \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
+    public function __construct(?\StructType\EwsMimeContentType $mimeContent = null, ?\StructType\EwsItemIdType $itemId = null, ?\StructType\EwsFolderIdType $parentFolderId = null, ?string $itemClass = null, ?string $subject = null, ?string $sensitivity = null, ?\StructType\EwsBodyType $body = null, ?\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null, ?string $dateTimeReceived = null, ?int $size = null, ?\ArrayType\EwsArrayOfStringsType $categories = null, ?string $importance = null, ?string $inReplyTo = null, ?bool $isSubmitted = null, ?bool $isDraft = null, ?bool $isFromMe = null, ?bool $isResend = null, ?bool $isUnmodified = null, ?\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null, ?string $dateTimeSent = null, ?string $dateTimeCreated = null, ?\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null, ?string $reminderDueBy = null, ?bool $reminderIsSet = null, ?string $reminderNextTime = null, ?string $reminderMinutesBeforeStart = null, ?string $displayCc = null, ?string $displayTo = null, ?bool $hasAttachments = null, array $extendedProperty = [], ?string $culture = null, ?\StructType\EwsEffectiveRightsType $effectiveRights = null, ?string $lastModifiedName = null, ?string $lastModifiedTime = null, ?bool $isAssociated = null, ?string $webClientReadFormQueryString = null, ?string $webClientEditFormQueryString = null, ?\StructType\EwsItemIdType $conversationId = null, ?\StructType\EwsBodyType $uniqueBody = null, ?\StructType\EwsFlagType $flag = null, ?string $storeEntryId = null, ?string $instanceKey = null, ?\StructType\EwsBodyType $normalizedBody = null, ?\StructType\EwsEntityExtractionResultType $entityExtractionResult = null, ?\StructType\EwsRetentionTagType $policyTag = null, ?\StructType\EwsRetentionTagType $archiveTag = null, ?string $retentionDate = null, ?string $preview = null, ?\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null, ?\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null, ?bool $isClutter = null, ?bool $blockStatus = null, ?bool $hasBlockedImages = null, ?\StructType\EwsBodyType $textBody = null, ?string $iconIndex = null, ?string $searchKey = null, ?int $sortKey = null, ?\ArrayType\EwsArrayOfStringsType $hashtags = null, ?\ArrayType\EwsArrayOfRecipientsType $mentions = null, ?bool $mentionedMe = null, ?\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
     {
         $this
             ->setMimeContent($mimeContent)
@@ -634,533 +637,558 @@ class EwsItemType extends AbstractStructBase
     }
     /**
      * Get MimeContent value
-     * @return \Ews\StructType\EwsMimeContentType|null
+     * @return \StructType\EwsMimeContentType|null
      */
-    public function getMimeContent()
+    public function getMimeContent(): ?\StructType\EwsMimeContentType
     {
         return $this->MimeContent;
     }
     /**
      * Set MimeContent value
-     * @param \Ews\StructType\EwsMimeContentType $mimeContent
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsMimeContentType $mimeContent
+     * @return \StructType\EwsItemType
      */
-    public function setMimeContent(\Ews\StructType\EwsMimeContentType $mimeContent = null)
+    public function setMimeContent(?\StructType\EwsMimeContentType $mimeContent = null): self
     {
         $this->MimeContent = $mimeContent;
+        
         return $this;
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsItemType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get ParentFolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->ParentFolderId;
     }
     /**
      * Set ParentFolderId value
-     * @param \Ews\StructType\EwsFolderIdType $parentFolderId
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsFolderIdType $parentFolderId
+     * @return \StructType\EwsItemType
      */
-    public function setParentFolderId(\Ews\StructType\EwsFolderIdType $parentFolderId = null)
+    public function setParentFolderId(?\StructType\EwsFolderIdType $parentFolderId = null): self
     {
         $this->ParentFolderId = $parentFolderId;
+        
         return $this;
     }
     /**
      * Get ItemClass value
      * @return string|null
      */
-    public function getItemClass()
+    public function getItemClass(): ?string
     {
         return $this->ItemClass;
     }
     /**
      * Set ItemClass value
      * @param string $itemClass
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setItemClass($itemClass = null)
+    public function setItemClass(?string $itemClass = null): self
     {
         // validation for constraint: string
         if (!is_null($itemClass) && !is_string($itemClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         $this->ItemClass = $itemClass;
+        
         return $this;
     }
     /**
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get Sensitivity value
      * @return string|null
      */
-    public function getSensitivity()
+    public function getSensitivity(): ?string
     {
         return $this->Sensitivity;
     }
     /**
      * Set Sensitivity value
-     * @uses \Ews\EnumType\EwsSensitivityChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSensitivityChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSensitivityChoicesType::valueIsValid()
+     * @uses \EnumType\EwsSensitivityChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sensitivity
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setSensitivity($sensitivity = null)
+    public function setSensitivity(?string $sensitivity = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
         $this->Sensitivity = $sensitivity;
+        
         return $this;
     }
     /**
      * Get Body value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getBody()
+    public function getBody(): ?\StructType\EwsBodyType
     {
         return $this->Body;
     }
     /**
      * Set Body value
-     * @param \Ews\StructType\EwsBodyType $body
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsBodyType $body
+     * @return \StructType\EwsItemType
      */
-    public function setBody(\Ews\StructType\EwsBodyType $body = null)
+    public function setBody(?\StructType\EwsBodyType $body = null): self
     {
         $this->Body = $body;
+        
         return $this;
     }
     /**
      * Get Attachments value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAttachmentsType|null
      */
-    public function getAttachments()
+    public function getAttachments(): ?\StructType\EwsNonEmptyArrayOfAttachmentsType
     {
         return $this->Attachments;
     }
     /**
      * Set Attachments value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
+     * @return \StructType\EwsItemType
      */
-    public function setAttachments(\Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null)
+    public function setAttachments(?\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null): self
     {
         $this->Attachments = $attachments;
+        
         return $this;
     }
     /**
      * Get DateTimeReceived value
      * @return string|null
      */
-    public function getDateTimeReceived()
+    public function getDateTimeReceived(): ?string
     {
         return $this->DateTimeReceived;
     }
     /**
      * Set DateTimeReceived value
      * @param string $dateTimeReceived
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setDateTimeReceived($dateTimeReceived = null)
+    public function setDateTimeReceived(?string $dateTimeReceived = null): self
     {
         // validation for constraint: string
         if (!is_null($dateTimeReceived) && !is_string($dateTimeReceived)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeReceived, true), gettype($dateTimeReceived)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeReceived, true), gettype($dateTimeReceived)), __LINE__);
         }
         $this->DateTimeReceived = $dateTimeReceived;
+        
         return $this;
     }
     /**
      * Get Size value
      * @return int|null
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->Size;
     }
     /**
      * Set Size value
      * @param int $size
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setSize($size = null)
+    public function setSize(?int $size = null): self
     {
         // validation for constraint: int
         if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
+        
         return $this;
     }
     /**
      * Get Categories value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getCategories()
+    public function getCategories(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Categories;
     }
     /**
      * Set Categories value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsArrayOfStringsType $categories
+     * @return \StructType\EwsItemType
      */
-    public function setCategories(\Ews\ArrayType\EwsArrayOfStringsType $categories = null)
+    public function setCategories(?\ArrayType\EwsArrayOfStringsType $categories = null): self
     {
         $this->Categories = $categories;
+        
         return $this;
     }
     /**
      * Get Importance value
      * @return string|null
      */
-    public function getImportance()
+    public function getImportance(): ?string
     {
         return $this->Importance;
     }
     /**
      * Set Importance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $importance
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setImportance($importance = null)
+    public function setImportance(?string $importance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
+        
         return $this;
     }
     /**
      * Get InReplyTo value
      * @return string|null
      */
-    public function getInReplyTo()
+    public function getInReplyTo(): ?string
     {
         return $this->InReplyTo;
     }
     /**
      * Set InReplyTo value
      * @param string $inReplyTo
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setInReplyTo($inReplyTo = null)
+    public function setInReplyTo(?string $inReplyTo = null): self
     {
         // validation for constraint: string
         if (!is_null($inReplyTo) && !is_string($inReplyTo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inReplyTo, true), gettype($inReplyTo)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inReplyTo, true), gettype($inReplyTo)), __LINE__);
         }
         $this->InReplyTo = $inReplyTo;
+        
         return $this;
     }
     /**
      * Get IsSubmitted value
      * @return bool|null
      */
-    public function getIsSubmitted()
+    public function getIsSubmitted(): ?bool
     {
         return $this->IsSubmitted;
     }
     /**
      * Set IsSubmitted value
      * @param bool $isSubmitted
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsSubmitted($isSubmitted = null)
+    public function setIsSubmitted(?bool $isSubmitted = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isSubmitted) && !is_bool($isSubmitted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubmitted, true), gettype($isSubmitted)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubmitted, true), gettype($isSubmitted)), __LINE__);
         }
         $this->IsSubmitted = $isSubmitted;
+        
         return $this;
     }
     /**
      * Get IsDraft value
      * @return bool|null
      */
-    public function getIsDraft()
+    public function getIsDraft(): ?bool
     {
         return $this->IsDraft;
     }
     /**
      * Set IsDraft value
      * @param bool $isDraft
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsDraft($isDraft = null)
+    public function setIsDraft(?bool $isDraft = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isDraft) && !is_bool($isDraft)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDraft, true), gettype($isDraft)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDraft, true), gettype($isDraft)), __LINE__);
         }
         $this->IsDraft = $isDraft;
+        
         return $this;
     }
     /**
      * Get IsFromMe value
      * @return bool|null
      */
-    public function getIsFromMe()
+    public function getIsFromMe(): ?bool
     {
         return $this->IsFromMe;
     }
     /**
      * Set IsFromMe value
      * @param bool $isFromMe
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsFromMe($isFromMe = null)
+    public function setIsFromMe(?bool $isFromMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isFromMe) && !is_bool($isFromMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFromMe, true), gettype($isFromMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFromMe, true), gettype($isFromMe)), __LINE__);
         }
         $this->IsFromMe = $isFromMe;
+        
         return $this;
     }
     /**
      * Get IsResend value
      * @return bool|null
      */
-    public function getIsResend()
+    public function getIsResend(): ?bool
     {
         return $this->IsResend;
     }
     /**
      * Set IsResend value
      * @param bool $isResend
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsResend($isResend = null)
+    public function setIsResend(?bool $isResend = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isResend) && !is_bool($isResend)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isResend, true), gettype($isResend)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isResend, true), gettype($isResend)), __LINE__);
         }
         $this->IsResend = $isResend;
+        
         return $this;
     }
     /**
      * Get IsUnmodified value
      * @return bool|null
      */
-    public function getIsUnmodified()
+    public function getIsUnmodified(): ?bool
     {
         return $this->IsUnmodified;
     }
     /**
      * Set IsUnmodified value
      * @param bool $isUnmodified
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsUnmodified($isUnmodified = null)
+    public function setIsUnmodified(?bool $isUnmodified = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isUnmodified) && !is_bool($isUnmodified)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnmodified, true), gettype($isUnmodified)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnmodified, true), gettype($isUnmodified)), __LINE__);
         }
         $this->IsUnmodified = $isUnmodified;
+        
         return $this;
     }
     /**
      * Get InternetMessageHeaders value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfInternetHeadersType|null
      */
-    public function getInternetMessageHeaders()
+    public function getInternetMessageHeaders(): ?\ArrayType\EwsNonEmptyArrayOfInternetHeadersType
     {
         return $this->InternetMessageHeaders;
     }
     /**
      * Set InternetMessageHeaders value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders
+     * @return \StructType\EwsItemType
      */
-    public function setInternetMessageHeaders(\Ews\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null)
+    public function setInternetMessageHeaders(?\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null): self
     {
         $this->InternetMessageHeaders = $internetMessageHeaders;
+        
         return $this;
     }
     /**
      * Get DateTimeSent value
      * @return string|null
      */
-    public function getDateTimeSent()
+    public function getDateTimeSent(): ?string
     {
         return $this->DateTimeSent;
     }
     /**
      * Set DateTimeSent value
      * @param string $dateTimeSent
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setDateTimeSent($dateTimeSent = null)
+    public function setDateTimeSent(?string $dateTimeSent = null): self
     {
         // validation for constraint: string
         if (!is_null($dateTimeSent) && !is_string($dateTimeSent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeSent, true), gettype($dateTimeSent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeSent, true), gettype($dateTimeSent)), __LINE__);
         }
         $this->DateTimeSent = $dateTimeSent;
+        
         return $this;
     }
     /**
      * Get DateTimeCreated value
      * @return string|null
      */
-    public function getDateTimeCreated()
+    public function getDateTimeCreated(): ?string
     {
         return $this->DateTimeCreated;
     }
     /**
      * Set DateTimeCreated value
      * @param string $dateTimeCreated
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setDateTimeCreated($dateTimeCreated = null)
+    public function setDateTimeCreated(?string $dateTimeCreated = null): self
     {
         // validation for constraint: string
         if (!is_null($dateTimeCreated) && !is_string($dateTimeCreated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeCreated, true), gettype($dateTimeCreated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeCreated, true), gettype($dateTimeCreated)), __LINE__);
         }
         $this->DateTimeCreated = $dateTimeCreated;
+        
         return $this;
     }
     /**
      * Get ResponseObjects value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType|null
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType|null
      */
-    public function getResponseObjects()
+    public function getResponseObjects(): ?\StructType\EwsNonEmptyArrayOfResponseObjectsType
     {
         return $this->ResponseObjects;
     }
     /**
      * Set ResponseObjects value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects
+     * @return \StructType\EwsItemType
      */
-    public function setResponseObjects(\Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null)
+    public function setResponseObjects(?\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null): self
     {
         $this->ResponseObjects = $responseObjects;
+        
         return $this;
     }
     /**
      * Get ReminderDueBy value
      * @return string|null
      */
-    public function getReminderDueBy()
+    public function getReminderDueBy(): ?string
     {
         return $this->ReminderDueBy;
     }
     /**
      * Set ReminderDueBy value
      * @param string $reminderDueBy
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setReminderDueBy($reminderDueBy = null)
+    public function setReminderDueBy(?string $reminderDueBy = null): self
     {
         // validation for constraint: string
         if (!is_null($reminderDueBy) && !is_string($reminderDueBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderDueBy, true), gettype($reminderDueBy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderDueBy, true), gettype($reminderDueBy)), __LINE__);
         }
         $this->ReminderDueBy = $reminderDueBy;
+        
         return $this;
     }
     /**
      * Get ReminderIsSet value
      * @return bool|null
      */
-    public function getReminderIsSet()
+    public function getReminderIsSet(): ?bool
     {
         return $this->ReminderIsSet;
     }
     /**
      * Set ReminderIsSet value
      * @param bool $reminderIsSet
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setReminderIsSet($reminderIsSet = null)
+    public function setReminderIsSet(?bool $reminderIsSet = null): self
     {
         // validation for constraint: boolean
         if (!is_null($reminderIsSet) && !is_bool($reminderIsSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reminderIsSet, true), gettype($reminderIsSet)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reminderIsSet, true), gettype($reminderIsSet)), __LINE__);
         }
         $this->ReminderIsSet = $reminderIsSet;
+        
         return $this;
     }
     /**
      * Get ReminderNextTime value
      * @return string|null
      */
-    public function getReminderNextTime()
+    public function getReminderNextTime(): ?string
     {
         return $this->ReminderNextTime;
     }
     /**
      * Set ReminderNextTime value
      * @param string $reminderNextTime
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setReminderNextTime($reminderNextTime = null)
+    public function setReminderNextTime(?string $reminderNextTime = null): self
     {
         // validation for constraint: string
         if (!is_null($reminderNextTime) && !is_string($reminderNextTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderNextTime, true), gettype($reminderNextTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderNextTime, true), gettype($reminderNextTime)), __LINE__);
         }
         $this->ReminderNextTime = $reminderNextTime;
+        
         return $this;
     }
     /**
      * Get ReminderMinutesBeforeStart value
      * @return string|null
      */
-    public function getReminderMinutesBeforeStart()
+    public function getReminderMinutesBeforeStart(): ?string
     {
         return $this->ReminderMinutesBeforeStart;
     }
@@ -1171,108 +1199,113 @@ class EwsItemType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateReminderMinutesBeforeStartForUnionConstraintsFromSetReminderMinutesBeforeStart($value)
+    public static function validateReminderMinutesBeforeStartForUnionConstraintsFromSetReminderMinutesBeforeStart($value): string
     {
         $message = '';
         // validation for constraint: int
         if (!is_null($value) && !(is_int($value) || ctype_digit($value))) {
-            $exception0 = new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
+            $exception0 = new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (isset($exception0)) {
-            $message = sprintf("The value %s does not match any of the union rules: int. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(\InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
+            $message = sprintf("The value %s does not match any of the union rules: int. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
         }
         unset($exception0);
+        
         return $message;
     }
     /**
      * Set ReminderMinutesBeforeStart value
      * @param string $reminderMinutesBeforeStart
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setReminderMinutesBeforeStart($reminderMinutesBeforeStart = null)
+    public function setReminderMinutesBeforeStart(?string $reminderMinutesBeforeStart = null): self
     {
         // validation for constraint: string
         if (!is_null($reminderMinutesBeforeStart) && !is_string($reminderMinutesBeforeStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderMinutesBeforeStart, true), gettype($reminderMinutesBeforeStart)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderMinutesBeforeStart, true), gettype($reminderMinutesBeforeStart)), __LINE__);
         }
         // validation for constraint: union(int)
         if ('' !== ($reminderMinutesBeforeStartUnionErrorMessage = self::validateReminderMinutesBeforeStartForUnionConstraintsFromSetReminderMinutesBeforeStart($reminderMinutesBeforeStart))) {
-            throw new \InvalidArgumentException($reminderMinutesBeforeStartUnionErrorMessage, __LINE__);
+            throw new InvalidArgumentException($reminderMinutesBeforeStartUnionErrorMessage, __LINE__);
         }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
+        
         return $this;
     }
     /**
      * Get DisplayCc value
      * @return string|null
      */
-    public function getDisplayCc()
+    public function getDisplayCc(): ?string
     {
         return $this->DisplayCc;
     }
     /**
      * Set DisplayCc value
      * @param string $displayCc
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setDisplayCc($displayCc = null)
+    public function setDisplayCc(?string $displayCc = null): self
     {
         // validation for constraint: string
         if (!is_null($displayCc) && !is_string($displayCc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayCc, true), gettype($displayCc)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayCc, true), gettype($displayCc)), __LINE__);
         }
         $this->DisplayCc = $displayCc;
+        
         return $this;
     }
     /**
      * Get DisplayTo value
      * @return string|null
      */
-    public function getDisplayTo()
+    public function getDisplayTo(): ?string
     {
         return $this->DisplayTo;
     }
     /**
      * Set DisplayTo value
      * @param string $displayTo
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setDisplayTo($displayTo = null)
+    public function setDisplayTo(?string $displayTo = null): self
     {
         // validation for constraint: string
         if (!is_null($displayTo) && !is_string($displayTo)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayTo, true), gettype($displayTo)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayTo, true), gettype($displayTo)), __LINE__);
         }
         $this->DisplayTo = $displayTo;
+        
         return $this;
     }
     /**
      * Get HasAttachments value
      * @return bool|null
      */
-    public function getHasAttachments()
+    public function getHasAttachments(): ?bool
     {
         return $this->HasAttachments;
     }
     /**
      * Set HasAttachments value
      * @param bool $hasAttachments
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setHasAttachments($hasAttachments = null)
+    public function setHasAttachments(?bool $hasAttachments = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
+        
         return $this;
     }
     /**
      * Get ExtendedProperty value
-     * @return \Ews\StructType\EwsExtendedPropertyType[]|null
+     * @return \StructType\EwsExtendedPropertyType[]
      */
-    public function getExtendedProperty()
+    public function getExtendedProperty(): array
     {
         return $this->ExtendedProperty;
     }
@@ -1282,679 +1315,713 @@ class EwsItemType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty(array $values = array())
+    public static function validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $itemTypeExtendedPropertyItem) {
             // validation for constraint: itemType
-            if (!$itemTypeExtendedPropertyItem instanceof \Ews\StructType\EwsExtendedPropertyType) {
+            if (!$itemTypeExtendedPropertyItem instanceof \StructType\EwsExtendedPropertyType) {
                 $invalidValues[] = is_object($itemTypeExtendedPropertyItem) ? get_class($itemTypeExtendedPropertyItem) : sprintf('%s(%s)', gettype($itemTypeExtendedPropertyItem), var_export($itemTypeExtendedPropertyItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ExtendedProperty property can only contain items of type \StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ExtendedProperty value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExtendedPropertyType[] $extendedProperty
-     * @return \Ews\StructType\EwsItemType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExtendedPropertyType[] $extendedProperty
+     * @return \StructType\EwsItemType
      */
-    public function setExtendedProperty(array $extendedProperty = array())
+    public function setExtendedProperty(array $extendedProperty = []): self
     {
         // validation for constraint: array
         if ('' !== ($extendedPropertyArrayErrorMessage = self::validateExtendedPropertyForArrayConstraintsFromSetExtendedProperty($extendedProperty))) {
-            throw new \InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
         }
         $this->ExtendedProperty = $extendedProperty;
+        
         return $this;
     }
     /**
      * Add item to ExtendedProperty value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExtendedPropertyType $item
-     * @return \Ews\StructType\EwsItemType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExtendedPropertyType $item
+     * @return \StructType\EwsItemType
      */
-    public function addToExtendedProperty(\Ews\StructType\EwsExtendedPropertyType $item)
+    public function addToExtendedProperty(\StructType\EwsExtendedPropertyType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsExtendedPropertyType) {
-            throw new \InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \Ews\StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsExtendedPropertyType) {
+            throw new InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->ExtendedProperty[] = $item;
+        
         return $this;
     }
     /**
      * Get Culture value
      * @return string|null
      */
-    public function getCulture()
+    public function getCulture(): ?string
     {
         return $this->Culture;
     }
     /**
      * Set Culture value
      * @param string $culture
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setCulture($culture = null)
+    public function setCulture(?string $culture = null): self
     {
         // validation for constraint: string
         if (!is_null($culture) && !is_string($culture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         $this->Culture = $culture;
+        
         return $this;
     }
     /**
      * Get EffectiveRights value
-     * @return \Ews\StructType\EwsEffectiveRightsType|null
+     * @return \StructType\EwsEffectiveRightsType|null
      */
-    public function getEffectiveRights()
+    public function getEffectiveRights(): ?\StructType\EwsEffectiveRightsType
     {
         return $this->EffectiveRights;
     }
     /**
      * Set EffectiveRights value
-     * @param \Ews\StructType\EwsEffectiveRightsType $effectiveRights
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsEffectiveRightsType $effectiveRights
+     * @return \StructType\EwsItemType
      */
-    public function setEffectiveRights(\Ews\StructType\EwsEffectiveRightsType $effectiveRights = null)
+    public function setEffectiveRights(?\StructType\EwsEffectiveRightsType $effectiveRights = null): self
     {
         $this->EffectiveRights = $effectiveRights;
+        
         return $this;
     }
     /**
      * Get LastModifiedName value
      * @return string|null
      */
-    public function getLastModifiedName()
+    public function getLastModifiedName(): ?string
     {
         return $this->LastModifiedName;
     }
     /**
      * Set LastModifiedName value
      * @param string $lastModifiedName
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setLastModifiedName($lastModifiedName = null)
+    public function setLastModifiedName(?string $lastModifiedName = null): self
     {
         // validation for constraint: string
         if (!is_null($lastModifiedName) && !is_string($lastModifiedName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedName, true), gettype($lastModifiedName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedName, true), gettype($lastModifiedName)), __LINE__);
         }
         $this->LastModifiedName = $lastModifiedName;
+        
         return $this;
     }
     /**
      * Get LastModifiedTime value
      * @return string|null
      */
-    public function getLastModifiedTime()
+    public function getLastModifiedTime(): ?string
     {
         return $this->LastModifiedTime;
     }
     /**
      * Set LastModifiedTime value
      * @param string $lastModifiedTime
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setLastModifiedTime($lastModifiedTime = null)
+    public function setLastModifiedTime(?string $lastModifiedTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
+        
         return $this;
     }
     /**
      * Get IsAssociated value
      * @return bool|null
      */
-    public function getIsAssociated()
+    public function getIsAssociated(): ?bool
     {
         return $this->IsAssociated;
     }
     /**
      * Set IsAssociated value
      * @param bool $isAssociated
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsAssociated($isAssociated = null)
+    public function setIsAssociated(?bool $isAssociated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAssociated) && !is_bool($isAssociated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAssociated, true), gettype($isAssociated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAssociated, true), gettype($isAssociated)), __LINE__);
         }
         $this->IsAssociated = $isAssociated;
+        
         return $this;
     }
     /**
      * Get WebClientReadFormQueryString value
      * @return string|null
      */
-    public function getWebClientReadFormQueryString()
+    public function getWebClientReadFormQueryString(): ?string
     {
         return $this->WebClientReadFormQueryString;
     }
     /**
      * Set WebClientReadFormQueryString value
      * @param string $webClientReadFormQueryString
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setWebClientReadFormQueryString($webClientReadFormQueryString = null)
+    public function setWebClientReadFormQueryString(?string $webClientReadFormQueryString = null): self
     {
         // validation for constraint: string
         if (!is_null($webClientReadFormQueryString) && !is_string($webClientReadFormQueryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientReadFormQueryString, true), gettype($webClientReadFormQueryString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientReadFormQueryString, true), gettype($webClientReadFormQueryString)), __LINE__);
         }
         $this->WebClientReadFormQueryString = $webClientReadFormQueryString;
+        
         return $this;
     }
     /**
      * Get WebClientEditFormQueryString value
      * @return string|null
      */
-    public function getWebClientEditFormQueryString()
+    public function getWebClientEditFormQueryString(): ?string
     {
         return $this->WebClientEditFormQueryString;
     }
     /**
      * Set WebClientEditFormQueryString value
      * @param string $webClientEditFormQueryString
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setWebClientEditFormQueryString($webClientEditFormQueryString = null)
+    public function setWebClientEditFormQueryString(?string $webClientEditFormQueryString = null): self
     {
         // validation for constraint: string
         if (!is_null($webClientEditFormQueryString) && !is_string($webClientEditFormQueryString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientEditFormQueryString, true), gettype($webClientEditFormQueryString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientEditFormQueryString, true), gettype($webClientEditFormQueryString)), __LINE__);
         }
         $this->WebClientEditFormQueryString = $webClientEditFormQueryString;
+        
         return $this;
     }
     /**
      * Get ConversationId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getConversationId()
+    public function getConversationId(): ?\StructType\EwsItemIdType
     {
         return $this->ConversationId;
     }
     /**
      * Set ConversationId value
-     * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsItemIdType $conversationId
+     * @return \StructType\EwsItemType
      */
-    public function setConversationId(\Ews\StructType\EwsItemIdType $conversationId = null)
+    public function setConversationId(?\StructType\EwsItemIdType $conversationId = null): self
     {
         $this->ConversationId = $conversationId;
+        
         return $this;
     }
     /**
      * Get UniqueBody value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getUniqueBody()
+    public function getUniqueBody(): ?\StructType\EwsBodyType
     {
         return $this->UniqueBody;
     }
     /**
      * Set UniqueBody value
-     * @param \Ews\StructType\EwsBodyType $uniqueBody
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsBodyType $uniqueBody
+     * @return \StructType\EwsItemType
      */
-    public function setUniqueBody(\Ews\StructType\EwsBodyType $uniqueBody = null)
+    public function setUniqueBody(?\StructType\EwsBodyType $uniqueBody = null): self
     {
         $this->UniqueBody = $uniqueBody;
+        
         return $this;
     }
     /**
      * Get Flag value
-     * @return \Ews\StructType\EwsFlagType|null
+     * @return \StructType\EwsFlagType|null
      */
-    public function getFlag()
+    public function getFlag(): ?\StructType\EwsFlagType
     {
         return $this->Flag;
     }
     /**
      * Set Flag value
-     * @param \Ews\StructType\EwsFlagType $flag
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsFlagType $flag
+     * @return \StructType\EwsItemType
      */
-    public function setFlag(\Ews\StructType\EwsFlagType $flag = null)
+    public function setFlag(?\StructType\EwsFlagType $flag = null): self
     {
         $this->Flag = $flag;
+        
         return $this;
     }
     /**
      * Get StoreEntryId value
      * @return string|null
      */
-    public function getStoreEntryId()
+    public function getStoreEntryId(): ?string
     {
         return $this->StoreEntryId;
     }
     /**
      * Set StoreEntryId value
      * @param string $storeEntryId
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setStoreEntryId($storeEntryId = null)
+    public function setStoreEntryId(?string $storeEntryId = null): self
     {
         // validation for constraint: string
         if (!is_null($storeEntryId) && !is_string($storeEntryId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($storeEntryId, true), gettype($storeEntryId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($storeEntryId, true), gettype($storeEntryId)), __LINE__);
         }
         $this->StoreEntryId = $storeEntryId;
+        
         return $this;
     }
     /**
      * Get InstanceKey value
      * @return string|null
      */
-    public function getInstanceKey()
+    public function getInstanceKey(): ?string
     {
         return $this->InstanceKey;
     }
     /**
      * Set InstanceKey value
      * @param string $instanceKey
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setInstanceKey($instanceKey = null)
+    public function setInstanceKey(?string $instanceKey = null): self
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
+        
         return $this;
     }
     /**
      * Get NormalizedBody value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getNormalizedBody()
+    public function getNormalizedBody(): ?\StructType\EwsBodyType
     {
         return $this->NormalizedBody;
     }
     /**
      * Set NormalizedBody value
-     * @param \Ews\StructType\EwsBodyType $normalizedBody
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsBodyType $normalizedBody
+     * @return \StructType\EwsItemType
      */
-    public function setNormalizedBody(\Ews\StructType\EwsBodyType $normalizedBody = null)
+    public function setNormalizedBody(?\StructType\EwsBodyType $normalizedBody = null): self
     {
         $this->NormalizedBody = $normalizedBody;
+        
         return $this;
     }
     /**
      * Get EntityExtractionResult value
-     * @return \Ews\StructType\EwsEntityExtractionResultType|null
+     * @return \StructType\EwsEntityExtractionResultType|null
      */
-    public function getEntityExtractionResult()
+    public function getEntityExtractionResult(): ?\StructType\EwsEntityExtractionResultType
     {
         return $this->EntityExtractionResult;
     }
     /**
      * Set EntityExtractionResult value
-     * @param \Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsEntityExtractionResultType $entityExtractionResult
+     * @return \StructType\EwsItemType
      */
-    public function setEntityExtractionResult(\Ews\StructType\EwsEntityExtractionResultType $entityExtractionResult = null)
+    public function setEntityExtractionResult(?\StructType\EwsEntityExtractionResultType $entityExtractionResult = null): self
     {
         $this->EntityExtractionResult = $entityExtractionResult;
+        
         return $this;
     }
     /**
      * Get PolicyTag value
-     * @return \Ews\StructType\EwsRetentionTagType|null
+     * @return \StructType\EwsRetentionTagType|null
      */
-    public function getPolicyTag()
+    public function getPolicyTag(): ?\StructType\EwsRetentionTagType
     {
         return $this->PolicyTag;
     }
     /**
      * Set PolicyTag value
-     * @param \Ews\StructType\EwsRetentionTagType $policyTag
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsRetentionTagType $policyTag
+     * @return \StructType\EwsItemType
      */
-    public function setPolicyTag(\Ews\StructType\EwsRetentionTagType $policyTag = null)
+    public function setPolicyTag(?\StructType\EwsRetentionTagType $policyTag = null): self
     {
         $this->PolicyTag = $policyTag;
+        
         return $this;
     }
     /**
      * Get ArchiveTag value
-     * @return \Ews\StructType\EwsRetentionTagType|null
+     * @return \StructType\EwsRetentionTagType|null
      */
-    public function getArchiveTag()
+    public function getArchiveTag(): ?\StructType\EwsRetentionTagType
     {
         return $this->ArchiveTag;
     }
     /**
      * Set ArchiveTag value
-     * @param \Ews\StructType\EwsRetentionTagType $archiveTag
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsRetentionTagType $archiveTag
+     * @return \StructType\EwsItemType
      */
-    public function setArchiveTag(\Ews\StructType\EwsRetentionTagType $archiveTag = null)
+    public function setArchiveTag(?\StructType\EwsRetentionTagType $archiveTag = null): self
     {
         $this->ArchiveTag = $archiveTag;
+        
         return $this;
     }
     /**
      * Get RetentionDate value
      * @return string|null
      */
-    public function getRetentionDate()
+    public function getRetentionDate(): ?string
     {
         return $this->RetentionDate;
     }
     /**
      * Set RetentionDate value
      * @param string $retentionDate
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setRetentionDate($retentionDate = null)
+    public function setRetentionDate(?string $retentionDate = null): self
     {
         // validation for constraint: string
         if (!is_null($retentionDate) && !is_string($retentionDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionDate, true), gettype($retentionDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionDate, true), gettype($retentionDate)), __LINE__);
         }
         $this->RetentionDate = $retentionDate;
+        
         return $this;
     }
     /**
      * Get Preview value
      * @return string|null
      */
-    public function getPreview()
+    public function getPreview(): ?string
     {
         return $this->Preview;
     }
     /**
      * Set Preview value
      * @param string $preview
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setPreview($preview = null)
+    public function setPreview(?string $preview = null): self
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
+        
         return $this;
     }
     /**
      * Get RightsManagementLicenseData value
-     * @return \Ews\StructType\EwsRightsManagementLicenseDataType|null
+     * @return \StructType\EwsRightsManagementLicenseDataType|null
      */
-    public function getRightsManagementLicenseData()
+    public function getRightsManagementLicenseData(): ?\StructType\EwsRightsManagementLicenseDataType
     {
         return $this->RightsManagementLicenseData;
     }
     /**
      * Set RightsManagementLicenseData value
-     * @param \Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData
+     * @return \StructType\EwsItemType
      */
-    public function setRightsManagementLicenseData(\Ews\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null)
+    public function setRightsManagementLicenseData(?\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null): self
     {
         $this->RightsManagementLicenseData = $rightsManagementLicenseData;
+        
         return $this;
     }
     /**
      * Get PredictedActionReasons value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType|null
      */
-    public function getPredictedActionReasons()
+    public function getPredictedActionReasons(): ?\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType
     {
         return $this->PredictedActionReasons;
     }
     /**
      * Set PredictedActionReasons value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons
+     * @return \StructType\EwsItemType
      */
-    public function setPredictedActionReasons(\Ews\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null)
+    public function setPredictedActionReasons(?\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null): self
     {
         $this->PredictedActionReasons = $predictedActionReasons;
+        
         return $this;
     }
     /**
      * Get IsClutter value
      * @return bool|null
      */
-    public function getIsClutter()
+    public function getIsClutter(): ?bool
     {
         return $this->IsClutter;
     }
     /**
      * Set IsClutter value
      * @param bool $isClutter
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIsClutter($isClutter = null)
+    public function setIsClutter(?bool $isClutter = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isClutter) && !is_bool($isClutter)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isClutter, true), gettype($isClutter)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isClutter, true), gettype($isClutter)), __LINE__);
         }
         $this->IsClutter = $isClutter;
+        
         return $this;
     }
     /**
      * Get BlockStatus value
      * @return bool|null
      */
-    public function getBlockStatus()
+    public function getBlockStatus(): ?bool
     {
         return $this->BlockStatus;
     }
     /**
      * Set BlockStatus value
      * @param bool $blockStatus
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setBlockStatus($blockStatus = null)
+    public function setBlockStatus(?bool $blockStatus = null): self
     {
         // validation for constraint: boolean
         if (!is_null($blockStatus) && !is_bool($blockStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($blockStatus, true), gettype($blockStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($blockStatus, true), gettype($blockStatus)), __LINE__);
         }
         $this->BlockStatus = $blockStatus;
+        
         return $this;
     }
     /**
      * Get HasBlockedImages value
      * @return bool|null
      */
-    public function getHasBlockedImages()
+    public function getHasBlockedImages(): ?bool
     {
         return $this->HasBlockedImages;
     }
     /**
      * Set HasBlockedImages value
      * @param bool $hasBlockedImages
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setHasBlockedImages($hasBlockedImages = null)
+    public function setHasBlockedImages(?bool $hasBlockedImages = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasBlockedImages) && !is_bool($hasBlockedImages)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasBlockedImages, true), gettype($hasBlockedImages)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasBlockedImages, true), gettype($hasBlockedImages)), __LINE__);
         }
         $this->HasBlockedImages = $hasBlockedImages;
+        
         return $this;
     }
     /**
      * Get TextBody value
-     * @return \Ews\StructType\EwsBodyType|null
+     * @return \StructType\EwsBodyType|null
      */
-    public function getTextBody()
+    public function getTextBody(): ?\StructType\EwsBodyType
     {
         return $this->TextBody;
     }
     /**
      * Set TextBody value
-     * @param \Ews\StructType\EwsBodyType $textBody
-     * @return \Ews\StructType\EwsItemType
+     * @param \StructType\EwsBodyType $textBody
+     * @return \StructType\EwsItemType
      */
-    public function setTextBody(\Ews\StructType\EwsBodyType $textBody = null)
+    public function setTextBody(?\StructType\EwsBodyType $textBody = null): self
     {
         $this->TextBody = $textBody;
+        
         return $this;
     }
     /**
      * Get IconIndex value
      * @return string|null
      */
-    public function getIconIndex()
+    public function getIconIndex(): ?string
     {
         return $this->IconIndex;
     }
     /**
      * Set IconIndex value
-     * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIconIndexType::valueIsValid()
+     * @uses \EnumType\EwsIconIndexType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $iconIndex
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setIconIndex($iconIndex = null)
+    public function setIconIndex(?string $iconIndex = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->IconIndex = $iconIndex;
+        
         return $this;
     }
     /**
      * Get SearchKey value
      * @return string|null
      */
-    public function getSearchKey()
+    public function getSearchKey(): ?string
     {
         return $this->SearchKey;
     }
     /**
      * Set SearchKey value
      * @param string $searchKey
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setSearchKey($searchKey = null)
+    public function setSearchKey(?string $searchKey = null): self
     {
         // validation for constraint: string
         if (!is_null($searchKey) && !is_string($searchKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchKey, true), gettype($searchKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchKey, true), gettype($searchKey)), __LINE__);
         }
         $this->SearchKey = $searchKey;
+        
         return $this;
     }
     /**
      * Get SortKey value
      * @return int|null
      */
-    public function getSortKey()
+    public function getSortKey(): ?int
     {
         return $this->SortKey;
     }
     /**
      * Set SortKey value
      * @param int $sortKey
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setSortKey($sortKey = null)
+    public function setSortKey(?int $sortKey = null): self
     {
         // validation for constraint: int
         if (!is_null($sortKey) && !(is_int($sortKey) || ctype_digit($sortKey))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
+        
         return $this;
     }
     /**
      * Get Hashtags value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getHashtags()
+    public function getHashtags(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Hashtags;
     }
     /**
      * Set Hashtags value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $hashtags
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsArrayOfStringsType $hashtags
+     * @return \StructType\EwsItemType
      */
-    public function setHashtags(\Ews\ArrayType\EwsArrayOfStringsType $hashtags = null)
+    public function setHashtags(?\ArrayType\EwsArrayOfStringsType $hashtags = null): self
     {
         $this->Hashtags = $hashtags;
+        
         return $this;
     }
     /**
      * Get Mentions value
-     * @return \Ews\ArrayType\EwsArrayOfRecipientsType|null
+     * @return \ArrayType\EwsArrayOfRecipientsType|null
      */
-    public function getMentions()
+    public function getMentions(): ?\ArrayType\EwsArrayOfRecipientsType
     {
         return $this->Mentions;
     }
     /**
      * Set Mentions value
-     * @param \Ews\ArrayType\EwsArrayOfRecipientsType $mentions
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsArrayOfRecipientsType $mentions
+     * @return \StructType\EwsItemType
      */
-    public function setMentions(\Ews\ArrayType\EwsArrayOfRecipientsType $mentions = null)
+    public function setMentions(?\ArrayType\EwsArrayOfRecipientsType $mentions = null): self
     {
         $this->Mentions = $mentions;
+        
         return $this;
     }
     /**
      * Get MentionedMe value
      * @return bool|null
      */
-    public function getMentionedMe()
+    public function getMentionedMe(): ?bool
     {
         return $this->MentionedMe;
     }
     /**
      * Set MentionedMe value
      * @param bool $mentionedMe
-     * @return \Ews\StructType\EwsItemType
+     * @return \StructType\EwsItemType
      */
-    public function setMentionedMe($mentionedMe = null)
+    public function setMentionedMe(?bool $mentionedMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
         }
         $this->MentionedMe = $mentionedMe;
+        
         return $this;
     }
     /**
      * Get PendingSocialActivityTagIds value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getPendingSocialActivityTagIds()
+    public function getPendingSocialActivityTagIds(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->PendingSocialActivityTagIds;
     }
     /**
      * Set PendingSocialActivityTagIds value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
-     * @return \Ews\StructType\EwsItemType
+     * @param \ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds
+     * @return \StructType\EwsItemType
      */
-    public function setPendingSocialActivityTagIds(\Ews\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null)
+    public function setPendingSocialActivityTagIds(?\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null): self
     {
         $this->PendingSocialActivityTagIds = $pendingSocialActivityTagIds;
+        
         return $this;
     }
 }

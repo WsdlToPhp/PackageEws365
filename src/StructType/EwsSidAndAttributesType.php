@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SidAndAttributesType StructType
@@ -18,12 +21,12 @@ class EwsSidAndAttributesType extends AbstractStructBase
      * - use: required
      * @var int
      */
-    public $Attributes;
+    protected int $Attributes;
     /**
      * The SecurityIdentifier
-     * @var string
+     * @var string|null
      */
-    public $SecurityIdentifier;
+    protected ?string $SecurityIdentifier = null;
     /**
      * Constructor method for SidAndAttributesType
      * @uses EwsSidAndAttributesType::setAttributes()
@@ -31,7 +34,7 @@ class EwsSidAndAttributesType extends AbstractStructBase
      * @param int $attributes
      * @param string $securityIdentifier
      */
-    public function __construct($attributes = null, $securityIdentifier = null)
+    public function __construct(int $attributes, ?string $securityIdentifier = null)
     {
         $this
             ->setAttributes($attributes)
@@ -41,44 +44,46 @@ class EwsSidAndAttributesType extends AbstractStructBase
      * Get Attributes value
      * @return int
      */
-    public function getAttributes()
+    public function getAttributes(): int
     {
         return $this->Attributes;
     }
     /**
      * Set Attributes value
      * @param int $attributes
-     * @return \Ews\StructType\EwsSidAndAttributesType
+     * @return \StructType\EwsSidAndAttributesType
      */
-    public function setAttributes($attributes = null)
+    public function setAttributes(int $attributes): self
     {
         // validation for constraint: int
         if (!is_null($attributes) && !(is_int($attributes) || ctype_digit($attributes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($attributes, true), gettype($attributes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($attributes, true), gettype($attributes)), __LINE__);
         }
         $this->Attributes = $attributes;
+        
         return $this;
     }
     /**
      * Get SecurityIdentifier value
      * @return string|null
      */
-    public function getSecurityIdentifier()
+    public function getSecurityIdentifier(): ?string
     {
         return $this->SecurityIdentifier;
     }
     /**
      * Set SecurityIdentifier value
      * @param string $securityIdentifier
-     * @return \Ews\StructType\EwsSidAndAttributesType
+     * @return \StructType\EwsSidAndAttributesType
      */
-    public function setSecurityIdentifier($securityIdentifier = null)
+    public function setSecurityIdentifier(?string $securityIdentifier = null): self
     {
         // validation for constraint: string
         if (!is_null($securityIdentifier) && !is_string($securityIdentifier)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($securityIdentifier, true), gettype($securityIdentifier)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($securityIdentifier, true), gettype($securityIdentifier)), __LINE__);
         }
         $this->SecurityIdentifier = $securityIdentifier;
+        
         return $this;
     }
 }

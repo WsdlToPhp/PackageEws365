@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserMembershipChangedChannelEventType StructType
@@ -14,50 +17,50 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
 {
     /**
      * The InstanceKey
-     * @var string
+     * @var string|null
      */
-    public $InstanceKey;
+    protected ?string $InstanceKey = null;
     /**
      * The IsMember
-     * @var bool
+     * @var bool|null
      */
-    public $IsMember;
+    protected ?bool $IsMember = null;
     /**
      * The SmtpAddress
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SmtpAddress;
+    protected ?string $SmtpAddress = null;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The IsFavorite
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsFavorite;
+    protected ?bool $IsFavorite = null;
     /**
      * The LastVisitedTimeUtc
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastVisitedTimeUtc;
+    protected ?string $LastVisitedTimeUtc = null;
     /**
      * The AccessType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AccessType;
+    protected ?string $AccessType = null;
     /**
      * Constructor method for UserMembershipChangedChannelEventType
      * @uses EwsUserMembershipChangedChannelEventType::setInstanceKey()
@@ -75,7 +78,7 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
      * @param string $lastVisitedTimeUtc
      * @param string $accessType
      */
-    public function __construct($instanceKey = null, $isMember = null, $smtpAddress = null, $displayName = null, $isFavorite = null, $lastVisitedTimeUtc = null, $accessType = null)
+    public function __construct(?string $instanceKey = null, ?bool $isMember = null, ?string $smtpAddress = null, ?string $displayName = null, ?bool $isFavorite = null, ?string $lastVisitedTimeUtc = null, ?string $accessType = null)
     {
         $this
             ->setInstanceKey($instanceKey)
@@ -90,157 +93,164 @@ class EwsUserMembershipChangedChannelEventType extends EwsSubscriptionLevelChann
      * Get InstanceKey value
      * @return string|null
      */
-    public function getInstanceKey()
+    public function getInstanceKey(): ?string
     {
         return $this->InstanceKey;
     }
     /**
      * Set InstanceKey value
      * @param string $instanceKey
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setInstanceKey($instanceKey = null)
+    public function setInstanceKey(?string $instanceKey = null): self
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
+        
         return $this;
     }
     /**
      * Get IsMember value
      * @return bool|null
      */
-    public function getIsMember()
+    public function getIsMember(): ?bool
     {
         return $this->IsMember;
     }
     /**
      * Set IsMember value
      * @param bool $isMember
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setIsMember($isMember = null)
+    public function setIsMember(?bool $isMember = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMember) && !is_bool($isMember)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMember, true), gettype($isMember)), __LINE__);
         }
         $this->IsMember = $isMember;
+        
         return $this;
     }
     /**
      * Get SmtpAddress value
      * @return string|null
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): ?string
     {
         return $this->SmtpAddress;
     }
     /**
      * Set SmtpAddress value
      * @param string $smtpAddress
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setSmtpAddress($smtpAddress = null)
+    public function setSmtpAddress(?string $smtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         $this->SmtpAddress = $smtpAddress;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get IsFavorite value
      * @return bool|null
      */
-    public function getIsFavorite()
+    public function getIsFavorite(): ?bool
     {
         return $this->IsFavorite;
     }
     /**
      * Set IsFavorite value
      * @param bool $isFavorite
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setIsFavorite($isFavorite = null)
+    public function setIsFavorite(?bool $isFavorite = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isFavorite) && !is_bool($isFavorite)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFavorite, true), gettype($isFavorite)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFavorite, true), gettype($isFavorite)), __LINE__);
         }
         $this->IsFavorite = $isFavorite;
+        
         return $this;
     }
     /**
      * Get LastVisitedTimeUtc value
      * @return string|null
      */
-    public function getLastVisitedTimeUtc()
+    public function getLastVisitedTimeUtc(): ?string
     {
         return $this->LastVisitedTimeUtc;
     }
     /**
      * Set LastVisitedTimeUtc value
      * @param string $lastVisitedTimeUtc
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setLastVisitedTimeUtc($lastVisitedTimeUtc = null)
+    public function setLastVisitedTimeUtc(?string $lastVisitedTimeUtc = null): self
     {
         // validation for constraint: string
         if (!is_null($lastVisitedTimeUtc) && !is_string($lastVisitedTimeUtc)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedTimeUtc, true), gettype($lastVisitedTimeUtc)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedTimeUtc, true), gettype($lastVisitedTimeUtc)), __LINE__);
         }
         $this->LastVisitedTimeUtc = $lastVisitedTimeUtc;
+        
         return $this;
     }
     /**
      * Get AccessType value
      * @return string|null
      */
-    public function getAccessType()
+    public function getAccessType(): ?string
     {
         return $this->AccessType;
     }
     /**
      * Set AccessType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupAccessType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupAccessType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $accessType
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelEventType
+     * @return \StructType\EwsUserMembershipChangedChannelEventType
      */
-    public function setAccessType($accessType = null)
+    public function setAccessType(?string $accessType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
         $this->AccessType = $accessType;
+        
         return $this;
     }
 }

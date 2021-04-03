@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupUnseenChangedChannelEventType StructType
@@ -14,14 +17,14 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
 {
     /**
      * The UnseenCount
-     * @var int
+     * @var int|null
      */
-    public $UnseenCount;
+    protected ?int $UnseenCount = null;
     /**
      * The LastVisitedTime
-     * @var string
+     * @var string|null
      */
-    public $LastVisitedTime;
+    protected ?string $LastVisitedTime = null;
     /**
      * Constructor method for UnifiedGroupUnseenChangedChannelEventType
      * @uses EwsUnifiedGroupUnseenChangedChannelEventType::setUnseenCount()
@@ -29,7 +32,7 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
      * @param int $unseenCount
      * @param string $lastVisitedTime
      */
-    public function __construct($unseenCount = null, $lastVisitedTime = null)
+    public function __construct(?int $unseenCount = null, ?string $lastVisitedTime = null)
     {
         $this
             ->setUnseenCount($unseenCount)
@@ -39,44 +42,46 @@ class EwsUnifiedGroupUnseenChangedChannelEventType extends EwsSubscriptionLevelC
      * Get UnseenCount value
      * @return int|null
      */
-    public function getUnseenCount()
+    public function getUnseenCount(): ?int
     {
         return $this->UnseenCount;
     }
     /**
      * Set UnseenCount value
      * @param int $unseenCount
-     * @return \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
+     * @return \StructType\EwsUnifiedGroupUnseenChangedChannelEventType
      */
-    public function setUnseenCount($unseenCount = null)
+    public function setUnseenCount(?int $unseenCount = null): self
     {
         // validation for constraint: int
         if (!is_null($unseenCount) && !(is_int($unseenCount) || ctype_digit($unseenCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unseenCount, true), gettype($unseenCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unseenCount, true), gettype($unseenCount)), __LINE__);
         }
         $this->UnseenCount = $unseenCount;
+        
         return $this;
     }
     /**
      * Get LastVisitedTime value
      * @return string|null
      */
-    public function getLastVisitedTime()
+    public function getLastVisitedTime(): ?string
     {
         return $this->LastVisitedTime;
     }
     /**
      * Set LastVisitedTime value
      * @param string $lastVisitedTime
-     * @return \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelEventType
+     * @return \StructType\EwsUnifiedGroupUnseenChangedChannelEventType
      */
-    public function setLastVisitedTime($lastVisitedTime = null)
+    public function setLastVisitedTime(?string $lastVisitedTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastVisitedTime) && !is_string($lastVisitedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedTime, true), gettype($lastVisitedTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastVisitedTime, true), gettype($lastVisitedTime)), __LINE__);
         }
         $this->LastVisitedTime = $lastVisitedTime;
+        
         return $this;
     }
 }

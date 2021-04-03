@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SmtpDomainList StructType
@@ -17,24 +20,24 @@ class EwsSmtpDomainList extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSmtpDomain[]
+     * @var \StructType\EwsSmtpDomain[]
      */
-    public $Domain;
+    protected array $Domain = [];
     /**
      * Constructor method for SmtpDomainList
      * @uses EwsSmtpDomainList::setDomain()
-     * @param \Ews\StructType\EwsSmtpDomain[] $domain
+     * @param \StructType\EwsSmtpDomain[] $domain
      */
-    public function __construct(array $domain = array())
+    public function __construct(array $domain = [])
     {
         $this
             ->setDomain($domain);
     }
     /**
      * Get Domain value
-     * @return \Ews\StructType\EwsSmtpDomain[]|null
+     * @return \StructType\EwsSmtpDomain[]
      */
-    public function getDomain()
+    public function getDomain(): array
     {
         return $this->Domain;
     }
@@ -44,50 +47,53 @@ class EwsSmtpDomainList extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDomainForArrayConstraintsFromSetDomain(array $values = array())
+    public static function validateDomainForArrayConstraintsFromSetDomain(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $smtpDomainListDomainItem) {
             // validation for constraint: itemType
-            if (!$smtpDomainListDomainItem instanceof \Ews\StructType\EwsSmtpDomain) {
+            if (!$smtpDomainListDomainItem instanceof \StructType\EwsSmtpDomain) {
                 $invalidValues[] = is_object($smtpDomainListDomainItem) ? get_class($smtpDomainListDomainItem) : sprintf('%s(%s)', gettype($smtpDomainListDomainItem), var_export($smtpDomainListDomainItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Domain property can only contain items of type \Ews\StructType\EwsSmtpDomain, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Domain property can only contain items of type \StructType\EwsSmtpDomain, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Domain value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSmtpDomain[] $domain
-     * @return \Ews\StructType\EwsSmtpDomainList
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSmtpDomain[] $domain
+     * @return \StructType\EwsSmtpDomainList
      */
-    public function setDomain(array $domain = array())
+    public function setDomain(array $domain = []): self
     {
         // validation for constraint: array
         if ('' !== ($domainArrayErrorMessage = self::validateDomainForArrayConstraintsFromSetDomain($domain))) {
-            throw new \InvalidArgumentException($domainArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($domainArrayErrorMessage, __LINE__);
         }
         $this->Domain = $domain;
+        
         return $this;
     }
     /**
      * Add item to Domain value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSmtpDomain $item
-     * @return \Ews\StructType\EwsSmtpDomainList
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSmtpDomain $item
+     * @return \StructType\EwsSmtpDomainList
      */
-    public function addToDomain(\Ews\StructType\EwsSmtpDomain $item)
+    public function addToDomain(\StructType\EwsSmtpDomain $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSmtpDomain) {
-            throw new \InvalidArgumentException(sprintf('The Domain property can only contain items of type \Ews\StructType\EwsSmtpDomain, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsSmtpDomain) {
+            throw new InvalidArgumentException(sprintf('The Domain property can only contain items of type \StructType\EwsSmtpDomain, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Domain[] = $item;
+        
         return $this;
     }
 }

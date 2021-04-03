@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AdditionalEntries StructType
@@ -19,22 +22,22 @@ class EwsAdditionalEntries extends AbstractStructBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $Entry;
+    protected array $Entry = [];
     /**
      * Constructor method for AdditionalEntries
      * @uses EwsAdditionalEntries::setEntry()
      * @param string[] $entry
      */
-    public function __construct(array $entry = array())
+    public function __construct(array $entry = [])
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getEntry()
+    public function getEntry(): array
     {
         return $this->Entry;
     }
@@ -44,7 +47,7 @@ class EwsAdditionalEntries extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateEntryForArrayConstraintsFromSetEntry(array $values = array())
+    public static function validateEntryForArrayConstraintsFromSetEntry(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,36 +61,39 @@ class EwsAdditionalEntries extends AbstractStructBase
             $message = sprintf('The Entry property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Entry value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $entry
-     * @return \Ews\StructType\EwsAdditionalEntries
+     * @return \StructType\EwsAdditionalEntries
      */
-    public function setEntry(array $entry = array())
+    public function setEntry(array $entry = []): self
     {
         // validation for constraint: array
         if ('' !== ($entryArrayErrorMessage = self::validateEntryForArrayConstraintsFromSetEntry($entry))) {
-            throw new \InvalidArgumentException($entryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($entryArrayErrorMessage, __LINE__);
         }
         $this->Entry = $entry;
+        
         return $this;
     }
     /**
      * Add item to Entry value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $item
-     * @return \Ews\StructType\EwsAdditionalEntries
+     * @return \StructType\EwsAdditionalEntries
      */
-    public function addToEntry($item)
+    public function addToEntry(string $item): self
     {
         // validation for constraint: itemType
         if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+            throw new InvalidArgumentException(sprintf('The Entry property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Entry[] = $item;
+        
         return $this;
     }
 }

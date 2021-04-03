@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OccurrencesRangeType StructType
@@ -16,30 +19,30 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * The Start
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Start;
+    protected ?string $Start = null;
     /**
      * The End
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $End;
+    protected ?string $End = null;
     /**
      * The Count
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var int
+     * @var int|null
      */
-    public $Count;
+    protected ?int $Count = null;
     /**
      * The CompareOriginalStartTime
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $CompareOriginalStartTime;
+    protected ?bool $CompareOriginalStartTime = null;
     /**
      * Constructor method for OccurrencesRangeType
      * @uses EwsOccurrencesRangeType::setStart()
@@ -51,7 +54,7 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * @param int $count
      * @param bool $compareOriginalStartTime
      */
-    public function __construct($start = null, $end = null, $count = null, $compareOriginalStartTime = null)
+    public function __construct(?string $start = null, ?string $end = null, ?int $count = null, ?bool $compareOriginalStartTime = null)
     {
         $this
             ->setStart($start)
@@ -63,88 +66,92 @@ class EwsOccurrencesRangeType extends AbstractStructBase
      * Get Start value
      * @return string|null
      */
-    public function getStart()
+    public function getStart(): ?string
     {
         return $this->Start;
     }
     /**
      * Set Start value
      * @param string $start
-     * @return \Ews\StructType\EwsOccurrencesRangeType
+     * @return \StructType\EwsOccurrencesRangeType
      */
-    public function setStart($start = null)
+    public function setStart(?string $start = null): self
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
+        
         return $this;
     }
     /**
      * Get End value
      * @return string|null
      */
-    public function getEnd()
+    public function getEnd(): ?string
     {
         return $this->End;
     }
     /**
      * Set End value
      * @param string $end
-     * @return \Ews\StructType\EwsOccurrencesRangeType
+     * @return \StructType\EwsOccurrencesRangeType
      */
-    public function setEnd($end = null)
+    public function setEnd(?string $end = null): self
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
+        
         return $this;
     }
     /**
      * Get Count value
      * @return int|null
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->Count;
     }
     /**
      * Set Count value
      * @param int $count
-     * @return \Ews\StructType\EwsOccurrencesRangeType
+     * @return \StructType\EwsOccurrencesRangeType
      */
-    public function setCount($count = null)
+    public function setCount(?int $count = null): self
     {
         // validation for constraint: int
         if (!is_null($count) && !(is_int($count) || ctype_digit($count))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
         }
         $this->Count = $count;
+        
         return $this;
     }
     /**
      * Get CompareOriginalStartTime value
      * @return bool|null
      */
-    public function getCompareOriginalStartTime()
+    public function getCompareOriginalStartTime(): ?bool
     {
         return $this->CompareOriginalStartTime;
     }
     /**
      * Set CompareOriginalStartTime value
      * @param bool $compareOriginalStartTime
-     * @return \Ews\StructType\EwsOccurrencesRangeType
+     * @return \StructType\EwsOccurrencesRangeType
      */
-    public function setCompareOriginalStartTime($compareOriginalStartTime = null)
+    public function setCompareOriginalStartTime(?bool $compareOriginalStartTime = null): self
     {
         // validation for constraint: boolean
         if (!is_null($compareOriginalStartTime) && !is_bool($compareOriginalStartTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($compareOriginalStartTime, true), gettype($compareOriginalStartTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($compareOriginalStartTime, true), gettype($compareOriginalStartTime)), __LINE__);
         }
         $this->CompareOriginalStartTime = $compareOriginalStartTime;
+        
         return $this;
     }
 }

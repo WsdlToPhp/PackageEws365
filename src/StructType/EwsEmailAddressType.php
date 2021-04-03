@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EmailAddressType StructType
@@ -18,48 +21,48 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      * The Name
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The EmailAddress
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EmailAddress;
+    protected ?string $EmailAddress = null;
     /**
      * The RoutingType
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $RoutingType;
+    protected ?string $RoutingType = null;
     /**
      * The MailboxType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MailboxType;
+    protected ?string $MailboxType = null;
     /**
      * The ItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The OriginalDisplayName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OriginalDisplayName;
+    protected ?string $OriginalDisplayName = null;
     /**
      * Constructor method for EmailAddressType
      * @uses EwsEmailAddressType::setName()
@@ -72,10 +75,10 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      * @param string $emailAddress
      * @param string $routingType
      * @param string $mailboxType
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      * @param string $originalDisplayName
      */
-    public function __construct($name = null, $emailAddress = null, $routingType = null, $mailboxType = null, \Ews\StructType\EwsItemIdType $itemId = null, $originalDisplayName = null)
+    public function __construct(?string $name = null, ?string $emailAddress = null, ?string $routingType = null, ?string $mailboxType = null, ?\StructType\EwsItemIdType $itemId = null, ?string $originalDisplayName = null)
     {
         $this
             ->setName($name)
@@ -89,139 +92,145 @@ class EwsEmailAddressType extends EwsBaseEmailAddressType
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get EmailAddress value
      * @return string|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?string
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
      * @param string $emailAddress
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setEmailAddress($emailAddress = null)
+    public function setEmailAddress(?string $emailAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($emailAddress) && !is_string($emailAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($emailAddress, true), gettype($emailAddress)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($emailAddress) && mb_strlen($emailAddress) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($emailAddress)), __LINE__);
+        if (!is_null($emailAddress) && mb_strlen((string) $emailAddress) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $emailAddress)), __LINE__);
         }
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get RoutingType value
      * @return string|null
      */
-    public function getRoutingType()
+    public function getRoutingType(): ?string
     {
         return $this->RoutingType;
     }
     /**
      * Set RoutingType value
      * @param string $routingType
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setRoutingType($routingType = null)
+    public function setRoutingType(?string $routingType = null): self
     {
         // validation for constraint: string
         if (!is_null($routingType) && !is_string($routingType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingType, true), gettype($routingType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($routingType, true), gettype($routingType)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($routingType) && mb_strlen($routingType) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($routingType)), __LINE__);
+        if (!is_null($routingType) && mb_strlen((string) $routingType) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $routingType)), __LINE__);
         }
         $this->RoutingType = $routingType;
+        
         return $this;
     }
     /**
      * Get MailboxType value
      * @return string|null
      */
-    public function getMailboxType()
+    public function getMailboxType(): ?string
     {
         return $this->MailboxType;
     }
     /**
      * Set MailboxType value
-     * @uses \Ews\EnumType\EwsMailboxTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailboxTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMailboxTypeType::valueIsValid()
+     * @uses \EnumType\EwsMailboxTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $mailboxType
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setMailboxType($mailboxType = null)
+    public function setMailboxType(?string $mailboxType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxTypeType', is_array($mailboxType) ? implode(', ', $mailboxType) : var_export($mailboxType, true), implode(', ', \Ews\EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMailboxTypeType::valueIsValid($mailboxType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailboxTypeType', is_array($mailboxType) ? implode(', ', $mailboxType) : var_export($mailboxType, true), implode(', ', \EnumType\EwsMailboxTypeType::getValidValues())), __LINE__);
         }
         $this->MailboxType = $mailboxType;
+        
         return $this;
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get OriginalDisplayName value
      * @return string|null
      */
-    public function getOriginalDisplayName()
+    public function getOriginalDisplayName(): ?string
     {
         return $this->OriginalDisplayName;
     }
     /**
      * Set OriginalDisplayName value
      * @param string $originalDisplayName
-     * @return \Ews\StructType\EwsEmailAddressType
+     * @return \StructType\EwsEmailAddressType
      */
-    public function setOriginalDisplayName($originalDisplayName = null)
+    public function setOriginalDisplayName(?string $originalDisplayName = null): self
     {
         // validation for constraint: string
         if (!is_null($originalDisplayName) && !is_string($originalDisplayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalDisplayName, true), gettype($originalDisplayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalDisplayName, true), gettype($originalDisplayName)), __LINE__);
         }
         $this->OriginalDisplayName = $originalDisplayName;
+        
         return $this;
     }
 }

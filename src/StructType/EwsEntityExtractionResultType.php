@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EntityExtractionResultType StructType
@@ -17,81 +20,81 @@ class EwsEntityExtractionResultType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfAddressEntitiesType
+     * @var \ArrayType\EwsArrayOfAddressEntitiesType|null
      */
-    public $Addresses;
+    protected ?\ArrayType\EwsArrayOfAddressEntitiesType $Addresses = null;
     /**
      * The MeetingSuggestions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
+     * @var \ArrayType\EwsArrayOfMeetingSuggestionsType|null
      */
-    public $MeetingSuggestions;
+    protected ?\ArrayType\EwsArrayOfMeetingSuggestionsType $MeetingSuggestions = null;
     /**
      * The TaskSuggestions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
+     * @var \ArrayType\EwsArrayOfTaskSuggestionsType|null
      */
-    public $TaskSuggestions;
+    protected ?\ArrayType\EwsArrayOfTaskSuggestionsType $TaskSuggestions = null;
     /**
      * The EmailAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType
+     * @var \ArrayType\EwsArrayOfEmailAddressEntitiesType|null
      */
-    public $EmailAddresses;
+    protected ?\ArrayType\EwsArrayOfEmailAddressEntitiesType $EmailAddresses = null;
     /**
      * The Contacts
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfContactsType
+     * @var \ArrayType\EwsArrayOfContactsType|null
      */
-    public $Contacts;
+    protected ?\ArrayType\EwsArrayOfContactsType $Contacts = null;
     /**
      * The Urls
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUrlEntitiesType
+     * @var \ArrayType\EwsArrayOfUrlEntitiesType|null
      */
-    public $Urls;
+    protected ?\ArrayType\EwsArrayOfUrlEntitiesType $Urls = null;
     /**
      * The PhoneNumbers
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneEntitiesType
+     * @var \ArrayType\EwsArrayOfPhoneEntitiesType|null
      */
-    public $PhoneNumbers;
+    protected ?\ArrayType\EwsArrayOfPhoneEntitiesType $PhoneNumbers = null;
     /**
      * The ParcelDeliveries
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
+     * @var \ArrayType\EwsArrayOfParcelDeliveryEntitiesType|null
      */
-    public $ParcelDeliveries;
+    protected ?\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $ParcelDeliveries = null;
     /**
      * The FlightReservations
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfFlightReservationsType
+     * @var \ArrayType\EwsArrayOfFlightReservationsType|null
      */
-    public $FlightReservations;
+    protected ?\ArrayType\EwsArrayOfFlightReservationsType $FlightReservations = null;
     /**
      * The SenderAddIns
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSenderAddInsType
+     * @var \ArrayType\EwsArrayOfSenderAddInsType|null
      */
-    public $SenderAddIns;
+    protected ?\ArrayType\EwsArrayOfSenderAddInsType $SenderAddIns = null;
     /**
      * Constructor method for EntityExtractionResultType
      * @uses EwsEntityExtractionResultType::setAddresses()
@@ -104,18 +107,18 @@ class EwsEntityExtractionResultType extends AbstractStructBase
      * @uses EwsEntityExtractionResultType::setParcelDeliveries()
      * @uses EwsEntityExtractionResultType::setFlightReservations()
      * @uses EwsEntityExtractionResultType::setSenderAddIns()
-     * @param \Ews\ArrayType\EwsArrayOfAddressEntitiesType $addresses
-     * @param \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions
-     * @param \Ews\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses
-     * @param \Ews\ArrayType\EwsArrayOfContactsType $contacts
-     * @param \Ews\ArrayType\EwsArrayOfUrlEntitiesType $urls
-     * @param \Ews\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers
-     * @param \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries
-     * @param \Ews\ArrayType\EwsArrayOfFlightReservationsType $flightReservations
-     * @param \Ews\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns
+     * @param \ArrayType\EwsArrayOfAddressEntitiesType $addresses
+     * @param \ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions
+     * @param \ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions
+     * @param \ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses
+     * @param \ArrayType\EwsArrayOfContactsType $contacts
+     * @param \ArrayType\EwsArrayOfUrlEntitiesType $urls
+     * @param \ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers
+     * @param \ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries
+     * @param \ArrayType\EwsArrayOfFlightReservationsType $flightReservations
+     * @param \ArrayType\EwsArrayOfSenderAddInsType $senderAddIns
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfAddressEntitiesType $addresses = null, \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions = null, \Ews\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions = null, \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses = null, \Ews\ArrayType\EwsArrayOfContactsType $contacts = null, \Ews\ArrayType\EwsArrayOfUrlEntitiesType $urls = null, \Ews\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers = null, \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries = null, \Ews\ArrayType\EwsArrayOfFlightReservationsType $flightReservations = null, \Ews\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns = null)
+    public function __construct(?\ArrayType\EwsArrayOfAddressEntitiesType $addresses = null, ?\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions = null, ?\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions = null, ?\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses = null, ?\ArrayType\EwsArrayOfContactsType $contacts = null, ?\ArrayType\EwsArrayOfUrlEntitiesType $urls = null, ?\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers = null, ?\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries = null, ?\ArrayType\EwsArrayOfFlightReservationsType $flightReservations = null, ?\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns = null)
     {
         $this
             ->setAddresses($addresses)
@@ -131,182 +134,192 @@ class EwsEntityExtractionResultType extends AbstractStructBase
     }
     /**
      * Get Addresses value
-     * @return \Ews\ArrayType\EwsArrayOfAddressEntitiesType|null
+     * @return \ArrayType\EwsArrayOfAddressEntitiesType|null
      */
-    public function getAddresses()
+    public function getAddresses(): ?\ArrayType\EwsArrayOfAddressEntitiesType
     {
         return $this->Addresses;
     }
     /**
      * Set Addresses value
-     * @param \Ews\ArrayType\EwsArrayOfAddressEntitiesType $addresses
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfAddressEntitiesType $addresses
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setAddresses(\Ews\ArrayType\EwsArrayOfAddressEntitiesType $addresses = null)
+    public function setAddresses(?\ArrayType\EwsArrayOfAddressEntitiesType $addresses = null): self
     {
         $this->Addresses = $addresses;
+        
         return $this;
     }
     /**
      * Get MeetingSuggestions value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType|null
+     * @return \ArrayType\EwsArrayOfMeetingSuggestionsType|null
      */
-    public function getMeetingSuggestions()
+    public function getMeetingSuggestions(): ?\ArrayType\EwsArrayOfMeetingSuggestionsType
     {
         return $this->MeetingSuggestions;
     }
     /**
      * Set MeetingSuggestions value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setMeetingSuggestions(\Ews\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions = null)
+    public function setMeetingSuggestions(?\ArrayType\EwsArrayOfMeetingSuggestionsType $meetingSuggestions = null): self
     {
         $this->MeetingSuggestions = $meetingSuggestions;
+        
         return $this;
     }
     /**
      * Get TaskSuggestions value
-     * @return \Ews\ArrayType\EwsArrayOfTaskSuggestionsType|null
+     * @return \ArrayType\EwsArrayOfTaskSuggestionsType|null
      */
-    public function getTaskSuggestions()
+    public function getTaskSuggestions(): ?\ArrayType\EwsArrayOfTaskSuggestionsType
     {
         return $this->TaskSuggestions;
     }
     /**
      * Set TaskSuggestions value
-     * @param \Ews\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setTaskSuggestions(\Ews\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions = null)
+    public function setTaskSuggestions(?\ArrayType\EwsArrayOfTaskSuggestionsType $taskSuggestions = null): self
     {
         $this->TaskSuggestions = $taskSuggestions;
+        
         return $this;
     }
     /**
      * Get EmailAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressEntitiesType|null
      */
-    public function getEmailAddresses()
+    public function getEmailAddresses(): ?\ArrayType\EwsArrayOfEmailAddressEntitiesType
     {
         return $this->EmailAddresses;
     }
     /**
      * Set EmailAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setEmailAddresses(\Ews\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses = null)
+    public function setEmailAddresses(?\ArrayType\EwsArrayOfEmailAddressEntitiesType $emailAddresses = null): self
     {
         $this->EmailAddresses = $emailAddresses;
+        
         return $this;
     }
     /**
      * Get Contacts value
-     * @return \Ews\ArrayType\EwsArrayOfContactsType|null
+     * @return \ArrayType\EwsArrayOfContactsType|null
      */
-    public function getContacts()
+    public function getContacts(): ?\ArrayType\EwsArrayOfContactsType
     {
         return $this->Contacts;
     }
     /**
      * Set Contacts value
-     * @param \Ews\ArrayType\EwsArrayOfContactsType $contacts
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfContactsType $contacts
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setContacts(\Ews\ArrayType\EwsArrayOfContactsType $contacts = null)
+    public function setContacts(?\ArrayType\EwsArrayOfContactsType $contacts = null): self
     {
         $this->Contacts = $contacts;
+        
         return $this;
     }
     /**
      * Get Urls value
-     * @return \Ews\ArrayType\EwsArrayOfUrlEntitiesType|null
+     * @return \ArrayType\EwsArrayOfUrlEntitiesType|null
      */
-    public function getUrls()
+    public function getUrls(): ?\ArrayType\EwsArrayOfUrlEntitiesType
     {
         return $this->Urls;
     }
     /**
      * Set Urls value
-     * @param \Ews\ArrayType\EwsArrayOfUrlEntitiesType $urls
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfUrlEntitiesType $urls
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setUrls(\Ews\ArrayType\EwsArrayOfUrlEntitiesType $urls = null)
+    public function setUrls(?\ArrayType\EwsArrayOfUrlEntitiesType $urls = null): self
     {
         $this->Urls = $urls;
+        
         return $this;
     }
     /**
      * Get PhoneNumbers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneEntitiesType|null
+     * @return \ArrayType\EwsArrayOfPhoneEntitiesType|null
      */
-    public function getPhoneNumbers()
+    public function getPhoneNumbers(): ?\ArrayType\EwsArrayOfPhoneEntitiesType
     {
         return $this->PhoneNumbers;
     }
     /**
      * Set PhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers = null)
+    public function setPhoneNumbers(?\ArrayType\EwsArrayOfPhoneEntitiesType $phoneNumbers = null): self
     {
         $this->PhoneNumbers = $phoneNumbers;
+        
         return $this;
     }
     /**
      * Get ParcelDeliveries value
-     * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType|null
+     * @return \ArrayType\EwsArrayOfParcelDeliveryEntitiesType|null
      */
-    public function getParcelDeliveries()
+    public function getParcelDeliveries(): ?\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
     {
         return $this->ParcelDeliveries;
     }
     /**
      * Set ParcelDeliveries value
-     * @param \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setParcelDeliveries(\Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries = null)
+    public function setParcelDeliveries(?\ArrayType\EwsArrayOfParcelDeliveryEntitiesType $parcelDeliveries = null): self
     {
         $this->ParcelDeliveries = $parcelDeliveries;
+        
         return $this;
     }
     /**
      * Get FlightReservations value
-     * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType|null
+     * @return \ArrayType\EwsArrayOfFlightReservationsType|null
      */
-    public function getFlightReservations()
+    public function getFlightReservations(): ?\ArrayType\EwsArrayOfFlightReservationsType
     {
         return $this->FlightReservations;
     }
     /**
      * Set FlightReservations value
-     * @param \Ews\ArrayType\EwsArrayOfFlightReservationsType $flightReservations
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfFlightReservationsType $flightReservations
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setFlightReservations(\Ews\ArrayType\EwsArrayOfFlightReservationsType $flightReservations = null)
+    public function setFlightReservations(?\ArrayType\EwsArrayOfFlightReservationsType $flightReservations = null): self
     {
         $this->FlightReservations = $flightReservations;
+        
         return $this;
     }
     /**
      * Get SenderAddIns value
-     * @return \Ews\ArrayType\EwsArrayOfSenderAddInsType|null
+     * @return \ArrayType\EwsArrayOfSenderAddInsType|null
      */
-    public function getSenderAddIns()
+    public function getSenderAddIns(): ?\ArrayType\EwsArrayOfSenderAddInsType
     {
         return $this->SenderAddIns;
     }
     /**
      * Set SenderAddIns value
-     * @param \Ews\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns
-     * @return \Ews\StructType\EwsEntityExtractionResultType
+     * @param \ArrayType\EwsArrayOfSenderAddInsType $senderAddIns
+     * @return \StructType\EwsEntityExtractionResultType
      */
-    public function setSenderAddIns(\Ews\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns = null)
+    public function setSenderAddIns(?\ArrayType\EwsArrayOfSenderAddInsType $senderAddIns = null): self
     {
         $this->SenderAddIns = $senderAddIns;
+        
         return $this;
     }
 }

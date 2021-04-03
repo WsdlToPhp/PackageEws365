@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindXrmOrganizationResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindXrmOrganizationResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType
+     * @var \ArrayType\EwsArrayOfXrmOrganizationItemType
      */
-    public $XrmOrganizations;
+    protected \ArrayType\EwsArrayOfXrmOrganizationItemType $XrmOrganizations;
     /**
      * Constructor method for FindXrmOrganizationResponseMessageType
      * @uses EwsFindXrmOrganizationResponseMessageType::setXrmOrganizations()
-     * @param \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations
+     * @param \ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations = null)
+    public function __construct(\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations)
     {
         $this
             ->setXrmOrganizations($xrmOrganizations);
     }
     /**
      * Get XrmOrganizations value
-     * @return \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType
+     * @return \ArrayType\EwsArrayOfXrmOrganizationItemType
      */
-    public function getXrmOrganizations()
+    public function getXrmOrganizations(): \ArrayType\EwsArrayOfXrmOrganizationItemType
     {
         return $this->XrmOrganizations;
     }
     /**
      * Set XrmOrganizations value
-     * @param \Ews\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations
-     * @return \Ews\StructType\EwsFindXrmOrganizationResponseMessageType
+     * @param \ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations
+     * @return \StructType\EwsFindXrmOrganizationResponseMessageType
      */
-    public function setXrmOrganizations(\Ews\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations = null)
+    public function setXrmOrganizations(\ArrayType\EwsArrayOfXrmOrganizationItemType $xrmOrganizations): self
     {
         $this->XrmOrganizations = $xrmOrganizations;
+        
         return $this;
     }
 }

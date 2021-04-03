@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSocialActivityNotificationsType StructType
@@ -19,17 +22,17 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $OldestTimeStamp;
+    protected string $OldestTimeStamp;
     /**
      * The MaxItems
-     * @var int
+     * @var int|null
      */
-    public $MaxItems;
+    protected ?int $MaxItems = null;
     /**
      * The SocialActivityActionType
-     * @var string
+     * @var string|null
      */
-    public $SocialActivityActionType;
+    protected ?string $SocialActivityActionType = null;
     /**
      * Constructor method for GetSocialActivityNotificationsType
      * @uses EwsGetSocialActivityNotificationsType::setOldestTimeStamp()
@@ -39,7 +42,7 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      * @param int $maxItems
      * @param string $socialActivityActionType
      */
-    public function __construct($oldestTimeStamp = null, $maxItems = null, $socialActivityActionType = null)
+    public function __construct(string $oldestTimeStamp, ?int $maxItems = null, ?string $socialActivityActionType = null)
     {
         $this
             ->setOldestTimeStamp($oldestTimeStamp)
@@ -50,69 +53,72 @@ class EwsGetSocialActivityNotificationsType extends EwsBaseRequestType
      * Get OldestTimeStamp value
      * @return string
      */
-    public function getOldestTimeStamp()
+    public function getOldestTimeStamp(): string
     {
         return $this->OldestTimeStamp;
     }
     /**
      * Set OldestTimeStamp value
      * @param string $oldestTimeStamp
-     * @return \Ews\StructType\EwsGetSocialActivityNotificationsType
+     * @return \StructType\EwsGetSocialActivityNotificationsType
      */
-    public function setOldestTimeStamp($oldestTimeStamp = null)
+    public function setOldestTimeStamp(string $oldestTimeStamp): self
     {
         // validation for constraint: string
         if (!is_null($oldestTimeStamp) && !is_string($oldestTimeStamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($oldestTimeStamp, true), gettype($oldestTimeStamp)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($oldestTimeStamp, true), gettype($oldestTimeStamp)), __LINE__);
         }
         $this->OldestTimeStamp = $oldestTimeStamp;
+        
         return $this;
     }
     /**
      * Get MaxItems value
      * @return int|null
      */
-    public function getMaxItems()
+    public function getMaxItems(): ?int
     {
         return $this->MaxItems;
     }
     /**
      * Set MaxItems value
      * @param int $maxItems
-     * @return \Ews\StructType\EwsGetSocialActivityNotificationsType
+     * @return \StructType\EwsGetSocialActivityNotificationsType
      */
-    public function setMaxItems($maxItems = null)
+    public function setMaxItems(?int $maxItems = null): self
     {
         // validation for constraint: int
         if (!is_null($maxItems) && !(is_int($maxItems) || ctype_digit($maxItems))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItems, true), gettype($maxItems)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItems, true), gettype($maxItems)), __LINE__);
         }
         $this->MaxItems = $maxItems;
+        
         return $this;
     }
     /**
      * Get SocialActivityActionType value
      * @return string|null
      */
-    public function getSocialActivityActionType()
+    public function getSocialActivityActionType(): ?string
     {
         return $this->SocialActivityActionType;
     }
     /**
      * Set SocialActivityActionType value
-     * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
-     * @uses \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid()
+     * @uses \EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $socialActivityActionType
-     * @return \Ews\StructType\EwsGetSocialActivityNotificationsType
+     * @return \StructType\EwsGetSocialActivityNotificationsType
      */
-    public function setSocialActivityActionType($socialActivityActionType = null)
+    public function setSocialActivityActionType(?string $socialActivityActionType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \Ews\EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUserSocialActivityActionTypeEnum::valueIsValid($socialActivityActionType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUserSocialActivityActionTypeEnum', is_array($socialActivityActionType) ? implode(', ', $socialActivityActionType) : var_export($socialActivityActionType, true), implode(', ', \EnumType\EwsUserSocialActivityActionTypeEnum::getValidValues())), __LINE__);
         }
         $this->SocialActivityActionType = $socialActivityActionType;
+        
         return $this;
     }
 }

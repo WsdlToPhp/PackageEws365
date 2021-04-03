@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCalendarEvent ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfCalendarEvent extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCalendarEvent[]
+     * @var \StructType\EwsCalendarEvent[]
      */
-    public $CalendarEvent;
+    protected array $CalendarEvent = [];
     /**
      * Constructor method for ArrayOfCalendarEvent
      * @uses EwsArrayOfCalendarEvent::setCalendarEvent()
-     * @param \Ews\StructType\EwsCalendarEvent[] $calendarEvent
+     * @param \StructType\EwsCalendarEvent[] $calendarEvent
      */
-    public function __construct(array $calendarEvent = array())
+    public function __construct(array $calendarEvent = [])
     {
         $this
             ->setCalendarEvent($calendarEvent);
     }
     /**
      * Get CalendarEvent value
-     * @return \Ews\StructType\EwsCalendarEvent[]|null
+     * @return \StructType\EwsCalendarEvent[]
      */
-    public function getCalendarEvent()
+    public function getCalendarEvent(): array
     {
         return $this->CalendarEvent;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfCalendarEvent extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCalendarEventForArrayConstraintsFromSetCalendarEvent(array $values = array())
+    public static function validateCalendarEventForArrayConstraintsFromSetCalendarEvent(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfCalendarEventCalendarEventItem) {
             // validation for constraint: itemType
-            if (!$arrayOfCalendarEventCalendarEventItem instanceof \Ews\StructType\EwsCalendarEvent) {
+            if (!$arrayOfCalendarEventCalendarEventItem instanceof \StructType\EwsCalendarEvent) {
                 $invalidValues[] = is_object($arrayOfCalendarEventCalendarEventItem) ? get_class($arrayOfCalendarEventCalendarEventItem) : sprintf('%s(%s)', gettype($arrayOfCalendarEventCalendarEventItem), var_export($arrayOfCalendarEventCalendarEventItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The CalendarEvent property can only contain items of type \Ews\StructType\EwsCalendarEvent, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The CalendarEvent property can only contain items of type \StructType\EwsCalendarEvent, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CalendarEvent value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarEvent[] $calendarEvent
-     * @return \Ews\ArrayType\EwsArrayOfCalendarEvent
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarEvent[] $calendarEvent
+     * @return \ArrayType\EwsArrayOfCalendarEvent
      */
-    public function setCalendarEvent(array $calendarEvent = array())
+    public function setCalendarEvent(array $calendarEvent = []): self
     {
         // validation for constraint: array
         if ('' !== ($calendarEventArrayErrorMessage = self::validateCalendarEventForArrayConstraintsFromSetCalendarEvent($calendarEvent))) {
-            throw new \InvalidArgumentException($calendarEventArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($calendarEventArrayErrorMessage, __LINE__);
         }
         $this->CalendarEvent = $calendarEvent;
-        return $this;
-    }
-    /**
-     * Add item to CalendarEvent value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarEvent $item
-     * @return \Ews\ArrayType\EwsArrayOfCalendarEvent
-     */
-    public function addToCalendarEvent(\Ews\StructType\EwsCalendarEvent $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsCalendarEvent) {
-            throw new \InvalidArgumentException(sprintf('The CalendarEvent property can only contain items of type \Ews\StructType\EwsCalendarEvent, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CalendarEvent[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsCalendarEvent|null
+     * @return \StructType\EwsCalendarEvent|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsCalendarEvent
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfCalendarEvent extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsCalendarEvent|null
+     * @return \StructType\EwsCalendarEvent|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsCalendarEvent
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsCalendarEvent|null
+     * @return \StructType\EwsCalendarEvent|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsCalendarEvent
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsCalendarEvent|null
+     * @return \StructType\EwsCalendarEvent|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsCalendarEvent
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfCalendarEvent extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsCalendarEvent|null
+     * @return \StructType\EwsCalendarEvent|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsCalendarEvent
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarEvent $item
+     * @return \ArrayType\EwsArrayOfCalendarEvent
+     */
+    public function add(\StructType\EwsCalendarEvent $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CalendarEvent
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CalendarEvent';
     }

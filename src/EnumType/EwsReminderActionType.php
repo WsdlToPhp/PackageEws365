@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ReminderActionType EnumType
@@ -28,11 +30,11 @@ class EwsReminderActionType extends AbstractStructEnumBase
      * @uses self::VALUE_SNOOZE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DISMISS,
             self::VALUE_SNOOZE,
-        );
+        ];
     }
 }

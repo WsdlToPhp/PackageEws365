@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfGroupIdentifiersType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
      * The GroupIdentifier
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsSidAndAttributesType[]
+     * @var \StructType\EwsSidAndAttributesType[]
      */
-    public $GroupIdentifier;
+    protected array $GroupIdentifier = [];
     /**
      * Constructor method for NonEmptyArrayOfGroupIdentifiersType
      * @uses EwsNonEmptyArrayOfGroupIdentifiersType::setGroupIdentifier()
-     * @param \Ews\StructType\EwsSidAndAttributesType[] $groupIdentifier
+     * @param \StructType\EwsSidAndAttributesType[] $groupIdentifier
      */
-    public function __construct(array $groupIdentifier = array())
+    public function __construct(array $groupIdentifier = [])
     {
         $this
             ->setGroupIdentifier($groupIdentifier);
     }
     /**
      * Get GroupIdentifier value
-     * @return \Ews\StructType\EwsSidAndAttributesType[]|null
+     * @return \StructType\EwsSidAndAttributesType[]
      */
-    public function getGroupIdentifier()
+    public function getGroupIdentifier(): array
     {
         return $this->GroupIdentifier;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateGroupIdentifierForArrayConstraintsFromSetGroupIdentifier(array $values = array())
+    public static function validateGroupIdentifierForArrayConstraintsFromSetGroupIdentifier(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
+            if (!$nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem instanceof \StructType\EwsSidAndAttributesType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) ? get_class($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem), var_export($nonEmptyArrayOfGroupIdentifiersTypeGroupIdentifierItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The GroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The GroupIdentifier property can only contain items of type \StructType\EwsSidAndAttributesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set GroupIdentifier value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSidAndAttributesType[] $groupIdentifier
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSidAndAttributesType[] $groupIdentifier
+     * @return \ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
      */
-    public function setGroupIdentifier(array $groupIdentifier = array())
+    public function setGroupIdentifier(array $groupIdentifier = []): self
     {
         // validation for constraint: array
         if ('' !== ($groupIdentifierArrayErrorMessage = self::validateGroupIdentifierForArrayConstraintsFromSetGroupIdentifier($groupIdentifier))) {
-            throw new \InvalidArgumentException($groupIdentifierArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($groupIdentifierArrayErrorMessage, __LINE__);
         }
         $this->GroupIdentifier = $groupIdentifier;
-        return $this;
-    }
-    /**
-     * Add item to GroupIdentifier value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSidAndAttributesType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
-     */
-    public function addToGroupIdentifier(\Ews\StructType\EwsSidAndAttributesType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSidAndAttributesType) {
-            throw new \InvalidArgumentException(sprintf('The GroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->GroupIdentifier[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsSidAndAttributesType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfGroupIdentifiersType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsSidAndAttributesType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSidAndAttributesType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfGroupIdentifiersType
+     */
+    public function add(\StructType\EwsSidAndAttributesType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string GroupIdentifier
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'GroupIdentifier';
     }

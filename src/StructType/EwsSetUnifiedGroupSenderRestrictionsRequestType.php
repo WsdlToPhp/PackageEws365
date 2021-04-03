@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupSenderRestrictionsRequestType StructType
@@ -17,25 +20,25 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
-    public $RestrictionSettings;
+    protected \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $RestrictionSettings;
     /**
      * The UnifiedGroupSenderRestrictionsSettings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
-    public $UnifiedGroupSenderRestrictionsSettings;
+    protected \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $UnifiedGroupSenderRestrictionsSettings;
     /**
      * Constructor method for SetUnifiedGroupSenderRestrictionsRequestType
      * @uses EwsSetUnifiedGroupSenderRestrictionsRequestType::setRestrictionSettings()
      * @uses EwsSetUnifiedGroupSenderRestrictionsRequestType::setUnifiedGroupSenderRestrictionsSettings()
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings = null)
+    public function __construct(\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings, \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings)
     {
         $this
             ->setRestrictionSettings($restrictionSettings)
@@ -43,38 +46,40 @@ class EwsSetUnifiedGroupSenderRestrictionsRequestType extends EwsUnifiedGroupBas
     }
     /**
      * Get RestrictionSettings value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
-    public function getRestrictionSettings()
+    public function getRestrictionSettings(): \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
     {
         return $this->RestrictionSettings;
     }
     /**
      * Set RestrictionSettings value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
-     * @return \Ews\StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings
+     * @return \StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
      */
-    public function setRestrictionSettings(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings = null)
+    public function setRestrictionSettings(\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $restrictionSettings): self
     {
         $this->RestrictionSettings = $restrictionSettings;
+        
         return $this;
     }
     /**
      * Get UnifiedGroupSenderRestrictionsSettings value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
-    public function getUnifiedGroupSenderRestrictionsSettings()
+    public function getUnifiedGroupSenderRestrictionsSettings(): \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
     {
         return $this->UnifiedGroupSenderRestrictionsSettings;
     }
     /**
      * Set UnifiedGroupSenderRestrictionsSettings value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
-     * @return \Ews\StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings
+     * @return \StructType\EwsSetUnifiedGroupSenderRestrictionsRequestType
      */
-    public function setUnifiedGroupSenderRestrictionsSettings(\Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings = null)
+    public function setUnifiedGroupSenderRestrictionsSettings(\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType $unifiedGroupSenderRestrictionsSettings): self
     {
         $this->UnifiedGroupSenderRestrictionsSettings = $unifiedGroupSenderRestrictionsSettings;
+        
         return $this;
     }
 }

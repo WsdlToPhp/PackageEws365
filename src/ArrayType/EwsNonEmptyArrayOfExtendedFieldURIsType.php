@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfExtendedFieldURIsType ArrayType
@@ -18,24 +21,24 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
      * - choice: ExtendedFieldURI
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPathToExtendedFieldType
+     * @var \StructType\EwsPathToExtendedFieldType|null
      */
-    public $ExtendedFieldURI;
+    protected ?\StructType\EwsPathToExtendedFieldType $ExtendedFieldURI = null;
     /**
      * Constructor method for NonEmptyArrayOfExtendedFieldURIsType
      * @uses EwsNonEmptyArrayOfExtendedFieldURIsType::setExtendedFieldURI()
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
      */
-    public function __construct(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function __construct(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
     {
         $this
             ->setExtendedFieldURI($extendedFieldURI);
     }
     /**
      * Get ExtendedFieldURI value
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function getExtendedFieldURI()
+    public function getExtendedFieldURI(): ?\StructType\EwsPathToExtendedFieldType
     {
         return isset($this->ExtendedFieldURI) ? $this->ExtendedFieldURI : null;
     }
@@ -46,7 +49,7 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($value)
+    public function validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ExtendedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ExtendedFieldURI can\'t be set as the property %s is already set. Only one property must be set among these properties: ExtendedFieldURI, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPathToExtendedFieldType $extendedFieldURI
+     * @return \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType
      */
-    public function setExtendedFieldURI(\Ews\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null)
+    public function setExtendedFieldURI(?\StructType\EwsPathToExtendedFieldType $extendedFieldURI = null): self
     {
         // validation for constraint: choice(ExtendedFieldURI)
         if ('' !== ($extendedFieldURIChoiceErrorMessage = self::validateExtendedFieldURIForChoiceConstraintsFromSetExtendedFieldURI($extendedFieldURI))) {
-            throw new \InvalidArgumentException($extendedFieldURIChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($extendedFieldURIChoiceErrorMessage, __LINE__);
         }
         if (is_null($extendedFieldURI) || (is_array($extendedFieldURI) && empty($extendedFieldURI))) {
             unset($this->ExtendedFieldURI);
         } else {
             $this->ExtendedFieldURI = $extendedFieldURI;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPathToExtendedFieldType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPathToExtendedFieldType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPathToExtendedFieldType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPathToExtendedFieldType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsNonEmptyArrayOfExtendedFieldURIsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPathToExtendedFieldType|null
+     * @return \StructType\EwsPathToExtendedFieldType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPathToExtendedFieldType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPathToExtendedFieldType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfExtendedFieldURIsType
+     */
+    public function add(\StructType\EwsPathToExtendedFieldType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ExtendedFieldURI
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ExtendedFieldURI';
     }

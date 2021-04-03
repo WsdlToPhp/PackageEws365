@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupDetailsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetUnifiedGroupDetailsResponseMessageType extends EwsResponseMessageTyp
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @var \StructType\EwsUnifiedGroupDetailsType
      */
-    public $GroupDetails;
+    protected \StructType\EwsUnifiedGroupDetailsType $GroupDetails;
     /**
      * Constructor method for GetUnifiedGroupDetailsResponseMessageType
      * @uses EwsGetUnifiedGroupDetailsResponseMessageType::setGroupDetails()
-     * @param \Ews\StructType\EwsUnifiedGroupDetailsType $groupDetails
+     * @param \StructType\EwsUnifiedGroupDetailsType $groupDetails
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupDetailsType $groupDetails = null)
+    public function __construct(\StructType\EwsUnifiedGroupDetailsType $groupDetails)
     {
         $this
             ->setGroupDetails($groupDetails);
     }
     /**
      * Get GroupDetails value
-     * @return \Ews\StructType\EwsUnifiedGroupDetailsType
+     * @return \StructType\EwsUnifiedGroupDetailsType
      */
-    public function getGroupDetails()
+    public function getGroupDetails(): \StructType\EwsUnifiedGroupDetailsType
     {
         return $this->GroupDetails;
     }
     /**
      * Set GroupDetails value
-     * @param \Ews\StructType\EwsUnifiedGroupDetailsType $groupDetails
-     * @return \Ews\StructType\EwsGetUnifiedGroupDetailsResponseMessageType
+     * @param \StructType\EwsUnifiedGroupDetailsType $groupDetails
+     * @return \StructType\EwsGetUnifiedGroupDetailsResponseMessageType
      */
-    public function setGroupDetails(\Ews\StructType\EwsUnifiedGroupDetailsType $groupDetails = null)
+    public function setGroupDetails(\StructType\EwsUnifiedGroupDetailsType $groupDetails): self
     {
         $this->GroupDetails = $groupDetails;
+        
         return $this;
     }
 }

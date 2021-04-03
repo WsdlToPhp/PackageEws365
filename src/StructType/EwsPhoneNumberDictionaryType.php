@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PhoneNumberDictionaryType StructType
@@ -16,24 +19,24 @@ class EwsPhoneNumberDictionaryType extends AbstractStructBase
      * The Entry
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsPhoneNumberDictionaryEntryType[]
+     * @var \StructType\EwsPhoneNumberDictionaryEntryType[]
      */
-    public $Entry;
+    protected array $Entry = [];
     /**
      * Constructor method for PhoneNumberDictionaryType
      * @uses EwsPhoneNumberDictionaryType::setEntry()
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType[] $entry
+     * @param \StructType\EwsPhoneNumberDictionaryEntryType[] $entry
      */
-    public function __construct(array $entry = array())
+    public function __construct(array $entry = [])
     {
         $this
             ->setEntry($entry);
     }
     /**
      * Get Entry value
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType[]|null
+     * @return \StructType\EwsPhoneNumberDictionaryEntryType[]
      */
-    public function getEntry()
+    public function getEntry(): array
     {
         return $this->Entry;
     }
@@ -43,50 +46,53 @@ class EwsPhoneNumberDictionaryType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateEntryForArrayConstraintsFromSetEntry(array $values = array())
+    public static function validateEntryForArrayConstraintsFromSetEntry(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $phoneNumberDictionaryTypeEntryItem) {
             // validation for constraint: itemType
-            if (!$phoneNumberDictionaryTypeEntryItem instanceof \Ews\StructType\EwsPhoneNumberDictionaryEntryType) {
+            if (!$phoneNumberDictionaryTypeEntryItem instanceof \StructType\EwsPhoneNumberDictionaryEntryType) {
                 $invalidValues[] = is_object($phoneNumberDictionaryTypeEntryItem) ? get_class($phoneNumberDictionaryTypeEntryItem) : sprintf('%s(%s)', gettype($phoneNumberDictionaryTypeEntryItem), var_export($phoneNumberDictionaryTypeEntryItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Entry property can only contain items of type \Ews\StructType\EwsPhoneNumberDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Entry property can only contain items of type \StructType\EwsPhoneNumberDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Entry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType[] $entry
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPhoneNumberDictionaryEntryType[] $entry
+     * @return \StructType\EwsPhoneNumberDictionaryType
      */
-    public function setEntry(array $entry = array())
+    public function setEntry(array $entry = []): self
     {
         // validation for constraint: array
         if ('' !== ($entryArrayErrorMessage = self::validateEntryForArrayConstraintsFromSetEntry($entry))) {
-            throw new \InvalidArgumentException($entryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($entryArrayErrorMessage, __LINE__);
         }
         $this->Entry = $entry;
+        
         return $this;
     }
     /**
      * Add item to Entry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPhoneNumberDictionaryEntryType $item
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPhoneNumberDictionaryEntryType $item
+     * @return \StructType\EwsPhoneNumberDictionaryType
      */
-    public function addToEntry(\Ews\StructType\EwsPhoneNumberDictionaryEntryType $item)
+    public function addToEntry(\StructType\EwsPhoneNumberDictionaryEntryType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPhoneNumberDictionaryEntryType) {
-            throw new \InvalidArgumentException(sprintf('The Entry property can only contain items of type \Ews\StructType\EwsPhoneNumberDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsPhoneNumberDictionaryEntryType) {
+            throw new InvalidArgumentException(sprintf('The Entry property can only contain items of type \StructType\EwsPhoneNumberDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Entry[] = $item;
+        
         return $this;
     }
 }

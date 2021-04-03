@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PermissionType StructType
@@ -21,15 +24,15 @@ class EwsPermissionType extends EwsBasePermissionType
      * - minOccurs: 1
      * @var string
      */
-    public $PermissionLevel;
+    protected string $PermissionLevel;
     /**
      * The ReadItems
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReadItems;
+    protected ?string $ReadItems = null;
     /**
      * Constructor method for PermissionType
      * @uses EwsPermissionType::setPermissionLevel()
@@ -37,7 +40,7 @@ class EwsPermissionType extends EwsBasePermissionType
      * @param string $permissionLevel
      * @param string $readItems
      */
-    public function __construct($permissionLevel = null, $readItems = null)
+    public function __construct(string $permissionLevel, ?string $readItems = null)
     {
         $this
             ->setPermissionLevel($permissionLevel)
@@ -47,50 +50,52 @@ class EwsPermissionType extends EwsBasePermissionType
      * Get PermissionLevel value
      * @return string
      */
-    public function getPermissionLevel()
+    public function getPermissionLevel(): string
     {
         return $this->PermissionLevel;
     }
     /**
      * Set PermissionLevel value
-     * @uses \Ews\EnumType\EwsPermissionLevelType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPermissionLevelType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPermissionLevelType::valueIsValid()
+     * @uses \EnumType\EwsPermissionLevelType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $permissionLevel
-     * @return \Ews\StructType\EwsPermissionType
+     * @return \StructType\EwsPermissionType
      */
-    public function setPermissionLevel($permissionLevel = null)
+    public function setPermissionLevel(string $permissionLevel): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPermissionLevelType::valueIsValid($permissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionLevelType', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \Ews\EnumType\EwsPermissionLevelType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPermissionLevelType::valueIsValid($permissionLevel)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPermissionLevelType', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \EnumType\EwsPermissionLevelType::getValidValues())), __LINE__);
         }
         $this->PermissionLevel = $permissionLevel;
+        
         return $this;
     }
     /**
      * Get ReadItems value
      * @return string|null
      */
-    public function getReadItems()
+    public function getReadItems(): ?string
     {
         return $this->ReadItems;
     }
     /**
      * Set ReadItems value
-     * @uses \Ews\EnumType\EwsPermissionReadAccessType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPermissionReadAccessType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPermissionReadAccessType::valueIsValid()
+     * @uses \EnumType\EwsPermissionReadAccessType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $readItems
-     * @return \Ews\StructType\EwsPermissionType
+     * @return \StructType\EwsPermissionType
      */
-    public function setReadItems($readItems = null)
+    public function setReadItems(?string $readItems = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPermissionReadAccessType::valueIsValid($readItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPermissionReadAccessType', is_array($readItems) ? implode(', ', $readItems) : var_export($readItems, true), implode(', ', \Ews\EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPermissionReadAccessType::valueIsValid($readItems)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPermissionReadAccessType', is_array($readItems) ? implode(', ', $readItems) : var_export($readItems, true), implode(', ', \EnumType\EwsPermissionReadAccessType::getValidValues())), __LINE__);
         }
         $this->ReadItems = $readItems;
+        
         return $this;
     }
 }

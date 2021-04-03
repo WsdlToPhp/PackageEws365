@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PathToIndexedFieldType StructType
@@ -18,14 +21,14 @@ class EwsPathToIndexedFieldType extends EwsBasePathToElementType
      * - use: required
      * @var string
      */
-    public $FieldURI;
+    protected string $FieldURI;
     /**
      * The FieldIndex
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $FieldIndex;
+    protected string $FieldIndex;
     /**
      * Constructor method for PathToIndexedFieldType
      * @uses EwsPathToIndexedFieldType::setFieldURI()
@@ -33,7 +36,7 @@ class EwsPathToIndexedFieldType extends EwsBasePathToElementType
      * @param string $fieldURI
      * @param string $fieldIndex
      */
-    public function __construct($fieldURI = null, $fieldIndex = null)
+    public function __construct(string $fieldURI, string $fieldIndex)
     {
         $this
             ->setFieldURI($fieldURI)
@@ -43,47 +46,49 @@ class EwsPathToIndexedFieldType extends EwsBasePathToElementType
      * Get FieldURI value
      * @return string
      */
-    public function getFieldURI()
+    public function getFieldURI(): string
     {
         return $this->FieldURI;
     }
     /**
      * Set FieldURI value
-     * @uses \Ews\EnumType\EwsDictionaryURIType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDictionaryURIType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDictionaryURIType::valueIsValid()
+     * @uses \EnumType\EwsDictionaryURIType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $fieldURI
-     * @return \Ews\StructType\EwsPathToIndexedFieldType
+     * @return \StructType\EwsPathToIndexedFieldType
      */
-    public function setFieldURI($fieldURI = null)
+    public function setFieldURI(string $fieldURI): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDictionaryURIType::valueIsValid($fieldURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDictionaryURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \Ews\EnumType\EwsDictionaryURIType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDictionaryURIType::valueIsValid($fieldURI)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDictionaryURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \EnumType\EwsDictionaryURIType::getValidValues())), __LINE__);
         }
         $this->FieldURI = $fieldURI;
+        
         return $this;
     }
     /**
      * Get FieldIndex value
      * @return string
      */
-    public function getFieldIndex()
+    public function getFieldIndex(): string
     {
         return $this->FieldIndex;
     }
     /**
      * Set FieldIndex value
      * @param string $fieldIndex
-     * @return \Ews\StructType\EwsPathToIndexedFieldType
+     * @return \StructType\EwsPathToIndexedFieldType
      */
-    public function setFieldIndex($fieldIndex = null)
+    public function setFieldIndex(string $fieldIndex): self
     {
         // validation for constraint: string
         if (!is_null($fieldIndex) && !is_string($fieldIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fieldIndex, true), gettype($fieldIndex)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fieldIndex, true), gettype($fieldIndex)), __LINE__);
         }
         $this->FieldIndex = $fieldIndex;
+        
         return $this;
     }
 }

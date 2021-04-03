@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateUserConfigurationType StructType
@@ -16,35 +19,36 @@ class EwsUpdateUserConfigurationType extends EwsBaseRequestType
      * The UserConfiguration
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserConfigurationType
+     * @var \StructType\EwsUserConfigurationType
      */
-    public $UserConfiguration;
+    protected \StructType\EwsUserConfigurationType $UserConfiguration;
     /**
      * Constructor method for UpdateUserConfigurationType
      * @uses EwsUpdateUserConfigurationType::setUserConfiguration()
-     * @param \Ews\StructType\EwsUserConfigurationType $userConfiguration
+     * @param \StructType\EwsUserConfigurationType $userConfiguration
      */
-    public function __construct(\Ews\StructType\EwsUserConfigurationType $userConfiguration = null)
+    public function __construct(\StructType\EwsUserConfigurationType $userConfiguration)
     {
         $this
             ->setUserConfiguration($userConfiguration);
     }
     /**
      * Get UserConfiguration value
-     * @return \Ews\StructType\EwsUserConfigurationType
+     * @return \StructType\EwsUserConfigurationType
      */
-    public function getUserConfiguration()
+    public function getUserConfiguration(): \StructType\EwsUserConfigurationType
     {
         return $this->UserConfiguration;
     }
     /**
      * Set UserConfiguration value
-     * @param \Ews\StructType\EwsUserConfigurationType $userConfiguration
-     * @return \Ews\StructType\EwsUpdateUserConfigurationType
+     * @param \StructType\EwsUserConfigurationType $userConfiguration
+     * @return \StructType\EwsUpdateUserConfigurationType
      */
-    public function setUserConfiguration(\Ews\StructType\EwsUserConfigurationType $userConfiguration = null)
+    public function setUserConfiguration(\StructType\EwsUserConfigurationType $userConfiguration): self
     {
         $this->UserConfiguration = $userConfiguration;
+        
         return $this;
     }
 }

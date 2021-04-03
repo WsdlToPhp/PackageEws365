@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRecipientsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
      * - choice: Mailbox
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * Constructor method for ArrayOfRecipientsType
      * @uses EwsArrayOfRecipientsType::setMailbox()
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \StructType\EwsEmailAddressType $mailbox
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function __construct(?\StructType\EwsEmailAddressType $mailbox = null)
     {
         $this
             ->setMailbox($mailbox);
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return isset($this->Mailbox) ? $this->Mailbox : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMailboxForChoiceConstraintsFromSetMailbox($value)
+    public function validateMailboxForChoiceConstraintsFromSetMailbox($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Mailbox can\'t be set as the property %s is already set. Only one property must be set among these properties: Mailbox, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Mailbox can\'t be set as the property %s is already set. Only one property must be set among these properties: Mailbox, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\ArrayType\EwsArrayOfRecipientsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \ArrayType\EwsArrayOfRecipientsType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         // validation for constraint: choice(Mailbox)
         if ('' !== ($mailboxChoiceErrorMessage = self::validateMailboxForChoiceConstraintsFromSetMailbox($mailbox))) {
-            throw new \InvalidArgumentException($mailboxChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($mailboxChoiceErrorMessage, __LINE__);
         }
         if (is_null($mailbox) || (is_array($mailbox) && empty($mailbox))) {
             unset($this->Mailbox);
         } else {
             $this->Mailbox = $mailbox;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsEmailAddressType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsEmailAddressType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsEmailAddressType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsEmailAddressType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfRecipientsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsEmailAddressType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsEmailAddressType $item
+     * @return \ArrayType\EwsArrayOfRecipientsType
+     */
+    public function add(\StructType\EwsEmailAddressType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Mailbox
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Mailbox';
     }

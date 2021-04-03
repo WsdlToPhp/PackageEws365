@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchPreviewItemType StructType
@@ -19,170 +22,170 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $Id;
+    protected \StructType\EwsItemIdType $Id;
     /**
      * The Mailbox
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPreviewItemMailboxType
+     * @var \StructType\EwsPreviewItemMailboxType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsPreviewItemMailboxType $Mailbox = null;
     /**
      * The ParentId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ParentId;
+    protected ?\StructType\EwsItemIdType $ParentId = null;
     /**
      * The ItemClass
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ItemClass;
+    protected ?string $ItemClass = null;
     /**
      * The UniqueHash
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $UniqueHash;
+    protected ?string $UniqueHash = null;
     /**
      * The SortValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SortValue;
+    protected ?string $SortValue = null;
     /**
      * The OwaLink
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OwaLink;
+    protected ?string $OwaLink = null;
     /**
      * The Sender
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Sender;
+    protected ?string $Sender = null;
     /**
      * The ToRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $ToRecipients;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $ToRecipients = null;
     /**
      * The CcRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $CcRecipients;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $CcRecipients = null;
     /**
      * The BccRecipients
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $BccRecipients;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $BccRecipients = null;
     /**
      * The CreatedTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CreatedTime;
+    protected ?string $CreatedTime = null;
     /**
      * The ReceivedTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ReceivedTime;
+    protected ?string $ReceivedTime = null;
     /**
      * The SentTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SentTime;
+    protected ?string $SentTime = null;
     /**
      * The Subject
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The Size
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Size;
+    protected ?int $Size = null;
     /**
      * The Preview
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Preview;
+    protected ?string $Preview = null;
     /**
      * The Importance
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Importance;
+    protected ?string $Importance = null;
     /**
      * The Read
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $Read;
+    protected ?bool $Read = null;
     /**
      * The HasAttachment
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasAttachment;
+    protected ?bool $HasAttachment = null;
     /**
      * The ExtendedProperties
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
+     * @var \ArrayType\EwsNonEmptyArrayOfExtendedPropertyType|null
      */
-    public $ExtendedProperties;
+    protected ?\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $ExtendedProperties = null;
     /**
      * Constructor method for SearchPreviewItemType
      * @uses EwsSearchPreviewItemType::setId()
@@ -206,17 +209,17 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * @uses EwsSearchPreviewItemType::setRead()
      * @uses EwsSearchPreviewItemType::setHasAttachment()
      * @uses EwsSearchPreviewItemType::setExtendedProperties()
-     * @param \Ews\StructType\EwsItemIdType $id
-     * @param \Ews\StructType\EwsPreviewItemMailboxType $mailbox
-     * @param \Ews\StructType\EwsItemIdType $parentId
+     * @param \StructType\EwsItemIdType $id
+     * @param \StructType\EwsPreviewItemMailboxType $mailbox
+     * @param \StructType\EwsItemIdType $parentId
      * @param string $itemClass
      * @param string $uniqueHash
      * @param string $sortValue
      * @param string $owaLink
      * @param string $sender
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $toRecipients
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $ccRecipients
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $bccRecipients
      * @param string $createdTime
      * @param string $receivedTime
      * @param string $sentTime
@@ -226,9 +229,9 @@ class EwsSearchPreviewItemType extends AbstractStructBase
      * @param string $importance
      * @param bool $read
      * @param bool $hasAttachment
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties
+     * @param \ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $id = null, \Ews\StructType\EwsPreviewItemMailboxType $mailbox = null, \Ews\StructType\EwsItemIdType $parentId = null, $itemClass = null, $uniqueHash = null, $sortValue = null, $owaLink = null, $sender = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients = null, $createdTime = null, $receivedTime = null, $sentTime = null, $subject = null, $size = null, $preview = null, $importance = null, $read = null, $hasAttachment = null, \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties = null)
+    public function __construct(\StructType\EwsItemIdType $id, ?\StructType\EwsPreviewItemMailboxType $mailbox = null, ?\StructType\EwsItemIdType $parentId = null, ?string $itemClass = null, ?string $uniqueHash = null, ?string $sortValue = null, ?string $owaLink = null, ?string $sender = null, ?\ArrayType\EwsArrayOfSmtpAddressType $toRecipients = null, ?\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients = null, ?\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients = null, ?string $createdTime = null, ?string $receivedTime = null, ?string $sentTime = null, ?string $subject = null, ?int $size = null, ?string $preview = null, ?string $importance = null, ?bool $read = null, ?bool $hasAttachment = null, ?\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties = null)
     {
         $this
             ->setId($id)
@@ -255,439 +258,460 @@ class EwsSearchPreviewItemType extends AbstractStructBase
     }
     /**
      * Get Id value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getId()
+    public function getId(): \StructType\EwsItemIdType
     {
         return $this->Id;
     }
     /**
      * Set Id value
-     * @param \Ews\StructType\EwsItemIdType $id
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \StructType\EwsItemIdType $id
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setId(\Ews\StructType\EwsItemIdType $id = null)
+    public function setId(\StructType\EwsItemIdType $id): self
     {
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsPreviewItemMailboxType|null
+     * @return \StructType\EwsPreviewItemMailboxType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsPreviewItemMailboxType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsPreviewItemMailboxType $mailbox
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \StructType\EwsPreviewItemMailboxType $mailbox
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setMailbox(\Ews\StructType\EwsPreviewItemMailboxType $mailbox = null)
+    public function setMailbox(?\StructType\EwsPreviewItemMailboxType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get ParentId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getParentId()
+    public function getParentId(): ?\StructType\EwsItemIdType
     {
         return $this->ParentId;
     }
     /**
      * Set ParentId value
-     * @param \Ews\StructType\EwsItemIdType $parentId
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \StructType\EwsItemIdType $parentId
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setParentId(\Ews\StructType\EwsItemIdType $parentId = null)
+    public function setParentId(?\StructType\EwsItemIdType $parentId = null): self
     {
         $this->ParentId = $parentId;
+        
         return $this;
     }
     /**
      * Get ItemClass value
      * @return string|null
      */
-    public function getItemClass()
+    public function getItemClass(): ?string
     {
         return $this->ItemClass;
     }
     /**
      * Set ItemClass value
      * @param string $itemClass
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setItemClass($itemClass = null)
+    public function setItemClass(?string $itemClass = null): self
     {
         // validation for constraint: string
         if (!is_null($itemClass) && !is_string($itemClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         $this->ItemClass = $itemClass;
+        
         return $this;
     }
     /**
      * Get UniqueHash value
      * @return string|null
      */
-    public function getUniqueHash()
+    public function getUniqueHash(): ?string
     {
         return $this->UniqueHash;
     }
     /**
      * Set UniqueHash value
      * @param string $uniqueHash
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setUniqueHash($uniqueHash = null)
+    public function setUniqueHash(?string $uniqueHash = null): self
     {
         // validation for constraint: string
         if (!is_null($uniqueHash) && !is_string($uniqueHash)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniqueHash, true), gettype($uniqueHash)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($uniqueHash, true), gettype($uniqueHash)), __LINE__);
         }
         $this->UniqueHash = $uniqueHash;
+        
         return $this;
     }
     /**
      * Get SortValue value
      * @return string|null
      */
-    public function getSortValue()
+    public function getSortValue(): ?string
     {
         return $this->SortValue;
     }
     /**
      * Set SortValue value
      * @param string $sortValue
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setSortValue($sortValue = null)
+    public function setSortValue(?string $sortValue = null): self
     {
         // validation for constraint: string
         if (!is_null($sortValue) && !is_string($sortValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sortValue, true), gettype($sortValue)), __LINE__);
         }
         $this->SortValue = $sortValue;
+        
         return $this;
     }
     /**
      * Get OwaLink value
      * @return string|null
      */
-    public function getOwaLink()
+    public function getOwaLink(): ?string
     {
         return $this->OwaLink;
     }
     /**
      * Set OwaLink value
      * @param string $owaLink
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setOwaLink($owaLink = null)
+    public function setOwaLink(?string $owaLink = null): self
     {
         // validation for constraint: string
         if (!is_null($owaLink) && !is_string($owaLink)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($owaLink, true), gettype($owaLink)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($owaLink, true), gettype($owaLink)), __LINE__);
         }
         $this->OwaLink = $owaLink;
+        
         return $this;
     }
     /**
      * Get Sender value
      * @return string|null
      */
-    public function getSender()
+    public function getSender(): ?string
     {
         return $this->Sender;
     }
     /**
      * Set Sender value
      * @param string $sender
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setSender($sender = null)
+    public function setSender(?string $sender = null): self
     {
         // validation for constraint: string
         if (!is_null($sender) && !is_string($sender)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sender, true), gettype($sender)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sender, true), gettype($sender)), __LINE__);
         }
         $this->Sender = $sender;
+        
         return $this;
     }
     /**
      * Get ToRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getToRecipients()
+    public function getToRecipients(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->ToRecipients;
     }
     /**
      * Set ToRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $toRecipients
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setToRecipients(\Ews\ArrayType\EwsArrayOfSmtpAddressType $toRecipients = null)
+    public function setToRecipients(?\ArrayType\EwsArrayOfSmtpAddressType $toRecipients = null): self
     {
         $this->ToRecipients = $toRecipients;
+        
         return $this;
     }
     /**
      * Get CcRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getCcRecipients()
+    public function getCcRecipients(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->CcRecipients;
     }
     /**
      * Set CcRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $ccRecipients
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setCcRecipients(\Ews\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients = null)
+    public function setCcRecipients(?\ArrayType\EwsArrayOfSmtpAddressType $ccRecipients = null): self
     {
         $this->CcRecipients = $ccRecipients;
+        
         return $this;
     }
     /**
      * Get BccRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getBccRecipients()
+    public function getBccRecipients(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->BccRecipients;
     }
     /**
      * Set BccRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $bccRecipients
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setBccRecipients(\Ews\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients = null)
+    public function setBccRecipients(?\ArrayType\EwsArrayOfSmtpAddressType $bccRecipients = null): self
     {
         $this->BccRecipients = $bccRecipients;
+        
         return $this;
     }
     /**
      * Get CreatedTime value
      * @return string|null
      */
-    public function getCreatedTime()
+    public function getCreatedTime(): ?string
     {
         return $this->CreatedTime;
     }
     /**
      * Set CreatedTime value
      * @param string $createdTime
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setCreatedTime($createdTime = null)
+    public function setCreatedTime(?string $createdTime = null): self
     {
         // validation for constraint: string
         if (!is_null($createdTime) && !is_string($createdTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdTime, true), gettype($createdTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($createdTime, true), gettype($createdTime)), __LINE__);
         }
         $this->CreatedTime = $createdTime;
+        
         return $this;
     }
     /**
      * Get ReceivedTime value
      * @return string|null
      */
-    public function getReceivedTime()
+    public function getReceivedTime(): ?string
     {
         return $this->ReceivedTime;
     }
     /**
      * Set ReceivedTime value
      * @param string $receivedTime
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setReceivedTime($receivedTime = null)
+    public function setReceivedTime(?string $receivedTime = null): self
     {
         // validation for constraint: string
         if (!is_null($receivedTime) && !is_string($receivedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($receivedTime, true), gettype($receivedTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($receivedTime, true), gettype($receivedTime)), __LINE__);
         }
         $this->ReceivedTime = $receivedTime;
+        
         return $this;
     }
     /**
      * Get SentTime value
      * @return string|null
      */
-    public function getSentTime()
+    public function getSentTime(): ?string
     {
         return $this->SentTime;
     }
     /**
      * Set SentTime value
      * @param string $sentTime
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setSentTime($sentTime = null)
+    public function setSentTime(?string $sentTime = null): self
     {
         // validation for constraint: string
         if (!is_null($sentTime) && !is_string($sentTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sentTime, true), gettype($sentTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sentTime, true), gettype($sentTime)), __LINE__);
         }
         $this->SentTime = $sentTime;
+        
         return $this;
     }
     /**
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get Size value
      * @return int|null
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->Size;
     }
     /**
      * Set Size value
      * @param int $size
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setSize($size = null)
+    public function setSize(?int $size = null): self
     {
         // validation for constraint: int
         if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
+        
         return $this;
     }
     /**
      * Get Preview value
      * @return string|null
      */
-    public function getPreview()
+    public function getPreview(): ?string
     {
         return $this->Preview;
     }
     /**
      * Set Preview value
      * @param string $preview
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setPreview($preview = null)
+    public function setPreview(?string $preview = null): self
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
+        
         return $this;
     }
     /**
      * Get Importance value
      * @return string|null
      */
-    public function getImportance()
+    public function getImportance(): ?string
     {
         return $this->Importance;
     }
     /**
      * Set Importance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $importance
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setImportance($importance = null)
+    public function setImportance(?string $importance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
+        
         return $this;
     }
     /**
      * Get Read value
      * @return bool|null
      */
-    public function getRead()
+    public function getRead(): ?bool
     {
         return $this->Read;
     }
     /**
      * Set Read value
      * @param bool $read
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setRead($read = null)
+    public function setRead(?bool $read = null): self
     {
         // validation for constraint: boolean
         if (!is_null($read) && !is_bool($read)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($read, true), gettype($read)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($read, true), gettype($read)), __LINE__);
         }
         $this->Read = $read;
+        
         return $this;
     }
     /**
      * Get HasAttachment value
      * @return bool|null
      */
-    public function getHasAttachment()
+    public function getHasAttachment(): ?bool
     {
         return $this->HasAttachment;
     }
     /**
      * Set HasAttachment value
      * @param bool $hasAttachment
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setHasAttachment($hasAttachment = null)
+    public function setHasAttachment(?bool $hasAttachment = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachment) && !is_bool($hasAttachment)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachment, true), gettype($hasAttachment)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachment, true), gettype($hasAttachment)), __LINE__);
         }
         $this->HasAttachment = $hasAttachment;
+        
         return $this;
     }
     /**
      * Get ExtendedProperties value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfExtendedPropertyType|null
      */
-    public function getExtendedProperties()
+    public function getExtendedProperties(): ?\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
     {
         return $this->ExtendedProperties;
     }
     /**
      * Set ExtendedProperties value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties
-     * @return \Ews\StructType\EwsSearchPreviewItemType
+     * @param \ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties
+     * @return \StructType\EwsSearchPreviewItemType
      */
-    public function setExtendedProperties(\Ews\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties = null)
+    public function setExtendedProperties(?\ArrayType\EwsNonEmptyArrayOfExtendedPropertyType $extendedProperties = null): self
     {
         $this->ExtendedProperties = $extendedProperties;
+        
         return $this;
     }
 }

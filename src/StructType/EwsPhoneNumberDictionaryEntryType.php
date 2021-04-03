@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PhoneNumberDictionaryEntryType StructType
@@ -18,12 +21,12 @@ class EwsPhoneNumberDictionaryEntryType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Key;
+    protected string $Key;
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * Constructor method for PhoneNumberDictionaryEntryType
      * @uses EwsPhoneNumberDictionaryEntryType::setKey()
@@ -31,7 +34,7 @@ class EwsPhoneNumberDictionaryEntryType extends AbstractStructBase
      * @param string $key
      * @param string $_
      */
-    public function __construct($key = null, $_ = null)
+    public function __construct(string $key, ?string $_ = null)
     {
         $this
             ->setKey($key)
@@ -41,47 +44,49 @@ class EwsPhoneNumberDictionaryEntryType extends AbstractStructBase
      * Get Key value
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->Key;
     }
     /**
      * Set Key value
-     * @uses \Ews\EnumType\EwsPhoneNumberKeyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPhoneNumberKeyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPhoneNumberKeyType::valueIsValid()
+     * @uses \EnumType\EwsPhoneNumberKeyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $key
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType
+     * @return \StructType\EwsPhoneNumberDictionaryEntryType
      */
-    public function setKey($key = null)
+    public function setKey(string $key): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPhoneNumberKeyType::valueIsValid($key)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPhoneNumberKeyType', is_array($key) ? implode(', ', $key) : var_export($key, true), implode(', ', \Ews\EnumType\EwsPhoneNumberKeyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPhoneNumberKeyType::valueIsValid($key)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPhoneNumberKeyType', is_array($key) ? implode(', ', $key) : var_export($key, true), implode(', ', \EnumType\EwsPhoneNumberKeyType::getValidValues())), __LINE__);
         }
         $this->Key = $key;
+        
         return $this;
     }
     /**
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsPhoneNumberDictionaryEntryType
+     * @return \StructType\EwsPhoneNumberDictionaryEntryType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
 }

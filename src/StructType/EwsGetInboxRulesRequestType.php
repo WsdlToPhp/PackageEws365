@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetInboxRulesRequestType StructType
@@ -17,15 +20,15 @@ class EwsGetInboxRulesRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MailboxSmtpAddress;
+    protected ?string $MailboxSmtpAddress = null;
     /**
      * Constructor method for GetInboxRulesRequestType
      * @uses EwsGetInboxRulesRequestType::setMailboxSmtpAddress()
      * @param string $mailboxSmtpAddress
      */
-    public function __construct($mailboxSmtpAddress = null)
+    public function __construct(?string $mailboxSmtpAddress = null)
     {
         $this
             ->setMailboxSmtpAddress($mailboxSmtpAddress);
@@ -34,22 +37,23 @@ class EwsGetInboxRulesRequestType extends EwsBaseRequestType
      * Get MailboxSmtpAddress value
      * @return string|null
      */
-    public function getMailboxSmtpAddress()
+    public function getMailboxSmtpAddress(): ?string
     {
         return $this->MailboxSmtpAddress;
     }
     /**
      * Set MailboxSmtpAddress value
      * @param string $mailboxSmtpAddress
-     * @return \Ews\StructType\EwsGetInboxRulesRequestType
+     * @return \StructType\EwsGetInboxRulesRequestType
      */
-    public function setMailboxSmtpAddress($mailboxSmtpAddress = null)
+    public function setMailboxSmtpAddress(?string $mailboxSmtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($mailboxSmtpAddress) && !is_string($mailboxSmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxSmtpAddress, true), gettype($mailboxSmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxSmtpAddress, true), gettype($mailboxSmtpAddress)), __LINE__);
         }
         $this->MailboxSmtpAddress = $mailboxSmtpAddress;
+        
         return $this;
     }
 }

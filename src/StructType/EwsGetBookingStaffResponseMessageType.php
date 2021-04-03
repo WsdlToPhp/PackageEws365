@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetBookingStaffResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetBookingStaffResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfBookingStaffMember
+     * @var \ArrayType\EwsArrayOfBookingStaffMember
      */
-    public $StaffList;
+    protected \ArrayType\EwsArrayOfBookingStaffMember $StaffList;
     /**
      * Constructor method for GetBookingStaffResponseMessageType
      * @uses EwsGetBookingStaffResponseMessageType::setStaffList()
-     * @param \Ews\ArrayType\EwsArrayOfBookingStaffMember $staffList
+     * @param \ArrayType\EwsArrayOfBookingStaffMember $staffList
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfBookingStaffMember $staffList = null)
+    public function __construct(\ArrayType\EwsArrayOfBookingStaffMember $staffList)
     {
         $this
             ->setStaffList($staffList);
     }
     /**
      * Get StaffList value
-     * @return \Ews\ArrayType\EwsArrayOfBookingStaffMember
+     * @return \ArrayType\EwsArrayOfBookingStaffMember
      */
-    public function getStaffList()
+    public function getStaffList(): \ArrayType\EwsArrayOfBookingStaffMember
     {
         return $this->StaffList;
     }
     /**
      * Set StaffList value
-     * @param \Ews\ArrayType\EwsArrayOfBookingStaffMember $staffList
-     * @return \Ews\StructType\EwsGetBookingStaffResponseMessageType
+     * @param \ArrayType\EwsArrayOfBookingStaffMember $staffList
+     * @return \StructType\EwsGetBookingStaffResponseMessageType
      */
-    public function setStaffList(\Ews\ArrayType\EwsArrayOfBookingStaffMember $staffList = null)
+    public function setStaffList(\ArrayType\EwsArrayOfBookingStaffMember $staffList): self
     {
         $this->StaffList = $staffList;
+        
         return $this;
     }
 }

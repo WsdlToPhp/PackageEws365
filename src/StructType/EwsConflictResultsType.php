@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConflictResultsType StructType
@@ -14,15 +17,15 @@ class EwsConflictResultsType extends AbstractStructBase
 {
     /**
      * The Count
-     * @var int
+     * @var int|null
      */
-    public $Count;
+    protected ?int $Count = null;
     /**
      * Constructor method for ConflictResultsType
      * @uses EwsConflictResultsType::setCount()
      * @param int $count
      */
-    public function __construct($count = null)
+    public function __construct(?int $count = null)
     {
         $this
             ->setCount($count);
@@ -31,22 +34,23 @@ class EwsConflictResultsType extends AbstractStructBase
      * Get Count value
      * @return int|null
      */
-    public function getCount()
+    public function getCount(): ?int
     {
         return $this->Count;
     }
     /**
      * Set Count value
      * @param int $count
-     * @return \Ews\StructType\EwsConflictResultsType
+     * @return \StructType\EwsConflictResultsType
      */
-    public function setCount($count = null)
+    public function setCount(?int $count = null): self
     {
         // validation for constraint: int
         if (!is_null($count) && !(is_int($count) || ctype_digit($count))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
         }
         $this->Count = $count;
+        
         return $this;
     }
 }

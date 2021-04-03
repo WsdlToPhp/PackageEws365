@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncFolderHierarchyChangesType StructType
@@ -18,37 +21,37 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * - choice: Create | Update | Delete
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType
+     * @var \StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
      */
-    public $Create;
+    protected ?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $Create = null;
     /**
      * The Update
      * Meta information extracted from the WSDL
      * - choice: Create | Update | Delete
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType
+     * @var \StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
      */
-    public $Update;
+    protected ?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $Update = null;
     /**
      * The Delete
      * Meta information extracted from the WSDL
      * - choice: Create | Update | Delete
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsSyncFolderHierarchyDeleteType
+     * @var \StructType\EwsSyncFolderHierarchyDeleteType|null
      */
-    public $Delete;
+    protected ?\StructType\EwsSyncFolderHierarchyDeleteType $Delete = null;
     /**
      * Constructor method for SyncFolderHierarchyChangesType
      * @uses EwsSyncFolderHierarchyChangesType::setCreate()
      * @uses EwsSyncFolderHierarchyChangesType::setUpdate()
      * @uses EwsSyncFolderHierarchyChangesType::setDelete()
-     * @param \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create
-     * @param \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update
-     * @param \Ews\StructType\EwsSyncFolderHierarchyDeleteType $delete
+     * @param \StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create
+     * @param \StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update
+     * @param \StructType\EwsSyncFolderHierarchyDeleteType $delete
      */
-    public function __construct(\Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create = null, \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update = null, \Ews\StructType\EwsSyncFolderHierarchyDeleteType $delete = null)
+    public function __construct(?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create = null, ?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update = null, ?\StructType\EwsSyncFolderHierarchyDeleteType $delete = null)
     {
         $this
             ->setCreate($create)
@@ -57,9 +60,9 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
     }
     /**
      * Get Create value
-     * @return \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
+     * @return \StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
      */
-    public function getCreate()
+    public function getCreate(): ?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType
     {
         return isset($this->Create) ? $this->Create : null;
     }
@@ -70,7 +73,7 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateForChoiceConstraintsFromSetCreate($value)
+    public function validateCreateForChoiceConstraintsFromSetCreate($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -83,12 +86,13 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Create can\'t be set as the property %s is already set. Only one property must be set among these properties: Create, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Create can\'t be set as the property %s is already set. Only one property must be set among these properties: Create, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -96,28 +100,29 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create
-     * @return \Ews\StructType\EwsSyncFolderHierarchyChangesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create
+     * @return \StructType\EwsSyncFolderHierarchyChangesType
      */
-    public function setCreate(\Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create = null)
+    public function setCreate(?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $create = null): self
     {
         // validation for constraint: choice(Create, Update, Delete)
         if ('' !== ($createChoiceErrorMessage = self::validateCreateForChoiceConstraintsFromSetCreate($create))) {
-            throw new \InvalidArgumentException($createChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createChoiceErrorMessage, __LINE__);
         }
         if (is_null($create) || (is_array($create) && empty($create))) {
             unset($this->Create);
         } else {
             $this->Create = $create;
         }
+        
         return $this;
     }
     /**
      * Get Update value
-     * @return \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
+     * @return \StructType\EwsSyncFolderHierarchyCreateOrUpdateType|null
      */
-    public function getUpdate()
+    public function getUpdate(): ?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType
     {
         return isset($this->Update) ? $this->Update : null;
     }
@@ -128,7 +133,7 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateForChoiceConstraintsFromSetUpdate($value)
+    public function validateUpdateForChoiceConstraintsFromSetUpdate($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -141,12 +146,13 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Update can\'t be set as the property %s is already set. Only one property must be set among these properties: Update, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Update can\'t be set as the property %s is already set. Only one property must be set among these properties: Update, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -154,28 +160,29 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update
-     * @return \Ews\StructType\EwsSyncFolderHierarchyChangesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update
+     * @return \StructType\EwsSyncFolderHierarchyChangesType
      */
-    public function setUpdate(\Ews\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update = null)
+    public function setUpdate(?\StructType\EwsSyncFolderHierarchyCreateOrUpdateType $update = null): self
     {
         // validation for constraint: choice(Create, Update, Delete)
         if ('' !== ($updateChoiceErrorMessage = self::validateUpdateForChoiceConstraintsFromSetUpdate($update))) {
-            throw new \InvalidArgumentException($updateChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateChoiceErrorMessage, __LINE__);
         }
         if (is_null($update) || (is_array($update) && empty($update))) {
             unset($this->Update);
         } else {
             $this->Update = $update;
         }
+        
         return $this;
     }
     /**
      * Get Delete value
-     * @return \Ews\StructType\EwsSyncFolderHierarchyDeleteType|null
+     * @return \StructType\EwsSyncFolderHierarchyDeleteType|null
      */
-    public function getDelete()
+    public function getDelete(): ?\StructType\EwsSyncFolderHierarchyDeleteType
     {
         return isset($this->Delete) ? $this->Delete : null;
     }
@@ -186,7 +193,7 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteForChoiceConstraintsFromSetDelete($value)
+    public function validateDeleteForChoiceConstraintsFromSetDelete($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -199,12 +206,13 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Delete can\'t be set as the property %s is already set. Only one property must be set among these properties: Delete, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Delete can\'t be set as the property %s is already set. Only one property must be set among these properties: Delete, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -212,21 +220,22 @@ class EwsSyncFolderHierarchyChangesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSyncFolderHierarchyDeleteType $delete
-     * @return \Ews\StructType\EwsSyncFolderHierarchyChangesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSyncFolderHierarchyDeleteType $delete
+     * @return \StructType\EwsSyncFolderHierarchyChangesType
      */
-    public function setDelete(\Ews\StructType\EwsSyncFolderHierarchyDeleteType $delete = null)
+    public function setDelete(?\StructType\EwsSyncFolderHierarchyDeleteType $delete = null): self
     {
         // validation for constraint: choice(Create, Update, Delete)
         if ('' !== ($deleteChoiceErrorMessage = self::validateDeleteForChoiceConstraintsFromSetDelete($delete))) {
-            throw new \InvalidArgumentException($deleteChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteChoiceErrorMessage, __LINE__);
         }
         if (is_null($delete) || (is_array($delete) && empty($delete))) {
             unset($this->Delete);
         } else {
             $this->Delete = $delete;
         }
+        
         return $this;
     }
 }

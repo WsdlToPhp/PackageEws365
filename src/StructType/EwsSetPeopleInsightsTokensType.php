@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetPeopleInsightsTokensType StructType
@@ -19,23 +22,23 @@ class EwsSetPeopleInsightsTokensType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $AppId;
+    protected string $AppId;
     /**
      * The PeopleTokens
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @var \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public $PeopleTokens;
+    protected \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $PeopleTokens;
     /**
      * Constructor method for SetPeopleInsightsTokensType
      * @uses EwsSetPeopleInsightsTokensType::setAppId()
      * @uses EwsSetPeopleInsightsTokensType::setPeopleTokens()
      * @param string $appId
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
      */
-    public function __construct($appId = null, \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function __construct(string $appId, \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens)
     {
         $this
             ->setAppId($appId)
@@ -45,40 +48,42 @@ class EwsSetPeopleInsightsTokensType extends EwsBaseRequestType
      * Get AppId value
      * @return string
      */
-    public function getAppId()
+    public function getAppId(): string
     {
         return $this->AppId;
     }
     /**
      * Set AppId value
      * @param string $appId
-     * @return \Ews\StructType\EwsSetPeopleInsightsTokensType
+     * @return \StructType\EwsSetPeopleInsightsTokensType
      */
-    public function setAppId($appId = null)
+    public function setAppId(string $appId): self
     {
         // validation for constraint: string
         if (!is_null($appId) && !is_string($appId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appId, true), gettype($appId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appId, true), gettype($appId)), __LINE__);
         }
         $this->AppId = $appId;
+        
         return $this;
     }
     /**
      * Get PeopleTokens value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public function getPeopleTokens()
+    public function getPeopleTokens(): \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
     {
         return $this->PeopleTokens;
     }
     /**
      * Set PeopleTokens value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
-     * @return \Ews\StructType\EwsSetPeopleInsightsTokensType
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @return \StructType\EwsSetPeopleInsightsTokensType
      */
-    public function setPeopleTokens(\Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function setPeopleTokens(\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens): self
     {
         $this->PeopleTokens = $peopleTokens;
+        
         return $this;
     }
 }

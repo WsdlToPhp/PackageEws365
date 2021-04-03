@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetPersonaType StructType
@@ -17,35 +20,35 @@ class EwsGetPersonaType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $PersonaId;
+    protected ?\StructType\EwsItemIdType $PersonaId = null;
     /**
      * The EmailAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $EmailAddress;
+    protected ?\StructType\EwsEmailAddressType $EmailAddress = null;
     /**
      * The ParentFolderId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $ParentFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $ParentFolderId = null;
     /**
      * Constructor method for GetPersonaType
      * @uses EwsGetPersonaType::setPersonaId()
      * @uses EwsGetPersonaType::setEmailAddress()
      * @uses EwsGetPersonaType::setParentFolderId()
-     * @param \Ews\StructType\EwsItemIdType $personaId
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
-     * @param \Ews\StructType\EwsTargetFolderIdType $parentFolderId
+     * @param \StructType\EwsItemIdType $personaId
+     * @param \StructType\EwsEmailAddressType $emailAddress
+     * @param \StructType\EwsTargetFolderIdType $parentFolderId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $personaId = null, \Ews\StructType\EwsEmailAddressType $emailAddress = null, \Ews\StructType\EwsTargetFolderIdType $parentFolderId = null)
+    public function __construct(?\StructType\EwsItemIdType $personaId = null, ?\StructType\EwsEmailAddressType $emailAddress = null, ?\StructType\EwsTargetFolderIdType $parentFolderId = null)
     {
         $this
             ->setPersonaId($personaId)
@@ -54,56 +57,59 @@ class EwsGetPersonaType extends EwsBaseRequestType
     }
     /**
      * Get PersonaId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getPersonaId()
+    public function getPersonaId(): ?\StructType\EwsItemIdType
     {
         return $this->PersonaId;
     }
     /**
      * Set PersonaId value
-     * @param \Ews\StructType\EwsItemIdType $personaId
-     * @return \Ews\StructType\EwsGetPersonaType
+     * @param \StructType\EwsItemIdType $personaId
+     * @return \StructType\EwsGetPersonaType
      */
-    public function setPersonaId(\Ews\StructType\EwsItemIdType $personaId = null)
+    public function setPersonaId(?\StructType\EwsItemIdType $personaId = null): self
     {
         $this->PersonaId = $personaId;
+        
         return $this;
     }
     /**
      * Get EmailAddress value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?\StructType\EwsEmailAddressType
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
-     * @return \Ews\StructType\EwsGetPersonaType
+     * @param \StructType\EwsEmailAddressType $emailAddress
+     * @return \StructType\EwsGetPersonaType
      */
-    public function setEmailAddress(\Ews\StructType\EwsEmailAddressType $emailAddress = null)
+    public function setEmailAddress(?\StructType\EwsEmailAddressType $emailAddress = null): self
     {
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get ParentFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->ParentFolderId;
     }
     /**
      * Set ParentFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $parentFolderId
-     * @return \Ews\StructType\EwsGetPersonaType
+     * @param \StructType\EwsTargetFolderIdType $parentFolderId
+     * @return \StructType\EwsGetPersonaType
      */
-    public function setParentFolderId(\Ews\StructType\EwsTargetFolderIdType $parentFolderId = null)
+    public function setParentFolderId(?\StructType\EwsTargetFolderIdType $parentFolderId = null): self
     {
         $this->ParentFolderId = $parentFolderId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetNonIndexableItemStatisticsResponseMessageType
@@ -20,35 +23,36 @@ class EwsGetNonIndexableItemStatisticsResponseMessageType extends EwsResponseMes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
+     * @var \ArrayType\EwsArrayOfNonIndexableItemStatisticsType|null
      */
-    public $NonIndexableItemStatistics;
+    protected ?\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $NonIndexableItemStatistics = null;
     /**
      * Constructor method for GetNonIndexableItemStatisticsResponseMessageType
      * @uses EwsGetNonIndexableItemStatisticsResponseMessageType::setNonIndexableItemStatistics()
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
+     * @param \ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null)
+    public function __construct(?\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null)
     {
         $this
             ->setNonIndexableItemStatistics($nonIndexableItemStatistics);
     }
     /**
      * Get NonIndexableItemStatistics value
-     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType|null
+     * @return \ArrayType\EwsArrayOfNonIndexableItemStatisticsType|null
      */
-    public function getNonIndexableItemStatistics()
+    public function getNonIndexableItemStatistics(): ?\ArrayType\EwsArrayOfNonIndexableItemStatisticsType
     {
         return $this->NonIndexableItemStatistics;
     }
     /**
      * Set NonIndexableItemStatistics value
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
-     * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
+     * @param \ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics
+     * @return \StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
      */
-    public function setNonIndexableItemStatistics(\Ews\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null)
+    public function setNonIndexableItemStatistics(?\ArrayType\EwsArrayOfNonIndexableItemStatisticsType $nonIndexableItemStatistics = null): self
     {
         $this->NonIndexableItemStatistics = $nonIndexableItemStatistics;
+        
         return $this;
     }
 }

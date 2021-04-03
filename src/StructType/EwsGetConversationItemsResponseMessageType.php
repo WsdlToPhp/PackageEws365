@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetConversationItemsResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetConversationItemsResponseMessageType extends EwsResponseMessageType
      * The Conversation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsConversationResponseType
+     * @var \StructType\EwsConversationResponseType|null
      */
-    public $Conversation;
+    protected ?\StructType\EwsConversationResponseType $Conversation = null;
     /**
      * Constructor method for GetConversationItemsResponseMessageType
      * @uses EwsGetConversationItemsResponseMessageType::setConversation()
-     * @param \Ews\StructType\EwsConversationResponseType $conversation
+     * @param \StructType\EwsConversationResponseType $conversation
      */
-    public function __construct(\Ews\StructType\EwsConversationResponseType $conversation = null)
+    public function __construct(?\StructType\EwsConversationResponseType $conversation = null)
     {
         $this
             ->setConversation($conversation);
     }
     /**
      * Get Conversation value
-     * @return \Ews\StructType\EwsConversationResponseType|null
+     * @return \StructType\EwsConversationResponseType|null
      */
-    public function getConversation()
+    public function getConversation(): ?\StructType\EwsConversationResponseType
     {
         return $this->Conversation;
     }
     /**
      * Set Conversation value
-     * @param \Ews\StructType\EwsConversationResponseType $conversation
-     * @return \Ews\StructType\EwsGetConversationItemsResponseMessageType
+     * @param \StructType\EwsConversationResponseType $conversation
+     * @return \StructType\EwsGetConversationItemsResponseMessageType
      */
-    public function setConversation(\Ews\StructType\EwsConversationResponseType $conversation = null)
+    public function setConversation(?\StructType\EwsConversationResponseType $conversation = null): self
     {
         $this->Conversation = $conversation;
+        
         return $this;
     }
 }

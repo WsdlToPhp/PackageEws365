@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AudioQualityType StructType
@@ -19,7 +22,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $NMOS;
+    protected float $NMOS;
     /**
      * The NMOSDegradation
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $NMOSDegradation;
+    protected float $NMOSDegradation;
     /**
      * The NMOSDegradationPacketLoss
      * Meta information extracted from the WSDL
@@ -35,7 +38,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $NMOSDegradationPacketLoss;
+    protected float $NMOSDegradationPacketLoss;
     /**
      * The NMOSDegradationJitter
      * Meta information extracted from the WSDL
@@ -43,7 +46,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $NMOSDegradationJitter;
+    protected float $NMOSDegradationJitter;
     /**
      * The Jitter
      * Meta information extracted from the WSDL
@@ -51,7 +54,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $Jitter;
+    protected float $Jitter;
     /**
      * The PacketLoss
      * Meta information extracted from the WSDL
@@ -59,7 +62,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $PacketLoss;
+    protected float $PacketLoss;
     /**
      * The RoundTrip
      * Meta information extracted from the WSDL
@@ -67,7 +70,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $RoundTrip;
+    protected float $RoundTrip;
     /**
      * The BurstDensity
      * Meta information extracted from the WSDL
@@ -75,7 +78,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $BurstDensity;
+    protected float $BurstDensity;
     /**
      * The BurstDuration
      * Meta information extracted from the WSDL
@@ -83,15 +86,15 @@ class EwsAudioQualityType extends AbstractStructBase
      * - minOccurs: 1
      * @var float
      */
-    public $BurstDuration;
+    protected float $BurstDuration;
     /**
      * The AudioCodec
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AudioCodec;
+    protected ?string $AudioCodec = null;
     /**
      * Constructor method for AudioQualityType
      * @uses EwsAudioQualityType::setNMOS()
@@ -115,7 +118,7 @@ class EwsAudioQualityType extends AbstractStructBase
      * @param float $burstDuration
      * @param string $audioCodec
      */
-    public function __construct($nMOS = null, $nMOSDegradation = null, $nMOSDegradationPacketLoss = null, $nMOSDegradationJitter = null, $jitter = null, $packetLoss = null, $roundTrip = null, $burstDensity = null, $burstDuration = null, $audioCodec = null)
+    public function __construct(float $nMOS, float $nMOSDegradation, float $nMOSDegradationPacketLoss, float $nMOSDegradationJitter, float $jitter, float $packetLoss, float $roundTrip, float $burstDensity, float $burstDuration, ?string $audioCodec = null)
     {
         $this
             ->setNMOS($nMOS)
@@ -133,220 +136,230 @@ class EwsAudioQualityType extends AbstractStructBase
      * Get NMOS value
      * @return float
      */
-    public function getNMOS()
+    public function getNMOS(): float
     {
         return $this->NMOS;
     }
     /**
      * Set NMOS value
      * @param float $nMOS
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setNMOS($nMOS = null)
+    public function setNMOS(float $nMOS): self
     {
         // validation for constraint: float
         if (!is_null($nMOS) && !(is_float($nMOS) || is_numeric($nMOS))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOS, true), gettype($nMOS)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOS, true), gettype($nMOS)), __LINE__);
         }
         $this->NMOS = $nMOS;
+        
         return $this;
     }
     /**
      * Get NMOSDegradation value
      * @return float
      */
-    public function getNMOSDegradation()
+    public function getNMOSDegradation(): float
     {
         return $this->NMOSDegradation;
     }
     /**
      * Set NMOSDegradation value
      * @param float $nMOSDegradation
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setNMOSDegradation($nMOSDegradation = null)
+    public function setNMOSDegradation(float $nMOSDegradation): self
     {
         // validation for constraint: float
         if (!is_null($nMOSDegradation) && !(is_float($nMOSDegradation) || is_numeric($nMOSDegradation))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradation, true), gettype($nMOSDegradation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradation, true), gettype($nMOSDegradation)), __LINE__);
         }
         $this->NMOSDegradation = $nMOSDegradation;
+        
         return $this;
     }
     /**
      * Get NMOSDegradationPacketLoss value
      * @return float
      */
-    public function getNMOSDegradationPacketLoss()
+    public function getNMOSDegradationPacketLoss(): float
     {
         return $this->NMOSDegradationPacketLoss;
     }
     /**
      * Set NMOSDegradationPacketLoss value
      * @param float $nMOSDegradationPacketLoss
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setNMOSDegradationPacketLoss($nMOSDegradationPacketLoss = null)
+    public function setNMOSDegradationPacketLoss(float $nMOSDegradationPacketLoss): self
     {
         // validation for constraint: float
         if (!is_null($nMOSDegradationPacketLoss) && !(is_float($nMOSDegradationPacketLoss) || is_numeric($nMOSDegradationPacketLoss))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradationPacketLoss, true), gettype($nMOSDegradationPacketLoss)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradationPacketLoss, true), gettype($nMOSDegradationPacketLoss)), __LINE__);
         }
         $this->NMOSDegradationPacketLoss = $nMOSDegradationPacketLoss;
+        
         return $this;
     }
     /**
      * Get NMOSDegradationJitter value
      * @return float
      */
-    public function getNMOSDegradationJitter()
+    public function getNMOSDegradationJitter(): float
     {
         return $this->NMOSDegradationJitter;
     }
     /**
      * Set NMOSDegradationJitter value
      * @param float $nMOSDegradationJitter
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setNMOSDegradationJitter($nMOSDegradationJitter = null)
+    public function setNMOSDegradationJitter(float $nMOSDegradationJitter): self
     {
         // validation for constraint: float
         if (!is_null($nMOSDegradationJitter) && !(is_float($nMOSDegradationJitter) || is_numeric($nMOSDegradationJitter))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradationJitter, true), gettype($nMOSDegradationJitter)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($nMOSDegradationJitter, true), gettype($nMOSDegradationJitter)), __LINE__);
         }
         $this->NMOSDegradationJitter = $nMOSDegradationJitter;
+        
         return $this;
     }
     /**
      * Get Jitter value
      * @return float
      */
-    public function getJitter()
+    public function getJitter(): float
     {
         return $this->Jitter;
     }
     /**
      * Set Jitter value
      * @param float $jitter
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setJitter($jitter = null)
+    public function setJitter(float $jitter): self
     {
         // validation for constraint: float
         if (!is_null($jitter) && !(is_float($jitter) || is_numeric($jitter))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($jitter, true), gettype($jitter)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($jitter, true), gettype($jitter)), __LINE__);
         }
         $this->Jitter = $jitter;
+        
         return $this;
     }
     /**
      * Get PacketLoss value
      * @return float
      */
-    public function getPacketLoss()
+    public function getPacketLoss(): float
     {
         return $this->PacketLoss;
     }
     /**
      * Set PacketLoss value
      * @param float $packetLoss
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setPacketLoss($packetLoss = null)
+    public function setPacketLoss(float $packetLoss): self
     {
         // validation for constraint: float
         if (!is_null($packetLoss) && !(is_float($packetLoss) || is_numeric($packetLoss))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($packetLoss, true), gettype($packetLoss)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($packetLoss, true), gettype($packetLoss)), __LINE__);
         }
         $this->PacketLoss = $packetLoss;
+        
         return $this;
     }
     /**
      * Get RoundTrip value
      * @return float
      */
-    public function getRoundTrip()
+    public function getRoundTrip(): float
     {
         return $this->RoundTrip;
     }
     /**
      * Set RoundTrip value
      * @param float $roundTrip
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setRoundTrip($roundTrip = null)
+    public function setRoundTrip(float $roundTrip): self
     {
         // validation for constraint: float
         if (!is_null($roundTrip) && !(is_float($roundTrip) || is_numeric($roundTrip))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($roundTrip, true), gettype($roundTrip)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($roundTrip, true), gettype($roundTrip)), __LINE__);
         }
         $this->RoundTrip = $roundTrip;
+        
         return $this;
     }
     /**
      * Get BurstDensity value
      * @return float
      */
-    public function getBurstDensity()
+    public function getBurstDensity(): float
     {
         return $this->BurstDensity;
     }
     /**
      * Set BurstDensity value
      * @param float $burstDensity
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setBurstDensity($burstDensity = null)
+    public function setBurstDensity(float $burstDensity): self
     {
         // validation for constraint: float
         if (!is_null($burstDensity) && !(is_float($burstDensity) || is_numeric($burstDensity))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($burstDensity, true), gettype($burstDensity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($burstDensity, true), gettype($burstDensity)), __LINE__);
         }
         $this->BurstDensity = $burstDensity;
+        
         return $this;
     }
     /**
      * Get BurstDuration value
      * @return float
      */
-    public function getBurstDuration()
+    public function getBurstDuration(): float
     {
         return $this->BurstDuration;
     }
     /**
      * Set BurstDuration value
      * @param float $burstDuration
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setBurstDuration($burstDuration = null)
+    public function setBurstDuration(float $burstDuration): self
     {
         // validation for constraint: float
         if (!is_null($burstDuration) && !(is_float($burstDuration) || is_numeric($burstDuration))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($burstDuration, true), gettype($burstDuration)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($burstDuration, true), gettype($burstDuration)), __LINE__);
         }
         $this->BurstDuration = $burstDuration;
+        
         return $this;
     }
     /**
      * Get AudioCodec value
      * @return string|null
      */
-    public function getAudioCodec()
+    public function getAudioCodec(): ?string
     {
         return $this->AudioCodec;
     }
     /**
      * Set AudioCodec value
      * @param string $audioCodec
-     * @return \Ews\StructType\EwsAudioQualityType
+     * @return \StructType\EwsAudioQualityType
      */
-    public function setAudioCodec($audioCodec = null)
+    public function setAudioCodec(?string $audioCodec = null): self
     {
         // validation for constraint: string
         if (!is_null($audioCodec) && !is_string($audioCodec)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($audioCodec, true), gettype($audioCodec)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($audioCodec, true), gettype($audioCodec)), __LINE__);
         }
         $this->AudioCodec = $audioCodec;
+        
         return $this;
     }
 }

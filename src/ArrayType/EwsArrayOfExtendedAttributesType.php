@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfExtendedAttributesType ArrayType
@@ -20,24 +23,24 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * - minOccurs: 0
      * - nillable: false
-     * @var \Ews\StructType\EwsExtendedAttributeType[]
+     * @var \StructType\EwsExtendedAttributeType[]
      */
-    public $ExtendedAttribute;
+    protected array $ExtendedAttribute = [];
     /**
      * Constructor method for ArrayOfExtendedAttributesType
      * @uses EwsArrayOfExtendedAttributesType::setExtendedAttribute()
-     * @param \Ews\StructType\EwsExtendedAttributeType[] $extendedAttribute
+     * @param \StructType\EwsExtendedAttributeType[] $extendedAttribute
      */
-    public function __construct(array $extendedAttribute = array())
+    public function __construct(array $extendedAttribute = [])
     {
         $this
             ->setExtendedAttribute($extendedAttribute);
     }
     /**
      * Get ExtendedAttribute value
-     * @return \Ews\StructType\EwsExtendedAttributeType[]|null
+     * @return \StructType\EwsExtendedAttributeType[]
      */
-    public function getExtendedAttribute()
+    public function getExtendedAttribute(): array
     {
         return $this->ExtendedAttribute;
     }
@@ -47,58 +50,45 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateExtendedAttributeForArrayConstraintsFromSetExtendedAttribute(array $values = array())
+    public static function validateExtendedAttributeForArrayConstraintsFromSetExtendedAttribute(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfExtendedAttributesTypeExtendedAttributeItem) {
             // validation for constraint: itemType
-            if (!$arrayOfExtendedAttributesTypeExtendedAttributeItem instanceof \Ews\StructType\EwsExtendedAttributeType) {
+            if (!$arrayOfExtendedAttributesTypeExtendedAttributeItem instanceof \StructType\EwsExtendedAttributeType) {
                 $invalidValues[] = is_object($arrayOfExtendedAttributesTypeExtendedAttributeItem) ? get_class($arrayOfExtendedAttributesTypeExtendedAttributeItem) : sprintf('%s(%s)', gettype($arrayOfExtendedAttributesTypeExtendedAttributeItem), var_export($arrayOfExtendedAttributesTypeExtendedAttributeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ExtendedAttribute property can only contain items of type \Ews\StructType\EwsExtendedAttributeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ExtendedAttribute property can only contain items of type \StructType\EwsExtendedAttributeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ExtendedAttribute value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExtendedAttributeType[] $extendedAttribute
-     * @return \Ews\ArrayType\EwsArrayOfExtendedAttributesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExtendedAttributeType[] $extendedAttribute
+     * @return \ArrayType\EwsArrayOfExtendedAttributesType
      */
-    public function setExtendedAttribute(array $extendedAttribute = array())
+    public function setExtendedAttribute(array $extendedAttribute = []): self
     {
         // validation for constraint: array
         if ('' !== ($extendedAttributeArrayErrorMessage = self::validateExtendedAttributeForArrayConstraintsFromSetExtendedAttribute($extendedAttribute))) {
-            throw new \InvalidArgumentException($extendedAttributeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($extendedAttributeArrayErrorMessage, __LINE__);
         }
         $this->ExtendedAttribute = $extendedAttribute;
-        return $this;
-    }
-    /**
-     * Add item to ExtendedAttribute value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExtendedAttributeType $item
-     * @return \Ews\ArrayType\EwsArrayOfExtendedAttributesType
-     */
-    public function addToExtendedAttribute(\Ews\StructType\EwsExtendedAttributeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsExtendedAttributeType) {
-            throw new \InvalidArgumentException(sprintf('The ExtendedAttribute property can only contain items of type \Ews\StructType\EwsExtendedAttributeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ExtendedAttribute[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsExtendedAttributeType|null
+     * @return \StructType\EwsExtendedAttributeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsExtendedAttributeType
     {
         return parent::current();
     }
@@ -106,27 +96,27 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsExtendedAttributeType|null
+     * @return \StructType\EwsExtendedAttributeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsExtendedAttributeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsExtendedAttributeType|null
+     * @return \StructType\EwsExtendedAttributeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsExtendedAttributeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsExtendedAttributeType|null
+     * @return \StructType\EwsExtendedAttributeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsExtendedAttributeType
     {
         return parent::last();
     }
@@ -134,18 +124,29 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsExtendedAttributeType|null
+     * @return \StructType\EwsExtendedAttributeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsExtendedAttributeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExtendedAttributeType $item
+     * @return \ArrayType\EwsArrayOfExtendedAttributesType
+     */
+    public function add(\StructType\EwsExtendedAttributeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ExtendedAttribute
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ExtendedAttribute';
     }

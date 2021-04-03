@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Items StructType
@@ -17,24 +20,24 @@ class EwsItems extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemType[]
+     * @var \StructType\EwsItemType[]
      */
-    public $Item;
+    protected array $Item = [];
     /**
      * Constructor method for Items
      * @uses EwsItems::setItem()
-     * @param \Ews\StructType\EwsItemType[] $item
+     * @param \StructType\EwsItemType[] $item
      */
-    public function __construct(array $item = array())
+    public function __construct(array $item = [])
     {
         $this
             ->setItem($item);
     }
     /**
      * Get Item value
-     * @return \Ews\StructType\EwsItemType[]|null
+     * @return \StructType\EwsItemType[]
      */
-    public function getItem()
+    public function getItem(): array
     {
         return $this->Item;
     }
@@ -44,50 +47,53 @@ class EwsItems extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateItemForArrayConstraintsFromSetItem(array $values = array())
+    public static function validateItemForArrayConstraintsFromSetItem(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $itemsItemItem) {
             // validation for constraint: itemType
-            if (!$itemsItemItem instanceof \Ews\StructType\EwsItemType) {
+            if (!$itemsItemItem instanceof \StructType\EwsItemType) {
                 $invalidValues[] = is_object($itemsItemItem) ? get_class($itemsItemItem) : sprintf('%s(%s)', gettype($itemsItemItem), var_export($itemsItemItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Item property can only contain items of type \Ews\StructType\EwsItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Item property can only contain items of type \StructType\EwsItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Item value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemType[] $item
-     * @return \Ews\StructType\EwsItems
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemType[] $item
+     * @return \StructType\EwsItems
      */
-    public function setItem(array $item = array())
+    public function setItem(array $item = []): self
     {
         // validation for constraint: array
         if ('' !== ($itemArrayErrorMessage = self::validateItemForArrayConstraintsFromSetItem($item))) {
-            throw new \InvalidArgumentException($itemArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemArrayErrorMessage, __LINE__);
         }
         $this->Item = $item;
+        
         return $this;
     }
     /**
      * Add item to Item value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemType $item
-     * @return \Ews\StructType\EwsItems
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemType $item
+     * @return \StructType\EwsItems
      */
-    public function addToItem(\Ews\StructType\EwsItemType $item)
+    public function addToItem(\StructType\EwsItemType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsItemType) {
-            throw new \InvalidArgumentException(sprintf('The Item property can only contain items of type \Ews\StructType\EwsItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsItemType) {
+            throw new InvalidArgumentException(sprintf('The Item property can only contain items of type \StructType\EwsItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Item[] = $item;
+        
         return $this;
     }
 }

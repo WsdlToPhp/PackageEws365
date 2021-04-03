@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingParticipantAvailability StructType
@@ -17,24 +20,24 @@ class EwsMeetingParticipantAvailability extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsTimeSlot
+     * @var \StructType\EwsTimeSlot
      */
-    public $TimeSlot;
+    protected \StructType\EwsTimeSlot $TimeSlot;
     /**
      * The Id
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * Constructor method for MeetingParticipantAvailability
      * @uses EwsMeetingParticipantAvailability::setTimeSlot()
      * @uses EwsMeetingParticipantAvailability::setId()
-     * @param \Ews\StructType\EwsTimeSlot $timeSlot
+     * @param \StructType\EwsTimeSlot $timeSlot
      * @param string $id
      */
-    public function __construct(\Ews\StructType\EwsTimeSlot $timeSlot = null, $id = null)
+    public function __construct(\StructType\EwsTimeSlot $timeSlot, ?string $id = null)
     {
         $this
             ->setTimeSlot($timeSlot)
@@ -42,42 +45,44 @@ class EwsMeetingParticipantAvailability extends AbstractStructBase
     }
     /**
      * Get TimeSlot value
-     * @return \Ews\StructType\EwsTimeSlot
+     * @return \StructType\EwsTimeSlot
      */
-    public function getTimeSlot()
+    public function getTimeSlot(): \StructType\EwsTimeSlot
     {
         return $this->TimeSlot;
     }
     /**
      * Set TimeSlot value
-     * @param \Ews\StructType\EwsTimeSlot $timeSlot
-     * @return \Ews\StructType\EwsMeetingParticipantAvailability
+     * @param \StructType\EwsTimeSlot $timeSlot
+     * @return \StructType\EwsMeetingParticipantAvailability
      */
-    public function setTimeSlot(\Ews\StructType\EwsTimeSlot $timeSlot = null)
+    public function setTimeSlot(\StructType\EwsTimeSlot $timeSlot): self
     {
         $this->TimeSlot = $timeSlot;
+        
         return $this;
     }
     /**
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsMeetingParticipantAvailability
+     * @return \StructType\EwsMeetingParticipantAvailability
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
 }

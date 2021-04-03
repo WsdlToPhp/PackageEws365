@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateBookingStaffType StructType
@@ -17,35 +20,36 @@ class EwsUpdateBookingStaffType extends EwsBaseBookingRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsBookingStaffMemberType
+     * @var \StructType\EwsBookingStaffMemberType
      */
-    public $Staff;
+    protected \StructType\EwsBookingStaffMemberType $Staff;
     /**
      * Constructor method for UpdateBookingStaffType
      * @uses EwsUpdateBookingStaffType::setStaff()
-     * @param \Ews\StructType\EwsBookingStaffMemberType $staff
+     * @param \StructType\EwsBookingStaffMemberType $staff
      */
-    public function __construct(\Ews\StructType\EwsBookingStaffMemberType $staff = null)
+    public function __construct(\StructType\EwsBookingStaffMemberType $staff)
     {
         $this
             ->setStaff($staff);
     }
     /**
      * Get Staff value
-     * @return \Ews\StructType\EwsBookingStaffMemberType
+     * @return \StructType\EwsBookingStaffMemberType
      */
-    public function getStaff()
+    public function getStaff(): \StructType\EwsBookingStaffMemberType
     {
         return $this->Staff;
     }
     /**
      * Set Staff value
-     * @param \Ews\StructType\EwsBookingStaffMemberType $staff
-     * @return \Ews\StructType\EwsUpdateBookingStaffType
+     * @param \StructType\EwsBookingStaffMemberType $staff
+     * @return \StructType\EwsUpdateBookingStaffType
      */
-    public function setStaff(\Ews\StructType\EwsBookingStaffMemberType $staff = null)
+    public function setStaff(\StructType\EwsBookingStaffMemberType $staff): self
     {
         $this->Staff = $staff;
+        
         return $this;
     }
 }

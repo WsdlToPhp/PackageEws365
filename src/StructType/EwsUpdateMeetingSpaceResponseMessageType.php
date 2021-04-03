@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateMeetingSpaceResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsUpdateMeetingSpaceResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsMeetingSpaceType
+     * @var \StructType\EwsMeetingSpaceType
      */
-    public $MeetingSpace;
+    protected \StructType\EwsMeetingSpaceType $MeetingSpace;
     /**
      * Constructor method for UpdateMeetingSpaceResponseMessageType
      * @uses EwsUpdateMeetingSpaceResponseMessageType::setMeetingSpace()
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
      */
-    public function __construct(\Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function __construct(\StructType\EwsMeetingSpaceType $meetingSpace)
     {
         $this
             ->setMeetingSpace($meetingSpace);
     }
     /**
      * Get MeetingSpace value
-     * @return \Ews\StructType\EwsMeetingSpaceType
+     * @return \StructType\EwsMeetingSpaceType
      */
-    public function getMeetingSpace()
+    public function getMeetingSpace(): \StructType\EwsMeetingSpaceType
     {
         return $this->MeetingSpace;
     }
     /**
      * Set MeetingSpace value
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
-     * @return \Ews\StructType\EwsUpdateMeetingSpaceResponseMessageType
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
+     * @return \StructType\EwsUpdateMeetingSpaceResponseMessageType
      */
-    public function setMeetingSpace(\Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function setMeetingSpace(\StructType\EwsMeetingSpaceType $meetingSpace): self
     {
         $this->MeetingSpace = $meetingSpace;
+        
         return $this;
     }
 }

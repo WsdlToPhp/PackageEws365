@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMeetingTimeCandidatesType StructType
@@ -16,42 +19,42 @@ class EwsFindMeetingTimeCandidatesType extends EwsBaseRequestType
      * The AttendeeConstraints
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints
+     * @var \StructType\EwsFindMeetingTimesAttendeeConstraints|null
      */
-    public $AttendeeConstraints;
+    protected ?\StructType\EwsFindMeetingTimesAttendeeConstraints $AttendeeConstraints = null;
     /**
      * The LocationConstraints
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindMeetingTimesLocationConstraints
+     * @var \StructType\EwsFindMeetingTimesLocationConstraints|null
      */
-    public $LocationConstraints;
+    protected ?\StructType\EwsFindMeetingTimesLocationConstraints $LocationConstraints = null;
     /**
      * The SearchConstraints
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindMeetingTimesSearchConstraints
+     * @var \StructType\EwsFindMeetingTimesSearchConstraints|null
      */
-    public $SearchConstraints;
+    protected ?\StructType\EwsFindMeetingTimesSearchConstraints $SearchConstraints = null;
     /**
      * The Constraints
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFindMeetingTimesConstraints
+     * @var \StructType\EwsFindMeetingTimesConstraints|null
      */
-    public $Constraints;
+    protected ?\StructType\EwsFindMeetingTimesConstraints $Constraints = null;
     /**
      * Constructor method for FindMeetingTimeCandidatesType
      * @uses EwsFindMeetingTimeCandidatesType::setAttendeeConstraints()
      * @uses EwsFindMeetingTimeCandidatesType::setLocationConstraints()
      * @uses EwsFindMeetingTimeCandidatesType::setSearchConstraints()
      * @uses EwsFindMeetingTimeCandidatesType::setConstraints()
-     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
-     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
-     * @param \Ews\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints
-     * @param \Ews\StructType\EwsFindMeetingTimesConstraints $constraints
+     * @param \StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
+     * @param \StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
+     * @param \StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints
+     * @param \StructType\EwsFindMeetingTimesConstraints $constraints
      */
-    public function __construct(\Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints = null, \Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints = null, \Ews\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints = null, \Ews\StructType\EwsFindMeetingTimesConstraints $constraints = null)
+    public function __construct(?\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints = null, ?\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints = null, ?\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints = null, ?\StructType\EwsFindMeetingTimesConstraints $constraints = null)
     {
         $this
             ->setAttendeeConstraints($attendeeConstraints)
@@ -61,74 +64,78 @@ class EwsFindMeetingTimeCandidatesType extends EwsBaseRequestType
     }
     /**
      * Get AttendeeConstraints value
-     * @return \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints|null
+     * @return \StructType\EwsFindMeetingTimesAttendeeConstraints|null
      */
-    public function getAttendeeConstraints()
+    public function getAttendeeConstraints(): ?\StructType\EwsFindMeetingTimesAttendeeConstraints
     {
         return $this->AttendeeConstraints;
     }
     /**
      * Set AttendeeConstraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
-     * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
+     * @param \StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints
+     * @return \StructType\EwsFindMeetingTimeCandidatesType
      */
-    public function setAttendeeConstraints(\Ews\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints = null)
+    public function setAttendeeConstraints(?\StructType\EwsFindMeetingTimesAttendeeConstraints $attendeeConstraints = null): self
     {
         $this->AttendeeConstraints = $attendeeConstraints;
+        
         return $this;
     }
     /**
      * Get LocationConstraints value
-     * @return \Ews\StructType\EwsFindMeetingTimesLocationConstraints|null
+     * @return \StructType\EwsFindMeetingTimesLocationConstraints|null
      */
-    public function getLocationConstraints()
+    public function getLocationConstraints(): ?\StructType\EwsFindMeetingTimesLocationConstraints
     {
         return $this->LocationConstraints;
     }
     /**
      * Set LocationConstraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
-     * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
+     * @param \StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints
+     * @return \StructType\EwsFindMeetingTimeCandidatesType
      */
-    public function setLocationConstraints(\Ews\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints = null)
+    public function setLocationConstraints(?\StructType\EwsFindMeetingTimesLocationConstraints $locationConstraints = null): self
     {
         $this->LocationConstraints = $locationConstraints;
+        
         return $this;
     }
     /**
      * Get SearchConstraints value
-     * @return \Ews\StructType\EwsFindMeetingTimesSearchConstraints|null
+     * @return \StructType\EwsFindMeetingTimesSearchConstraints|null
      */
-    public function getSearchConstraints()
+    public function getSearchConstraints(): ?\StructType\EwsFindMeetingTimesSearchConstraints
     {
         return $this->SearchConstraints;
     }
     /**
      * Set SearchConstraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints
-     * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
+     * @param \StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints
+     * @return \StructType\EwsFindMeetingTimeCandidatesType
      */
-    public function setSearchConstraints(\Ews\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints = null)
+    public function setSearchConstraints(?\StructType\EwsFindMeetingTimesSearchConstraints $searchConstraints = null): self
     {
         $this->SearchConstraints = $searchConstraints;
+        
         return $this;
     }
     /**
      * Get Constraints value
-     * @return \Ews\StructType\EwsFindMeetingTimesConstraints|null
+     * @return \StructType\EwsFindMeetingTimesConstraints|null
      */
-    public function getConstraints()
+    public function getConstraints(): ?\StructType\EwsFindMeetingTimesConstraints
     {
         return $this->Constraints;
     }
     /**
      * Set Constraints value
-     * @param \Ews\StructType\EwsFindMeetingTimesConstraints $constraints
-     * @return \Ews\StructType\EwsFindMeetingTimeCandidatesType
+     * @param \StructType\EwsFindMeetingTimesConstraints $constraints
+     * @return \StructType\EwsFindMeetingTimeCandidatesType
      */
-    public function setConstraints(\Ews\StructType\EwsFindMeetingTimesConstraints $constraints = null)
+    public function setConstraints(?\StructType\EwsFindMeetingTimesConstraints $constraints = null): self
     {
         $this->Constraints = $constraints;
+        
         return $this;
     }
 }

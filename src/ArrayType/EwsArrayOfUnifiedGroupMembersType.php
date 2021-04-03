@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUnifiedGroupMembersType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupMemberType[]
+     * @var \StructType\EwsUnifiedGroupMemberType[]
      */
-    public $Member;
+    protected array $Member = [];
     /**
      * Constructor method for ArrayOfUnifiedGroupMembersType
      * @uses EwsArrayOfUnifiedGroupMembersType::setMember()
-     * @param \Ews\StructType\EwsUnifiedGroupMemberType[] $member
+     * @param \StructType\EwsUnifiedGroupMemberType[] $member
      */
-    public function __construct(array $member = array())
+    public function __construct(array $member = [])
     {
         $this
             ->setMember($member);
     }
     /**
      * Get Member value
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType[]|null
+     * @return \StructType\EwsUnifiedGroupMemberType[]
      */
-    public function getMember()
+    public function getMember(): array
     {
         return $this->Member;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMemberForArrayConstraintsFromSetMember(array $values = array())
+    public static function validateMemberForArrayConstraintsFromSetMember(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUnifiedGroupMembersTypeMemberItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupMembersTypeMemberItem instanceof \Ews\StructType\EwsUnifiedGroupMemberType) {
+            if (!$arrayOfUnifiedGroupMembersTypeMemberItem instanceof \StructType\EwsUnifiedGroupMemberType) {
                 $invalidValues[] = is_object($arrayOfUnifiedGroupMembersTypeMemberItem) ? get_class($arrayOfUnifiedGroupMembersTypeMemberItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupMembersTypeMemberItem), var_export($arrayOfUnifiedGroupMembersTypeMemberItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Member property can only contain items of type \Ews\StructType\EwsUnifiedGroupMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Member property can only contain items of type \StructType\EwsUnifiedGroupMemberType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Member value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupMemberType[] $member
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembersType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupMemberType[] $member
+     * @return \ArrayType\EwsArrayOfUnifiedGroupMembersType
      */
-    public function setMember(array $member = array())
+    public function setMember(array $member = []): self
     {
         // validation for constraint: array
         if ('' !== ($memberArrayErrorMessage = self::validateMemberForArrayConstraintsFromSetMember($member))) {
-            throw new \InvalidArgumentException($memberArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($memberArrayErrorMessage, __LINE__);
         }
         $this->Member = $member;
-        return $this;
-    }
-    /**
-     * Add item to Member value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupMemberType $item
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupMembersType
-     */
-    public function addToMember(\Ews\StructType\EwsUnifiedGroupMemberType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupMemberType) {
-            throw new \InvalidArgumentException(sprintf('The Member property can only contain items of type \Ews\StructType\EwsUnifiedGroupMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Member[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType|null
+     * @return \StructType\EwsUnifiedGroupMemberType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUnifiedGroupMemberType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType|null
+     * @return \StructType\EwsUnifiedGroupMemberType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUnifiedGroupMemberType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType|null
+     * @return \StructType\EwsUnifiedGroupMemberType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUnifiedGroupMemberType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType|null
+     * @return \StructType\EwsUnifiedGroupMemberType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUnifiedGroupMemberType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUnifiedGroupMemberType|null
+     * @return \StructType\EwsUnifiedGroupMemberType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUnifiedGroupMemberType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupMemberType $item
+     * @return \ArrayType\EwsArrayOfUnifiedGroupMembersType
+     */
+    public function add(\StructType\EwsUnifiedGroupMemberType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Member
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Member';
     }

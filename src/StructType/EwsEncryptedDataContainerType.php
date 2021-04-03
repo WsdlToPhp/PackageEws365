@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EncryptedDataContainerType StructType
@@ -14,15 +17,15 @@ class EwsEncryptedDataContainerType extends AbstractStructBase
 {
     /**
      * The any
-     * @var \DOMDocument
+     * @var \DOMDocument|string|null
      */
-    public $any;
+    protected $any = null;
     /**
      * Constructor method for EncryptedDataContainerType
      * @uses EwsEncryptedDataContainerType::setAny()
-     * @param \DOMDocument $any
+     * @param \DOMDocument|string|null $any
      */
-    public function __construct(\DOMDocument $any = null)
+    public function __construct($any = null)
     {
         $this
             ->setAny($any);
@@ -31,28 +34,33 @@ class EwsEncryptedDataContainerType extends AbstractStructBase
      * Get any value
      * @uses \DOMDocument::loadXML()
      * @param bool $asString true: returns XML string, false: returns \DOMDocument
-     * @return \DOMDocument|null
+     * @return \DOMDocument|string|null
      */
-    public function getAny($asString = true)
+    public function getAny(bool $asDomDocument = false)
     {
         $domDocument = null;
-        if (!empty($this->any) && !$asString) {
+        if (!empty($this->any) && $asDomDocument) {
             $domDocument = new \DOMDocument('1.0', 'UTF-8');
             $domDocument->loadXML($this->any);
         }
-        return $asString ? $this->any : $domDocument;
+        return $asDomDocument ? $domDocument : $this->any;
     }
     /**
      * Set any value
      * @uses \DOMDocument::hasChildNodes()
      * @uses \DOMDocument::saveXML()
      * @uses \DOMNode::item()
-     * @param \DOMDocument $any
-     * @return \Ews\StructType\EwsEncryptedDataContainerType
+     * @param \DOMDocument|string|null $any
+     * @return \StructType\EwsEncryptedDataContainerType
      */
-    public function setAny(\DOMDocument $any = null)
+    public function setAny($any = null): self
     {
-        $this->any = ($any instanceof \DOMDocument) && $any->hasChildNodes() ? $any->saveXML($any->childNodes->item(0)) : $any;
+        // validation for constraint: xml
+        if (!is_null($any) && !$any instanceof \DOMDocument && (!is_string($any) || (is_string($any) && (empty($any) || (($anyDoc = new \DOMDocument()) && false === $anyDoc->loadXML($any)))))) {
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a valid XML string', var_export($any, true)), __LINE__);
+        }
+        $this->any = ($any instanceof \DOMDocument) ? $any->saveXML($any->hasChildNodes() ? $any->childNodes->item(0) : null) : $any;
+        
         return $this;
     }
 }

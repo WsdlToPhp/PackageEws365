@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchRefinerType StructType
@@ -19,23 +22,23 @@ class EwsSearchRefinerType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $RefinerType;
+    protected string $RefinerType;
     /**
      * The Refiner
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsDynamicRefinerQueryType
+     * @var \StructType\EwsDynamicRefinerQueryType
      */
-    public $Refiner;
+    protected \StructType\EwsDynamicRefinerQueryType $Refiner;
     /**
      * Constructor method for SearchRefinerType
      * @uses EwsSearchRefinerType::setRefinerType()
      * @uses EwsSearchRefinerType::setRefiner()
      * @param string $refinerType
-     * @param \Ews\StructType\EwsDynamicRefinerQueryType $refiner
+     * @param \StructType\EwsDynamicRefinerQueryType $refiner
      */
-    public function __construct($refinerType = null, \Ews\StructType\EwsDynamicRefinerQueryType $refiner = null)
+    public function __construct(string $refinerType, \StructType\EwsDynamicRefinerQueryType $refiner)
     {
         $this
             ->setRefinerType($refinerType)
@@ -45,43 +48,45 @@ class EwsSearchRefinerType extends AbstractStructBase
      * Get RefinerType value
      * @return string
      */
-    public function getRefinerType()
+    public function getRefinerType(): string
     {
         return $this->RefinerType;
     }
     /**
      * Set RefinerType value
-     * @uses \Ews\EnumType\EwsRefinerTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsRefinerTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsRefinerTypeType::valueIsValid()
+     * @uses \EnumType\EwsRefinerTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $refinerType
-     * @return \Ews\StructType\EwsSearchRefinerType
+     * @return \StructType\EwsSearchRefinerType
      */
-    public function setRefinerType($refinerType = null)
+    public function setRefinerType(string $refinerType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsRefinerTypeType::valueIsValid($refinerType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsRefinerTypeType', is_array($refinerType) ? implode(', ', $refinerType) : var_export($refinerType, true), implode(', ', \Ews\EnumType\EwsRefinerTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsRefinerTypeType::valueIsValid($refinerType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsRefinerTypeType', is_array($refinerType) ? implode(', ', $refinerType) : var_export($refinerType, true), implode(', ', \EnumType\EwsRefinerTypeType::getValidValues())), __LINE__);
         }
         $this->RefinerType = $refinerType;
+        
         return $this;
     }
     /**
      * Get Refiner value
-     * @return \Ews\StructType\EwsDynamicRefinerQueryType
+     * @return \StructType\EwsDynamicRefinerQueryType
      */
-    public function getRefiner()
+    public function getRefiner(): \StructType\EwsDynamicRefinerQueryType
     {
         return $this->Refiner;
     }
     /**
      * Set Refiner value
-     * @param \Ews\StructType\EwsDynamicRefinerQueryType $refiner
-     * @return \Ews\StructType\EwsSearchRefinerType
+     * @param \StructType\EwsDynamicRefinerQueryType $refiner
+     * @return \StructType\EwsSearchRefinerType
      */
-    public function setRefiner(\Ews\StructType\EwsDynamicRefinerQueryType $refiner = null)
+    public function setRefiner(\StructType\EwsDynamicRefinerQueryType $refiner): self
     {
         $this->Refiner = $refiner;
+        
         return $this;
     }
 }

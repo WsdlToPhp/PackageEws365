@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfAttendeesType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      * The Attendee
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsAttendeeType[]
+     * @var \StructType\EwsAttendeeType[]
      */
-    public $Attendee;
+    protected array $Attendee = [];
     /**
      * Constructor method for NonEmptyArrayOfAttendeesType
      * @uses EwsNonEmptyArrayOfAttendeesType::setAttendee()
-     * @param \Ews\StructType\EwsAttendeeType[] $attendee
+     * @param \StructType\EwsAttendeeType[] $attendee
      */
-    public function __construct(array $attendee = array())
+    public function __construct(array $attendee = [])
     {
         $this
             ->setAttendee($attendee);
     }
     /**
      * Get Attendee value
-     * @return \Ews\StructType\EwsAttendeeType[]|null
+     * @return \StructType\EwsAttendeeType[]
      */
-    public function getAttendee()
+    public function getAttendee(): array
     {
         return $this->Attendee;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAttendeeForArrayConstraintsFromSetAttendee(array $values = array())
+    public static function validateAttendeeForArrayConstraintsFromSetAttendee(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfAttendeesTypeAttendeeItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfAttendeesTypeAttendeeItem instanceof \Ews\StructType\EwsAttendeeType) {
+            if (!$nonEmptyArrayOfAttendeesTypeAttendeeItem instanceof \StructType\EwsAttendeeType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfAttendeesTypeAttendeeItem) ? get_class($nonEmptyArrayOfAttendeesTypeAttendeeItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfAttendeesTypeAttendeeItem), var_export($nonEmptyArrayOfAttendeesTypeAttendeeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Attendee property can only contain items of type \Ews\StructType\EwsAttendeeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Attendee property can only contain items of type \StructType\EwsAttendeeType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Attendee value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAttendeeType[] $attendee
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAttendeeType[] $attendee
+     * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType
      */
-    public function setAttendee(array $attendee = array())
+    public function setAttendee(array $attendee = []): self
     {
         // validation for constraint: array
         if ('' !== ($attendeeArrayErrorMessage = self::validateAttendeeForArrayConstraintsFromSetAttendee($attendee))) {
-            throw new \InvalidArgumentException($attendeeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($attendeeArrayErrorMessage, __LINE__);
         }
         $this->Attendee = $attendee;
-        return $this;
-    }
-    /**
-     * Add item to Attendee value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAttendeeType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
-     */
-    public function addToAttendee(\Ews\StructType\EwsAttendeeType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsAttendeeType) {
-            throw new \InvalidArgumentException(sprintf('The Attendee property can only contain items of type \Ews\StructType\EwsAttendeeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Attendee[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsAttendeeType|null
+     * @return \StructType\EwsAttendeeType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsAttendeeType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsAttendeeType|null
+     * @return \StructType\EwsAttendeeType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsAttendeeType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsAttendeeType|null
+     * @return \StructType\EwsAttendeeType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsAttendeeType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsAttendeeType|null
+     * @return \StructType\EwsAttendeeType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsAttendeeType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsAttendeeType|null
+     * @return \StructType\EwsAttendeeType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsAttendeeType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAttendeeType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType
+     */
+    public function add(\StructType\EwsAttendeeType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Attendee
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Attendee';
     }

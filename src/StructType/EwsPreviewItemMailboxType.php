@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PreviewItemMailboxType StructType
@@ -21,7 +24,7 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $MailboxId;
+    protected string $MailboxId;
     /**
      * The PrimarySmtpAddress
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $PrimarySmtpAddress;
+    protected string $PrimarySmtpAddress;
     /**
      * Constructor method for PreviewItemMailboxType
      * @uses EwsPreviewItemMailboxType::setMailboxId()
@@ -37,7 +40,7 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      * @param string $mailboxId
      * @param string $primarySmtpAddress
      */
-    public function __construct($mailboxId = null, $primarySmtpAddress = null)
+    public function __construct(string $mailboxId, string $primarySmtpAddress)
     {
         $this
             ->setMailboxId($mailboxId)
@@ -47,44 +50,46 @@ class EwsPreviewItemMailboxType extends AbstractStructBase
      * Get MailboxId value
      * @return string
      */
-    public function getMailboxId()
+    public function getMailboxId(): string
     {
         return $this->MailboxId;
     }
     /**
      * Set MailboxId value
      * @param string $mailboxId
-     * @return \Ews\StructType\EwsPreviewItemMailboxType
+     * @return \StructType\EwsPreviewItemMailboxType
      */
-    public function setMailboxId($mailboxId = null)
+    public function setMailboxId(string $mailboxId): self
     {
         // validation for constraint: string
         if (!is_null($mailboxId) && !is_string($mailboxId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxId, true), gettype($mailboxId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxId, true), gettype($mailboxId)), __LINE__);
         }
         $this->MailboxId = $mailboxId;
+        
         return $this;
     }
     /**
      * Get PrimarySmtpAddress value
      * @return string
      */
-    public function getPrimarySmtpAddress()
+    public function getPrimarySmtpAddress(): string
     {
         return $this->PrimarySmtpAddress;
     }
     /**
      * Set PrimarySmtpAddress value
      * @param string $primarySmtpAddress
-     * @return \Ews\StructType\EwsPreviewItemMailboxType
+     * @return \StructType\EwsPreviewItemMailboxType
      */
-    public function setPrimarySmtpAddress($primarySmtpAddress = null)
+    public function setPrimarySmtpAddress(string $primarySmtpAddress): self
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
+        
         return $this;
     }
 }

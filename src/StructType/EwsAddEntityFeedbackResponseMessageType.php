@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddEntityFeedbackResponseMessageType StructType
@@ -19,15 +22,15 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
      * - minOccurs: 1
      * @var int
      */
-    public $ErrorCount;
+    protected int $ErrorCount;
     /**
      * The ErrorDetails
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ErrorDetails;
+    protected ?string $ErrorDetails = null;
     /**
      * Constructor method for AddEntityFeedbackResponseMessageType
      * @uses EwsAddEntityFeedbackResponseMessageType::setErrorCount()
@@ -35,7 +38,7 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
      * @param int $errorCount
      * @param string $errorDetails
      */
-    public function __construct($errorCount = null, $errorDetails = null)
+    public function __construct(int $errorCount, ?string $errorDetails = null)
     {
         $this
             ->setErrorCount($errorCount)
@@ -45,44 +48,46 @@ class EwsAddEntityFeedbackResponseMessageType extends EwsResponseMessageType
      * Get ErrorCount value
      * @return int
      */
-    public function getErrorCount()
+    public function getErrorCount(): int
     {
         return $this->ErrorCount;
     }
     /**
      * Set ErrorCount value
      * @param int $errorCount
-     * @return \Ews\StructType\EwsAddEntityFeedbackResponseMessageType
+     * @return \StructType\EwsAddEntityFeedbackResponseMessageType
      */
-    public function setErrorCount($errorCount = null)
+    public function setErrorCount(int $errorCount): self
     {
         // validation for constraint: int
         if (!is_null($errorCount) && !(is_int($errorCount) || ctype_digit($errorCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($errorCount, true), gettype($errorCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($errorCount, true), gettype($errorCount)), __LINE__);
         }
         $this->ErrorCount = $errorCount;
+        
         return $this;
     }
     /**
      * Get ErrorDetails value
      * @return string|null
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?string
     {
         return $this->ErrorDetails;
     }
     /**
      * Set ErrorDetails value
      * @param string $errorDetails
-     * @return \Ews\StructType\EwsAddEntityFeedbackResponseMessageType
+     * @return \StructType\EwsAddEntityFeedbackResponseMessageType
      */
-    public function setErrorDetails($errorDetails = null)
+    public function setErrorDetails(?string $errorDetails = null): self
     {
         // validation for constraint: string
         if (!is_null($errorDetails) && !is_string($errorDetails)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDetails, true), gettype($errorDetails)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorDetails, true), gettype($errorDetails)), __LINE__);
         }
         $this->ErrorDetails = $errorDetails;
+        
         return $this;
     }
 }

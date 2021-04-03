@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetImGroupType StructType
@@ -14,25 +17,25 @@ class EwsSetImGroupType extends EwsBaseRequestType
 {
     /**
      * The GroupId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $GroupId;
+    protected ?\StructType\EwsItemIdType $GroupId = null;
     /**
      * The NewDisplayName
      * Meta information extracted from the WSDL
      * - base: xs:string
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $NewDisplayName;
+    protected ?string $NewDisplayName = null;
     /**
      * Constructor method for SetImGroupType
      * @uses EwsSetImGroupType::setGroupId()
      * @uses EwsSetImGroupType::setNewDisplayName()
-     * @param \Ews\StructType\EwsItemIdType $groupId
+     * @param \StructType\EwsItemIdType $groupId
      * @param string $newDisplayName
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $groupId = null, $newDisplayName = null)
+    public function __construct(?\StructType\EwsItemIdType $groupId = null, ?string $newDisplayName = null)
     {
         $this
             ->setGroupId($groupId)
@@ -40,46 +43,48 @@ class EwsSetImGroupType extends EwsBaseRequestType
     }
     /**
      * Get GroupId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getGroupId()
+    public function getGroupId(): ?\StructType\EwsItemIdType
     {
         return $this->GroupId;
     }
     /**
      * Set GroupId value
-     * @param \Ews\StructType\EwsItemIdType $groupId
-     * @return \Ews\StructType\EwsSetImGroupType
+     * @param \StructType\EwsItemIdType $groupId
+     * @return \StructType\EwsSetImGroupType
      */
-    public function setGroupId(\Ews\StructType\EwsItemIdType $groupId = null)
+    public function setGroupId(?\StructType\EwsItemIdType $groupId = null): self
     {
         $this->GroupId = $groupId;
+        
         return $this;
     }
     /**
      * Get NewDisplayName value
      * @return string|null
      */
-    public function getNewDisplayName()
+    public function getNewDisplayName(): ?string
     {
         return $this->NewDisplayName;
     }
     /**
      * Set NewDisplayName value
      * @param string $newDisplayName
-     * @return \Ews\StructType\EwsSetImGroupType
+     * @return \StructType\EwsSetImGroupType
      */
-    public function setNewDisplayName($newDisplayName = null)
+    public function setNewDisplayName(?string $newDisplayName = null): self
     {
         // validation for constraint: string
         if (!is_null($newDisplayName) && !is_string($newDisplayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($newDisplayName, true), gettype($newDisplayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($newDisplayName, true), gettype($newDisplayName)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($newDisplayName) && mb_strlen($newDisplayName) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($newDisplayName)), __LINE__);
+        if (!is_null($newDisplayName) && mb_strlen((string) $newDisplayName) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $newDisplayName)), __LINE__);
         }
         $this->NewDisplayName = $newDisplayName;
+        
         return $this;
     }
 }

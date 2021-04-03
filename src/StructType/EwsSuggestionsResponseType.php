@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SuggestionsResponseType StructType
@@ -17,25 +20,25 @@ class EwsSuggestionsResponseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $ResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $ResponseMessage = null;
     /**
      * The SuggestionDayResultArray
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSuggestionDayResult
+     * @var \ArrayType\EwsArrayOfSuggestionDayResult|null
      */
-    public $SuggestionDayResultArray;
+    protected ?\ArrayType\EwsArrayOfSuggestionDayResult $SuggestionDayResultArray = null;
     /**
      * Constructor method for SuggestionsResponseType
      * @uses EwsSuggestionsResponseType::setResponseMessage()
      * @uses EwsSuggestionsResponseType::setSuggestionDayResultArray()
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @param \Ews\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @param \ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray
      */
-    public function __construct(\Ews\StructType\EwsResponseMessageType $responseMessage = null, \Ews\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray = null)
+    public function __construct(?\StructType\EwsResponseMessageType $responseMessage = null, ?\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray = null)
     {
         $this
             ->setResponseMessage($responseMessage)
@@ -43,38 +46,40 @@ class EwsSuggestionsResponseType extends AbstractStructBase
     }
     /**
      * Get ResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getResponseMessage()
+    public function getResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return $this->ResponseMessage;
     }
     /**
      * Set ResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @return \Ews\StructType\EwsSuggestionsResponseType
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @return \StructType\EwsSuggestionsResponseType
      */
-    public function setResponseMessage(\Ews\StructType\EwsResponseMessageType $responseMessage = null)
+    public function setResponseMessage(?\StructType\EwsResponseMessageType $responseMessage = null): self
     {
         $this->ResponseMessage = $responseMessage;
+        
         return $this;
     }
     /**
      * Get SuggestionDayResultArray value
-     * @return \Ews\ArrayType\EwsArrayOfSuggestionDayResult|null
+     * @return \ArrayType\EwsArrayOfSuggestionDayResult|null
      */
-    public function getSuggestionDayResultArray()
+    public function getSuggestionDayResultArray(): ?\ArrayType\EwsArrayOfSuggestionDayResult
     {
         return $this->SuggestionDayResultArray;
     }
     /**
      * Set SuggestionDayResultArray value
-     * @param \Ews\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray
-     * @return \Ews\StructType\EwsSuggestionsResponseType
+     * @param \ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray
+     * @return \StructType\EwsSuggestionsResponseType
      */
-    public function setSuggestionDayResultArray(\Ews\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray = null)
+    public function setSuggestionDayResultArray(?\ArrayType\EwsArrayOfSuggestionDayResult $suggestionDayResultArray = null): self
     {
         $this->SuggestionDayResultArray = $suggestionDayResultArray;
+        
         return $this;
     }
 }

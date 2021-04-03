@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfResponseObjectsType StructType
@@ -18,117 +21,117 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsAcceptItemType
+     * @var \StructType\EwsAcceptItemType|null
      */
-    public $AcceptItem;
+    protected ?\StructType\EwsAcceptItemType $AcceptItem = null;
     /**
      * The TentativelyAcceptItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsTentativelyAcceptItemType
+     * @var \StructType\EwsTentativelyAcceptItemType|null
      */
-    public $TentativelyAcceptItem;
+    protected ?\StructType\EwsTentativelyAcceptItemType $TentativelyAcceptItem = null;
     /**
      * The DeclineItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsDeclineItemType
+     * @var \StructType\EwsDeclineItemType|null
      */
-    public $DeclineItem;
+    protected ?\StructType\EwsDeclineItemType $DeclineItem = null;
     /**
      * The ReplyToItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsReplyToItemType
+     * @var \StructType\EwsReplyToItemType|null
      */
-    public $ReplyToItem;
+    protected ?\StructType\EwsReplyToItemType $ReplyToItem = null;
     /**
      * The ForwardItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsForwardItemType
+     * @var \StructType\EwsForwardItemType|null
      */
-    public $ForwardItem;
+    protected ?\StructType\EwsForwardItemType $ForwardItem = null;
     /**
      * The ReplyAllToItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsReplyAllToItemType
+     * @var \StructType\EwsReplyAllToItemType|null
      */
-    public $ReplyAllToItem;
+    protected ?\StructType\EwsReplyAllToItemType $ReplyAllToItem = null;
     /**
      * The CancelCalendarItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsCancelCalendarItemType
+     * @var \StructType\EwsCancelCalendarItemType|null
      */
-    public $CancelCalendarItem;
+    protected ?\StructType\EwsCancelCalendarItemType $CancelCalendarItem = null;
     /**
      * The RemoveItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsRemoveItemType
+     * @var \StructType\EwsRemoveItemType|null
      */
-    public $RemoveItem;
+    protected ?\StructType\EwsRemoveItemType $RemoveItem = null;
     /**
      * The SuppressReadReceipt
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsSuppressReadReceiptType
+     * @var \StructType\EwsSuppressReadReceiptType|null
      */
-    public $SuppressReadReceipt;
+    protected ?\StructType\EwsSuppressReadReceiptType $SuppressReadReceipt = null;
     /**
      * The PostReplyItem
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsPostReplyItemType
+     * @var \StructType\EwsPostReplyItemType|null
      */
-    public $PostReplyItem;
+    protected ?\StructType\EwsPostReplyItemType $PostReplyItem = null;
     /**
      * The AcceptSharingInvitation
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsAcceptSharingInvitationType
+     * @var \StructType\EwsAcceptSharingInvitationType|null
      */
-    public $AcceptSharingInvitation;
+    protected ?\StructType\EwsAcceptSharingInvitationType $AcceptSharingInvitation = null;
     /**
      * The AddItemToMyCalendar
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsAddItemToMyCalendarType
+     * @var \StructType\EwsAddItemToMyCalendarType|null
      */
-    public $AddItemToMyCalendar;
+    protected ?\StructType\EwsAddItemToMyCalendarType $AddItemToMyCalendar = null;
     /**
      * The ProposeNewTime
      * Meta information extracted from the WSDL
      * - choice: AcceptItem | TentativelyAcceptItem | DeclineItem | ReplyToItem | ForwardItem | ReplyAllToItem | CancelCalendarItem | RemoveItem | SuppressReadReceipt | PostReplyItem | AcceptSharingInvitation | AddItemToMyCalendar | ProposeNewTime
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsProposeNewTimeType
+     * @var \StructType\EwsProposeNewTimeType|null
      */
-    public $ProposeNewTime;
+    protected ?\StructType\EwsProposeNewTimeType $ProposeNewTime = null;
     /**
      * Constructor method for NonEmptyArrayOfResponseObjectsType
      * @uses EwsNonEmptyArrayOfResponseObjectsType::setAcceptItem()
@@ -144,21 +147,21 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @uses EwsNonEmptyArrayOfResponseObjectsType::setAcceptSharingInvitation()
      * @uses EwsNonEmptyArrayOfResponseObjectsType::setAddItemToMyCalendar()
      * @uses EwsNonEmptyArrayOfResponseObjectsType::setProposeNewTime()
-     * @param \Ews\StructType\EwsAcceptItemType $acceptItem
-     * @param \Ews\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem
-     * @param \Ews\StructType\EwsDeclineItemType $declineItem
-     * @param \Ews\StructType\EwsReplyToItemType $replyToItem
-     * @param \Ews\StructType\EwsForwardItemType $forwardItem
-     * @param \Ews\StructType\EwsReplyAllToItemType $replyAllToItem
-     * @param \Ews\StructType\EwsCancelCalendarItemType $cancelCalendarItem
-     * @param \Ews\StructType\EwsRemoveItemType $removeItem
-     * @param \Ews\StructType\EwsSuppressReadReceiptType $suppressReadReceipt
-     * @param \Ews\StructType\EwsPostReplyItemType $postReplyItem
-     * @param \Ews\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation
-     * @param \Ews\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar
-     * @param \Ews\StructType\EwsProposeNewTimeType $proposeNewTime
+     * @param \StructType\EwsAcceptItemType $acceptItem
+     * @param \StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem
+     * @param \StructType\EwsDeclineItemType $declineItem
+     * @param \StructType\EwsReplyToItemType $replyToItem
+     * @param \StructType\EwsForwardItemType $forwardItem
+     * @param \StructType\EwsReplyAllToItemType $replyAllToItem
+     * @param \StructType\EwsCancelCalendarItemType $cancelCalendarItem
+     * @param \StructType\EwsRemoveItemType $removeItem
+     * @param \StructType\EwsSuppressReadReceiptType $suppressReadReceipt
+     * @param \StructType\EwsPostReplyItemType $postReplyItem
+     * @param \StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation
+     * @param \StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar
+     * @param \StructType\EwsProposeNewTimeType $proposeNewTime
      */
-    public function __construct(\Ews\StructType\EwsAcceptItemType $acceptItem = null, \Ews\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem = null, \Ews\StructType\EwsDeclineItemType $declineItem = null, \Ews\StructType\EwsReplyToItemType $replyToItem = null, \Ews\StructType\EwsForwardItemType $forwardItem = null, \Ews\StructType\EwsReplyAllToItemType $replyAllToItem = null, \Ews\StructType\EwsCancelCalendarItemType $cancelCalendarItem = null, \Ews\StructType\EwsRemoveItemType $removeItem = null, \Ews\StructType\EwsSuppressReadReceiptType $suppressReadReceipt = null, \Ews\StructType\EwsPostReplyItemType $postReplyItem = null, \Ews\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation = null, \Ews\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar = null, \Ews\StructType\EwsProposeNewTimeType $proposeNewTime = null)
+    public function __construct(?\StructType\EwsAcceptItemType $acceptItem = null, ?\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem = null, ?\StructType\EwsDeclineItemType $declineItem = null, ?\StructType\EwsReplyToItemType $replyToItem = null, ?\StructType\EwsForwardItemType $forwardItem = null, ?\StructType\EwsReplyAllToItemType $replyAllToItem = null, ?\StructType\EwsCancelCalendarItemType $cancelCalendarItem = null, ?\StructType\EwsRemoveItemType $removeItem = null, ?\StructType\EwsSuppressReadReceiptType $suppressReadReceipt = null, ?\StructType\EwsPostReplyItemType $postReplyItem = null, ?\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation = null, ?\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar = null, ?\StructType\EwsProposeNewTimeType $proposeNewTime = null)
     {
         $this
             ->setAcceptItem($acceptItem)
@@ -177,9 +180,9 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
     }
     /**
      * Get AcceptItem value
-     * @return \Ews\StructType\EwsAcceptItemType|null
+     * @return \StructType\EwsAcceptItemType|null
      */
-    public function getAcceptItem()
+    public function getAcceptItem(): ?\StructType\EwsAcceptItemType
     {
         return isset($this->AcceptItem) ? $this->AcceptItem : null;
     }
@@ -190,7 +193,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAcceptItemForChoiceConstraintsFromSetAcceptItem($value)
+    public function validateAcceptItemForChoiceConstraintsFromSetAcceptItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -213,12 +216,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AcceptItem can\'t be set as the property %s is already set. Only one property must be set among these properties: AcceptItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AcceptItem can\'t be set as the property %s is already set. Only one property must be set among these properties: AcceptItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -226,28 +230,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAcceptItemType $acceptItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAcceptItemType $acceptItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setAcceptItem(\Ews\StructType\EwsAcceptItemType $acceptItem = null)
+    public function setAcceptItem(?\StructType\EwsAcceptItemType $acceptItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($acceptItemChoiceErrorMessage = self::validateAcceptItemForChoiceConstraintsFromSetAcceptItem($acceptItem))) {
-            throw new \InvalidArgumentException($acceptItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($acceptItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($acceptItem) || (is_array($acceptItem) && empty($acceptItem))) {
             unset($this->AcceptItem);
         } else {
             $this->AcceptItem = $acceptItem;
         }
+        
         return $this;
     }
     /**
      * Get TentativelyAcceptItem value
-     * @return \Ews\StructType\EwsTentativelyAcceptItemType|null
+     * @return \StructType\EwsTentativelyAcceptItemType|null
      */
-    public function getTentativelyAcceptItem()
+    public function getTentativelyAcceptItem(): ?\StructType\EwsTentativelyAcceptItemType
     {
         return isset($this->TentativelyAcceptItem) ? $this->TentativelyAcceptItem : null;
     }
@@ -258,7 +263,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateTentativelyAcceptItemForChoiceConstraintsFromSetTentativelyAcceptItem($value)
+    public function validateTentativelyAcceptItemForChoiceConstraintsFromSetTentativelyAcceptItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -281,12 +286,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property TentativelyAcceptItem can\'t be set as the property %s is already set. Only one property must be set among these properties: TentativelyAcceptItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property TentativelyAcceptItem can\'t be set as the property %s is already set. Only one property must be set among these properties: TentativelyAcceptItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -294,28 +300,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setTentativelyAcceptItem(\Ews\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem = null)
+    public function setTentativelyAcceptItem(?\StructType\EwsTentativelyAcceptItemType $tentativelyAcceptItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($tentativelyAcceptItemChoiceErrorMessage = self::validateTentativelyAcceptItemForChoiceConstraintsFromSetTentativelyAcceptItem($tentativelyAcceptItem))) {
-            throw new \InvalidArgumentException($tentativelyAcceptItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($tentativelyAcceptItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($tentativelyAcceptItem) || (is_array($tentativelyAcceptItem) && empty($tentativelyAcceptItem))) {
             unset($this->TentativelyAcceptItem);
         } else {
             $this->TentativelyAcceptItem = $tentativelyAcceptItem;
         }
+        
         return $this;
     }
     /**
      * Get DeclineItem value
-     * @return \Ews\StructType\EwsDeclineItemType|null
+     * @return \StructType\EwsDeclineItemType|null
      */
-    public function getDeclineItem()
+    public function getDeclineItem(): ?\StructType\EwsDeclineItemType
     {
         return isset($this->DeclineItem) ? $this->DeclineItem : null;
     }
@@ -326,7 +333,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeclineItemForChoiceConstraintsFromSetDeclineItem($value)
+    public function validateDeclineItemForChoiceConstraintsFromSetDeclineItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -349,12 +356,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeclineItem can\'t be set as the property %s is already set. Only one property must be set among these properties: DeclineItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeclineItem can\'t be set as the property %s is already set. Only one property must be set among these properties: DeclineItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -362,28 +370,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeclineItemType $declineItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeclineItemType $declineItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setDeclineItem(\Ews\StructType\EwsDeclineItemType $declineItem = null)
+    public function setDeclineItem(?\StructType\EwsDeclineItemType $declineItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($declineItemChoiceErrorMessage = self::validateDeclineItemForChoiceConstraintsFromSetDeclineItem($declineItem))) {
-            throw new \InvalidArgumentException($declineItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($declineItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($declineItem) || (is_array($declineItem) && empty($declineItem))) {
             unset($this->DeclineItem);
         } else {
             $this->DeclineItem = $declineItem;
         }
+        
         return $this;
     }
     /**
      * Get ReplyToItem value
-     * @return \Ews\StructType\EwsReplyToItemType|null
+     * @return \StructType\EwsReplyToItemType|null
      */
-    public function getReplyToItem()
+    public function getReplyToItem(): ?\StructType\EwsReplyToItemType
     {
         return isset($this->ReplyToItem) ? $this->ReplyToItem : null;
     }
@@ -394,7 +403,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateReplyToItemForChoiceConstraintsFromSetReplyToItem($value)
+    public function validateReplyToItemForChoiceConstraintsFromSetReplyToItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -417,12 +426,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ReplyToItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ReplyToItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ReplyToItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ReplyToItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -430,28 +440,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsReplyToItemType $replyToItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsReplyToItemType $replyToItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setReplyToItem(\Ews\StructType\EwsReplyToItemType $replyToItem = null)
+    public function setReplyToItem(?\StructType\EwsReplyToItemType $replyToItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($replyToItemChoiceErrorMessage = self::validateReplyToItemForChoiceConstraintsFromSetReplyToItem($replyToItem))) {
-            throw new \InvalidArgumentException($replyToItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($replyToItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($replyToItem) || (is_array($replyToItem) && empty($replyToItem))) {
             unset($this->ReplyToItem);
         } else {
             $this->ReplyToItem = $replyToItem;
         }
+        
         return $this;
     }
     /**
      * Get ForwardItem value
-     * @return \Ews\StructType\EwsForwardItemType|null
+     * @return \StructType\EwsForwardItemType|null
      */
-    public function getForwardItem()
+    public function getForwardItem(): ?\StructType\EwsForwardItemType
     {
         return isset($this->ForwardItem) ? $this->ForwardItem : null;
     }
@@ -462,7 +473,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateForwardItemForChoiceConstraintsFromSetForwardItem($value)
+    public function validateForwardItemForChoiceConstraintsFromSetForwardItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -485,12 +496,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ForwardItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ForwardItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ForwardItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ForwardItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -498,28 +510,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsForwardItemType $forwardItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsForwardItemType $forwardItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setForwardItem(\Ews\StructType\EwsForwardItemType $forwardItem = null)
+    public function setForwardItem(?\StructType\EwsForwardItemType $forwardItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($forwardItemChoiceErrorMessage = self::validateForwardItemForChoiceConstraintsFromSetForwardItem($forwardItem))) {
-            throw new \InvalidArgumentException($forwardItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($forwardItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($forwardItem) || (is_array($forwardItem) && empty($forwardItem))) {
             unset($this->ForwardItem);
         } else {
             $this->ForwardItem = $forwardItem;
         }
+        
         return $this;
     }
     /**
      * Get ReplyAllToItem value
-     * @return \Ews\StructType\EwsReplyAllToItemType|null
+     * @return \StructType\EwsReplyAllToItemType|null
      */
-    public function getReplyAllToItem()
+    public function getReplyAllToItem(): ?\StructType\EwsReplyAllToItemType
     {
         return isset($this->ReplyAllToItem) ? $this->ReplyAllToItem : null;
     }
@@ -530,7 +543,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateReplyAllToItemForChoiceConstraintsFromSetReplyAllToItem($value)
+    public function validateReplyAllToItemForChoiceConstraintsFromSetReplyAllToItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -553,12 +566,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ReplyAllToItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ReplyAllToItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ReplyAllToItem can\'t be set as the property %s is already set. Only one property must be set among these properties: ReplyAllToItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -566,28 +580,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsReplyAllToItemType $replyAllToItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsReplyAllToItemType $replyAllToItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setReplyAllToItem(\Ews\StructType\EwsReplyAllToItemType $replyAllToItem = null)
+    public function setReplyAllToItem(?\StructType\EwsReplyAllToItemType $replyAllToItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($replyAllToItemChoiceErrorMessage = self::validateReplyAllToItemForChoiceConstraintsFromSetReplyAllToItem($replyAllToItem))) {
-            throw new \InvalidArgumentException($replyAllToItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($replyAllToItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($replyAllToItem) || (is_array($replyAllToItem) && empty($replyAllToItem))) {
             unset($this->ReplyAllToItem);
         } else {
             $this->ReplyAllToItem = $replyAllToItem;
         }
+        
         return $this;
     }
     /**
      * Get CancelCalendarItem value
-     * @return \Ews\StructType\EwsCancelCalendarItemType|null
+     * @return \StructType\EwsCancelCalendarItemType|null
      */
-    public function getCancelCalendarItem()
+    public function getCancelCalendarItem(): ?\StructType\EwsCancelCalendarItemType
     {
         return isset($this->CancelCalendarItem) ? $this->CancelCalendarItem : null;
     }
@@ -598,7 +613,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCancelCalendarItemForChoiceConstraintsFromSetCancelCalendarItem($value)
+    public function validateCancelCalendarItemForChoiceConstraintsFromSetCancelCalendarItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -621,12 +636,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CancelCalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CancelCalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CancelCalendarItem can\'t be set as the property %s is already set. Only one property must be set among these properties: CancelCalendarItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -634,28 +650,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCancelCalendarItemType $cancelCalendarItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCancelCalendarItemType $cancelCalendarItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setCancelCalendarItem(\Ews\StructType\EwsCancelCalendarItemType $cancelCalendarItem = null)
+    public function setCancelCalendarItem(?\StructType\EwsCancelCalendarItemType $cancelCalendarItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($cancelCalendarItemChoiceErrorMessage = self::validateCancelCalendarItemForChoiceConstraintsFromSetCancelCalendarItem($cancelCalendarItem))) {
-            throw new \InvalidArgumentException($cancelCalendarItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($cancelCalendarItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($cancelCalendarItem) || (is_array($cancelCalendarItem) && empty($cancelCalendarItem))) {
             unset($this->CancelCalendarItem);
         } else {
             $this->CancelCalendarItem = $cancelCalendarItem;
         }
+        
         return $this;
     }
     /**
      * Get RemoveItem value
-     * @return \Ews\StructType\EwsRemoveItemType|null
+     * @return \StructType\EwsRemoveItemType|null
      */
-    public function getRemoveItem()
+    public function getRemoveItem(): ?\StructType\EwsRemoveItemType
     {
         return isset($this->RemoveItem) ? $this->RemoveItem : null;
     }
@@ -666,7 +683,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateRemoveItemForChoiceConstraintsFromSetRemoveItem($value)
+    public function validateRemoveItemForChoiceConstraintsFromSetRemoveItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -689,12 +706,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property RemoveItem can\'t be set as the property %s is already set. Only one property must be set among these properties: RemoveItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property RemoveItem can\'t be set as the property %s is already set. Only one property must be set among these properties: RemoveItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -702,28 +720,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRemoveItemType $removeItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRemoveItemType $removeItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setRemoveItem(\Ews\StructType\EwsRemoveItemType $removeItem = null)
+    public function setRemoveItem(?\StructType\EwsRemoveItemType $removeItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($removeItemChoiceErrorMessage = self::validateRemoveItemForChoiceConstraintsFromSetRemoveItem($removeItem))) {
-            throw new \InvalidArgumentException($removeItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($removeItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($removeItem) || (is_array($removeItem) && empty($removeItem))) {
             unset($this->RemoveItem);
         } else {
             $this->RemoveItem = $removeItem;
         }
+        
         return $this;
     }
     /**
      * Get SuppressReadReceipt value
-     * @return \Ews\StructType\EwsSuppressReadReceiptType|null
+     * @return \StructType\EwsSuppressReadReceiptType|null
      */
-    public function getSuppressReadReceipt()
+    public function getSuppressReadReceipt(): ?\StructType\EwsSuppressReadReceiptType
     {
         return isset($this->SuppressReadReceipt) ? $this->SuppressReadReceipt : null;
     }
@@ -734,7 +753,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSuppressReadReceiptForChoiceConstraintsFromSetSuppressReadReceipt($value)
+    public function validateSuppressReadReceiptForChoiceConstraintsFromSetSuppressReadReceipt($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -757,12 +776,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SuppressReadReceipt can\'t be set as the property %s is already set. Only one property must be set among these properties: SuppressReadReceipt, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SuppressReadReceipt can\'t be set as the property %s is already set. Only one property must be set among these properties: SuppressReadReceipt, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -770,28 +790,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSuppressReadReceiptType $suppressReadReceipt
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSuppressReadReceiptType $suppressReadReceipt
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setSuppressReadReceipt(\Ews\StructType\EwsSuppressReadReceiptType $suppressReadReceipt = null)
+    public function setSuppressReadReceipt(?\StructType\EwsSuppressReadReceiptType $suppressReadReceipt = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($suppressReadReceiptChoiceErrorMessage = self::validateSuppressReadReceiptForChoiceConstraintsFromSetSuppressReadReceipt($suppressReadReceipt))) {
-            throw new \InvalidArgumentException($suppressReadReceiptChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($suppressReadReceiptChoiceErrorMessage, __LINE__);
         }
         if (is_null($suppressReadReceipt) || (is_array($suppressReadReceipt) && empty($suppressReadReceipt))) {
             unset($this->SuppressReadReceipt);
         } else {
             $this->SuppressReadReceipt = $suppressReadReceipt;
         }
+        
         return $this;
     }
     /**
      * Get PostReplyItem value
-     * @return \Ews\StructType\EwsPostReplyItemType|null
+     * @return \StructType\EwsPostReplyItemType|null
      */
-    public function getPostReplyItem()
+    public function getPostReplyItem(): ?\StructType\EwsPostReplyItemType
     {
         return isset($this->PostReplyItem) ? $this->PostReplyItem : null;
     }
@@ -802,7 +823,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePostReplyItemForChoiceConstraintsFromSetPostReplyItem($value)
+    public function validatePostReplyItemForChoiceConstraintsFromSetPostReplyItem($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -825,12 +846,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PostReplyItem can\'t be set as the property %s is already set. Only one property must be set among these properties: PostReplyItem, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PostReplyItem can\'t be set as the property %s is already set. Only one property must be set among these properties: PostReplyItem, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -838,28 +860,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPostReplyItemType $postReplyItem
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPostReplyItemType $postReplyItem
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setPostReplyItem(\Ews\StructType\EwsPostReplyItemType $postReplyItem = null)
+    public function setPostReplyItem(?\StructType\EwsPostReplyItemType $postReplyItem = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($postReplyItemChoiceErrorMessage = self::validatePostReplyItemForChoiceConstraintsFromSetPostReplyItem($postReplyItem))) {
-            throw new \InvalidArgumentException($postReplyItemChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($postReplyItemChoiceErrorMessage, __LINE__);
         }
         if (is_null($postReplyItem) || (is_array($postReplyItem) && empty($postReplyItem))) {
             unset($this->PostReplyItem);
         } else {
             $this->PostReplyItem = $postReplyItem;
         }
+        
         return $this;
     }
     /**
      * Get AcceptSharingInvitation value
-     * @return \Ews\StructType\EwsAcceptSharingInvitationType|null
+     * @return \StructType\EwsAcceptSharingInvitationType|null
      */
-    public function getAcceptSharingInvitation()
+    public function getAcceptSharingInvitation(): ?\StructType\EwsAcceptSharingInvitationType
     {
         return isset($this->AcceptSharingInvitation) ? $this->AcceptSharingInvitation : null;
     }
@@ -870,7 +893,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAcceptSharingInvitationForChoiceConstraintsFromSetAcceptSharingInvitation($value)
+    public function validateAcceptSharingInvitationForChoiceConstraintsFromSetAcceptSharingInvitation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -893,12 +916,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AcceptSharingInvitation can\'t be set as the property %s is already set. Only one property must be set among these properties: AcceptSharingInvitation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AcceptSharingInvitation can\'t be set as the property %s is already set. Only one property must be set among these properties: AcceptSharingInvitation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -906,28 +930,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setAcceptSharingInvitation(\Ews\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation = null)
+    public function setAcceptSharingInvitation(?\StructType\EwsAcceptSharingInvitationType $acceptSharingInvitation = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($acceptSharingInvitationChoiceErrorMessage = self::validateAcceptSharingInvitationForChoiceConstraintsFromSetAcceptSharingInvitation($acceptSharingInvitation))) {
-            throw new \InvalidArgumentException($acceptSharingInvitationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($acceptSharingInvitationChoiceErrorMessage, __LINE__);
         }
         if (is_null($acceptSharingInvitation) || (is_array($acceptSharingInvitation) && empty($acceptSharingInvitation))) {
             unset($this->AcceptSharingInvitation);
         } else {
             $this->AcceptSharingInvitation = $acceptSharingInvitation;
         }
+        
         return $this;
     }
     /**
      * Get AddItemToMyCalendar value
-     * @return \Ews\StructType\EwsAddItemToMyCalendarType|null
+     * @return \StructType\EwsAddItemToMyCalendarType|null
      */
-    public function getAddItemToMyCalendar()
+    public function getAddItemToMyCalendar(): ?\StructType\EwsAddItemToMyCalendarType
     {
         return isset($this->AddItemToMyCalendar) ? $this->AddItemToMyCalendar : null;
     }
@@ -938,7 +963,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAddItemToMyCalendarForChoiceConstraintsFromSetAddItemToMyCalendar($value)
+    public function validateAddItemToMyCalendarForChoiceConstraintsFromSetAddItemToMyCalendar($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -961,12 +986,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AddItemToMyCalendar can\'t be set as the property %s is already set. Only one property must be set among these properties: AddItemToMyCalendar, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AddItemToMyCalendar can\'t be set as the property %s is already set. Only one property must be set among these properties: AddItemToMyCalendar, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -974,28 +1000,29 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setAddItemToMyCalendar(\Ews\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar = null)
+    public function setAddItemToMyCalendar(?\StructType\EwsAddItemToMyCalendarType $addItemToMyCalendar = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($addItemToMyCalendarChoiceErrorMessage = self::validateAddItemToMyCalendarForChoiceConstraintsFromSetAddItemToMyCalendar($addItemToMyCalendar))) {
-            throw new \InvalidArgumentException($addItemToMyCalendarChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($addItemToMyCalendarChoiceErrorMessage, __LINE__);
         }
         if (is_null($addItemToMyCalendar) || (is_array($addItemToMyCalendar) && empty($addItemToMyCalendar))) {
             unset($this->AddItemToMyCalendar);
         } else {
             $this->AddItemToMyCalendar = $addItemToMyCalendar;
         }
+        
         return $this;
     }
     /**
      * Get ProposeNewTime value
-     * @return \Ews\StructType\EwsProposeNewTimeType|null
+     * @return \StructType\EwsProposeNewTimeType|null
      */
-    public function getProposeNewTime()
+    public function getProposeNewTime(): ?\StructType\EwsProposeNewTimeType
     {
         return isset($this->ProposeNewTime) ? $this->ProposeNewTime : null;
     }
@@ -1006,7 +1033,7 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateProposeNewTimeForChoiceConstraintsFromSetProposeNewTime($value)
+    public function validateProposeNewTimeForChoiceConstraintsFromSetProposeNewTime($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1029,12 +1056,13 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ProposeNewTime can\'t be set as the property %s is already set. Only one property must be set among these properties: ProposeNewTime, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ProposeNewTime can\'t be set as the property %s is already set. Only one property must be set among these properties: ProposeNewTime, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1042,21 +1070,22 @@ class EwsNonEmptyArrayOfResponseObjectsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsProposeNewTimeType $proposeNewTime
-     * @return \Ews\StructType\EwsNonEmptyArrayOfResponseObjectsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsProposeNewTimeType $proposeNewTime
+     * @return \StructType\EwsNonEmptyArrayOfResponseObjectsType
      */
-    public function setProposeNewTime(\Ews\StructType\EwsProposeNewTimeType $proposeNewTime = null)
+    public function setProposeNewTime(?\StructType\EwsProposeNewTimeType $proposeNewTime = null): self
     {
         // validation for constraint: choice(AcceptItem, TentativelyAcceptItem, DeclineItem, ReplyToItem, ForwardItem, ReplyAllToItem, CancelCalendarItem, RemoveItem, SuppressReadReceipt, PostReplyItem, AcceptSharingInvitation, AddItemToMyCalendar, ProposeNewTime)
         if ('' !== ($proposeNewTimeChoiceErrorMessage = self::validateProposeNewTimeForChoiceConstraintsFromSetProposeNewTime($proposeNewTime))) {
-            throw new \InvalidArgumentException($proposeNewTimeChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($proposeNewTimeChoiceErrorMessage, __LINE__);
         }
         if (is_null($proposeNewTime) || (is_array($proposeNewTime) && empty($proposeNewTime))) {
             unset($this->ProposeNewTime);
         } else {
             $this->ProposeNewTime = $proposeNewTime;
         }
+        
         return $this;
     }
 }

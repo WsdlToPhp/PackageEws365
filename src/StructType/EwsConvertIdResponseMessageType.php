@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConvertIdResponseMessageType StructType
@@ -19,35 +22,36 @@ class EwsConvertIdResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsAlternateIdBaseType
+     * @var \StructType\EwsAlternateIdBaseType|null
      */
-    public $AlternateId;
+    protected ?\StructType\EwsAlternateIdBaseType $AlternateId = null;
     /**
      * Constructor method for ConvertIdResponseMessageType
      * @uses EwsConvertIdResponseMessageType::setAlternateId()
-     * @param \Ews\StructType\EwsAlternateIdBaseType $alternateId
+     * @param \StructType\EwsAlternateIdBaseType $alternateId
      */
-    public function __construct(\Ews\StructType\EwsAlternateIdBaseType $alternateId = null)
+    public function __construct(?\StructType\EwsAlternateIdBaseType $alternateId = null)
     {
         $this
             ->setAlternateId($alternateId);
     }
     /**
      * Get AlternateId value
-     * @return \Ews\StructType\EwsAlternateIdBaseType|null
+     * @return \StructType\EwsAlternateIdBaseType|null
      */
-    public function getAlternateId()
+    public function getAlternateId(): ?\StructType\EwsAlternateIdBaseType
     {
         return $this->AlternateId;
     }
     /**
      * Set AlternateId value
-     * @param \Ews\StructType\EwsAlternateIdBaseType $alternateId
-     * @return \Ews\StructType\EwsConvertIdResponseMessageType
+     * @param \StructType\EwsAlternateIdBaseType $alternateId
+     * @return \StructType\EwsConvertIdResponseMessageType
      */
-    public function setAlternateId(\Ews\StructType\EwsAlternateIdBaseType $alternateId = null)
+    public function setAlternateId(?\StructType\EwsAlternateIdBaseType $alternateId = null): self
     {
         $this->AlternateId = $alternateId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUnifiedGroupSenderRestrictionsDataType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[]
+     * @var \StructType\EwsUnifiedGroupSenderRestrictionsDataType[]
      */
-    public $Sender;
+    protected array $Sender = [];
     /**
      * Constructor method for ArrayOfUnifiedGroupSenderRestrictionsDataType
      * @uses EwsArrayOfUnifiedGroupSenderRestrictionsDataType::setSender()
-     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
+     * @param \StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
      */
-    public function __construct(array $sender = array())
+    public function __construct(array $sender = [])
     {
         $this
             ->setSender($sender);
     }
     /**
      * Get Sender value
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[]|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType[]
      */
-    public function getSender()
+    public function getSender(): array
     {
         return $this->Sender;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSenderForArrayConstraintsFromSetSender(array $values = array())
+    public static function validateSenderForArrayConstraintsFromSetSender(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
+            if (!$arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem instanceof \StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
                 $invalidValues[] = is_object($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) ? get_class($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem), var_export($arrayOfUnifiedGroupSenderRestrictionsDataTypeSenderItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Sender property can only contain items of type \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Sender property can only contain items of type \StructType\EwsUnifiedGroupSenderRestrictionsDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Sender value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupSenderRestrictionsDataType[] $sender
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
      */
-    public function setSender(array $sender = array())
+    public function setSender(array $sender = []): self
     {
         // validation for constraint: array
         if ('' !== ($senderArrayErrorMessage = self::validateSenderForArrayConstraintsFromSetSender($sender))) {
-            throw new \InvalidArgumentException($senderArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($senderArrayErrorMessage, __LINE__);
         }
         $this->Sender = $sender;
-        return $this;
-    }
-    /**
-     * Add item to Sender value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
-     */
-    public function addToSender(\Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
-            throw new \InvalidArgumentException(sprintf('The Sender property can only contain items of type \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Sender[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUnifiedGroupSenderRestrictionsDataType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUnifiedGroupSenderRestrictionsDataType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUnifiedGroupSenderRestrictionsDataType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUnifiedGroupSenderRestrictionsDataType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsDataType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUnifiedGroupSenderRestrictionsDataType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupSenderRestrictionsDataType $item
+     * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
+     */
+    public function add(\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Sender
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Sender';
     }

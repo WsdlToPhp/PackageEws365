@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CalendarViewType StructType
@@ -18,14 +21,14 @@ class EwsCalendarViewType extends EwsBasePagingType
      * - use: required
      * @var string
      */
-    public $StartDate;
+    protected string $StartDate;
     /**
      * The EndDate
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $EndDate;
+    protected string $EndDate;
     /**
      * Constructor method for CalendarViewType
      * @uses EwsCalendarViewType::setStartDate()
@@ -33,7 +36,7 @@ class EwsCalendarViewType extends EwsBasePagingType
      * @param string $startDate
      * @param string $endDate
      */
-    public function __construct($startDate = null, $endDate = null)
+    public function __construct(string $startDate, string $endDate)
     {
         $this
             ->setStartDate($startDate)
@@ -43,44 +46,46 @@ class EwsCalendarViewType extends EwsBasePagingType
      * Get StartDate value
      * @return string
      */
-    public function getStartDate()
+    public function getStartDate(): string
     {
         return $this->StartDate;
     }
     /**
      * Set StartDate value
      * @param string $startDate
-     * @return \Ews\StructType\EwsCalendarViewType
+     * @return \StructType\EwsCalendarViewType
      */
-    public function setStartDate($startDate = null)
+    public function setStartDate(string $startDate): self
     {
         // validation for constraint: string
         if (!is_null($startDate) && !is_string($startDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDate, true), gettype($startDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startDate, true), gettype($startDate)), __LINE__);
         }
         $this->StartDate = $startDate;
+        
         return $this;
     }
     /**
      * Get EndDate value
      * @return string
      */
-    public function getEndDate()
+    public function getEndDate(): string
     {
         return $this->EndDate;
     }
     /**
      * Set EndDate value
      * @param string $endDate
-     * @return \Ews\StructType\EwsCalendarViewType
+     * @return \StructType\EwsCalendarViewType
      */
-    public function setEndDate($endDate = null)
+    public function setEndDate(string $endDate): self
     {
         // validation for constraint: string
         if (!is_null($endDate) && !is_string($endDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endDate, true), gettype($endDate)), __LINE__);
         }
         $this->EndDate = $endDate;
+        
         return $this;
     }
 }

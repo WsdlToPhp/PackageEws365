@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PerformReminderActionResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsPerformReminderActionResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfItemIdsType
      */
-    public $UpdatedItemIds;
+    protected \ArrayType\EwsNonEmptyArrayOfItemIdsType $UpdatedItemIds;
     /**
      * Constructor method for PerformReminderActionResponseMessageType
      * @uses EwsPerformReminderActionResponseMessageType::setUpdatedItemIds()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds
+     * @param \ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds)
     {
         $this
             ->setUpdatedItemIds($updatedItemIds);
     }
     /**
      * Get UpdatedItemIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType
+     * @return \ArrayType\EwsNonEmptyArrayOfItemIdsType
      */
-    public function getUpdatedItemIds()
+    public function getUpdatedItemIds(): \ArrayType\EwsNonEmptyArrayOfItemIdsType
     {
         return $this->UpdatedItemIds;
     }
     /**
      * Set UpdatedItemIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds
-     * @return \Ews\StructType\EwsPerformReminderActionResponseMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds
+     * @return \StructType\EwsPerformReminderActionResponseMessageType
      */
-    public function setUpdatedItemIds(\Ews\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds = null)
+    public function setUpdatedItemIds(\ArrayType\EwsNonEmptyArrayOfItemIdsType $updatedItemIds): self
     {
         $this->UpdatedItemIds = $updatedItemIds;
+        
         return $this;
     }
 }

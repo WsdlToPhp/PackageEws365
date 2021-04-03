@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateUnifiedGroupType StructType
@@ -14,36 +17,36 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
 {
     /**
      * The Name
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The Alias
-     * @var string
+     * @var string|null
      */
-    public $Alias;
+    protected ?string $Alias = null;
     /**
      * The AccessType
      * Meta information extracted from the WSDL
      * - ref: t:AccessType
-     * @var string
+     * @var string|null
      */
-    public $AccessType;
+    protected ?string $AccessType = null;
     /**
      * The Description
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * The AutoSubscribeNewMembers
-     * @var bool
+     * @var bool|null
      */
-    public $AutoSubscribeNewMembers;
+    protected ?bool $AutoSubscribeNewMembers = null;
     /**
      * The CultureName
-     * @var string
+     * @var string|null
      */
-    public $CultureName;
+    protected ?string $CultureName = null;
     /**
      * Constructor method for CreateUnifiedGroupType
      * @uses EwsCreateUnifiedGroupType::setName()
@@ -59,7 +62,7 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      * @param bool $autoSubscribeNewMembers
      * @param string $cultureName
      */
-    public function __construct($name = null, $alias = null, $accessType = null, $description = null, $autoSubscribeNewMembers = null, $cultureName = null)
+    public function __construct(?string $name = null, ?string $alias = null, ?string $accessType = null, ?string $description = null, ?bool $autoSubscribeNewMembers = null, ?string $cultureName = null)
     {
         $this
             ->setName($name)
@@ -73,135 +76,141 @@ class EwsCreateUnifiedGroupType extends EwsBaseRequestType
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Alias value
      * @return string|null
      */
-    public function getAlias()
+    public function getAlias(): ?string
     {
         return $this->Alias;
     }
     /**
      * Set Alias value
      * @param string $alias
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setAlias($alias = null)
+    public function setAlias(?string $alias = null): self
     {
         // validation for constraint: string
         if (!is_null($alias) && !is_string($alias)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($alias, true), gettype($alias)), __LINE__);
         }
         $this->Alias = $alias;
+        
         return $this;
     }
     /**
      * Get AccessType value
      * @return string|null
      */
-    public function getAccessType()
+    public function getAccessType(): ?string
     {
         return $this->AccessType;
     }
     /**
      * Set AccessType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupAccessType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupAccessType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $accessType
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setAccessType($accessType = null)
+    public function setAccessType(?string $accessType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupAccessType::valueIsValid($accessType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupAccessType', is_array($accessType) ? implode(', ', $accessType) : var_export($accessType, true), implode(', ', \EnumType\EwsUnifiedGroupAccessType::getValidValues())), __LINE__);
         }
         $this->AccessType = $accessType;
+        
         return $this;
     }
     /**
      * Get Description value
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->Description;
     }
     /**
      * Set Description value
      * @param string $description
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
+        
         return $this;
     }
     /**
      * Get AutoSubscribeNewMembers value
      * @return bool|null
      */
-    public function getAutoSubscribeNewMembers()
+    public function getAutoSubscribeNewMembers(): ?bool
     {
         return $this->AutoSubscribeNewMembers;
     }
     /**
      * Set AutoSubscribeNewMembers value
      * @param bool $autoSubscribeNewMembers
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setAutoSubscribeNewMembers($autoSubscribeNewMembers = null)
+    public function setAutoSubscribeNewMembers(?bool $autoSubscribeNewMembers = null): self
     {
         // validation for constraint: boolean
         if (!is_null($autoSubscribeNewMembers) && !is_bool($autoSubscribeNewMembers)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($autoSubscribeNewMembers, true), gettype($autoSubscribeNewMembers)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($autoSubscribeNewMembers, true), gettype($autoSubscribeNewMembers)), __LINE__);
         }
         $this->AutoSubscribeNewMembers = $autoSubscribeNewMembers;
+        
         return $this;
     }
     /**
      * Get CultureName value
      * @return string|null
      */
-    public function getCultureName()
+    public function getCultureName(): ?string
     {
         return $this->CultureName;
     }
     /**
      * Set CultureName value
      * @param string $cultureName
-     * @return \Ews\StructType\EwsCreateUnifiedGroupType
+     * @return \StructType\EwsCreateUnifiedGroupType
      */
-    public function setCultureName($cultureName = null)
+    public function setCultureName(?string $cultureName = null): self
     {
         // validation for constraint: string
         if (!is_null($cultureName) && !is_string($cultureName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cultureName, true), gettype($cultureName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($cultureName, true), gettype($cultureName)), __LINE__);
         }
         $this->CultureName = $cultureName;
+        
         return $this;
     }
 }

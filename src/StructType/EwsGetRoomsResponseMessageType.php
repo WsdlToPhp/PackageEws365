@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetRoomsResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetRoomsResponseMessageType extends EwsResponseMessageType
      * The Rooms
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRoomsType
+     * @var \ArrayType\EwsArrayOfRoomsType|null
      */
-    public $Rooms;
+    protected ?\ArrayType\EwsArrayOfRoomsType $Rooms = null;
     /**
      * Constructor method for GetRoomsResponseMessageType
      * @uses EwsGetRoomsResponseMessageType::setRooms()
-     * @param \Ews\ArrayType\EwsArrayOfRoomsType $rooms
+     * @param \ArrayType\EwsArrayOfRoomsType $rooms
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfRoomsType $rooms = null)
+    public function __construct(?\ArrayType\EwsArrayOfRoomsType $rooms = null)
     {
         $this
             ->setRooms($rooms);
     }
     /**
      * Get Rooms value
-     * @return \Ews\ArrayType\EwsArrayOfRoomsType|null
+     * @return \ArrayType\EwsArrayOfRoomsType|null
      */
-    public function getRooms()
+    public function getRooms(): ?\ArrayType\EwsArrayOfRoomsType
     {
         return $this->Rooms;
     }
     /**
      * Set Rooms value
-     * @param \Ews\ArrayType\EwsArrayOfRoomsType $rooms
-     * @return \Ews\StructType\EwsGetRoomsResponseMessageType
+     * @param \ArrayType\EwsArrayOfRoomsType $rooms
+     * @return \StructType\EwsGetRoomsResponseMessageType
      */
-    public function setRooms(\Ews\ArrayType\EwsArrayOfRoomsType $rooms = null)
+    public function setRooms(?\ArrayType\EwsArrayOfRoomsType $rooms = null): self
     {
         $this->Rooms = $rooms;
+        
         return $this;
     }
 }

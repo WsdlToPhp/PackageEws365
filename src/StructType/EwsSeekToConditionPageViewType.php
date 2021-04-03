@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SeekToConditionPageViewType StructType
@@ -16,24 +19,24 @@ class EwsSeekToConditionPageViewType extends EwsBasePagingType
      * The Condition
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsRestrictionType
+     * @var \StructType\EwsRestrictionType
      */
-    public $Condition;
+    protected \StructType\EwsRestrictionType $Condition;
     /**
      * The BasePoint
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $BasePoint;
+    protected string $BasePoint;
     /**
      * Constructor method for SeekToConditionPageViewType
      * @uses EwsSeekToConditionPageViewType::setCondition()
      * @uses EwsSeekToConditionPageViewType::setBasePoint()
-     * @param \Ews\StructType\EwsRestrictionType $condition
+     * @param \StructType\EwsRestrictionType $condition
      * @param string $basePoint
      */
-    public function __construct(\Ews\StructType\EwsRestrictionType $condition = null, $basePoint = null)
+    public function __construct(\StructType\EwsRestrictionType $condition, string $basePoint)
     {
         $this
             ->setCondition($condition)
@@ -41,45 +44,47 @@ class EwsSeekToConditionPageViewType extends EwsBasePagingType
     }
     /**
      * Get Condition value
-     * @return \Ews\StructType\EwsRestrictionType
+     * @return \StructType\EwsRestrictionType
      */
-    public function getCondition()
+    public function getCondition(): \StructType\EwsRestrictionType
     {
         return $this->Condition;
     }
     /**
      * Set Condition value
-     * @param \Ews\StructType\EwsRestrictionType $condition
-     * @return \Ews\StructType\EwsSeekToConditionPageViewType
+     * @param \StructType\EwsRestrictionType $condition
+     * @return \StructType\EwsSeekToConditionPageViewType
      */
-    public function setCondition(\Ews\StructType\EwsRestrictionType $condition = null)
+    public function setCondition(\StructType\EwsRestrictionType $condition): self
     {
         $this->Condition = $condition;
+        
         return $this;
     }
     /**
      * Get BasePoint value
      * @return string
      */
-    public function getBasePoint()
+    public function getBasePoint(): string
     {
         return $this->BasePoint;
     }
     /**
      * Set BasePoint value
-     * @uses \Ews\EnumType\EwsIndexBasePointType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIndexBasePointType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIndexBasePointType::valueIsValid()
+     * @uses \EnumType\EwsIndexBasePointType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $basePoint
-     * @return \Ews\StructType\EwsSeekToConditionPageViewType
+     * @return \StructType\EwsSeekToConditionPageViewType
      */
-    public function setBasePoint($basePoint = null)
+    public function setBasePoint(string $basePoint): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIndexBasePointType', is_array($basePoint) ? implode(', ', $basePoint) : var_export($basePoint, true), implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIndexBasePointType', is_array($basePoint) ? implode(', ', $basePoint) : var_export($basePoint, true), implode(', ', \EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
         }
         $this->BasePoint = $basePoint;
+        
         return $this;
     }
 }

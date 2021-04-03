@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUrlEntitiesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUrlEntityType[]
+     * @var \StructType\EwsUrlEntityType[]
      */
-    public $UrlEntity;
+    protected array $UrlEntity = [];
     /**
      * Constructor method for ArrayOfUrlEntitiesType
      * @uses EwsArrayOfUrlEntitiesType::setUrlEntity()
-     * @param \Ews\StructType\EwsUrlEntityType[] $urlEntity
+     * @param \StructType\EwsUrlEntityType[] $urlEntity
      */
-    public function __construct(array $urlEntity = array())
+    public function __construct(array $urlEntity = [])
     {
         $this
             ->setUrlEntity($urlEntity);
     }
     /**
      * Get UrlEntity value
-     * @return \Ews\StructType\EwsUrlEntityType[]|null
+     * @return \StructType\EwsUrlEntityType[]
      */
-    public function getUrlEntity()
+    public function getUrlEntity(): array
     {
         return $this->UrlEntity;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUrlEntityForArrayConstraintsFromSetUrlEntity(array $values = array())
+    public static function validateUrlEntityForArrayConstraintsFromSetUrlEntity(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUrlEntitiesTypeUrlEntityItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUrlEntitiesTypeUrlEntityItem instanceof \Ews\StructType\EwsUrlEntityType) {
+            if (!$arrayOfUrlEntitiesTypeUrlEntityItem instanceof \StructType\EwsUrlEntityType) {
                 $invalidValues[] = is_object($arrayOfUrlEntitiesTypeUrlEntityItem) ? get_class($arrayOfUrlEntitiesTypeUrlEntityItem) : sprintf('%s(%s)', gettype($arrayOfUrlEntitiesTypeUrlEntityItem), var_export($arrayOfUrlEntitiesTypeUrlEntityItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The UrlEntity property can only contain items of type \Ews\StructType\EwsUrlEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The UrlEntity property can only contain items of type \StructType\EwsUrlEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set UrlEntity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUrlEntityType[] $urlEntity
-     * @return \Ews\ArrayType\EwsArrayOfUrlEntitiesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUrlEntityType[] $urlEntity
+     * @return \ArrayType\EwsArrayOfUrlEntitiesType
      */
-    public function setUrlEntity(array $urlEntity = array())
+    public function setUrlEntity(array $urlEntity = []): self
     {
         // validation for constraint: array
         if ('' !== ($urlEntityArrayErrorMessage = self::validateUrlEntityForArrayConstraintsFromSetUrlEntity($urlEntity))) {
-            throw new \InvalidArgumentException($urlEntityArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($urlEntityArrayErrorMessage, __LINE__);
         }
         $this->UrlEntity = $urlEntity;
-        return $this;
-    }
-    /**
-     * Add item to UrlEntity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUrlEntityType $item
-     * @return \Ews\ArrayType\EwsArrayOfUrlEntitiesType
-     */
-    public function addToUrlEntity(\Ews\StructType\EwsUrlEntityType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUrlEntityType) {
-            throw new \InvalidArgumentException(sprintf('The UrlEntity property can only contain items of type \Ews\StructType\EwsUrlEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->UrlEntity[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUrlEntityType|null
+     * @return \StructType\EwsUrlEntityType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUrlEntityType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUrlEntityType|null
+     * @return \StructType\EwsUrlEntityType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUrlEntityType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUrlEntityType|null
+     * @return \StructType\EwsUrlEntityType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUrlEntityType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUrlEntityType|null
+     * @return \StructType\EwsUrlEntityType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUrlEntityType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUrlEntitiesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUrlEntityType|null
+     * @return \StructType\EwsUrlEntityType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUrlEntityType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUrlEntityType $item
+     * @return \ArrayType\EwsArrayOfUrlEntitiesType
+     */
+    public function add(\StructType\EwsUrlEntityType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string UrlEntity
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'UrlEntity';
     }

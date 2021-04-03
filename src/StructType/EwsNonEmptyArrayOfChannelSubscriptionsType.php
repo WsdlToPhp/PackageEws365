@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfChannelSubscriptionsType StructType
@@ -18,48 +21,48 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * - choice: UnifiedGroupUnseenChangedSubscription | UnifiedGroupContentChangedSubscription | UserMembershipChangedSubscription | NewSocialActivityAddedSubscription
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType
+     * @var \StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType|null
      */
-    public $UnifiedGroupUnseenChangedSubscription;
+    protected ?\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $UnifiedGroupUnseenChangedSubscription = null;
     /**
      * The UnifiedGroupContentChangedSubscription
      * Meta information extracted from the WSDL
      * - choice: UnifiedGroupUnseenChangedSubscription | UnifiedGroupContentChangedSubscription | UserMembershipChangedSubscription | NewSocialActivityAddedSubscription
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType
+     * @var \StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType|null
      */
-    public $UnifiedGroupContentChangedSubscription;
+    protected ?\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $UnifiedGroupContentChangedSubscription = null;
     /**
      * The UserMembershipChangedSubscription
      * Meta information extracted from the WSDL
      * - choice: UnifiedGroupUnseenChangedSubscription | UnifiedGroupContentChangedSubscription | UserMembershipChangedSubscription | NewSocialActivityAddedSubscription
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType
+     * @var \StructType\EwsUserMembershipChangedChannelSubscriptionType|null
      */
-    public $UserMembershipChangedSubscription;
+    protected ?\StructType\EwsUserMembershipChangedChannelSubscriptionType $UserMembershipChangedSubscription = null;
     /**
      * The NewSocialActivityAddedSubscription
      * Meta information extracted from the WSDL
      * - choice: UnifiedGroupUnseenChangedSubscription | UnifiedGroupContentChangedSubscription | UserMembershipChangedSubscription | NewSocialActivityAddedSubscription
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType
+     * @var \StructType\EwsNewSocialActivityAddedSubscriptionType|null
      */
-    public $NewSocialActivityAddedSubscription;
+    protected ?\StructType\EwsNewSocialActivityAddedSubscriptionType $NewSocialActivityAddedSubscription = null;
     /**
      * Constructor method for NonEmptyArrayOfChannelSubscriptionsType
      * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupUnseenChangedSubscription()
      * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUnifiedGroupContentChangedSubscription()
      * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setUserMembershipChangedSubscription()
      * @uses EwsNonEmptyArrayOfChannelSubscriptionsType::setNewSocialActivityAddedSubscription()
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
-     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
+     * @param \StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
+     * @param \StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
+     * @param \StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
+     * @param \StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null, \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null, \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null, \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null)
+    public function __construct(?\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null, ?\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null, ?\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null, ?\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null)
     {
         $this
             ->setUnifiedGroupUnseenChangedSubscription($unifiedGroupUnseenChangedSubscription)
@@ -69,9 +72,9 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
     }
     /**
      * Get UnifiedGroupUnseenChangedSubscription value
-     * @return \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType|null
+     * @return \StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType|null
      */
-    public function getUnifiedGroupUnseenChangedSubscription()
+    public function getUnifiedGroupUnseenChangedSubscription(): ?\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType
     {
         return isset($this->UnifiedGroupUnseenChangedSubscription) ? $this->UnifiedGroupUnseenChangedSubscription : null;
     }
@@ -82,7 +85,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnifiedGroupUnseenChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupUnseenChangedSubscription($value)
+    public function validateUnifiedGroupUnseenChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupUnseenChangedSubscription($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -96,12 +99,13 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnifiedGroupUnseenChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupUnseenChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnifiedGroupUnseenChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupUnseenChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -109,28 +113,29 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription
+     * @return \StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
-    public function setUnifiedGroupUnseenChangedSubscription(\Ews\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null)
+    public function setUnifiedGroupUnseenChangedSubscription(?\StructType\EwsUnifiedGroupUnseenChangedChannelSubscriptionType $unifiedGroupUnseenChangedSubscription = null): self
     {
         // validation for constraint: choice(UnifiedGroupUnseenChangedSubscription, UnifiedGroupContentChangedSubscription, UserMembershipChangedSubscription, NewSocialActivityAddedSubscription)
         if ('' !== ($unifiedGroupUnseenChangedSubscriptionChoiceErrorMessage = self::validateUnifiedGroupUnseenChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupUnseenChangedSubscription($unifiedGroupUnseenChangedSubscription))) {
-            throw new \InvalidArgumentException($unifiedGroupUnseenChangedSubscriptionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unifiedGroupUnseenChangedSubscriptionChoiceErrorMessage, __LINE__);
         }
         if (is_null($unifiedGroupUnseenChangedSubscription) || (is_array($unifiedGroupUnseenChangedSubscription) && empty($unifiedGroupUnseenChangedSubscription))) {
             unset($this->UnifiedGroupUnseenChangedSubscription);
         } else {
             $this->UnifiedGroupUnseenChangedSubscription = $unifiedGroupUnseenChangedSubscription;
         }
+        
         return $this;
     }
     /**
      * Get UnifiedGroupContentChangedSubscription value
-     * @return \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType|null
+     * @return \StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType|null
      */
-    public function getUnifiedGroupContentChangedSubscription()
+    public function getUnifiedGroupContentChangedSubscription(): ?\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType
     {
         return isset($this->UnifiedGroupContentChangedSubscription) ? $this->UnifiedGroupContentChangedSubscription : null;
     }
@@ -141,7 +146,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnifiedGroupContentChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupContentChangedSubscription($value)
+    public function validateUnifiedGroupContentChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupContentChangedSubscription($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -155,12 +160,13 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnifiedGroupContentChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupContentChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnifiedGroupContentChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UnifiedGroupContentChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -168,28 +174,29 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription
+     * @return \StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
-    public function setUnifiedGroupContentChangedSubscription(\Ews\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null)
+    public function setUnifiedGroupContentChangedSubscription(?\StructType\EwsUnifiedGroupContentChangedChannelSubscriptionType $unifiedGroupContentChangedSubscription = null): self
     {
         // validation for constraint: choice(UnifiedGroupUnseenChangedSubscription, UnifiedGroupContentChangedSubscription, UserMembershipChangedSubscription, NewSocialActivityAddedSubscription)
         if ('' !== ($unifiedGroupContentChangedSubscriptionChoiceErrorMessage = self::validateUnifiedGroupContentChangedSubscriptionForChoiceConstraintsFromSetUnifiedGroupContentChangedSubscription($unifiedGroupContentChangedSubscription))) {
-            throw new \InvalidArgumentException($unifiedGroupContentChangedSubscriptionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unifiedGroupContentChangedSubscriptionChoiceErrorMessage, __LINE__);
         }
         if (is_null($unifiedGroupContentChangedSubscription) || (is_array($unifiedGroupContentChangedSubscription) && empty($unifiedGroupContentChangedSubscription))) {
             unset($this->UnifiedGroupContentChangedSubscription);
         } else {
             $this->UnifiedGroupContentChangedSubscription = $unifiedGroupContentChangedSubscription;
         }
+        
         return $this;
     }
     /**
      * Get UserMembershipChangedSubscription value
-     * @return \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType|null
+     * @return \StructType\EwsUserMembershipChangedChannelSubscriptionType|null
      */
-    public function getUserMembershipChangedSubscription()
+    public function getUserMembershipChangedSubscription(): ?\StructType\EwsUserMembershipChangedChannelSubscriptionType
     {
         return isset($this->UserMembershipChangedSubscription) ? $this->UserMembershipChangedSubscription : null;
     }
@@ -200,7 +207,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUserMembershipChangedSubscriptionForChoiceConstraintsFromSetUserMembershipChangedSubscription($value)
+    public function validateUserMembershipChangedSubscriptionForChoiceConstraintsFromSetUserMembershipChangedSubscription($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -214,12 +221,13 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UserMembershipChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UserMembershipChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UserMembershipChangedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: UserMembershipChangedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -227,28 +235,29 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription
+     * @return \StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
-    public function setUserMembershipChangedSubscription(\Ews\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null)
+    public function setUserMembershipChangedSubscription(?\StructType\EwsUserMembershipChangedChannelSubscriptionType $userMembershipChangedSubscription = null): self
     {
         // validation for constraint: choice(UnifiedGroupUnseenChangedSubscription, UnifiedGroupContentChangedSubscription, UserMembershipChangedSubscription, NewSocialActivityAddedSubscription)
         if ('' !== ($userMembershipChangedSubscriptionChoiceErrorMessage = self::validateUserMembershipChangedSubscriptionForChoiceConstraintsFromSetUserMembershipChangedSubscription($userMembershipChangedSubscription))) {
-            throw new \InvalidArgumentException($userMembershipChangedSubscriptionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($userMembershipChangedSubscriptionChoiceErrorMessage, __LINE__);
         }
         if (is_null($userMembershipChangedSubscription) || (is_array($userMembershipChangedSubscription) && empty($userMembershipChangedSubscription))) {
             unset($this->UserMembershipChangedSubscription);
         } else {
             $this->UserMembershipChangedSubscription = $userMembershipChangedSubscription;
         }
+        
         return $this;
     }
     /**
      * Get NewSocialActivityAddedSubscription value
-     * @return \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType|null
+     * @return \StructType\EwsNewSocialActivityAddedSubscriptionType|null
      */
-    public function getNewSocialActivityAddedSubscription()
+    public function getNewSocialActivityAddedSubscription(): ?\StructType\EwsNewSocialActivityAddedSubscriptionType
     {
         return isset($this->NewSocialActivityAddedSubscription) ? $this->NewSocialActivityAddedSubscription : null;
     }
@@ -259,7 +268,7 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateNewSocialActivityAddedSubscriptionForChoiceConstraintsFromSetNewSocialActivityAddedSubscription($value)
+    public function validateNewSocialActivityAddedSubscriptionForChoiceConstraintsFromSetNewSocialActivityAddedSubscription($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -273,12 +282,13 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property NewSocialActivityAddedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: NewSocialActivityAddedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property NewSocialActivityAddedSubscription can\'t be set as the property %s is already set. Only one property must be set among these properties: NewSocialActivityAddedSubscription, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -286,21 +296,22 @@ class EwsNonEmptyArrayOfChannelSubscriptionsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
-     * @return \Ews\StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription
+     * @return \StructType\EwsNonEmptyArrayOfChannelSubscriptionsType
      */
-    public function setNewSocialActivityAddedSubscription(\Ews\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null)
+    public function setNewSocialActivityAddedSubscription(?\StructType\EwsNewSocialActivityAddedSubscriptionType $newSocialActivityAddedSubscription = null): self
     {
         // validation for constraint: choice(UnifiedGroupUnseenChangedSubscription, UnifiedGroupContentChangedSubscription, UserMembershipChangedSubscription, NewSocialActivityAddedSubscription)
         if ('' !== ($newSocialActivityAddedSubscriptionChoiceErrorMessage = self::validateNewSocialActivityAddedSubscriptionForChoiceConstraintsFromSetNewSocialActivityAddedSubscription($newSocialActivityAddedSubscription))) {
-            throw new \InvalidArgumentException($newSocialActivityAddedSubscriptionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($newSocialActivityAddedSubscriptionChoiceErrorMessage, __LINE__);
         }
         if (is_null($newSocialActivityAddedSubscription) || (is_array($newSocialActivityAddedSubscription) && empty($newSocialActivityAddedSubscription))) {
             unset($this->NewSocialActivityAddedSubscription);
         } else {
             $this->NewSocialActivityAddedSubscription = $newSocialActivityAddedSubscription;
         }
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResetUMMailboxType StructType
@@ -19,13 +22,13 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var bool
      */
-    public $KeepProperties;
+    protected bool $KeepProperties;
     /**
      * Constructor method for ResetUMMailboxType
      * @uses EwsResetUMMailboxType::setKeepProperties()
      * @param bool $keepProperties
      */
-    public function __construct($keepProperties = null)
+    public function __construct(bool $keepProperties)
     {
         $this
             ->setKeepProperties($keepProperties);
@@ -34,22 +37,23 @@ class EwsResetUMMailboxType extends EwsBaseRequestType
      * Get KeepProperties value
      * @return bool
      */
-    public function getKeepProperties()
+    public function getKeepProperties(): bool
     {
         return $this->KeepProperties;
     }
     /**
      * Set KeepProperties value
      * @param bool $keepProperties
-     * @return \Ews\StructType\EwsResetUMMailboxType
+     * @return \StructType\EwsResetUMMailboxType
      */
-    public function setKeepProperties($keepProperties = null)
+    public function setKeepProperties(bool $keepProperties): self
     {
         // validation for constraint: boolean
         if (!is_null($keepProperties) && !is_bool($keepProperties)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($keepProperties, true), gettype($keepProperties)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($keepProperties, true), gettype($keepProperties)), __LINE__);
         }
         $this->KeepProperties = $keepProperties;
+        
         return $this;
     }
 }

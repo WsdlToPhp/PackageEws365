@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUnifiedGroupsSetsType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfUnifiedGroupsSetsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupsSetType[]
+     * @var \StructType\EwsUnifiedGroupsSetType[]
      */
-    public $UnifiedGroupsSet;
+    protected array $UnifiedGroupsSet = [];
     /**
      * Constructor method for ArrayOfUnifiedGroupsSetsType
      * @uses EwsArrayOfUnifiedGroupsSetsType::setUnifiedGroupsSet()
-     * @param \Ews\StructType\EwsUnifiedGroupsSetType[] $unifiedGroupsSet
+     * @param \StructType\EwsUnifiedGroupsSetType[] $unifiedGroupsSet
      */
-    public function __construct(array $unifiedGroupsSet = array())
+    public function __construct(array $unifiedGroupsSet = [])
     {
         $this
             ->setUnifiedGroupsSet($unifiedGroupsSet);
     }
     /**
      * Get UnifiedGroupsSet value
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType[]|null
+     * @return \StructType\EwsUnifiedGroupsSetType[]
      */
-    public function getUnifiedGroupsSet()
+    public function getUnifiedGroupsSet(): array
     {
         return $this->UnifiedGroupsSet;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfUnifiedGroupsSetsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUnifiedGroupsSetForArrayConstraintsFromSetUnifiedGroupsSet(array $values = array())
+    public static function validateUnifiedGroupsSetForArrayConstraintsFromSetUnifiedGroupsSet(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem instanceof \Ews\StructType\EwsUnifiedGroupsSetType) {
+            if (!$arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem instanceof \StructType\EwsUnifiedGroupsSetType) {
                 $invalidValues[] = is_object($arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem) ? get_class($arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem), var_export($arrayOfUnifiedGroupsSetsTypeUnifiedGroupsSetItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The UnifiedGroupsSet property can only contain items of type \Ews\StructType\EwsUnifiedGroupsSetType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The UnifiedGroupsSet property can only contain items of type \StructType\EwsUnifiedGroupsSetType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set UnifiedGroupsSet value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupsSetType[] $unifiedGroupsSet
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupsSetType[] $unifiedGroupsSet
+     * @return \ArrayType\EwsArrayOfUnifiedGroupsSetsType
      */
-    public function setUnifiedGroupsSet(array $unifiedGroupsSet = array())
+    public function setUnifiedGroupsSet(array $unifiedGroupsSet = []): self
     {
         // validation for constraint: array
         if ('' !== ($unifiedGroupsSetArrayErrorMessage = self::validateUnifiedGroupsSetForArrayConstraintsFromSetUnifiedGroupsSet($unifiedGroupsSet))) {
-            throw new \InvalidArgumentException($unifiedGroupsSetArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unifiedGroupsSetArrayErrorMessage, __LINE__);
         }
         $this->UnifiedGroupsSet = $unifiedGroupsSet;
-        return $this;
-    }
-    /**
-     * Add item to UnifiedGroupsSet value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupsSetType $item
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsSetsType
-     */
-    public function addToUnifiedGroupsSet(\Ews\StructType\EwsUnifiedGroupsSetType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupsSetType) {
-            throw new \InvalidArgumentException(sprintf('The UnifiedGroupsSet property can only contain items of type \Ews\StructType\EwsUnifiedGroupsSetType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->UnifiedGroupsSet[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType|null
+     * @return \StructType\EwsUnifiedGroupsSetType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUnifiedGroupsSetType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfUnifiedGroupsSetsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType|null
+     * @return \StructType\EwsUnifiedGroupsSetType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUnifiedGroupsSetType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType|null
+     * @return \StructType\EwsUnifiedGroupsSetType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUnifiedGroupsSetType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType|null
+     * @return \StructType\EwsUnifiedGroupsSetType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUnifiedGroupsSetType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfUnifiedGroupsSetsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType|null
+     * @return \StructType\EwsUnifiedGroupsSetType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUnifiedGroupsSetType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupsSetType $item
+     * @return \ArrayType\EwsArrayOfUnifiedGroupsSetsType
+     */
+    public function add(\StructType\EwsUnifiedGroupsSetType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string UnifiedGroupsSet
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'UnifiedGroupsSet';
     }

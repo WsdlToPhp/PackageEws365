@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateXrmActivityStreamType StructType
@@ -17,25 +20,25 @@ class EwsUpdateXrmActivityStreamType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmActivityStreamType
+     * @var \StructType\EwsXrmActivityStreamType
      */
-    public $Activity;
+    protected \StructType\EwsXrmActivityStreamType $Activity;
     /**
      * The EntityId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $EntityId;
+    protected \StructType\EwsItemIdType $EntityId;
     /**
      * Constructor method for UpdateXrmActivityStreamType
      * @uses EwsUpdateXrmActivityStreamType::setActivity()
      * @uses EwsUpdateXrmActivityStreamType::setEntityId()
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
-     * @param \Ews\StructType\EwsItemIdType $entityId
+     * @param \StructType\EwsXrmActivityStreamType $activity
+     * @param \StructType\EwsItemIdType $entityId
      */
-    public function __construct(\Ews\StructType\EwsXrmActivityStreamType $activity = null, \Ews\StructType\EwsItemIdType $entityId = null)
+    public function __construct(\StructType\EwsXrmActivityStreamType $activity, \StructType\EwsItemIdType $entityId)
     {
         $this
             ->setActivity($activity)
@@ -43,38 +46,40 @@ class EwsUpdateXrmActivityStreamType extends EwsBaseRequestType
     }
     /**
      * Get Activity value
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function getActivity()
+    public function getActivity(): \StructType\EwsXrmActivityStreamType
     {
         return $this->Activity;
     }
     /**
      * Set Activity value
-     * @param \Ews\StructType\EwsXrmActivityStreamType $activity
-     * @return \Ews\StructType\EwsUpdateXrmActivityStreamType
+     * @param \StructType\EwsXrmActivityStreamType $activity
+     * @return \StructType\EwsUpdateXrmActivityStreamType
      */
-    public function setActivity(\Ews\StructType\EwsXrmActivityStreamType $activity = null)
+    public function setActivity(\StructType\EwsXrmActivityStreamType $activity): self
     {
         $this->Activity = $activity;
+        
         return $this;
     }
     /**
      * Get EntityId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getEntityId()
+    public function getEntityId(): \StructType\EwsItemIdType
     {
         return $this->EntityId;
     }
     /**
      * Set EntityId value
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @return \Ews\StructType\EwsUpdateXrmActivityStreamType
+     * @param \StructType\EwsItemIdType $entityId
+     * @return \StructType\EwsUpdateXrmActivityStreamType
      */
-    public function setEntityId(\Ews\StructType\EwsItemIdType $entityId = null)
+    public function setEntityId(\StructType\EwsItemIdType $entityId): self
     {
         $this->EntityId = $entityId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetOMEConfigurationType StructType
@@ -17,15 +20,15 @@ class EwsSetOMEConfigurationType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Xml;
+    protected ?string $Xml = null;
     /**
      * Constructor method for SetOMEConfigurationType
      * @uses EwsSetOMEConfigurationType::setXml()
      * @param string $xml
      */
-    public function __construct($xml = null)
+    public function __construct(?string $xml = null)
     {
         $this
             ->setXml($xml);
@@ -34,22 +37,23 @@ class EwsSetOMEConfigurationType extends EwsBaseRequestType
      * Get Xml value
      * @return string|null
      */
-    public function getXml()
+    public function getXml(): ?string
     {
         return $this->Xml;
     }
     /**
      * Set Xml value
      * @param string $xml
-     * @return \Ews\StructType\EwsSetOMEConfigurationType
+     * @return \StructType\EwsSetOMEConfigurationType
      */
-    public function setXml($xml = null)
+    public function setXml(?string $xml = null): self
     {
         // validation for constraint: string
         if (!is_null($xml) && !is_string($xml)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xml, true), gettype($xml)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($xml, true), gettype($xml)), __LINE__);
         }
         $this->Xml = $xml;
+        
         return $this;
     }
 }

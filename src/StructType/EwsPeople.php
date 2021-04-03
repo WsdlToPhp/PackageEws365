@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for People StructType
@@ -17,24 +20,24 @@ class EwsPeople extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonaType[]
+     * @var \StructType\EwsPersonaType[]
      */
-    public $Persona;
+    protected array $Persona = [];
     /**
      * Constructor method for People
      * @uses EwsPeople::setPersona()
-     * @param \Ews\StructType\EwsPersonaType[] $persona
+     * @param \StructType\EwsPersonaType[] $persona
      */
-    public function __construct(array $persona = array())
+    public function __construct(array $persona = [])
     {
         $this
             ->setPersona($persona);
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType[]|null
+     * @return \StructType\EwsPersonaType[]
      */
-    public function getPersona()
+    public function getPersona(): array
     {
         return $this->Persona;
     }
@@ -44,50 +47,53 @@ class EwsPeople extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePersonaForArrayConstraintsFromSetPersona(array $values = array())
+    public static function validatePersonaForArrayConstraintsFromSetPersona(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $peoplePersonaItem) {
             // validation for constraint: itemType
-            if (!$peoplePersonaItem instanceof \Ews\StructType\EwsPersonaType) {
+            if (!$peoplePersonaItem instanceof \StructType\EwsPersonaType) {
                 $invalidValues[] = is_object($peoplePersonaItem) ? get_class($peoplePersonaItem) : sprintf('%s(%s)', gettype($peoplePersonaItem), var_export($peoplePersonaItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Persona property can only contain items of type \Ews\StructType\EwsPersonaType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Persona property can only contain items of type \StructType\EwsPersonaType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Persona value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPersonaType[] $persona
-     * @return \Ews\StructType\EwsPeople
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaType[] $persona
+     * @return \StructType\EwsPeople
      */
-    public function setPersona(array $persona = array())
+    public function setPersona(array $persona = []): self
     {
         // validation for constraint: array
         if ('' !== ($personaArrayErrorMessage = self::validatePersonaForArrayConstraintsFromSetPersona($persona))) {
-            throw new \InvalidArgumentException($personaArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($personaArrayErrorMessage, __LINE__);
         }
         $this->Persona = $persona;
+        
         return $this;
     }
     /**
      * Add item to Persona value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPersonaType $item
-     * @return \Ews\StructType\EwsPeople
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPersonaType $item
+     * @return \StructType\EwsPeople
      */
-    public function addToPersona(\Ews\StructType\EwsPersonaType $item)
+    public function addToPersona(\StructType\EwsPersonaType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPersonaType) {
-            throw new \InvalidArgumentException(sprintf('The Persona property can only contain items of type \Ews\StructType\EwsPersonaType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsPersonaType) {
+            throw new InvalidArgumentException(sprintf('The Persona property can only contain items of type \StructType\EwsPersonaType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Persona[] = $item;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DeliverMeetingRequestsType EnumType
@@ -40,13 +42,13 @@ class EwsDeliverMeetingRequestsType extends AbstractStructEnumBase
      * @uses self::VALUE_NO_FORWARD
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DELEGATES_ONLY,
             self::VALUE_DELEGATES_AND_ME,
             self::VALUE_DELEGATES_AND_SEND_INFORMATION_TO_ME,
             self::VALUE_NO_FORWARD,
-        );
+        ];
     }
 }

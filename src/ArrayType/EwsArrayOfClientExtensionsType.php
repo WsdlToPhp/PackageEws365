@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfClientExtensionsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsClientExtensionType[]
+     * @var \StructType\EwsClientExtensionType[]
      */
-    public $ClientExtension;
+    protected array $ClientExtension = [];
     /**
      * Constructor method for ArrayOfClientExtensionsType
      * @uses EwsArrayOfClientExtensionsType::setClientExtension()
-     * @param \Ews\StructType\EwsClientExtensionType[] $clientExtension
+     * @param \StructType\EwsClientExtensionType[] $clientExtension
      */
-    public function __construct(array $clientExtension = array())
+    public function __construct(array $clientExtension = [])
     {
         $this
             ->setClientExtension($clientExtension);
     }
     /**
      * Get ClientExtension value
-     * @return \Ews\StructType\EwsClientExtensionType[]|null
+     * @return \StructType\EwsClientExtensionType[]
      */
-    public function getClientExtension()
+    public function getClientExtension(): array
     {
         return $this->ClientExtension;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateClientExtensionForArrayConstraintsFromSetClientExtension(array $values = array())
+    public static function validateClientExtensionForArrayConstraintsFromSetClientExtension(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfClientExtensionsTypeClientExtensionItem) {
             // validation for constraint: itemType
-            if (!$arrayOfClientExtensionsTypeClientExtensionItem instanceof \Ews\StructType\EwsClientExtensionType) {
+            if (!$arrayOfClientExtensionsTypeClientExtensionItem instanceof \StructType\EwsClientExtensionType) {
                 $invalidValues[] = is_object($arrayOfClientExtensionsTypeClientExtensionItem) ? get_class($arrayOfClientExtensionsTypeClientExtensionItem) : sprintf('%s(%s)', gettype($arrayOfClientExtensionsTypeClientExtensionItem), var_export($arrayOfClientExtensionsTypeClientExtensionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ClientExtension property can only contain items of type \Ews\StructType\EwsClientExtensionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ClientExtension property can only contain items of type \StructType\EwsClientExtensionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ClientExtension value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsClientExtensionType[] $clientExtension
-     * @return \Ews\ArrayType\EwsArrayOfClientExtensionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsClientExtensionType[] $clientExtension
+     * @return \ArrayType\EwsArrayOfClientExtensionsType
      */
-    public function setClientExtension(array $clientExtension = array())
+    public function setClientExtension(array $clientExtension = []): self
     {
         // validation for constraint: array
         if ('' !== ($clientExtensionArrayErrorMessage = self::validateClientExtensionForArrayConstraintsFromSetClientExtension($clientExtension))) {
-            throw new \InvalidArgumentException($clientExtensionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($clientExtensionArrayErrorMessage, __LINE__);
         }
         $this->ClientExtension = $clientExtension;
-        return $this;
-    }
-    /**
-     * Add item to ClientExtension value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsClientExtensionType $item
-     * @return \Ews\ArrayType\EwsArrayOfClientExtensionsType
-     */
-    public function addToClientExtension(\Ews\StructType\EwsClientExtensionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsClientExtensionType) {
-            throw new \InvalidArgumentException(sprintf('The ClientExtension property can only contain items of type \Ews\StructType\EwsClientExtensionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ClientExtension[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsClientExtensionType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsClientExtensionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsClientExtensionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsClientExtensionType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsClientExtensionType|null
+     * @return \StructType\EwsClientExtensionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsClientExtensionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsClientExtensionType $item
+     * @return \ArrayType\EwsArrayOfClientExtensionsType
+     */
+    public function add(\StructType\EwsClientExtensionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ClientExtension
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ClientExtension';
     }

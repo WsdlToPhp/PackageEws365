@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MessageTrackingReportType StructType
@@ -16,49 +19,49 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * The Sender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Sender;
+    protected ?\StructType\EwsEmailAddressType $Sender = null;
     /**
      * The PurportedSender
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $PurportedSender;
+    protected ?\StructType\EwsEmailAddressType $PurportedSender = null;
     /**
      * The Subject
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The SubmitTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SubmitTime;
+    protected ?string $SubmitTime = null;
     /**
      * The OriginalRecipients
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $OriginalRecipients;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $OriginalRecipients = null;
     /**
      * The RecipientTrackingEvents
-     * @var \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType
+     * @var \ArrayType\EwsArrayOfRecipientTrackingEventType|null
      */
-    public $RecipientTrackingEvents;
+    protected ?\ArrayType\EwsArrayOfRecipientTrackingEventType $RecipientTrackingEvents = null;
     /**
      * The Properties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTrackingPropertiesType
+     * @var \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public $Properties;
+    protected ?\ArrayType\EwsArrayOfTrackingPropertiesType $Properties = null;
     /**
      * Constructor method for MessageTrackingReportType
      * @uses EwsMessageTrackingReportType::setSender()
@@ -68,15 +71,15 @@ class EwsMessageTrackingReportType extends AbstractStructBase
      * @uses EwsMessageTrackingReportType::setOriginalRecipients()
      * @uses EwsMessageTrackingReportType::setRecipientTrackingEvents()
      * @uses EwsMessageTrackingReportType::setProperties()
-     * @param \Ews\StructType\EwsEmailAddressType $sender
-     * @param \Ews\StructType\EwsEmailAddressType $purportedSender
+     * @param \StructType\EwsEmailAddressType $sender
+     * @param \StructType\EwsEmailAddressType $purportedSender
      * @param string $subject
      * @param string $submitTime
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
-     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
+     * @param \ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $sender = null, \Ews\StructType\EwsEmailAddressType $purportedSender = null, $subject = null, $submitTime = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients = null, \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null, \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function __construct(?\StructType\EwsEmailAddressType $sender = null, ?\StructType\EwsEmailAddressType $purportedSender = null, ?string $subject = null, ?string $submitTime = null, ?\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients = null, ?\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null, ?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
     {
         $this
             ->setSender($sender)
@@ -89,136 +92,143 @@ class EwsMessageTrackingReportType extends AbstractStructBase
     }
     /**
      * Get Sender value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getSender()
+    public function getSender(): ?\StructType\EwsEmailAddressType
     {
         return $this->Sender;
     }
     /**
      * Set Sender value
-     * @param \Ews\StructType\EwsEmailAddressType $sender
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @param \StructType\EwsEmailAddressType $sender
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setSender(\Ews\StructType\EwsEmailAddressType $sender = null)
+    public function setSender(?\StructType\EwsEmailAddressType $sender = null): self
     {
         $this->Sender = $sender;
+        
         return $this;
     }
     /**
      * Get PurportedSender value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getPurportedSender()
+    public function getPurportedSender(): ?\StructType\EwsEmailAddressType
     {
         return $this->PurportedSender;
     }
     /**
      * Set PurportedSender value
-     * @param \Ews\StructType\EwsEmailAddressType $purportedSender
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @param \StructType\EwsEmailAddressType $purportedSender
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setPurportedSender(\Ews\StructType\EwsEmailAddressType $purportedSender = null)
+    public function setPurportedSender(?\StructType\EwsEmailAddressType $purportedSender = null): self
     {
         $this->PurportedSender = $purportedSender;
+        
         return $this;
     }
     /**
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get SubmitTime value
      * @return string|null
      */
-    public function getSubmitTime()
+    public function getSubmitTime(): ?string
     {
         return $this->SubmitTime;
     }
     /**
      * Set SubmitTime value
      * @param string $submitTime
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setSubmitTime($submitTime = null)
+    public function setSubmitTime(?string $submitTime = null): self
     {
         // validation for constraint: string
         if (!is_null($submitTime) && !is_string($submitTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($submitTime, true), gettype($submitTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($submitTime, true), gettype($submitTime)), __LINE__);
         }
         $this->SubmitTime = $submitTime;
+        
         return $this;
     }
     /**
      * Get OriginalRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getOriginalRecipients()
+    public function getOriginalRecipients(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->OriginalRecipients;
     }
     /**
      * Set OriginalRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $originalRecipients
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setOriginalRecipients(\Ews\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients = null)
+    public function setOriginalRecipients(?\ArrayType\EwsArrayOfEmailAddressesType $originalRecipients = null): self
     {
         $this->OriginalRecipients = $originalRecipients;
+        
         return $this;
     }
     /**
      * Get RecipientTrackingEvents value
-     * @return \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType|null
+     * @return \ArrayType\EwsArrayOfRecipientTrackingEventType|null
      */
-    public function getRecipientTrackingEvents()
+    public function getRecipientTrackingEvents(): ?\ArrayType\EwsArrayOfRecipientTrackingEventType
     {
         return $this->RecipientTrackingEvents;
     }
     /**
      * Set RecipientTrackingEvents value
-     * @param \Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @param \ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setRecipientTrackingEvents(\Ews\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null)
+    public function setRecipientTrackingEvents(?\ArrayType\EwsArrayOfRecipientTrackingEventType $recipientTrackingEvents = null): self
     {
         $this->RecipientTrackingEvents = $recipientTrackingEvents;
+        
         return $this;
     }
     /**
      * Get Properties value
-     * @return \Ews\ArrayType\EwsArrayOfTrackingPropertiesType|null
+     * @return \ArrayType\EwsArrayOfTrackingPropertiesType|null
      */
-    public function getProperties()
+    public function getProperties(): ?\ArrayType\EwsArrayOfTrackingPropertiesType
     {
         return $this->Properties;
     }
     /**
      * Set Properties value
-     * @param \Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties
-     * @return \Ews\StructType\EwsMessageTrackingReportType
+     * @param \ArrayType\EwsArrayOfTrackingPropertiesType $properties
+     * @return \StructType\EwsMessageTrackingReportType
      */
-    public function setProperties(\Ews\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null)
+    public function setProperties(?\ArrayType\EwsArrayOfTrackingPropertiesType $properties = null): self
     {
         $this->Properties = $properties;
+        
         return $this;
     }
 }

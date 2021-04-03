@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchPreviewItemsType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchPreviewItemType[]
+     * @var \StructType\EwsSearchPreviewItemType[]
      */
-    public $SearchPreviewItem;
+    protected array $SearchPreviewItem = [];
     /**
      * Constructor method for ArrayOfSearchPreviewItemsType
      * @uses EwsArrayOfSearchPreviewItemsType::setSearchPreviewItem()
-     * @param \Ews\StructType\EwsSearchPreviewItemType[] $searchPreviewItem
+     * @param \StructType\EwsSearchPreviewItemType[] $searchPreviewItem
      */
-    public function __construct(array $searchPreviewItem = array())
+    public function __construct(array $searchPreviewItem = [])
     {
         $this
             ->setSearchPreviewItem($searchPreviewItem);
     }
     /**
      * Get SearchPreviewItem value
-     * @return \Ews\StructType\EwsSearchPreviewItemType[]|null
+     * @return \StructType\EwsSearchPreviewItemType[]
      */
-    public function getSearchPreviewItem()
+    public function getSearchPreviewItem(): array
     {
         return $this->SearchPreviewItem;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSearchPreviewItemForArrayConstraintsFromSetSearchPreviewItem(array $values = array())
+    public static function validateSearchPreviewItemForArrayConstraintsFromSetSearchPreviewItem(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) {
             // validation for constraint: itemType
-            if (!$arrayOfSearchPreviewItemsTypeSearchPreviewItemItem instanceof \Ews\StructType\EwsSearchPreviewItemType) {
+            if (!$arrayOfSearchPreviewItemsTypeSearchPreviewItemItem instanceof \StructType\EwsSearchPreviewItemType) {
                 $invalidValues[] = is_object($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) ? get_class($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem) : sprintf('%s(%s)', gettype($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem), var_export($arrayOfSearchPreviewItemsTypeSearchPreviewItemItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The SearchPreviewItem property can only contain items of type \Ews\StructType\EwsSearchPreviewItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The SearchPreviewItem property can only contain items of type \StructType\EwsSearchPreviewItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set SearchPreviewItem value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchPreviewItemType[] $searchPreviewItem
-     * @return \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchPreviewItemType[] $searchPreviewItem
+     * @return \ArrayType\EwsArrayOfSearchPreviewItemsType
      */
-    public function setSearchPreviewItem(array $searchPreviewItem = array())
+    public function setSearchPreviewItem(array $searchPreviewItem = []): self
     {
         // validation for constraint: array
         if ('' !== ($searchPreviewItemArrayErrorMessage = self::validateSearchPreviewItemForArrayConstraintsFromSetSearchPreviewItem($searchPreviewItem))) {
-            throw new \InvalidArgumentException($searchPreviewItemArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchPreviewItemArrayErrorMessage, __LINE__);
         }
         $this->SearchPreviewItem = $searchPreviewItem;
-        return $this;
-    }
-    /**
-     * Add item to SearchPreviewItem value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchPreviewItemType $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchPreviewItemsType
-     */
-    public function addToSearchPreviewItem(\Ews\StructType\EwsSearchPreviewItemType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSearchPreviewItemType) {
-            throw new \InvalidArgumentException(sprintf('The SearchPreviewItem property can only contain items of type \Ews\StructType\EwsSearchPreviewItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->SearchPreviewItem[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsSearchPreviewItemType|null
+     * @return \StructType\EwsSearchPreviewItemType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsSearchPreviewItemType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsSearchPreviewItemType|null
+     * @return \StructType\EwsSearchPreviewItemType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsSearchPreviewItemType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsSearchPreviewItemType|null
+     * @return \StructType\EwsSearchPreviewItemType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsSearchPreviewItemType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsSearchPreviewItemType|null
+     * @return \StructType\EwsSearchPreviewItemType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsSearchPreviewItemType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfSearchPreviewItemsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsSearchPreviewItemType|null
+     * @return \StructType\EwsSearchPreviewItemType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsSearchPreviewItemType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchPreviewItemType $item
+     * @return \ArrayType\EwsArrayOfSearchPreviewItemsType
+     */
+    public function add(\StructType\EwsSearchPreviewItemType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SearchPreviewItem
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SearchPreviewItem';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PersonaAttributionType StructType
@@ -19,15 +22,15 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Id;
+    protected string $Id;
     /**
      * The SourceId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $SourceId;
+    protected \StructType\EwsItemIdType $SourceId;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
@@ -35,39 +38,39 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayName;
+    protected string $DisplayName;
     /**
      * The IsWritable
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsWritable;
+    protected ?bool $IsWritable = null;
     /**
      * The IsQuickContact
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsQuickContact;
+    protected ?bool $IsQuickContact = null;
     /**
      * The IsHidden
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsHidden;
+    protected ?bool $IsHidden = null;
     /**
      * The FolderId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * Constructor method for PersonaAttributionType
      * @uses EwsPersonaAttributionType::setId()
@@ -78,14 +81,14 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * @uses EwsPersonaAttributionType::setIsHidden()
      * @uses EwsPersonaAttributionType::setFolderId()
      * @param string $id
-     * @param \Ews\StructType\EwsItemIdType $sourceId
+     * @param \StructType\EwsItemIdType $sourceId
      * @param string $displayName
      * @param bool $isWritable
      * @param bool $isQuickContact
      * @param bool $isHidden
-     * @param \Ews\StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsFolderIdType $folderId
      */
-    public function __construct($id = null, \Ews\StructType\EwsItemIdType $sourceId = null, $displayName = null, $isWritable = null, $isQuickContact = null, $isHidden = null, \Ews\StructType\EwsFolderIdType $folderId = null)
+    public function __construct(string $id, \StructType\EwsItemIdType $sourceId, string $displayName, ?bool $isWritable = null, ?bool $isQuickContact = null, ?bool $isHidden = null, ?\StructType\EwsFolderIdType $folderId = null)
     {
         $this
             ->setId($id)
@@ -100,146 +103,153 @@ class EwsPersonaAttributionType extends AbstractStructBase
      * Get Id value
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setId($id = null)
+    public function setId(string $id): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get SourceId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getSourceId()
+    public function getSourceId(): \StructType\EwsItemIdType
     {
         return $this->SourceId;
     }
     /**
      * Set SourceId value
-     * @param \Ews\StructType\EwsItemIdType $sourceId
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @param \StructType\EwsItemIdType $sourceId
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setSourceId(\Ews\StructType\EwsItemIdType $sourceId = null)
+    public function setSourceId(\StructType\EwsItemIdType $sourceId): self
     {
         $this->SourceId = $sourceId;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(string $displayName): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get IsWritable value
      * @return bool|null
      */
-    public function getIsWritable()
+    public function getIsWritable(): ?bool
     {
         return $this->IsWritable;
     }
     /**
      * Set IsWritable value
      * @param bool $isWritable
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setIsWritable($isWritable = null)
+    public function setIsWritable(?bool $isWritable = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isWritable) && !is_bool($isWritable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isWritable, true), gettype($isWritable)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isWritable, true), gettype($isWritable)), __LINE__);
         }
         $this->IsWritable = $isWritable;
+        
         return $this;
     }
     /**
      * Get IsQuickContact value
      * @return bool|null
      */
-    public function getIsQuickContact()
+    public function getIsQuickContact(): ?bool
     {
         return $this->IsQuickContact;
     }
     /**
      * Set IsQuickContact value
      * @param bool $isQuickContact
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setIsQuickContact($isQuickContact = null)
+    public function setIsQuickContact(?bool $isQuickContact = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isQuickContact) && !is_bool($isQuickContact)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isQuickContact, true), gettype($isQuickContact)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isQuickContact, true), gettype($isQuickContact)), __LINE__);
         }
         $this->IsQuickContact = $isQuickContact;
+        
         return $this;
     }
     /**
      * Get IsHidden value
      * @return bool|null
      */
-    public function getIsHidden()
+    public function getIsHidden(): ?bool
     {
         return $this->IsHidden;
     }
     /**
      * Set IsHidden value
      * @param bool $isHidden
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setIsHidden($isHidden = null)
+    public function setIsHidden(?bool $isHidden = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isHidden) && !is_bool($isHidden)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isHidden, true), gettype($isHidden)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isHidden, true), gettype($isHidden)), __LINE__);
         }
         $this->IsHidden = $isHidden;
+        
         return $this;
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->FolderId;
     }
     /**
      * Set FolderId value
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsPersonaAttributionType
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsPersonaAttributionType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         $this->FolderId = $folderId;
+        
         return $this;
     }
 }

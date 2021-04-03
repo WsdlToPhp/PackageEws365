@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Remove ServiceType
@@ -15,65 +18,66 @@ class EwsRemove extends SoapClientBase
     /**
      * Sets the ExchangeImpersonation SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation
-     * @param string $nameSpace
+     * @param \StructType\EwsExchangeImpersonationType $exchangeImpersonation
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsRemove
      */
-    public function setSoapHeaderExchangeImpersonation(\Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderExchangeImpersonation(\StructType\EwsExchangeImpersonationType $exchangeImpersonation, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
     }
     /**
      * Sets the MailboxCulture SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsMailboxCultureType $mailboxCulture
-     * @param string $nameSpace
+     * @param \StructType\EwsMailboxCultureType $mailboxCulture
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsRemove
      */
-    public function setSoapHeaderMailboxCulture(\Ews\StructType\EwsMailboxCultureType $mailboxCulture, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderMailboxCulture(\StructType\EwsMailboxCultureType $mailboxCulture, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
     }
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsRemove
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named RemoveDelegate
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsRemoveDelegateType $request
-     * @return \Ews\StructType\EwsRemoveDelegateResponseMessageType|bool
+     * @param \StructType\EwsRemoveDelegateType $request
+     * @return \StructType\EwsRemoveDelegateResponseMessageType|bool
      */
-    public function RemoveDelegate(\Ews\StructType\EwsRemoveDelegateType $request)
+    public function RemoveDelegate(\StructType\EwsRemoveDelegateType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('RemoveDelegate', array(
+            $this->setResult($resultRemoveDelegate = $this->getSoapClient()->__soapCall('RemoveDelegate', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultRemoveDelegate;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -82,24 +86,25 @@ class EwsRemove extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsRemoveImContactFromGroupType $request
-     * @return \Ews\StructType\EwsRemoveImContactFromGroupResponseMessageType|bool
+     * @param \StructType\EwsRemoveImContactFromGroupType $request
+     * @return \StructType\EwsRemoveImContactFromGroupResponseMessageType|bool
      */
-    public function RemoveImContactFromGroup(\Ews\StructType\EwsRemoveImContactFromGroupType $request)
+    public function RemoveImContactFromGroup(\StructType\EwsRemoveImContactFromGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('RemoveImContactFromGroup', array(
+            $this->setResult($resultRemoveImContactFromGroup = $this->getSoapClient()->__soapCall('RemoveImContactFromGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultRemoveImContactFromGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -108,24 +113,25 @@ class EwsRemove extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsRemoveContactFromImListType $request
-     * @return \Ews\StructType\EwsRemoveContactFromImListResponseMessageType|bool
+     * @param \StructType\EwsRemoveContactFromImListType $request
+     * @return \StructType\EwsRemoveContactFromImListResponseMessageType|bool
      */
-    public function RemoveContactFromImList(\Ews\StructType\EwsRemoveContactFromImListType $request)
+    public function RemoveContactFromImList(\StructType\EwsRemoveContactFromImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('RemoveContactFromImList', array(
+            $this->setResult($resultRemoveContactFromImList = $this->getSoapClient()->__soapCall('RemoveContactFromImList', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultRemoveContactFromImList;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -134,24 +140,25 @@ class EwsRemove extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsRemoveDistributionGroupFromImListType $request
-     * @return \Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|bool
+     * @param \StructType\EwsRemoveDistributionGroupFromImListType $request
+     * @return \StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|bool
      */
-    public function RemoveDistributionGroupFromImList(\Ews\StructType\EwsRemoveDistributionGroupFromImListType $request)
+    public function RemoveDistributionGroupFromImList(\StructType\EwsRemoveDistributionGroupFromImListType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('RemoveDistributionGroupFromImList', array(
+            $this->setResult($resultRemoveDistributionGroupFromImList = $this->getSoapClient()->__soapCall('RemoveDistributionGroupFromImList', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultRemoveDistributionGroupFromImList;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -160,31 +167,32 @@ class EwsRemove extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsRemoveImGroupType $request
-     * @return \Ews\StructType\EwsRemoveImGroupResponseMessageType|bool
+     * @param \StructType\EwsRemoveImGroupType $request
+     * @return \StructType\EwsRemoveImGroupResponseMessageType|bool
      */
-    public function RemoveImGroup(\Ews\StructType\EwsRemoveImGroupType $request)
+    public function RemoveImGroup(\StructType\EwsRemoveImGroupType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('RemoveImGroup', array(
+            $this->setResult($resultRemoveImGroup = $this->getSoapClient()->__soapCall('RemoveImGroup', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultRemoveImGroup;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsRemoveContactFromImListResponseMessageType|\Ews\StructType\EwsRemoveDelegateResponseMessageType|\Ews\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|\Ews\StructType\EwsRemoveImContactFromGroupResponseMessageType|\Ews\StructType\EwsRemoveImGroupResponseMessageType
+     * @return \StructType\EwsRemoveContactFromImListResponseMessageType|\StructType\EwsRemoveDelegateResponseMessageType|\StructType\EwsRemoveDistributionGroupFromImListResponseMessageType|\StructType\EwsRemoveImContactFromGroupResponseMessageType|\StructType\EwsRemoveImGroupResponseMessageType
      */
     public function getResult()
     {

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddDistributionGroupToImListResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsAddDistributionGroupToImListResponseMessageType extends EwsResponseMess
      * The ImGroup
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsImGroupType
+     * @var \StructType\EwsImGroupType|null
      */
-    public $ImGroup;
+    protected ?\StructType\EwsImGroupType $ImGroup = null;
     /**
      * Constructor method for AddDistributionGroupToImListResponseMessageType
      * @uses EwsAddDistributionGroupToImListResponseMessageType::setImGroup()
-     * @param \Ews\StructType\EwsImGroupType $imGroup
+     * @param \StructType\EwsImGroupType $imGroup
      */
-    public function __construct(\Ews\StructType\EwsImGroupType $imGroup = null)
+    public function __construct(?\StructType\EwsImGroupType $imGroup = null)
     {
         $this
             ->setImGroup($imGroup);
     }
     /**
      * Get ImGroup value
-     * @return \Ews\StructType\EwsImGroupType|null
+     * @return \StructType\EwsImGroupType|null
      */
-    public function getImGroup()
+    public function getImGroup(): ?\StructType\EwsImGroupType
     {
         return $this->ImGroup;
     }
     /**
      * Set ImGroup value
-     * @param \Ews\StructType\EwsImGroupType $imGroup
-     * @return \Ews\StructType\EwsAddDistributionGroupToImListResponseMessageType
+     * @param \StructType\EwsImGroupType $imGroup
+     * @return \StructType\EwsAddDistributionGroupToImListResponseMessageType
      */
-    public function setImGroup(\Ews\StructType\EwsImGroupType $imGroup = null)
+    public function setImGroup(?\StructType\EwsImGroupType $imGroup = null): self
     {
         $this->ImGroup = $imGroup;
+        
         return $this;
     }
 }

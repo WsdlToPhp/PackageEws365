@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetInsightsType StructType
@@ -17,35 +20,36 @@ class EwsGetInsightsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $EntityId;
+    protected \StructType\EwsItemIdType $EntityId;
     /**
      * Constructor method for GetInsightsType
      * @uses EwsGetInsightsType::setEntityId()
-     * @param \Ews\StructType\EwsItemIdType $entityId
+     * @param \StructType\EwsItemIdType $entityId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $entityId = null)
+    public function __construct(\StructType\EwsItemIdType $entityId)
     {
         $this
             ->setEntityId($entityId);
     }
     /**
      * Get EntityId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getEntityId()
+    public function getEntityId(): \StructType\EwsItemIdType
     {
         return $this->EntityId;
     }
     /**
      * Set EntityId value
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @return \Ews\StructType\EwsGetInsightsType
+     * @param \StructType\EwsItemIdType $entityId
+     * @return \StructType\EwsGetInsightsType
      */
-    public function setEntityId(\Ews\StructType\EwsItemIdType $entityId = null)
+    public function setEntityId(\StructType\EwsItemIdType $entityId): self
     {
         $this->EntityId = $entityId;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ApplyConversationActionType StructType
@@ -14,35 +17,36 @@ class EwsApplyConversationActionType extends EwsBaseRequestType
 {
     /**
      * The ConversationActions
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
+     * @var \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType|null
      */
-    public $ConversationActions;
+    protected ?\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $ConversationActions = null;
     /**
      * Constructor method for ApplyConversationActionType
      * @uses EwsApplyConversationActionType::setConversationActions()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
+     * @param \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null)
     {
         $this
             ->setConversationActions($conversationActions);
     }
     /**
      * Get ConversationActions value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType|null
      */
-    public function getConversationActions()
+    public function getConversationActions(): ?\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType
     {
         return $this->ConversationActions;
     }
     /**
      * Set ConversationActions value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
-     * @return \Ews\StructType\EwsApplyConversationActionType
+     * @param \ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions
+     * @return \StructType\EwsApplyConversationActionType
      */
-    public function setConversationActions(\Ews\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null)
+    public function setConversationActions(?\ArrayType\EwsNonEmptyArrayOfApplyConversationActionType $conversationActions = null): self
     {
         $this->ConversationActions = $conversationActions;
+        
         return $this;
     }
 }

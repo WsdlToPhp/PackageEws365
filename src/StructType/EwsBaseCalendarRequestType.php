@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseCalendarRequestType StructType
@@ -17,35 +20,36 @@ abstract class EwsBaseCalendarRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType
      */
-    public $CalendarId;
+    protected \StructType\EwsTargetFolderIdType $CalendarId;
     /**
      * Constructor method for BaseCalendarRequestType
      * @uses EwsBaseCalendarRequestType::setCalendarId()
-     * @param \Ews\StructType\EwsTargetFolderIdType $calendarId
+     * @param \StructType\EwsTargetFolderIdType $calendarId
      */
-    public function __construct(\Ews\StructType\EwsTargetFolderIdType $calendarId = null)
+    public function __construct(\StructType\EwsTargetFolderIdType $calendarId)
     {
         $this
             ->setCalendarId($calendarId);
     }
     /**
      * Get CalendarId value
-     * @return \Ews\StructType\EwsTargetFolderIdType
+     * @return \StructType\EwsTargetFolderIdType
      */
-    public function getCalendarId()
+    public function getCalendarId(): \StructType\EwsTargetFolderIdType
     {
         return $this->CalendarId;
     }
     /**
      * Set CalendarId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $calendarId
-     * @return \Ews\StructType\EwsBaseCalendarRequestType
+     * @param \StructType\EwsTargetFolderIdType $calendarId
+     * @return \StructType\EwsBaseCalendarRequestType
      */
-    public function setCalendarId(\Ews\StructType\EwsTargetFolderIdType $calendarId = null)
+    public function setCalendarId(\StructType\EwsTargetFolderIdType $calendarId): self
     {
         $this->CalendarId = $calendarId;
+        
         return $this;
     }
 }

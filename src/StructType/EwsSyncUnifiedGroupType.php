@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncUnifiedGroupType StructType
@@ -19,13 +22,13 @@ class EwsSyncUnifiedGroupType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Request;
+    protected string $Request;
     /**
      * Constructor method for SyncUnifiedGroupType
      * @uses EwsSyncUnifiedGroupType::setRequest()
      * @param string $request
      */
-    public function __construct($request = null)
+    public function __construct(string $request)
     {
         $this
             ->setRequest($request);
@@ -34,22 +37,23 @@ class EwsSyncUnifiedGroupType extends EwsBaseRequestType
      * Get Request value
      * @return string
      */
-    public function getRequest()
+    public function getRequest(): string
     {
         return $this->Request;
     }
     /**
      * Set Request value
      * @param string $request
-     * @return \Ews\StructType\EwsSyncUnifiedGroupType
+     * @return \StructType\EwsSyncUnifiedGroupType
      */
-    public function setRequest($request = null)
+    public function setRequest(string $request): self
     {
         // validation for constraint: string
         if (!is_null($request) && !is_string($request)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($request, true), gettype($request)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($request, true), gettype($request)), __LINE__);
         }
         $this->Request = $request;
+        
         return $this;
     }
 }

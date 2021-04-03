@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ReferenceItemResponseType StructType
@@ -16,24 +19,24 @@ class EwsReferenceItemResponseType extends AbstractStructBase
      * The ReferenceItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ReferenceItemId;
+    protected ?\StructType\EwsItemIdType $ReferenceItemId = null;
     /**
      * The ObjectName
      * Meta information extracted from the WSDL
      * - use: prohibited
-     * @var string
+     * @var string|null
      */
-    public $ObjectName;
+    protected ?string $ObjectName = null;
     /**
      * Constructor method for ReferenceItemResponseType
      * @uses EwsReferenceItemResponseType::setReferenceItemId()
      * @uses EwsReferenceItemResponseType::setObjectName()
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
+     * @param \StructType\EwsItemIdType $referenceItemId
      * @param string $objectName
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $referenceItemId = null, $objectName = null)
+    public function __construct(?\StructType\EwsItemIdType $referenceItemId = null, ?string $objectName = null)
     {
         $this
             ->setReferenceItemId($referenceItemId)
@@ -41,42 +44,44 @@ class EwsReferenceItemResponseType extends AbstractStructBase
     }
     /**
      * Get ReferenceItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getReferenceItemId()
+    public function getReferenceItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ReferenceItemId;
     }
     /**
      * Set ReferenceItemId value
-     * @param \Ews\StructType\EwsItemIdType $referenceItemId
-     * @return \Ews\StructType\EwsReferenceItemResponseType
+     * @param \StructType\EwsItemIdType $referenceItemId
+     * @return \StructType\EwsReferenceItemResponseType
      */
-    public function setReferenceItemId(\Ews\StructType\EwsItemIdType $referenceItemId = null)
+    public function setReferenceItemId(?\StructType\EwsItemIdType $referenceItemId = null): self
     {
         $this->ReferenceItemId = $referenceItemId;
+        
         return $this;
     }
     /**
      * Get ObjectName value
      * @return string|null
      */
-    public function getObjectName()
+    public function getObjectName(): ?string
     {
         return $this->ObjectName;
     }
     /**
      * Set ObjectName value
      * @param string $objectName
-     * @return \Ews\StructType\EwsReferenceItemResponseType
+     * @return \StructType\EwsReferenceItemResponseType
      */
-    public function setObjectName($objectName = null)
+    public function setObjectName(?string $objectName = null): self
     {
         // validation for constraint: string
         if (!is_null($objectName) && !is_string($objectName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
         }
         $this->ObjectName = $objectName;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetPeopleInsightsTokensResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetPeopleInsightsTokensResponseMessageType extends EwsResponseMessageTy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @var \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public $PeopleTokens;
+    protected \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $PeopleTokens;
     /**
      * Constructor method for GetPeopleInsightsTokensResponseMessageType
      * @uses EwsGetPeopleInsightsTokensResponseMessageType::setPeopleTokens()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens)
     {
         $this
             ->setPeopleTokens($peopleTokens);
     }
     /**
      * Get PeopleTokens value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public function getPeopleTokens()
+    public function getPeopleTokens(): \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
     {
         return $this->PeopleTokens;
     }
     /**
      * Set PeopleTokens value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
-     * @return \Ews\StructType\EwsGetPeopleInsightsTokensResponseMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @return \StructType\EwsGetPeopleInsightsTokensResponseMessageType
      */
-    public function setPeopleTokens(\Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function setPeopleTokens(\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens): self
     {
         $this->PeopleTokens = $peopleTokens;
+        
         return $this;
     }
 }

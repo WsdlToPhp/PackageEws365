@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateAttachmentType StructType
@@ -16,22 +19,22 @@ class EwsCreateAttachmentType extends EwsBaseRequestType
      * The ParentItemId
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ParentItemId;
+    protected \StructType\EwsItemIdType $ParentItemId;
     /**
      * The Attachments
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType
+     * @var \StructType\EwsNonEmptyArrayOfAttachmentsType|null
      */
-    public $Attachments;
+    protected ?\StructType\EwsNonEmptyArrayOfAttachmentsType $Attachments = null;
     /**
      * Constructor method for CreateAttachmentType
      * @uses EwsCreateAttachmentType::setParentItemId()
      * @uses EwsCreateAttachmentType::setAttachments()
-     * @param \Ews\StructType\EwsItemIdType $parentItemId
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
+     * @param \StructType\EwsItemIdType $parentItemId
+     * @param \StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $parentItemId = null, \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null)
+    public function __construct(\StructType\EwsItemIdType $parentItemId, ?\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null)
     {
         $this
             ->setParentItemId($parentItemId)
@@ -39,38 +42,40 @@ class EwsCreateAttachmentType extends EwsBaseRequestType
     }
     /**
      * Get ParentItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getParentItemId()
+    public function getParentItemId(): \StructType\EwsItemIdType
     {
         return $this->ParentItemId;
     }
     /**
      * Set ParentItemId value
-     * @param \Ews\StructType\EwsItemIdType $parentItemId
-     * @return \Ews\StructType\EwsCreateAttachmentType
+     * @param \StructType\EwsItemIdType $parentItemId
+     * @return \StructType\EwsCreateAttachmentType
      */
-    public function setParentItemId(\Ews\StructType\EwsItemIdType $parentItemId = null)
+    public function setParentItemId(\StructType\EwsItemIdType $parentItemId): self
     {
         $this->ParentItemId = $parentItemId;
+        
         return $this;
     }
     /**
      * Get Attachments value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAttachmentsType|null
      */
-    public function getAttachments()
+    public function getAttachments(): ?\StructType\EwsNonEmptyArrayOfAttachmentsType
     {
         return $this->Attachments;
     }
     /**
      * Set Attachments value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
-     * @return \Ews\StructType\EwsCreateAttachmentType
+     * @param \StructType\EwsNonEmptyArrayOfAttachmentsType $attachments
+     * @return \StructType\EwsCreateAttachmentType
      */
-    public function setAttachments(\Ews\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null)
+    public function setAttachments(?\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null): self
     {
         $this->Attachments = $attachments;
+        
         return $this;
     }
 }

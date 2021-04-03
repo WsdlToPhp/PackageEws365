@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindAvailableMeetingTimesResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsFindAvailableMeetingTimesResponseMessageType extends EwsResponseMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate
+     * @var \ArrayType\EwsArrayOfMeetingTimeCandidate
      */
-    public $MeetingTimeCandidates;
+    protected \ArrayType\EwsArrayOfMeetingTimeCandidate $MeetingTimeCandidates;
     /**
      * Constructor method for FindAvailableMeetingTimesResponseMessageType
      * @uses EwsFindAvailableMeetingTimesResponseMessageType::setMeetingTimeCandidates()
-     * @param \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates
+     * @param \ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates = null)
+    public function __construct(\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates)
     {
         $this
             ->setMeetingTimeCandidates($meetingTimeCandidates);
     }
     /**
      * Get MeetingTimeCandidates value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate
+     * @return \ArrayType\EwsArrayOfMeetingTimeCandidate
      */
-    public function getMeetingTimeCandidates()
+    public function getMeetingTimeCandidates(): \ArrayType\EwsArrayOfMeetingTimeCandidate
     {
         return $this->MeetingTimeCandidates;
     }
     /**
      * Set MeetingTimeCandidates value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesResponseMessageType
+     * @param \ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates
+     * @return \StructType\EwsFindAvailableMeetingTimesResponseMessageType
      */
-    public function setMeetingTimeCandidates(\Ews\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates = null)
+    public function setMeetingTimeCandidates(\ArrayType\EwsArrayOfMeetingTimeCandidate $meetingTimeCandidates): self
     {
         $this->MeetingTimeCandidates = $meetingTimeCandidates;
+        
         return $this;
     }
 }

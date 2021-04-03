@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SerializableTimeZone StructType
@@ -19,33 +22,33 @@ class EwsSerializableTimeZone extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $Bias;
+    protected int $Bias;
     /**
      * The StandardTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSerializableTimeZoneTime
+     * @var \StructType\EwsSerializableTimeZoneTime
      */
-    public $StandardTime;
+    protected \StructType\EwsSerializableTimeZoneTime $StandardTime;
     /**
      * The DaylightTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSerializableTimeZoneTime
+     * @var \StructType\EwsSerializableTimeZoneTime
      */
-    public $DaylightTime;
+    protected \StructType\EwsSerializableTimeZoneTime $DaylightTime;
     /**
      * Constructor method for SerializableTimeZone
      * @uses EwsSerializableTimeZone::setBias()
      * @uses EwsSerializableTimeZone::setStandardTime()
      * @uses EwsSerializableTimeZone::setDaylightTime()
      * @param int $bias
-     * @param \Ews\StructType\EwsSerializableTimeZoneTime $standardTime
-     * @param \Ews\StructType\EwsSerializableTimeZoneTime $daylightTime
+     * @param \StructType\EwsSerializableTimeZoneTime $standardTime
+     * @param \StructType\EwsSerializableTimeZoneTime $daylightTime
      */
-    public function __construct($bias = null, \Ews\StructType\EwsSerializableTimeZoneTime $standardTime = null, \Ews\StructType\EwsSerializableTimeZoneTime $daylightTime = null)
+    public function __construct(int $bias, \StructType\EwsSerializableTimeZoneTime $standardTime, \StructType\EwsSerializableTimeZoneTime $daylightTime)
     {
         $this
             ->setBias($bias)
@@ -56,58 +59,61 @@ class EwsSerializableTimeZone extends AbstractStructBase
      * Get Bias value
      * @return int
      */
-    public function getBias()
+    public function getBias(): int
     {
         return $this->Bias;
     }
     /**
      * Set Bias value
      * @param int $bias
-     * @return \Ews\StructType\EwsSerializableTimeZone
+     * @return \StructType\EwsSerializableTimeZone
      */
-    public function setBias($bias = null)
+    public function setBias(int $bias): self
     {
         // validation for constraint: int
         if (!is_null($bias) && !(is_int($bias) || ctype_digit($bias))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($bias, true), gettype($bias)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($bias, true), gettype($bias)), __LINE__);
         }
         $this->Bias = $bias;
+        
         return $this;
     }
     /**
      * Get StandardTime value
-     * @return \Ews\StructType\EwsSerializableTimeZoneTime
+     * @return \StructType\EwsSerializableTimeZoneTime
      */
-    public function getStandardTime()
+    public function getStandardTime(): \StructType\EwsSerializableTimeZoneTime
     {
         return $this->StandardTime;
     }
     /**
      * Set StandardTime value
-     * @param \Ews\StructType\EwsSerializableTimeZoneTime $standardTime
-     * @return \Ews\StructType\EwsSerializableTimeZone
+     * @param \StructType\EwsSerializableTimeZoneTime $standardTime
+     * @return \StructType\EwsSerializableTimeZone
      */
-    public function setStandardTime(\Ews\StructType\EwsSerializableTimeZoneTime $standardTime = null)
+    public function setStandardTime(\StructType\EwsSerializableTimeZoneTime $standardTime): self
     {
         $this->StandardTime = $standardTime;
+        
         return $this;
     }
     /**
      * Get DaylightTime value
-     * @return \Ews\StructType\EwsSerializableTimeZoneTime
+     * @return \StructType\EwsSerializableTimeZoneTime
      */
-    public function getDaylightTime()
+    public function getDaylightTime(): \StructType\EwsSerializableTimeZoneTime
     {
         return $this->DaylightTime;
     }
     /**
      * Set DaylightTime value
-     * @param \Ews\StructType\EwsSerializableTimeZoneTime $daylightTime
-     * @return \Ews\StructType\EwsSerializableTimeZone
+     * @param \StructType\EwsSerializableTimeZoneTime $daylightTime
+     * @return \StructType\EwsSerializableTimeZone
      */
-    public function setDaylightTime(\Ews\StructType\EwsSerializableTimeZoneTime $daylightTime = null)
+    public function setDaylightTime(\StructType\EwsSerializableTimeZoneTime $daylightTime): self
     {
         $this->DaylightTime = $daylightTime;
+        
         return $this;
     }
 }

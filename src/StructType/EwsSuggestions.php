@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for Suggestions StructType
@@ -17,24 +20,24 @@ class EwsSuggestions extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSuggestionType[]
+     * @var \StructType\EwsSuggestionType[]
      */
-    public $Suggestion;
+    protected array $Suggestion = [];
     /**
      * Constructor method for Suggestions
      * @uses EwsSuggestions::setSuggestion()
-     * @param \Ews\StructType\EwsSuggestionType[] $suggestion
+     * @param \StructType\EwsSuggestionType[] $suggestion
      */
-    public function __construct(array $suggestion = array())
+    public function __construct(array $suggestion = [])
     {
         $this
             ->setSuggestion($suggestion);
     }
     /**
      * Get Suggestion value
-     * @return \Ews\StructType\EwsSuggestionType[]|null
+     * @return \StructType\EwsSuggestionType[]
      */
-    public function getSuggestion()
+    public function getSuggestion(): array
     {
         return $this->Suggestion;
     }
@@ -44,50 +47,53 @@ class EwsSuggestions extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSuggestionForArrayConstraintsFromSetSuggestion(array $values = array())
+    public static function validateSuggestionForArrayConstraintsFromSetSuggestion(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $suggestionsSuggestionItem) {
             // validation for constraint: itemType
-            if (!$suggestionsSuggestionItem instanceof \Ews\StructType\EwsSuggestionType) {
+            if (!$suggestionsSuggestionItem instanceof \StructType\EwsSuggestionType) {
                 $invalidValues[] = is_object($suggestionsSuggestionItem) ? get_class($suggestionsSuggestionItem) : sprintf('%s(%s)', gettype($suggestionsSuggestionItem), var_export($suggestionsSuggestionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Suggestion property can only contain items of type \Ews\StructType\EwsSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Suggestion property can only contain items of type \StructType\EwsSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Suggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSuggestionType[] $suggestion
-     * @return \Ews\StructType\EwsSuggestions
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSuggestionType[] $suggestion
+     * @return \StructType\EwsSuggestions
      */
-    public function setSuggestion(array $suggestion = array())
+    public function setSuggestion(array $suggestion = []): self
     {
         // validation for constraint: array
         if ('' !== ($suggestionArrayErrorMessage = self::validateSuggestionForArrayConstraintsFromSetSuggestion($suggestion))) {
-            throw new \InvalidArgumentException($suggestionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($suggestionArrayErrorMessage, __LINE__);
         }
         $this->Suggestion = $suggestion;
+        
         return $this;
     }
     /**
      * Add item to Suggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSuggestionType $item
-     * @return \Ews\StructType\EwsSuggestions
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSuggestionType $item
+     * @return \StructType\EwsSuggestions
      */
-    public function addToSuggestion(\Ews\StructType\EwsSuggestionType $item)
+    public function addToSuggestion(\StructType\EwsSuggestionType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSuggestionType) {
-            throw new \InvalidArgumentException(sprintf('The Suggestion property can only contain items of type \Ews\StructType\EwsSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsSuggestionType) {
+            throw new InvalidArgumentException(sprintf('The Suggestion property can only contain items of type \StructType\EwsSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->Suggestion[] = $item;
+        
         return $this;
     }
 }

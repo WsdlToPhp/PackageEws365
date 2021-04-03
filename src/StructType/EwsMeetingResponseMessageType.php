@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingResponseMessageType StructType
@@ -16,58 +19,58 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * The Start
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Start;
+    protected ?string $Start = null;
     /**
      * The End
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $End;
+    protected ?string $End = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Location;
+    protected ?string $Location = null;
     /**
      * The Recurrence
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRecurrenceType
+     * @var \StructType\EwsRecurrenceType|null
      */
-    public $Recurrence;
+    protected ?\StructType\EwsRecurrenceType $Recurrence = null;
     /**
      * The CalendarItemType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CalendarItemType;
+    protected ?string $CalendarItemType = null;
     /**
      * The ProposedStart
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProposedStart;
+    protected ?string $ProposedStart = null;
     /**
      * The ProposedEnd
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ProposedEnd;
+    protected ?string $ProposedEnd = null;
     /**
      * The EnhancedLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEnhancedLocationType
+     * @var \StructType\EwsEnhancedLocationType|null
      */
-    public $EnhancedLocation;
+    protected ?\StructType\EwsEnhancedLocationType $EnhancedLocation = null;
     /**
      * Constructor method for MeetingResponseMessageType
      * @uses EwsMeetingResponseMessageType::setStart()
@@ -81,13 +84,13 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * @param string $start
      * @param string $end
      * @param string $location
-     * @param \Ews\StructType\EwsRecurrenceType $recurrence
+     * @param \StructType\EwsRecurrenceType $recurrence
      * @param string $calendarItemType
      * @param string $proposedStart
      * @param string $proposedEnd
-     * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
+     * @param \StructType\EwsEnhancedLocationType $enhancedLocation
      */
-    public function __construct($start = null, $end = null, $location = null, \Ews\StructType\EwsRecurrenceType $recurrence = null, $calendarItemType = null, $proposedStart = null, $proposedEnd = null, \Ews\StructType\EwsEnhancedLocationType $enhancedLocation = null)
+    public function __construct(?string $start = null, ?string $end = null, ?string $location = null, ?\StructType\EwsRecurrenceType $recurrence = null, ?string $calendarItemType = null, ?string $proposedStart = null, ?string $proposedEnd = null, ?\StructType\EwsEnhancedLocationType $enhancedLocation = null)
     {
         $this
             ->setStart($start)
@@ -103,168 +106,176 @@ class EwsMeetingResponseMessageType extends EwsMeetingMessageType
      * Get Start value
      * @return string|null
      */
-    public function getStart()
+    public function getStart(): ?string
     {
         return $this->Start;
     }
     /**
      * Set Start value
      * @param string $start
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setStart($start = null)
+    public function setStart(?string $start = null): self
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
+        
         return $this;
     }
     /**
      * Get End value
      * @return string|null
      */
-    public function getEnd()
+    public function getEnd(): ?string
     {
         return $this->End;
     }
     /**
      * Set End value
      * @param string $end
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setEnd($end = null)
+    public function setEnd(?string $end = null): self
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
+        
         return $this;
     }
     /**
      * Get Location value
      * @return string|null
      */
-    public function getLocation()
+    public function getLocation(): ?string
     {
         return $this->Location;
     }
     /**
      * Set Location value
      * @param string $location
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setLocation($location = null)
+    public function setLocation(?string $location = null): self
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
+        
         return $this;
     }
     /**
      * Get Recurrence value
-     * @return \Ews\StructType\EwsRecurrenceType|null
+     * @return \StructType\EwsRecurrenceType|null
      */
-    public function getRecurrence()
+    public function getRecurrence(): ?\StructType\EwsRecurrenceType
     {
         return $this->Recurrence;
     }
     /**
      * Set Recurrence value
-     * @param \Ews\StructType\EwsRecurrenceType $recurrence
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @param \StructType\EwsRecurrenceType $recurrence
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setRecurrence(\Ews\StructType\EwsRecurrenceType $recurrence = null)
+    public function setRecurrence(?\StructType\EwsRecurrenceType $recurrence = null): self
     {
         $this->Recurrence = $recurrence;
+        
         return $this;
     }
     /**
      * Get CalendarItemType value
      * @return string|null
      */
-    public function getCalendarItemType()
+    public function getCalendarItemType(): ?string
     {
         return $this->CalendarItemType;
     }
     /**
      * Set CalendarItemType value
      * @param string $calendarItemType
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setCalendarItemType($calendarItemType = null)
+    public function setCalendarItemType(?string $calendarItemType = null): self
     {
         // validation for constraint: string
         if (!is_null($calendarItemType) && !is_string($calendarItemType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($calendarItemType, true), gettype($calendarItemType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($calendarItemType, true), gettype($calendarItemType)), __LINE__);
         }
         $this->CalendarItemType = $calendarItemType;
+        
         return $this;
     }
     /**
      * Get ProposedStart value
      * @return string|null
      */
-    public function getProposedStart()
+    public function getProposedStart(): ?string
     {
         return $this->ProposedStart;
     }
     /**
      * Set ProposedStart value
      * @param string $proposedStart
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setProposedStart($proposedStart = null)
+    public function setProposedStart(?string $proposedStart = null): self
     {
         // validation for constraint: string
         if (!is_null($proposedStart) && !is_string($proposedStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedStart, true), gettype($proposedStart)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedStart, true), gettype($proposedStart)), __LINE__);
         }
         $this->ProposedStart = $proposedStart;
+        
         return $this;
     }
     /**
      * Get ProposedEnd value
      * @return string|null
      */
-    public function getProposedEnd()
+    public function getProposedEnd(): ?string
     {
         return $this->ProposedEnd;
     }
     /**
      * Set ProposedEnd value
      * @param string $proposedEnd
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setProposedEnd($proposedEnd = null)
+    public function setProposedEnd(?string $proposedEnd = null): self
     {
         // validation for constraint: string
         if (!is_null($proposedEnd) && !is_string($proposedEnd)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedEnd, true), gettype($proposedEnd)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($proposedEnd, true), gettype($proposedEnd)), __LINE__);
         }
         $this->ProposedEnd = $proposedEnd;
+        
         return $this;
     }
     /**
      * Get EnhancedLocation value
-     * @return \Ews\StructType\EwsEnhancedLocationType|null
+     * @return \StructType\EwsEnhancedLocationType|null
      */
-    public function getEnhancedLocation()
+    public function getEnhancedLocation(): ?\StructType\EwsEnhancedLocationType
     {
         return $this->EnhancedLocation;
     }
     /**
      * Set EnhancedLocation value
-     * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
-     * @return \Ews\StructType\EwsMeetingResponseMessageType
+     * @param \StructType\EwsEnhancedLocationType $enhancedLocation
+     * @return \StructType\EwsMeetingResponseMessageType
      */
-    public function setEnhancedLocation(\Ews\StructType\EwsEnhancedLocationType $enhancedLocation = null)
+    public function setEnhancedLocation(?\StructType\EwsEnhancedLocationType $enhancedLocation = null): self
     {
         $this->EnhancedLocation = $enhancedLocation;
+        
         return $this;
     }
 }

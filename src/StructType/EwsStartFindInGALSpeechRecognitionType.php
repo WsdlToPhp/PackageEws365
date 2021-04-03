@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StartFindInGALSpeechRecognitionType StructType
@@ -21,7 +24,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Culture;
+    protected string $Culture;
     /**
      * The TimeZone
      * Meta information extracted from the WSDL
@@ -31,7 +34,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $TimeZone;
+    protected string $TimeZone;
     /**
      * The UserObjectGuid
      * Meta information extracted from the WSDL
@@ -42,7 +45,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $UserObjectGuid;
+    protected string $UserObjectGuid;
     /**
      * The TenantGuid
      * Meta information extracted from the WSDL
@@ -53,7 +56,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $TenantGuid;
+    protected string $TenantGuid;
     /**
      * Constructor method for StartFindInGALSpeechRecognitionType
      * @uses EwsStartFindInGALSpeechRecognitionType::setCulture()
@@ -65,7 +68,7 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * @param string $userObjectGuid
      * @param string $tenantGuid
      */
-    public function __construct($culture = null, $timeZone = null, $userObjectGuid = null, $tenantGuid = null)
+    public function __construct(string $culture, string $timeZone, string $userObjectGuid, string $tenantGuid)
     {
         $this
             ->setCulture($culture)
@@ -77,104 +80,108 @@ class EwsStartFindInGALSpeechRecognitionType extends EwsBaseRequestType
      * Get Culture value
      * @return string
      */
-    public function getCulture()
+    public function getCulture(): string
     {
         return $this->Culture;
     }
     /**
      * Set Culture value
      * @param string $culture
-     * @return \Ews\StructType\EwsStartFindInGALSpeechRecognitionType
+     * @return \StructType\EwsStartFindInGALSpeechRecognitionType
      */
-    public function setCulture($culture = null)
+    public function setCulture(string $culture): self
     {
         // validation for constraint: string
         if (!is_null($culture) && !is_string($culture)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($culture) && mb_strlen($culture) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($culture)), __LINE__);
+        if (!is_null($culture) && mb_strlen((string) $culture) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $culture)), __LINE__);
         }
         $this->Culture = $culture;
+        
         return $this;
     }
     /**
      * Get TimeZone value
      * @return string
      */
-    public function getTimeZone()
+    public function getTimeZone(): string
     {
         return $this->TimeZone;
     }
     /**
      * Set TimeZone value
      * @param string $timeZone
-     * @return \Ews\StructType\EwsStartFindInGALSpeechRecognitionType
+     * @return \StructType\EwsStartFindInGALSpeechRecognitionType
      */
-    public function setTimeZone($timeZone = null)
+    public function setTimeZone(string $timeZone): self
     {
         // validation for constraint: string
         if (!is_null($timeZone) && !is_string($timeZone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZone, true), gettype($timeZone)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZone, true), gettype($timeZone)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($timeZone) && mb_strlen($timeZone) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($timeZone)), __LINE__);
+        if (!is_null($timeZone) && mb_strlen((string) $timeZone) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $timeZone)), __LINE__);
         }
         $this->TimeZone = $timeZone;
+        
         return $this;
     }
     /**
      * Get UserObjectGuid value
      * @return string
      */
-    public function getUserObjectGuid()
+    public function getUserObjectGuid(): string
     {
         return $this->UserObjectGuid;
     }
     /**
      * Set UserObjectGuid value
      * @param string $userObjectGuid
-     * @return \Ews\StructType\EwsStartFindInGALSpeechRecognitionType
+     * @return \StructType\EwsStartFindInGALSpeechRecognitionType
      */
-    public function setUserObjectGuid($userObjectGuid = null)
+    public function setUserObjectGuid(string $userObjectGuid): self
     {
         // validation for constraint: string
         if (!is_null($userObjectGuid) && !is_string($userObjectGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userObjectGuid, true), gettype($userObjectGuid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($userObjectGuid, true), gettype($userObjectGuid)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($userObjectGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $userObjectGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($userObjectGuid, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($userObjectGuid, true)), __LINE__);
         }
         $this->UserObjectGuid = $userObjectGuid;
+        
         return $this;
     }
     /**
      * Get TenantGuid value
      * @return string
      */
-    public function getTenantGuid()
+    public function getTenantGuid(): string
     {
         return $this->TenantGuid;
     }
     /**
      * Set TenantGuid value
      * @param string $tenantGuid
-     * @return \Ews\StructType\EwsStartFindInGALSpeechRecognitionType
+     * @return \StructType\EwsStartFindInGALSpeechRecognitionType
      */
-    public function setTenantGuid($tenantGuid = null)
+    public function setTenantGuid(string $tenantGuid): self
     {
         // validation for constraint: string
         if (!is_null($tenantGuid) && !is_string($tenantGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tenantGuid, true), gettype($tenantGuid)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tenantGuid, true), gettype($tenantGuid)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($tenantGuid) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $tenantGuid)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($tenantGuid, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($tenantGuid, true)), __LINE__);
         }
         $this->TenantGuid = $tenantGuid;
+        
         return $this;
     }
 }

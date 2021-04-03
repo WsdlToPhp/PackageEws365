@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMailboxStatisticsByKeywordsResponseMessageType
@@ -17,35 +20,36 @@ class EwsFindMailboxStatisticsByKeywordsResponseMessageType extends EwsResponseM
 {
     /**
      * The MailboxStatisticsSearchResult
-     * @var \Ews\StructType\EwsMailboxStatisticsSearchResultType
+     * @var \StructType\EwsMailboxStatisticsSearchResultType|null
      */
-    public $MailboxStatisticsSearchResult;
+    protected ?\StructType\EwsMailboxStatisticsSearchResultType $MailboxStatisticsSearchResult = null;
     /**
      * Constructor method for FindMailboxStatisticsByKeywordsResponseMessageType
      * @uses EwsFindMailboxStatisticsByKeywordsResponseMessageType::setMailboxStatisticsSearchResult()
-     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
+     * @param \StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
      */
-    public function __construct(\Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null)
+    public function __construct(?\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null)
     {
         $this
             ->setMailboxStatisticsSearchResult($mailboxStatisticsSearchResult);
     }
     /**
      * Get MailboxStatisticsSearchResult value
-     * @return \Ews\StructType\EwsMailboxStatisticsSearchResultType|null
+     * @return \StructType\EwsMailboxStatisticsSearchResultType|null
      */
-    public function getMailboxStatisticsSearchResult()
+    public function getMailboxStatisticsSearchResult(): ?\StructType\EwsMailboxStatisticsSearchResultType
     {
         return $this->MailboxStatisticsSearchResult;
     }
     /**
      * Set MailboxStatisticsSearchResult value
-     * @param \Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
+     * @param \StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
      */
-    public function setMailboxStatisticsSearchResult(\Ews\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null)
+    public function setMailboxStatisticsSearchResult(?\StructType\EwsMailboxStatisticsSearchResultType $mailboxStatisticsSearchResult = null): self
     {
         $this->MailboxStatisticsSearchResult = $mailboxStatisticsSearchResult;
+        
         return $this;
     }
 }

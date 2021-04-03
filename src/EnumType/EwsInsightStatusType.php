@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for InsightStatusType EnumType
@@ -40,13 +42,13 @@ class EwsInsightStatusType extends AbstractStructEnumBase
      * @uses self::VALUE_INVALID
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CREATED,
             self::VALUE_ACTIVE,
             self::VALUE_DISMISSED,
             self::VALUE_INVALID,
-        );
+        ];
     }
 }

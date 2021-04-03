@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetPhoneCallInformationResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetPhoneCallInformationResponseMessageType extends EwsResponseMessageTy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPhoneCallInformationType
+     * @var \StructType\EwsPhoneCallInformationType|null
      */
-    public $PhoneCallInformation;
+    protected ?\StructType\EwsPhoneCallInformationType $PhoneCallInformation = null;
     /**
      * Constructor method for GetPhoneCallInformationResponseMessageType
      * @uses EwsGetPhoneCallInformationResponseMessageType::setPhoneCallInformation()
-     * @param \Ews\StructType\EwsPhoneCallInformationType $phoneCallInformation
+     * @param \StructType\EwsPhoneCallInformationType $phoneCallInformation
      */
-    public function __construct(\Ews\StructType\EwsPhoneCallInformationType $phoneCallInformation = null)
+    public function __construct(?\StructType\EwsPhoneCallInformationType $phoneCallInformation = null)
     {
         $this
             ->setPhoneCallInformation($phoneCallInformation);
     }
     /**
      * Get PhoneCallInformation value
-     * @return \Ews\StructType\EwsPhoneCallInformationType|null
+     * @return \StructType\EwsPhoneCallInformationType|null
      */
-    public function getPhoneCallInformation()
+    public function getPhoneCallInformation(): ?\StructType\EwsPhoneCallInformationType
     {
         return $this->PhoneCallInformation;
     }
     /**
      * Set PhoneCallInformation value
-     * @param \Ews\StructType\EwsPhoneCallInformationType $phoneCallInformation
-     * @return \Ews\StructType\EwsGetPhoneCallInformationResponseMessageType
+     * @param \StructType\EwsPhoneCallInformationType $phoneCallInformation
+     * @return \StructType\EwsGetPhoneCallInformationResponseMessageType
      */
-    public function setPhoneCallInformation(\Ews\StructType\EwsPhoneCallInformationType $phoneCallInformation = null)
+    public function setPhoneCallInformation(?\StructType\EwsPhoneCallInformationType $phoneCallInformation = null): self
     {
         $this->PhoneCallInformation = $phoneCallInformation;
+        
         return $this;
     }
 }

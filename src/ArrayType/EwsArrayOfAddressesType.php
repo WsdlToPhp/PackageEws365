@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfAddressesType ArrayType
@@ -19,22 +22,22 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * - minOccurs: 0
      * @var string[]
      */
-    public $Address;
+    protected array $Address = [];
     /**
      * Constructor method for ArrayOfAddressesType
      * @uses EwsArrayOfAddressesType::setAddress()
      * @param string[] $address
      */
-    public function __construct(array $address = array())
+    public function __construct(array $address = [])
     {
         $this
             ->setAddress($address);
     }
     /**
      * Get Address value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getAddress()
+    public function getAddress(): array
     {
         return $this->Address;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateAddressForArrayConstraintsFromSetAddress(array $values = array())
+    public static function validateAddressForArrayConstraintsFromSetAddress(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,36 +61,23 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
             $message = sprintf('The Address property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Address value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $address
-     * @return \Ews\ArrayType\EwsArrayOfAddressesType
+     * @return \ArrayType\EwsArrayOfAddressesType
      */
-    public function setAddress(array $address = array())
+    public function setAddress(array $address = []): self
     {
         // validation for constraint: array
         if ('' !== ($addressArrayErrorMessage = self::validateAddressForArrayConstraintsFromSetAddress($address))) {
-            throw new \InvalidArgumentException($addressArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($addressArrayErrorMessage, __LINE__);
         }
         $this->Address = $address;
-        return $this;
-    }
-    /**
-     * Add item to Address value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfAddressesType
-     */
-    public function addToAddress($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Address property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Address[] = $item;
+        
         return $this;
     }
     /**
@@ -95,7 +85,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -105,7 +95,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -114,7 +104,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -123,7 +113,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -133,7 +123,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfAddressesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Address
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Address';
     }

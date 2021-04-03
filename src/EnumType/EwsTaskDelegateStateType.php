@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for TaskDelegateStateType EnumType
@@ -52,15 +54,15 @@ class EwsTaskDelegateStateType extends AbstractStructEnumBase
      * @uses self::VALUE_MAX
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NO_MATCH,
             self::VALUE_OWN_NEW,
             self::VALUE_OWNED,
             self::VALUE_ACCEPTED,
             self::VALUE_DECLINED,
             self::VALUE_MAX,
-        );
+        ];
     }
 }

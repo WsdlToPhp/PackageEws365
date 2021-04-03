@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFlightReservationsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFlightReservationEntityType[]
+     * @var \StructType\EwsFlightReservationEntityType[]
      */
-    public $FlightReservation;
+    protected array $FlightReservation = [];
     /**
      * Constructor method for ArrayOfFlightReservationsType
      * @uses EwsArrayOfFlightReservationsType::setFlightReservation()
-     * @param \Ews\StructType\EwsFlightReservationEntityType[] $flightReservation
+     * @param \StructType\EwsFlightReservationEntityType[] $flightReservation
      */
-    public function __construct(array $flightReservation = array())
+    public function __construct(array $flightReservation = [])
     {
         $this
             ->setFlightReservation($flightReservation);
     }
     /**
      * Get FlightReservation value
-     * @return \Ews\StructType\EwsFlightReservationEntityType[]|null
+     * @return \StructType\EwsFlightReservationEntityType[]
      */
-    public function getFlightReservation()
+    public function getFlightReservation(): array
     {
         return $this->FlightReservation;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFlightReservationForArrayConstraintsFromSetFlightReservation(array $values = array())
+    public static function validateFlightReservationForArrayConstraintsFromSetFlightReservation(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfFlightReservationsTypeFlightReservationItem) {
             // validation for constraint: itemType
-            if (!$arrayOfFlightReservationsTypeFlightReservationItem instanceof \Ews\StructType\EwsFlightReservationEntityType) {
+            if (!$arrayOfFlightReservationsTypeFlightReservationItem instanceof \StructType\EwsFlightReservationEntityType) {
                 $invalidValues[] = is_object($arrayOfFlightReservationsTypeFlightReservationItem) ? get_class($arrayOfFlightReservationsTypeFlightReservationItem) : sprintf('%s(%s)', gettype($arrayOfFlightReservationsTypeFlightReservationItem), var_export($arrayOfFlightReservationsTypeFlightReservationItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The FlightReservation property can only contain items of type \Ews\StructType\EwsFlightReservationEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The FlightReservation property can only contain items of type \StructType\EwsFlightReservationEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FlightReservation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFlightReservationEntityType[] $flightReservation
-     * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFlightReservationEntityType[] $flightReservation
+     * @return \ArrayType\EwsArrayOfFlightReservationsType
      */
-    public function setFlightReservation(array $flightReservation = array())
+    public function setFlightReservation(array $flightReservation = []): self
     {
         // validation for constraint: array
         if ('' !== ($flightReservationArrayErrorMessage = self::validateFlightReservationForArrayConstraintsFromSetFlightReservation($flightReservation))) {
-            throw new \InvalidArgumentException($flightReservationArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($flightReservationArrayErrorMessage, __LINE__);
         }
         $this->FlightReservation = $flightReservation;
-        return $this;
-    }
-    /**
-     * Add item to FlightReservation value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFlightReservationEntityType $item
-     * @return \Ews\ArrayType\EwsArrayOfFlightReservationsType
-     */
-    public function addToFlightReservation(\Ews\StructType\EwsFlightReservationEntityType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsFlightReservationEntityType) {
-            throw new \InvalidArgumentException(sprintf('The FlightReservation property can only contain items of type \Ews\StructType\EwsFlightReservationEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->FlightReservation[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFlightReservationEntityType|null
+     * @return \StructType\EwsFlightReservationEntityType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFlightReservationEntityType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFlightReservationEntityType|null
+     * @return \StructType\EwsFlightReservationEntityType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFlightReservationEntityType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFlightReservationEntityType|null
+     * @return \StructType\EwsFlightReservationEntityType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFlightReservationEntityType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFlightReservationEntityType|null
+     * @return \StructType\EwsFlightReservationEntityType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFlightReservationEntityType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfFlightReservationsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFlightReservationEntityType|null
+     * @return \StructType\EwsFlightReservationEntityType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFlightReservationEntityType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFlightReservationEntityType $item
+     * @return \ArrayType\EwsArrayOfFlightReservationsType
+     */
+    public function add(\StructType\EwsFlightReservationEntityType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FlightReservation
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FlightReservation';
     }

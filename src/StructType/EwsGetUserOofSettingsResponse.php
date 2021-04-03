@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserOofSettingsResponse StructType
@@ -19,36 +22,36 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType
      */
-    public $ResponseMessage;
+    protected \StructType\EwsResponseMessageType $ResponseMessage;
     /**
      * The OofSettings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - ref: t:OofSettings
-     * @var \Ews\StructType\EwsUserOofSettings
+     * @var \StructType\EwsUserOofSettings|null
      */
-    public $OofSettings;
+    protected ?\StructType\EwsUserOofSettings $OofSettings = null;
     /**
      * The AllowExternalOof
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AllowExternalOof;
+    protected ?string $AllowExternalOof = null;
     /**
      * Constructor method for GetUserOofSettingsResponse
      * @uses EwsGetUserOofSettingsResponse::setResponseMessage()
      * @uses EwsGetUserOofSettingsResponse::setOofSettings()
      * @uses EwsGetUserOofSettingsResponse::setAllowExternalOof()
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @param \Ews\StructType\EwsUserOofSettings $oofSettings
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @param \StructType\EwsUserOofSettings $oofSettings
      * @param string $allowExternalOof
      */
-    public function __construct(\Ews\StructType\EwsResponseMessageType $responseMessage = null, \Ews\StructType\EwsUserOofSettings $oofSettings = null, $allowExternalOof = null)
+    public function __construct(\StructType\EwsResponseMessageType $responseMessage, ?\StructType\EwsUserOofSettings $oofSettings = null, ?string $allowExternalOof = null)
     {
         $this
             ->setResponseMessage($responseMessage)
@@ -57,63 +60,66 @@ class EwsGetUserOofSettingsResponse extends AbstractStructBase
     }
     /**
      * Get ResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType
+     * @return \StructType\EwsResponseMessageType
      */
-    public function getResponseMessage()
+    public function getResponseMessage(): \StructType\EwsResponseMessageType
     {
         return $this->ResponseMessage;
     }
     /**
      * Set ResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @return \Ews\StructType\EwsGetUserOofSettingsResponse
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @return \StructType\EwsGetUserOofSettingsResponse
      */
-    public function setResponseMessage(\Ews\StructType\EwsResponseMessageType $responseMessage = null)
+    public function setResponseMessage(\StructType\EwsResponseMessageType $responseMessage): self
     {
         $this->ResponseMessage = $responseMessage;
+        
         return $this;
     }
     /**
      * Get OofSettings value
-     * @return \Ews\StructType\EwsUserOofSettings|null
+     * @return \StructType\EwsUserOofSettings|null
      */
-    public function getOofSettings()
+    public function getOofSettings(): ?\StructType\EwsUserOofSettings
     {
         return $this->OofSettings;
     }
     /**
      * Set OofSettings value
-     * @param \Ews\StructType\EwsUserOofSettings $oofSettings
-     * @return \Ews\StructType\EwsGetUserOofSettingsResponse
+     * @param \StructType\EwsUserOofSettings $oofSettings
+     * @return \StructType\EwsGetUserOofSettingsResponse
      */
-    public function setOofSettings(\Ews\StructType\EwsUserOofSettings $oofSettings = null)
+    public function setOofSettings(?\StructType\EwsUserOofSettings $oofSettings = null): self
     {
         $this->OofSettings = $oofSettings;
+        
         return $this;
     }
     /**
      * Get AllowExternalOof value
      * @return string|null
      */
-    public function getAllowExternalOof()
+    public function getAllowExternalOof(): ?string
     {
         return $this->AllowExternalOof;
     }
     /**
      * Set AllowExternalOof value
-     * @uses \Ews\EnumType\EwsExternalAudience::valueIsValid()
-     * @uses \Ews\EnumType\EwsExternalAudience::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsExternalAudience::valueIsValid()
+     * @uses \EnumType\EwsExternalAudience::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $allowExternalOof
-     * @return \Ews\StructType\EwsGetUserOofSettingsResponse
+     * @return \StructType\EwsGetUserOofSettingsResponse
      */
-    public function setAllowExternalOof($allowExternalOof = null)
+    public function setAllowExternalOof(?string $allowExternalOof = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsExternalAudience::valueIsValid($allowExternalOof)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExternalAudience', is_array($allowExternalOof) ? implode(', ', $allowExternalOof) : var_export($allowExternalOof, true), implode(', ', \Ews\EnumType\EwsExternalAudience::getValidValues())), __LINE__);
+        if (!\EnumType\EwsExternalAudience::valueIsValid($allowExternalOof)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsExternalAudience', is_array($allowExternalOof) ? implode(', ', $allowExternalOof) : var_export($allowExternalOof, true), implode(', ', \EnumType\EwsExternalAudience::getValidValues())), __LINE__);
         }
         $this->AllowExternalOof = $allowExternalOof;
+        
         return $this;
     }
 }

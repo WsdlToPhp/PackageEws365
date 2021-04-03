@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfRulesType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRuleType[]
+     * @var \StructType\EwsRuleType[]
      */
-    public $Rule;
+    protected array $Rule = [];
     /**
      * Constructor method for ArrayOfRulesType
      * @uses EwsArrayOfRulesType::setRule()
-     * @param \Ews\StructType\EwsRuleType[] $rule
+     * @param \StructType\EwsRuleType[] $rule
      */
-    public function __construct(array $rule = array())
+    public function __construct(array $rule = [])
     {
         $this
             ->setRule($rule);
     }
     /**
      * Get Rule value
-     * @return \Ews\StructType\EwsRuleType[]|null
+     * @return \StructType\EwsRuleType[]
      */
-    public function getRule()
+    public function getRule(): array
     {
         return $this->Rule;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRuleForArrayConstraintsFromSetRule(array $values = array())
+    public static function validateRuleForArrayConstraintsFromSetRule(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfRulesTypeRuleItem) {
             // validation for constraint: itemType
-            if (!$arrayOfRulesTypeRuleItem instanceof \Ews\StructType\EwsRuleType) {
+            if (!$arrayOfRulesTypeRuleItem instanceof \StructType\EwsRuleType) {
                 $invalidValues[] = is_object($arrayOfRulesTypeRuleItem) ? get_class($arrayOfRulesTypeRuleItem) : sprintf('%s(%s)', gettype($arrayOfRulesTypeRuleItem), var_export($arrayOfRulesTypeRuleItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Rule property can only contain items of type \Ews\StructType\EwsRuleType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Rule property can only contain items of type \StructType\EwsRuleType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Rule value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRuleType[] $rule
-     * @return \Ews\ArrayType\EwsArrayOfRulesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRuleType[] $rule
+     * @return \ArrayType\EwsArrayOfRulesType
      */
-    public function setRule(array $rule = array())
+    public function setRule(array $rule = []): self
     {
         // validation for constraint: array
         if ('' !== ($ruleArrayErrorMessage = self::validateRuleForArrayConstraintsFromSetRule($rule))) {
-            throw new \InvalidArgumentException($ruleArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($ruleArrayErrorMessage, __LINE__);
         }
         $this->Rule = $rule;
-        return $this;
-    }
-    /**
-     * Add item to Rule value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRuleType $item
-     * @return \Ews\ArrayType\EwsArrayOfRulesType
-     */
-    public function addToRule(\Ews\StructType\EwsRuleType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsRuleType) {
-            throw new \InvalidArgumentException(sprintf('The Rule property can only contain items of type \Ews\StructType\EwsRuleType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Rule[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsRuleType|null
+     * @return \StructType\EwsRuleType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsRuleType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsRuleType|null
+     * @return \StructType\EwsRuleType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsRuleType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsRuleType|null
+     * @return \StructType\EwsRuleType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsRuleType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsRuleType|null
+     * @return \StructType\EwsRuleType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsRuleType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfRulesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsRuleType|null
+     * @return \StructType\EwsRuleType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsRuleType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRuleType $item
+     * @return \ArrayType\EwsArrayOfRulesType
+     */
+    public function add(\StructType\EwsRuleType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Rule
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Rule';
     }

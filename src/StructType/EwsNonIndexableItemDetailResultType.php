@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonIndexableItemDetailResultType StructType
@@ -18,24 +21,24 @@ class EwsNonIndexableItemDetailResultType extends AbstractStructBase
      * The Items
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType
+     * @var \ArrayType\EwsArrayOfNonIndexableItemDetailsType|null
      */
-    public $Items;
+    protected ?\ArrayType\EwsArrayOfNonIndexableItemDetailsType $Items = null;
     /**
      * The FailedMailboxes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
+     * @var \ArrayType\EwsArrayOfFailedSearchMailboxesType|null
      */
-    public $FailedMailboxes;
+    protected ?\ArrayType\EwsArrayOfFailedSearchMailboxesType $FailedMailboxes = null;
     /**
      * Constructor method for NonIndexableItemDetailResultType
      * @uses EwsNonIndexableItemDetailResultType::setItems()
      * @uses EwsNonIndexableItemDetailResultType::setFailedMailboxes()
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items
-     * @param \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
+     * @param \ArrayType\EwsArrayOfNonIndexableItemDetailsType $items
+     * @param \ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items = null, \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
+    public function __construct(?\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items = null, ?\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
     {
         $this
             ->setItems($items)
@@ -43,38 +46,40 @@ class EwsNonIndexableItemDetailResultType extends AbstractStructBase
     }
     /**
      * Get Items value
-     * @return \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType|null
+     * @return \ArrayType\EwsArrayOfNonIndexableItemDetailsType|null
      */
-    public function getItems()
+    public function getItems(): ?\ArrayType\EwsArrayOfNonIndexableItemDetailsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items
-     * @return \Ews\StructType\EwsNonIndexableItemDetailResultType
+     * @param \ArrayType\EwsArrayOfNonIndexableItemDetailsType $items
+     * @return \StructType\EwsNonIndexableItemDetailResultType
      */
-    public function setItems(\Ews\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items = null)
+    public function setItems(?\ArrayType\EwsArrayOfNonIndexableItemDetailsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
     /**
      * Get FailedMailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType|null
+     * @return \ArrayType\EwsArrayOfFailedSearchMailboxesType|null
      */
-    public function getFailedMailboxes()
+    public function getFailedMailboxes(): ?\ArrayType\EwsArrayOfFailedSearchMailboxesType
     {
         return $this->FailedMailboxes;
     }
     /**
      * Set FailedMailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
-     * @return \Ews\StructType\EwsNonIndexableItemDetailResultType
+     * @param \ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
+     * @return \StructType\EwsNonIndexableItemDetailResultType
      */
-    public function setFailedMailboxes(\Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
+    public function setFailedMailboxes(?\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null): self
     {
         $this->FailedMailboxes = $failedMailboxes;
+        
         return $this;
     }
 }

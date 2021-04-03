@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchFolderType StructType
@@ -16,35 +19,36 @@ class EwsSearchFolderType extends EwsFolderType
      * The SearchParameters
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchParametersType
+     * @var \StructType\EwsSearchParametersType|null
      */
-    public $SearchParameters;
+    protected ?\StructType\EwsSearchParametersType $SearchParameters = null;
     /**
      * Constructor method for SearchFolderType
      * @uses EwsSearchFolderType::setSearchParameters()
-     * @param \Ews\StructType\EwsSearchParametersType $searchParameters
+     * @param \StructType\EwsSearchParametersType $searchParameters
      */
-    public function __construct(\Ews\StructType\EwsSearchParametersType $searchParameters = null)
+    public function __construct(?\StructType\EwsSearchParametersType $searchParameters = null)
     {
         $this
             ->setSearchParameters($searchParameters);
     }
     /**
      * Get SearchParameters value
-     * @return \Ews\StructType\EwsSearchParametersType|null
+     * @return \StructType\EwsSearchParametersType|null
      */
-    public function getSearchParameters()
+    public function getSearchParameters(): ?\StructType\EwsSearchParametersType
     {
         return $this->SearchParameters;
     }
     /**
      * Set SearchParameters value
-     * @param \Ews\StructType\EwsSearchParametersType $searchParameters
-     * @return \Ews\StructType\EwsSearchFolderType
+     * @param \StructType\EwsSearchParametersType $searchParameters
+     * @return \StructType\EwsSearchFolderType
      */
-    public function setSearchParameters(\Ews\StructType\EwsSearchParametersType $searchParameters = null)
+    public function setSearchParameters(?\StructType\EwsSearchParametersType $searchParameters = null): self
     {
         $this->SearchParameters = $searchParameters;
+        
         return $this;
     }
 }

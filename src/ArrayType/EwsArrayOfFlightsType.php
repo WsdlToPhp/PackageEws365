@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFlightsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFlightEntityType[]
+     * @var \StructType\EwsFlightEntityType[]
      */
-    public $Flight;
+    protected array $Flight = [];
     /**
      * Constructor method for ArrayOfFlightsType
      * @uses EwsArrayOfFlightsType::setFlight()
-     * @param \Ews\StructType\EwsFlightEntityType[] $flight
+     * @param \StructType\EwsFlightEntityType[] $flight
      */
-    public function __construct(array $flight = array())
+    public function __construct(array $flight = [])
     {
         $this
             ->setFlight($flight);
     }
     /**
      * Get Flight value
-     * @return \Ews\StructType\EwsFlightEntityType[]|null
+     * @return \StructType\EwsFlightEntityType[]
      */
-    public function getFlight()
+    public function getFlight(): array
     {
         return $this->Flight;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFlightForArrayConstraintsFromSetFlight(array $values = array())
+    public static function validateFlightForArrayConstraintsFromSetFlight(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfFlightsTypeFlightItem) {
             // validation for constraint: itemType
-            if (!$arrayOfFlightsTypeFlightItem instanceof \Ews\StructType\EwsFlightEntityType) {
+            if (!$arrayOfFlightsTypeFlightItem instanceof \StructType\EwsFlightEntityType) {
                 $invalidValues[] = is_object($arrayOfFlightsTypeFlightItem) ? get_class($arrayOfFlightsTypeFlightItem) : sprintf('%s(%s)', gettype($arrayOfFlightsTypeFlightItem), var_export($arrayOfFlightsTypeFlightItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Flight property can only contain items of type \Ews\StructType\EwsFlightEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Flight property can only contain items of type \StructType\EwsFlightEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Flight value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFlightEntityType[] $flight
-     * @return \Ews\ArrayType\EwsArrayOfFlightsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFlightEntityType[] $flight
+     * @return \ArrayType\EwsArrayOfFlightsType
      */
-    public function setFlight(array $flight = array())
+    public function setFlight(array $flight = []): self
     {
         // validation for constraint: array
         if ('' !== ($flightArrayErrorMessage = self::validateFlightForArrayConstraintsFromSetFlight($flight))) {
-            throw new \InvalidArgumentException($flightArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($flightArrayErrorMessage, __LINE__);
         }
         $this->Flight = $flight;
-        return $this;
-    }
-    /**
-     * Add item to Flight value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFlightEntityType $item
-     * @return \Ews\ArrayType\EwsArrayOfFlightsType
-     */
-    public function addToFlight(\Ews\StructType\EwsFlightEntityType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsFlightEntityType) {
-            throw new \InvalidArgumentException(sprintf('The Flight property can only contain items of type \Ews\StructType\EwsFlightEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Flight[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFlightEntityType|null
+     * @return \StructType\EwsFlightEntityType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFlightEntityType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFlightEntityType|null
+     * @return \StructType\EwsFlightEntityType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFlightEntityType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFlightEntityType|null
+     * @return \StructType\EwsFlightEntityType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFlightEntityType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFlightEntityType|null
+     * @return \StructType\EwsFlightEntityType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFlightEntityType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFlightEntityType|null
+     * @return \StructType\EwsFlightEntityType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFlightEntityType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFlightEntityType $item
+     * @return \ArrayType\EwsArrayOfFlightsType
+     */
+    public function add(\StructType\EwsFlightEntityType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Flight
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Flight';
     }

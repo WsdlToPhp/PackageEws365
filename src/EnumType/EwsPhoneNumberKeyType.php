@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for PhoneNumberKeyType EnumType
@@ -154,9 +156,9 @@ class EwsPhoneNumberKeyType extends AbstractStructEnumBase
      * @uses self::VALUE_MSN
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ASSISTANT_PHONE,
             self::VALUE_BUSINESS_FAX,
             self::VALUE_BUSINESS_PHONE_1,
@@ -180,6 +182,6 @@ class EwsPhoneNumberKeyType extends AbstractStructEnumBase
             self::VALUE_IPPHONE,
             self::VALUE_MMS,
             self::VALUE_MSN,
-        );
+        ];
     }
 }

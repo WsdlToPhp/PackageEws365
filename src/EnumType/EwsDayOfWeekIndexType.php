@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for DayOfWeekIndexType EnumType
@@ -46,14 +48,14 @@ class EwsDayOfWeekIndexType extends AbstractStructEnumBase
      * @uses self::VALUE_LAST
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_FIRST,
             self::VALUE_SECOND,
             self::VALUE_THIRD,
             self::VALUE_FOURTH,
             self::VALUE_LAST,
-        );
+        ];
     }
 }

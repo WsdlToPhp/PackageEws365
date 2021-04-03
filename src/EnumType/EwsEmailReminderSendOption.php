@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for EmailReminderSendOption EnumType
@@ -46,14 +48,14 @@ class EwsEmailReminderSendOption extends AbstractStructEnumBase
      * @uses self::VALUE_CUSTOMER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NOT_SET,
             self::VALUE_USER,
             self::VALUE_ALL_ATTENDEES,
             self::VALUE_STAFF,
             self::VALUE_CUSTOMER,
-        );
+        ];
     }
 }

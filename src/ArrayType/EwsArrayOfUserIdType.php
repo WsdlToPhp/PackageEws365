@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUserIdType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserIdType[]
+     * @var \StructType\EwsUserIdType[]
      */
-    public $UserId;
+    protected array $UserId = [];
     /**
      * Constructor method for ArrayOfUserIdType
      * @uses EwsArrayOfUserIdType::setUserId()
-     * @param \Ews\StructType\EwsUserIdType[] $userId
+     * @param \StructType\EwsUserIdType[] $userId
      */
-    public function __construct(array $userId = array())
+    public function __construct(array $userId)
     {
         $this
             ->setUserId($userId);
     }
     /**
      * Get UserId value
-     * @return \Ews\StructType\EwsUserIdType[]
+     * @return \StructType\EwsUserIdType[]
      */
-    public function getUserId()
+    public function getUserId(): array
     {
         return $this->UserId;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateUserIdForArrayConstraintsFromSetUserId(array $values = array())
+    public static function validateUserIdForArrayConstraintsFromSetUserId(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUserIdTypeUserIdItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUserIdTypeUserIdItem instanceof \Ews\StructType\EwsUserIdType) {
+            if (!$arrayOfUserIdTypeUserIdItem instanceof \StructType\EwsUserIdType) {
                 $invalidValues[] = is_object($arrayOfUserIdTypeUserIdItem) ? get_class($arrayOfUserIdTypeUserIdItem) : sprintf('%s(%s)', gettype($arrayOfUserIdTypeUserIdItem), var_export($arrayOfUserIdTypeUserIdItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The UserId property can only contain items of type \Ews\StructType\EwsUserIdType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The UserId property can only contain items of type \StructType\EwsUserIdType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set UserId value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserIdType[] $userId
-     * @return \Ews\ArrayType\EwsArrayOfUserIdType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserIdType[] $userId
+     * @return \ArrayType\EwsArrayOfUserIdType
      */
-    public function setUserId(array $userId = array())
+    public function setUserId(array $userId): self
     {
         // validation for constraint: array
         if ('' !== ($userIdArrayErrorMessage = self::validateUserIdForArrayConstraintsFromSetUserId($userId))) {
-            throw new \InvalidArgumentException($userIdArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($userIdArrayErrorMessage, __LINE__);
         }
         $this->UserId = $userId;
-        return $this;
-    }
-    /**
-     * Add item to UserId value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserIdType $item
-     * @return \Ews\ArrayType\EwsArrayOfUserIdType
-     */
-    public function addToUserId(\Ews\StructType\EwsUserIdType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUserIdType) {
-            throw new \InvalidArgumentException(sprintf('The UserId property can only contain items of type \Ews\StructType\EwsUserIdType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->UserId[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUserIdType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUserIdType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUserIdType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUserIdType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUserIdType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUserIdType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserIdType $item
+     * @return \ArrayType\EwsArrayOfUserIdType
+     */
+    public function add(\StructType\EwsUserIdType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string UserId
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'UserId';
     }

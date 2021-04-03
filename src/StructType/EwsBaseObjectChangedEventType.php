@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseObjectChangedEventType StructType
@@ -14,32 +17,32 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
 {
     /**
      * The TimeStamp
-     * @var string
+     * @var string|null
      */
-    public $TimeStamp;
+    protected ?string $TimeStamp = null;
     /**
      * The FolderId
      * Meta information extracted from the WSDL
      * - choice: FolderId | ItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * The ItemId
      * Meta information extracted from the WSDL
      * - choice: FolderId | ItemId
      * - choiceMaxOccurs: 1
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * The ParentFolderId
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $ParentFolderId;
+    protected ?\StructType\EwsFolderIdType $ParentFolderId = null;
     /**
      * Constructor method for BaseObjectChangedEventType
      * @uses EwsBaseObjectChangedEventType::setTimeStamp()
@@ -47,11 +50,11 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * @uses EwsBaseObjectChangedEventType::setItemId()
      * @uses EwsBaseObjectChangedEventType::setParentFolderId()
      * @param string $timeStamp
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsFolderIdType $parentFolderId
+     * @param \StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsFolderIdType $parentFolderId
      */
-    public function __construct($timeStamp = null, \Ews\StructType\EwsFolderIdType $folderId = null, \Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsFolderIdType $parentFolderId = null)
+    public function __construct(?string $timeStamp = null, ?\StructType\EwsFolderIdType $folderId = null, ?\StructType\EwsItemIdType $itemId = null, ?\StructType\EwsFolderIdType $parentFolderId = null)
     {
         $this
             ->setTimeStamp($timeStamp)
@@ -63,29 +66,30 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * Get TimeStamp value
      * @return string|null
      */
-    public function getTimeStamp()
+    public function getTimeStamp(): ?string
     {
         return $this->TimeStamp;
     }
     /**
      * Set TimeStamp value
      * @param string $timeStamp
-     * @return \Ews\StructType\EwsBaseObjectChangedEventType
+     * @return \StructType\EwsBaseObjectChangedEventType
      */
-    public function setTimeStamp($timeStamp = null)
+    public function setTimeStamp(?string $timeStamp = null): self
     {
         // validation for constraint: string
         if (!is_null($timeStamp) && !is_string($timeStamp)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeStamp, true), gettype($timeStamp)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeStamp, true), gettype($timeStamp)), __LINE__);
         }
         $this->TimeStamp = $timeStamp;
+        
         return $this;
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return isset($this->FolderId) ? $this->FolderId : null;
     }
@@ -96,7 +100,7 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value)
+    public function validateFolderIdForChoiceConstraintsFromSetFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -108,12 +112,13 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: FolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -121,28 +126,29 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsBaseObjectChangedEventType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsBaseObjectChangedEventType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         // validation for constraint: choice(FolderId, ItemId)
         if ('' !== ($folderIdChoiceErrorMessage = self::validateFolderIdForChoiceConstraintsFromSetFolderId($folderId))) {
-            throw new \InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($folderId) || (is_array($folderId) && empty($folderId))) {
             unset($this->FolderId);
         } else {
             $this->FolderId = $folderId;
         }
+        
         return $this;
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return isset($this->ItemId) ? $this->ItemId : null;
     }
@@ -153,7 +159,7 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemIdForChoiceConstraintsFromSetItemId($value)
+    public function validateItemIdForChoiceConstraintsFromSetItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -165,12 +171,13 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -178,39 +185,41 @@ class EwsBaseObjectChangedEventType extends EwsBaseNotificationEventType
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsBaseObjectChangedEventType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsBaseObjectChangedEventType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         // validation for constraint: choice(FolderId, ItemId)
         if ('' !== ($itemIdChoiceErrorMessage = self::validateItemIdForChoiceConstraintsFromSetItemId($itemId))) {
-            throw new \InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($itemId) || (is_array($itemId) && empty($itemId))) {
             unset($this->ItemId);
         } else {
             $this->ItemId = $itemId;
         }
+        
         return $this;
     }
     /**
      * Get ParentFolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->ParentFolderId;
     }
     /**
      * Set ParentFolderId value
-     * @param \Ews\StructType\EwsFolderIdType $parentFolderId
-     * @return \Ews\StructType\EwsBaseObjectChangedEventType
+     * @param \StructType\EwsFolderIdType $parentFolderId
+     * @return \StructType\EwsBaseObjectChangedEventType
      */
-    public function setParentFolderId(\Ews\StructType\EwsFolderIdType $parentFolderId = null)
+    public function setParentFolderId(?\StructType\EwsFolderIdType $parentFolderId = null): self
     {
         $this->ParentFolderId = $parentFolderId;
+        
         return $this;
     }
 }

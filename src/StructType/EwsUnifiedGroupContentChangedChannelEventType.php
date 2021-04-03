@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupContentChangedChannelEventType StructType
@@ -14,35 +17,36 @@ class EwsUnifiedGroupContentChangedChannelEventType extends EwsSubscriptionLevel
 {
     /**
      * The DistinguishedFolderId
-     * @var \Ews\StructType\EwsDistinguishedFolderIdType
+     * @var \StructType\EwsDistinguishedFolderIdType|null
      */
-    public $DistinguishedFolderId;
+    protected ?\StructType\EwsDistinguishedFolderIdType $DistinguishedFolderId = null;
     /**
      * Constructor method for UnifiedGroupContentChangedChannelEventType
      * @uses EwsUnifiedGroupContentChangedChannelEventType::setDistinguishedFolderId()
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
+     * @param \StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
      */
-    public function __construct(\Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
+    public function __construct(?\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
     {
         $this
             ->setDistinguishedFolderId($distinguishedFolderId);
     }
     /**
      * Get DistinguishedFolderId value
-     * @return \Ews\StructType\EwsDistinguishedFolderIdType|null
+     * @return \StructType\EwsDistinguishedFolderIdType|null
      */
-    public function getDistinguishedFolderId()
+    public function getDistinguishedFolderId(): ?\StructType\EwsDistinguishedFolderIdType
     {
         return $this->DistinguishedFolderId;
     }
     /**
      * Set DistinguishedFolderId value
-     * @param \Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
-     * @return \Ews\StructType\EwsUnifiedGroupContentChangedChannelEventType
+     * @param \StructType\EwsDistinguishedFolderIdType $distinguishedFolderId
+     * @return \StructType\EwsUnifiedGroupContentChangedChannelEventType
      */
-    public function setDistinguishedFolderId(\Ews\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null)
+    public function setDistinguishedFolderId(?\StructType\EwsDistinguishedFolderIdType $distinguishedFolderId = null): self
     {
         $this->DistinguishedFolderId = $distinguishedFolderId;
+        
         return $this;
     }
 }

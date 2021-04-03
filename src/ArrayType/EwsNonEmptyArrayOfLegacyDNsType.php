@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfLegacyDNsType ArrayType
@@ -19,13 +22,13 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $LegacyDN;
+    protected array $LegacyDN = [];
     /**
      * Constructor method for NonEmptyArrayOfLegacyDNsType
      * @uses EwsNonEmptyArrayOfLegacyDNsType::setLegacyDN()
      * @param string[] $legacyDN
      */
-    public function __construct(array $legacyDN = array())
+    public function __construct(array $legacyDN)
     {
         $this
             ->setLegacyDN($legacyDN);
@@ -34,7 +37,7 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * Get LegacyDN value
      * @return string[]
      */
-    public function getLegacyDN()
+    public function getLegacyDN(): array
     {
         return $this->LegacyDN;
     }
@@ -44,7 +47,7 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateLegacyDNForArrayConstraintsFromSetLegacyDN(array $values = array())
+    public static function validateLegacyDNForArrayConstraintsFromSetLegacyDN(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,44 +61,31 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
             $message = sprintf('The LegacyDN property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set LegacyDN value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $legacyDN
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     * @return \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
-    public function setLegacyDN(array $legacyDN = array())
+    public function setLegacyDN(array $legacyDN): self
     {
         // validation for constraint: array
         if ('' !== ($legacyDNArrayErrorMessage = self::validateLegacyDNForArrayConstraintsFromSetLegacyDN($legacyDN))) {
-            throw new \InvalidArgumentException($legacyDNArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($legacyDNArrayErrorMessage, __LINE__);
         }
         $this->LegacyDN = $legacyDN;
-        return $this;
-    }
-    /**
-     * Add item to LegacyDN value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
-     */
-    public function addToLegacyDN($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The LegacyDN property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->LegacyDN[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -131,9 +121,9 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsNonEmptyArrayOfLegacyDNsType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string LegacyDN
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'LegacyDN';
     }

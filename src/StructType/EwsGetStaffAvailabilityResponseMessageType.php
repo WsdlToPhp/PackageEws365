@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetStaffAvailabilityResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetStaffAvailabilityResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
+     * @var \ArrayType\EwsArrayOfStaffAvailabilityResponseType
      */
-    public $Responses;
+    protected \ArrayType\EwsArrayOfStaffAvailabilityResponseType $Responses;
     /**
      * Constructor method for GetStaffAvailabilityResponseMessageType
      * @uses EwsGetStaffAvailabilityResponseMessageType::setResponses()
-     * @param \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses
+     * @param \ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses = null)
+    public function __construct(\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses)
     {
         $this
             ->setResponses($responses);
     }
     /**
      * Get Responses value
-     * @return \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType
+     * @return \ArrayType\EwsArrayOfStaffAvailabilityResponseType
      */
-    public function getResponses()
+    public function getResponses(): \ArrayType\EwsArrayOfStaffAvailabilityResponseType
     {
         return $this->Responses;
     }
     /**
      * Set Responses value
-     * @param \Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses
-     * @return \Ews\StructType\EwsGetStaffAvailabilityResponseMessageType
+     * @param \ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses
+     * @return \StructType\EwsGetStaffAvailabilityResponseMessageType
      */
-    public function setResponses(\Ews\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses = null)
+    public function setResponses(\ArrayType\EwsArrayOfStaffAvailabilityResponseType $responses): self
     {
         $this->Responses = $responses;
+        
         return $this;
     }
 }

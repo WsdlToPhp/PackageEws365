@@ -5,33 +5,33 @@
  * You have to use an associative array such as:
  * - the key must be a constant beginning with WSDL_ from AbstractSoapClientBase class (each generated ServiceType class extends this class)
  * - the value must be the corresponding key value (each option matches a {@link http://www.php.net/manual/en/soapclient.soapclient.php} option)
- * $options = array(
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => __DIR__ . '/wsdl/services.updated.wsdl',
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_TRACE => true,
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_LOGIN => 'you_secret_login',
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_PASSWORD => 'you_secret_password',
- * );
+ * $options = [
+ * WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => __DIR__.'/wsdl/services.updated.wsdl',
+ * WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_TRACE => true,
+ * WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_LOGIN => 'you_secret_login',
+ * WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_PASSWORD => 'you_secret_password',
+ * ];
  * etc...
  */
 require_once __DIR__ . '/vendor/autoload.php';
 /**
  * Minimal options
  */
-$options = array(
-    \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => __DIR__ . '/wsdl/services.updated.wsdl',
-    \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_CLASSMAP => \Ews\EwsClassMap::get(),
-);
+$options = [
+    WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => __DIR__.'/wsdl/services.updated.wsdl',
+    WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_CLASSMAP => EwsClassMap::get(),
+];
 /**
  * Samples for Resolve ServiceType
  */
-$resolve = new \Ews\ServiceType\EwsResolve($options);
+$resolve = new \ServiceType\EwsResolve($options);
 $resolve->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $resolve->setSoapHeaderMailboxCulture($MailboxCulture);
-$resolve->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$resolve->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for ResolveNames operation/method
  */
-if ($resolve->ResolveNames(new \Ews\StructType\EwsResolveNamesType()) !== false) {
+if ($resolve->ResolveNames(new \StructType\EwsResolveNamesType()) !== false) {
     print_r($resolve->getResult());
 } else {
     print_r($resolve->getLastError());
@@ -39,14 +39,14 @@ if ($resolve->ResolveNames(new \Ews\StructType\EwsResolveNamesType()) !== false)
 /**
  * Samples for Expand ServiceType
  */
-$expand = new \Ews\ServiceType\EwsExpand($options);
+$expand = new \ServiceType\EwsExpand($options);
 $expand->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $expand->setSoapHeaderMailboxCulture($MailboxCulture);
-$expand->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$expand->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for ExpandDL operation/method
  */
-if ($expand->ExpandDL(new \Ews\StructType\EwsExpandDLType()) !== false) {
+if ($expand->ExpandDL(new \StructType\EwsExpandDLType()) !== false) {
     print_r($expand->getResult());
 } else {
     print_r($expand->getLastError());
@@ -54,9 +54,9 @@ if ($expand->ExpandDL(new \Ews\StructType\EwsExpandDLType()) !== false) {
 /**
  * Samples for Get ServiceType
  */
-$get = new \Ews\ServiceType\EwsGet($options);
+$get = new \ServiceType\EwsGet($options);
 $get->setSoapHeaderMailboxCulture($MailboxCulture);
-$get->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$get->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $get->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $get->setSoapHeaderTimeZoneContext($TimeZoneContext);
 $get->setSoapHeaderManagementRole($ManagementRole);
@@ -64,7 +64,7 @@ $get->setSoapHeaderDateTimePrecision($DateTimePrecision);
 /**
  * Sample call for GetServerTimeZones operation/method
  */
-if ($get->GetServerTimeZones(new \Ews\StructType\EwsGetServerTimeZonesType()) !== false) {
+if ($get->GetServerTimeZones(new \StructType\EwsGetServerTimeZonesType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -72,7 +72,7 @@ if ($get->GetServerTimeZones(new \Ews\StructType\EwsGetServerTimeZonesType()) !=
 /**
  * Sample call for GetFolder operation/method
  */
-if ($get->GetFolder(new \Ews\StructType\EwsGetFolderType()) !== false) {
+if ($get->GetFolder(new \StructType\EwsGetFolderType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -80,7 +80,7 @@ if ($get->GetFolder(new \Ews\StructType\EwsGetFolderType()) !== false) {
 /**
  * Sample call for GetEvents operation/method
  */
-if ($get->GetEvents(new \Ews\StructType\EwsGetEventsType()) !== false) {
+if ($get->GetEvents(new \StructType\EwsGetEventsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -88,7 +88,7 @@ if ($get->GetEvents(new \Ews\StructType\EwsGetEventsType()) !== false) {
 /**
  * Sample call for GetStreamingEvents operation/method
  */
-if ($get->GetStreamingEvents(new \Ews\StructType\EwsGetStreamingEventsType()) !== false) {
+if ($get->GetStreamingEvents(new \StructType\EwsGetStreamingEventsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -96,7 +96,7 @@ if ($get->GetStreamingEvents(new \Ews\StructType\EwsGetStreamingEventsType()) !=
 /**
  * Sample call for GetItem operation/method
  */
-if ($get->GetItem(new \Ews\StructType\EwsGetItemType()) !== false) {
+if ($get->GetItem(new \StructType\EwsGetItemType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -104,7 +104,7 @@ if ($get->GetItem(new \Ews\StructType\EwsGetItemType()) !== false) {
 /**
  * Sample call for GetAttachment operation/method
  */
-if ($get->GetAttachment(new \Ews\StructType\EwsGetAttachmentType()) !== false) {
+if ($get->GetAttachment(new \StructType\EwsGetAttachmentType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -112,7 +112,7 @@ if ($get->GetAttachment(new \Ews\StructType\EwsGetAttachmentType()) !== false) {
 /**
  * Sample call for GetClientAccessToken operation/method
  */
-if ($get->GetClientAccessToken(new \Ews\StructType\EwsGetClientAccessTokenType()) !== false) {
+if ($get->GetClientAccessToken(new \StructType\EwsGetClientAccessTokenType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -120,7 +120,7 @@ if ($get->GetClientAccessToken(new \Ews\StructType\EwsGetClientAccessTokenType()
 /**
  * Sample call for GetDelegate operation/method
  */
-if ($get->GetDelegate(new \Ews\StructType\EwsGetDelegateType()) !== false) {
+if ($get->GetDelegate(new \StructType\EwsGetDelegateType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -128,7 +128,7 @@ if ($get->GetDelegate(new \Ews\StructType\EwsGetDelegateType()) !== false) {
 /**
  * Sample call for GetUserConfiguration operation/method
  */
-if ($get->GetUserConfiguration(new \Ews\StructType\EwsGetUserConfigurationType()) !== false) {
+if ($get->GetUserConfiguration(new \StructType\EwsGetUserConfigurationType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -136,7 +136,7 @@ if ($get->GetUserConfiguration(new \Ews\StructType\EwsGetUserConfigurationType()
 /**
  * Sample call for GetUserAvailability operation/method
  */
-if ($get->GetUserAvailability(new \Ews\StructType\EwsGetUserAvailabilityRequestType()) !== false) {
+if ($get->GetUserAvailability(new \StructType\EwsGetUserAvailabilityRequestType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -144,7 +144,7 @@ if ($get->GetUserAvailability(new \Ews\StructType\EwsGetUserAvailabilityRequestT
 /**
  * Sample call for GetUserOofSettings operation/method
  */
-if ($get->GetUserOofSettings(new \Ews\StructType\EwsGetUserOofSettingsRequest()) !== false) {
+if ($get->GetUserOofSettings(new \StructType\EwsGetUserOofSettingsRequest()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -152,7 +152,7 @@ if ($get->GetUserOofSettings(new \Ews\StructType\EwsGetUserOofSettingsRequest())
 /**
  * Sample call for GetServiceConfiguration operation/method
  */
-if ($get->GetServiceConfiguration(new \Ews\StructType\EwsGetServiceConfigurationType()) !== false) {
+if ($get->GetServiceConfiguration(new \StructType\EwsGetServiceConfigurationType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -160,7 +160,7 @@ if ($get->GetServiceConfiguration(new \Ews\StructType\EwsGetServiceConfiguration
 /**
  * Sample call for GetMailTips operation/method
  */
-if ($get->GetMailTips(new \Ews\StructType\EwsGetMailTipsType()) !== false) {
+if ($get->GetMailTips(new \StructType\EwsGetMailTipsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -168,7 +168,7 @@ if ($get->GetMailTips(new \Ews\StructType\EwsGetMailTipsType()) !== false) {
 /**
  * Sample call for GetPhoneCallInformation operation/method
  */
-if ($get->GetPhoneCallInformation(new \Ews\StructType\EwsGetPhoneCallInformationType()) !== false) {
+if ($get->GetPhoneCallInformation(new \StructType\EwsGetPhoneCallInformationType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -176,7 +176,7 @@ if ($get->GetPhoneCallInformation(new \Ews\StructType\EwsGetPhoneCallInformation
 /**
  * Sample call for GetSharingMetadata operation/method
  */
-if ($get->GetSharingMetadata(new \Ews\StructType\EwsGetSharingMetadataType()) !== false) {
+if ($get->GetSharingMetadata(new \StructType\EwsGetSharingMetadataType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -184,7 +184,7 @@ if ($get->GetSharingMetadata(new \Ews\StructType\EwsGetSharingMetadataType()) !=
 /**
  * Sample call for GetSharingFolder operation/method
  */
-if ($get->GetSharingFolder(new \Ews\StructType\EwsGetSharingFolderType()) !== false) {
+if ($get->GetSharingFolder(new \StructType\EwsGetSharingFolderType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -192,7 +192,7 @@ if ($get->GetSharingFolder(new \Ews\StructType\EwsGetSharingFolderType()) !== fa
 /**
  * Sample call for GetRoomLists operation/method
  */
-if ($get->GetRoomLists(new \Ews\StructType\EwsGetRoomListsType()) !== false) {
+if ($get->GetRoomLists(new \StructType\EwsGetRoomListsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -200,7 +200,7 @@ if ($get->GetRoomLists(new \Ews\StructType\EwsGetRoomListsType()) !== false) {
 /**
  * Sample call for GetRooms operation/method
  */
-if ($get->GetRooms(new \Ews\StructType\EwsGetRoomsType()) !== false) {
+if ($get->GetRooms(new \StructType\EwsGetRoomsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -208,7 +208,7 @@ if ($get->GetRooms(new \Ews\StructType\EwsGetRoomsType()) !== false) {
 /**
  * Sample call for GetMessageTrackingReport operation/method
  */
-if ($get->GetMessageTrackingReport(new \Ews\StructType\EwsGetMessageTrackingReportRequestType()) !== false) {
+if ($get->GetMessageTrackingReport(new \StructType\EwsGetMessageTrackingReportRequestType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -216,7 +216,7 @@ if ($get->GetMessageTrackingReport(new \Ews\StructType\EwsGetMessageTrackingRepo
 /**
  * Sample call for GetConversationItems operation/method
  */
-if ($get->GetConversationItems(new \Ews\StructType\EwsGetConversationItemsType()) !== false) {
+if ($get->GetConversationItems(new \StructType\EwsGetConversationItemsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -224,7 +224,7 @@ if ($get->GetConversationItems(new \Ews\StructType\EwsGetConversationItemsType()
 /**
  * Sample call for GetPersona operation/method
  */
-if ($get->GetPersona(new \Ews\StructType\EwsGetPersonaType()) !== false) {
+if ($get->GetPersona(new \StructType\EwsGetPersonaType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -232,7 +232,7 @@ if ($get->GetPersona(new \Ews\StructType\EwsGetPersonaType()) !== false) {
 /**
  * Sample call for GetInboxRules operation/method
  */
-if ($get->GetInboxRules(new \Ews\StructType\EwsGetInboxRulesRequestType()) !== false) {
+if ($get->GetInboxRules(new \StructType\EwsGetInboxRulesRequestType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -240,7 +240,7 @@ if ($get->GetInboxRules(new \Ews\StructType\EwsGetInboxRulesRequestType()) !== f
 /**
  * Sample call for GetPasswordExpirationDate operation/method
  */
-if ($get->GetPasswordExpirationDate(new \Ews\StructType\EwsGetPasswordExpirationDateType()) !== false) {
+if ($get->GetPasswordExpirationDate(new \StructType\EwsGetPasswordExpirationDateType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -248,7 +248,7 @@ if ($get->GetPasswordExpirationDate(new \Ews\StructType\EwsGetPasswordExpiration
 /**
  * Sample call for GetDiscoverySearchConfiguration operation/method
  */
-if ($get->GetDiscoverySearchConfiguration(new \Ews\StructType\EwsGetDiscoverySearchConfigurationType()) !== false) {
+if ($get->GetDiscoverySearchConfiguration(new \StructType\EwsGetDiscoverySearchConfigurationType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -256,7 +256,7 @@ if ($get->GetDiscoverySearchConfiguration(new \Ews\StructType\EwsGetDiscoverySea
 /**
  * Sample call for GetSearchableMailboxes operation/method
  */
-if ($get->GetSearchableMailboxes(new \Ews\StructType\EwsGetSearchableMailboxesType()) !== false) {
+if ($get->GetSearchableMailboxes(new \StructType\EwsGetSearchableMailboxesType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -264,7 +264,7 @@ if ($get->GetSearchableMailboxes(new \Ews\StructType\EwsGetSearchableMailboxesTy
 /**
  * Sample call for GetHoldOnMailboxes operation/method
  */
-if ($get->GetHoldOnMailboxes(new \Ews\StructType\EwsGetHoldOnMailboxesType()) !== false) {
+if ($get->GetHoldOnMailboxes(new \StructType\EwsGetHoldOnMailboxesType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -272,7 +272,7 @@ if ($get->GetHoldOnMailboxes(new \Ews\StructType\EwsGetHoldOnMailboxesType()) !=
 /**
  * Sample call for GetNonIndexableItemStatistics operation/method
  */
-if ($get->GetNonIndexableItemStatistics(new \Ews\StructType\EwsGetNonIndexableItemStatisticsType()) !== false) {
+if ($get->GetNonIndexableItemStatistics(new \StructType\EwsGetNonIndexableItemStatisticsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -280,7 +280,7 @@ if ($get->GetNonIndexableItemStatistics(new \Ews\StructType\EwsGetNonIndexableIt
 /**
  * Sample call for GetNonIndexableItemDetails operation/method
  */
-if ($get->GetNonIndexableItemDetails(new \Ews\StructType\EwsGetNonIndexableItemDetailsType()) !== false) {
+if ($get->GetNonIndexableItemDetails(new \StructType\EwsGetNonIndexableItemDetailsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -288,7 +288,7 @@ if ($get->GetNonIndexableItemDetails(new \Ews\StructType\EwsGetNonIndexableItemD
 /**
  * Sample call for GetAppManifests operation/method
  */
-if ($get->GetAppManifests(new \Ews\StructType\EwsGetAppManifestsType()) !== false) {
+if ($get->GetAppManifests(new \StructType\EwsGetAppManifestsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -296,7 +296,7 @@ if ($get->GetAppManifests(new \Ews\StructType\EwsGetAppManifestsType()) !== fals
 /**
  * Sample call for GetImItemList operation/method
  */
-if ($get->GetImItemList(new \Ews\StructType\EwsGetImItemListType()) !== false) {
+if ($get->GetImItemList(new \StructType\EwsGetImItemListType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -304,7 +304,7 @@ if ($get->GetImItemList(new \Ews\StructType\EwsGetImItemListType()) !== false) {
 /**
  * Sample call for GetImItems operation/method
  */
-if ($get->GetImItems(new \Ews\StructType\EwsGetImItemsType()) !== false) {
+if ($get->GetImItems(new \StructType\EwsGetImItemsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -312,7 +312,7 @@ if ($get->GetImItems(new \Ews\StructType\EwsGetImItemsType()) !== false) {
 /**
  * Sample call for GetUserRetentionPolicyTags operation/method
  */
-if ($get->GetUserRetentionPolicyTags(new \Ews\StructType\EwsGetUserRetentionPolicyTagsType()) !== false) {
+if ($get->GetUserRetentionPolicyTags(new \StructType\EwsGetUserRetentionPolicyTagsType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -320,7 +320,7 @@ if ($get->GetUserRetentionPolicyTags(new \Ews\StructType\EwsGetUserRetentionPoli
 /**
  * Sample call for GetAppMarketplaceUrl operation/method
  */
-if ($get->GetAppMarketplaceUrl(new \Ews\StructType\EwsGetAppMarketplaceUrlType()) !== false) {
+if ($get->GetAppMarketplaceUrl(new \StructType\EwsGetAppMarketplaceUrlType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -328,7 +328,7 @@ if ($get->GetAppMarketplaceUrl(new \Ews\StructType\EwsGetAppMarketplaceUrlType()
 /**
  * Sample call for GetUserPhoto operation/method
  */
-if ($get->GetUserPhoto(new \Ews\StructType\EwsGetUserPhotoType()) !== false) {
+if ($get->GetUserPhoto(new \StructType\EwsGetUserPhotoType()) !== false) {
     print_r($get->getResult());
 } else {
     print_r($get->getLastError());
@@ -336,17 +336,17 @@ if ($get->GetUserPhoto(new \Ews\StructType\EwsGetUserPhotoType()) !== false) {
 /**
  * Samples for Find ServiceType
  */
-$find = new \Ews\ServiceType\EwsFind($options);
+$find = new \ServiceType\EwsFind($options);
 $find->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $find->setSoapHeaderMailboxCulture($MailboxCulture);
-$find->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$find->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $find->setSoapHeaderTimeZoneContext($TimeZoneContext);
 $find->setSoapHeaderManagementRole($ManagementRole);
 $find->setSoapHeaderDateTimePrecision($DateTimePrecision);
 /**
  * Sample call for FindFolder operation/method
  */
-if ($find->FindFolder(new \Ews\StructType\EwsFindFolderType()) !== false) {
+if ($find->FindFolder(new \StructType\EwsFindFolderType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -354,7 +354,7 @@ if ($find->FindFolder(new \Ews\StructType\EwsFindFolderType()) !== false) {
 /**
  * Sample call for FindItem operation/method
  */
-if ($find->FindItem(new \Ews\StructType\EwsFindItemType()) !== false) {
+if ($find->FindItem(new \StructType\EwsFindItemType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -362,7 +362,7 @@ if ($find->FindItem(new \Ews\StructType\EwsFindItemType()) !== false) {
 /**
  * Sample call for FindMessageTrackingReport operation/method
  */
-if ($find->FindMessageTrackingReport(new \Ews\StructType\EwsFindMessageTrackingReportRequestType()) !== false) {
+if ($find->FindMessageTrackingReport(new \StructType\EwsFindMessageTrackingReportRequestType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -370,7 +370,7 @@ if ($find->FindMessageTrackingReport(new \Ews\StructType\EwsFindMessageTrackingR
 /**
  * Sample call for FindConversation operation/method
  */
-if ($find->FindConversation(new \Ews\StructType\EwsFindConversationType()) !== false) {
+if ($find->FindConversation(new \StructType\EwsFindConversationType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -378,7 +378,7 @@ if ($find->FindConversation(new \Ews\StructType\EwsFindConversationType()) !== f
 /**
  * Sample call for FindPeople operation/method
  */
-if ($find->FindPeople(new \Ews\StructType\EwsFindPeopleType()) !== false) {
+if ($find->FindPeople(new \StructType\EwsFindPeopleType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -386,7 +386,7 @@ if ($find->FindPeople(new \Ews\StructType\EwsFindPeopleType()) !== false) {
 /**
  * Sample call for FindAvailableMeetingTimes operation/method
  */
-if ($find->FindAvailableMeetingTimes(new \Ews\StructType\EwsFindAvailableMeetingTimesType()) !== false) {
+if ($find->FindAvailableMeetingTimes(new \StructType\EwsFindAvailableMeetingTimesType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -394,7 +394,7 @@ if ($find->FindAvailableMeetingTimes(new \Ews\StructType\EwsFindAvailableMeeting
 /**
  * Sample call for FindMeetingTimeCandidates operation/method
  */
-if ($find->FindMeetingTimeCandidates(new \Ews\StructType\EwsFindMeetingTimeCandidatesType()) !== false) {
+if ($find->FindMeetingTimeCandidates(new \StructType\EwsFindMeetingTimeCandidatesType()) !== false) {
     print_r($find->getResult());
 } else {
     print_r($find->getLastError());
@@ -402,13 +402,13 @@ if ($find->FindMeetingTimeCandidates(new \Ews\StructType\EwsFindMeetingTimeCandi
 /**
  * Samples for Convert ServiceType
  */
-$convert = new \Ews\ServiceType\EwsConvert($options);
+$convert = new \ServiceType\EwsConvert($options);
 $convert->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
-$convert->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$convert->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for ConvertId operation/method
  */
-if ($convert->ConvertId(new \Ews\StructType\EwsConvertIdType()) !== false) {
+if ($convert->ConvertId(new \StructType\EwsConvertIdType()) !== false) {
     print_r($convert->getResult());
 } else {
     print_r($convert->getLastError());
@@ -416,14 +416,14 @@ if ($convert->ConvertId(new \Ews\StructType\EwsConvertIdType()) !== false) {
 /**
  * Samples for Upload ServiceType
  */
-$upload = new \Ews\ServiceType\EwsUpload($options);
+$upload = new \ServiceType\EwsUpload($options);
 $upload->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $upload->setSoapHeaderMailboxCulture($MailboxCulture);
-$upload->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$upload->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for UploadItems operation/method
  */
-if ($upload->UploadItems(new \Ews\StructType\EwsUploadItemsType()) !== false) {
+if ($upload->UploadItems(new \StructType\EwsUploadItemsType()) !== false) {
     print_r($upload->getResult());
 } else {
     print_r($upload->getLastError());
@@ -431,15 +431,15 @@ if ($upload->UploadItems(new \Ews\StructType\EwsUploadItemsType()) !== false) {
 /**
  * Samples for Export ServiceType
  */
-$export = new \Ews\ServiceType\EwsExport($options);
+$export = new \ServiceType\EwsExport($options);
 $export->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $export->setSoapHeaderMailboxCulture($MailboxCulture);
-$export->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$export->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $export->setSoapHeaderManagementRole($ManagementRole);
 /**
  * Sample call for ExportItems operation/method
  */
-if ($export->ExportItems(new \Ews\StructType\EwsExportItemsType()) !== false) {
+if ($export->ExportItems(new \StructType\EwsExportItemsType()) !== false) {
     print_r($export->getResult());
 } else {
     print_r($export->getLastError());
@@ -447,15 +447,15 @@ if ($export->ExportItems(new \Ews\StructType\EwsExportItemsType()) !== false) {
 /**
  * Samples for Create ServiceType
  */
-$create = new \Ews\ServiceType\EwsCreate($options);
+$create = new \ServiceType\EwsCreate($options);
 $create->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $create->setSoapHeaderMailboxCulture($MailboxCulture);
-$create->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$create->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $create->setSoapHeaderTimeZoneContext($TimeZoneContext);
 /**
  * Sample call for CreateFolderPath operation/method
  */
-if ($create->CreateFolderPath(new \Ews\StructType\EwsCreateFolderPathType()) !== false) {
+if ($create->CreateFolderPath(new \StructType\EwsCreateFolderPathType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -463,7 +463,7 @@ if ($create->CreateFolderPath(new \Ews\StructType\EwsCreateFolderPathType()) !==
 /**
  * Sample call for CreateFolder operation/method
  */
-if ($create->CreateFolder(new \Ews\StructType\EwsCreateFolderType()) !== false) {
+if ($create->CreateFolder(new \StructType\EwsCreateFolderType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -471,7 +471,7 @@ if ($create->CreateFolder(new \Ews\StructType\EwsCreateFolderType()) !== false) 
 /**
  * Sample call for CreateItem operation/method
  */
-if ($create->CreateItem(new \Ews\StructType\EwsCreateItemType()) !== false) {
+if ($create->CreateItem(new \StructType\EwsCreateItemType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -479,7 +479,7 @@ if ($create->CreateItem(new \Ews\StructType\EwsCreateItemType()) !== false) {
 /**
  * Sample call for CreateAttachment operation/method
  */
-if ($create->CreateAttachment(new \Ews\StructType\EwsCreateAttachmentType()) !== false) {
+if ($create->CreateAttachment(new \StructType\EwsCreateAttachmentType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -487,7 +487,7 @@ if ($create->CreateAttachment(new \Ews\StructType\EwsCreateAttachmentType()) !==
 /**
  * Sample call for CreateManagedFolder operation/method
  */
-if ($create->CreateManagedFolder(new \Ews\StructType\EwsCreateManagedFolderRequestType()) !== false) {
+if ($create->CreateManagedFolder(new \StructType\EwsCreateManagedFolderRequestType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -495,7 +495,7 @@ if ($create->CreateManagedFolder(new \Ews\StructType\EwsCreateManagedFolderReque
 /**
  * Sample call for CreateUserConfiguration operation/method
  */
-if ($create->CreateUserConfiguration(new \Ews\StructType\EwsCreateUserConfigurationType()) !== false) {
+if ($create->CreateUserConfiguration(new \StructType\EwsCreateUserConfigurationType()) !== false) {
     print_r($create->getResult());
 } else {
     print_r($create->getLastError());
@@ -503,14 +503,14 @@ if ($create->CreateUserConfiguration(new \Ews\StructType\EwsCreateUserConfigurat
 /**
  * Samples for Delete ServiceType
  */
-$delete = new \Ews\ServiceType\EwsDelete($options);
+$delete = new \ServiceType\EwsDelete($options);
 $delete->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $delete->setSoapHeaderMailboxCulture($MailboxCulture);
-$delete->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$delete->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for DeleteFolder operation/method
  */
-if ($delete->DeleteFolder(new \Ews\StructType\EwsDeleteFolderType()) !== false) {
+if ($delete->DeleteFolder(new \StructType\EwsDeleteFolderType()) !== false) {
     print_r($delete->getResult());
 } else {
     print_r($delete->getLastError());
@@ -518,7 +518,7 @@ if ($delete->DeleteFolder(new \Ews\StructType\EwsDeleteFolderType()) !== false) 
 /**
  * Sample call for DeleteItem operation/method
  */
-if ($delete->DeleteItem(new \Ews\StructType\EwsDeleteItemType()) !== false) {
+if ($delete->DeleteItem(new \StructType\EwsDeleteItemType()) !== false) {
     print_r($delete->getResult());
 } else {
     print_r($delete->getLastError());
@@ -526,7 +526,7 @@ if ($delete->DeleteItem(new \Ews\StructType\EwsDeleteItemType()) !== false) {
 /**
  * Sample call for DeleteAttachment operation/method
  */
-if ($delete->DeleteAttachment(new \Ews\StructType\EwsDeleteAttachmentType()) !== false) {
+if ($delete->DeleteAttachment(new \StructType\EwsDeleteAttachmentType()) !== false) {
     print_r($delete->getResult());
 } else {
     print_r($delete->getLastError());
@@ -534,7 +534,7 @@ if ($delete->DeleteAttachment(new \Ews\StructType\EwsDeleteAttachmentType()) !==
 /**
  * Sample call for DeleteUserConfiguration operation/method
  */
-if ($delete->DeleteUserConfiguration(new \Ews\StructType\EwsDeleteUserConfigurationType()) !== false) {
+if ($delete->DeleteUserConfiguration(new \StructType\EwsDeleteUserConfigurationType()) !== false) {
     print_r($delete->getResult());
 } else {
     print_r($delete->getLastError());
@@ -542,14 +542,14 @@ if ($delete->DeleteUserConfiguration(new \Ews\StructType\EwsDeleteUserConfigurat
 /**
  * Samples for Empty ServiceType
  */
-$empty = new \Ews\ServiceType\EwsEmpty($options);
+$empty = new \ServiceType\EwsEmpty($options);
 $empty->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $empty->setSoapHeaderMailboxCulture($MailboxCulture);
-$empty->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$empty->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for EmptyFolder operation/method
  */
-if ($empty->EmptyFolder(new \Ews\StructType\EwsEmptyFolderType()) !== false) {
+if ($empty->EmptyFolder(new \StructType\EwsEmptyFolderType()) !== false) {
     print_r($empty->getResult());
 } else {
     print_r($empty->getLastError());
@@ -557,16 +557,16 @@ if ($empty->EmptyFolder(new \Ews\StructType\EwsEmptyFolderType()) !== false) {
 /**
  * Samples for Update ServiceType
  */
-$update = new \Ews\ServiceType\EwsUpdate($options);
+$update = new \ServiceType\EwsUpdate($options);
 $update->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $update->setSoapHeaderMailboxCulture($MailboxCulture);
-$update->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$update->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $update->setSoapHeaderTimeZoneContext($TimeZoneContext);
 $update->setSoapHeaderManagementRole($ManagementRole);
 /**
  * Sample call for UpdateFolder operation/method
  */
-if ($update->UpdateFolder(new \Ews\StructType\EwsUpdateFolderType()) !== false) {
+if ($update->UpdateFolder(new \StructType\EwsUpdateFolderType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -574,7 +574,7 @@ if ($update->UpdateFolder(new \Ews\StructType\EwsUpdateFolderType()) !== false) 
 /**
  * Sample call for UpdateItem operation/method
  */
-if ($update->UpdateItem(new \Ews\StructType\EwsUpdateItemType()) !== false) {
+if ($update->UpdateItem(new \StructType\EwsUpdateItemType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -582,7 +582,7 @@ if ($update->UpdateItem(new \Ews\StructType\EwsUpdateItemType()) !== false) {
 /**
  * Sample call for UpdateItemInRecoverableItems operation/method
  */
-if ($update->UpdateItemInRecoverableItems(new \Ews\StructType\EwsUpdateItemInRecoverableItemsType()) !== false) {
+if ($update->UpdateItemInRecoverableItems(new \StructType\EwsUpdateItemInRecoverableItemsType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -590,7 +590,7 @@ if ($update->UpdateItemInRecoverableItems(new \Ews\StructType\EwsUpdateItemInRec
 /**
  * Sample call for UpdateDelegate operation/method
  */
-if ($update->UpdateDelegate(new \Ews\StructType\EwsUpdateDelegateType()) !== false) {
+if ($update->UpdateDelegate(new \StructType\EwsUpdateDelegateType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -598,7 +598,7 @@ if ($update->UpdateDelegate(new \Ews\StructType\EwsUpdateDelegateType()) !== fal
 /**
  * Sample call for UpdateUserConfiguration operation/method
  */
-if ($update->UpdateUserConfiguration(new \Ews\StructType\EwsUpdateUserConfigurationType()) !== false) {
+if ($update->UpdateUserConfiguration(new \StructType\EwsUpdateUserConfigurationType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -606,7 +606,7 @@ if ($update->UpdateUserConfiguration(new \Ews\StructType\EwsUpdateUserConfigurat
 /**
  * Sample call for UpdateInboxRules operation/method
  */
-if ($update->UpdateInboxRules(new \Ews\StructType\EwsUpdateInboxRulesRequestType()) !== false) {
+if ($update->UpdateInboxRules(new \StructType\EwsUpdateInboxRulesRequestType()) !== false) {
     print_r($update->getResult());
 } else {
     print_r($update->getLastError());
@@ -614,14 +614,14 @@ if ($update->UpdateInboxRules(new \Ews\StructType\EwsUpdateInboxRulesRequestType
 /**
  * Samples for Move ServiceType
  */
-$move = new \Ews\ServiceType\EwsMove($options);
+$move = new \ServiceType\EwsMove($options);
 $move->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $move->setSoapHeaderMailboxCulture($MailboxCulture);
-$move->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$move->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for MoveFolder operation/method
  */
-if ($move->MoveFolder(new \Ews\StructType\EwsMoveFolderType()) !== false) {
+if ($move->MoveFolder(new \StructType\EwsMoveFolderType()) !== false) {
     print_r($move->getResult());
 } else {
     print_r($move->getLastError());
@@ -629,7 +629,7 @@ if ($move->MoveFolder(new \Ews\StructType\EwsMoveFolderType()) !== false) {
 /**
  * Sample call for MoveItem operation/method
  */
-if ($move->MoveItem(new \Ews\StructType\EwsMoveItemType()) !== false) {
+if ($move->MoveItem(new \StructType\EwsMoveItemType()) !== false) {
     print_r($move->getResult());
 } else {
     print_r($move->getLastError());
@@ -637,14 +637,14 @@ if ($move->MoveItem(new \Ews\StructType\EwsMoveItemType()) !== false) {
 /**
  * Samples for Copy ServiceType
  */
-$copy = new \Ews\ServiceType\EwsCopy($options);
+$copy = new \ServiceType\EwsCopy($options);
 $copy->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $copy->setSoapHeaderMailboxCulture($MailboxCulture);
-$copy->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$copy->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for CopyFolder operation/method
  */
-if ($copy->CopyFolder(new \Ews\StructType\EwsCopyFolderType()) !== false) {
+if ($copy->CopyFolder(new \StructType\EwsCopyFolderType()) !== false) {
     print_r($copy->getResult());
 } else {
     print_r($copy->getLastError());
@@ -652,7 +652,7 @@ if ($copy->CopyFolder(new \Ews\StructType\EwsCopyFolderType()) !== false) {
 /**
  * Sample call for CopyItem operation/method
  */
-if ($copy->CopyItem(new \Ews\StructType\EwsCopyItemType()) !== false) {
+if ($copy->CopyItem(new \StructType\EwsCopyItemType()) !== false) {
     print_r($copy->getResult());
 } else {
     print_r($copy->getLastError());
@@ -660,14 +660,14 @@ if ($copy->CopyItem(new \Ews\StructType\EwsCopyItemType()) !== false) {
 /**
  * Samples for Subscribe ServiceType
  */
-$subscribe = new \Ews\ServiceType\EwsSubscribe($options);
+$subscribe = new \ServiceType\EwsSubscribe($options);
 $subscribe->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $subscribe->setSoapHeaderMailboxCulture($MailboxCulture);
-$subscribe->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$subscribe->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for Subscribe operation/method
  */
-if ($subscribe->Subscribe(new \Ews\StructType\EwsSubscribeType()) !== false) {
+if ($subscribe->Subscribe(new \StructType\EwsSubscribeType()) !== false) {
     print_r($subscribe->getResult());
 } else {
     print_r($subscribe->getLastError());
@@ -675,14 +675,14 @@ if ($subscribe->Subscribe(new \Ews\StructType\EwsSubscribeType()) !== false) {
 /**
  * Samples for Unsubscribe ServiceType
  */
-$unsubscribe = new \Ews\ServiceType\EwsUnsubscribe($options);
+$unsubscribe = new \ServiceType\EwsUnsubscribe($options);
 $unsubscribe->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $unsubscribe->setSoapHeaderMailboxCulture($MailboxCulture);
-$unsubscribe->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$unsubscribe->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for Unsubscribe operation/method
  */
-if ($unsubscribe->Unsubscribe(new \Ews\StructType\EwsUnsubscribeType()) !== false) {
+if ($unsubscribe->Unsubscribe(new \StructType\EwsUnsubscribeType()) !== false) {
     print_r($unsubscribe->getResult());
 } else {
     print_r($unsubscribe->getLastError());
@@ -690,14 +690,14 @@ if ($unsubscribe->Unsubscribe(new \Ews\StructType\EwsUnsubscribeType()) !== fals
 /**
  * Samples for Sync ServiceType
  */
-$sync = new \Ews\ServiceType\EwsSync($options);
+$sync = new \ServiceType\EwsSync($options);
 $sync->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $sync->setSoapHeaderMailboxCulture($MailboxCulture);
-$sync->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$sync->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for SyncFolderHierarchy operation/method
  */
-if ($sync->SyncFolderHierarchy(new \Ews\StructType\EwsSyncFolderHierarchyType()) !== false) {
+if ($sync->SyncFolderHierarchy(new \StructType\EwsSyncFolderHierarchyType()) !== false) {
     print_r($sync->getResult());
 } else {
     print_r($sync->getLastError());
@@ -705,7 +705,7 @@ if ($sync->SyncFolderHierarchy(new \Ews\StructType\EwsSyncFolderHierarchyType())
 /**
  * Sample call for SyncFolderItems operation/method
  */
-if ($sync->SyncFolderItems(new \Ews\StructType\EwsSyncFolderItemsType()) !== false) {
+if ($sync->SyncFolderItems(new \StructType\EwsSyncFolderItemsType()) !== false) {
     print_r($sync->getResult());
 } else {
     print_r($sync->getLastError());
@@ -713,14 +713,14 @@ if ($sync->SyncFolderItems(new \Ews\StructType\EwsSyncFolderItemsType()) !== fal
 /**
  * Samples for Send ServiceType
  */
-$send = new \Ews\ServiceType\EwsSend($options);
+$send = new \ServiceType\EwsSend($options);
 $send->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $send->setSoapHeaderMailboxCulture($MailboxCulture);
-$send->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$send->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for SendItem operation/method
  */
-if ($send->SendItem(new \Ews\StructType\EwsSendItemType()) !== false) {
+if ($send->SendItem(new \StructType\EwsSendItemType()) !== false) {
     print_r($send->getResult());
 } else {
     print_r($send->getLastError());
@@ -728,14 +728,14 @@ if ($send->SendItem(new \Ews\StructType\EwsSendItemType()) !== false) {
 /**
  * Samples for Archive ServiceType
  */
-$archive = new \Ews\ServiceType\EwsArchive($options);
+$archive = new \ServiceType\EwsArchive($options);
 $archive->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $archive->setSoapHeaderMailboxCulture($MailboxCulture);
-$archive->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$archive->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for ArchiveItem operation/method
  */
-if ($archive->ArchiveItem(new \Ews\StructType\EwsArchiveItemType()) !== false) {
+if ($archive->ArchiveItem(new \StructType\EwsArchiveItemType()) !== false) {
     print_r($archive->getResult());
 } else {
     print_r($archive->getLastError());
@@ -743,14 +743,14 @@ if ($archive->ArchiveItem(new \Ews\StructType\EwsArchiveItemType()) !== false) {
 /**
  * Samples for Add ServiceType
  */
-$add = new \Ews\ServiceType\EwsAdd($options);
+$add = new \ServiceType\EwsAdd($options);
 $add->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $add->setSoapHeaderMailboxCulture($MailboxCulture);
-$add->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$add->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for AddDelegate operation/method
  */
-if ($add->AddDelegate(new \Ews\StructType\EwsAddDelegateType()) !== false) {
+if ($add->AddDelegate(new \StructType\EwsAddDelegateType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -758,7 +758,7 @@ if ($add->AddDelegate(new \Ews\StructType\EwsAddDelegateType()) !== false) {
 /**
  * Sample call for AddNewImContactToGroup operation/method
  */
-if ($add->AddNewImContactToGroup(new \Ews\StructType\EwsAddNewImContactToGroupType()) !== false) {
+if ($add->AddNewImContactToGroup(new \StructType\EwsAddNewImContactToGroupType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -766,7 +766,7 @@ if ($add->AddNewImContactToGroup(new \Ews\StructType\EwsAddNewImContactToGroupTy
 /**
  * Sample call for AddNewTelUriContactToGroup operation/method
  */
-if ($add->AddNewTelUriContactToGroup(new \Ews\StructType\EwsAddNewTelUriContactToGroupType()) !== false) {
+if ($add->AddNewTelUriContactToGroup(new \StructType\EwsAddNewTelUriContactToGroupType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -774,7 +774,7 @@ if ($add->AddNewTelUriContactToGroup(new \Ews\StructType\EwsAddNewTelUriContactT
 /**
  * Sample call for AddImContactToGroup operation/method
  */
-if ($add->AddImContactToGroup(new \Ews\StructType\EwsAddImContactToGroupType()) !== false) {
+if ($add->AddImContactToGroup(new \StructType\EwsAddImContactToGroupType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -782,7 +782,7 @@ if ($add->AddImContactToGroup(new \Ews\StructType\EwsAddImContactToGroupType()) 
 /**
  * Sample call for AddImGroup operation/method
  */
-if ($add->AddImGroup(new \Ews\StructType\EwsAddImGroupType()) !== false) {
+if ($add->AddImGroup(new \StructType\EwsAddImGroupType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -790,7 +790,7 @@ if ($add->AddImGroup(new \Ews\StructType\EwsAddImGroupType()) !== false) {
 /**
  * Sample call for AddDistributionGroupToImList operation/method
  */
-if ($add->AddDistributionGroupToImList(new \Ews\StructType\EwsAddDistributionGroupToImListType()) !== false) {
+if ($add->AddDistributionGroupToImList(new \StructType\EwsAddDistributionGroupToImListType()) !== false) {
     print_r($add->getResult());
 } else {
     print_r($add->getLastError());
@@ -798,14 +798,14 @@ if ($add->AddDistributionGroupToImList(new \Ews\StructType\EwsAddDistributionGro
 /**
  * Samples for Remove ServiceType
  */
-$remove = new \Ews\ServiceType\EwsRemove($options);
+$remove = new \ServiceType\EwsRemove($options);
 $remove->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $remove->setSoapHeaderMailboxCulture($MailboxCulture);
-$remove->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$remove->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for RemoveDelegate operation/method
  */
-if ($remove->RemoveDelegate(new \Ews\StructType\EwsRemoveDelegateType()) !== false) {
+if ($remove->RemoveDelegate(new \StructType\EwsRemoveDelegateType()) !== false) {
     print_r($remove->getResult());
 } else {
     print_r($remove->getLastError());
@@ -813,7 +813,7 @@ if ($remove->RemoveDelegate(new \Ews\StructType\EwsRemoveDelegateType()) !== fal
 /**
  * Sample call for RemoveImContactFromGroup operation/method
  */
-if ($remove->RemoveImContactFromGroup(new \Ews\StructType\EwsRemoveImContactFromGroupType()) !== false) {
+if ($remove->RemoveImContactFromGroup(new \StructType\EwsRemoveImContactFromGroupType()) !== false) {
     print_r($remove->getResult());
 } else {
     print_r($remove->getLastError());
@@ -821,7 +821,7 @@ if ($remove->RemoveImContactFromGroup(new \Ews\StructType\EwsRemoveImContactFrom
 /**
  * Sample call for RemoveContactFromImList operation/method
  */
-if ($remove->RemoveContactFromImList(new \Ews\StructType\EwsRemoveContactFromImListType()) !== false) {
+if ($remove->RemoveContactFromImList(new \StructType\EwsRemoveContactFromImListType()) !== false) {
     print_r($remove->getResult());
 } else {
     print_r($remove->getLastError());
@@ -829,7 +829,7 @@ if ($remove->RemoveContactFromImList(new \Ews\StructType\EwsRemoveContactFromImL
 /**
  * Sample call for RemoveDistributionGroupFromImList operation/method
  */
-if ($remove->RemoveDistributionGroupFromImList(new \Ews\StructType\EwsRemoveDistributionGroupFromImListType()) !== false) {
+if ($remove->RemoveDistributionGroupFromImList(new \StructType\EwsRemoveDistributionGroupFromImListType()) !== false) {
     print_r($remove->getResult());
 } else {
     print_r($remove->getLastError());
@@ -837,7 +837,7 @@ if ($remove->RemoveDistributionGroupFromImList(new \Ews\StructType\EwsRemoveDist
 /**
  * Sample call for RemoveImGroup operation/method
  */
-if ($remove->RemoveImGroup(new \Ews\StructType\EwsRemoveImGroupType()) !== false) {
+if ($remove->RemoveImGroup(new \StructType\EwsRemoveImGroupType()) !== false) {
     print_r($remove->getResult());
 } else {
     print_r($remove->getLastError());
@@ -845,15 +845,15 @@ if ($remove->RemoveImGroup(new \Ews\StructType\EwsRemoveImGroupType()) !== false
 /**
  * Samples for Set ServiceType
  */
-$set = new \Ews\ServiceType\EwsSet($options);
+$set = new \ServiceType\EwsSet($options);
 $set->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
-$set->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$set->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $set->setSoapHeaderManagementRole($ManagementRole);
 $set->setSoapHeaderMailboxCulture($MailboxCulture);
 /**
  * Sample call for SetUserOofSettings operation/method
  */
-if ($set->SetUserOofSettings(new \Ews\StructType\EwsSetUserOofSettingsRequest()) !== false) {
+if ($set->SetUserOofSettings(new \StructType\EwsSetUserOofSettingsRequest()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -861,7 +861,7 @@ if ($set->SetUserOofSettings(new \Ews\StructType\EwsSetUserOofSettingsRequest())
 /**
  * Sample call for SetTeamMailbox operation/method
  */
-if ($set->SetTeamMailbox(new \Ews\StructType\EwsSetTeamMailboxRequestType()) !== false) {
+if ($set->SetTeamMailbox(new \StructType\EwsSetTeamMailboxRequestType()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -869,7 +869,7 @@ if ($set->SetTeamMailbox(new \Ews\StructType\EwsSetTeamMailboxRequestType()) !==
 /**
  * Sample call for SetHoldOnMailboxes operation/method
  */
-if ($set->SetHoldOnMailboxes(new \Ews\StructType\EwsSetHoldOnMailboxesType()) !== false) {
+if ($set->SetHoldOnMailboxes(new \StructType\EwsSetHoldOnMailboxesType()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -877,7 +877,7 @@ if ($set->SetHoldOnMailboxes(new \Ews\StructType\EwsSetHoldOnMailboxesType()) !=
 /**
  * Sample call for SetImGroup operation/method
  */
-if ($set->SetImGroup(new \Ews\StructType\EwsSetImGroupType()) !== false) {
+if ($set->SetImGroup(new \StructType\EwsSetImGroupType()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -885,7 +885,7 @@ if ($set->SetImGroup(new \Ews\StructType\EwsSetImGroupType()) !== false) {
 /**
  * Sample call for SetImListMigrationCompleted operation/method
  */
-if ($set->SetImListMigrationCompleted(new \Ews\StructType\EwsSetImListMigrationCompletedType()) !== false) {
+if ($set->SetImListMigrationCompleted(new \StructType\EwsSetImListMigrationCompletedType()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -893,7 +893,7 @@ if ($set->SetImListMigrationCompleted(new \Ews\StructType\EwsSetImListMigrationC
 /**
  * Sample call for SetUserPhoto operation/method
  */
-if ($set->SetUserPhoto(new \Ews\StructType\EwsSetUserPhotoType()) !== false) {
+if ($set->SetUserPhoto(new \StructType\EwsSetUserPhotoType()) !== false) {
     print_r($set->getResult());
 } else {
     print_r($set->getLastError());
@@ -901,14 +901,14 @@ if ($set->SetUserPhoto(new \Ews\StructType\EwsSetUserPhotoType()) !== false) {
 /**
  * Samples for Play ServiceType
  */
-$play = new \Ews\ServiceType\EwsPlay($options);
+$play = new \ServiceType\EwsPlay($options);
 $play->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $play->setSoapHeaderMailboxCulture($MailboxCulture);
-$play->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$play->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for PlayOnPhone operation/method
  */
-if ($play->PlayOnPhone(new \Ews\StructType\EwsPlayOnPhoneType()) !== false) {
+if ($play->PlayOnPhone(new \StructType\EwsPlayOnPhoneType()) !== false) {
     print_r($play->getResult());
 } else {
     print_r($play->getLastError());
@@ -916,14 +916,14 @@ if ($play->PlayOnPhone(new \Ews\StructType\EwsPlayOnPhoneType()) !== false) {
 /**
  * Samples for Disconnect ServiceType
  */
-$disconnect = new \Ews\ServiceType\EwsDisconnect($options);
+$disconnect = new \ServiceType\EwsDisconnect($options);
 $disconnect->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $disconnect->setSoapHeaderMailboxCulture($MailboxCulture);
-$disconnect->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$disconnect->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for DisconnectPhoneCall operation/method
  */
-if ($disconnect->DisconnectPhoneCall(new \Ews\StructType\EwsDisconnectPhoneCallType()) !== false) {
+if ($disconnect->DisconnectPhoneCall(new \StructType\EwsDisconnectPhoneCallType()) !== false) {
     print_r($disconnect->getResult());
 } else {
     print_r($disconnect->getLastError());
@@ -931,12 +931,12 @@ if ($disconnect->DisconnectPhoneCall(new \Ews\StructType\EwsDisconnectPhoneCallT
 /**
  * Samples for Refresh ServiceType
  */
-$refresh = new \Ews\ServiceType\EwsRefresh($options);
-$refresh->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$refresh = new \ServiceType\EwsRefresh($options);
+$refresh->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for RefreshSharingFolder operation/method
  */
-if ($refresh->RefreshSharingFolder(new \Ews\StructType\EwsRefreshSharingFolderType()) !== false) {
+if ($refresh->RefreshSharingFolder(new \StructType\EwsRefreshSharingFolderType()) !== false) {
     print_r($refresh->getResult());
 } else {
     print_r($refresh->getLastError());
@@ -944,12 +944,12 @@ if ($refresh->RefreshSharingFolder(new \Ews\StructType\EwsRefreshSharingFolderTy
 /**
  * Samples for Unpin ServiceType
  */
-$unpin = new \Ews\ServiceType\EwsUnpin($options);
-$unpin->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$unpin = new \ServiceType\EwsUnpin($options);
+$unpin->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for UnpinTeamMailbox operation/method
  */
-if ($unpin->UnpinTeamMailbox(new \Ews\StructType\EwsUnpinTeamMailboxRequestType()) !== false) {
+if ($unpin->UnpinTeamMailbox(new \StructType\EwsUnpinTeamMailboxRequestType()) !== false) {
     print_r($unpin->getResult());
 } else {
     print_r($unpin->getLastError());
@@ -957,13 +957,13 @@ if ($unpin->UnpinTeamMailbox(new \Ews\StructType\EwsUnpinTeamMailboxRequestType(
 /**
  * Samples for Apply ServiceType
  */
-$apply = new \Ews\ServiceType\EwsApply($options);
-$apply->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$apply = new \ServiceType\EwsApply($options);
+$apply->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $apply->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 /**
  * Sample call for ApplyConversationAction operation/method
  */
-if ($apply->ApplyConversationAction(new \Ews\StructType\EwsApplyConversationActionType()) !== false) {
+if ($apply->ApplyConversationAction(new \StructType\EwsApplyConversationActionType()) !== false) {
     print_r($apply->getResult());
 } else {
     print_r($apply->getLastError());
@@ -971,13 +971,13 @@ if ($apply->ApplyConversationAction(new \Ews\StructType\EwsApplyConversationActi
 /**
  * Samples for Search ServiceType
  */
-$search = new \Ews\ServiceType\EwsSearch($options);
-$search->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$search = new \ServiceType\EwsSearch($options);
+$search->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 $search->setSoapHeaderManagementRole($ManagementRole);
 /**
  * Sample call for SearchMailboxes operation/method
  */
-if ($search->SearchMailboxes(new \Ews\StructType\EwsSearchMailboxesType()) !== false) {
+if ($search->SearchMailboxes(new \StructType\EwsSearchMailboxesType()) !== false) {
     print_r($search->getResult());
 } else {
     print_r($search->getLastError());
@@ -985,14 +985,14 @@ if ($search->SearchMailboxes(new \Ews\StructType\EwsSearchMailboxesType()) !== f
 /**
  * Samples for Mark ServiceType
  */
-$mark = new \Ews\ServiceType\EwsMark($options);
+$mark = new \ServiceType\EwsMark($options);
 $mark->setSoapHeaderExchangeImpersonation($ExchangeImpersonation);
 $mark->setSoapHeaderMailboxCulture($MailboxCulture);
-$mark->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$mark->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for MarkAllItemsAsRead operation/method
  */
-if ($mark->MarkAllItemsAsRead(new \Ews\StructType\EwsMarkAllItemsAsReadType()) !== false) {
+if ($mark->MarkAllItemsAsRead(new \StructType\EwsMarkAllItemsAsReadType()) !== false) {
     print_r($mark->getResult());
 } else {
     print_r($mark->getLastError());
@@ -1000,7 +1000,7 @@ if ($mark->MarkAllItemsAsRead(new \Ews\StructType\EwsMarkAllItemsAsReadType()) !
 /**
  * Sample call for MarkAsJunk operation/method
  */
-if ($mark->MarkAsJunk(new \Ews\StructType\EwsMarkAsJunkType()) !== false) {
+if ($mark->MarkAsJunk(new \StructType\EwsMarkAsJunkType()) !== false) {
     print_r($mark->getResult());
 } else {
     print_r($mark->getLastError());
@@ -1008,12 +1008,12 @@ if ($mark->MarkAsJunk(new \Ews\StructType\EwsMarkAsJunkType()) !== false) {
 /**
  * Samples for Disable ServiceType
  */
-$disable = new \Ews\ServiceType\EwsDisable($options);
-$disable->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$disable = new \ServiceType\EwsDisable($options);
+$disable->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for DisableApp operation/method
  */
-if ($disable->DisableApp(new \Ews\StructType\EwsDisableAppType()) !== false) {
+if ($disable->DisableApp(new \StructType\EwsDisableAppType()) !== false) {
     print_r($disable->getResult());
 } else {
     print_r($disable->getLastError());
@@ -1021,12 +1021,12 @@ if ($disable->DisableApp(new \Ews\StructType\EwsDisableAppType()) !== false) {
 /**
  * Samples for Install ServiceType
  */
-$install = new \Ews\ServiceType\EwsInstall($options);
-$install->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$install = new \ServiceType\EwsInstall($options);
+$install->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for InstallApp operation/method
  */
-if ($install->InstallApp(new \Ews\StructType\EwsInstallAppType()) !== false) {
+if ($install->InstallApp(new \StructType\EwsInstallAppType()) !== false) {
     print_r($install->getResult());
 } else {
     print_r($install->getLastError());
@@ -1034,12 +1034,12 @@ if ($install->InstallApp(new \Ews\StructType\EwsInstallAppType()) !== false) {
 /**
  * Samples for Uninstall ServiceType
  */
-$uninstall = new \Ews\ServiceType\EwsUninstall($options);
-$uninstall->setSoapHeaderRequestServerVersion(new \Ews\StructType\EwsRequestServerVersion());
+$uninstall = new \ServiceType\EwsUninstall($options);
+$uninstall->setSoapHeaderRequestServerVersion(new \StructType\EwsRequestServerVersion());
 /**
  * Sample call for UninstallApp operation/method
  */
-if ($uninstall->UninstallApp(new \Ews\StructType\EwsUninstallAppType()) !== false) {
+if ($uninstall->UninstallApp(new \StructType\EwsUninstallAppType()) !== false) {
     print_r($uninstall->getResult());
 } else {
     print_r($uninstall->getLastError());

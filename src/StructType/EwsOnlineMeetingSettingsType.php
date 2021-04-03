@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for OnlineMeetingSettingsType StructType
@@ -14,19 +17,19 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
 {
     /**
      * The LobbyBypass
-     * @var string
+     * @var string|null
      */
-    public $LobbyBypass;
+    protected ?string $LobbyBypass = null;
     /**
      * The AccessLevel
-     * @var string
+     * @var string|null
      */
-    public $AccessLevel;
+    protected ?string $AccessLevel = null;
     /**
      * The Presenters
-     * @var string
+     * @var string|null
      */
-    public $Presenters;
+    protected ?string $Presenters = null;
     /**
      * Constructor method for OnlineMeetingSettingsType
      * @uses EwsOnlineMeetingSettingsType::setLobbyBypass()
@@ -36,7 +39,7 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
      * @param string $accessLevel
      * @param string $presenters
      */
-    public function __construct($lobbyBypass = null, $accessLevel = null, $presenters = null)
+    public function __construct(?string $lobbyBypass = null, ?string $accessLevel = null, ?string $presenters = null)
     {
         $this
             ->setLobbyBypass($lobbyBypass)
@@ -47,75 +50,78 @@ class EwsOnlineMeetingSettingsType extends AbstractStructBase
      * Get LobbyBypass value
      * @return string|null
      */
-    public function getLobbyBypass()
+    public function getLobbyBypass(): ?string
     {
         return $this->LobbyBypass;
     }
     /**
      * Set LobbyBypass value
-     * @uses \Ews\EnumType\EwsLobbyBypassType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLobbyBypassType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLobbyBypassType::valueIsValid()
+     * @uses \EnumType\EwsLobbyBypassType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $lobbyBypass
-     * @return \Ews\StructType\EwsOnlineMeetingSettingsType
+     * @return \StructType\EwsOnlineMeetingSettingsType
      */
-    public function setLobbyBypass($lobbyBypass = null)
+    public function setLobbyBypass(?string $lobbyBypass = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLobbyBypassType::valueIsValid($lobbyBypass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLobbyBypassType', is_array($lobbyBypass) ? implode(', ', $lobbyBypass) : var_export($lobbyBypass, true), implode(', ', \Ews\EnumType\EwsLobbyBypassType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLobbyBypassType::valueIsValid($lobbyBypass)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLobbyBypassType', is_array($lobbyBypass) ? implode(', ', $lobbyBypass) : var_export($lobbyBypass, true), implode(', ', \EnumType\EwsLobbyBypassType::getValidValues())), __LINE__);
         }
         $this->LobbyBypass = $lobbyBypass;
+        
         return $this;
     }
     /**
      * Get AccessLevel value
      * @return string|null
      */
-    public function getAccessLevel()
+    public function getAccessLevel(): ?string
     {
         return $this->AccessLevel;
     }
     /**
      * Set AccessLevel value
-     * @uses \Ews\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid()
-     * @uses \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid()
+     * @uses \EnumType\EwsOnlineMeetingAccessLevelType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $accessLevel
-     * @return \Ews\StructType\EwsOnlineMeetingSettingsType
+     * @return \StructType\EwsOnlineMeetingSettingsType
      */
-    public function setAccessLevel($accessLevel = null)
+    public function setAccessLevel(?string $accessLevel = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid($accessLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsOnlineMeetingAccessLevelType', is_array($accessLevel) ? implode(', ', $accessLevel) : var_export($accessLevel, true), implode(', ', \Ews\EnumType\EwsOnlineMeetingAccessLevelType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsOnlineMeetingAccessLevelType::valueIsValid($accessLevel)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsOnlineMeetingAccessLevelType', is_array($accessLevel) ? implode(', ', $accessLevel) : var_export($accessLevel, true), implode(', ', \EnumType\EwsOnlineMeetingAccessLevelType::getValidValues())), __LINE__);
         }
         $this->AccessLevel = $accessLevel;
+        
         return $this;
     }
     /**
      * Get Presenters value
      * @return string|null
      */
-    public function getPresenters()
+    public function getPresenters(): ?string
     {
         return $this->Presenters;
     }
     /**
      * Set Presenters value
-     * @uses \Ews\EnumType\EwsPresentersType::valueIsValid()
-     * @uses \Ews\EnumType\EwsPresentersType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsPresentersType::valueIsValid()
+     * @uses \EnumType\EwsPresentersType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $presenters
-     * @return \Ews\StructType\EwsOnlineMeetingSettingsType
+     * @return \StructType\EwsOnlineMeetingSettingsType
      */
-    public function setPresenters($presenters = null)
+    public function setPresenters(?string $presenters = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsPresentersType::valueIsValid($presenters)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsPresentersType', is_array($presenters) ? implode(', ', $presenters) : var_export($presenters, true), implode(', ', \Ews\EnumType\EwsPresentersType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsPresentersType::valueIsValid($presenters)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsPresentersType', is_array($presenters) ? implode(', ', $presenters) : var_export($presenters, true), implode(', ', \EnumType\EwsPresentersType::getValidValues())), __LINE__);
         }
         $this->Presenters = $presenters;
+        
         return $this;
     }
 }

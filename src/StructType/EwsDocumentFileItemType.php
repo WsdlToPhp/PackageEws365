@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DocumentFileItemType StructType
@@ -17,25 +20,25 @@ class EwsDocumentFileItemType extends EwsFileItemType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Author;
+    protected ?\ArrayType\EwsArrayOfStringsType $Author = null;
     /**
      * The Title
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Title;
+    protected ?string $Title = null;
     /**
      * Constructor method for DocumentFileItemType
      * @uses EwsDocumentFileItemType::setAuthor()
      * @uses EwsDocumentFileItemType::setTitle()
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $author
+     * @param \ArrayType\EwsArrayOfStringsType $author
      * @param string $title
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $author = null, $title = null)
+    public function __construct(?\ArrayType\EwsArrayOfStringsType $author = null, ?string $title = null)
     {
         $this
             ->setAuthor($author)
@@ -43,42 +46,44 @@ class EwsDocumentFileItemType extends EwsFileItemType
     }
     /**
      * Get Author value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getAuthor()
+    public function getAuthor(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Author;
     }
     /**
      * Set Author value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $author
-     * @return \Ews\StructType\EwsDocumentFileItemType
+     * @param \ArrayType\EwsArrayOfStringsType $author
+     * @return \StructType\EwsDocumentFileItemType
      */
-    public function setAuthor(\Ews\ArrayType\EwsArrayOfStringsType $author = null)
+    public function setAuthor(?\ArrayType\EwsArrayOfStringsType $author = null): self
     {
         $this->Author = $author;
+        
         return $this;
     }
     /**
      * Get Title value
      * @return string|null
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->Title;
     }
     /**
      * Set Title value
      * @param string $title
-     * @return \Ews\StructType\EwsDocumentFileItemType
+     * @return \StructType\EwsDocumentFileItemType
      */
-    public function setTitle($title = null)
+    public function setTitle(?string $title = null): self
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
+        
         return $this;
     }
 }

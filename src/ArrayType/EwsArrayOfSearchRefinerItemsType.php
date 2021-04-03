@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSearchRefinerItemsType ArrayType
@@ -19,24 +22,24 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSearchRefinerItemType[]
+     * @var \StructType\EwsSearchRefinerItemType[]
      */
-    public $Refiner;
+    protected array $Refiner = [];
     /**
      * Constructor method for ArrayOfSearchRefinerItemsType
      * @uses EwsArrayOfSearchRefinerItemsType::setRefiner()
-     * @param \Ews\StructType\EwsSearchRefinerItemType[] $refiner
+     * @param \StructType\EwsSearchRefinerItemType[] $refiner
      */
-    public function __construct(array $refiner = array())
+    public function __construct(array $refiner = [])
     {
         $this
             ->setRefiner($refiner);
     }
     /**
      * Get Refiner value
-     * @return \Ews\StructType\EwsSearchRefinerItemType[]|null
+     * @return \StructType\EwsSearchRefinerItemType[]
      */
-    public function getRefiner()
+    public function getRefiner(): array
     {
         return $this->Refiner;
     }
@@ -46,58 +49,45 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRefinerForArrayConstraintsFromSetRefiner(array $values = array())
+    public static function validateRefinerForArrayConstraintsFromSetRefiner(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfSearchRefinerItemsTypeRefinerItem) {
             // validation for constraint: itemType
-            if (!$arrayOfSearchRefinerItemsTypeRefinerItem instanceof \Ews\StructType\EwsSearchRefinerItemType) {
+            if (!$arrayOfSearchRefinerItemsTypeRefinerItem instanceof \StructType\EwsSearchRefinerItemType) {
                 $invalidValues[] = is_object($arrayOfSearchRefinerItemsTypeRefinerItem) ? get_class($arrayOfSearchRefinerItemsTypeRefinerItem) : sprintf('%s(%s)', gettype($arrayOfSearchRefinerItemsTypeRefinerItem), var_export($arrayOfSearchRefinerItemsTypeRefinerItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Refiner property can only contain items of type \Ews\StructType\EwsSearchRefinerItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Refiner property can only contain items of type \StructType\EwsSearchRefinerItemType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Refiner value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchRefinerItemType[] $refiner
-     * @return \Ews\ArrayType\EwsArrayOfSearchRefinerItemsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchRefinerItemType[] $refiner
+     * @return \ArrayType\EwsArrayOfSearchRefinerItemsType
      */
-    public function setRefiner(array $refiner = array())
+    public function setRefiner(array $refiner = []): self
     {
         // validation for constraint: array
         if ('' !== ($refinerArrayErrorMessage = self::validateRefinerForArrayConstraintsFromSetRefiner($refiner))) {
-            throw new \InvalidArgumentException($refinerArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($refinerArrayErrorMessage, __LINE__);
         }
         $this->Refiner = $refiner;
-        return $this;
-    }
-    /**
-     * Add item to Refiner value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchRefinerItemType $item
-     * @return \Ews\ArrayType\EwsArrayOfSearchRefinerItemsType
-     */
-    public function addToRefiner(\Ews\StructType\EwsSearchRefinerItemType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSearchRefinerItemType) {
-            throw new \InvalidArgumentException(sprintf('The Refiner property can only contain items of type \Ews\StructType\EwsSearchRefinerItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Refiner[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsSearchRefinerItemType|null
+     * @return \StructType\EwsSearchRefinerItemType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsSearchRefinerItemType
     {
         return parent::current();
     }
@@ -105,27 +95,27 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsSearchRefinerItemType|null
+     * @return \StructType\EwsSearchRefinerItemType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsSearchRefinerItemType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsSearchRefinerItemType|null
+     * @return \StructType\EwsSearchRefinerItemType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsSearchRefinerItemType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsSearchRefinerItemType|null
+     * @return \StructType\EwsSearchRefinerItemType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsSearchRefinerItemType
     {
         return parent::last();
     }
@@ -133,18 +123,29 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsSearchRefinerItemType|null
+     * @return \StructType\EwsSearchRefinerItemType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsSearchRefinerItemType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchRefinerItemType $item
+     * @return \ArrayType\EwsArrayOfSearchRefinerItemsType
+     */
+    public function add(\StructType\EwsSearchRefinerItemType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Refiner
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Refiner';
     }

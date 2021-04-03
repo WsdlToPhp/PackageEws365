@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupMembershipStateType StructType
@@ -14,24 +17,24 @@ class EwsSetUnifiedGroupMembershipStateType extends EwsUnifiedGroupBaseRequestTy
 {
     /**
      * The Members
-     * @var \Ews\ArrayType\EwsGroupMembersArray
+     * @var \ArrayType\EwsGroupMembersArray|null
      */
-    public $Members;
+    protected ?\ArrayType\EwsGroupMembersArray $Members = null;
     /**
      * The Action
      * Meta information extracted from the WSDL
      * - ref: t:Action
-     * @var string
+     * @var string|null
      */
-    public $Action;
+    protected ?string $Action = null;
     /**
      * Constructor method for SetUnifiedGroupMembershipStateType
      * @uses EwsSetUnifiedGroupMembershipStateType::setMembers()
      * @uses EwsSetUnifiedGroupMembershipStateType::setAction()
-     * @param \Ews\ArrayType\EwsGroupMembersArray $members
+     * @param \ArrayType\EwsGroupMembersArray $members
      * @param string $action
      */
-    public function __construct(\Ews\ArrayType\EwsGroupMembersArray $members = null, $action = null)
+    public function __construct(?\ArrayType\EwsGroupMembersArray $members = null, ?string $action = null)
     {
         $this
             ->setMembers($members)
@@ -39,45 +42,47 @@ class EwsSetUnifiedGroupMembershipStateType extends EwsUnifiedGroupBaseRequestTy
     }
     /**
      * Get Members value
-     * @return \Ews\ArrayType\EwsGroupMembersArray|null
+     * @return \ArrayType\EwsGroupMembersArray|null
      */
-    public function getMembers()
+    public function getMembers(): ?\ArrayType\EwsGroupMembersArray
     {
         return $this->Members;
     }
     /**
      * Set Members value
-     * @param \Ews\ArrayType\EwsGroupMembersArray $members
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateType
+     * @param \ArrayType\EwsGroupMembersArray $members
+     * @return \StructType\EwsSetUnifiedGroupMembershipStateType
      */
-    public function setMembers(\Ews\ArrayType\EwsGroupMembersArray $members = null)
+    public function setMembers(?\ArrayType\EwsGroupMembersArray $members = null): self
     {
         $this->Members = $members;
+        
         return $this;
     }
     /**
      * Get Action value
      * @return string|null
      */
-    public function getAction()
+    public function getAction(): ?string
     {
         return $this->Action;
     }
     /**
      * Set Action value
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembershipActionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupMembershipActionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $action
-     * @return \Ews\StructType\EwsSetUnifiedGroupMembershipStateType
+     * @return \StructType\EwsSetUnifiedGroupMembershipStateType
      */
-    public function setAction($action = null)
+    public function setAction(?string $action = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid($action)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupMembershipActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupMembershipActionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupMembershipActionType::valueIsValid($action)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupMembershipActionType', is_array($action) ? implode(', ', $action) : var_export($action, true), implode(', ', \EnumType\EwsUnifiedGroupMembershipActionType::getValidValues())), __LINE__);
         }
         $this->Action = $action;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PersonaPostalAddressType StructType
@@ -17,121 +20,121 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Street;
+    protected ?string $Street = null;
     /**
      * The City
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $City;
+    protected ?string $City = null;
     /**
      * The State
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $State;
+    protected ?string $State = null;
     /**
      * The Country
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Country;
+    protected ?string $Country = null;
     /**
      * The PostalCode
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PostalCode;
+    protected ?string $PostalCode = null;
     /**
      * The PostOfficeBox
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PostOfficeBox;
+    protected ?string $PostOfficeBox = null;
     /**
      * The Type
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Type;
+    protected ?string $Type = null;
     /**
      * The Latitude
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Latitude;
+    protected ?float $Latitude = null;
     /**
      * The Longitude
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Longitude;
+    protected ?float $Longitude = null;
     /**
      * The Accuracy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Accuracy;
+    protected ?float $Accuracy = null;
     /**
      * The Altitude
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Altitude;
+    protected ?float $Altitude = null;
     /**
      * The AltitudeAccuracy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $AltitudeAccuracy;
+    protected ?float $AltitudeAccuracy = null;
     /**
      * The FormattedAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FormattedAddress;
+    protected ?string $FormattedAddress = null;
     /**
      * The LocationUri
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LocationUri;
+    protected ?string $LocationUri = null;
     /**
      * The LocationSource
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LocationSource;
+    protected ?string $LocationSource = null;
     /**
      * Constructor method for PersonaPostalAddressType
      * @uses EwsPersonaPostalAddressType::setStreet()
@@ -165,7 +168,7 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      * @param string $locationUri
      * @param string $locationSource
      */
-    public function __construct($street = null, $city = null, $state = null, $country = null, $postalCode = null, $postOfficeBox = null, $type = null, $latitude = null, $longitude = null, $accuracy = null, $altitude = null, $altitudeAccuracy = null, $formattedAddress = null, $locationUri = null, $locationSource = null)
+    public function __construct(?string $street = null, ?string $city = null, ?string $state = null, ?string $country = null, ?string $postalCode = null, ?string $postOfficeBox = null, ?string $type = null, ?float $latitude = null, ?float $longitude = null, ?float $accuracy = null, ?float $altitude = null, ?float $altitudeAccuracy = null, ?string $formattedAddress = null, ?string $locationUri = null, ?string $locationSource = null)
     {
         $this
             ->setStreet($street)
@@ -188,333 +191,348 @@ class EwsPersonaPostalAddressType extends AbstractStructBase
      * Get Street value
      * @return string|null
      */
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->Street;
     }
     /**
      * Set Street value
      * @param string $street
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setStreet($street = null)
+    public function setStreet(?string $street = null): self
     {
         // validation for constraint: string
         if (!is_null($street) && !is_string($street)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($street, true), gettype($street)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($street, true), gettype($street)), __LINE__);
         }
         $this->Street = $street;
+        
         return $this;
     }
     /**
      * Get City value
      * @return string|null
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->City;
     }
     /**
      * Set City value
      * @param string $city
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setCity($city = null)
+    public function setCity(?string $city = null): self
     {
         // validation for constraint: string
         if (!is_null($city) && !is_string($city)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($city, true), gettype($city)), __LINE__);
         }
         $this->City = $city;
+        
         return $this;
     }
     /**
      * Get State value
      * @return string|null
      */
-    public function getState()
+    public function getState(): ?string
     {
         return $this->State;
     }
     /**
      * Set State value
      * @param string $state
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setState($state = null)
+    public function setState(?string $state = null): self
     {
         // validation for constraint: string
         if (!is_null($state) && !is_string($state)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($state, true), gettype($state)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($state, true), gettype($state)), __LINE__);
         }
         $this->State = $state;
+        
         return $this;
     }
     /**
      * Get Country value
      * @return string|null
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->Country;
     }
     /**
      * Set Country value
      * @param string $country
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setCountry($country = null)
+    public function setCountry(?string $country = null): self
     {
         // validation for constraint: string
         if (!is_null($country) && !is_string($country)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($country, true), gettype($country)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($country, true), gettype($country)), __LINE__);
         }
         $this->Country = $country;
+        
         return $this;
     }
     /**
      * Get PostalCode value
      * @return string|null
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?string
     {
         return $this->PostalCode;
     }
     /**
      * Set PostalCode value
      * @param string $postalCode
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setPostalCode($postalCode = null)
+    public function setPostalCode(?string $postalCode = null): self
     {
         // validation for constraint: string
         if (!is_null($postalCode) && !is_string($postalCode)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postalCode, true), gettype($postalCode)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postalCode, true), gettype($postalCode)), __LINE__);
         }
         $this->PostalCode = $postalCode;
+        
         return $this;
     }
     /**
      * Get PostOfficeBox value
      * @return string|null
      */
-    public function getPostOfficeBox()
+    public function getPostOfficeBox(): ?string
     {
         return $this->PostOfficeBox;
     }
     /**
      * Set PostOfficeBox value
      * @param string $postOfficeBox
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setPostOfficeBox($postOfficeBox = null)
+    public function setPostOfficeBox(?string $postOfficeBox = null): self
     {
         // validation for constraint: string
         if (!is_null($postOfficeBox) && !is_string($postOfficeBox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postOfficeBox, true), gettype($postOfficeBox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($postOfficeBox, true), gettype($postOfficeBox)), __LINE__);
         }
         $this->PostOfficeBox = $postOfficeBox;
+        
         return $this;
     }
     /**
      * Get Type value
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->Type;
     }
     /**
      * Set Type value
      * @param string $type
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setType($type = null)
+    public function setType(?string $type = null): self
     {
         // validation for constraint: string
         if (!is_null($type) && !is_string($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
     /**
      * Get Latitude value
      * @return float|null
      */
-    public function getLatitude()
+    public function getLatitude(): ?float
     {
         return $this->Latitude;
     }
     /**
      * Set Latitude value
      * @param float $latitude
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setLatitude($latitude = null)
+    public function setLatitude(?float $latitude = null): self
     {
         // validation for constraint: float
         if (!is_null($latitude) && !(is_float($latitude) || is_numeric($latitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($latitude, true), gettype($latitude)), __LINE__);
         }
         $this->Latitude = $latitude;
+        
         return $this;
     }
     /**
      * Get Longitude value
      * @return float|null
      */
-    public function getLongitude()
+    public function getLongitude(): ?float
     {
         return $this->Longitude;
     }
     /**
      * Set Longitude value
      * @param float $longitude
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setLongitude($longitude = null)
+    public function setLongitude(?float $longitude = null): self
     {
         // validation for constraint: float
         if (!is_null($longitude) && !(is_float($longitude) || is_numeric($longitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($longitude, true), gettype($longitude)), __LINE__);
         }
         $this->Longitude = $longitude;
+        
         return $this;
     }
     /**
      * Get Accuracy value
      * @return float|null
      */
-    public function getAccuracy()
+    public function getAccuracy(): ?float
     {
         return $this->Accuracy;
     }
     /**
      * Set Accuracy value
      * @param float $accuracy
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setAccuracy($accuracy = null)
+    public function setAccuracy(?float $accuracy = null): self
     {
         // validation for constraint: float
         if (!is_null($accuracy) && !(is_float($accuracy) || is_numeric($accuracy))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($accuracy, true), gettype($accuracy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($accuracy, true), gettype($accuracy)), __LINE__);
         }
         $this->Accuracy = $accuracy;
+        
         return $this;
     }
     /**
      * Get Altitude value
      * @return float|null
      */
-    public function getAltitude()
+    public function getAltitude(): ?float
     {
         return $this->Altitude;
     }
     /**
      * Set Altitude value
      * @param float $altitude
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setAltitude($altitude = null)
+    public function setAltitude(?float $altitude = null): self
     {
         // validation for constraint: float
         if (!is_null($altitude) && !(is_float($altitude) || is_numeric($altitude))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitude, true), gettype($altitude)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitude, true), gettype($altitude)), __LINE__);
         }
         $this->Altitude = $altitude;
+        
         return $this;
     }
     /**
      * Get AltitudeAccuracy value
      * @return float|null
      */
-    public function getAltitudeAccuracy()
+    public function getAltitudeAccuracy(): ?float
     {
         return $this->AltitudeAccuracy;
     }
     /**
      * Set AltitudeAccuracy value
      * @param float $altitudeAccuracy
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setAltitudeAccuracy($altitudeAccuracy = null)
+    public function setAltitudeAccuracy(?float $altitudeAccuracy = null): self
     {
         // validation for constraint: float
         if (!is_null($altitudeAccuracy) && !(is_float($altitudeAccuracy) || is_numeric($altitudeAccuracy))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitudeAccuracy, true), gettype($altitudeAccuracy)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($altitudeAccuracy, true), gettype($altitudeAccuracy)), __LINE__);
         }
         $this->AltitudeAccuracy = $altitudeAccuracy;
+        
         return $this;
     }
     /**
      * Get FormattedAddress value
      * @return string|null
      */
-    public function getFormattedAddress()
+    public function getFormattedAddress(): ?string
     {
         return $this->FormattedAddress;
     }
     /**
      * Set FormattedAddress value
      * @param string $formattedAddress
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setFormattedAddress($formattedAddress = null)
+    public function setFormattedAddress(?string $formattedAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($formattedAddress) && !is_string($formattedAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($formattedAddress, true), gettype($formattedAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($formattedAddress, true), gettype($formattedAddress)), __LINE__);
         }
         $this->FormattedAddress = $formattedAddress;
+        
         return $this;
     }
     /**
      * Get LocationUri value
      * @return string|null
      */
-    public function getLocationUri()
+    public function getLocationUri(): ?string
     {
         return $this->LocationUri;
     }
     /**
      * Set LocationUri value
      * @param string $locationUri
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setLocationUri($locationUri = null)
+    public function setLocationUri(?string $locationUri = null): self
     {
         // validation for constraint: string
         if (!is_null($locationUri) && !is_string($locationUri)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($locationUri, true), gettype($locationUri)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($locationUri, true), gettype($locationUri)), __LINE__);
         }
         $this->LocationUri = $locationUri;
+        
         return $this;
     }
     /**
      * Get LocationSource value
      * @return string|null
      */
-    public function getLocationSource()
+    public function getLocationSource(): ?string
     {
         return $this->LocationSource;
     }
     /**
      * Set LocationSource value
-     * @uses \Ews\EnumType\EwsLocationSourceType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLocationSourceType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLocationSourceType::valueIsValid()
+     * @uses \EnumType\EwsLocationSourceType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $locationSource
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function setLocationSource($locationSource = null)
+    public function setLocationSource(?string $locationSource = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLocationSourceType::valueIsValid($locationSource)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLocationSourceType', is_array($locationSource) ? implode(', ', $locationSource) : var_export($locationSource, true), implode(', ', \Ews\EnumType\EwsLocationSourceType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLocationSourceType::valueIsValid($locationSource)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLocationSourceType', is_array($locationSource) ? implode(', ', $locationSource) : var_export($locationSource, true), implode(', ', \EnumType\EwsLocationSourceType::getValidValues())), __LINE__);
         }
         $this->LocationSource = $locationSource;
+        
         return $this;
     }
 }

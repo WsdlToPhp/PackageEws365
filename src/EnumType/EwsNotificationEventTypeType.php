@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for NotificationEventTypeType EnumType
@@ -58,9 +60,9 @@ class EwsNotificationEventTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_FREE_BUSY_CHANGED_EVENT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_COPIED_EVENT,
             self::VALUE_CREATED_EVENT,
             self::VALUE_DELETED_EVENT,
@@ -68,6 +70,6 @@ class EwsNotificationEventTypeType extends AbstractStructEnumBase
             self::VALUE_MOVED_EVENT,
             self::VALUE_NEW_MAIL_EVENT,
             self::VALUE_FREE_BUSY_CHANGED_EVENT,
-        );
+        ];
     }
 }

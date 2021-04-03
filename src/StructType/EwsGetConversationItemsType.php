@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetConversationItemsType StructType
@@ -17,48 +20,48 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemResponseShapeType
+     * @var \StructType\EwsItemResponseShapeType
      */
-    public $ItemShape;
+    protected \StructType\EwsItemResponseShapeType $ItemShape;
     /**
      * The Conversations
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfConversationRequestsType
+     * @var \ArrayType\EwsArrayOfConversationRequestsType
      */
-    public $Conversations;
+    protected \ArrayType\EwsArrayOfConversationRequestsType $Conversations;
     /**
      * The FoldersToIgnore
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $FoldersToIgnore;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $FoldersToIgnore = null;
     /**
      * The MaxItemsToReturn
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaxItemsToReturn;
+    protected ?int $MaxItemsToReturn = null;
     /**
      * The SortOrder
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SortOrder;
+    protected ?string $SortOrder = null;
     /**
      * The MailboxScope
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MailboxScope;
+    protected ?string $MailboxScope = null;
     /**
      * Constructor method for GetConversationItemsType
      * @uses EwsGetConversationItemsType::setItemShape()
@@ -67,14 +70,14 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
      * @uses EwsGetConversationItemsType::setMaxItemsToReturn()
      * @uses EwsGetConversationItemsType::setSortOrder()
      * @uses EwsGetConversationItemsType::setMailboxScope()
-     * @param \Ews\StructType\EwsItemResponseShapeType $itemShape
-     * @param \Ews\ArrayType\EwsArrayOfConversationRequestsType $conversations
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore
+     * @param \StructType\EwsItemResponseShapeType $itemShape
+     * @param \ArrayType\EwsArrayOfConversationRequestsType $conversations
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore
      * @param int $maxItemsToReturn
      * @param string $sortOrder
      * @param string $mailboxScope
      */
-    public function __construct(\Ews\StructType\EwsItemResponseShapeType $itemShape = null, \Ews\ArrayType\EwsArrayOfConversationRequestsType $conversations = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore = null, $maxItemsToReturn = null, $sortOrder = null, $mailboxScope = null)
+    public function __construct(\StructType\EwsItemResponseShapeType $itemShape, \ArrayType\EwsArrayOfConversationRequestsType $conversations, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore = null, ?int $maxItemsToReturn = null, ?string $sortOrder = null, ?string $mailboxScope = null)
     {
         $this
             ->setItemShape($itemShape)
@@ -86,128 +89,134 @@ class EwsGetConversationItemsType extends EwsBaseRequestType
     }
     /**
      * Get ItemShape value
-     * @return \Ews\StructType\EwsItemResponseShapeType
+     * @return \StructType\EwsItemResponseShapeType
      */
-    public function getItemShape()
+    public function getItemShape(): \StructType\EwsItemResponseShapeType
     {
         return $this->ItemShape;
     }
     /**
      * Set ItemShape value
-     * @param \Ews\StructType\EwsItemResponseShapeType $itemShape
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @param \StructType\EwsItemResponseShapeType $itemShape
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setItemShape(\Ews\StructType\EwsItemResponseShapeType $itemShape = null)
+    public function setItemShape(\StructType\EwsItemResponseShapeType $itemShape): self
     {
         $this->ItemShape = $itemShape;
+        
         return $this;
     }
     /**
      * Get Conversations value
-     * @return \Ews\ArrayType\EwsArrayOfConversationRequestsType
+     * @return \ArrayType\EwsArrayOfConversationRequestsType
      */
-    public function getConversations()
+    public function getConversations(): \ArrayType\EwsArrayOfConversationRequestsType
     {
         return $this->Conversations;
     }
     /**
      * Set Conversations value
-     * @param \Ews\ArrayType\EwsArrayOfConversationRequestsType $conversations
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @param \ArrayType\EwsArrayOfConversationRequestsType $conversations
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setConversations(\Ews\ArrayType\EwsArrayOfConversationRequestsType $conversations = null)
+    public function setConversations(\ArrayType\EwsArrayOfConversationRequestsType $conversations): self
     {
         $this->Conversations = $conversations;
+        
         return $this;
     }
     /**
      * Get FoldersToIgnore value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getFoldersToIgnore()
+    public function getFoldersToIgnore(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->FoldersToIgnore;
     }
     /**
      * Set FoldersToIgnore value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setFoldersToIgnore(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore = null)
+    public function setFoldersToIgnore(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $foldersToIgnore = null): self
     {
         $this->FoldersToIgnore = $foldersToIgnore;
+        
         return $this;
     }
     /**
      * Get MaxItemsToReturn value
      * @return int|null
      */
-    public function getMaxItemsToReturn()
+    public function getMaxItemsToReturn(): ?int
     {
         return $this->MaxItemsToReturn;
     }
     /**
      * Set MaxItemsToReturn value
      * @param int $maxItemsToReturn
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setMaxItemsToReturn($maxItemsToReturn = null)
+    public function setMaxItemsToReturn(?int $maxItemsToReturn = null): self
     {
         // validation for constraint: int
         if (!is_null($maxItemsToReturn) && !(is_int($maxItemsToReturn) || ctype_digit($maxItemsToReturn))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItemsToReturn, true), gettype($maxItemsToReturn)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maxItemsToReturn, true), gettype($maxItemsToReturn)), __LINE__);
         }
         $this->MaxItemsToReturn = $maxItemsToReturn;
+        
         return $this;
     }
     /**
      * Get SortOrder value
      * @return string|null
      */
-    public function getSortOrder()
+    public function getSortOrder(): ?string
     {
         return $this->SortOrder;
     }
     /**
      * Set SortOrder value
-     * @uses \Ews\EnumType\EwsConversationNodeSortOrder::valueIsValid()
-     * @uses \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsConversationNodeSortOrder::valueIsValid()
+     * @uses \EnumType\EwsConversationNodeSortOrder::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sortOrder
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setSortOrder($sortOrder = null)
+    public function setSortOrder(?string $sortOrder = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsConversationNodeSortOrder::valueIsValid($sortOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConversationNodeSortOrder', is_array($sortOrder) ? implode(', ', $sortOrder) : var_export($sortOrder, true), implode(', ', \Ews\EnumType\EwsConversationNodeSortOrder::getValidValues())), __LINE__);
+        if (!\EnumType\EwsConversationNodeSortOrder::valueIsValid($sortOrder)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsConversationNodeSortOrder', is_array($sortOrder) ? implode(', ', $sortOrder) : var_export($sortOrder, true), implode(', ', \EnumType\EwsConversationNodeSortOrder::getValidValues())), __LINE__);
         }
         $this->SortOrder = $sortOrder;
+        
         return $this;
     }
     /**
      * Get MailboxScope value
      * @return string|null
      */
-    public function getMailboxScope()
+    public function getMailboxScope(): ?string
     {
         return $this->MailboxScope;
     }
     /**
      * Set MailboxScope value
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMailboxSearchLocationType::valueIsValid()
+     * @uses \EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $mailboxScope
-     * @return \Ews\StructType\EwsGetConversationItemsType
+     * @return \StructType\EwsGetConversationItemsType
      */
-    public function setMailboxScope($mailboxScope = null)
+    public function setMailboxScope(?string $mailboxScope = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->MailboxScope = $mailboxScope;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUserPhotoType StructType
@@ -21,7 +24,7 @@ class EwsSetUserPhotoType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Email;
+    protected string $Email;
     /**
      * The Content
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsSetUserPhotoType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Content;
+    protected string $Content;
     /**
      * Constructor method for SetUserPhotoType
      * @uses EwsSetUserPhotoType::setEmail()
@@ -37,7 +40,7 @@ class EwsSetUserPhotoType extends EwsBaseRequestType
      * @param string $email
      * @param string $content
      */
-    public function __construct($email = null, $content = null)
+    public function __construct(string $email, string $content)
     {
         $this
             ->setEmail($email)
@@ -47,48 +50,50 @@ class EwsSetUserPhotoType extends EwsBaseRequestType
      * Get Email value
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->Email;
     }
     /**
      * Set Email value
      * @param string $email
-     * @return \Ews\StructType\EwsSetUserPhotoType
+     * @return \StructType\EwsSetUserPhotoType
      */
-    public function setEmail($email = null)
+    public function setEmail(string $email): self
     {
         // validation for constraint: string
         if (!is_null($email) && !is_string($email)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($email, true), gettype($email)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($email) && mb_strlen($email) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($email)), __LINE__);
+        if (!is_null($email) && mb_strlen((string) $email) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $email)), __LINE__);
         }
         $this->Email = $email;
+        
         return $this;
     }
     /**
      * Get Content value
      * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
         return $this->Content;
     }
     /**
      * Set Content value
      * @param string $content
-     * @return \Ews\StructType\EwsSetUserPhotoType
+     * @return \StructType\EwsSetUserPhotoType
      */
-    public function setContent($content = null)
+    public function setContent(string $content): self
     {
         // validation for constraint: string
         if (!is_null($content) && !is_string($content)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
         }
         $this->Content = $content;
+        
         return $this;
     }
 }

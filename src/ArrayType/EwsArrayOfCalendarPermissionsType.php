@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfCalendarPermissionsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * - choice: CalendarPermission
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsCalendarPermissionType
+     * @var \StructType\EwsCalendarPermissionType|null
      */
-    public $CalendarPermission;
+    protected ?\StructType\EwsCalendarPermissionType $CalendarPermission = null;
     /**
      * Constructor method for ArrayOfCalendarPermissionsType
      * @uses EwsArrayOfCalendarPermissionsType::setCalendarPermission()
-     * @param \Ews\StructType\EwsCalendarPermissionType $calendarPermission
+     * @param \StructType\EwsCalendarPermissionType $calendarPermission
      */
-    public function __construct(\Ews\StructType\EwsCalendarPermissionType $calendarPermission = null)
+    public function __construct(?\StructType\EwsCalendarPermissionType $calendarPermission = null)
     {
         $this
             ->setCalendarPermission($calendarPermission);
     }
     /**
      * Get CalendarPermission value
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function getCalendarPermission()
+    public function getCalendarPermission(): ?\StructType\EwsCalendarPermissionType
     {
         return isset($this->CalendarPermission) ? $this->CalendarPermission : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCalendarPermissionForChoiceConstraintsFromSetCalendarPermission($value)
+    public function validateCalendarPermissionForChoiceConstraintsFromSetCalendarPermission($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CalendarPermission can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarPermission, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CalendarPermission can\'t be set as the property %s is already set. Only one property must be set among these properties: CalendarPermission, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCalendarPermissionType $calendarPermission
-     * @return \Ews\ArrayType\EwsArrayOfCalendarPermissionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarPermissionType $calendarPermission
+     * @return \ArrayType\EwsArrayOfCalendarPermissionsType
      */
-    public function setCalendarPermission(\Ews\StructType\EwsCalendarPermissionType $calendarPermission = null)
+    public function setCalendarPermission(?\StructType\EwsCalendarPermissionType $calendarPermission = null): self
     {
         // validation for constraint: choice(CalendarPermission)
         if ('' !== ($calendarPermissionChoiceErrorMessage = self::validateCalendarPermissionForChoiceConstraintsFromSetCalendarPermission($calendarPermission))) {
-            throw new \InvalidArgumentException($calendarPermissionChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($calendarPermissionChoiceErrorMessage, __LINE__);
         }
         if (is_null($calendarPermission) || (is_array($calendarPermission) && empty($calendarPermission))) {
             unset($this->CalendarPermission);
         } else {
             $this->CalendarPermission = $calendarPermission;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsCalendarPermissionType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsCalendarPermissionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsCalendarPermissionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsCalendarPermissionType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsCalendarPermissionType|null
+     * @return \StructType\EwsCalendarPermissionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsCalendarPermissionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCalendarPermissionType $item
+     * @return \ArrayType\EwsArrayOfCalendarPermissionsType
+     */
+    public function add(\StructType\EwsCalendarPermissionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CalendarPermission
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CalendarPermission';
     }

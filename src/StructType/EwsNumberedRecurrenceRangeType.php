@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NumberedRecurrenceRangeType StructType
@@ -14,15 +17,15 @@ class EwsNumberedRecurrenceRangeType extends EwsRecurrenceRangeBaseType
 {
     /**
      * The NumberOfOccurrences
-     * @var int
+     * @var int|null
      */
-    public $NumberOfOccurrences;
+    protected ?int $NumberOfOccurrences = null;
     /**
      * Constructor method for NumberedRecurrenceRangeType
      * @uses EwsNumberedRecurrenceRangeType::setNumberOfOccurrences()
      * @param int $numberOfOccurrences
      */
-    public function __construct($numberOfOccurrences = null)
+    public function __construct(?int $numberOfOccurrences = null)
     {
         $this
             ->setNumberOfOccurrences($numberOfOccurrences);
@@ -31,22 +34,23 @@ class EwsNumberedRecurrenceRangeType extends EwsRecurrenceRangeBaseType
      * Get NumberOfOccurrences value
      * @return int|null
      */
-    public function getNumberOfOccurrences()
+    public function getNumberOfOccurrences(): ?int
     {
         return $this->NumberOfOccurrences;
     }
     /**
      * Set NumberOfOccurrences value
      * @param int $numberOfOccurrences
-     * @return \Ews\StructType\EwsNumberedRecurrenceRangeType
+     * @return \StructType\EwsNumberedRecurrenceRangeType
      */
-    public function setNumberOfOccurrences($numberOfOccurrences = null)
+    public function setNumberOfOccurrences(?int $numberOfOccurrences = null): self
     {
         // validation for constraint: int
         if (!is_null($numberOfOccurrences) && !(is_int($numberOfOccurrences) || ctype_digit($numberOfOccurrences))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfOccurrences, true), gettype($numberOfOccurrences)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($numberOfOccurrences, true), gettype($numberOfOccurrences)), __LINE__);
         }
         $this->NumberOfOccurrences = $numberOfOccurrences;
+        
         return $this;
     }
 }

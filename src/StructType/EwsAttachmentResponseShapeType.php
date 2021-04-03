@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttachmentResponseShapeType StructType
@@ -16,31 +19,31 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * The IncludeMimeContent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IncludeMimeContent;
+    protected ?bool $IncludeMimeContent = null;
     /**
      * The BodyType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $BodyType;
+    protected ?string $BodyType = null;
     /**
      * The FilterHtmlContent
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $FilterHtmlContent;
+    protected ?bool $FilterHtmlContent = null;
     /**
      * The AdditionalProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
+     * @var \StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
-    public $AdditionalProperties;
+    protected ?\StructType\EwsNonEmptyArrayOfPathsToElementType $AdditionalProperties = null;
     /**
      * Constructor method for AttachmentResponseShapeType
      * @uses EwsAttachmentResponseShapeType::setIncludeMimeContent()
@@ -50,9 +53,9 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * @param bool $includeMimeContent
      * @param string $bodyType
      * @param bool $filterHtmlContent
-     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
-    public function __construct($includeMimeContent = null, $bodyType = null, $filterHtmlContent = null, \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function __construct(?bool $includeMimeContent = null, ?string $bodyType = null, ?bool $filterHtmlContent = null, ?\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this
             ->setIncludeMimeContent($includeMimeContent)
@@ -64,87 +67,91 @@ class EwsAttachmentResponseShapeType extends AbstractStructBase
      * Get IncludeMimeContent value
      * @return bool|null
      */
-    public function getIncludeMimeContent()
+    public function getIncludeMimeContent(): ?bool
     {
         return $this->IncludeMimeContent;
     }
     /**
      * Set IncludeMimeContent value
      * @param bool $includeMimeContent
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType
+     * @return \StructType\EwsAttachmentResponseShapeType
      */
-    public function setIncludeMimeContent($includeMimeContent = null)
+    public function setIncludeMimeContent(?bool $includeMimeContent = null): self
     {
         // validation for constraint: boolean
         if (!is_null($includeMimeContent) && !is_bool($includeMimeContent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeMimeContent, true), gettype($includeMimeContent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeMimeContent, true), gettype($includeMimeContent)), __LINE__);
         }
         $this->IncludeMimeContent = $includeMimeContent;
+        
         return $this;
     }
     /**
      * Get BodyType value
      * @return string|null
      */
-    public function getBodyType()
+    public function getBodyType(): ?string
     {
         return $this->BodyType;
     }
     /**
      * Set BodyType value
-     * @uses \Ews\EnumType\EwsBodyTypeResponseType::valueIsValid()
-     * @uses \Ews\EnumType\EwsBodyTypeResponseType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsBodyTypeResponseType::valueIsValid()
+     * @uses \EnumType\EwsBodyTypeResponseType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $bodyType
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType
+     * @return \StructType\EwsAttachmentResponseShapeType
      */
-    public function setBodyType($bodyType = null)
+    public function setBodyType(?string $bodyType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsBodyTypeResponseType::valueIsValid($bodyType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsBodyTypeResponseType', is_array($bodyType) ? implode(', ', $bodyType) : var_export($bodyType, true), implode(', ', \Ews\EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsBodyTypeResponseType::valueIsValid($bodyType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsBodyTypeResponseType', is_array($bodyType) ? implode(', ', $bodyType) : var_export($bodyType, true), implode(', ', \EnumType\EwsBodyTypeResponseType::getValidValues())), __LINE__);
         }
         $this->BodyType = $bodyType;
+        
         return $this;
     }
     /**
      * Get FilterHtmlContent value
      * @return bool|null
      */
-    public function getFilterHtmlContent()
+    public function getFilterHtmlContent(): ?bool
     {
         return $this->FilterHtmlContent;
     }
     /**
      * Set FilterHtmlContent value
      * @param bool $filterHtmlContent
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType
+     * @return \StructType\EwsAttachmentResponseShapeType
      */
-    public function setFilterHtmlContent($filterHtmlContent = null)
+    public function setFilterHtmlContent(?bool $filterHtmlContent = null): self
     {
         // validation for constraint: boolean
         if (!is_null($filterHtmlContent) && !is_bool($filterHtmlContent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($filterHtmlContent, true), gettype($filterHtmlContent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($filterHtmlContent, true), gettype($filterHtmlContent)), __LINE__);
         }
         $this->FilterHtmlContent = $filterHtmlContent;
+        
         return $this;
     }
     /**
      * Get AdditionalProperties value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType|null
+     * @return \StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
-    public function getAdditionalProperties()
+    public function getAdditionalProperties(): ?\StructType\EwsNonEmptyArrayOfPathsToElementType
     {
         return $this->AdditionalProperties;
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
-     * @return \Ews\StructType\EwsAttachmentResponseShapeType
+     * @param \StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @return \StructType\EwsAttachmentResponseShapeType
      */
-    public function setAdditionalProperties(\Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function setAdditionalProperties(?\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null): self
     {
         $this->AdditionalProperties = $additionalProperties;
+        
         return $this;
     }
 }

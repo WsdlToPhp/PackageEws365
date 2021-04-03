@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for SensitivityChoicesType EnumType
@@ -40,13 +42,13 @@ class EwsSensitivityChoicesType extends AbstractStructEnumBase
      * @uses self::VALUE_CONFIDENTIAL
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NORMAL,
             self::VALUE_PERSONAL,
             self::VALUE_PRIVATE,
             self::VALUE_CONFIDENTIAL,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConstantValueType StructType
@@ -18,13 +21,13 @@ class EwsConstantValueType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * Constructor method for ConstantValueType
      * @uses EwsConstantValueType::setValue()
      * @param string $value
      */
-    public function __construct($value = null)
+    public function __construct(string $value)
     {
         $this
             ->setValue($value);
@@ -33,22 +36,23 @@ class EwsConstantValueType extends AbstractStructBase
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsConstantValueType
+     * @return \StructType\EwsConstantValueType
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

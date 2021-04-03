@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfContextProperty ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsContextPropertyType[]
+     * @var \StructType\EwsContextPropertyType[]
      */
-    public $ContextProperty;
+    protected array $ContextProperty = [];
     /**
      * Constructor method for ArrayOfContextProperty
      * @uses EwsArrayOfContextProperty::setContextProperty()
-     * @param \Ews\StructType\EwsContextPropertyType[] $contextProperty
+     * @param \StructType\EwsContextPropertyType[] $contextProperty
      */
-    public function __construct(array $contextProperty = array())
+    public function __construct(array $contextProperty)
     {
         $this
             ->setContextProperty($contextProperty);
     }
     /**
      * Get ContextProperty value
-     * @return \Ews\StructType\EwsContextPropertyType[]
+     * @return \StructType\EwsContextPropertyType[]
      */
-    public function getContextProperty()
+    public function getContextProperty(): array
     {
         return $this->ContextProperty;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateContextPropertyForArrayConstraintsFromSetContextProperty(array $values = array())
+    public static function validateContextPropertyForArrayConstraintsFromSetContextProperty(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfContextPropertyContextPropertyItem) {
             // validation for constraint: itemType
-            if (!$arrayOfContextPropertyContextPropertyItem instanceof \Ews\StructType\EwsContextPropertyType) {
+            if (!$arrayOfContextPropertyContextPropertyItem instanceof \StructType\EwsContextPropertyType) {
                 $invalidValues[] = is_object($arrayOfContextPropertyContextPropertyItem) ? get_class($arrayOfContextPropertyContextPropertyItem) : sprintf('%s(%s)', gettype($arrayOfContextPropertyContextPropertyItem), var_export($arrayOfContextPropertyContextPropertyItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ContextProperty property can only contain items of type \Ews\StructType\EwsContextPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ContextProperty property can only contain items of type \StructType\EwsContextPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ContextProperty value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContextPropertyType[] $contextProperty
-     * @return \Ews\ArrayType\EwsArrayOfContextProperty
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContextPropertyType[] $contextProperty
+     * @return \ArrayType\EwsArrayOfContextProperty
      */
-    public function setContextProperty(array $contextProperty = array())
+    public function setContextProperty(array $contextProperty): self
     {
         // validation for constraint: array
         if ('' !== ($contextPropertyArrayErrorMessage = self::validateContextPropertyForArrayConstraintsFromSetContextProperty($contextProperty))) {
-            throw new \InvalidArgumentException($contextPropertyArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($contextPropertyArrayErrorMessage, __LINE__);
         }
         $this->ContextProperty = $contextProperty;
-        return $this;
-    }
-    /**
-     * Add item to ContextProperty value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsContextPropertyType $item
-     * @return \Ews\ArrayType\EwsArrayOfContextProperty
-     */
-    public function addToContextProperty(\Ews\StructType\EwsContextPropertyType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsContextPropertyType) {
-            throw new \InvalidArgumentException(sprintf('The ContextProperty property can only contain items of type \Ews\StructType\EwsContextPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ContextProperty[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsContextPropertyType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsContextPropertyType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsContextPropertyType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsContextPropertyType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfContextProperty extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsContextPropertyType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsContextPropertyType $item
+     * @return \ArrayType\EwsArrayOfContextProperty
+     */
+    public function add(\StructType\EwsContextPropertyType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ContextProperty
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ContextProperty';
     }

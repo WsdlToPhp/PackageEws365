@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SendItemType StructType
@@ -18,29 +21,29 @@ class EwsSendItemType extends EwsBaseRequestType
      * - use: required
      * @var bool
      */
-    public $SaveItemToFolder;
+    protected bool $SaveItemToFolder;
     /**
      * The ItemIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * The SavedItemFolderId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $SavedItemFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $SavedItemFolderId = null;
     /**
      * Constructor method for SendItemType
      * @uses EwsSendItemType::setSaveItemToFolder()
      * @uses EwsSendItemType::setItemIds()
      * @uses EwsSendItemType::setSavedItemFolderId()
      * @param bool $saveItemToFolder
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @param \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsTargetFolderIdType $savedItemFolderId
      */
-    public function __construct($saveItemToFolder = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId = null)
+    public function __construct(bool $saveItemToFolder, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, ?\StructType\EwsTargetFolderIdType $savedItemFolderId = null)
     {
         $this
             ->setSaveItemToFolder($saveItemToFolder)
@@ -51,58 +54,61 @@ class EwsSendItemType extends EwsBaseRequestType
      * Get SaveItemToFolder value
      * @return bool
      */
-    public function getSaveItemToFolder()
+    public function getSaveItemToFolder(): bool
     {
         return $this->SaveItemToFolder;
     }
     /**
      * Set SaveItemToFolder value
      * @param bool $saveItemToFolder
-     * @return \Ews\StructType\EwsSendItemType
+     * @return \StructType\EwsSendItemType
      */
-    public function setSaveItemToFolder($saveItemToFolder = null)
+    public function setSaveItemToFolder(bool $saveItemToFolder): self
     {
         // validation for constraint: boolean
         if (!is_null($saveItemToFolder) && !is_bool($saveItemToFolder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($saveItemToFolder, true), gettype($saveItemToFolder)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($saveItemToFolder, true), gettype($saveItemToFolder)), __LINE__);
         }
         $this->SaveItemToFolder = $saveItemToFolder;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsSendItemType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsSendItemType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
     /**
      * Get SavedItemFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getSavedItemFolderId()
+    public function getSavedItemFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->SavedItemFolderId;
     }
     /**
      * Set SavedItemFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId
-     * @return \Ews\StructType\EwsSendItemType
+     * @param \StructType\EwsTargetFolderIdType $savedItemFolderId
+     * @return \StructType\EwsSendItemType
      */
-    public function setSavedItemFolderId(\Ews\StructType\EwsTargetFolderIdType $savedItemFolderId = null)
+    public function setSavedItemFolderId(?\StructType\EwsTargetFolderIdType $savedItemFolderId = null): self
     {
         $this->SavedItemFolderId = $savedItemFolderId;
+        
         return $this;
     }
 }

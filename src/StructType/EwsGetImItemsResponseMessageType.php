@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetImItemsResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetImItemsResponseMessageType extends EwsResponseMessageType
      * The ImItemList
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsImItemListType
+     * @var \StructType\EwsImItemListType|null
      */
-    public $ImItemList;
+    protected ?\StructType\EwsImItemListType $ImItemList = null;
     /**
      * Constructor method for GetImItemsResponseMessageType
      * @uses EwsGetImItemsResponseMessageType::setImItemList()
-     * @param \Ews\StructType\EwsImItemListType $imItemList
+     * @param \StructType\EwsImItemListType $imItemList
      */
-    public function __construct(\Ews\StructType\EwsImItemListType $imItemList = null)
+    public function __construct(?\StructType\EwsImItemListType $imItemList = null)
     {
         $this
             ->setImItemList($imItemList);
     }
     /**
      * Get ImItemList value
-     * @return \Ews\StructType\EwsImItemListType|null
+     * @return \StructType\EwsImItemListType|null
      */
-    public function getImItemList()
+    public function getImItemList(): ?\StructType\EwsImItemListType
     {
         return $this->ImItemList;
     }
     /**
      * Set ImItemList value
-     * @param \Ews\StructType\EwsImItemListType $imItemList
-     * @return \Ews\StructType\EwsGetImItemsResponseMessageType
+     * @param \StructType\EwsImItemListType $imItemList
+     * @return \StructType\EwsGetImItemsResponseMessageType
      */
-    public function setImItemList(\Ews\StructType\EwsImItemListType $imItemList = null)
+    public function setImItemList(?\StructType\EwsImItemListType $imItemList = null): self
     {
         $this->ImItemList = $imItemList;
+        
         return $this;
     }
 }

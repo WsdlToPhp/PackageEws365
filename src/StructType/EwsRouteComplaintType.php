@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RouteComplaintType StructType
@@ -19,13 +22,13 @@ class EwsRouteComplaintType extends EwsBaseRequestType
      * - minOccurs: 1
      * @var string
      */
-    public $Data;
+    protected string $Data;
     /**
      * Constructor method for RouteComplaintType
      * @uses EwsRouteComplaintType::setData()
      * @param string $data
      */
-    public function __construct($data = null)
+    public function __construct(string $data)
     {
         $this
             ->setData($data);
@@ -34,22 +37,23 @@ class EwsRouteComplaintType extends EwsBaseRequestType
      * Get Data value
      * @return string
      */
-    public function getData()
+    public function getData(): string
     {
         return $this->Data;
     }
     /**
      * Set Data value
      * @param string $data
-     * @return \Ews\StructType\EwsRouteComplaintType
+     * @return \StructType\EwsRouteComplaintType
      */
-    public function setData($data = null)
+    public function setData(string $data): self
     {
         // validation for constraint: string
         if (!is_null($data) && !is_string($data)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($data, true), gettype($data)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($data, true), gettype($data)), __LINE__);
         }
         $this->Data = $data;
+        
         return $this;
     }
 }

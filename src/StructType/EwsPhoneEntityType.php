@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PhoneEntityType StructType
@@ -16,23 +19,23 @@ class EwsPhoneEntityType extends EwsEntityType
      * The OriginalPhoneString
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OriginalPhoneString;
+    protected ?string $OriginalPhoneString = null;
     /**
      * The PhoneString
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PhoneString;
+    protected ?string $PhoneString = null;
     /**
      * The Type
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Type;
+    protected ?string $Type = null;
     /**
      * Constructor method for PhoneEntityType
      * @uses EwsPhoneEntityType::setOriginalPhoneString()
@@ -42,7 +45,7 @@ class EwsPhoneEntityType extends EwsEntityType
      * @param string $phoneString
      * @param string $type
      */
-    public function __construct($originalPhoneString = null, $phoneString = null, $type = null)
+    public function __construct(?string $originalPhoneString = null, ?string $phoneString = null, ?string $type = null)
     {
         $this
             ->setOriginalPhoneString($originalPhoneString)
@@ -53,66 +56,69 @@ class EwsPhoneEntityType extends EwsEntityType
      * Get OriginalPhoneString value
      * @return string|null
      */
-    public function getOriginalPhoneString()
+    public function getOriginalPhoneString(): ?string
     {
         return $this->OriginalPhoneString;
     }
     /**
      * Set OriginalPhoneString value
      * @param string $originalPhoneString
-     * @return \Ews\StructType\EwsPhoneEntityType
+     * @return \StructType\EwsPhoneEntityType
      */
-    public function setOriginalPhoneString($originalPhoneString = null)
+    public function setOriginalPhoneString(?string $originalPhoneString = null): self
     {
         // validation for constraint: string
         if (!is_null($originalPhoneString) && !is_string($originalPhoneString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalPhoneString, true), gettype($originalPhoneString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalPhoneString, true), gettype($originalPhoneString)), __LINE__);
         }
         $this->OriginalPhoneString = $originalPhoneString;
+        
         return $this;
     }
     /**
      * Get PhoneString value
      * @return string|null
      */
-    public function getPhoneString()
+    public function getPhoneString(): ?string
     {
         return $this->PhoneString;
     }
     /**
      * Set PhoneString value
      * @param string $phoneString
-     * @return \Ews\StructType\EwsPhoneEntityType
+     * @return \StructType\EwsPhoneEntityType
      */
-    public function setPhoneString($phoneString = null)
+    public function setPhoneString(?string $phoneString = null): self
     {
         // validation for constraint: string
         if (!is_null($phoneString) && !is_string($phoneString)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneString, true), gettype($phoneString)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($phoneString, true), gettype($phoneString)), __LINE__);
         }
         $this->PhoneString = $phoneString;
+        
         return $this;
     }
     /**
      * Get Type value
      * @return string|null
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->Type;
     }
     /**
      * Set Type value
      * @param string $type
-     * @return \Ews\StructType\EwsPhoneEntityType
+     * @return \StructType\EwsPhoneEntityType
      */
-    public function setType($type = null)
+    public function setType(?string $type = null): self
     {
         // validation for constraint: string
         if (!is_null($type) && !is_string($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($type, true), gettype($type)), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
 }

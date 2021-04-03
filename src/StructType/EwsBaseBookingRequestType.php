@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseBookingRequestType StructType
@@ -17,35 +20,36 @@ abstract class EwsBaseBookingRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $TargetMailbox;
+    protected ?\StructType\EwsEmailAddressType $TargetMailbox = null;
     /**
      * Constructor method for BaseBookingRequestType
      * @uses EwsBaseBookingRequestType::setTargetMailbox()
-     * @param \Ews\StructType\EwsEmailAddressType $targetMailbox
+     * @param \StructType\EwsEmailAddressType $targetMailbox
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $targetMailbox = null)
+    public function __construct(?\StructType\EwsEmailAddressType $targetMailbox = null)
     {
         $this
             ->setTargetMailbox($targetMailbox);
     }
     /**
      * Get TargetMailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getTargetMailbox()
+    public function getTargetMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->TargetMailbox;
     }
     /**
      * Set TargetMailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $targetMailbox
-     * @return \Ews\StructType\EwsBaseBookingRequestType
+     * @param \StructType\EwsEmailAddressType $targetMailbox
+     * @return \StructType\EwsBaseBookingRequestType
      */
-    public function setTargetMailbox(\Ews\StructType\EwsEmailAddressType $targetMailbox = null)
+    public function setTargetMailbox(?\StructType\EwsEmailAddressType $targetMailbox = null): self
     {
         $this->TargetMailbox = $targetMailbox;
+        
         return $this;
     }
 }

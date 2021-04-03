@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UnifiedGroupsSetType StructType
@@ -19,25 +22,25 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FilterType;
+    protected ?string $FilterType = null;
     /**
      * The TotalGroups
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $TotalGroups;
+    protected ?int $TotalGroups = null;
     /**
      * The Groups
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfUnifiedGroupsType
+     * @var \ArrayType\EwsArrayOfUnifiedGroupsType|null
      */
-    public $Groups;
+    protected ?\ArrayType\EwsArrayOfUnifiedGroupsType $Groups = null;
     /**
      * Constructor method for UnifiedGroupsSetType
      * @uses EwsUnifiedGroupsSetType::setFilterType()
@@ -45,9 +48,9 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
      * @uses EwsUnifiedGroupsSetType::setGroups()
      * @param string $filterType
      * @param int $totalGroups
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupsType $groups
+     * @param \ArrayType\EwsArrayOfUnifiedGroupsType $groups
      */
-    public function __construct($filterType = null, $totalGroups = null, \Ews\ArrayType\EwsArrayOfUnifiedGroupsType $groups = null)
+    public function __construct(?string $filterType = null, ?int $totalGroups = null, ?\ArrayType\EwsArrayOfUnifiedGroupsType $groups = null)
     {
         $this
             ->setFilterType($filterType)
@@ -58,65 +61,68 @@ class EwsUnifiedGroupsSetType extends AbstractStructBase
      * Get FilterType value
      * @return string|null
      */
-    public function getFilterType()
+    public function getFilterType(): ?string
     {
         return $this->FilterType;
     }
     /**
      * Set FilterType value
-     * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupsFilterType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupsFilterType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $filterType
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType
+     * @return \StructType\EwsUnifiedGroupsSetType
      */
-    public function setFilterType($filterType = null)
+    public function setFilterType(?string $filterType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupsFilterType::valueIsValid($filterType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupsFilterType', is_array($filterType) ? implode(', ', $filterType) : var_export($filterType, true), implode(', ', \EnumType\EwsUnifiedGroupsFilterType::getValidValues())), __LINE__);
         }
         $this->FilterType = $filterType;
+        
         return $this;
     }
     /**
      * Get TotalGroups value
      * @return int|null
      */
-    public function getTotalGroups()
+    public function getTotalGroups(): ?int
     {
         return $this->TotalGroups;
     }
     /**
      * Set TotalGroups value
      * @param int $totalGroups
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType
+     * @return \StructType\EwsUnifiedGroupsSetType
      */
-    public function setTotalGroups($totalGroups = null)
+    public function setTotalGroups(?int $totalGroups = null): self
     {
         // validation for constraint: int
         if (!is_null($totalGroups) && !(is_int($totalGroups) || ctype_digit($totalGroups))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalGroups, true), gettype($totalGroups)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($totalGroups, true), gettype($totalGroups)), __LINE__);
         }
         $this->TotalGroups = $totalGroups;
+        
         return $this;
     }
     /**
      * Get Groups value
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupsType|null
+     * @return \ArrayType\EwsArrayOfUnifiedGroupsType|null
      */
-    public function getGroups()
+    public function getGroups(): ?\ArrayType\EwsArrayOfUnifiedGroupsType
     {
         return $this->Groups;
     }
     /**
      * Set Groups value
-     * @param \Ews\ArrayType\EwsArrayOfUnifiedGroupsType $groups
-     * @return \Ews\StructType\EwsUnifiedGroupsSetType
+     * @param \ArrayType\EwsArrayOfUnifiedGroupsType $groups
+     * @return \StructType\EwsUnifiedGroupsSetType
      */
-    public function setGroups(\Ews\ArrayType\EwsArrayOfUnifiedGroupsType $groups = null)
+    public function setGroups(?\ArrayType\EwsArrayOfUnifiedGroupsType $groups = null): self
     {
         $this->Groups = $groups;
+        
         return $this;
     }
 }

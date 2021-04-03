@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUserOofSettingsResponse StructType
@@ -19,35 +22,36 @@ class EwsSetUserOofSettingsResponse extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $ResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $ResponseMessage = null;
     /**
      * Constructor method for SetUserOofSettingsResponse
      * @uses EwsSetUserOofSettingsResponse::setResponseMessage()
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
+     * @param \StructType\EwsResponseMessageType $responseMessage
      */
-    public function __construct(\Ews\StructType\EwsResponseMessageType $responseMessage = null)
+    public function __construct(?\StructType\EwsResponseMessageType $responseMessage = null)
     {
         $this
             ->setResponseMessage($responseMessage);
     }
     /**
      * Get ResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getResponseMessage()
+    public function getResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return $this->ResponseMessage;
     }
     /**
      * Set ResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageType $responseMessage
-     * @return \Ews\StructType\EwsSetUserOofSettingsResponse
+     * @param \StructType\EwsResponseMessageType $responseMessage
+     * @return \StructType\EwsSetUserOofSettingsResponse
      */
-    public function setResponseMessage(\Ews\StructType\EwsResponseMessageType $responseMessage = null)
+    public function setResponseMessage(?\StructType\EwsResponseMessageType $responseMessage = null): self
     {
         $this->ResponseMessage = $responseMessage;
+        
         return $this;
     }
 }

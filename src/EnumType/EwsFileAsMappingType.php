@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for FileAsMappingType EnumType
@@ -124,9 +126,9 @@ class EwsFileAsMappingType extends AbstractStructEnumBase
      * @uses self::VALUE_EMPTY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_LAST_COMMA_FIRST,
             self::VALUE_FIRST_SPACE_LAST,
@@ -145,6 +147,6 @@ class EwsFileAsMappingType extends AbstractStructEnumBase
             self::VALUE_LAST_FIRST_MIDDLE_SUFFIX,
             self::VALUE_LAST_NAME,
             self::VALUE_EMPTY,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddEventToMyCalanderResponseType StructType
@@ -19,13 +22,13 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
      * - minOccurs: 1
      * @var bool
      */
-    public $WasSuccessful;
+    protected bool $WasSuccessful;
     /**
      * Constructor method for AddEventToMyCalanderResponseType
      * @uses EwsAddEventToMyCalanderResponseType::setWasSuccessful()
      * @param bool $wasSuccessful
      */
-    public function __construct($wasSuccessful = null)
+    public function __construct(bool $wasSuccessful)
     {
         $this
             ->setWasSuccessful($wasSuccessful);
@@ -34,22 +37,23 @@ class EwsAddEventToMyCalanderResponseType extends EwsResponseMessageType
      * Get WasSuccessful value
      * @return bool
      */
-    public function getWasSuccessful()
+    public function getWasSuccessful(): bool
     {
         return $this->WasSuccessful;
     }
     /**
      * Set WasSuccessful value
      * @param bool $wasSuccessful
-     * @return \Ews\StructType\EwsAddEventToMyCalanderResponseType
+     * @return \StructType\EwsAddEventToMyCalanderResponseType
      */
-    public function setWasSuccessful($wasSuccessful = null)
+    public function setWasSuccessful(bool $wasSuccessful): self
     {
         // validation for constraint: boolean
         if (!is_null($wasSuccessful) && !is_bool($wasSuccessful)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($wasSuccessful, true), gettype($wasSuccessful)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($wasSuccessful, true), gettype($wasSuccessful)), __LINE__);
         }
         $this->WasSuccessful = $wasSuccessful;
+        
         return $this;
     }
 }

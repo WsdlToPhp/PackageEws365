@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetNonIndexableItemDetailsResponseMessageType StructType
@@ -18,35 +21,36 @@ class EwsGetNonIndexableItemDetailsResponseMessageType extends EwsResponseMessag
      * The NonIndexableItemDetailsResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonIndexableItemDetailResultType
+     * @var \StructType\EwsNonIndexableItemDetailResultType|null
      */
-    public $NonIndexableItemDetailsResult;
+    protected ?\StructType\EwsNonIndexableItemDetailResultType $NonIndexableItemDetailsResult = null;
     /**
      * Constructor method for GetNonIndexableItemDetailsResponseMessageType
      * @uses EwsGetNonIndexableItemDetailsResponseMessageType::setNonIndexableItemDetailsResult()
-     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
+     * @param \StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
      */
-    public function __construct(\Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null)
+    public function __construct(?\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null)
     {
         $this
             ->setNonIndexableItemDetailsResult($nonIndexableItemDetailsResult);
     }
     /**
      * Get NonIndexableItemDetailsResult value
-     * @return \Ews\StructType\EwsNonIndexableItemDetailResultType|null
+     * @return \StructType\EwsNonIndexableItemDetailResultType|null
      */
-    public function getNonIndexableItemDetailsResult()
+    public function getNonIndexableItemDetailsResult(): ?\StructType\EwsNonIndexableItemDetailResultType
     {
         return $this->NonIndexableItemDetailsResult;
     }
     /**
      * Set NonIndexableItemDetailsResult value
-     * @param \Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
+     * @param \StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult
+     * @return \StructType\EwsGetNonIndexableItemDetailsResponseMessageType
      */
-    public function setNonIndexableItemDetailsResult(\Ews\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null)
+    public function setNonIndexableItemDetailsResult(?\StructType\EwsNonIndexableItemDetailResultType $nonIndexableItemDetailsResult = null): self
     {
         $this->NonIndexableItemDetailsResult = $nonIndexableItemDetailsResult;
+        
         return $this;
     }
 }

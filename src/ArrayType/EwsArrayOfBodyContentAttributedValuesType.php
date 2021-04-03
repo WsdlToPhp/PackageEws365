@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfBodyContentAttributedValuesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsBodyContentAttributedValueType[]
+     * @var \StructType\EwsBodyContentAttributedValueType[]
      */
-    public $BodyContentAttributedValue;
+    protected array $BodyContentAttributedValue = [];
     /**
      * Constructor method for ArrayOfBodyContentAttributedValuesType
      * @uses EwsArrayOfBodyContentAttributedValuesType::setBodyContentAttributedValue()
-     * @param \Ews\StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
+     * @param \StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
      */
-    public function __construct(array $bodyContentAttributedValue = array())
+    public function __construct(array $bodyContentAttributedValue = [])
     {
         $this
             ->setBodyContentAttributedValue($bodyContentAttributedValue);
     }
     /**
      * Get BodyContentAttributedValue value
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType[]|null
+     * @return \StructType\EwsBodyContentAttributedValueType[]
      */
-    public function getBodyContentAttributedValue()
+    public function getBodyContentAttributedValue(): array
     {
         return $this->BodyContentAttributedValue;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateBodyContentAttributedValueForArrayConstraintsFromSetBodyContentAttributedValue(array $values = array())
+    public static function validateBodyContentAttributedValueForArrayConstraintsFromSetBodyContentAttributedValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) {
             // validation for constraint: itemType
-            if (!$arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
+            if (!$arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem instanceof \StructType\EwsBodyContentAttributedValueType) {
                 $invalidValues[] = is_object($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) ? get_class($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem) : sprintf('%s(%s)', gettype($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem), var_export($arrayOfBodyContentAttributedValuesTypeBodyContentAttributedValueItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The BodyContentAttributedValue property can only contain items of type \Ews\StructType\EwsBodyContentAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The BodyContentAttributedValue property can only contain items of type \StructType\EwsBodyContentAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set BodyContentAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
-     * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsBodyContentAttributedValueType[] $bodyContentAttributedValue
+     * @return \ArrayType\EwsArrayOfBodyContentAttributedValuesType
      */
-    public function setBodyContentAttributedValue(array $bodyContentAttributedValue = array())
+    public function setBodyContentAttributedValue(array $bodyContentAttributedValue = []): self
     {
         // validation for constraint: array
         if ('' !== ($bodyContentAttributedValueArrayErrorMessage = self::validateBodyContentAttributedValueForArrayConstraintsFromSetBodyContentAttributedValue($bodyContentAttributedValue))) {
-            throw new \InvalidArgumentException($bodyContentAttributedValueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($bodyContentAttributedValueArrayErrorMessage, __LINE__);
         }
         $this->BodyContentAttributedValue = $bodyContentAttributedValue;
-        return $this;
-    }
-    /**
-     * Add item to BodyContentAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsBodyContentAttributedValueType $item
-     * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
-     */
-    public function addToBodyContentAttributedValue(\Ews\StructType\EwsBodyContentAttributedValueType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsBodyContentAttributedValueType) {
-            throw new \InvalidArgumentException(sprintf('The BodyContentAttributedValue property can only contain items of type \Ews\StructType\EwsBodyContentAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->BodyContentAttributedValue[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType|null
+     * @return \StructType\EwsBodyContentAttributedValueType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsBodyContentAttributedValueType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType|null
+     * @return \StructType\EwsBodyContentAttributedValueType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsBodyContentAttributedValueType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType|null
+     * @return \StructType\EwsBodyContentAttributedValueType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsBodyContentAttributedValueType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType|null
+     * @return \StructType\EwsBodyContentAttributedValueType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsBodyContentAttributedValueType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfBodyContentAttributedValuesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsBodyContentAttributedValueType|null
+     * @return \StructType\EwsBodyContentAttributedValueType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsBodyContentAttributedValueType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsBodyContentAttributedValueType $item
+     * @return \ArrayType\EwsArrayOfBodyContentAttributedValuesType
+     */
+    public function add(\StructType\EwsBodyContentAttributedValueType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string BodyContentAttributedValue
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'BodyContentAttributedValue';
     }

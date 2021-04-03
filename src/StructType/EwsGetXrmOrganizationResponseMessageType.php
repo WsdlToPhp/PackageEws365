@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetXrmOrganizationResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetXrmOrganizationResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmOrganizationItemType
+     * @var \StructType\EwsXrmOrganizationItemType
      */
-    public $XrmOrganization;
+    protected \StructType\EwsXrmOrganizationItemType $XrmOrganization;
     /**
      * Constructor method for GetXrmOrganizationResponseMessageType
      * @uses EwsGetXrmOrganizationResponseMessageType::setXrmOrganization()
-     * @param \Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization
+     * @param \StructType\EwsXrmOrganizationItemType $xrmOrganization
      */
-    public function __construct(\Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization = null)
+    public function __construct(\StructType\EwsXrmOrganizationItemType $xrmOrganization)
     {
         $this
             ->setXrmOrganization($xrmOrganization);
     }
     /**
      * Get XrmOrganization value
-     * @return \Ews\StructType\EwsXrmOrganizationItemType
+     * @return \StructType\EwsXrmOrganizationItemType
      */
-    public function getXrmOrganization()
+    public function getXrmOrganization(): \StructType\EwsXrmOrganizationItemType
     {
         return $this->XrmOrganization;
     }
     /**
      * Set XrmOrganization value
-     * @param \Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization
-     * @return \Ews\StructType\EwsGetXrmOrganizationResponseMessageType
+     * @param \StructType\EwsXrmOrganizationItemType $xrmOrganization
+     * @return \StructType\EwsGetXrmOrganizationResponseMessageType
      */
-    public function setXrmOrganization(\Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization = null)
+    public function setXrmOrganization(\StructType\EwsXrmOrganizationItemType $xrmOrganization): self
     {
         $this->XrmOrganization = $xrmOrganization;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ProtectionRuleType StructType
@@ -17,17 +20,17 @@ class EwsProtectionRuleType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsProtectionRuleConditionType
+     * @var \StructType\EwsProtectionRuleConditionType
      */
-    public $Condition;
+    protected \StructType\EwsProtectionRuleConditionType $Condition;
     /**
      * The Action
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsProtectionRuleActionType
+     * @var \StructType\EwsProtectionRuleActionType
      */
-    public $Action;
+    protected \StructType\EwsProtectionRuleActionType $Action;
     /**
      * The Name
      * Meta information extracted from the WSDL
@@ -36,14 +39,14 @@ class EwsProtectionRuleType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Name;
+    protected string $Name;
     /**
      * The UserOverridable
      * Meta information extracted from the WSDL
      * - use: required
      * @var bool
      */
-    public $UserOverridable;
+    protected bool $UserOverridable;
     /**
      * The Priority
      * Meta information extracted from the WSDL
@@ -52,7 +55,7 @@ class EwsProtectionRuleType extends AbstractStructBase
      * - use: required
      * @var int
      */
-    public $Priority;
+    protected int $Priority;
     /**
      * Constructor method for ProtectionRuleType
      * @uses EwsProtectionRuleType::setCondition()
@@ -60,13 +63,13 @@ class EwsProtectionRuleType extends AbstractStructBase
      * @uses EwsProtectionRuleType::setName()
      * @uses EwsProtectionRuleType::setUserOverridable()
      * @uses EwsProtectionRuleType::setPriority()
-     * @param \Ews\StructType\EwsProtectionRuleConditionType $condition
-     * @param \Ews\StructType\EwsProtectionRuleActionType $action
+     * @param \StructType\EwsProtectionRuleConditionType $condition
+     * @param \StructType\EwsProtectionRuleActionType $action
      * @param string $name
      * @param bool $userOverridable
      * @param int $priority
      */
-    public function __construct(\Ews\StructType\EwsProtectionRuleConditionType $condition = null, \Ews\StructType\EwsProtectionRuleActionType $action = null, $name = null, $userOverridable = null, $priority = null)
+    public function __construct(\StructType\EwsProtectionRuleConditionType $condition, \StructType\EwsProtectionRuleActionType $action, string $name, bool $userOverridable, int $priority)
     {
         $this
             ->setCondition($condition)
@@ -77,112 +80,117 @@ class EwsProtectionRuleType extends AbstractStructBase
     }
     /**
      * Get Condition value
-     * @return \Ews\StructType\EwsProtectionRuleConditionType
+     * @return \StructType\EwsProtectionRuleConditionType
      */
-    public function getCondition()
+    public function getCondition(): \StructType\EwsProtectionRuleConditionType
     {
         return $this->Condition;
     }
     /**
      * Set Condition value
-     * @param \Ews\StructType\EwsProtectionRuleConditionType $condition
-     * @return \Ews\StructType\EwsProtectionRuleType
+     * @param \StructType\EwsProtectionRuleConditionType $condition
+     * @return \StructType\EwsProtectionRuleType
      */
-    public function setCondition(\Ews\StructType\EwsProtectionRuleConditionType $condition = null)
+    public function setCondition(\StructType\EwsProtectionRuleConditionType $condition): self
     {
         $this->Condition = $condition;
+        
         return $this;
     }
     /**
      * Get Action value
-     * @return \Ews\StructType\EwsProtectionRuleActionType
+     * @return \StructType\EwsProtectionRuleActionType
      */
-    public function getAction()
+    public function getAction(): \StructType\EwsProtectionRuleActionType
     {
         return $this->Action;
     }
     /**
      * Set Action value
-     * @param \Ews\StructType\EwsProtectionRuleActionType $action
-     * @return \Ews\StructType\EwsProtectionRuleType
+     * @param \StructType\EwsProtectionRuleActionType $action
+     * @return \StructType\EwsProtectionRuleType
      */
-    public function setAction(\Ews\StructType\EwsProtectionRuleActionType $action = null)
+    public function setAction(\StructType\EwsProtectionRuleActionType $action): self
     {
         $this->Action = $action;
+        
         return $this;
     }
     /**
      * Get Name value
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsProtectionRuleType
+     * @return \StructType\EwsProtectionRuleType
      */
-    public function setName($name = null)
+    public function setName(string $name): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($name) && mb_strlen($name) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($name)), __LINE__);
+        if (!is_null($name) && mb_strlen((string) $name) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get UserOverridable value
      * @return bool
      */
-    public function getUserOverridable()
+    public function getUserOverridable(): bool
     {
         return $this->UserOverridable;
     }
     /**
      * Set UserOverridable value
      * @param bool $userOverridable
-     * @return \Ews\StructType\EwsProtectionRuleType
+     * @return \StructType\EwsProtectionRuleType
      */
-    public function setUserOverridable($userOverridable = null)
+    public function setUserOverridable(bool $userOverridable): self
     {
         // validation for constraint: boolean
         if (!is_null($userOverridable) && !is_bool($userOverridable)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($userOverridable, true), gettype($userOverridable)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($userOverridable, true), gettype($userOverridable)), __LINE__);
         }
         $this->UserOverridable = $userOverridable;
+        
         return $this;
     }
     /**
      * Get Priority value
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return $this->Priority;
     }
     /**
      * Set Priority value
      * @param int $priority
-     * @return \Ews\StructType\EwsProtectionRuleType
+     * @return \StructType\EwsProtectionRuleType
      */
-    public function setPriority($priority = null)
+    public function setPriority(int $priority): self
     {
         // validation for constraint: int
         if (!is_null($priority) && !(is_int($priority) || ctype_digit($priority))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($priority, true), gettype($priority)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($priority, true), gettype($priority)), __LINE__);
         }
         // validation for constraint: minInclusive(1)
         if (!is_null($priority) && $priority < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($priority, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($priority, true)), __LINE__);
         }
         $this->Priority = $priority;
+        
         return $this;
     }
 }

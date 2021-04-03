@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContactsViewType StructType
@@ -16,16 +19,16 @@ class EwsContactsViewType extends EwsBasePagingType
      * The InitialName
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $InitialName;
+    protected ?string $InitialName = null;
     /**
      * The FinalName
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $FinalName;
+    protected ?string $FinalName = null;
     /**
      * Constructor method for ContactsViewType
      * @uses EwsContactsViewType::setInitialName()
@@ -33,7 +36,7 @@ class EwsContactsViewType extends EwsBasePagingType
      * @param string $initialName
      * @param string $finalName
      */
-    public function __construct($initialName = null, $finalName = null)
+    public function __construct(?string $initialName = null, ?string $finalName = null)
     {
         $this
             ->setInitialName($initialName)
@@ -43,44 +46,46 @@ class EwsContactsViewType extends EwsBasePagingType
      * Get InitialName value
      * @return string|null
      */
-    public function getInitialName()
+    public function getInitialName(): ?string
     {
         return $this->InitialName;
     }
     /**
      * Set InitialName value
      * @param string $initialName
-     * @return \Ews\StructType\EwsContactsViewType
+     * @return \StructType\EwsContactsViewType
      */
-    public function setInitialName($initialName = null)
+    public function setInitialName(?string $initialName = null): self
     {
         // validation for constraint: string
         if (!is_null($initialName) && !is_string($initialName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initialName, true), gettype($initialName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($initialName, true), gettype($initialName)), __LINE__);
         }
         $this->InitialName = $initialName;
+        
         return $this;
     }
     /**
      * Get FinalName value
      * @return string|null
      */
-    public function getFinalName()
+    public function getFinalName(): ?string
     {
         return $this->FinalName;
     }
     /**
      * Set FinalName value
      * @param string $finalName
-     * @return \Ews\StructType\EwsContactsViewType
+     * @return \StructType\EwsContactsViewType
      */
-    public function setFinalName($finalName = null)
+    public function setFinalName(?string $finalName = null): self
     {
         // validation for constraint: string
         if (!is_null($finalName) && !is_string($finalName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($finalName, true), gettype($finalName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($finalName, true), gettype($finalName)), __LINE__);
         }
         $this->FinalName = $finalName;
+        
         return $this;
     }
 }

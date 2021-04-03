@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfXrmActivityStreamType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsXrmActivityStreamType[]
+     * @var \StructType\EwsXrmActivityStreamType[]
      */
-    public $Activity;
+    protected array $Activity = [];
     /**
      * Constructor method for ArrayOfXrmActivityStreamType
      * @uses EwsArrayOfXrmActivityStreamType::setActivity()
-     * @param \Ews\StructType\EwsXrmActivityStreamType[] $activity
+     * @param \StructType\EwsXrmActivityStreamType[] $activity
      */
-    public function __construct(array $activity = array())
+    public function __construct(array $activity = [])
     {
         $this
             ->setActivity($activity);
     }
     /**
      * Get Activity value
-     * @return \Ews\StructType\EwsXrmActivityStreamType[]|null
+     * @return \StructType\EwsXrmActivityStreamType[]
      */
-    public function getActivity()
+    public function getActivity(): array
     {
         return $this->Activity;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateActivityForArrayConstraintsFromSetActivity(array $values = array())
+    public static function validateActivityForArrayConstraintsFromSetActivity(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfXrmActivityStreamTypeActivityItem) {
             // validation for constraint: itemType
-            if (!$arrayOfXrmActivityStreamTypeActivityItem instanceof \Ews\StructType\EwsXrmActivityStreamType) {
+            if (!$arrayOfXrmActivityStreamTypeActivityItem instanceof \StructType\EwsXrmActivityStreamType) {
                 $invalidValues[] = is_object($arrayOfXrmActivityStreamTypeActivityItem) ? get_class($arrayOfXrmActivityStreamTypeActivityItem) : sprintf('%s(%s)', gettype($arrayOfXrmActivityStreamTypeActivityItem), var_export($arrayOfXrmActivityStreamTypeActivityItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Activity property can only contain items of type \Ews\StructType\EwsXrmActivityStreamType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Activity property can only contain items of type \StructType\EwsXrmActivityStreamType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Activity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsXrmActivityStreamType[] $activity
-     * @return \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsXrmActivityStreamType[] $activity
+     * @return \ArrayType\EwsArrayOfXrmActivityStreamType
      */
-    public function setActivity(array $activity = array())
+    public function setActivity(array $activity = []): self
     {
         // validation for constraint: array
         if ('' !== ($activityArrayErrorMessage = self::validateActivityForArrayConstraintsFromSetActivity($activity))) {
-            throw new \InvalidArgumentException($activityArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($activityArrayErrorMessage, __LINE__);
         }
         $this->Activity = $activity;
-        return $this;
-    }
-    /**
-     * Add item to Activity value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsXrmActivityStreamType $item
-     * @return \Ews\ArrayType\EwsArrayOfXrmActivityStreamType
-     */
-    public function addToActivity(\Ews\StructType\EwsXrmActivityStreamType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsXrmActivityStreamType) {
-            throw new \InvalidArgumentException(sprintf('The Activity property can only contain items of type \Ews\StructType\EwsXrmActivityStreamType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Activity[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsXrmActivityStreamType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsXrmActivityStreamType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsXrmActivityStreamType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsXrmActivityStreamType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfXrmActivityStreamType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsXrmActivityStreamType|null
+     * @return \StructType\EwsXrmActivityStreamType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsXrmActivityStreamType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsXrmActivityStreamType $item
+     * @return \ArrayType\EwsArrayOfXrmActivityStreamType
+     */
+    public function add(\StructType\EwsXrmActivityStreamType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Activity
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Activity';
     }

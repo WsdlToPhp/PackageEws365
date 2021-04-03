@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDelegateResponseMessageType StructType
@@ -17,15 +20,15 @@ class EwsGetDelegateResponseMessageType extends EwsBaseDelegateResponseMessageTy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DeliverMeetingRequests;
+    protected ?string $DeliverMeetingRequests = null;
     /**
      * Constructor method for GetDelegateResponseMessageType
      * @uses EwsGetDelegateResponseMessageType::setDeliverMeetingRequests()
      * @param string $deliverMeetingRequests
      */
-    public function __construct($deliverMeetingRequests = null)
+    public function __construct(?string $deliverMeetingRequests = null)
     {
         $this
             ->setDeliverMeetingRequests($deliverMeetingRequests);
@@ -34,25 +37,26 @@ class EwsGetDelegateResponseMessageType extends EwsBaseDelegateResponseMessageTy
      * Get DeliverMeetingRequests value
      * @return string|null
      */
-    public function getDeliverMeetingRequests()
+    public function getDeliverMeetingRequests(): ?string
     {
         return $this->DeliverMeetingRequests;
     }
     /**
      * Set DeliverMeetingRequests value
-     * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDeliverMeetingRequestsType::valueIsValid()
+     * @uses \EnumType\EwsDeliverMeetingRequestsType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $deliverMeetingRequests
-     * @return \Ews\StructType\EwsGetDelegateResponseMessageType
+     * @return \StructType\EwsGetDelegateResponseMessageType
      */
-    public function setDeliverMeetingRequests($deliverMeetingRequests = null)
+    public function setDeliverMeetingRequests(?string $deliverMeetingRequests = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDeliverMeetingRequestsType::valueIsValid($deliverMeetingRequests)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDeliverMeetingRequestsType', is_array($deliverMeetingRequests) ? implode(', ', $deliverMeetingRequests) : var_export($deliverMeetingRequests, true), implode(', ', \Ews\EnumType\EwsDeliverMeetingRequestsType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDeliverMeetingRequestsType::valueIsValid($deliverMeetingRequests)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDeliverMeetingRequestsType', is_array($deliverMeetingRequests) ? implode(', ', $deliverMeetingRequests) : var_export($deliverMeetingRequests, true), implode(', ', \EnumType\EwsDeliverMeetingRequestsType::getValidValues())), __LINE__);
         }
         $this->DeliverMeetingRequests = $deliverMeetingRequests;
+        
         return $this;
     }
 }

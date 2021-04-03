@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for EmailReminderChangeType EnumType
@@ -40,13 +42,13 @@ class EwsEmailReminderChangeType extends AbstractStructEnumBase
      * @uses self::VALUE_DELETED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_ADDED,
             self::VALUE_OVERRIDE,
             self::VALUE_DELETED,
-        );
+        ];
     }
 }

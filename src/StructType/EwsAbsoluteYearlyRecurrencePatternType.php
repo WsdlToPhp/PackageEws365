@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AbsoluteYearlyRecurrencePatternType StructType
@@ -14,14 +17,14 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
 {
     /**
      * The DayOfMonth
-     * @var int
+     * @var int|null
      */
-    public $DayOfMonth;
+    protected ?int $DayOfMonth = null;
     /**
      * The Month
-     * @var string
+     * @var string|null
      */
-    public $Month;
+    protected ?string $Month = null;
     /**
      * Constructor method for AbsoluteYearlyRecurrencePatternType
      * @uses EwsAbsoluteYearlyRecurrencePatternType::setDayOfMonth()
@@ -29,7 +32,7 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * @param int $dayOfMonth
      * @param string $month
      */
-    public function __construct($dayOfMonth = null, $month = null)
+    public function __construct(?int $dayOfMonth = null, ?string $month = null)
     {
         $this
             ->setDayOfMonth($dayOfMonth)
@@ -39,47 +42,49 @@ class EwsAbsoluteYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Get DayOfMonth value
      * @return int|null
      */
-    public function getDayOfMonth()
+    public function getDayOfMonth(): ?int
     {
         return $this->DayOfMonth;
     }
     /**
      * Set DayOfMonth value
      * @param int $dayOfMonth
-     * @return \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
+     * @return \StructType\EwsAbsoluteYearlyRecurrencePatternType
      */
-    public function setDayOfMonth($dayOfMonth = null)
+    public function setDayOfMonth(?int $dayOfMonth = null): self
     {
         // validation for constraint: int
         if (!is_null($dayOfMonth) && !(is_int($dayOfMonth) || ctype_digit($dayOfMonth))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOfMonth, true), gettype($dayOfMonth)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($dayOfMonth, true), gettype($dayOfMonth)), __LINE__);
         }
         $this->DayOfMonth = $dayOfMonth;
+        
         return $this;
     }
     /**
      * Get Month value
      * @return string|null
      */
-    public function getMonth()
+    public function getMonth(): ?string
     {
         return $this->Month;
     }
     /**
      * Set Month value
-     * @uses \Ews\EnumType\EwsMonthNamesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMonthNamesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMonthNamesType::valueIsValid()
+     * @uses \EnumType\EwsMonthNamesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $month
-     * @return \Ews\StructType\EwsAbsoluteYearlyRecurrencePatternType
+     * @return \StructType\EwsAbsoluteYearlyRecurrencePatternType
      */
-    public function setMonth($month = null)
+    public function setMonth(?string $month = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMonthNamesType::valueIsValid($month)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMonthNamesType', is_array($month) ? implode(', ', $month) : var_export($month, true), implode(', ', \Ews\EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMonthNamesType::valueIsValid($month)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMonthNamesType', is_array($month) ? implode(', ', $month) : var_export($month, true), implode(', ', \EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
         }
         $this->Month = $month;
+        
         return $this;
     }
 }

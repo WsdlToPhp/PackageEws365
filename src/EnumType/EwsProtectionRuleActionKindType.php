@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ProtectionRuleActionKindType EnumType
@@ -22,10 +24,10 @@ class EwsProtectionRuleActionKindType extends AbstractStructEnumBase
      * @uses self::VALUE_RIGHTS_PROTECT_MESSAGE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_RIGHTS_PROTECT_MESSAGE,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteBookingServiceResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsDeleteBookingServiceResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $DeletedId;
+    protected \StructType\EwsItemIdType $DeletedId;
     /**
      * Constructor method for DeleteBookingServiceResponseMessageType
      * @uses EwsDeleteBookingServiceResponseMessageType::setDeletedId()
-     * @param \Ews\StructType\EwsItemIdType $deletedId
+     * @param \StructType\EwsItemIdType $deletedId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $deletedId = null)
+    public function __construct(\StructType\EwsItemIdType $deletedId)
     {
         $this
             ->setDeletedId($deletedId);
     }
     /**
      * Get DeletedId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getDeletedId()
+    public function getDeletedId(): \StructType\EwsItemIdType
     {
         return $this->DeletedId;
     }
     /**
      * Set DeletedId value
-     * @param \Ews\StructType\EwsItemIdType $deletedId
-     * @return \Ews\StructType\EwsDeleteBookingServiceResponseMessageType
+     * @param \StructType\EwsItemIdType $deletedId
+     * @return \StructType\EwsDeleteBookingServiceResponseMessageType
      */
-    public function setDeletedId(\Ews\StructType\EwsItemIdType $deletedId = null)
+    public function setDeletedId(\StructType\EwsItemIdType $deletedId): self
     {
         $this->DeletedId = $deletedId;
+        
         return $this;
     }
 }

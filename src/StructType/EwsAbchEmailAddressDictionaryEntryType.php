@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AbchEmailAddressDictionaryEntryType StructType
@@ -18,28 +21,28 @@ class EwsAbchEmailAddressDictionaryEntryType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Type;
+    protected string $Type;
     /**
      * The Address
      * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
-    public $Address;
+    protected string $Address;
     /**
      * The IsMessengerEnabled
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMessengerEnabled;
+    protected ?bool $IsMessengerEnabled = null;
     /**
      * The Capabilities
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Capabilities;
+    protected ?int $Capabilities = null;
     /**
      * Constructor method for AbchEmailAddressDictionaryEntryType
      * @uses EwsAbchEmailAddressDictionaryEntryType::setType()
@@ -51,7 +54,7 @@ class EwsAbchEmailAddressDictionaryEntryType extends AbstractStructBase
      * @param bool $isMessengerEnabled
      * @param int $capabilities
      */
-    public function __construct($type = null, $address = null, $isMessengerEnabled = null, $capabilities = null)
+    public function __construct(string $type, string $address, ?bool $isMessengerEnabled = null, ?int $capabilities = null)
     {
         $this
             ->setType($type)
@@ -63,91 +66,95 @@ class EwsAbchEmailAddressDictionaryEntryType extends AbstractStructBase
      * Get Type value
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->Type;
     }
     /**
      * Set Type value
-     * @uses \Ews\EnumType\EwsAbchEmailAddressTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsAbchEmailAddressTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsAbchEmailAddressTypeType::valueIsValid()
+     * @uses \EnumType\EwsAbchEmailAddressTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $type
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType
+     * @return \StructType\EwsAbchEmailAddressDictionaryEntryType
      */
-    public function setType($type = null)
+    public function setType(string $type): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsAbchEmailAddressTypeType::valueIsValid($type)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsAbchEmailAddressTypeType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \Ews\EnumType\EwsAbchEmailAddressTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsAbchEmailAddressTypeType::valueIsValid($type)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsAbchEmailAddressTypeType', is_array($type) ? implode(', ', $type) : var_export($type, true), implode(', ', \EnumType\EwsAbchEmailAddressTypeType::getValidValues())), __LINE__);
         }
         $this->Type = $type;
+        
         return $this;
     }
     /**
      * Get Address value
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->Address;
     }
     /**
      * Set Address value
      * @param string $address
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType
+     * @return \StructType\EwsAbchEmailAddressDictionaryEntryType
      */
-    public function setAddress($address = null)
+    public function setAddress(string $address): self
     {
         // validation for constraint: string
         if (!is_null($address) && !is_string($address)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($address, true), gettype($address)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($address, true), gettype($address)), __LINE__);
         }
         $this->Address = $address;
+        
         return $this;
     }
     /**
      * Get IsMessengerEnabled value
      * @return bool|null
      */
-    public function getIsMessengerEnabled()
+    public function getIsMessengerEnabled(): ?bool
     {
         return $this->IsMessengerEnabled;
     }
     /**
      * Set IsMessengerEnabled value
      * @param bool $isMessengerEnabled
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType
+     * @return \StructType\EwsAbchEmailAddressDictionaryEntryType
      */
-    public function setIsMessengerEnabled($isMessengerEnabled = null)
+    public function setIsMessengerEnabled(?bool $isMessengerEnabled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMessengerEnabled) && !is_bool($isMessengerEnabled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMessengerEnabled, true), gettype($isMessengerEnabled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMessengerEnabled, true), gettype($isMessengerEnabled)), __LINE__);
         }
         $this->IsMessengerEnabled = $isMessengerEnabled;
+        
         return $this;
     }
     /**
      * Get Capabilities value
      * @return int|null
      */
-    public function getCapabilities()
+    public function getCapabilities(): ?int
     {
         return $this->Capabilities;
     }
     /**
      * Set Capabilities value
      * @param int $capabilities
-     * @return \Ews\StructType\EwsAbchEmailAddressDictionaryEntryType
+     * @return \StructType\EwsAbchEmailAddressDictionaryEntryType
      */
-    public function setCapabilities($capabilities = null)
+    public function setCapabilities(?int $capabilities = null): self
     {
         // validation for constraint: int
         if (!is_null($capabilities) && !(is_int($capabilities) || ctype_digit($capabilities))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($capabilities, true), gettype($capabilities)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($capabilities, true), gettype($capabilities)), __LINE__);
         }
         $this->Capabilities = $capabilities;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ServiceType;
+declare(strict_types=1);
 
-use \SoapClient\SoapClientBase;
+namespace ServiceType;
+
+use SoapFault;
+use SoapClient\SoapClientBase;
 
 /**
  * This class stands for Find ServiceType
@@ -15,111 +18,112 @@ class EwsFind extends SoapClientBase
     /**
      * Sets the ExchangeImpersonation SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation
-     * @param string $nameSpace
+     * @param \StructType\EwsExchangeImpersonationType $exchangeImpersonation
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderExchangeImpersonation(\Ews\StructType\EwsExchangeImpersonationType $exchangeImpersonation, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderExchangeImpersonation(\StructType\EwsExchangeImpersonationType $exchangeImpersonation, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'ExchangeImpersonation', $exchangeImpersonation, $mustUnderstand, $actor);
     }
     /**
      * Sets the MailboxCulture SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsMailboxCultureType $mailboxCulture
-     * @param string $nameSpace
+     * @param \StructType\EwsMailboxCultureType $mailboxCulture
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderMailboxCulture(\Ews\StructType\EwsMailboxCultureType $mailboxCulture, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderMailboxCulture(\StructType\EwsMailboxCultureType $mailboxCulture, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'MailboxCulture', $mailboxCulture, $mustUnderstand, $actor);
     }
     /**
      * Sets the RequestServerVersion SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsRequestServerVersion $requestServerVersion
-     * @param string $nameSpace
+     * @param \StructType\EwsRequestServerVersion $requestServerVersion
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderRequestServerVersion(\Ews\StructType\EwsRequestServerVersion $requestServerVersion, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderRequestServerVersion(\StructType\EwsRequestServerVersion $requestServerVersion, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'RequestServerVersion', $requestServerVersion, $mustUnderstand, $actor);
     }
     /**
      * Sets the TimeZoneContext SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsTimeZoneContextType $timeZoneContext
-     * @param string $nameSpace
+     * @param \StructType\EwsTimeZoneContextType $timeZoneContext
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderTimeZoneContext(\Ews\StructType\EwsTimeZoneContextType $timeZoneContext, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderTimeZoneContext(\StructType\EwsTimeZoneContextType $timeZoneContext, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'TimeZoneContext', $timeZoneContext, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'TimeZoneContext', $timeZoneContext, $mustUnderstand, $actor);
     }
     /**
      * Sets the ManagementRole SoapHeader param
      * @uses SoapClientBase::setSoapHeader()
-     * @param \Ews\StructType\EwsManagementRoleType $managementRole
-     * @param string $nameSpace
+     * @param \StructType\EwsManagementRoleType $managementRole
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderManagementRole(\Ews\StructType\EwsManagementRoleType $managementRole, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderManagementRole(\StructType\EwsManagementRoleType $managementRole, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
-        return $this->setSoapHeader($nameSpace, 'ManagementRole', $managementRole, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'ManagementRole', $managementRole, $mustUnderstand, $actor);
     }
     /**
      * Sets the DateTimePrecision SoapHeader param
-     * @uses \Ews\EnumType\EwsDateTimePrecisionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDateTimePrecisionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDateTimePrecisionType::valueIsValid()
+     * @uses \EnumType\EwsDateTimePrecisionType::getValidValues()
+     * @throws InvalidArgumentException
      * @uses SoapClientBase::setSoapHeader()
      * @param string $dateTimePrecision
-     * @param string $nameSpace
+     * @param string $namespace
      * @param bool $mustUnderstand
      * @param string $actor
-     * @return bool
+     * @return \ServiceType\EwsFind
      */
-    public function setSoapHeaderDateTimePrecision($dateTimePrecision, $nameSpace = 'http://schemas.microsoft.com/exchange/services/2006/types', $mustUnderstand = false, $actor = null)
+    public function setSoapHeaderDateTimePrecision(string $dateTimePrecision, string $namespace = 'http://schemas.microsoft.com/exchange/services/2006/types', bool $mustUnderstand = false, ?string $actor = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDateTimePrecisionType', is_array($dateTimePrecision) ? implode(', ', $dateTimePrecision) : var_export($dateTimePrecision, true), implode(', ', \Ews\EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDateTimePrecisionType::valueIsValid($dateTimePrecision)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDateTimePrecisionType', is_array($dateTimePrecision) ? implode(', ', $dateTimePrecision) : var_export($dateTimePrecision, true), implode(', ', \EnumType\EwsDateTimePrecisionType::getValidValues())), __LINE__);
         }
-        return $this->setSoapHeader($nameSpace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
+        return $this->setSoapHeader($namespace, 'DateTimePrecision', $dateTimePrecision, $mustUnderstand, $actor);
     }
     /**
      * Method to call the operation originally named FindFolder
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion, \StructType\EwsTimeZoneContextType, \StructType\EwsManagementRoleType
      * - SOAPHeaders: required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindFolderType $request
-     * @return \Ews\StructType\EwsFindFolderResponseType|bool
+     * @param \StructType\EwsFindFolderType $request
+     * @return \StructType\EwsFindFolderResponseType|bool
      */
-    public function FindFolder(\Ews\StructType\EwsFindFolderType $request)
+    public function FindFolder(\StructType\EwsFindFolderType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindFolder', array(
+            $this->setResult($resultFindFolder = $this->getSoapClient()->__soapCall('FindFolder', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindFolder;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -128,24 +132,25 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: ExchangeImpersonation, MailboxCulture, RequestServerVersion, TimeZoneContext, DateTimePrecision, ManagementRole
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsExchangeImpersonationType, \Ews\StructType\EwsMailboxCultureType, \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsTimeZoneContextType, \Ews\EnumType\EwsDateTimePrecisionType, \Ews\StructType\EwsManagementRoleType
+     * - SOAPHeaderTypes: \StructType\EwsExchangeImpersonationType, \StructType\EwsMailboxCultureType, \StructType\EwsRequestServerVersion, \StructType\EwsTimeZoneContextType, \EnumType\EwsDateTimePrecisionType, \StructType\EwsManagementRoleType
      * - SOAPHeaders: required, required, required, required, required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindItemType $request
-     * @return \Ews\StructType\EwsFindItemResponseType|bool
+     * @param \StructType\EwsFindItemType $request
+     * @return \StructType\EwsFindItemResponseType|bool
      */
-    public function FindItem(\Ews\StructType\EwsFindItemType $request)
+    public function FindItem(\StructType\EwsFindItemType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindItem', array(
+            $this->setResult($resultFindItem = $this->getSoapClient()->__soapCall('FindItem', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindItem;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -154,24 +159,25 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindMessageTrackingReportRequestType $request
-     * @return \Ews\StructType\EwsFindMessageTrackingReportResponseMessageType|bool
+     * @param \StructType\EwsFindMessageTrackingReportRequestType $request
+     * @return \StructType\EwsFindMessageTrackingReportResponseMessageType|bool
      */
-    public function FindMessageTrackingReport(\Ews\StructType\EwsFindMessageTrackingReportRequestType $request)
+    public function FindMessageTrackingReport(\StructType\EwsFindMessageTrackingReportRequestType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindMessageTrackingReport', array(
+            $this->setResult($resultFindMessageTrackingReport = $this->getSoapClient()->__soapCall('FindMessageTrackingReport', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindMessageTrackingReport;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -180,24 +186,25 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion, \StructType\EwsExchangeImpersonationType
      * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindConversationType $request
-     * @return \Ews\StructType\EwsFindConversationResponseMessageType|bool
+     * @param \StructType\EwsFindConversationType $request
+     * @return \StructType\EwsFindConversationResponseMessageType|bool
      */
-    public function FindConversation(\Ews\StructType\EwsFindConversationType $request)
+    public function FindConversation(\StructType\EwsFindConversationType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindConversation', array(
+            $this->setResult($resultFindConversation = $this->getSoapClient()->__soapCall('FindConversation', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindConversation;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -206,24 +213,25 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion, ExchangeImpersonation
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types, http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion, \Ews\StructType\EwsExchangeImpersonationType
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion, \StructType\EwsExchangeImpersonationType
      * - SOAPHeaders: required, required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindPeopleType $request
-     * @return \Ews\StructType\EwsFindPeopleResponseMessageType|bool
+     * @param \StructType\EwsFindPeopleType $request
+     * @return \StructType\EwsFindPeopleResponseMessageType|bool
      */
-    public function FindPeople(\Ews\StructType\EwsFindPeopleType $request)
+    public function FindPeople(\StructType\EwsFindPeopleType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindPeople', array(
+            $this->setResult($resultFindPeople = $this->getSoapClient()->__soapCall('FindPeople', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindPeople;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -232,24 +240,25 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindAvailableMeetingTimesType $request
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesResponseMessageType|bool
+     * @param \StructType\EwsFindAvailableMeetingTimesType $request
+     * @return \StructType\EwsFindAvailableMeetingTimesResponseMessageType|bool
      */
-    public function FindAvailableMeetingTimes(\Ews\StructType\EwsFindAvailableMeetingTimesType $request)
+    public function FindAvailableMeetingTimes(\StructType\EwsFindAvailableMeetingTimesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindAvailableMeetingTimes', array(
+            $this->setResult($resultFindAvailableMeetingTimes = $this->getSoapClient()->__soapCall('FindAvailableMeetingTimes', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindAvailableMeetingTimes;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
@@ -258,31 +267,32 @@ class EwsFind extends SoapClientBase
      * Meta information extracted from the WSDL
      * - SOAPHeaderNames: RequestServerVersion
      * - SOAPHeaderNamespaces: http://schemas.microsoft.com/exchange/services/2006/types
-     * - SOAPHeaderTypes: \Ews\StructType\EwsRequestServerVersion
+     * - SOAPHeaderTypes: \StructType\EwsRequestServerVersion
      * - SOAPHeaders: required
      * @uses SoapClientBase::getSoapClient()
      * @uses SoapClientBase::setResult()
-     * @uses SoapClientBase::getResult()
      * @uses SoapClientBase::saveLastError()
-     * @param \Ews\StructType\EwsFindMeetingTimeCandidatesType $request
-     * @return \Ews\StructType\EwsFindMeetingTimeCandidatesResponseMessageType|bool
+     * @param \StructType\EwsFindMeetingTimeCandidatesType $request
+     * @return \StructType\EwsFindMeetingTimeCandidatesResponseMessageType|bool
      */
-    public function FindMeetingTimeCandidates(\Ews\StructType\EwsFindMeetingTimeCandidatesType $request)
+    public function FindMeetingTimeCandidates(\StructType\EwsFindMeetingTimeCandidatesType $request)
     {
         try {
-            $this->setResult($this->getSoapClient()->__soapCall('FindMeetingTimeCandidates', array(
+            $this->setResult($resultFindMeetingTimeCandidates = $this->getSoapClient()->__soapCall('FindMeetingTimeCandidates', [
                 $request,
-            ), array(), array(), $this->outputHeaders));
-            return $this->getResult();
-        } catch (\SoapFault $soapFault) {
+            ], [], [], $this->outputHeaders));
+        
+            return $resultFindMeetingTimeCandidates;
+        } catch (SoapFault $soapFault) {
             $this->saveLastError(__METHOD__, $soapFault);
+        
             return false;
         }
     }
     /**
      * Returns the result
      * @see SoapClientBase::getResult()
-     * @return \Ews\StructType\EwsFindAvailableMeetingTimesResponseMessageType|\Ews\StructType\EwsFindConversationResponseMessageType|\Ews\StructType\EwsFindFolderResponseType|\Ews\StructType\EwsFindItemResponseType|\Ews\StructType\EwsFindMeetingTimeCandidatesResponseMessageType|\Ews\StructType\EwsFindMessageTrackingReportResponseMessageType|\Ews\StructType\EwsFindPeopleResponseMessageType
+     * @return \StructType\EwsFindAvailableMeetingTimesResponseMessageType|\StructType\EwsFindConversationResponseMessageType|\StructType\EwsFindFolderResponseType|\StructType\EwsFindItemResponseType|\StructType\EwsFindMeetingTimeCandidatesResponseMessageType|\StructType\EwsFindMessageTrackingReportResponseMessageType|\StructType\EwsFindPeopleResponseMessageType
      */
     public function getResult()
     {

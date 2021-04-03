@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchableMailboxesResponseMessageType StructType
@@ -16,24 +19,24 @@ class EwsGetSearchableMailboxesResponseMessageType extends EwsResponseMessageTyp
 {
     /**
      * The SearchableMailboxes
-     * @var \Ews\ArrayType\EwsArrayOfSearchableMailboxesType
+     * @var \ArrayType\EwsArrayOfSearchableMailboxesType|null
      */
-    public $SearchableMailboxes;
+    protected ?\ArrayType\EwsArrayOfSearchableMailboxesType $SearchableMailboxes = null;
     /**
      * The FailedMailboxes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType
+     * @var \ArrayType\EwsArrayOfFailedSearchMailboxesType|null
      */
-    public $FailedMailboxes;
+    protected ?\ArrayType\EwsArrayOfFailedSearchMailboxesType $FailedMailboxes = null;
     /**
      * Constructor method for GetSearchableMailboxesResponseMessageType
      * @uses EwsGetSearchableMailboxesResponseMessageType::setSearchableMailboxes()
      * @uses EwsGetSearchableMailboxesResponseMessageType::setFailedMailboxes()
-     * @param \Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
-     * @param \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
+     * @param \ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
+     * @param \ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null, \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
+    public function __construct(?\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null, ?\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
     {
         $this
             ->setSearchableMailboxes($searchableMailboxes)
@@ -41,38 +44,40 @@ class EwsGetSearchableMailboxesResponseMessageType extends EwsResponseMessageTyp
     }
     /**
      * Get SearchableMailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfSearchableMailboxesType|null
+     * @return \ArrayType\EwsArrayOfSearchableMailboxesType|null
      */
-    public function getSearchableMailboxes()
+    public function getSearchableMailboxes(): ?\ArrayType\EwsArrayOfSearchableMailboxesType
     {
         return $this->SearchableMailboxes;
     }
     /**
      * Set SearchableMailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
-     * @return \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
+     * @param \ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes
+     * @return \StructType\EwsGetSearchableMailboxesResponseMessageType
      */
-    public function setSearchableMailboxes(\Ews\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null)
+    public function setSearchableMailboxes(?\ArrayType\EwsArrayOfSearchableMailboxesType $searchableMailboxes = null): self
     {
         $this->SearchableMailboxes = $searchableMailboxes;
+        
         return $this;
     }
     /**
      * Get FailedMailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType|null
+     * @return \ArrayType\EwsArrayOfFailedSearchMailboxesType|null
      */
-    public function getFailedMailboxes()
+    public function getFailedMailboxes(): ?\ArrayType\EwsArrayOfFailedSearchMailboxesType
     {
         return $this->FailedMailboxes;
     }
     /**
      * Set FailedMailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
-     * @return \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
+     * @param \ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes
+     * @return \StructType\EwsGetSearchableMailboxesResponseMessageType
      */
-    public function setFailedMailboxes(\Ews\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null)
+    public function setFailedMailboxes(?\ArrayType\EwsArrayOfFailedSearchMailboxesType $failedMailboxes = null): self
     {
         $this->FailedMailboxes = $failedMailboxes;
+        
         return $this;
     }
 }

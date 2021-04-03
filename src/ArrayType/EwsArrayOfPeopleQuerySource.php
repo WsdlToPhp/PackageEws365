@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfPeopleQuerySource ArrayType
@@ -19,13 +22,13 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $Source;
+    protected array $Source = [];
     /**
      * Constructor method for ArrayOfPeopleQuerySource
      * @uses EwsArrayOfPeopleQuerySource::setSource()
      * @param string[] $source
      */
-    public function __construct(array $source = array())
+    public function __construct(array $source)
     {
         $this
             ->setSource($source);
@@ -34,7 +37,7 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * Get Source value
      * @return string[]
      */
-    public function getSource()
+    public function getSource(): array
     {
         return $this->Source;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateSourceForArrayConstraintsFromSetSource(array $values = array())
+    public static function validateSourceForArrayConstraintsFromSetSource(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,44 +61,31 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
             $message = sprintf('The Source property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Source value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $source
-     * @return \Ews\ArrayType\EwsArrayOfPeopleQuerySource
+     * @return \ArrayType\EwsArrayOfPeopleQuerySource
      */
-    public function setSource(array $source = array())
+    public function setSource(array $source): self
     {
         // validation for constraint: array
         if ('' !== ($sourceArrayErrorMessage = self::validateSourceForArrayConstraintsFromSetSource($source))) {
-            throw new \InvalidArgumentException($sourceArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($sourceArrayErrorMessage, __LINE__);
         }
         $this->Source = $source;
-        return $this;
-    }
-    /**
-     * Add item to Source value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfPeopleQuerySource
-     */
-    public function addToSource($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Source property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Source[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -131,9 +121,9 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfPeopleQuerySource extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Source
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Source';
     }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for CalendarItemUpdateOperationType EnumType
@@ -46,14 +48,14 @@ class EwsCalendarItemUpdateOperationType extends AbstractStructEnumBase
      * @uses self::VALUE_SEND_TO_CHANGED_AND_SAVE_COPY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SEND_TO_NONE,
             self::VALUE_SEND_ONLY_TO_ALL,
             self::VALUE_SEND_ONLY_TO_CHANGED,
             self::VALUE_SEND_TO_ALL_AND_SAVE_COPY,
             self::VALUE_SEND_TO_CHANGED_AND_SAVE_COPY,
-        );
+        ];
     }
 }

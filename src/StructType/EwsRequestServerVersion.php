@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RequestServerVersion StructType
@@ -21,13 +24,13 @@ class EwsRequestServerVersion extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Version;
+    protected string $Version;
     /**
      * Constructor method for RequestServerVersion
      * @uses EwsRequestServerVersion::setVersion()
      * @param string $version
      */
-    public function __construct($version = null)
+    public function __construct(string $version)
     {
         $this
             ->setVersion($version);
@@ -36,25 +39,26 @@ class EwsRequestServerVersion extends AbstractStructBase
      * Get Version value
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->Version;
     }
     /**
      * Set Version value
-     * @uses \Ews\EnumType\EwsExchangeVersionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsExchangeVersionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsExchangeVersionType::valueIsValid()
+     * @uses \EnumType\EwsExchangeVersionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $version
-     * @return \Ews\StructType\EwsRequestServerVersion
+     * @return \StructType\EwsRequestServerVersion
      */
-    public function setVersion($version = null)
+    public function setVersion(string $version): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsExchangeVersionType::valueIsValid($version)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExchangeVersionType', is_array($version) ? implode(', ', $version) : var_export($version, true), implode(', ', \Ews\EnumType\EwsExchangeVersionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsExchangeVersionType::valueIsValid($version)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsExchangeVersionType', is_array($version) ? implode(', ', $version) : var_export($version, true), implode(', ', \EnumType\EwsExchangeVersionType::getValidValues())), __LINE__);
         }
         $this->Version = $version;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RulePredicatesType StructType
@@ -19,273 +22,273 @@ class EwsRulePredicatesType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Categories;
+    protected ?\ArrayType\EwsArrayOfStringsType $Categories = null;
     /**
      * The ContainsBodyStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsBodyStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsBodyStrings = null;
     /**
      * The ContainsHeaderStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsHeaderStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsHeaderStrings = null;
     /**
      * The ContainsRecipientStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsRecipientStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsRecipientStrings = null;
     /**
      * The ContainsSenderStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsSenderStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsSenderStrings = null;
     /**
      * The ContainsSubjectOrBodyStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsSubjectOrBodyStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsSubjectOrBodyStrings = null;
     /**
      * The ContainsSubjectStrings
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ContainsSubjectStrings;
+    protected ?\ArrayType\EwsArrayOfStringsType $ContainsSubjectStrings = null;
     /**
      * The FlaggedForAction
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FlaggedForAction;
+    protected ?string $FlaggedForAction = null;
     /**
      * The FromAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $FromAddresses;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $FromAddresses = null;
     /**
      * The FromConnectedAccounts
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $FromConnectedAccounts;
+    protected ?\ArrayType\EwsArrayOfStringsType $FromConnectedAccounts = null;
     /**
      * The HasAttachments
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasAttachments;
+    protected ?bool $HasAttachments = null;
     /**
      * The Importance
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Importance;
+    protected ?string $Importance = null;
     /**
      * The IsApprovalRequest
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsApprovalRequest;
+    protected ?bool $IsApprovalRequest = null;
     /**
      * The IsAutomaticForward
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAutomaticForward;
+    protected ?bool $IsAutomaticForward = null;
     /**
      * The IsAutomaticReply
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAutomaticReply;
+    protected ?bool $IsAutomaticReply = null;
     /**
      * The IsEncrypted
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsEncrypted;
+    protected ?bool $IsEncrypted = null;
     /**
      * The IsMeetingRequest
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMeetingRequest;
+    protected ?bool $IsMeetingRequest = null;
     /**
      * The IsMeetingResponse
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMeetingResponse;
+    protected ?bool $IsMeetingResponse = null;
     /**
      * The IsNDR
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsNDR;
+    protected ?bool $IsNDR = null;
     /**
      * The IsPermissionControlled
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsPermissionControlled;
+    protected ?bool $IsPermissionControlled = null;
     /**
      * The IsReadReceipt
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsReadReceipt;
+    protected ?bool $IsReadReceipt = null;
     /**
      * The IsSigned
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsSigned;
+    protected ?bool $IsSigned = null;
     /**
      * The IsVoicemail
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsVoicemail;
+    protected ?bool $IsVoicemail = null;
     /**
      * The ItemClasses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $ItemClasses;
+    protected ?\ArrayType\EwsArrayOfStringsType $ItemClasses = null;
     /**
      * The MessageClassifications
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $MessageClassifications;
+    protected ?\ArrayType\EwsArrayOfStringsType $MessageClassifications = null;
     /**
      * The NotSentToMe
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $NotSentToMe;
+    protected ?bool $NotSentToMe = null;
     /**
      * The SentCcMe
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SentCcMe;
+    protected ?bool $SentCcMe = null;
     /**
      * The SentOnlyToMe
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SentOnlyToMe;
+    protected ?bool $SentOnlyToMe = null;
     /**
      * The SentToAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $SentToAddresses;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $SentToAddresses = null;
     /**
      * The SentToMe
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SentToMe;
+    protected ?bool $SentToMe = null;
     /**
      * The SentToOrCcMe
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SentToOrCcMe;
+    protected ?bool $SentToOrCcMe = null;
     /**
      * The Sensitivity
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Sensitivity;
+    protected ?string $Sensitivity = null;
     /**
      * The WithinDateRange
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRulePredicateDateRangeType
+     * @var \StructType\EwsRulePredicateDateRangeType|null
      */
-    public $WithinDateRange;
+    protected ?\StructType\EwsRulePredicateDateRangeType $WithinDateRange = null;
     /**
      * The WithinSizeRange
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRulePredicateSizeRangeType
+     * @var \StructType\EwsRulePredicateSizeRangeType|null
      */
-    public $WithinSizeRange;
+    protected ?\StructType\EwsRulePredicateSizeRangeType $WithinSizeRange = null;
     /**
      * Constructor method for RulePredicatesType
      * @uses EwsRulePredicatesType::setCategories()
@@ -322,16 +325,16 @@ class EwsRulePredicatesType extends AbstractStructBase
      * @uses EwsRulePredicatesType::setSensitivity()
      * @uses EwsRulePredicatesType::setWithinDateRange()
      * @uses EwsRulePredicatesType::setWithinSizeRange()
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsBodyStrings
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsHeaderStrings
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsRecipientStrings
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSenderStrings
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectStrings
+     * @param \ArrayType\EwsArrayOfStringsType $categories
+     * @param \ArrayType\EwsArrayOfStringsType $containsBodyStrings
+     * @param \ArrayType\EwsArrayOfStringsType $containsHeaderStrings
+     * @param \ArrayType\EwsArrayOfStringsType $containsRecipientStrings
+     * @param \ArrayType\EwsArrayOfStringsType $containsSenderStrings
+     * @param \ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings
+     * @param \ArrayType\EwsArrayOfStringsType $containsSubjectStrings
      * @param string $flaggedForAction
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $fromAddresses
+     * @param \ArrayType\EwsArrayOfStringsType $fromConnectedAccounts
      * @param bool $hasAttachments
      * @param string $importance
      * @param bool $isApprovalRequest
@@ -345,19 +348,19 @@ class EwsRulePredicatesType extends AbstractStructBase
      * @param bool $isReadReceipt
      * @param bool $isSigned
      * @param bool $isVoicemail
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $itemClasses
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $messageClassifications
+     * @param \ArrayType\EwsArrayOfStringsType $itemClasses
+     * @param \ArrayType\EwsArrayOfStringsType $messageClassifications
      * @param bool $notSentToMe
      * @param bool $sentCcMe
      * @param bool $sentOnlyToMe
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses
      * @param bool $sentToMe
      * @param bool $sentToOrCcMe
      * @param string $sensitivity
-     * @param \Ews\StructType\EwsRulePredicateDateRangeType $withinDateRange
-     * @param \Ews\StructType\EwsRulePredicateSizeRangeType $withinSizeRange
+     * @param \StructType\EwsRulePredicateDateRangeType $withinDateRange
+     * @param \StructType\EwsRulePredicateSizeRangeType $withinSizeRange
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfStringsType $categories = null, \Ews\ArrayType\EwsArrayOfStringsType $containsBodyStrings = null, \Ews\ArrayType\EwsArrayOfStringsType $containsHeaderStrings = null, \Ews\ArrayType\EwsArrayOfStringsType $containsRecipientStrings = null, \Ews\ArrayType\EwsArrayOfStringsType $containsSenderStrings = null, \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings = null, \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectStrings = null, $flaggedForAction = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses = null, \Ews\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts = null, $hasAttachments = null, $importance = null, $isApprovalRequest = null, $isAutomaticForward = null, $isAutomaticReply = null, $isEncrypted = null, $isMeetingRequest = null, $isMeetingResponse = null, $isNDR = null, $isPermissionControlled = null, $isReadReceipt = null, $isSigned = null, $isVoicemail = null, \Ews\ArrayType\EwsArrayOfStringsType $itemClasses = null, \Ews\ArrayType\EwsArrayOfStringsType $messageClassifications = null, $notSentToMe = null, $sentCcMe = null, $sentOnlyToMe = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses = null, $sentToMe = null, $sentToOrCcMe = null, $sensitivity = null, \Ews\StructType\EwsRulePredicateDateRangeType $withinDateRange = null, \Ews\StructType\EwsRulePredicateSizeRangeType $withinSizeRange = null)
+    public function __construct(?\ArrayType\EwsArrayOfStringsType $categories = null, ?\ArrayType\EwsArrayOfStringsType $containsBodyStrings = null, ?\ArrayType\EwsArrayOfStringsType $containsHeaderStrings = null, ?\ArrayType\EwsArrayOfStringsType $containsRecipientStrings = null, ?\ArrayType\EwsArrayOfStringsType $containsSenderStrings = null, ?\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings = null, ?\ArrayType\EwsArrayOfStringsType $containsSubjectStrings = null, ?string $flaggedForAction = null, ?\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses = null, ?\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts = null, ?bool $hasAttachments = null, ?string $importance = null, ?bool $isApprovalRequest = null, ?bool $isAutomaticForward = null, ?bool $isAutomaticReply = null, ?bool $isEncrypted = null, ?bool $isMeetingRequest = null, ?bool $isMeetingResponse = null, ?bool $isNDR = null, ?bool $isPermissionControlled = null, ?bool $isReadReceipt = null, ?bool $isSigned = null, ?bool $isVoicemail = null, ?\ArrayType\EwsArrayOfStringsType $itemClasses = null, ?\ArrayType\EwsArrayOfStringsType $messageClassifications = null, ?bool $notSentToMe = null, ?bool $sentCcMe = null, ?bool $sentOnlyToMe = null, ?\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses = null, ?bool $sentToMe = null, ?bool $sentToOrCcMe = null, ?string $sensitivity = null, ?\StructType\EwsRulePredicateDateRangeType $withinDateRange = null, ?\StructType\EwsRulePredicateSizeRangeType $withinSizeRange = null)
     {
         $this
             ->setCategories($categories)
@@ -397,703 +400,737 @@ class EwsRulePredicatesType extends AbstractStructBase
     }
     /**
      * Get Categories value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getCategories()
+    public function getCategories(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Categories;
     }
     /**
      * Set Categories value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $categories
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setCategories(\Ews\ArrayType\EwsArrayOfStringsType $categories = null)
+    public function setCategories(?\ArrayType\EwsArrayOfStringsType $categories = null): self
     {
         $this->Categories = $categories;
+        
         return $this;
     }
     /**
      * Get ContainsBodyStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsBodyStrings()
+    public function getContainsBodyStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsBodyStrings;
     }
     /**
      * Set ContainsBodyStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsBodyStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsBodyStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsBodyStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsBodyStrings = null)
+    public function setContainsBodyStrings(?\ArrayType\EwsArrayOfStringsType $containsBodyStrings = null): self
     {
         $this->ContainsBodyStrings = $containsBodyStrings;
+        
         return $this;
     }
     /**
      * Get ContainsHeaderStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsHeaderStrings()
+    public function getContainsHeaderStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsHeaderStrings;
     }
     /**
      * Set ContainsHeaderStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsHeaderStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsHeaderStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsHeaderStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsHeaderStrings = null)
+    public function setContainsHeaderStrings(?\ArrayType\EwsArrayOfStringsType $containsHeaderStrings = null): self
     {
         $this->ContainsHeaderStrings = $containsHeaderStrings;
+        
         return $this;
     }
     /**
      * Get ContainsRecipientStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsRecipientStrings()
+    public function getContainsRecipientStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsRecipientStrings;
     }
     /**
      * Set ContainsRecipientStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsRecipientStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsRecipientStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsRecipientStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsRecipientStrings = null)
+    public function setContainsRecipientStrings(?\ArrayType\EwsArrayOfStringsType $containsRecipientStrings = null): self
     {
         $this->ContainsRecipientStrings = $containsRecipientStrings;
+        
         return $this;
     }
     /**
      * Get ContainsSenderStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsSenderStrings()
+    public function getContainsSenderStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsSenderStrings;
     }
     /**
      * Set ContainsSenderStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSenderStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsSenderStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsSenderStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsSenderStrings = null)
+    public function setContainsSenderStrings(?\ArrayType\EwsArrayOfStringsType $containsSenderStrings = null): self
     {
         $this->ContainsSenderStrings = $containsSenderStrings;
+        
         return $this;
     }
     /**
      * Get ContainsSubjectOrBodyStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsSubjectOrBodyStrings()
+    public function getContainsSubjectOrBodyStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsSubjectOrBodyStrings;
     }
     /**
      * Set ContainsSubjectOrBodyStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsSubjectOrBodyStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings = null)
+    public function setContainsSubjectOrBodyStrings(?\ArrayType\EwsArrayOfStringsType $containsSubjectOrBodyStrings = null): self
     {
         $this->ContainsSubjectOrBodyStrings = $containsSubjectOrBodyStrings;
+        
         return $this;
     }
     /**
      * Get ContainsSubjectStrings value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getContainsSubjectStrings()
+    public function getContainsSubjectStrings(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ContainsSubjectStrings;
     }
     /**
      * Set ContainsSubjectStrings value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $containsSubjectStrings
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $containsSubjectStrings
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setContainsSubjectStrings(\Ews\ArrayType\EwsArrayOfStringsType $containsSubjectStrings = null)
+    public function setContainsSubjectStrings(?\ArrayType\EwsArrayOfStringsType $containsSubjectStrings = null): self
     {
         $this->ContainsSubjectStrings = $containsSubjectStrings;
+        
         return $this;
     }
     /**
      * Get FlaggedForAction value
      * @return string|null
      */
-    public function getFlaggedForAction()
+    public function getFlaggedForAction(): ?string
     {
         return $this->FlaggedForAction;
     }
     /**
      * Set FlaggedForAction value
-     * @uses \Ews\EnumType\EwsFlaggedForActionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsFlaggedForActionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsFlaggedForActionType::valueIsValid()
+     * @uses \EnumType\EwsFlaggedForActionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $flaggedForAction
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setFlaggedForAction($flaggedForAction = null)
+    public function setFlaggedForAction(?string $flaggedForAction = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsFlaggedForActionType::valueIsValid($flaggedForAction)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlaggedForActionType', is_array($flaggedForAction) ? implode(', ', $flaggedForAction) : var_export($flaggedForAction, true), implode(', ', \Ews\EnumType\EwsFlaggedForActionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsFlaggedForActionType::valueIsValid($flaggedForAction)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsFlaggedForActionType', is_array($flaggedForAction) ? implode(', ', $flaggedForAction) : var_export($flaggedForAction, true), implode(', ', \EnumType\EwsFlaggedForActionType::getValidValues())), __LINE__);
         }
         $this->FlaggedForAction = $flaggedForAction;
+        
         return $this;
     }
     /**
      * Get FromAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getFromAddresses()
+    public function getFromAddresses(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->FromAddresses;
     }
     /**
      * Set FromAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $fromAddresses
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setFromAddresses(\Ews\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses = null)
+    public function setFromAddresses(?\ArrayType\EwsArrayOfEmailAddressesType $fromAddresses = null): self
     {
         $this->FromAddresses = $fromAddresses;
+        
         return $this;
     }
     /**
      * Get FromConnectedAccounts value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getFromConnectedAccounts()
+    public function getFromConnectedAccounts(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->FromConnectedAccounts;
     }
     /**
      * Set FromConnectedAccounts value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $fromConnectedAccounts
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setFromConnectedAccounts(\Ews\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts = null)
+    public function setFromConnectedAccounts(?\ArrayType\EwsArrayOfStringsType $fromConnectedAccounts = null): self
     {
         $this->FromConnectedAccounts = $fromConnectedAccounts;
+        
         return $this;
     }
     /**
      * Get HasAttachments value
      * @return bool|null
      */
-    public function getHasAttachments()
+    public function getHasAttachments(): ?bool
     {
         return $this->HasAttachments;
     }
     /**
      * Set HasAttachments value
      * @param bool $hasAttachments
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setHasAttachments($hasAttachments = null)
+    public function setHasAttachments(?bool $hasAttachments = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
+        
         return $this;
     }
     /**
      * Get Importance value
      * @return string|null
      */
-    public function getImportance()
+    public function getImportance(): ?string
     {
         return $this->Importance;
     }
     /**
      * Set Importance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $importance
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setImportance($importance = null)
+    public function setImportance(?string $importance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
+        
         return $this;
     }
     /**
      * Get IsApprovalRequest value
      * @return bool|null
      */
-    public function getIsApprovalRequest()
+    public function getIsApprovalRequest(): ?bool
     {
         return $this->IsApprovalRequest;
     }
     /**
      * Set IsApprovalRequest value
      * @param bool $isApprovalRequest
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsApprovalRequest($isApprovalRequest = null)
+    public function setIsApprovalRequest(?bool $isApprovalRequest = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isApprovalRequest) && !is_bool($isApprovalRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isApprovalRequest, true), gettype($isApprovalRequest)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isApprovalRequest, true), gettype($isApprovalRequest)), __LINE__);
         }
         $this->IsApprovalRequest = $isApprovalRequest;
+        
         return $this;
     }
     /**
      * Get IsAutomaticForward value
      * @return bool|null
      */
-    public function getIsAutomaticForward()
+    public function getIsAutomaticForward(): ?bool
     {
         return $this->IsAutomaticForward;
     }
     /**
      * Set IsAutomaticForward value
      * @param bool $isAutomaticForward
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsAutomaticForward($isAutomaticForward = null)
+    public function setIsAutomaticForward(?bool $isAutomaticForward = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAutomaticForward) && !is_bool($isAutomaticForward)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticForward, true), gettype($isAutomaticForward)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticForward, true), gettype($isAutomaticForward)), __LINE__);
         }
         $this->IsAutomaticForward = $isAutomaticForward;
+        
         return $this;
     }
     /**
      * Get IsAutomaticReply value
      * @return bool|null
      */
-    public function getIsAutomaticReply()
+    public function getIsAutomaticReply(): ?bool
     {
         return $this->IsAutomaticReply;
     }
     /**
      * Set IsAutomaticReply value
      * @param bool $isAutomaticReply
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsAutomaticReply($isAutomaticReply = null)
+    public function setIsAutomaticReply(?bool $isAutomaticReply = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAutomaticReply) && !is_bool($isAutomaticReply)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticReply, true), gettype($isAutomaticReply)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAutomaticReply, true), gettype($isAutomaticReply)), __LINE__);
         }
         $this->IsAutomaticReply = $isAutomaticReply;
+        
         return $this;
     }
     /**
      * Get IsEncrypted value
      * @return bool|null
      */
-    public function getIsEncrypted()
+    public function getIsEncrypted(): ?bool
     {
         return $this->IsEncrypted;
     }
     /**
      * Set IsEncrypted value
      * @param bool $isEncrypted
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsEncrypted($isEncrypted = null)
+    public function setIsEncrypted(?bool $isEncrypted = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isEncrypted) && !is_bool($isEncrypted)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEncrypted, true), gettype($isEncrypted)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isEncrypted, true), gettype($isEncrypted)), __LINE__);
         }
         $this->IsEncrypted = $isEncrypted;
+        
         return $this;
     }
     /**
      * Get IsMeetingRequest value
      * @return bool|null
      */
-    public function getIsMeetingRequest()
+    public function getIsMeetingRequest(): ?bool
     {
         return $this->IsMeetingRequest;
     }
     /**
      * Set IsMeetingRequest value
      * @param bool $isMeetingRequest
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsMeetingRequest($isMeetingRequest = null)
+    public function setIsMeetingRequest(?bool $isMeetingRequest = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMeetingRequest) && !is_bool($isMeetingRequest)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingRequest, true), gettype($isMeetingRequest)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingRequest, true), gettype($isMeetingRequest)), __LINE__);
         }
         $this->IsMeetingRequest = $isMeetingRequest;
+        
         return $this;
     }
     /**
      * Get IsMeetingResponse value
      * @return bool|null
      */
-    public function getIsMeetingResponse()
+    public function getIsMeetingResponse(): ?bool
     {
         return $this->IsMeetingResponse;
     }
     /**
      * Set IsMeetingResponse value
      * @param bool $isMeetingResponse
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsMeetingResponse($isMeetingResponse = null)
+    public function setIsMeetingResponse(?bool $isMeetingResponse = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMeetingResponse) && !is_bool($isMeetingResponse)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingResponse, true), gettype($isMeetingResponse)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeetingResponse, true), gettype($isMeetingResponse)), __LINE__);
         }
         $this->IsMeetingResponse = $isMeetingResponse;
+        
         return $this;
     }
     /**
      * Get IsNDR value
      * @return bool|null
      */
-    public function getIsNDR()
+    public function getIsNDR(): ?bool
     {
         return $this->IsNDR;
     }
     /**
      * Set IsNDR value
      * @param bool $isNDR
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsNDR($isNDR = null)
+    public function setIsNDR(?bool $isNDR = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isNDR) && !is_bool($isNDR)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNDR, true), gettype($isNDR)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isNDR, true), gettype($isNDR)), __LINE__);
         }
         $this->IsNDR = $isNDR;
+        
         return $this;
     }
     /**
      * Get IsPermissionControlled value
      * @return bool|null
      */
-    public function getIsPermissionControlled()
+    public function getIsPermissionControlled(): ?bool
     {
         return $this->IsPermissionControlled;
     }
     /**
      * Set IsPermissionControlled value
      * @param bool $isPermissionControlled
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsPermissionControlled($isPermissionControlled = null)
+    public function setIsPermissionControlled(?bool $isPermissionControlled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isPermissionControlled) && !is_bool($isPermissionControlled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermissionControlled, true), gettype($isPermissionControlled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isPermissionControlled, true), gettype($isPermissionControlled)), __LINE__);
         }
         $this->IsPermissionControlled = $isPermissionControlled;
+        
         return $this;
     }
     /**
      * Get IsReadReceipt value
      * @return bool|null
      */
-    public function getIsReadReceipt()
+    public function getIsReadReceipt(): ?bool
     {
         return $this->IsReadReceipt;
     }
     /**
      * Set IsReadReceipt value
      * @param bool $isReadReceipt
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsReadReceipt($isReadReceipt = null)
+    public function setIsReadReceipt(?bool $isReadReceipt = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isReadReceipt) && !is_bool($isReadReceipt)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReadReceipt, true), gettype($isReadReceipt)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isReadReceipt, true), gettype($isReadReceipt)), __LINE__);
         }
         $this->IsReadReceipt = $isReadReceipt;
+        
         return $this;
     }
     /**
      * Get IsSigned value
      * @return bool|null
      */
-    public function getIsSigned()
+    public function getIsSigned(): ?bool
     {
         return $this->IsSigned;
     }
     /**
      * Set IsSigned value
      * @param bool $isSigned
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsSigned($isSigned = null)
+    public function setIsSigned(?bool $isSigned = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isSigned) && !is_bool($isSigned)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSigned, true), gettype($isSigned)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSigned, true), gettype($isSigned)), __LINE__);
         }
         $this->IsSigned = $isSigned;
+        
         return $this;
     }
     /**
      * Get IsVoicemail value
      * @return bool|null
      */
-    public function getIsVoicemail()
+    public function getIsVoicemail(): ?bool
     {
         return $this->IsVoicemail;
     }
     /**
      * Set IsVoicemail value
      * @param bool $isVoicemail
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setIsVoicemail($isVoicemail = null)
+    public function setIsVoicemail(?bool $isVoicemail = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isVoicemail) && !is_bool($isVoicemail)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVoicemail, true), gettype($isVoicemail)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isVoicemail, true), gettype($isVoicemail)), __LINE__);
         }
         $this->IsVoicemail = $isVoicemail;
+        
         return $this;
     }
     /**
      * Get ItemClasses value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getItemClasses()
+    public function getItemClasses(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->ItemClasses;
     }
     /**
      * Set ItemClasses value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $itemClasses
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $itemClasses
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setItemClasses(\Ews\ArrayType\EwsArrayOfStringsType $itemClasses = null)
+    public function setItemClasses(?\ArrayType\EwsArrayOfStringsType $itemClasses = null): self
     {
         $this->ItemClasses = $itemClasses;
+        
         return $this;
     }
     /**
      * Get MessageClassifications value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getMessageClassifications()
+    public function getMessageClassifications(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->MessageClassifications;
     }
     /**
      * Set MessageClassifications value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $messageClassifications
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfStringsType $messageClassifications
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setMessageClassifications(\Ews\ArrayType\EwsArrayOfStringsType $messageClassifications = null)
+    public function setMessageClassifications(?\ArrayType\EwsArrayOfStringsType $messageClassifications = null): self
     {
         $this->MessageClassifications = $messageClassifications;
+        
         return $this;
     }
     /**
      * Get NotSentToMe value
      * @return bool|null
      */
-    public function getNotSentToMe()
+    public function getNotSentToMe(): ?bool
     {
         return $this->NotSentToMe;
     }
     /**
      * Set NotSentToMe value
      * @param bool $notSentToMe
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setNotSentToMe($notSentToMe = null)
+    public function setNotSentToMe(?bool $notSentToMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($notSentToMe) && !is_bool($notSentToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($notSentToMe, true), gettype($notSentToMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($notSentToMe, true), gettype($notSentToMe)), __LINE__);
         }
         $this->NotSentToMe = $notSentToMe;
+        
         return $this;
     }
     /**
      * Get SentCcMe value
      * @return bool|null
      */
-    public function getSentCcMe()
+    public function getSentCcMe(): ?bool
     {
         return $this->SentCcMe;
     }
     /**
      * Set SentCcMe value
      * @param bool $sentCcMe
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSentCcMe($sentCcMe = null)
+    public function setSentCcMe(?bool $sentCcMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($sentCcMe) && !is_bool($sentCcMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentCcMe, true), gettype($sentCcMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentCcMe, true), gettype($sentCcMe)), __LINE__);
         }
         $this->SentCcMe = $sentCcMe;
+        
         return $this;
     }
     /**
      * Get SentOnlyToMe value
      * @return bool|null
      */
-    public function getSentOnlyToMe()
+    public function getSentOnlyToMe(): ?bool
     {
         return $this->SentOnlyToMe;
     }
     /**
      * Set SentOnlyToMe value
      * @param bool $sentOnlyToMe
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSentOnlyToMe($sentOnlyToMe = null)
+    public function setSentOnlyToMe(?bool $sentOnlyToMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($sentOnlyToMe) && !is_bool($sentOnlyToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentOnlyToMe, true), gettype($sentOnlyToMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentOnlyToMe, true), gettype($sentOnlyToMe)), __LINE__);
         }
         $this->SentOnlyToMe = $sentOnlyToMe;
+        
         return $this;
     }
     /**
      * Get SentToAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getSentToAddresses()
+    public function getSentToAddresses(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->SentToAddresses;
     }
     /**
      * Set SentToAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSentToAddresses(\Ews\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses = null)
+    public function setSentToAddresses(?\ArrayType\EwsArrayOfEmailAddressesType $sentToAddresses = null): self
     {
         $this->SentToAddresses = $sentToAddresses;
+        
         return $this;
     }
     /**
      * Get SentToMe value
      * @return bool|null
      */
-    public function getSentToMe()
+    public function getSentToMe(): ?bool
     {
         return $this->SentToMe;
     }
     /**
      * Set SentToMe value
      * @param bool $sentToMe
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSentToMe($sentToMe = null)
+    public function setSentToMe(?bool $sentToMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($sentToMe) && !is_bool($sentToMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToMe, true), gettype($sentToMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToMe, true), gettype($sentToMe)), __LINE__);
         }
         $this->SentToMe = $sentToMe;
+        
         return $this;
     }
     /**
      * Get SentToOrCcMe value
      * @return bool|null
      */
-    public function getSentToOrCcMe()
+    public function getSentToOrCcMe(): ?bool
     {
         return $this->SentToOrCcMe;
     }
     /**
      * Set SentToOrCcMe value
      * @param bool $sentToOrCcMe
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSentToOrCcMe($sentToOrCcMe = null)
+    public function setSentToOrCcMe(?bool $sentToOrCcMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($sentToOrCcMe) && !is_bool($sentToOrCcMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToOrCcMe, true), gettype($sentToOrCcMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($sentToOrCcMe, true), gettype($sentToOrCcMe)), __LINE__);
         }
         $this->SentToOrCcMe = $sentToOrCcMe;
+        
         return $this;
     }
     /**
      * Get Sensitivity value
      * @return string|null
      */
-    public function getSensitivity()
+    public function getSensitivity(): ?string
     {
         return $this->Sensitivity;
     }
     /**
      * Set Sensitivity value
-     * @uses \Ews\EnumType\EwsSensitivityChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSensitivityChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSensitivityChoicesType::valueIsValid()
+     * @uses \EnumType\EwsSensitivityChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sensitivity
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setSensitivity($sensitivity = null)
+    public function setSensitivity(?string $sensitivity = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \Ews\EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSensitivityChoicesType::valueIsValid($sensitivity)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
         $this->Sensitivity = $sensitivity;
+        
         return $this;
     }
     /**
      * Get WithinDateRange value
-     * @return \Ews\StructType\EwsRulePredicateDateRangeType|null
+     * @return \StructType\EwsRulePredicateDateRangeType|null
      */
-    public function getWithinDateRange()
+    public function getWithinDateRange(): ?\StructType\EwsRulePredicateDateRangeType
     {
         return $this->WithinDateRange;
     }
     /**
      * Set WithinDateRange value
-     * @param \Ews\StructType\EwsRulePredicateDateRangeType $withinDateRange
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \StructType\EwsRulePredicateDateRangeType $withinDateRange
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setWithinDateRange(\Ews\StructType\EwsRulePredicateDateRangeType $withinDateRange = null)
+    public function setWithinDateRange(?\StructType\EwsRulePredicateDateRangeType $withinDateRange = null): self
     {
         $this->WithinDateRange = $withinDateRange;
+        
         return $this;
     }
     /**
      * Get WithinSizeRange value
-     * @return \Ews\StructType\EwsRulePredicateSizeRangeType|null
+     * @return \StructType\EwsRulePredicateSizeRangeType|null
      */
-    public function getWithinSizeRange()
+    public function getWithinSizeRange(): ?\StructType\EwsRulePredicateSizeRangeType
     {
         return $this->WithinSizeRange;
     }
     /**
      * Set WithinSizeRange value
-     * @param \Ews\StructType\EwsRulePredicateSizeRangeType $withinSizeRange
-     * @return \Ews\StructType\EwsRulePredicatesType
+     * @param \StructType\EwsRulePredicateSizeRangeType $withinSizeRange
+     * @return \StructType\EwsRulePredicatesType
      */
-    public function setWithinSizeRange(\Ews\StructType\EwsRulePredicateSizeRangeType $withinSizeRange = null)
+    public function setWithinSizeRange(?\StructType\EwsRulePredicateSizeRangeType $withinSizeRange = null): self
     {
         $this->WithinSizeRange = $withinSizeRange;
+        
         return $this;
     }
 }

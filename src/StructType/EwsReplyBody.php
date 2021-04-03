@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ReplyBody StructType
@@ -17,17 +20,17 @@ class EwsReplyBody extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Message;
+    protected ?string $Message = null;
     /**
      * The lang
      * Meta information extracted from the WSDL
      * - ref: xml:lang
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $lang;
+    protected ?string $lang = null;
     /**
      * Constructor method for ReplyBody
      * @uses EwsReplyBody::setMessage()
@@ -35,7 +38,7 @@ class EwsReplyBody extends AbstractStructBase
      * @param string $message
      * @param string $lang
      */
-    public function __construct($message = null, $lang = null)
+    public function __construct(?string $message = null, ?string $lang = null)
     {
         $this
             ->setMessage($message)
@@ -45,44 +48,46 @@ class EwsReplyBody extends AbstractStructBase
      * Get Message value
      * @return string|null
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->Message;
     }
     /**
      * Set Message value
      * @param string $message
-     * @return \Ews\StructType\EwsReplyBody
+     * @return \StructType\EwsReplyBody
      */
-    public function setMessage($message = null)
+    public function setMessage(?string $message = null): self
     {
         // validation for constraint: string
         if (!is_null($message) && !is_string($message)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($message, true), gettype($message)), __LINE__);
         }
         $this->Message = $message;
+        
         return $this;
     }
     /**
      * Get lang value
      * @return string|null
      */
-    public function getLang()
+    public function getLang(): ?string
     {
         return $this->lang;
     }
     /**
      * Set lang value
      * @param string $lang
-     * @return \Ews\StructType\EwsReplyBody
+     * @return \StructType\EwsReplyBody
      */
-    public function setLang($lang = null)
+    public function setLang(?string $lang = null): self
     {
         // validation for constraint: string
         if (!is_null($lang) && !is_string($lang)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lang, true), gettype($lang)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lang, true), gettype($lang)), __LINE__);
         }
         $this->lang = $lang;
+        
         return $this;
     }
 }

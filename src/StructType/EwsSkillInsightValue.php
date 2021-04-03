@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SkillInsightValue StructType
@@ -17,17 +20,17 @@ class EwsSkillInsightValue extends EwsInsightValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * The Strength
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Strength;
+    protected ?int $Strength = null;
     /**
      * Constructor method for SkillInsightValue
      * @uses EwsSkillInsightValue::setName()
@@ -35,7 +38,7 @@ class EwsSkillInsightValue extends EwsInsightValue
      * @param string $name
      * @param int $strength
      */
-    public function __construct($name = null, $strength = null)
+    public function __construct(?string $name = null, ?int $strength = null)
     {
         $this
             ->setName($name)
@@ -45,44 +48,46 @@ class EwsSkillInsightValue extends EwsInsightValue
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsSkillInsightValue
+     * @return \StructType\EwsSkillInsightValue
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Strength value
      * @return int|null
      */
-    public function getStrength()
+    public function getStrength(): ?int
     {
         return $this->Strength;
     }
     /**
      * Set Strength value
      * @param int $strength
-     * @return \Ews\StructType\EwsSkillInsightValue
+     * @return \StructType\EwsSkillInsightValue
      */
-    public function setStrength($strength = null)
+    public function setStrength(?int $strength = null): self
     {
         // validation for constraint: int
         if (!is_null($strength) && !(is_int($strength) || ctype_digit($strength))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($strength, true), gettype($strength)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($strength, true), gettype($strength)), __LINE__);
         }
         $this->Strength = $strength;
+        
         return $this;
     }
 }

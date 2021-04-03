@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResolutionType StructType
@@ -14,24 +17,24 @@ class EwsResolutionType extends AbstractStructBase
 {
     /**
      * The Mailbox
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * The Contact
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsContactItemType
+     * @var \StructType\EwsContactItemType|null
      */
-    public $Contact;
+    protected ?\StructType\EwsContactItemType $Contact = null;
     /**
      * Constructor method for ResolutionType
      * @uses EwsResolutionType::setMailbox()
      * @uses EwsResolutionType::setContact()
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @param \Ews\StructType\EwsContactItemType $contact
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @param \StructType\EwsContactItemType $contact
      */
-    public function __construct(\Ews\StructType\EwsEmailAddressType $mailbox = null, \Ews\StructType\EwsContactItemType $contact = null)
+    public function __construct(?\StructType\EwsEmailAddressType $mailbox = null, ?\StructType\EwsContactItemType $contact = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -39,38 +42,40 @@ class EwsResolutionType extends AbstractStructBase
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\StructType\EwsResolutionType
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \StructType\EwsResolutionType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get Contact value
-     * @return \Ews\StructType\EwsContactItemType|null
+     * @return \StructType\EwsContactItemType|null
      */
-    public function getContact()
+    public function getContact(): ?\StructType\EwsContactItemType
     {
         return $this->Contact;
     }
     /**
      * Set Contact value
-     * @param \Ews\StructType\EwsContactItemType $contact
-     * @return \Ews\StructType\EwsResolutionType
+     * @param \StructType\EwsContactItemType $contact
+     * @return \StructType\EwsResolutionType
      */
-    public function setContact(\Ews\StructType\EwsContactItemType $contact = null)
+    public function setContact(?\StructType\EwsContactItemType $contact = null): self
     {
         $this->Contact = $contact;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfPhoneNumberAttributedValuesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPhoneNumberAttributedValueType[]
+     * @var \StructType\EwsPhoneNumberAttributedValueType[]
      */
-    public $PhoneNumberAttributedValue;
+    protected array $PhoneNumberAttributedValue = [];
     /**
      * Constructor method for ArrayOfPhoneNumberAttributedValuesType
      * @uses EwsArrayOfPhoneNumberAttributedValuesType::setPhoneNumberAttributedValue()
-     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
+     * @param \StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
      */
-    public function __construct(array $phoneNumberAttributedValue = array())
+    public function __construct(array $phoneNumberAttributedValue = [])
     {
         $this
             ->setPhoneNumberAttributedValue($phoneNumberAttributedValue);
     }
     /**
      * Get PhoneNumberAttributedValue value
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType[]|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType[]
      */
-    public function getPhoneNumberAttributedValue()
+    public function getPhoneNumberAttributedValue(): array
     {
         return $this->PhoneNumberAttributedValue;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePhoneNumberAttributedValueForArrayConstraintsFromSetPhoneNumberAttributedValue(array $values = array())
+    public static function validatePhoneNumberAttributedValueForArrayConstraintsFromSetPhoneNumberAttributedValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem) {
             // validation for constraint: itemType
-            if (!$arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem instanceof \Ews\StructType\EwsPhoneNumberAttributedValueType) {
+            if (!$arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem instanceof \StructType\EwsPhoneNumberAttributedValueType) {
                 $invalidValues[] = is_object($arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem) ? get_class($arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem) : sprintf('%s(%s)', gettype($arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem), var_export($arrayOfPhoneNumberAttributedValuesTypePhoneNumberAttributedValueItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The PhoneNumberAttributedValue property can only contain items of type \Ews\StructType\EwsPhoneNumberAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The PhoneNumberAttributedValue property can only contain items of type \StructType\EwsPhoneNumberAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set PhoneNumberAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPhoneNumberAttributedValueType[] $phoneNumberAttributedValue
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
      */
-    public function setPhoneNumberAttributedValue(array $phoneNumberAttributedValue = array())
+    public function setPhoneNumberAttributedValue(array $phoneNumberAttributedValue = []): self
     {
         // validation for constraint: array
         if ('' !== ($phoneNumberAttributedValueArrayErrorMessage = self::validatePhoneNumberAttributedValueForArrayConstraintsFromSetPhoneNumberAttributedValue($phoneNumberAttributedValue))) {
-            throw new \InvalidArgumentException($phoneNumberAttributedValueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($phoneNumberAttributedValueArrayErrorMessage, __LINE__);
         }
         $this->PhoneNumberAttributedValue = $phoneNumberAttributedValue;
-        return $this;
-    }
-    /**
-     * Add item to PhoneNumberAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPhoneNumberAttributedValueType $item
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
-     */
-    public function addToPhoneNumberAttributedValue(\Ews\StructType\EwsPhoneNumberAttributedValueType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPhoneNumberAttributedValueType) {
-            throw new \InvalidArgumentException(sprintf('The PhoneNumberAttributedValue property can only contain items of type \Ews\StructType\EwsPhoneNumberAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->PhoneNumberAttributedValue[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPhoneNumberAttributedValueType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPhoneNumberAttributedValueType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPhoneNumberAttributedValueType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPhoneNumberAttributedValueType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfPhoneNumberAttributedValuesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType|null
+     * @return \StructType\EwsPhoneNumberAttributedValueType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPhoneNumberAttributedValueType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPhoneNumberAttributedValueType $item
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     */
+    public function add(\StructType\EwsPhoneNumberAttributedValueType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string PhoneNumberAttributedValue
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'PhoneNumberAttributedValue';
     }

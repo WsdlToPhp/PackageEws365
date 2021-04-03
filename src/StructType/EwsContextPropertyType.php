@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ContextPropertyType StructType
@@ -19,7 +22,7 @@ class EwsContextPropertyType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Key;
+    protected string $Key;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -27,7 +30,7 @@ class EwsContextPropertyType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * Constructor method for ContextPropertyType
      * @uses EwsContextPropertyType::setKey()
@@ -35,7 +38,7 @@ class EwsContextPropertyType extends AbstractStructBase
      * @param string $key
      * @param string $value
      */
-    public function __construct($key = null, $value = null)
+    public function __construct(string $key, string $value)
     {
         $this
             ->setKey($key)
@@ -45,44 +48,46 @@ class EwsContextPropertyType extends AbstractStructBase
      * Get Key value
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->Key;
     }
     /**
      * Set Key value
      * @param string $key
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType
      */
-    public function setKey($key = null)
+    public function setKey(string $key): self
     {
         // validation for constraint: string
         if (!is_null($key) && !is_string($key)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($key, true), gettype($key)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($key, true), gettype($key)), __LINE__);
         }
         $this->Key = $key;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsContextPropertyType
+     * @return \StructType\EwsContextPropertyType
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
 }

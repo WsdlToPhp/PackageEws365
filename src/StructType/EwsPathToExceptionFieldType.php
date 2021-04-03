@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PathToExceptionFieldType StructType
@@ -18,13 +21,13 @@ class EwsPathToExceptionFieldType extends EwsBasePathToElementType
      * - use: required
      * @var string
      */
-    public $FieldURI;
+    protected string $FieldURI;
     /**
      * Constructor method for PathToExceptionFieldType
      * @uses EwsPathToExceptionFieldType::setFieldURI()
      * @param string $fieldURI
      */
-    public function __construct($fieldURI = null)
+    public function __construct(string $fieldURI)
     {
         $this
             ->setFieldURI($fieldURI);
@@ -33,25 +36,26 @@ class EwsPathToExceptionFieldType extends EwsBasePathToElementType
      * Get FieldURI value
      * @return string
      */
-    public function getFieldURI()
+    public function getFieldURI(): string
     {
         return $this->FieldURI;
     }
     /**
      * Set FieldURI value
-     * @uses \Ews\EnumType\EwsExceptionPropertyURIType::valueIsValid()
-     * @uses \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsExceptionPropertyURIType::valueIsValid()
+     * @uses \EnumType\EwsExceptionPropertyURIType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $fieldURI
-     * @return \Ews\StructType\EwsPathToExceptionFieldType
+     * @return \StructType\EwsPathToExceptionFieldType
      */
-    public function setFieldURI($fieldURI = null)
+    public function setFieldURI(string $fieldURI): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsExceptionPropertyURIType::valueIsValid($fieldURI)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsExceptionPropertyURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \Ews\EnumType\EwsExceptionPropertyURIType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsExceptionPropertyURIType::valueIsValid($fieldURI)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsExceptionPropertyURIType', is_array($fieldURI) ? implode(', ', $fieldURI) : var_export($fieldURI, true), implode(', ', \EnumType\EwsExceptionPropertyURIType::getValidValues())), __LINE__);
         }
         $this->FieldURI = $fieldURI;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PersonaType StructType
@@ -17,732 +20,732 @@ class EwsPersonaType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $PersonaId;
+    protected \StructType\EwsItemIdType $PersonaId;
     /**
      * The PersonaType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PersonaType;
+    protected ?string $PersonaType = null;
     /**
      * The PersonaObjectStatus
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PersonaObjectStatus;
+    protected ?string $PersonaObjectStatus = null;
     /**
      * The CreationTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CreationTime;
+    protected ?string $CreationTime = null;
     /**
      * The Bodies
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType
+     * @var \ArrayType\EwsArrayOfBodyContentAttributedValuesType|null
      */
-    public $Bodies;
+    protected ?\ArrayType\EwsArrayOfBodyContentAttributedValuesType $Bodies = null;
     /**
      * The DisplayNameFirstLastSortKey
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameFirstLastSortKey;
+    protected ?string $DisplayNameFirstLastSortKey = null;
     /**
      * The DisplayNameLastFirstSortKey
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameLastFirstSortKey;
+    protected ?string $DisplayNameLastFirstSortKey = null;
     /**
      * The CompanyNameSortKey
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CompanyNameSortKey;
+    protected ?string $CompanyNameSortKey = null;
     /**
      * The HomeCitySortKey
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $HomeCitySortKey;
+    protected ?string $HomeCitySortKey = null;
     /**
      * The WorkCitySortKey
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WorkCitySortKey;
+    protected ?string $WorkCitySortKey = null;
     /**
      * The DisplayNameFirstLastHeader
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameFirstLastHeader;
+    protected ?string $DisplayNameFirstLastHeader = null;
     /**
      * The DisplayNameLastFirstHeader
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameLastFirstHeader;
+    protected ?string $DisplayNameLastFirstHeader = null;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The DisplayNameFirstLast
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameFirstLast;
+    protected ?string $DisplayNameFirstLast = null;
     /**
      * The DisplayNameLastFirst
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNameLastFirst;
+    protected ?string $DisplayNameLastFirst = null;
     /**
      * The FileAs
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FileAs;
+    protected ?string $FileAs = null;
     /**
      * The FileAsId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FileAsId;
+    protected ?string $FileAsId = null;
     /**
      * The DisplayNamePrefix
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayNamePrefix;
+    protected ?string $DisplayNamePrefix = null;
     /**
      * The GivenName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GivenName;
+    protected ?string $GivenName = null;
     /**
      * The MiddleName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MiddleName;
+    protected ?string $MiddleName = null;
     /**
      * The Surname
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Surname;
+    protected ?string $Surname = null;
     /**
      * The Generation
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Generation;
+    protected ?string $Generation = null;
     /**
      * The Nickname
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Nickname;
+    protected ?string $Nickname = null;
     /**
      * The YomiCompanyName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $YomiCompanyName;
+    protected ?string $YomiCompanyName = null;
     /**
      * The YomiFirstName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $YomiFirstName;
+    protected ?string $YomiFirstName = null;
     /**
      * The YomiLastName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $YomiLastName;
+    protected ?string $YomiLastName = null;
     /**
      * The Title
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Title;
+    protected ?string $Title = null;
     /**
      * The Department
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Department;
+    protected ?string $Department = null;
     /**
      * The CompanyName
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CompanyName;
+    protected ?string $CompanyName = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Location;
+    protected ?string $Location = null;
     /**
      * The EmailAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $EmailAddress;
+    protected ?\StructType\EwsEmailAddressType $EmailAddress = null;
     /**
      * The EmailAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressesType
+     * @var \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public $EmailAddresses;
+    protected ?\ArrayType\EwsArrayOfEmailAddressesType $EmailAddresses = null;
     /**
      * The PhoneNumber
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonaPhoneNumberType
+     * @var \StructType\EwsPersonaPhoneNumberType|null
      */
-    public $PhoneNumber;
+    protected ?\StructType\EwsPersonaPhoneNumberType $PhoneNumber = null;
     /**
      * The ImAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ImAddress;
+    protected ?string $ImAddress = null;
     /**
      * The HomeCity
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $HomeCity;
+    protected ?string $HomeCity = null;
     /**
      * The WorkCity
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $WorkCity;
+    protected ?string $WorkCity = null;
     /**
      * The RelevanceScore
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $RelevanceScore;
+    protected ?int $RelevanceScore = null;
     /**
      * The RankingWeight
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $RankingWeight;
+    protected ?float $RankingWeight = null;
     /**
      * The FolderIds
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfFolderIdType
+     * @var \ArrayType\EwsArrayOfFolderIdType|null
      */
-    public $FolderIds;
+    protected ?\ArrayType\EwsArrayOfFolderIdType $FolderIds = null;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPersonaAttributionsType
+     * @var \ArrayType\EwsArrayOfPersonaAttributionsType|null
      */
-    public $Attributions;
+    protected ?\ArrayType\EwsArrayOfPersonaAttributionsType $Attributions = null;
     /**
      * The DisplayNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $DisplayNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $DisplayNames = null;
     /**
      * The FileAses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $FileAses;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $FileAses = null;
     /**
      * The FileAsIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $FileAsIds;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $FileAsIds = null;
     /**
      * The DisplayNamePrefixes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $DisplayNamePrefixes;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $DisplayNamePrefixes = null;
     /**
      * The GivenNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $GivenNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $GivenNames = null;
     /**
      * The MiddleNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $MiddleNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $MiddleNames = null;
     /**
      * The Surnames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Surnames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Surnames = null;
     /**
      * The Generations
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Generations;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Generations = null;
     /**
      * The Nicknames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Nicknames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Nicknames = null;
     /**
      * The Initials
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Initials;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Initials = null;
     /**
      * The YomiCompanyNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $YomiCompanyNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $YomiCompanyNames = null;
     /**
      * The YomiFirstNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $YomiFirstNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $YomiFirstNames = null;
     /**
      * The YomiLastNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $YomiLastNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $YomiLastNames = null;
     /**
      * The BusinessPhoneNumbers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $BusinessPhoneNumbers;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $BusinessPhoneNumbers = null;
     /**
      * The BusinessPhoneNumbers2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $BusinessPhoneNumbers2;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $BusinessPhoneNumbers2 = null;
     /**
      * The HomePhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $HomePhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $HomePhones = null;
     /**
      * The HomePhones2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $HomePhones2;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $HomePhones2 = null;
     /**
      * The MobilePhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $MobilePhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $MobilePhones = null;
     /**
      * The MobilePhones2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $MobilePhones2;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $MobilePhones2 = null;
     /**
      * The AssistantPhoneNumbers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $AssistantPhoneNumbers;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $AssistantPhoneNumbers = null;
     /**
      * The CallbackPhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $CallbackPhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $CallbackPhones = null;
     /**
      * The CarPhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $CarPhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $CarPhones = null;
     /**
      * The HomeFaxes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $HomeFaxes;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $HomeFaxes = null;
     /**
      * The OrganizationMainPhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $OrganizationMainPhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $OrganizationMainPhones = null;
     /**
      * The OtherFaxes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $OtherFaxes;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $OtherFaxes = null;
     /**
      * The OtherTelephones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $OtherTelephones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $OtherTelephones = null;
     /**
      * The OtherPhones2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $OtherPhones2;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $OtherPhones2 = null;
     /**
      * The Pagers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $Pagers;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $Pagers = null;
     /**
      * The RadioPhones
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $RadioPhones;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $RadioPhones = null;
     /**
      * The TelexNumbers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $TelexNumbers;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $TelexNumbers = null;
     /**
      * The TTYTDDPhoneNumbers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $TTYTDDPhoneNumbers;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $TTYTDDPhoneNumbers = null;
     /**
      * The WorkFaxes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public $WorkFaxes;
+    protected ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $WorkFaxes = null;
     /**
      * The Emails1
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public $Emails1;
+    protected ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $Emails1 = null;
     /**
      * The Emails2
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public $Emails2;
+    protected ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $Emails2 = null;
     /**
      * The Emails3
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public $Emails3;
+    protected ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $Emails3 = null;
     /**
      * The BusinessHomePages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $BusinessHomePages;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $BusinessHomePages = null;
     /**
      * The PersonalHomePages
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $PersonalHomePages;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $PersonalHomePages = null;
     /**
      * The OfficeLocations
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $OfficeLocations;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $OfficeLocations = null;
     /**
      * The ImAddresses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $ImAddresses;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $ImAddresses = null;
     /**
      * The ImAddresses2
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $ImAddresses2;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $ImAddresses2 = null;
     /**
      * The ImAddresses3
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $ImAddresses3;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $ImAddresses3 = null;
     /**
      * The BusinessAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public $BusinessAddresses;
+    protected ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $BusinessAddresses = null;
     /**
      * The HomeAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public $HomeAddresses;
+    protected ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $HomeAddresses = null;
     /**
      * The OtherAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     * @var \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public $OtherAddresses;
+    protected ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $OtherAddresses = null;
     /**
      * The Titles
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Titles;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Titles = null;
     /**
      * The Departments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Departments;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Departments = null;
     /**
      * The CompanyNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $CompanyNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $CompanyNames = null;
     /**
      * The Managers
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Managers;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Managers = null;
     /**
      * The AssistantNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $AssistantNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $AssistantNames = null;
     /**
      * The Professions
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Professions;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Professions = null;
     /**
      * The SpouseNames
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $SpouseNames;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $SpouseNames = null;
     /**
      * The Children
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringArrayAttributedValuesType|null
      */
-    public $Children;
+    protected ?\ArrayType\EwsArrayOfStringArrayAttributedValuesType $Children = null;
     /**
      * The Schools
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Schools;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Schools = null;
     /**
      * The Hobbies
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Hobbies;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Hobbies = null;
     /**
      * The WeddingAnniversaries
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $WeddingAnniversaries;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $WeddingAnniversaries = null;
     /**
      * The Birthdays
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Birthdays;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Birthdays = null;
     /**
      * The Locations
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringAttributedValuesType
+     * @var \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public $Locations;
+    protected ?\ArrayType\EwsArrayOfStringAttributedValuesType $Locations = null;
     /**
      * The ExtendedProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
+     * @var \ArrayType\EwsArrayOfExtendedPropertyAttributedValueType|null
      */
-    public $ExtendedProperties;
+    protected ?\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $ExtendedProperties = null;
     /**
      * Constructor method for PersonaType
      * @uses EwsPersonaType::setPersonaId()
@@ -843,11 +846,11 @@ class EwsPersonaType extends AbstractStructBase
      * @uses EwsPersonaType::setBirthdays()
      * @uses EwsPersonaType::setLocations()
      * @uses EwsPersonaType::setExtendedProperties()
-     * @param \Ews\StructType\EwsItemIdType $personaId
+     * @param \StructType\EwsItemIdType $personaId
      * @param string $personaType
      * @param string $personaObjectStatus
      * @param string $creationTime
-     * @param \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies
+     * @param \ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies
      * @param string $displayNameFirstLastSortKey
      * @param string $displayNameLastFirstSortKey
      * @param string $companyNameSortKey
@@ -873,76 +876,76 @@ class EwsPersonaType extends AbstractStructBase
      * @param string $department
      * @param string $companyName
      * @param string $location
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses
-     * @param \Ews\StructType\EwsPersonaPhoneNumberType $phoneNumber
+     * @param \StructType\EwsEmailAddressType $emailAddress
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $emailAddresses
+     * @param \StructType\EwsPersonaPhoneNumberType $phoneNumber
      * @param string $imAddress
      * @param string $homeCity
      * @param string $workCity
      * @param int $relevanceScore
      * @param float $rankingWeight
-     * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderIds
-     * @param \Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $surnames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $generations
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $initials
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $managers
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $professions
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames
-     * @param \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $schools
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations
-     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
+     * @param \ArrayType\EwsArrayOfFolderIdType $folderIds
+     * @param \ArrayType\EwsArrayOfPersonaAttributionsType $attributions
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $displayNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $fileAses
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $givenNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $middleNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $surnames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $generations
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $nicknames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $initials
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $titles
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $departments
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $companyNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $managers
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $professions
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames
+     * @param \ArrayType\EwsArrayOfStringArrayAttributedValuesType $children
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $schools
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $hobbies
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $birthdays
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $locations
+     * @param \ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $personaId = null, $personaType = null, $personaObjectStatus = null, $creationTime = null, \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies = null, $displayNameFirstLastSortKey = null, $displayNameLastFirstSortKey = null, $companyNameSortKey = null, $homeCitySortKey = null, $workCitySortKey = null, $displayNameFirstLastHeader = null, $displayNameLastFirstHeader = null, $displayName = null, $displayNameFirstLast = null, $displayNameLastFirst = null, $fileAs = null, $fileAsId = null, $displayNamePrefix = null, $givenName = null, $middleName = null, $surname = null, $generation = null, $nickname = null, $yomiCompanyName = null, $yomiFirstName = null, $yomiLastName = null, $title = null, $department = null, $companyName = null, $location = null, \Ews\StructType\EwsEmailAddressType $emailAddress = null, \Ews\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses = null, \Ews\StructType\EwsPersonaPhoneNumberType $phoneNumber = null, $imAddress = null, $homeCity = null, $workCity = null, $relevanceScore = null, $rankingWeight = null, \Ews\ArrayType\EwsArrayOfFolderIdType $folderIds = null, \Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $surnames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $generations = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $initials = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2 = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null, \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1 = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2 = null, \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3 = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2 = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3 = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses = null, \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $managers = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $professions = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames = null, \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $schools = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays = null, \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations = null, \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null)
+    public function __construct(\StructType\EwsItemIdType $personaId, ?string $personaType = null, ?string $personaObjectStatus = null, ?string $creationTime = null, ?\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies = null, ?string $displayNameFirstLastSortKey = null, ?string $displayNameLastFirstSortKey = null, ?string $companyNameSortKey = null, ?string $homeCitySortKey = null, ?string $workCitySortKey = null, ?string $displayNameFirstLastHeader = null, ?string $displayNameLastFirstHeader = null, ?string $displayName = null, ?string $displayNameFirstLast = null, ?string $displayNameLastFirst = null, ?string $fileAs = null, ?string $fileAsId = null, ?string $displayNamePrefix = null, ?string $givenName = null, ?string $middleName = null, ?string $surname = null, ?string $generation = null, ?string $nickname = null, ?string $yomiCompanyName = null, ?string $yomiFirstName = null, ?string $yomiLastName = null, ?string $title = null, ?string $department = null, ?string $companyName = null, ?string $location = null, ?\StructType\EwsEmailAddressType $emailAddress = null, ?\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses = null, ?\StructType\EwsPersonaPhoneNumberType $phoneNumber = null, ?string $imAddress = null, ?string $homeCity = null, ?string $workCity = null, ?int $relevanceScore = null, ?float $rankingWeight = null, ?\ArrayType\EwsArrayOfFolderIdType $folderIds = null, ?\ArrayType\EwsArrayOfPersonaAttributionsType $attributions = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $surnames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $generations = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $initials = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2 = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2 = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2 = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null, ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes = null, ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1 = null, ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2 = null, ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3 = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2 = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3 = null, ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null, ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses = null, ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $titles = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $departments = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $managers = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $professions = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames = null, ?\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $schools = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays = null, ?\ArrayType\EwsArrayOfStringAttributedValuesType $locations = null, ?\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null)
     {
         $this
             ->setPersonaId($personaId)
@@ -1046,1898 +1049,1996 @@ class EwsPersonaType extends AbstractStructBase
     }
     /**
      * Get PersonaId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getPersonaId()
+    public function getPersonaId(): \StructType\EwsItemIdType
     {
         return $this->PersonaId;
     }
     /**
      * Set PersonaId value
-     * @param \Ews\StructType\EwsItemIdType $personaId
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \StructType\EwsItemIdType $personaId
+     * @return \StructType\EwsPersonaType
      */
-    public function setPersonaId(\Ews\StructType\EwsItemIdType $personaId = null)
+    public function setPersonaId(\StructType\EwsItemIdType $personaId): self
     {
         $this->PersonaId = $personaId;
+        
         return $this;
     }
     /**
      * Get PersonaType value
      * @return string|null
      */
-    public function getPersonaType()
+    public function getPersonaType(): ?string
     {
         return $this->PersonaType;
     }
     /**
      * Set PersonaType value
      * @param string $personaType
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setPersonaType($personaType = null)
+    public function setPersonaType(?string $personaType = null): self
     {
         // validation for constraint: string
         if (!is_null($personaType) && !is_string($personaType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaType, true), gettype($personaType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaType, true), gettype($personaType)), __LINE__);
         }
         $this->PersonaType = $personaType;
+        
         return $this;
     }
     /**
      * Get PersonaObjectStatus value
      * @return string|null
      */
-    public function getPersonaObjectStatus()
+    public function getPersonaObjectStatus(): ?string
     {
         return $this->PersonaObjectStatus;
     }
     /**
      * Set PersonaObjectStatus value
      * @param string $personaObjectStatus
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setPersonaObjectStatus($personaObjectStatus = null)
+    public function setPersonaObjectStatus(?string $personaObjectStatus = null): self
     {
         // validation for constraint: string
         if (!is_null($personaObjectStatus) && !is_string($personaObjectStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaObjectStatus, true), gettype($personaObjectStatus)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personaObjectStatus, true), gettype($personaObjectStatus)), __LINE__);
         }
         $this->PersonaObjectStatus = $personaObjectStatus;
+        
         return $this;
     }
     /**
      * Get CreationTime value
      * @return string|null
      */
-    public function getCreationTime()
+    public function getCreationTime(): ?string
     {
         return $this->CreationTime;
     }
     /**
      * Set CreationTime value
      * @param string $creationTime
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setCreationTime($creationTime = null)
+    public function setCreationTime(?string $creationTime = null): self
     {
         // validation for constraint: string
         if (!is_null($creationTime) && !is_string($creationTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationTime, true), gettype($creationTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($creationTime, true), gettype($creationTime)), __LINE__);
         }
         $this->CreationTime = $creationTime;
+        
         return $this;
     }
     /**
      * Get Bodies value
-     * @return \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfBodyContentAttributedValuesType|null
      */
-    public function getBodies()
+    public function getBodies(): ?\ArrayType\EwsArrayOfBodyContentAttributedValuesType
     {
         return $this->Bodies;
     }
     /**
      * Set Bodies value
-     * @param \Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies
+     * @return \StructType\EwsPersonaType
      */
-    public function setBodies(\Ews\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies = null)
+    public function setBodies(?\ArrayType\EwsArrayOfBodyContentAttributedValuesType $bodies = null): self
     {
         $this->Bodies = $bodies;
+        
         return $this;
     }
     /**
      * Get DisplayNameFirstLastSortKey value
      * @return string|null
      */
-    public function getDisplayNameFirstLastSortKey()
+    public function getDisplayNameFirstLastSortKey(): ?string
     {
         return $this->DisplayNameFirstLastSortKey;
     }
     /**
      * Set DisplayNameFirstLastSortKey value
      * @param string $displayNameFirstLastSortKey
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameFirstLastSortKey($displayNameFirstLastSortKey = null)
+    public function setDisplayNameFirstLastSortKey(?string $displayNameFirstLastSortKey = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLastSortKey) && !is_string($displayNameFirstLastSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastSortKey, true), gettype($displayNameFirstLastSortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastSortKey, true), gettype($displayNameFirstLastSortKey)), __LINE__);
         }
         $this->DisplayNameFirstLastSortKey = $displayNameFirstLastSortKey;
+        
         return $this;
     }
     /**
      * Get DisplayNameLastFirstSortKey value
      * @return string|null
      */
-    public function getDisplayNameLastFirstSortKey()
+    public function getDisplayNameLastFirstSortKey(): ?string
     {
         return $this->DisplayNameLastFirstSortKey;
     }
     /**
      * Set DisplayNameLastFirstSortKey value
      * @param string $displayNameLastFirstSortKey
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameLastFirstSortKey($displayNameLastFirstSortKey = null)
+    public function setDisplayNameLastFirstSortKey(?string $displayNameLastFirstSortKey = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirstSortKey) && !is_string($displayNameLastFirstSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstSortKey, true), gettype($displayNameLastFirstSortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstSortKey, true), gettype($displayNameLastFirstSortKey)), __LINE__);
         }
         $this->DisplayNameLastFirstSortKey = $displayNameLastFirstSortKey;
+        
         return $this;
     }
     /**
      * Get CompanyNameSortKey value
      * @return string|null
      */
-    public function getCompanyNameSortKey()
+    public function getCompanyNameSortKey(): ?string
     {
         return $this->CompanyNameSortKey;
     }
     /**
      * Set CompanyNameSortKey value
      * @param string $companyNameSortKey
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setCompanyNameSortKey($companyNameSortKey = null)
+    public function setCompanyNameSortKey(?string $companyNameSortKey = null): self
     {
         // validation for constraint: string
         if (!is_null($companyNameSortKey) && !is_string($companyNameSortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyNameSortKey, true), gettype($companyNameSortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyNameSortKey, true), gettype($companyNameSortKey)), __LINE__);
         }
         $this->CompanyNameSortKey = $companyNameSortKey;
+        
         return $this;
     }
     /**
      * Get HomeCitySortKey value
      * @return string|null
      */
-    public function getHomeCitySortKey()
+    public function getHomeCitySortKey(): ?string
     {
         return $this->HomeCitySortKey;
     }
     /**
      * Set HomeCitySortKey value
      * @param string $homeCitySortKey
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomeCitySortKey($homeCitySortKey = null)
+    public function setHomeCitySortKey(?string $homeCitySortKey = null): self
     {
         // validation for constraint: string
         if (!is_null($homeCitySortKey) && !is_string($homeCitySortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCitySortKey, true), gettype($homeCitySortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCitySortKey, true), gettype($homeCitySortKey)), __LINE__);
         }
         $this->HomeCitySortKey = $homeCitySortKey;
+        
         return $this;
     }
     /**
      * Get WorkCitySortKey value
      * @return string|null
      */
-    public function getWorkCitySortKey()
+    public function getWorkCitySortKey(): ?string
     {
         return $this->WorkCitySortKey;
     }
     /**
      * Set WorkCitySortKey value
      * @param string $workCitySortKey
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setWorkCitySortKey($workCitySortKey = null)
+    public function setWorkCitySortKey(?string $workCitySortKey = null): self
     {
         // validation for constraint: string
         if (!is_null($workCitySortKey) && !is_string($workCitySortKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCitySortKey, true), gettype($workCitySortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCitySortKey, true), gettype($workCitySortKey)), __LINE__);
         }
         $this->WorkCitySortKey = $workCitySortKey;
+        
         return $this;
     }
     /**
      * Get DisplayNameFirstLastHeader value
      * @return string|null
      */
-    public function getDisplayNameFirstLastHeader()
+    public function getDisplayNameFirstLastHeader(): ?string
     {
         return $this->DisplayNameFirstLastHeader;
     }
     /**
      * Set DisplayNameFirstLastHeader value
      * @param string $displayNameFirstLastHeader
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameFirstLastHeader($displayNameFirstLastHeader = null)
+    public function setDisplayNameFirstLastHeader(?string $displayNameFirstLastHeader = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLastHeader) && !is_string($displayNameFirstLastHeader)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastHeader, true), gettype($displayNameFirstLastHeader)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLastHeader, true), gettype($displayNameFirstLastHeader)), __LINE__);
         }
         $this->DisplayNameFirstLastHeader = $displayNameFirstLastHeader;
+        
         return $this;
     }
     /**
      * Get DisplayNameLastFirstHeader value
      * @return string|null
      */
-    public function getDisplayNameLastFirstHeader()
+    public function getDisplayNameLastFirstHeader(): ?string
     {
         return $this->DisplayNameLastFirstHeader;
     }
     /**
      * Set DisplayNameLastFirstHeader value
      * @param string $displayNameLastFirstHeader
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameLastFirstHeader($displayNameLastFirstHeader = null)
+    public function setDisplayNameLastFirstHeader(?string $displayNameLastFirstHeader = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirstHeader) && !is_string($displayNameLastFirstHeader)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstHeader, true), gettype($displayNameLastFirstHeader)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirstHeader, true), gettype($displayNameLastFirstHeader)), __LINE__);
         }
         $this->DisplayNameLastFirstHeader = $displayNameLastFirstHeader;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get DisplayNameFirstLast value
      * @return string|null
      */
-    public function getDisplayNameFirstLast()
+    public function getDisplayNameFirstLast(): ?string
     {
         return $this->DisplayNameFirstLast;
     }
     /**
      * Set DisplayNameFirstLast value
      * @param string $displayNameFirstLast
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameFirstLast($displayNameFirstLast = null)
+    public function setDisplayNameFirstLast(?string $displayNameFirstLast = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameFirstLast) && !is_string($displayNameFirstLast)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLast, true), gettype($displayNameFirstLast)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameFirstLast, true), gettype($displayNameFirstLast)), __LINE__);
         }
         $this->DisplayNameFirstLast = $displayNameFirstLast;
+        
         return $this;
     }
     /**
      * Get DisplayNameLastFirst value
      * @return string|null
      */
-    public function getDisplayNameLastFirst()
+    public function getDisplayNameLastFirst(): ?string
     {
         return $this->DisplayNameLastFirst;
     }
     /**
      * Set DisplayNameLastFirst value
      * @param string $displayNameLastFirst
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNameLastFirst($displayNameLastFirst = null)
+    public function setDisplayNameLastFirst(?string $displayNameLastFirst = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNameLastFirst) && !is_string($displayNameLastFirst)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirst, true), gettype($displayNameLastFirst)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNameLastFirst, true), gettype($displayNameLastFirst)), __LINE__);
         }
         $this->DisplayNameLastFirst = $displayNameLastFirst;
+        
         return $this;
     }
     /**
      * Get FileAs value
      * @return string|null
      */
-    public function getFileAs()
+    public function getFileAs(): ?string
     {
         return $this->FileAs;
     }
     /**
      * Set FileAs value
      * @param string $fileAs
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setFileAs($fileAs = null)
+    public function setFileAs(?string $fileAs = null): self
     {
         // validation for constraint: string
         if (!is_null($fileAs) && !is_string($fileAs)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAs, true), gettype($fileAs)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAs, true), gettype($fileAs)), __LINE__);
         }
         $this->FileAs = $fileAs;
+        
         return $this;
     }
     /**
      * Get FileAsId value
      * @return string|null
      */
-    public function getFileAsId()
+    public function getFileAsId(): ?string
     {
         return $this->FileAsId;
     }
     /**
      * Set FileAsId value
      * @param string $fileAsId
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setFileAsId($fileAsId = null)
+    public function setFileAsId(?string $fileAsId = null): self
     {
         // validation for constraint: string
         if (!is_null($fileAsId) && !is_string($fileAsId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAsId, true), gettype($fileAsId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fileAsId, true), gettype($fileAsId)), __LINE__);
         }
         $this->FileAsId = $fileAsId;
+        
         return $this;
     }
     /**
      * Get DisplayNamePrefix value
      * @return string|null
      */
-    public function getDisplayNamePrefix()
+    public function getDisplayNamePrefix(): ?string
     {
         return $this->DisplayNamePrefix;
     }
     /**
      * Set DisplayNamePrefix value
      * @param string $displayNamePrefix
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNamePrefix($displayNamePrefix = null)
+    public function setDisplayNamePrefix(?string $displayNamePrefix = null): self
     {
         // validation for constraint: string
         if (!is_null($displayNamePrefix) && !is_string($displayNamePrefix)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNamePrefix, true), gettype($displayNamePrefix)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayNamePrefix, true), gettype($displayNamePrefix)), __LINE__);
         }
         $this->DisplayNamePrefix = $displayNamePrefix;
+        
         return $this;
     }
     /**
      * Get GivenName value
      * @return string|null
      */
-    public function getGivenName()
+    public function getGivenName(): ?string
     {
         return $this->GivenName;
     }
     /**
      * Set GivenName value
      * @param string $givenName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setGivenName($givenName = null)
+    public function setGivenName(?string $givenName = null): self
     {
         // validation for constraint: string
         if (!is_null($givenName) && !is_string($givenName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($givenName, true), gettype($givenName)), __LINE__);
         }
         $this->GivenName = $givenName;
+        
         return $this;
     }
     /**
      * Get MiddleName value
      * @return string|null
      */
-    public function getMiddleName()
+    public function getMiddleName(): ?string
     {
         return $this->MiddleName;
     }
     /**
      * Set MiddleName value
      * @param string $middleName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setMiddleName($middleName = null)
+    public function setMiddleName(?string $middleName = null): self
     {
         // validation for constraint: string
         if (!is_null($middleName) && !is_string($middleName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($middleName, true), gettype($middleName)), __LINE__);
         }
         $this->MiddleName = $middleName;
+        
         return $this;
     }
     /**
      * Get Surname value
      * @return string|null
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->Surname;
     }
     /**
      * Set Surname value
      * @param string $surname
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setSurname($surname = null)
+    public function setSurname(?string $surname = null): self
     {
         // validation for constraint: string
         if (!is_null($surname) && !is_string($surname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($surname, true), gettype($surname)), __LINE__);
         }
         $this->Surname = $surname;
+        
         return $this;
     }
     /**
      * Get Generation value
      * @return string|null
      */
-    public function getGeneration()
+    public function getGeneration(): ?string
     {
         return $this->Generation;
     }
     /**
      * Set Generation value
      * @param string $generation
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setGeneration($generation = null)
+    public function setGeneration(?string $generation = null): self
     {
         // validation for constraint: string
         if (!is_null($generation) && !is_string($generation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($generation, true), gettype($generation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($generation, true), gettype($generation)), __LINE__);
         }
         $this->Generation = $generation;
+        
         return $this;
     }
     /**
      * Get Nickname value
      * @return string|null
      */
-    public function getNickname()
+    public function getNickname(): ?string
     {
         return $this->Nickname;
     }
     /**
      * Set Nickname value
      * @param string $nickname
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setNickname($nickname = null)
+    public function setNickname(?string $nickname = null): self
     {
         // validation for constraint: string
         if (!is_null($nickname) && !is_string($nickname)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($nickname, true), gettype($nickname)), __LINE__);
         }
         $this->Nickname = $nickname;
+        
         return $this;
     }
     /**
      * Get YomiCompanyName value
      * @return string|null
      */
-    public function getYomiCompanyName()
+    public function getYomiCompanyName(): ?string
     {
         return $this->YomiCompanyName;
     }
     /**
      * Set YomiCompanyName value
      * @param string $yomiCompanyName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiCompanyName($yomiCompanyName = null)
+    public function setYomiCompanyName(?string $yomiCompanyName = null): self
     {
         // validation for constraint: string
         if (!is_null($yomiCompanyName) && !is_string($yomiCompanyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiCompanyName, true), gettype($yomiCompanyName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiCompanyName, true), gettype($yomiCompanyName)), __LINE__);
         }
         $this->YomiCompanyName = $yomiCompanyName;
+        
         return $this;
     }
     /**
      * Get YomiFirstName value
      * @return string|null
      */
-    public function getYomiFirstName()
+    public function getYomiFirstName(): ?string
     {
         return $this->YomiFirstName;
     }
     /**
      * Set YomiFirstName value
      * @param string $yomiFirstName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiFirstName($yomiFirstName = null)
+    public function setYomiFirstName(?string $yomiFirstName = null): self
     {
         // validation for constraint: string
         if (!is_null($yomiFirstName) && !is_string($yomiFirstName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiFirstName, true), gettype($yomiFirstName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiFirstName, true), gettype($yomiFirstName)), __LINE__);
         }
         $this->YomiFirstName = $yomiFirstName;
+        
         return $this;
     }
     /**
      * Get YomiLastName value
      * @return string|null
      */
-    public function getYomiLastName()
+    public function getYomiLastName(): ?string
     {
         return $this->YomiLastName;
     }
     /**
      * Set YomiLastName value
      * @param string $yomiLastName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiLastName($yomiLastName = null)
+    public function setYomiLastName(?string $yomiLastName = null): self
     {
         // validation for constraint: string
         if (!is_null($yomiLastName) && !is_string($yomiLastName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiLastName, true), gettype($yomiLastName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($yomiLastName, true), gettype($yomiLastName)), __LINE__);
         }
         $this->YomiLastName = $yomiLastName;
+        
         return $this;
     }
     /**
      * Get Title value
      * @return string|null
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->Title;
     }
     /**
      * Set Title value
      * @param string $title
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setTitle($title = null)
+    public function setTitle(?string $title = null): self
     {
         // validation for constraint: string
         if (!is_null($title) && !is_string($title)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($title, true), gettype($title)), __LINE__);
         }
         $this->Title = $title;
+        
         return $this;
     }
     /**
      * Get Department value
      * @return string|null
      */
-    public function getDepartment()
+    public function getDepartment(): ?string
     {
         return $this->Department;
     }
     /**
      * Set Department value
      * @param string $department
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setDepartment($department = null)
+    public function setDepartment(?string $department = null): self
     {
         // validation for constraint: string
         if (!is_null($department) && !is_string($department)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($department, true), gettype($department)), __LINE__);
         }
         $this->Department = $department;
+        
         return $this;
     }
     /**
      * Get CompanyName value
      * @return string|null
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->CompanyName;
     }
     /**
      * Set CompanyName value
      * @param string $companyName
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setCompanyName($companyName = null)
+    public function setCompanyName(?string $companyName = null): self
     {
         // validation for constraint: string
         if (!is_null($companyName) && !is_string($companyName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyName, true), gettype($companyName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($companyName, true), gettype($companyName)), __LINE__);
         }
         $this->CompanyName = $companyName;
+        
         return $this;
     }
     /**
      * Get Location value
      * @return string|null
      */
-    public function getLocation()
+    public function getLocation(): ?string
     {
         return $this->Location;
     }
     /**
      * Set Location value
      * @param string $location
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setLocation($location = null)
+    public function setLocation(?string $location = null): self
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
+        
         return $this;
     }
     /**
      * Get EmailAddress value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getEmailAddress()
+    public function getEmailAddress(): ?\StructType\EwsEmailAddressType
     {
         return $this->EmailAddress;
     }
     /**
      * Set EmailAddress value
-     * @param \Ews\StructType\EwsEmailAddressType $emailAddress
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \StructType\EwsEmailAddressType $emailAddress
+     * @return \StructType\EwsPersonaType
      */
-    public function setEmailAddress(\Ews\StructType\EwsEmailAddressType $emailAddress = null)
+    public function setEmailAddress(?\StructType\EwsEmailAddressType $emailAddress = null): self
     {
         $this->EmailAddress = $emailAddress;
+        
         return $this;
     }
     /**
      * Get EmailAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressesType|null
      */
-    public function getEmailAddresses()
+    public function getEmailAddresses(): ?\ArrayType\EwsArrayOfEmailAddressesType
     {
         return $this->EmailAddresses;
     }
     /**
      * Set EmailAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfEmailAddressesType $emailAddresses
+     * @return \StructType\EwsPersonaType
      */
-    public function setEmailAddresses(\Ews\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses = null)
+    public function setEmailAddresses(?\ArrayType\EwsArrayOfEmailAddressesType $emailAddresses = null): self
     {
         $this->EmailAddresses = $emailAddresses;
+        
         return $this;
     }
     /**
      * Get PhoneNumber value
-     * @return \Ews\StructType\EwsPersonaPhoneNumberType|null
+     * @return \StructType\EwsPersonaPhoneNumberType|null
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?\StructType\EwsPersonaPhoneNumberType
     {
         return $this->PhoneNumber;
     }
     /**
      * Set PhoneNumber value
-     * @param \Ews\StructType\EwsPersonaPhoneNumberType $phoneNumber
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \StructType\EwsPersonaPhoneNumberType $phoneNumber
+     * @return \StructType\EwsPersonaType
      */
-    public function setPhoneNumber(\Ews\StructType\EwsPersonaPhoneNumberType $phoneNumber = null)
+    public function setPhoneNumber(?\StructType\EwsPersonaPhoneNumberType $phoneNumber = null): self
     {
         $this->PhoneNumber = $phoneNumber;
+        
         return $this;
     }
     /**
      * Get ImAddress value
      * @return string|null
      */
-    public function getImAddress()
+    public function getImAddress(): ?string
     {
         return $this->ImAddress;
     }
     /**
      * Set ImAddress value
      * @param string $imAddress
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setImAddress($imAddress = null)
+    public function setImAddress(?string $imAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($imAddress) && !is_string($imAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imAddress, true), gettype($imAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($imAddress, true), gettype($imAddress)), __LINE__);
         }
         $this->ImAddress = $imAddress;
+        
         return $this;
     }
     /**
      * Get HomeCity value
      * @return string|null
      */
-    public function getHomeCity()
+    public function getHomeCity(): ?string
     {
         return $this->HomeCity;
     }
     /**
      * Set HomeCity value
      * @param string $homeCity
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomeCity($homeCity = null)
+    public function setHomeCity(?string $homeCity = null): self
     {
         // validation for constraint: string
         if (!is_null($homeCity) && !is_string($homeCity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCity, true), gettype($homeCity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($homeCity, true), gettype($homeCity)), __LINE__);
         }
         $this->HomeCity = $homeCity;
+        
         return $this;
     }
     /**
      * Get WorkCity value
      * @return string|null
      */
-    public function getWorkCity()
+    public function getWorkCity(): ?string
     {
         return $this->WorkCity;
     }
     /**
      * Set WorkCity value
      * @param string $workCity
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setWorkCity($workCity = null)
+    public function setWorkCity(?string $workCity = null): self
     {
         // validation for constraint: string
         if (!is_null($workCity) && !is_string($workCity)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCity, true), gettype($workCity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($workCity, true), gettype($workCity)), __LINE__);
         }
         $this->WorkCity = $workCity;
+        
         return $this;
     }
     /**
      * Get RelevanceScore value
      * @return int|null
      */
-    public function getRelevanceScore()
+    public function getRelevanceScore(): ?int
     {
         return $this->RelevanceScore;
     }
     /**
      * Set RelevanceScore value
      * @param int $relevanceScore
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setRelevanceScore($relevanceScore = null)
+    public function setRelevanceScore(?int $relevanceScore = null): self
     {
         // validation for constraint: int
         if (!is_null($relevanceScore) && !(is_int($relevanceScore) || ctype_digit($relevanceScore))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($relevanceScore, true), gettype($relevanceScore)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($relevanceScore, true), gettype($relevanceScore)), __LINE__);
         }
         $this->RelevanceScore = $relevanceScore;
+        
         return $this;
     }
     /**
      * Get RankingWeight value
      * @return float|null
      */
-    public function getRankingWeight()
+    public function getRankingWeight(): ?float
     {
         return $this->RankingWeight;
     }
     /**
      * Set RankingWeight value
      * @param float $rankingWeight
-     * @return \Ews\StructType\EwsPersonaType
+     * @return \StructType\EwsPersonaType
      */
-    public function setRankingWeight($rankingWeight = null)
+    public function setRankingWeight(?float $rankingWeight = null): self
     {
         // validation for constraint: float
         if (!is_null($rankingWeight) && !(is_float($rankingWeight) || is_numeric($rankingWeight))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($rankingWeight, true), gettype($rankingWeight)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($rankingWeight, true), gettype($rankingWeight)), __LINE__);
         }
         $this->RankingWeight = $rankingWeight;
+        
         return $this;
     }
     /**
      * Get FolderIds value
-     * @return \Ews\ArrayType\EwsArrayOfFolderIdType|null
+     * @return \ArrayType\EwsArrayOfFolderIdType|null
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?\ArrayType\EwsArrayOfFolderIdType
     {
         return $this->FolderIds;
     }
     /**
      * Set FolderIds value
-     * @param \Ews\ArrayType\EwsArrayOfFolderIdType $folderIds
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfFolderIdType $folderIds
+     * @return \StructType\EwsPersonaType
      */
-    public function setFolderIds(\Ews\ArrayType\EwsArrayOfFolderIdType $folderIds = null)
+    public function setFolderIds(?\ArrayType\EwsArrayOfFolderIdType $folderIds = null): self
     {
         $this->FolderIds = $folderIds;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfPersonaAttributionsType|null
+     * @return \ArrayType\EwsArrayOfPersonaAttributionsType|null
      */
-    public function getAttributions()
+    public function getAttributions(): ?\ArrayType\EwsArrayOfPersonaAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPersonaAttributionsType $attributions
+     * @return \StructType\EwsPersonaType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfPersonaAttributionsType $attributions = null)
+    public function setAttributions(?\ArrayType\EwsArrayOfPersonaAttributionsType $attributions = null): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
     /**
      * Get DisplayNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getDisplayNames()
+    public function getDisplayNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->DisplayNames;
     }
     /**
      * Set DisplayNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $displayNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames = null)
+    public function setDisplayNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $displayNames = null): self
     {
         $this->DisplayNames = $displayNames;
+        
         return $this;
     }
     /**
      * Get FileAses value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getFileAses()
+    public function getFileAses(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->FileAses;
     }
     /**
      * Set FileAses value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $fileAses
+     * @return \StructType\EwsPersonaType
      */
-    public function setFileAses(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses = null)
+    public function setFileAses(?\ArrayType\EwsArrayOfStringAttributedValuesType $fileAses = null): self
     {
         $this->FileAses = $fileAses;
+        
         return $this;
     }
     /**
      * Get FileAsIds value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getFileAsIds()
+    public function getFileAsIds(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->FileAsIds;
     }
     /**
      * Set FileAsIds value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds
+     * @return \StructType\EwsPersonaType
      */
-    public function setFileAsIds(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds = null)
+    public function setFileAsIds(?\ArrayType\EwsArrayOfStringAttributedValuesType $fileAsIds = null): self
     {
         $this->FileAsIds = $fileAsIds;
+        
         return $this;
     }
     /**
      * Get DisplayNamePrefixes value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getDisplayNamePrefixes()
+    public function getDisplayNamePrefixes(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->DisplayNamePrefixes;
     }
     /**
      * Set DisplayNamePrefixes value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes
+     * @return \StructType\EwsPersonaType
      */
-    public function setDisplayNamePrefixes(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes = null)
+    public function setDisplayNamePrefixes(?\ArrayType\EwsArrayOfStringAttributedValuesType $displayNamePrefixes = null): self
     {
         $this->DisplayNamePrefixes = $displayNamePrefixes;
+        
         return $this;
     }
     /**
      * Get GivenNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getGivenNames()
+    public function getGivenNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->GivenNames;
     }
     /**
      * Set GivenNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $givenNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setGivenNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames = null)
+    public function setGivenNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $givenNames = null): self
     {
         $this->GivenNames = $givenNames;
+        
         return $this;
     }
     /**
      * Get MiddleNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getMiddleNames()
+    public function getMiddleNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->MiddleNames;
     }
     /**
      * Set MiddleNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $middleNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setMiddleNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames = null)
+    public function setMiddleNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $middleNames = null): self
     {
         $this->MiddleNames = $middleNames;
+        
         return $this;
     }
     /**
      * Get Surnames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getSurnames()
+    public function getSurnames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Surnames;
     }
     /**
      * Set Surnames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $surnames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $surnames
+     * @return \StructType\EwsPersonaType
      */
-    public function setSurnames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $surnames = null)
+    public function setSurnames(?\ArrayType\EwsArrayOfStringAttributedValuesType $surnames = null): self
     {
         $this->Surnames = $surnames;
+        
         return $this;
     }
     /**
      * Get Generations value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getGenerations()
+    public function getGenerations(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Generations;
     }
     /**
      * Set Generations value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $generations
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $generations
+     * @return \StructType\EwsPersonaType
      */
-    public function setGenerations(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $generations = null)
+    public function setGenerations(?\ArrayType\EwsArrayOfStringAttributedValuesType $generations = null): self
     {
         $this->Generations = $generations;
+        
         return $this;
     }
     /**
      * Get Nicknames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getNicknames()
+    public function getNicknames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Nicknames;
     }
     /**
      * Set Nicknames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $nicknames
+     * @return \StructType\EwsPersonaType
      */
-    public function setNicknames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames = null)
+    public function setNicknames(?\ArrayType\EwsArrayOfStringAttributedValuesType $nicknames = null): self
     {
         $this->Nicknames = $nicknames;
+        
         return $this;
     }
     /**
      * Get Initials value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getInitials()
+    public function getInitials(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Initials;
     }
     /**
      * Set Initials value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $initials
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $initials
+     * @return \StructType\EwsPersonaType
      */
-    public function setInitials(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $initials = null)
+    public function setInitials(?\ArrayType\EwsArrayOfStringAttributedValuesType $initials = null): self
     {
         $this->Initials = $initials;
+        
         return $this;
     }
     /**
      * Get YomiCompanyNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getYomiCompanyNames()
+    public function getYomiCompanyNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->YomiCompanyNames;
     }
     /**
      * Set YomiCompanyNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiCompanyNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames = null)
+    public function setYomiCompanyNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiCompanyNames = null): self
     {
         $this->YomiCompanyNames = $yomiCompanyNames;
+        
         return $this;
     }
     /**
      * Get YomiFirstNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getYomiFirstNames()
+    public function getYomiFirstNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->YomiFirstNames;
     }
     /**
      * Set YomiFirstNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiFirstNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames = null)
+    public function setYomiFirstNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiFirstNames = null): self
     {
         $this->YomiFirstNames = $yomiFirstNames;
+        
         return $this;
     }
     /**
      * Get YomiLastNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getYomiLastNames()
+    public function getYomiLastNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->YomiLastNames;
     }
     /**
      * Set YomiLastNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setYomiLastNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames = null)
+    public function setYomiLastNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $yomiLastNames = null): self
     {
         $this->YomiLastNames = $yomiLastNames;
+        
         return $this;
     }
     /**
      * Get BusinessPhoneNumbers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getBusinessPhoneNumbers()
+    public function getBusinessPhoneNumbers(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->BusinessPhoneNumbers;
     }
     /**
      * Set BusinessPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers
+     * @return \StructType\EwsPersonaType
      */
-    public function setBusinessPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null)
+    public function setBusinessPhoneNumbers(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers = null): self
     {
         $this->BusinessPhoneNumbers = $businessPhoneNumbers;
+        
         return $this;
     }
     /**
      * Get BusinessPhoneNumbers2 value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getBusinessPhoneNumbers2()
+    public function getBusinessPhoneNumbers2(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->BusinessPhoneNumbers2;
     }
     /**
      * Set BusinessPhoneNumbers2 value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2
+     * @return \StructType\EwsPersonaType
      */
-    public function setBusinessPhoneNumbers2(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null)
+    public function setBusinessPhoneNumbers2(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $businessPhoneNumbers2 = null): self
     {
         $this->BusinessPhoneNumbers2 = $businessPhoneNumbers2;
+        
         return $this;
     }
     /**
      * Get HomePhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getHomePhones()
+    public function getHomePhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->HomePhones;
     }
     /**
      * Set HomePhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomePhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones = null)
+    public function setHomePhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones = null): self
     {
         $this->HomePhones = $homePhones;
+        
         return $this;
     }
     /**
      * Get HomePhones2 value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getHomePhones2()
+    public function getHomePhones2(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->HomePhones2;
     }
     /**
      * Set HomePhones2 value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomePhones2(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2 = null)
+    public function setHomePhones2(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homePhones2 = null): self
     {
         $this->HomePhones2 = $homePhones2;
+        
         return $this;
     }
     /**
      * Get MobilePhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getMobilePhones()
+    public function getMobilePhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->MobilePhones;
     }
     /**
      * Set MobilePhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setMobilePhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones = null)
+    public function setMobilePhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones = null): self
     {
         $this->MobilePhones = $mobilePhones;
+        
         return $this;
     }
     /**
      * Get MobilePhones2 value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getMobilePhones2()
+    public function getMobilePhones2(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->MobilePhones2;
     }
     /**
      * Set MobilePhones2 value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2
+     * @return \StructType\EwsPersonaType
      */
-    public function setMobilePhones2(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2 = null)
+    public function setMobilePhones2(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $mobilePhones2 = null): self
     {
         $this->MobilePhones2 = $mobilePhones2;
+        
         return $this;
     }
     /**
      * Get AssistantPhoneNumbers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getAssistantPhoneNumbers()
+    public function getAssistantPhoneNumbers(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->AssistantPhoneNumbers;
     }
     /**
      * Set AssistantPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers
+     * @return \StructType\EwsPersonaType
      */
-    public function setAssistantPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null)
+    public function setAssistantPhoneNumbers(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $assistantPhoneNumbers = null): self
     {
         $this->AssistantPhoneNumbers = $assistantPhoneNumbers;
+        
         return $this;
     }
     /**
      * Get CallbackPhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getCallbackPhones()
+    public function getCallbackPhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->CallbackPhones;
     }
     /**
      * Set CallbackPhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setCallbackPhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones = null)
+    public function setCallbackPhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $callbackPhones = null): self
     {
         $this->CallbackPhones = $callbackPhones;
+        
         return $this;
     }
     /**
      * Get CarPhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getCarPhones()
+    public function getCarPhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->CarPhones;
     }
     /**
      * Set CarPhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setCarPhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones = null)
+    public function setCarPhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $carPhones = null): self
     {
         $this->CarPhones = $carPhones;
+        
         return $this;
     }
     /**
      * Get HomeFaxes value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getHomeFaxes()
+    public function getHomeFaxes(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->HomeFaxes;
     }
     /**
      * Set HomeFaxes value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomeFaxes(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes = null)
+    public function setHomeFaxes(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $homeFaxes = null): self
     {
         $this->HomeFaxes = $homeFaxes;
+        
         return $this;
     }
     /**
      * Get OrganizationMainPhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getOrganizationMainPhones()
+    public function getOrganizationMainPhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->OrganizationMainPhones;
     }
     /**
      * Set OrganizationMainPhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setOrganizationMainPhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null)
+    public function setOrganizationMainPhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $organizationMainPhones = null): self
     {
         $this->OrganizationMainPhones = $organizationMainPhones;
+        
         return $this;
     }
     /**
      * Get OtherFaxes value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getOtherFaxes()
+    public function getOtherFaxes(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->OtherFaxes;
     }
     /**
      * Set OtherFaxes value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes
+     * @return \StructType\EwsPersonaType
      */
-    public function setOtherFaxes(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes = null)
+    public function setOtherFaxes(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherFaxes = null): self
     {
         $this->OtherFaxes = $otherFaxes;
+        
         return $this;
     }
     /**
      * Get OtherTelephones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getOtherTelephones()
+    public function getOtherTelephones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->OtherTelephones;
     }
     /**
      * Set OtherTelephones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones
+     * @return \StructType\EwsPersonaType
      */
-    public function setOtherTelephones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones = null)
+    public function setOtherTelephones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherTelephones = null): self
     {
         $this->OtherTelephones = $otherTelephones;
+        
         return $this;
     }
     /**
      * Get OtherPhones2 value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getOtherPhones2()
+    public function getOtherPhones2(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->OtherPhones2;
     }
     /**
      * Set OtherPhones2 value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2
+     * @return \StructType\EwsPersonaType
      */
-    public function setOtherPhones2(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2 = null)
+    public function setOtherPhones2(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $otherPhones2 = null): self
     {
         $this->OtherPhones2 = $otherPhones2;
+        
         return $this;
     }
     /**
      * Get Pagers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getPagers()
+    public function getPagers(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->Pagers;
     }
     /**
      * Set Pagers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers
+     * @return \StructType\EwsPersonaType
      */
-    public function setPagers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers = null)
+    public function setPagers(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $pagers = null): self
     {
         $this->Pagers = $pagers;
+        
         return $this;
     }
     /**
      * Get RadioPhones value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getRadioPhones()
+    public function getRadioPhones(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->RadioPhones;
     }
     /**
      * Set RadioPhones value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones
+     * @return \StructType\EwsPersonaType
      */
-    public function setRadioPhones(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones = null)
+    public function setRadioPhones(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $radioPhones = null): self
     {
         $this->RadioPhones = $radioPhones;
+        
         return $this;
     }
     /**
      * Get TelexNumbers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getTelexNumbers()
+    public function getTelexNumbers(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->TelexNumbers;
     }
     /**
      * Set TelexNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers
+     * @return \StructType\EwsPersonaType
      */
-    public function setTelexNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers = null)
+    public function setTelexNumbers(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $telexNumbers = null): self
     {
         $this->TelexNumbers = $telexNumbers;
+        
         return $this;
     }
     /**
      * Get TTYTDDPhoneNumbers value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getTTYTDDPhoneNumbers()
+    public function getTTYTDDPhoneNumbers(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->TTYTDDPhoneNumbers;
     }
     /**
      * Set TTYTDDPhoneNumbers value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers
+     * @return \StructType\EwsPersonaType
      */
-    public function setTTYTDDPhoneNumbers(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null)
+    public function setTTYTDDPhoneNumbers(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $tTYTDDPhoneNumbers = null): self
     {
         $this->TTYTDDPhoneNumbers = $tTYTDDPhoneNumbers;
+        
         return $this;
     }
     /**
      * Get WorkFaxes value
-     * @return \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType|null
      */
-    public function getWorkFaxes()
+    public function getWorkFaxes(): ?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType
     {
         return $this->WorkFaxes;
     }
     /**
      * Set WorkFaxes value
-     * @param \Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes
+     * @return \StructType\EwsPersonaType
      */
-    public function setWorkFaxes(\Ews\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes = null)
+    public function setWorkFaxes(?\ArrayType\EwsArrayOfPhoneNumberAttributedValuesType $workFaxes = null): self
     {
         $this->WorkFaxes = $workFaxes;
+        
         return $this;
     }
     /**
      * Get Emails1 value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public function getEmails1()
+    public function getEmails1(): ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
     {
         return $this->Emails1;
     }
     /**
      * Set Emails1 value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1
+     * @return \StructType\EwsPersonaType
      */
-    public function setEmails1(\Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1 = null)
+    public function setEmails1(?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails1 = null): self
     {
         $this->Emails1 = $emails1;
+        
         return $this;
     }
     /**
      * Get Emails2 value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public function getEmails2()
+    public function getEmails2(): ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
     {
         return $this->Emails2;
     }
     /**
      * Set Emails2 value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2
+     * @return \StructType\EwsPersonaType
      */
-    public function setEmails2(\Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2 = null)
+    public function setEmails2(?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails2 = null): self
     {
         $this->Emails2 = $emails2;
+        
         return $this;
     }
     /**
      * Get Emails3 value
-     * @return \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfEmailAddressAttributedValuesType|null
      */
-    public function getEmails3()
+    public function getEmails3(): ?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType
     {
         return $this->Emails3;
     }
     /**
      * Set Emails3 value
-     * @param \Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3
+     * @return \StructType\EwsPersonaType
      */
-    public function setEmails3(\Ews\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3 = null)
+    public function setEmails3(?\ArrayType\EwsArrayOfEmailAddressAttributedValuesType $emails3 = null): self
     {
         $this->Emails3 = $emails3;
+        
         return $this;
     }
     /**
      * Get BusinessHomePages value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getBusinessHomePages()
+    public function getBusinessHomePages(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->BusinessHomePages;
     }
     /**
      * Set BusinessHomePages value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages
+     * @return \StructType\EwsPersonaType
      */
-    public function setBusinessHomePages(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages = null)
+    public function setBusinessHomePages(?\ArrayType\EwsArrayOfStringAttributedValuesType $businessHomePages = null): self
     {
         $this->BusinessHomePages = $businessHomePages;
+        
         return $this;
     }
     /**
      * Get PersonalHomePages value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getPersonalHomePages()
+    public function getPersonalHomePages(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->PersonalHomePages;
     }
     /**
      * Set PersonalHomePages value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages
+     * @return \StructType\EwsPersonaType
      */
-    public function setPersonalHomePages(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages = null)
+    public function setPersonalHomePages(?\ArrayType\EwsArrayOfStringAttributedValuesType $personalHomePages = null): self
     {
         $this->PersonalHomePages = $personalHomePages;
+        
         return $this;
     }
     /**
      * Get OfficeLocations value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getOfficeLocations()
+    public function getOfficeLocations(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->OfficeLocations;
     }
     /**
      * Set OfficeLocations value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations
+     * @return \StructType\EwsPersonaType
      */
-    public function setOfficeLocations(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations = null)
+    public function setOfficeLocations(?\ArrayType\EwsArrayOfStringAttributedValuesType $officeLocations = null): self
     {
         $this->OfficeLocations = $officeLocations;
+        
         return $this;
     }
     /**
      * Get ImAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getImAddresses()
+    public function getImAddresses(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->ImAddresses;
     }
     /**
      * Set ImAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses
+     * @return \StructType\EwsPersonaType
      */
-    public function setImAddresses(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses = null)
+    public function setImAddresses(?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses = null): self
     {
         $this->ImAddresses = $imAddresses;
+        
         return $this;
     }
     /**
      * Get ImAddresses2 value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getImAddresses2()
+    public function getImAddresses2(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->ImAddresses2;
     }
     /**
      * Set ImAddresses2 value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2
+     * @return \StructType\EwsPersonaType
      */
-    public function setImAddresses2(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2 = null)
+    public function setImAddresses2(?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses2 = null): self
     {
         $this->ImAddresses2 = $imAddresses2;
+        
         return $this;
     }
     /**
      * Get ImAddresses3 value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getImAddresses3()
+    public function getImAddresses3(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->ImAddresses3;
     }
     /**
      * Set ImAddresses3 value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3
+     * @return \StructType\EwsPersonaType
      */
-    public function setImAddresses3(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3 = null)
+    public function setImAddresses3(?\ArrayType\EwsArrayOfStringAttributedValuesType $imAddresses3 = null): self
     {
         $this->ImAddresses3 = $imAddresses3;
+        
         return $this;
     }
     /**
      * Get BusinessAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public function getBusinessAddresses()
+    public function getBusinessAddresses(): ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
     {
         return $this->BusinessAddresses;
     }
     /**
      * Set BusinessAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses
+     * @return \StructType\EwsPersonaType
      */
-    public function setBusinessAddresses(\Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null)
+    public function setBusinessAddresses(?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $businessAddresses = null): self
     {
         $this->BusinessAddresses = $businessAddresses;
+        
         return $this;
     }
     /**
      * Get HomeAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public function getHomeAddresses()
+    public function getHomeAddresses(): ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
     {
         return $this->HomeAddresses;
     }
     /**
      * Set HomeAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses
+     * @return \StructType\EwsPersonaType
      */
-    public function setHomeAddresses(\Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses = null)
+    public function setHomeAddresses(?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $homeAddresses = null): self
     {
         $this->HomeAddresses = $homeAddresses;
+        
         return $this;
     }
     /**
      * Get OtherAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfPostalAddressAttributedValuesType|null
      */
-    public function getOtherAddresses()
+    public function getOtherAddresses(): ?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
     {
         return $this->OtherAddresses;
     }
     /**
      * Set OtherAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses
+     * @return \StructType\EwsPersonaType
      */
-    public function setOtherAddresses(\Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null)
+    public function setOtherAddresses(?\ArrayType\EwsArrayOfPostalAddressAttributedValuesType $otherAddresses = null): self
     {
         $this->OtherAddresses = $otherAddresses;
+        
         return $this;
     }
     /**
      * Get Titles value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getTitles()
+    public function getTitles(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Titles;
     }
     /**
      * Set Titles value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $titles
+     * @return \StructType\EwsPersonaType
      */
-    public function setTitles(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $titles = null)
+    public function setTitles(?\ArrayType\EwsArrayOfStringAttributedValuesType $titles = null): self
     {
         $this->Titles = $titles;
+        
         return $this;
     }
     /**
      * Get Departments value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getDepartments()
+    public function getDepartments(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Departments;
     }
     /**
      * Set Departments value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $departments
+     * @return \StructType\EwsPersonaType
      */
-    public function setDepartments(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $departments = null)
+    public function setDepartments(?\ArrayType\EwsArrayOfStringAttributedValuesType $departments = null): self
     {
         $this->Departments = $departments;
+        
         return $this;
     }
     /**
      * Get CompanyNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getCompanyNames()
+    public function getCompanyNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->CompanyNames;
     }
     /**
      * Set CompanyNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $companyNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setCompanyNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames = null)
+    public function setCompanyNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $companyNames = null): self
     {
         $this->CompanyNames = $companyNames;
+        
         return $this;
     }
     /**
      * Get Managers value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getManagers()
+    public function getManagers(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Managers;
     }
     /**
      * Set Managers value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $managers
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $managers
+     * @return \StructType\EwsPersonaType
      */
-    public function setManagers(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $managers = null)
+    public function setManagers(?\ArrayType\EwsArrayOfStringAttributedValuesType $managers = null): self
     {
         $this->Managers = $managers;
+        
         return $this;
     }
     /**
      * Get AssistantNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getAssistantNames()
+    public function getAssistantNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->AssistantNames;
     }
     /**
      * Set AssistantNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setAssistantNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames = null)
+    public function setAssistantNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $assistantNames = null): self
     {
         $this->AssistantNames = $assistantNames;
+        
         return $this;
     }
     /**
      * Get Professions value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getProfessions()
+    public function getProfessions(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Professions;
     }
     /**
      * Set Professions value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $professions
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $professions
+     * @return \StructType\EwsPersonaType
      */
-    public function setProfessions(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $professions = null)
+    public function setProfessions(?\ArrayType\EwsArrayOfStringAttributedValuesType $professions = null): self
     {
         $this->Professions = $professions;
+        
         return $this;
     }
     /**
      * Get SpouseNames value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getSpouseNames()
+    public function getSpouseNames(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->SpouseNames;
     }
     /**
      * Set SpouseNames value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames
+     * @return \StructType\EwsPersonaType
      */
-    public function setSpouseNames(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames = null)
+    public function setSpouseNames(?\ArrayType\EwsArrayOfStringAttributedValuesType $spouseNames = null): self
     {
         $this->SpouseNames = $spouseNames;
+        
         return $this;
     }
     /**
      * Get Children value
-     * @return \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringArrayAttributedValuesType|null
      */
-    public function getChildren()
+    public function getChildren(): ?\ArrayType\EwsArrayOfStringArrayAttributedValuesType
     {
         return $this->Children;
     }
     /**
      * Set Children value
-     * @param \Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringArrayAttributedValuesType $children
+     * @return \StructType\EwsPersonaType
      */
-    public function setChildren(\Ews\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children = null)
+    public function setChildren(?\ArrayType\EwsArrayOfStringArrayAttributedValuesType $children = null): self
     {
         $this->Children = $children;
+        
         return $this;
     }
     /**
      * Get Schools value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getSchools()
+    public function getSchools(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Schools;
     }
     /**
      * Set Schools value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $schools
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $schools
+     * @return \StructType\EwsPersonaType
      */
-    public function setSchools(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $schools = null)
+    public function setSchools(?\ArrayType\EwsArrayOfStringAttributedValuesType $schools = null): self
     {
         $this->Schools = $schools;
+        
         return $this;
     }
     /**
      * Get Hobbies value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getHobbies()
+    public function getHobbies(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Hobbies;
     }
     /**
      * Set Hobbies value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $hobbies
+     * @return \StructType\EwsPersonaType
      */
-    public function setHobbies(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies = null)
+    public function setHobbies(?\ArrayType\EwsArrayOfStringAttributedValuesType $hobbies = null): self
     {
         $this->Hobbies = $hobbies;
+        
         return $this;
     }
     /**
      * Get WeddingAnniversaries value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getWeddingAnniversaries()
+    public function getWeddingAnniversaries(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->WeddingAnniversaries;
     }
     /**
      * Set WeddingAnniversaries value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries
+     * @return \StructType\EwsPersonaType
      */
-    public function setWeddingAnniversaries(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries = null)
+    public function setWeddingAnniversaries(?\ArrayType\EwsArrayOfStringAttributedValuesType $weddingAnniversaries = null): self
     {
         $this->WeddingAnniversaries = $weddingAnniversaries;
+        
         return $this;
     }
     /**
      * Get Birthdays value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getBirthdays()
+    public function getBirthdays(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Birthdays;
     }
     /**
      * Set Birthdays value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $birthdays
+     * @return \StructType\EwsPersonaType
      */
-    public function setBirthdays(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays = null)
+    public function setBirthdays(?\ArrayType\EwsArrayOfStringAttributedValuesType $birthdays = null): self
     {
         $this->Birthdays = $birthdays;
+        
         return $this;
     }
     /**
      * Get Locations value
-     * @return \Ews\ArrayType\EwsArrayOfStringAttributedValuesType|null
+     * @return \ArrayType\EwsArrayOfStringAttributedValuesType|null
      */
-    public function getLocations()
+    public function getLocations(): ?\ArrayType\EwsArrayOfStringAttributedValuesType
     {
         return $this->Locations;
     }
     /**
      * Set Locations value
-     * @param \Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfStringAttributedValuesType $locations
+     * @return \StructType\EwsPersonaType
      */
-    public function setLocations(\Ews\ArrayType\EwsArrayOfStringAttributedValuesType $locations = null)
+    public function setLocations(?\ArrayType\EwsArrayOfStringAttributedValuesType $locations = null): self
     {
         $this->Locations = $locations;
+        
         return $this;
     }
     /**
      * Get ExtendedProperties value
-     * @return \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType|null
+     * @return \ArrayType\EwsArrayOfExtendedPropertyAttributedValueType|null
      */
-    public function getExtendedProperties()
+    public function getExtendedProperties(): ?\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType
     {
         return $this->ExtendedProperties;
     }
     /**
      * Set ExtendedProperties value
-     * @param \Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
-     * @return \Ews\StructType\EwsPersonaType
+     * @param \ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties
+     * @return \StructType\EwsPersonaType
      */
-    public function setExtendedProperties(\Ews\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null)
+    public function setExtendedProperties(?\ArrayType\EwsArrayOfExtendedPropertyAttributedValueType $extendedProperties = null): self
     {
         $this->ExtendedProperties = $extendedProperties;
+        
         return $this;
     }
 }

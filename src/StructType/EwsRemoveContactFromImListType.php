@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RemoveContactFromImListType StructType
@@ -14,35 +17,36 @@ class EwsRemoveContactFromImListType extends EwsBaseRequestType
 {
     /**
      * The ContactId
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ContactId;
+    protected ?\StructType\EwsItemIdType $ContactId = null;
     /**
      * Constructor method for RemoveContactFromImListType
      * @uses EwsRemoveContactFromImListType::setContactId()
-     * @param \Ews\StructType\EwsItemIdType $contactId
+     * @param \StructType\EwsItemIdType $contactId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $contactId = null)
+    public function __construct(?\StructType\EwsItemIdType $contactId = null)
     {
         $this
             ->setContactId($contactId);
     }
     /**
      * Get ContactId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getContactId()
+    public function getContactId(): ?\StructType\EwsItemIdType
     {
         return $this->ContactId;
     }
     /**
      * Set ContactId value
-     * @param \Ews\StructType\EwsItemIdType $contactId
-     * @return \Ews\StructType\EwsRemoveContactFromImListType
+     * @param \StructType\EwsItemIdType $contactId
+     * @return \StructType\EwsRemoveContactFromImListType
      */
-    public function setContactId(\Ews\StructType\EwsItemIdType $contactId = null)
+    public function setContactId(?\StructType\EwsItemIdType $contactId = null): self
     {
         $this->ContactId = $contactId;
+        
         return $this;
     }
 }

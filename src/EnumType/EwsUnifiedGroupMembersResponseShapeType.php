@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UnifiedGroupMembersResponseShapeType EnumType
@@ -28,11 +30,11 @@ class EwsUnifiedGroupMembersResponseShapeType extends AbstractStructEnumBase
      * @uses self::VALUE_OWNERS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_MEMBERS,
             self::VALUE_OWNERS,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetStreamingEventsType StructType
@@ -14,26 +17,26 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
 {
     /**
      * The SubscriptionIds
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
      */
-    public $SubscriptionIds;
+    protected ?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $SubscriptionIds = null;
     /**
      * The ConnectionTimeout
      * Meta information extracted from the WSDL
      * - base: xs:int
      * - maxInclusive: 30
      * - minInclusive: 1
-     * @var int
+     * @var int|null
      */
-    public $ConnectionTimeout;
+    protected ?int $ConnectionTimeout = null;
     /**
      * Constructor method for GetStreamingEventsType
      * @uses EwsGetStreamingEventsType::setSubscriptionIds()
      * @uses EwsGetStreamingEventsType::setConnectionTimeout()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds
+     * @param \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds
      * @param int $connectionTimeout
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds = null, $connectionTimeout = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds = null, ?int $connectionTimeout = null)
     {
         $this
             ->setSubscriptionIds($subscriptionIds)
@@ -41,50 +44,52 @@ class EwsGetStreamingEventsType extends EwsBaseRequestType
     }
     /**
      * Get SubscriptionIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
      */
-    public function getSubscriptionIds()
+    public function getSubscriptionIds(): ?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
     {
         return $this->SubscriptionIds;
     }
     /**
      * Set SubscriptionIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds
-     * @return \Ews\StructType\EwsGetStreamingEventsType
+     * @param \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds
+     * @return \StructType\EwsGetStreamingEventsType
      */
-    public function setSubscriptionIds(\Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds = null)
+    public function setSubscriptionIds(?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $subscriptionIds = null): self
     {
         $this->SubscriptionIds = $subscriptionIds;
+        
         return $this;
     }
     /**
      * Get ConnectionTimeout value
      * @return int|null
      */
-    public function getConnectionTimeout()
+    public function getConnectionTimeout(): ?int
     {
         return $this->ConnectionTimeout;
     }
     /**
      * Set ConnectionTimeout value
      * @param int $connectionTimeout
-     * @return \Ews\StructType\EwsGetStreamingEventsType
+     * @return \StructType\EwsGetStreamingEventsType
      */
-    public function setConnectionTimeout($connectionTimeout = null)
+    public function setConnectionTimeout(?int $connectionTimeout = null): self
     {
         // validation for constraint: int
         if (!is_null($connectionTimeout) && !(is_int($connectionTimeout) || ctype_digit($connectionTimeout))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($connectionTimeout, true), gettype($connectionTimeout)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($connectionTimeout, true), gettype($connectionTimeout)), __LINE__);
         }
         // validation for constraint: maxInclusive(30)
         if (!is_null($connectionTimeout) && $connectionTimeout > 30) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 30', var_export($connectionTimeout, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically less than or equal to 30', var_export($connectionTimeout, true)), __LINE__);
         }
         // validation for constraint: minInclusive(1)
         if (!is_null($connectionTimeout) && $connectionTimeout < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($connectionTimeout, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, the value must be numerically greater than or equal to 1', var_export($connectionTimeout, true)), __LINE__);
         }
         $this->ConnectionTimeout = $connectionTimeout;
+        
         return $this;
     }
 }

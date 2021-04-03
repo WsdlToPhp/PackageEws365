@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetRemindersResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetRemindersResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfRemindersType
+     * @var \ArrayType\EwsArrayOfRemindersType
      */
-    public $Reminders;
+    protected \ArrayType\EwsArrayOfRemindersType $Reminders;
     /**
      * Constructor method for GetRemindersResponseMessageType
      * @uses EwsGetRemindersResponseMessageType::setReminders()
-     * @param \Ews\ArrayType\EwsArrayOfRemindersType $reminders
+     * @param \ArrayType\EwsArrayOfRemindersType $reminders
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfRemindersType $reminders = null)
+    public function __construct(\ArrayType\EwsArrayOfRemindersType $reminders)
     {
         $this
             ->setReminders($reminders);
     }
     /**
      * Get Reminders value
-     * @return \Ews\ArrayType\EwsArrayOfRemindersType
+     * @return \ArrayType\EwsArrayOfRemindersType
      */
-    public function getReminders()
+    public function getReminders(): \ArrayType\EwsArrayOfRemindersType
     {
         return $this->Reminders;
     }
     /**
      * Set Reminders value
-     * @param \Ews\ArrayType\EwsArrayOfRemindersType $reminders
-     * @return \Ews\StructType\EwsGetRemindersResponseMessageType
+     * @param \ArrayType\EwsArrayOfRemindersType $reminders
+     * @return \StructType\EwsGetRemindersResponseMessageType
      */
-    public function setReminders(\Ews\ArrayType\EwsArrayOfRemindersType $reminders = null)
+    public function setReminders(\ArrayType\EwsArrayOfRemindersType $reminders): self
     {
         $this->Reminders = $reminders;
+        
         return $this;
     }
 }

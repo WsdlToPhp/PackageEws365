@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for RetentionActionType EnumType
@@ -58,9 +60,9 @@ class EwsRetentionActionType extends AbstractStructEnumBase
      * @uses self::VALUE_MOVE_TO_ARCHIVE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_MOVE_TO_DELETED_ITEMS,
             self::VALUE_MOVE_TO_FOLDER,
@@ -68,6 +70,6 @@ class EwsRetentionActionType extends AbstractStructEnumBase
             self::VALUE_PERMANENTLY_DELETE,
             self::VALUE_MARK_AS_PAST_RETENTION_LIMIT,
             self::VALUE_MOVE_TO_ARCHIVE,
-        );
+        ];
     }
 }

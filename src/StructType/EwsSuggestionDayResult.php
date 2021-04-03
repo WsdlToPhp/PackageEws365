@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SuggestionDayResult StructType
@@ -19,7 +22,7 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Date;
+    protected string $Date;
     /**
      * The DayQuality
      * Meta information extracted from the WSDL
@@ -27,15 +30,15 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DayQuality;
+    protected string $DayQuality;
     /**
      * The SuggestionArray
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSuggestion
+     * @var \ArrayType\EwsArrayOfSuggestion|null
      */
-    public $SuggestionArray;
+    protected ?\ArrayType\EwsArrayOfSuggestion $SuggestionArray = null;
     /**
      * Constructor method for SuggestionDayResult
      * @uses EwsSuggestionDayResult::setDate()
@@ -43,9 +46,9 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * @uses EwsSuggestionDayResult::setSuggestionArray()
      * @param string $date
      * @param string $dayQuality
-     * @param \Ews\ArrayType\EwsArrayOfSuggestion $suggestionArray
+     * @param \ArrayType\EwsArrayOfSuggestion $suggestionArray
      */
-    public function __construct($date = null, $dayQuality = null, \Ews\ArrayType\EwsArrayOfSuggestion $suggestionArray = null)
+    public function __construct(string $date, string $dayQuality, ?\ArrayType\EwsArrayOfSuggestion $suggestionArray = null)
     {
         $this
             ->setDate($date)
@@ -56,65 +59,68 @@ class EwsSuggestionDayResult extends AbstractStructBase
      * Get Date value
      * @return string
      */
-    public function getDate()
+    public function getDate(): string
     {
         return $this->Date;
     }
     /**
      * Set Date value
      * @param string $date
-     * @return \Ews\StructType\EwsSuggestionDayResult
+     * @return \StructType\EwsSuggestionDayResult
      */
-    public function setDate($date = null)
+    public function setDate(string $date): self
     {
         // validation for constraint: string
         if (!is_null($date) && !is_string($date)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($date, true), gettype($date)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($date, true), gettype($date)), __LINE__);
         }
         $this->Date = $date;
+        
         return $this;
     }
     /**
      * Get DayQuality value
      * @return string
      */
-    public function getDayQuality()
+    public function getDayQuality(): string
     {
         return $this->DayQuality;
     }
     /**
      * Set DayQuality value
-     * @uses \Ews\EnumType\EwsSuggestionQuality::valueIsValid()
-     * @uses \Ews\EnumType\EwsSuggestionQuality::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSuggestionQuality::valueIsValid()
+     * @uses \EnumType\EwsSuggestionQuality::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $dayQuality
-     * @return \Ews\StructType\EwsSuggestionDayResult
+     * @return \StructType\EwsSuggestionDayResult
      */
-    public function setDayQuality($dayQuality = null)
+    public function setDayQuality(string $dayQuality): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSuggestionQuality::valueIsValid($dayQuality)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSuggestionQuality', is_array($dayQuality) ? implode(', ', $dayQuality) : var_export($dayQuality, true), implode(', ', \Ews\EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSuggestionQuality::valueIsValid($dayQuality)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSuggestionQuality', is_array($dayQuality) ? implode(', ', $dayQuality) : var_export($dayQuality, true), implode(', ', \EnumType\EwsSuggestionQuality::getValidValues())), __LINE__);
         }
         $this->DayQuality = $dayQuality;
+        
         return $this;
     }
     /**
      * Get SuggestionArray value
-     * @return \Ews\ArrayType\EwsArrayOfSuggestion|null
+     * @return \ArrayType\EwsArrayOfSuggestion|null
      */
-    public function getSuggestionArray()
+    public function getSuggestionArray(): ?\ArrayType\EwsArrayOfSuggestion
     {
         return $this->SuggestionArray;
     }
     /**
      * Set SuggestionArray value
-     * @param \Ews\ArrayType\EwsArrayOfSuggestion $suggestionArray
-     * @return \Ews\StructType\EwsSuggestionDayResult
+     * @param \ArrayType\EwsArrayOfSuggestion $suggestionArray
+     * @return \StructType\EwsSuggestionDayResult
      */
-    public function setSuggestionArray(\Ews\ArrayType\EwsArrayOfSuggestion $suggestionArray = null)
+    public function setSuggestionArray(?\ArrayType\EwsArrayOfSuggestion $suggestionArray = null): self
     {
         $this->SuggestionArray = $suggestionArray;
+        
         return $this;
     }
 }

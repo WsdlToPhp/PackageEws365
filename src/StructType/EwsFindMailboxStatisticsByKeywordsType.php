@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindMailboxStatisticsByKeywordsType StructType
@@ -18,79 +21,79 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * The Mailboxes
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfUserMailboxesType
+     * @var \ArrayType\EwsArrayOfUserMailboxesType
      */
-    public $Mailboxes;
+    protected \ArrayType\EwsArrayOfUserMailboxesType $Mailboxes;
     /**
      * The Keywords
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType
      */
-    public $Keywords;
+    protected \ArrayType\EwsArrayOfStringsType $Keywords;
     /**
      * The Language
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Language;
+    protected ?string $Language = null;
     /**
      * The Senders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $Senders;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $Senders = null;
     /**
      * The Recipients
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @var \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public $Recipients;
+    protected ?\ArrayType\EwsArrayOfSmtpAddressType $Recipients = null;
     /**
      * The FromDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FromDate;
+    protected ?string $FromDate = null;
     /**
      * The ToDate
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ToDate;
+    protected ?string $ToDate = null;
     /**
      * The MessageTypes
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfSearchItemKindsType
+     * @var \ArrayType\EwsArrayOfSearchItemKindsType|null
      */
-    public $MessageTypes;
+    protected ?\ArrayType\EwsArrayOfSearchItemKindsType $MessageTypes = null;
     /**
      * The SearchDumpster
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SearchDumpster;
+    protected ?bool $SearchDumpster = null;
     /**
      * The IncludePersonalArchive
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IncludePersonalArchive;
+    protected ?bool $IncludePersonalArchive = null;
     /**
      * The IncludeUnsearchableItems
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IncludeUnsearchableItems;
+    protected ?bool $IncludeUnsearchableItems = null;
     /**
      * Constructor method for FindMailboxStatisticsByKeywordsType
      * @uses EwsFindMailboxStatisticsByKeywordsType::setMailboxes()
@@ -104,19 +107,19 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
      * @uses EwsFindMailboxStatisticsByKeywordsType::setSearchDumpster()
      * @uses EwsFindMailboxStatisticsByKeywordsType::setIncludePersonalArchive()
      * @uses EwsFindMailboxStatisticsByKeywordsType::setIncludeUnsearchableItems()
-     * @param \Ews\ArrayType\EwsArrayOfUserMailboxesType $mailboxes
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $keywords
+     * @param \ArrayType\EwsArrayOfUserMailboxesType $mailboxes
+     * @param \ArrayType\EwsArrayOfStringsType $keywords
      * @param string $language
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $senders
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $senders
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $recipients
      * @param string $fromDate
      * @param string $toDate
-     * @param \Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes
+     * @param \ArrayType\EwsArrayOfSearchItemKindsType $messageTypes
      * @param bool $searchDumpster
      * @param bool $includePersonalArchive
      * @param bool $includeUnsearchableItems
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfUserMailboxesType $mailboxes = null, \Ews\ArrayType\EwsArrayOfStringsType $keywords = null, $language = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $senders = null, \Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients = null, $fromDate = null, $toDate = null, \Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes = null, $searchDumpster = null, $includePersonalArchive = null, $includeUnsearchableItems = null)
+    public function __construct(\ArrayType\EwsArrayOfUserMailboxesType $mailboxes, \ArrayType\EwsArrayOfStringsType $keywords, ?string $language = null, ?\ArrayType\EwsArrayOfSmtpAddressType $senders = null, ?\ArrayType\EwsArrayOfSmtpAddressType $recipients = null, ?string $fromDate = null, ?string $toDate = null, ?\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes = null, ?bool $searchDumpster = null, ?bool $includePersonalArchive = null, ?bool $includeUnsearchableItems = null)
     {
         $this
             ->setMailboxes($mailboxes)
@@ -133,224 +136,235 @@ class EwsFindMailboxStatisticsByKeywordsType extends EwsBaseRequestType
     }
     /**
      * Get Mailboxes value
-     * @return \Ews\ArrayType\EwsArrayOfUserMailboxesType
+     * @return \ArrayType\EwsArrayOfUserMailboxesType
      */
-    public function getMailboxes()
+    public function getMailboxes(): \ArrayType\EwsArrayOfUserMailboxesType
     {
         return $this->Mailboxes;
     }
     /**
      * Set Mailboxes value
-     * @param \Ews\ArrayType\EwsArrayOfUserMailboxesType $mailboxes
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @param \ArrayType\EwsArrayOfUserMailboxesType $mailboxes
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setMailboxes(\Ews\ArrayType\EwsArrayOfUserMailboxesType $mailboxes = null)
+    public function setMailboxes(\ArrayType\EwsArrayOfUserMailboxesType $mailboxes): self
     {
         $this->Mailboxes = $mailboxes;
+        
         return $this;
     }
     /**
      * Get Keywords value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType
+     * @return \ArrayType\EwsArrayOfStringsType
      */
-    public function getKeywords()
+    public function getKeywords(): \ArrayType\EwsArrayOfStringsType
     {
         return $this->Keywords;
     }
     /**
      * Set Keywords value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $keywords
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @param \ArrayType\EwsArrayOfStringsType $keywords
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setKeywords(\Ews\ArrayType\EwsArrayOfStringsType $keywords = null)
+    public function setKeywords(\ArrayType\EwsArrayOfStringsType $keywords): self
     {
         $this->Keywords = $keywords;
+        
         return $this;
     }
     /**
      * Get Language value
      * @return string|null
      */
-    public function getLanguage()
+    public function getLanguage(): ?string
     {
         return $this->Language;
     }
     /**
      * Set Language value
      * @param string $language
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setLanguage($language = null)
+    public function setLanguage(?string $language = null): self
     {
         // validation for constraint: string
         if (!is_null($language) && !is_string($language)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($language, true), gettype($language)), __LINE__);
         }
         $this->Language = $language;
+        
         return $this;
     }
     /**
      * Get Senders value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getSenders()
+    public function getSenders(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->Senders;
     }
     /**
      * Set Senders value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $senders
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $senders
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setSenders(\Ews\ArrayType\EwsArrayOfSmtpAddressType $senders = null)
+    public function setSenders(?\ArrayType\EwsArrayOfSmtpAddressType $senders = null): self
     {
         $this->Senders = $senders;
+        
         return $this;
     }
     /**
      * Get Recipients value
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType|null
+     * @return \ArrayType\EwsArrayOfSmtpAddressType|null
      */
-    public function getRecipients()
+    public function getRecipients(): ?\ArrayType\EwsArrayOfSmtpAddressType
     {
         return $this->Recipients;
     }
     /**
      * Set Recipients value
-     * @param \Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @param \ArrayType\EwsArrayOfSmtpAddressType $recipients
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setRecipients(\Ews\ArrayType\EwsArrayOfSmtpAddressType $recipients = null)
+    public function setRecipients(?\ArrayType\EwsArrayOfSmtpAddressType $recipients = null): self
     {
         $this->Recipients = $recipients;
+        
         return $this;
     }
     /**
      * Get FromDate value
      * @return string|null
      */
-    public function getFromDate()
+    public function getFromDate(): ?string
     {
         return $this->FromDate;
     }
     /**
      * Set FromDate value
      * @param string $fromDate
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setFromDate($fromDate = null)
+    public function setFromDate(?string $fromDate = null): self
     {
         // validation for constraint: string
         if (!is_null($fromDate) && !is_string($fromDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromDate, true), gettype($fromDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($fromDate, true), gettype($fromDate)), __LINE__);
         }
         $this->FromDate = $fromDate;
+        
         return $this;
     }
     /**
      * Get ToDate value
      * @return string|null
      */
-    public function getToDate()
+    public function getToDate(): ?string
     {
         return $this->ToDate;
     }
     /**
      * Set ToDate value
      * @param string $toDate
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setToDate($toDate = null)
+    public function setToDate(?string $toDate = null): self
     {
         // validation for constraint: string
         if (!is_null($toDate) && !is_string($toDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toDate, true), gettype($toDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($toDate, true), gettype($toDate)), __LINE__);
         }
         $this->ToDate = $toDate;
+        
         return $this;
     }
     /**
      * Get MessageTypes value
-     * @return \Ews\ArrayType\EwsArrayOfSearchItemKindsType|null
+     * @return \ArrayType\EwsArrayOfSearchItemKindsType|null
      */
-    public function getMessageTypes()
+    public function getMessageTypes(): ?\ArrayType\EwsArrayOfSearchItemKindsType
     {
         return $this->MessageTypes;
     }
     /**
      * Set MessageTypes value
-     * @param \Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @param \ArrayType\EwsArrayOfSearchItemKindsType $messageTypes
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setMessageTypes(\Ews\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes = null)
+    public function setMessageTypes(?\ArrayType\EwsArrayOfSearchItemKindsType $messageTypes = null): self
     {
         $this->MessageTypes = $messageTypes;
+        
         return $this;
     }
     /**
      * Get SearchDumpster value
      * @return bool|null
      */
-    public function getSearchDumpster()
+    public function getSearchDumpster(): ?bool
     {
         return $this->SearchDumpster;
     }
     /**
      * Set SearchDumpster value
      * @param bool $searchDumpster
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setSearchDumpster($searchDumpster = null)
+    public function setSearchDumpster(?bool $searchDumpster = null): self
     {
         // validation for constraint: boolean
         if (!is_null($searchDumpster) && !is_bool($searchDumpster)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchDumpster, true), gettype($searchDumpster)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchDumpster, true), gettype($searchDumpster)), __LINE__);
         }
         $this->SearchDumpster = $searchDumpster;
+        
         return $this;
     }
     /**
      * Get IncludePersonalArchive value
      * @return bool|null
      */
-    public function getIncludePersonalArchive()
+    public function getIncludePersonalArchive(): ?bool
     {
         return $this->IncludePersonalArchive;
     }
     /**
      * Set IncludePersonalArchive value
      * @param bool $includePersonalArchive
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setIncludePersonalArchive($includePersonalArchive = null)
+    public function setIncludePersonalArchive(?bool $includePersonalArchive = null): self
     {
         // validation for constraint: boolean
         if (!is_null($includePersonalArchive) && !is_bool($includePersonalArchive)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includePersonalArchive, true), gettype($includePersonalArchive)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includePersonalArchive, true), gettype($includePersonalArchive)), __LINE__);
         }
         $this->IncludePersonalArchive = $includePersonalArchive;
+        
         return $this;
     }
     /**
      * Get IncludeUnsearchableItems value
      * @return bool|null
      */
-    public function getIncludeUnsearchableItems()
+    public function getIncludeUnsearchableItems(): ?bool
     {
         return $this->IncludeUnsearchableItems;
     }
     /**
      * Set IncludeUnsearchableItems value
      * @param bool $includeUnsearchableItems
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsType
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsType
      */
-    public function setIncludeUnsearchableItems($includeUnsearchableItems = null)
+    public function setIncludeUnsearchableItems(?bool $includeUnsearchableItems = null): self
     {
         // validation for constraint: boolean
         if (!is_null($includeUnsearchableItems) && !is_bool($includeUnsearchableItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeUnsearchableItems, true), gettype($includeUnsearchableItems)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($includeUnsearchableItems, true), gettype($includeUnsearchableItems)), __LINE__);
         }
         $this->IncludeUnsearchableItems = $includeUnsearchableItems;
+        
         return $this;
     }
 }

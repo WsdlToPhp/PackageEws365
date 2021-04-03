@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetUnifiedGroupUserSubscribeStateResponseMessageType
@@ -17,15 +20,15 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
      * The IsSubscribed
      * Meta information extracted from the WSDL
      * - ref: t:IsSubscribed
-     * @var bool
+     * @var bool|null
      */
-    public $IsSubscribed;
+    protected ?bool $IsSubscribed = null;
     /**
      * Constructor method for SetUnifiedGroupUserSubscribeStateResponseMessageType
      * @uses EwsSetUnifiedGroupUserSubscribeStateResponseMessageType::setIsSubscribed()
      * @param bool $isSubscribed
      */
-    public function __construct($isSubscribed = null)
+    public function __construct(?bool $isSubscribed = null)
     {
         $this
             ->setIsSubscribed($isSubscribed);
@@ -34,22 +37,23 @@ class EwsSetUnifiedGroupUserSubscribeStateResponseMessageType extends EwsRespons
      * Get IsSubscribed value
      * @return bool|null
      */
-    public function getIsSubscribed()
+    public function getIsSubscribed(): ?bool
     {
         return $this->IsSubscribed;
     }
     /**
      * Set IsSubscribed value
      * @param bool $isSubscribed
-     * @return \Ews\StructType\EwsSetUnifiedGroupUserSubscribeStateResponseMessageType
+     * @return \StructType\EwsSetUnifiedGroupUserSubscribeStateResponseMessageType
      */
-    public function setIsSubscribed($isSubscribed = null)
+    public function setIsSubscribed(?bool $isSubscribed = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isSubscribed) && !is_bool($isSubscribed)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubscribed, true), gettype($isSubscribed)), __LINE__);
         }
         $this->IsSubscribed = $isSubscribed;
+        
         return $this;
     }
 }

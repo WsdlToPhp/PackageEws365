@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for RuleFieldURIType EnumType
@@ -558,9 +560,9 @@ class EwsRuleFieldURIType extends AbstractStructEnumBase
      * @uses self::VALUE_EXCEPTIONS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_RULE_ID,
             self::VALUE_DISPLAY_NAME,
             self::VALUE_PRIORITY,
@@ -651,6 +653,6 @@ class EwsRuleFieldURIType extends AbstractStructEnumBase
             self::VALUE_IS_IN_ERROR,
             self::VALUE_CONDITIONS,
             self::VALUE_EXCEPTIONS,
-        );
+        ];
     }
 }

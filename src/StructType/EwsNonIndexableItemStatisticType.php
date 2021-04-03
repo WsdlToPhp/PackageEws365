@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonIndexableItemStatisticType StructType
@@ -21,7 +24,7 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Mailbox;
+    protected string $Mailbox;
     /**
      * The ItemCount
      * Meta information extracted from the WSDL
@@ -29,15 +32,15 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $ItemCount;
+    protected int $ItemCount;
     /**
      * The ErrorMessage
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ErrorMessage;
+    protected ?string $ErrorMessage = null;
     /**
      * Constructor method for NonIndexableItemStatisticType
      * @uses EwsNonIndexableItemStatisticType::setMailbox()
@@ -47,7 +50,7 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * @param int $itemCount
      * @param string $errorMessage
      */
-    public function __construct($mailbox = null, $itemCount = null, $errorMessage = null)
+    public function __construct(string $mailbox, int $itemCount, ?string $errorMessage = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -58,66 +61,69 @@ class EwsNonIndexableItemStatisticType extends AbstractStructBase
      * Get Mailbox value
      * @return string
      */
-    public function getMailbox()
+    public function getMailbox(): string
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
      * @param string $mailbox
-     * @return \Ews\StructType\EwsNonIndexableItemStatisticType
+     * @return \StructType\EwsNonIndexableItemStatisticType
      */
-    public function setMailbox($mailbox = null)
+    public function setMailbox(string $mailbox): self
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get ItemCount value
      * @return int
      */
-    public function getItemCount()
+    public function getItemCount(): int
     {
         return $this->ItemCount;
     }
     /**
      * Set ItemCount value
      * @param int $itemCount
-     * @return \Ews\StructType\EwsNonIndexableItemStatisticType
+     * @return \StructType\EwsNonIndexableItemStatisticType
      */
-    public function setItemCount($itemCount = null)
+    public function setItemCount(int $itemCount): self
     {
         // validation for constraint: int
         if (!is_null($itemCount) && !(is_int($itemCount) || ctype_digit($itemCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemCount, true), gettype($itemCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemCount, true), gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
+        
         return $this;
     }
     /**
      * Get ErrorMessage value
      * @return string|null
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): ?string
     {
         return $this->ErrorMessage;
     }
     /**
      * Set ErrorMessage value
      * @param string $errorMessage
-     * @return \Ews\StructType\EwsNonIndexableItemStatisticType
+     * @return \StructType\EwsNonIndexableItemStatisticType
      */
-    public function setErrorMessage($errorMessage = null)
+    public function setErrorMessage(?string $errorMessage = null): self
     {
         // validation for constraint: string
         if (!is_null($errorMessage) && !is_string($errorMessage)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($errorMessage, true), gettype($errorMessage)), __LINE__);
         }
         $this->ErrorMessage = $errorMessage;
+        
         return $this;
     }
 }

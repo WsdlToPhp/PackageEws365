@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MessageDispositionType EnumType
@@ -34,12 +36,12 @@ class EwsMessageDispositionType extends AbstractStructEnumBase
      * @uses self::VALUE_SEND_AND_SAVE_COPY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SAVE_ONLY,
             self::VALUE_SEND_ONLY,
             self::VALUE_SEND_AND_SAVE_COPY,
-        );
+        ];
     }
 }

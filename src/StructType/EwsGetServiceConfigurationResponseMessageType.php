@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetServiceConfigurationResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetServiceConfigurationResponseMessageType extends EwsResponseMessageTy
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
+     * @var \ArrayType\EwsArrayOfServiceConfigurationResponseMessageType|null
      */
-    public $ResponseMessages;
+    protected ?\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $ResponseMessages = null;
     /**
      * Constructor method for GetServiceConfigurationResponseMessageType
      * @uses EwsGetServiceConfigurationResponseMessageType::setResponseMessages()
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
+     * @param \ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null)
+    public function __construct(?\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null)
     {
         $this
             ->setResponseMessages($responseMessages);
     }
     /**
      * Get ResponseMessages value
-     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType|null
+     * @return \ArrayType\EwsArrayOfServiceConfigurationResponseMessageType|null
      */
-    public function getResponseMessages()
+    public function getResponseMessages(): ?\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
     {
         return $this->ResponseMessages;
     }
     /**
      * Set ResponseMessages value
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
-     * @return \Ews\StructType\EwsGetServiceConfigurationResponseMessageType
+     * @param \ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages
+     * @return \StructType\EwsGetServiceConfigurationResponseMessageType
      */
-    public function setResponseMessages(\Ews\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null)
+    public function setResponseMessages(?\ArrayType\EwsArrayOfServiceConfigurationResponseMessageType $responseMessages = null): self
     {
         $this->ResponseMessages = $responseMessages;
+        
         return $this;
     }
 }

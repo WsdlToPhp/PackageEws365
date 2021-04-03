@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecognitionResultType StructType
@@ -20,13 +23,13 @@ class EwsRecognitionResultType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Result;
+    protected string $Result;
     /**
      * Constructor method for RecognitionResultType
      * @uses EwsRecognitionResultType::setResult()
      * @param string $result
      */
-    public function __construct($result = null)
+    public function __construct(string $result)
     {
         $this
             ->setResult($result);
@@ -35,26 +38,27 @@ class EwsRecognitionResultType extends AbstractStructBase
      * Get Result value
      * @return string
      */
-    public function getResult()
+    public function getResult(): string
     {
         return $this->Result;
     }
     /**
      * Set Result value
      * @param string $result
-     * @return \Ews\StructType\EwsRecognitionResultType
+     * @return \StructType\EwsRecognitionResultType
      */
-    public function setResult($result = null)
+    public function setResult(string $result): self
     {
         // validation for constraint: string
         if (!is_null($result) && !is_string($result)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($result, true), gettype($result)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($result, true), gettype($result)), __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($result) && mb_strlen($result) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($result)), __LINE__);
+        if (!is_null($result) && mb_strlen((string) $result) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $result)), __LINE__);
         }
         $this->Result = $result;
+        
         return $this;
     }
 }

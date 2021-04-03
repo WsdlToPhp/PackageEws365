@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BodyType StructType
@@ -18,19 +21,19 @@ class EwsBodyType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $BodyType;
+    protected string $BodyType;
     /**
      * The _
-     * @var string
+     * @var string|null
      */
-    public $_;
+    protected ?string $_ = null;
     /**
      * The IsTruncated
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $IsTruncated;
+    protected ?bool $IsTruncated = null;
     /**
      * Constructor method for BodyType
      * @uses EwsBodyType::setBodyType()
@@ -40,7 +43,7 @@ class EwsBodyType extends AbstractStructBase
      * @param string $_
      * @param bool $isTruncated
      */
-    public function __construct($bodyType = null, $_ = null, $isTruncated = null)
+    public function __construct(string $bodyType, ?string $_ = null, ?bool $isTruncated = null)
     {
         $this
             ->setBodyType($bodyType)
@@ -51,69 +54,72 @@ class EwsBodyType extends AbstractStructBase
      * Get BodyType value
      * @return string
      */
-    public function getBodyType()
+    public function getBodyType(): string
     {
         return $this->BodyType;
     }
     /**
      * Set BodyType value
-     * @uses \Ews\EnumType\EwsBodyTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsBodyTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsBodyTypeType::valueIsValid()
+     * @uses \EnumType\EwsBodyTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $bodyType
-     * @return \Ews\StructType\EwsBodyType
+     * @return \StructType\EwsBodyType
      */
-    public function setBodyType($bodyType = null)
+    public function setBodyType(string $bodyType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsBodyTypeType::valueIsValid($bodyType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsBodyTypeType', is_array($bodyType) ? implode(', ', $bodyType) : var_export($bodyType, true), implode(', ', \Ews\EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsBodyTypeType::valueIsValid($bodyType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsBodyTypeType', is_array($bodyType) ? implode(', ', $bodyType) : var_export($bodyType, true), implode(', ', \EnumType\EwsBodyTypeType::getValidValues())), __LINE__);
         }
         $this->BodyType = $bodyType;
+        
         return $this;
     }
     /**
      * Get _ value
      * @return string|null
      */
-    public function get_()
+    public function get_(): ?string
     {
         return $this->_;
     }
     /**
      * Set _ value
      * @param string $_
-     * @return \Ews\StructType\EwsBodyType
+     * @return \StructType\EwsBodyType
      */
-    public function set_($_ = null)
+    public function set_(?string $_ = null): self
     {
         // validation for constraint: string
         if (!is_null($_) && !is_string($_)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($_, true), gettype($_)), __LINE__);
         }
         $this->_ = $_;
+        
         return $this;
     }
     /**
      * Get IsTruncated value
      * @return bool|null
      */
-    public function getIsTruncated()
+    public function getIsTruncated(): ?bool
     {
         return $this->IsTruncated;
     }
     /**
      * Set IsTruncated value
      * @param bool $isTruncated
-     * @return \Ews\StructType\EwsBodyType
+     * @return \StructType\EwsBodyType
      */
-    public function setIsTruncated($isTruncated = null)
+    public function setIsTruncated(?bool $isTruncated = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isTruncated) && !is_bool($isTruncated)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTruncated, true), gettype($isTruncated)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isTruncated, true), gettype($isTruncated)), __LINE__);
         }
         $this->IsTruncated = $isTruncated;
+        
         return $this;
     }
 }

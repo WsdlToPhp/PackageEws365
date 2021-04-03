@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AlternatePublicFolderIdType StructType
@@ -20,13 +23,13 @@ class EwsAlternatePublicFolderIdType extends EwsAlternateIdBaseType
      * - use: required
      * @var string
      */
-    public $FolderId;
+    protected string $FolderId;
     /**
      * Constructor method for AlternatePublicFolderIdType
      * @uses EwsAlternatePublicFolderIdType::setFolderId()
      * @param string $folderId
      */
-    public function __construct($folderId = null)
+    public function __construct(string $folderId)
     {
         $this
             ->setFolderId($folderId);
@@ -35,22 +38,23 @@ class EwsAlternatePublicFolderIdType extends EwsAlternateIdBaseType
      * Get FolderId value
      * @return string
      */
-    public function getFolderId()
+    public function getFolderId(): string
     {
         return $this->FolderId;
     }
     /**
      * Set FolderId value
      * @param string $folderId
-     * @return \Ews\StructType\EwsAlternatePublicFolderIdType
+     * @return \StructType\EwsAlternatePublicFolderIdType
      */
-    public function setFolderId($folderId = null)
+    public function setFolderId(string $folderId): self
     {
         // validation for constraint: string
         if (!is_null($folderId) && !is_string($folderId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($folderId, true), gettype($folderId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($folderId, true), gettype($folderId)), __LINE__);
         }
         $this->FolderId = $folderId;
+        
         return $this;
     }
 }

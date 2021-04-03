@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncFolderHierarchyType StructType
@@ -16,33 +19,33 @@ class EwsSyncFolderHierarchyType extends EwsBaseRequestType
      * The FolderShape
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsFolderResponseShapeType
+     * @var \StructType\EwsFolderResponseShapeType
      */
-    public $FolderShape;
+    protected \StructType\EwsFolderResponseShapeType $FolderShape;
     /**
      * The SyncFolderId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $SyncFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $SyncFolderId = null;
     /**
      * The SyncState
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SyncState;
+    protected ?string $SyncState = null;
     /**
      * Constructor method for SyncFolderHierarchyType
      * @uses EwsSyncFolderHierarchyType::setFolderShape()
      * @uses EwsSyncFolderHierarchyType::setSyncFolderId()
      * @uses EwsSyncFolderHierarchyType::setSyncState()
-     * @param \Ews\StructType\EwsFolderResponseShapeType $folderShape
-     * @param \Ews\StructType\EwsTargetFolderIdType $syncFolderId
+     * @param \StructType\EwsFolderResponseShapeType $folderShape
+     * @param \StructType\EwsTargetFolderIdType $syncFolderId
      * @param string $syncState
      */
-    public function __construct(\Ews\StructType\EwsFolderResponseShapeType $folderShape = null, \Ews\StructType\EwsTargetFolderIdType $syncFolderId = null, $syncState = null)
+    public function __construct(\StructType\EwsFolderResponseShapeType $folderShape, ?\StructType\EwsTargetFolderIdType $syncFolderId = null, ?string $syncState = null)
     {
         $this
             ->setFolderShape($folderShape)
@@ -51,60 +54,63 @@ class EwsSyncFolderHierarchyType extends EwsBaseRequestType
     }
     /**
      * Get FolderShape value
-     * @return \Ews\StructType\EwsFolderResponseShapeType
+     * @return \StructType\EwsFolderResponseShapeType
      */
-    public function getFolderShape()
+    public function getFolderShape(): \StructType\EwsFolderResponseShapeType
     {
         return $this->FolderShape;
     }
     /**
      * Set FolderShape value
-     * @param \Ews\StructType\EwsFolderResponseShapeType $folderShape
-     * @return \Ews\StructType\EwsSyncFolderHierarchyType
+     * @param \StructType\EwsFolderResponseShapeType $folderShape
+     * @return \StructType\EwsSyncFolderHierarchyType
      */
-    public function setFolderShape(\Ews\StructType\EwsFolderResponseShapeType $folderShape = null)
+    public function setFolderShape(\StructType\EwsFolderResponseShapeType $folderShape): self
     {
         $this->FolderShape = $folderShape;
+        
         return $this;
     }
     /**
      * Get SyncFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getSyncFolderId()
+    public function getSyncFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->SyncFolderId;
     }
     /**
      * Set SyncFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $syncFolderId
-     * @return \Ews\StructType\EwsSyncFolderHierarchyType
+     * @param \StructType\EwsTargetFolderIdType $syncFolderId
+     * @return \StructType\EwsSyncFolderHierarchyType
      */
-    public function setSyncFolderId(\Ews\StructType\EwsTargetFolderIdType $syncFolderId = null)
+    public function setSyncFolderId(?\StructType\EwsTargetFolderIdType $syncFolderId = null): self
     {
         $this->SyncFolderId = $syncFolderId;
+        
         return $this;
     }
     /**
      * Get SyncState value
      * @return string|null
      */
-    public function getSyncState()
+    public function getSyncState(): ?string
     {
         return $this->SyncState;
     }
     /**
      * Set SyncState value
      * @param string $syncState
-     * @return \Ews\StructType\EwsSyncFolderHierarchyType
+     * @return \StructType\EwsSyncFolderHierarchyType
      */
-    public function setSyncState($syncState = null)
+    public function setSyncState(?string $syncState = null): self
     {
         // validation for constraint: string
         if (!is_null($syncState) && !is_string($syncState)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($syncState, true), gettype($syncState)), __LINE__);
         }
         $this->SyncState = $syncState;
+        
         return $this;
     }
 }

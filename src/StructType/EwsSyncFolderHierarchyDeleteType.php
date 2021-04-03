@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SyncFolderHierarchyDeleteType StructType
@@ -14,35 +17,36 @@ class EwsSyncFolderHierarchyDeleteType extends AbstractStructBase
 {
     /**
      * The FolderId
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * Constructor method for SyncFolderHierarchyDeleteType
      * @uses EwsSyncFolderHierarchyDeleteType::setFolderId()
-     * @param \Ews\StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsFolderIdType $folderId
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function __construct(?\StructType\EwsFolderIdType $folderId = null)
     {
         $this
             ->setFolderId($folderId);
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->FolderId;
     }
     /**
      * Set FolderId value
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsSyncFolderHierarchyDeleteType
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsSyncFolderHierarchyDeleteType
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         $this->FolderId = $folderId;
+        
         return $this;
     }
 }

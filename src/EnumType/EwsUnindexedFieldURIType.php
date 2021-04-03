@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UnindexedFieldURIType EnumType
@@ -2812,9 +2814,9 @@ class EwsUnindexedFieldURIType extends AbstractStructEnumBase
      * @uses self::VALUE_INSIGHT_VERSION
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_FOLDER_FOLDER_ID,
             self::VALUE_FOLDER_PARENT_FOLDER_ID,
             self::VALUE_FOLDER_DISPLAY_NAME,
@@ -3281,6 +3283,6 @@ class EwsUnindexedFieldURIType extends AbstractStructEnumBase
             self::VALUE_INSIGHT_END_TIME_UTC,
             self::VALUE_INSIGHT_STATUS,
             self::VALUE_INSIGHT_VERSION,
-        );
+        ];
     }
 }

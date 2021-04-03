@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUnifiedGroupResourcesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUnifiedGroupResourceType[]
+     * @var \StructType\EwsUnifiedGroupResourceType[]
      */
-    public $Resource;
+    protected array $Resource = [];
     /**
      * Constructor method for ArrayOfUnifiedGroupResourcesType
      * @uses EwsArrayOfUnifiedGroupResourcesType::setResource()
-     * @param \Ews\StructType\EwsUnifiedGroupResourceType[] $resource
+     * @param \StructType\EwsUnifiedGroupResourceType[] $resource
      */
-    public function __construct(array $resource = array())
+    public function __construct(array $resource = [])
     {
         $this
             ->setResource($resource);
     }
     /**
      * Get Resource value
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType[]|null
+     * @return \StructType\EwsUnifiedGroupResourceType[]
      */
-    public function getResource()
+    public function getResource(): array
     {
         return $this->Resource;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateResourceForArrayConstraintsFromSetResource(array $values = array())
+    public static function validateResourceForArrayConstraintsFromSetResource(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUnifiedGroupResourcesTypeResourceItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUnifiedGroupResourcesTypeResourceItem instanceof \Ews\StructType\EwsUnifiedGroupResourceType) {
+            if (!$arrayOfUnifiedGroupResourcesTypeResourceItem instanceof \StructType\EwsUnifiedGroupResourceType) {
                 $invalidValues[] = is_object($arrayOfUnifiedGroupResourcesTypeResourceItem) ? get_class($arrayOfUnifiedGroupResourcesTypeResourceItem) : sprintf('%s(%s)', gettype($arrayOfUnifiedGroupResourcesTypeResourceItem), var_export($arrayOfUnifiedGroupResourcesTypeResourceItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Resource property can only contain items of type \Ews\StructType\EwsUnifiedGroupResourceType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Resource property can only contain items of type \StructType\EwsUnifiedGroupResourceType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Resource value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupResourceType[] $resource
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupResourceType[] $resource
+     * @return \ArrayType\EwsArrayOfUnifiedGroupResourcesType
      */
-    public function setResource(array $resource = array())
+    public function setResource(array $resource = []): self
     {
         // validation for constraint: array
         if ('' !== ($resourceArrayErrorMessage = self::validateResourceForArrayConstraintsFromSetResource($resource))) {
-            throw new \InvalidArgumentException($resourceArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($resourceArrayErrorMessage, __LINE__);
         }
         $this->Resource = $resource;
-        return $this;
-    }
-    /**
-     * Add item to Resource value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUnifiedGroupResourceType $item
-     * @return \Ews\ArrayType\EwsArrayOfUnifiedGroupResourcesType
-     */
-    public function addToResource(\Ews\StructType\EwsUnifiedGroupResourceType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUnifiedGroupResourceType) {
-            throw new \InvalidArgumentException(sprintf('The Resource property can only contain items of type \Ews\StructType\EwsUnifiedGroupResourceType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Resource[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType|null
+     * @return \StructType\EwsUnifiedGroupResourceType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsUnifiedGroupResourceType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType|null
+     * @return \StructType\EwsUnifiedGroupResourceType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsUnifiedGroupResourceType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType|null
+     * @return \StructType\EwsUnifiedGroupResourceType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsUnifiedGroupResourceType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType|null
+     * @return \StructType\EwsUnifiedGroupResourceType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsUnifiedGroupResourceType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsUnifiedGroupResourceType|null
+     * @return \StructType\EwsUnifiedGroupResourceType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsUnifiedGroupResourceType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUnifiedGroupResourceType $item
+     * @return \ArrayType\EwsArrayOfUnifiedGroupResourcesType
+     */
+    public function add(\StructType\EwsUnifiedGroupResourceType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Resource
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Resource';
     }

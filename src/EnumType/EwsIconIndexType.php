@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for IconIndexType EnumType
@@ -232,9 +234,9 @@ class EwsIconIndexType extends AbstractStructEnumBase
      * @uses self::VALUE_TASK_DELEGATED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_DEFAULT,
             self::VALUE_POST_ITEM,
             self::VALUE_MAIL_READ,
@@ -271,6 +273,6 @@ class EwsIconIndexType extends AbstractStructEnumBase
             self::VALUE_TASK_RECUR,
             self::VALUE_TASK_OWNED,
             self::VALUE_TASK_DELEGATED,
-        );
+        ];
     }
 }

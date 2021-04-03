@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConversationType StructType
@@ -16,282 +19,282 @@ class EwsConversationType extends AbstractStructBase
      * The ConversationId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ConversationId;
+    protected ?\StructType\EwsItemIdType $ConversationId = null;
     /**
      * The ConversationTopic
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ConversationTopic;
+    protected ?string $ConversationTopic = null;
     /**
      * The UniqueRecipients
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $UniqueRecipients;
+    protected ?\ArrayType\EwsArrayOfStringsType $UniqueRecipients = null;
     /**
      * The GlobalUniqueRecipients
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $GlobalUniqueRecipients;
+    protected ?\ArrayType\EwsArrayOfStringsType $GlobalUniqueRecipients = null;
     /**
      * The UniqueUnreadSenders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $UniqueUnreadSenders;
+    protected ?\ArrayType\EwsArrayOfStringsType $UniqueUnreadSenders = null;
     /**
      * The GlobalUniqueUnreadSenders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $GlobalUniqueUnreadSenders;
+    protected ?\ArrayType\EwsArrayOfStringsType $GlobalUniqueUnreadSenders = null;
     /**
      * The UniqueSenders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $UniqueSenders;
+    protected ?\ArrayType\EwsArrayOfStringsType $UniqueSenders = null;
     /**
      * The GlobalUniqueSenders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $GlobalUniqueSenders;
+    protected ?\ArrayType\EwsArrayOfStringsType $GlobalUniqueSenders = null;
     /**
      * The LastDeliveryTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastDeliveryTime;
+    protected ?string $LastDeliveryTime = null;
     /**
      * The GlobalLastDeliveryTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GlobalLastDeliveryTime;
+    protected ?string $GlobalLastDeliveryTime = null;
     /**
      * The Categories
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $Categories;
+    protected ?\ArrayType\EwsArrayOfStringsType $Categories = null;
     /**
      * The GlobalCategories
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $GlobalCategories;
+    protected ?\ArrayType\EwsArrayOfStringsType $GlobalCategories = null;
     /**
      * The FlagStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $FlagStatus;
+    protected ?string $FlagStatus = null;
     /**
      * The GlobalFlagStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GlobalFlagStatus;
+    protected ?string $GlobalFlagStatus = null;
     /**
      * The HasAttachments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasAttachments;
+    protected ?bool $HasAttachments = null;
     /**
      * The GlobalHasAttachments
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $GlobalHasAttachments;
+    protected ?bool $GlobalHasAttachments = null;
     /**
      * The MessageCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MessageCount;
+    protected ?int $MessageCount = null;
     /**
      * The GlobalMessageCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $GlobalMessageCount;
+    protected ?int $GlobalMessageCount = null;
     /**
      * The UnreadCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $UnreadCount;
+    protected ?int $UnreadCount = null;
     /**
      * The GlobalUnreadCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $GlobalUnreadCount;
+    protected ?int $GlobalUnreadCount = null;
     /**
      * The Size
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Size;
+    protected ?int $Size = null;
     /**
      * The GlobalSize
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $GlobalSize;
+    protected ?int $GlobalSize = null;
     /**
      * The ItemClasses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfItemClassType
+     * @var \ArrayType\EwsArrayOfItemClassType|null
      */
-    public $ItemClasses;
+    protected ?\ArrayType\EwsArrayOfItemClassType $ItemClasses = null;
     /**
      * The GlobalItemClasses
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfItemClassType
+     * @var \ArrayType\EwsArrayOfItemClassType|null
      */
-    public $GlobalItemClasses;
+    protected ?\ArrayType\EwsArrayOfItemClassType $GlobalItemClasses = null;
     /**
      * The Importance
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Importance;
+    protected ?string $Importance = null;
     /**
      * The GlobalImportance
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GlobalImportance;
+    protected ?string $GlobalImportance = null;
     /**
      * The ItemIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $ItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $ItemIds = null;
     /**
      * The GlobalItemIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $GlobalItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $GlobalItemIds = null;
     /**
      * The LastModifiedTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LastModifiedTime;
+    protected ?string $LastModifiedTime = null;
     /**
      * The InstanceKey
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InstanceKey;
+    protected ?string $InstanceKey = null;
     /**
      * The Preview
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Preview;
+    protected ?string $Preview = null;
     /**
      * The MailboxScope
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MailboxScope;
+    protected ?string $MailboxScope = null;
     /**
      * The IconIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $IconIndex;
+    protected ?string $IconIndex = null;
     /**
      * The GlobalIconIndex
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $GlobalIconIndex;
+    protected ?string $GlobalIconIndex = null;
     /**
      * The DraftItemIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public $DraftItemIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $DraftItemIds = null;
     /**
      * The HasIrm
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $HasIrm;
+    protected ?bool $HasIrm = null;
     /**
      * The GlobalHasIrm
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $GlobalHasIrm;
+    protected ?bool $GlobalHasIrm = null;
     /**
      * The SortKey
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $SortKey;
+    protected ?int $SortKey = null;
     /**
      * The MentionedMe
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MentionedMe;
+    protected ?bool $MentionedMe = null;
     /**
      * The GlobalMentionedMe
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $GlobalMentionedMe;
+    protected ?bool $GlobalMentionedMe = null;
     /**
      * Constructor method for ConversationType
      * @uses EwsConversationType::setConversationId()
@@ -334,18 +337,18 @@ class EwsConversationType extends AbstractStructBase
      * @uses EwsConversationType::setSortKey()
      * @uses EwsConversationType::setMentionedMe()
      * @uses EwsConversationType::setGlobalMentionedMe()
-     * @param \Ews\StructType\EwsItemIdType $conversationId
+     * @param \StructType\EwsItemIdType $conversationId
      * @param string $conversationTopic
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueRecipients
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueRecipients
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueSenders
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueSenders
      * @param string $lastDeliveryTime
      * @param string $globalLastDeliveryTime
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalCategories
+     * @param \ArrayType\EwsArrayOfStringsType $categories
+     * @param \ArrayType\EwsArrayOfStringsType $globalCategories
      * @param string $flagStatus
      * @param string $globalFlagStatus
      * @param bool $hasAttachments
@@ -356,26 +359,26 @@ class EwsConversationType extends AbstractStructBase
      * @param int $globalUnreadCount
      * @param int $size
      * @param int $globalSize
-     * @param \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses
-     * @param \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses
+     * @param \ArrayType\EwsArrayOfItemClassType $itemClasses
+     * @param \ArrayType\EwsArrayOfItemClassType $globalItemClasses
      * @param string $importance
      * @param string $globalImportance
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
      * @param string $lastModifiedTime
      * @param string $instanceKey
      * @param string $preview
      * @param string $mailboxScope
      * @param string $iconIndex
      * @param string $globalIconIndex
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds
      * @param bool $hasIrm
      * @param bool $globalHasIrm
      * @param int $sortKey
      * @param bool $mentionedMe
      * @param bool $globalMentionedMe
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $conversationId = null, $conversationTopic = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders = null, \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null, $lastDeliveryTime = null, $globalLastDeliveryTime = null, \Ews\ArrayType\EwsArrayOfStringsType $categories = null, \Ews\ArrayType\EwsArrayOfStringsType $globalCategories = null, $flagStatus = null, $globalFlagStatus = null, $hasAttachments = null, $globalHasAttachments = null, $messageCount = null, $globalMessageCount = null, $unreadCount = null, $globalUnreadCount = null, $size = null, $globalSize = null, \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses = null, \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null, $importance = null, $globalImportance = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null, $lastModifiedTime = null, $instanceKey = null, $preview = null, $mailboxScope = null, $iconIndex = null, $globalIconIndex = null, \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null, $hasIrm = null, $globalHasIrm = null, $sortKey = null, $mentionedMe = null, $globalMentionedMe = null)
+    public function __construct(?\StructType\EwsItemIdType $conversationId = null, ?string $conversationTopic = null, ?\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null, ?\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null, ?\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null, ?\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null, ?\ArrayType\EwsArrayOfStringsType $uniqueSenders = null, ?\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null, ?string $lastDeliveryTime = null, ?string $globalLastDeliveryTime = null, ?\ArrayType\EwsArrayOfStringsType $categories = null, ?\ArrayType\EwsArrayOfStringsType $globalCategories = null, ?string $flagStatus = null, ?string $globalFlagStatus = null, ?bool $hasAttachments = null, ?bool $globalHasAttachments = null, ?int $messageCount = null, ?int $globalMessageCount = null, ?int $unreadCount = null, ?int $globalUnreadCount = null, ?int $size = null, ?int $globalSize = null, ?\ArrayType\EwsArrayOfItemClassType $itemClasses = null, ?\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null, ?string $importance = null, ?string $globalImportance = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null, ?string $lastModifiedTime = null, ?string $instanceKey = null, ?string $preview = null, ?string $mailboxScope = null, ?string $iconIndex = null, ?string $globalIconIndex = null, ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null, ?bool $hasIrm = null, ?bool $globalHasIrm = null, ?int $sortKey = null, ?bool $mentionedMe = null, ?bool $globalMentionedMe = null)
     {
         $this
             ->setConversationId($conversationId)
@@ -421,847 +424,887 @@ class EwsConversationType extends AbstractStructBase
     }
     /**
      * Get ConversationId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getConversationId()
+    public function getConversationId(): ?\StructType\EwsItemIdType
     {
         return $this->ConversationId;
     }
     /**
      * Set ConversationId value
-     * @param \Ews\StructType\EwsItemIdType $conversationId
-     * @return \Ews\StructType\EwsConversationType
+     * @param \StructType\EwsItemIdType $conversationId
+     * @return \StructType\EwsConversationType
      */
-    public function setConversationId(\Ews\StructType\EwsItemIdType $conversationId = null)
+    public function setConversationId(?\StructType\EwsItemIdType $conversationId = null): self
     {
         $this->ConversationId = $conversationId;
+        
         return $this;
     }
     /**
      * Get ConversationTopic value
      * @return string|null
      */
-    public function getConversationTopic()
+    public function getConversationTopic(): ?string
     {
         return $this->ConversationTopic;
     }
     /**
      * Set ConversationTopic value
      * @param string $conversationTopic
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setConversationTopic($conversationTopic = null)
+    public function setConversationTopic(?string $conversationTopic = null): self
     {
         // validation for constraint: string
         if (!is_null($conversationTopic) && !is_string($conversationTopic)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationTopic, true), gettype($conversationTopic)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($conversationTopic, true), gettype($conversationTopic)), __LINE__);
         }
         $this->ConversationTopic = $conversationTopic;
+        
         return $this;
     }
     /**
      * Get UniqueRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getUniqueRecipients()
+    public function getUniqueRecipients(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->UniqueRecipients;
     }
     /**
      * Set UniqueRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueRecipients
+     * @return \StructType\EwsConversationType
      */
-    public function setUniqueRecipients(\Ews\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null)
+    public function setUniqueRecipients(?\ArrayType\EwsArrayOfStringsType $uniqueRecipients = null): self
     {
         $this->UniqueRecipients = $uniqueRecipients;
+        
         return $this;
     }
     /**
      * Get GlobalUniqueRecipients value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getGlobalUniqueRecipients()
+    public function getGlobalUniqueRecipients(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->GlobalUniqueRecipients;
     }
     /**
      * Set GlobalUniqueRecipients value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueRecipients
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalUniqueRecipients(\Ews\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null)
+    public function setGlobalUniqueRecipients(?\ArrayType\EwsArrayOfStringsType $globalUniqueRecipients = null): self
     {
         $this->GlobalUniqueRecipients = $globalUniqueRecipients;
+        
         return $this;
     }
     /**
      * Get UniqueUnreadSenders value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getUniqueUnreadSenders()
+    public function getUniqueUnreadSenders(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->UniqueUnreadSenders;
     }
     /**
      * Set UniqueUnreadSenders value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders
+     * @return \StructType\EwsConversationType
      */
-    public function setUniqueUnreadSenders(\Ews\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null)
+    public function setUniqueUnreadSenders(?\ArrayType\EwsArrayOfStringsType $uniqueUnreadSenders = null): self
     {
         $this->UniqueUnreadSenders = $uniqueUnreadSenders;
+        
         return $this;
     }
     /**
      * Get GlobalUniqueUnreadSenders value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getGlobalUniqueUnreadSenders()
+    public function getGlobalUniqueUnreadSenders(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->GlobalUniqueUnreadSenders;
     }
     /**
      * Set GlobalUniqueUnreadSenders value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalUniqueUnreadSenders(\Ews\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null)
+    public function setGlobalUniqueUnreadSenders(?\ArrayType\EwsArrayOfStringsType $globalUniqueUnreadSenders = null): self
     {
         $this->GlobalUniqueUnreadSenders = $globalUniqueUnreadSenders;
+        
         return $this;
     }
     /**
      * Get UniqueSenders value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getUniqueSenders()
+    public function getUniqueSenders(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->UniqueSenders;
     }
     /**
      * Set UniqueSenders value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $uniqueSenders
+     * @return \StructType\EwsConversationType
      */
-    public function setUniqueSenders(\Ews\ArrayType\EwsArrayOfStringsType $uniqueSenders = null)
+    public function setUniqueSenders(?\ArrayType\EwsArrayOfStringsType $uniqueSenders = null): self
     {
         $this->UniqueSenders = $uniqueSenders;
+        
         return $this;
     }
     /**
      * Get GlobalUniqueSenders value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getGlobalUniqueSenders()
+    public function getGlobalUniqueSenders(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->GlobalUniqueSenders;
     }
     /**
      * Set GlobalUniqueSenders value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $globalUniqueSenders
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalUniqueSenders(\Ews\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null)
+    public function setGlobalUniqueSenders(?\ArrayType\EwsArrayOfStringsType $globalUniqueSenders = null): self
     {
         $this->GlobalUniqueSenders = $globalUniqueSenders;
+        
         return $this;
     }
     /**
      * Get LastDeliveryTime value
      * @return string|null
      */
-    public function getLastDeliveryTime()
+    public function getLastDeliveryTime(): ?string
     {
         return $this->LastDeliveryTime;
     }
     /**
      * Set LastDeliveryTime value
      * @param string $lastDeliveryTime
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setLastDeliveryTime($lastDeliveryTime = null)
+    public function setLastDeliveryTime(?string $lastDeliveryTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastDeliveryTime) && !is_string($lastDeliveryTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastDeliveryTime, true), gettype($lastDeliveryTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastDeliveryTime, true), gettype($lastDeliveryTime)), __LINE__);
         }
         $this->LastDeliveryTime = $lastDeliveryTime;
+        
         return $this;
     }
     /**
      * Get GlobalLastDeliveryTime value
      * @return string|null
      */
-    public function getGlobalLastDeliveryTime()
+    public function getGlobalLastDeliveryTime(): ?string
     {
         return $this->GlobalLastDeliveryTime;
     }
     /**
      * Set GlobalLastDeliveryTime value
      * @param string $globalLastDeliveryTime
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalLastDeliveryTime($globalLastDeliveryTime = null)
+    public function setGlobalLastDeliveryTime(?string $globalLastDeliveryTime = null): self
     {
         // validation for constraint: string
         if (!is_null($globalLastDeliveryTime) && !is_string($globalLastDeliveryTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($globalLastDeliveryTime, true), gettype($globalLastDeliveryTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($globalLastDeliveryTime, true), gettype($globalLastDeliveryTime)), __LINE__);
         }
         $this->GlobalLastDeliveryTime = $globalLastDeliveryTime;
+        
         return $this;
     }
     /**
      * Get Categories value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getCategories()
+    public function getCategories(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->Categories;
     }
     /**
      * Set Categories value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $categories
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $categories
+     * @return \StructType\EwsConversationType
      */
-    public function setCategories(\Ews\ArrayType\EwsArrayOfStringsType $categories = null)
+    public function setCategories(?\ArrayType\EwsArrayOfStringsType $categories = null): self
     {
         $this->Categories = $categories;
+        
         return $this;
     }
     /**
      * Get GlobalCategories value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getGlobalCategories()
+    public function getGlobalCategories(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->GlobalCategories;
     }
     /**
      * Set GlobalCategories value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $globalCategories
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfStringsType $globalCategories
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalCategories(\Ews\ArrayType\EwsArrayOfStringsType $globalCategories = null)
+    public function setGlobalCategories(?\ArrayType\EwsArrayOfStringsType $globalCategories = null): self
     {
         $this->GlobalCategories = $globalCategories;
+        
         return $this;
     }
     /**
      * Get FlagStatus value
      * @return string|null
      */
-    public function getFlagStatus()
+    public function getFlagStatus(): ?string
     {
         return $this->FlagStatus;
     }
     /**
      * Set FlagStatus value
-     * @uses \Ews\EnumType\EwsFlagStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsFlagStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsFlagStatusType::valueIsValid()
+     * @uses \EnumType\EwsFlagStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $flagStatus
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setFlagStatus($flagStatus = null)
+    public function setFlagStatus(?string $flagStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($flagStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlagStatusType', is_array($flagStatus) ? implode(', ', $flagStatus) : var_export($flagStatus, true), implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsFlagStatusType::valueIsValid($flagStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsFlagStatusType', is_array($flagStatus) ? implode(', ', $flagStatus) : var_export($flagStatus, true), implode(', ', \EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
         $this->FlagStatus = $flagStatus;
+        
         return $this;
     }
     /**
      * Get GlobalFlagStatus value
      * @return string|null
      */
-    public function getGlobalFlagStatus()
+    public function getGlobalFlagStatus(): ?string
     {
         return $this->GlobalFlagStatus;
     }
     /**
      * Set GlobalFlagStatus value
-     * @uses \Ews\EnumType\EwsFlagStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsFlagStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsFlagStatusType::valueIsValid()
+     * @uses \EnumType\EwsFlagStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $globalFlagStatus
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalFlagStatus($globalFlagStatus = null)
+    public function setGlobalFlagStatus(?string $globalFlagStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsFlagStatusType::valueIsValid($globalFlagStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsFlagStatusType', is_array($globalFlagStatus) ? implode(', ', $globalFlagStatus) : var_export($globalFlagStatus, true), implode(', ', \Ews\EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsFlagStatusType::valueIsValid($globalFlagStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsFlagStatusType', is_array($globalFlagStatus) ? implode(', ', $globalFlagStatus) : var_export($globalFlagStatus, true), implode(', ', \EnumType\EwsFlagStatusType::getValidValues())), __LINE__);
         }
         $this->GlobalFlagStatus = $globalFlagStatus;
+        
         return $this;
     }
     /**
      * Get HasAttachments value
      * @return bool|null
      */
-    public function getHasAttachments()
+    public function getHasAttachments(): ?bool
     {
         return $this->HasAttachments;
     }
     /**
      * Set HasAttachments value
      * @param bool $hasAttachments
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setHasAttachments($hasAttachments = null)
+    public function setHasAttachments(?bool $hasAttachments = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasAttachments) && !is_bool($hasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
+        
         return $this;
     }
     /**
      * Get GlobalHasAttachments value
      * @return bool|null
      */
-    public function getGlobalHasAttachments()
+    public function getGlobalHasAttachments(): ?bool
     {
         return $this->GlobalHasAttachments;
     }
     /**
      * Set GlobalHasAttachments value
      * @param bool $globalHasAttachments
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalHasAttachments($globalHasAttachments = null)
+    public function setGlobalHasAttachments(?bool $globalHasAttachments = null): self
     {
         // validation for constraint: boolean
         if (!is_null($globalHasAttachments) && !is_bool($globalHasAttachments)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasAttachments, true), gettype($globalHasAttachments)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasAttachments, true), gettype($globalHasAttachments)), __LINE__);
         }
         $this->GlobalHasAttachments = $globalHasAttachments;
+        
         return $this;
     }
     /**
      * Get MessageCount value
      * @return int|null
      */
-    public function getMessageCount()
+    public function getMessageCount(): ?int
     {
         return $this->MessageCount;
     }
     /**
      * Set MessageCount value
      * @param int $messageCount
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setMessageCount($messageCount = null)
+    public function setMessageCount(?int $messageCount = null): self
     {
         // validation for constraint: int
         if (!is_null($messageCount) && !(is_int($messageCount) || ctype_digit($messageCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($messageCount, true), gettype($messageCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($messageCount, true), gettype($messageCount)), __LINE__);
         }
         $this->MessageCount = $messageCount;
+        
         return $this;
     }
     /**
      * Get GlobalMessageCount value
      * @return int|null
      */
-    public function getGlobalMessageCount()
+    public function getGlobalMessageCount(): ?int
     {
         return $this->GlobalMessageCount;
     }
     /**
      * Set GlobalMessageCount value
      * @param int $globalMessageCount
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalMessageCount($globalMessageCount = null)
+    public function setGlobalMessageCount(?int $globalMessageCount = null): self
     {
         // validation for constraint: int
         if (!is_null($globalMessageCount) && !(is_int($globalMessageCount) || ctype_digit($globalMessageCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalMessageCount, true), gettype($globalMessageCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalMessageCount, true), gettype($globalMessageCount)), __LINE__);
         }
         $this->GlobalMessageCount = $globalMessageCount;
+        
         return $this;
     }
     /**
      * Get UnreadCount value
      * @return int|null
      */
-    public function getUnreadCount()
+    public function getUnreadCount(): ?int
     {
         return $this->UnreadCount;
     }
     /**
      * Set UnreadCount value
      * @param int $unreadCount
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setUnreadCount($unreadCount = null)
+    public function setUnreadCount(?int $unreadCount = null): self
     {
         // validation for constraint: int
         if (!is_null($unreadCount) && !(is_int($unreadCount) || ctype_digit($unreadCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($unreadCount, true), gettype($unreadCount)), __LINE__);
         }
         $this->UnreadCount = $unreadCount;
+        
         return $this;
     }
     /**
      * Get GlobalUnreadCount value
      * @return int|null
      */
-    public function getGlobalUnreadCount()
+    public function getGlobalUnreadCount(): ?int
     {
         return $this->GlobalUnreadCount;
     }
     /**
      * Set GlobalUnreadCount value
      * @param int $globalUnreadCount
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalUnreadCount($globalUnreadCount = null)
+    public function setGlobalUnreadCount(?int $globalUnreadCount = null): self
     {
         // validation for constraint: int
         if (!is_null($globalUnreadCount) && !(is_int($globalUnreadCount) || ctype_digit($globalUnreadCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalUnreadCount, true), gettype($globalUnreadCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalUnreadCount, true), gettype($globalUnreadCount)), __LINE__);
         }
         $this->GlobalUnreadCount = $globalUnreadCount;
+        
         return $this;
     }
     /**
      * Get Size value
      * @return int|null
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->Size;
     }
     /**
      * Set Size value
      * @param int $size
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setSize($size = null)
+    public function setSize(?int $size = null): self
     {
         // validation for constraint: int
         if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
+        
         return $this;
     }
     /**
      * Get GlobalSize value
      * @return int|null
      */
-    public function getGlobalSize()
+    public function getGlobalSize(): ?int
     {
         return $this->GlobalSize;
     }
     /**
      * Set GlobalSize value
      * @param int $globalSize
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalSize($globalSize = null)
+    public function setGlobalSize(?int $globalSize = null): self
     {
         // validation for constraint: int
         if (!is_null($globalSize) && !(is_int($globalSize) || ctype_digit($globalSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalSize, true), gettype($globalSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($globalSize, true), gettype($globalSize)), __LINE__);
         }
         $this->GlobalSize = $globalSize;
+        
         return $this;
     }
     /**
      * Get ItemClasses value
-     * @return \Ews\ArrayType\EwsArrayOfItemClassType|null
+     * @return \ArrayType\EwsArrayOfItemClassType|null
      */
-    public function getItemClasses()
+    public function getItemClasses(): ?\ArrayType\EwsArrayOfItemClassType
     {
         return $this->ItemClasses;
     }
     /**
      * Set ItemClasses value
-     * @param \Ews\ArrayType\EwsArrayOfItemClassType $itemClasses
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfItemClassType $itemClasses
+     * @return \StructType\EwsConversationType
      */
-    public function setItemClasses(\Ews\ArrayType\EwsArrayOfItemClassType $itemClasses = null)
+    public function setItemClasses(?\ArrayType\EwsArrayOfItemClassType $itemClasses = null): self
     {
         $this->ItemClasses = $itemClasses;
+        
         return $this;
     }
     /**
      * Get GlobalItemClasses value
-     * @return \Ews\ArrayType\EwsArrayOfItemClassType|null
+     * @return \ArrayType\EwsArrayOfItemClassType|null
      */
-    public function getGlobalItemClasses()
+    public function getGlobalItemClasses(): ?\ArrayType\EwsArrayOfItemClassType
     {
         return $this->GlobalItemClasses;
     }
     /**
      * Set GlobalItemClasses value
-     * @param \Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses
-     * @return \Ews\StructType\EwsConversationType
+     * @param \ArrayType\EwsArrayOfItemClassType $globalItemClasses
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalItemClasses(\Ews\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null)
+    public function setGlobalItemClasses(?\ArrayType\EwsArrayOfItemClassType $globalItemClasses = null): self
     {
         $this->GlobalItemClasses = $globalItemClasses;
+        
         return $this;
     }
     /**
      * Get Importance value
      * @return string|null
      */
-    public function getImportance()
+    public function getImportance(): ?string
     {
         return $this->Importance;
     }
     /**
      * Set Importance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $importance
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setImportance($importance = null)
+    public function setImportance(?string $importance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($importance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
+        
         return $this;
     }
     /**
      * Get GlobalImportance value
      * @return string|null
      */
-    public function getGlobalImportance()
+    public function getGlobalImportance(): ?string
     {
         return $this->GlobalImportance;
     }
     /**
      * Set GlobalImportance value
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsImportanceChoicesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsImportanceChoicesType::valueIsValid()
+     * @uses \EnumType\EwsImportanceChoicesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $globalImportance
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalImportance($globalImportance = null)
+    public function setGlobalImportance(?string $globalImportance = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsImportanceChoicesType::valueIsValid($globalImportance)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsImportanceChoicesType', is_array($globalImportance) ? implode(', ', $globalImportance) : var_export($globalImportance, true), implode(', ', \Ews\EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsImportanceChoicesType::valueIsValid($globalImportance)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($globalImportance) ? implode(', ', $globalImportance) : var_export($globalImportance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->GlobalImportance = $globalImportance;
+        
         return $this;
     }
     /**
      * Get ItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getItemIds()
+    public function getItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->ItemIds;
     }
     /**
      * Set ItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
-     * @return \Ews\StructType\EwsConversationType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds
+     * @return \StructType\EwsConversationType
      */
-    public function setItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null)
+    public function setItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $itemIds = null): self
     {
         $this->ItemIds = $itemIds;
+        
         return $this;
     }
     /**
      * Get GlobalItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getGlobalItemIds()
+    public function getGlobalItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->GlobalItemIds;
     }
     /**
      * Set GlobalItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
-     * @return \Ews\StructType\EwsConversationType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null)
+    public function setGlobalItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $globalItemIds = null): self
     {
         $this->GlobalItemIds = $globalItemIds;
+        
         return $this;
     }
     /**
      * Get LastModifiedTime value
      * @return string|null
      */
-    public function getLastModifiedTime()
+    public function getLastModifiedTime(): ?string
     {
         return $this->LastModifiedTime;
     }
     /**
      * Set LastModifiedTime value
      * @param string $lastModifiedTime
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setLastModifiedTime($lastModifiedTime = null)
+    public function setLastModifiedTime(?string $lastModifiedTime = null): self
     {
         // validation for constraint: string
         if (!is_null($lastModifiedTime) && !is_string($lastModifiedTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
+        
         return $this;
     }
     /**
      * Get InstanceKey value
      * @return string|null
      */
-    public function getInstanceKey()
+    public function getInstanceKey(): ?string
     {
         return $this->InstanceKey;
     }
     /**
      * Set InstanceKey value
      * @param string $instanceKey
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setInstanceKey($instanceKey = null)
+    public function setInstanceKey(?string $instanceKey = null): self
     {
         // validation for constraint: string
         if (!is_null($instanceKey) && !is_string($instanceKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
+        
         return $this;
     }
     /**
      * Get Preview value
      * @return string|null
      */
-    public function getPreview()
+    public function getPreview(): ?string
     {
         return $this->Preview;
     }
     /**
      * Set Preview value
      * @param string $preview
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setPreview($preview = null)
+    public function setPreview(?string $preview = null): self
     {
         // validation for constraint: string
         if (!is_null($preview) && !is_string($preview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
+        
         return $this;
     }
     /**
      * Get MailboxScope value
      * @return string|null
      */
-    public function getMailboxScope()
+    public function getMailboxScope(): ?string
     {
         return $this->MailboxScope;
     }
     /**
      * Set MailboxScope value
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMailboxSearchLocationType::valueIsValid()
+     * @uses \EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $mailboxScope
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setMailboxScope($mailboxScope = null)
+    public function setMailboxScope(?string $mailboxScope = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMailboxSearchLocationType::valueIsValid($mailboxScope)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailboxSearchLocationType', is_array($mailboxScope) ? implode(', ', $mailboxScope) : var_export($mailboxScope, true), implode(', ', \EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->MailboxScope = $mailboxScope;
+        
         return $this;
     }
     /**
      * Get IconIndex value
      * @return string|null
      */
-    public function getIconIndex()
+    public function getIconIndex(): ?string
     {
         return $this->IconIndex;
     }
     /**
      * Set IconIndex value
-     * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIconIndexType::valueIsValid()
+     * @uses \EnumType\EwsIconIndexType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $iconIndex
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setIconIndex($iconIndex = null)
+    public function setIconIndex(?string $iconIndex = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIconIndexType::valueIsValid($iconIndex)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->IconIndex = $iconIndex;
+        
         return $this;
     }
     /**
      * Get GlobalIconIndex value
      * @return string|null
      */
-    public function getGlobalIconIndex()
+    public function getGlobalIconIndex(): ?string
     {
         return $this->GlobalIconIndex;
     }
     /**
      * Set GlobalIconIndex value
-     * @uses \Ews\EnumType\EwsIconIndexType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIconIndexType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIconIndexType::valueIsValid()
+     * @uses \EnumType\EwsIconIndexType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $globalIconIndex
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalIconIndex($globalIconIndex = null)
+    public function setGlobalIconIndex(?string $globalIconIndex = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIconIndexType::valueIsValid($globalIconIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIconIndexType', is_array($globalIconIndex) ? implode(', ', $globalIconIndex) : var_export($globalIconIndex, true), implode(', ', \Ews\EnumType\EwsIconIndexType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIconIndexType::valueIsValid($globalIconIndex)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIconIndexType', is_array($globalIconIndex) ? implode(', ', $globalIconIndex) : var_export($globalIconIndex, true), implode(', ', \EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->GlobalIconIndex = $globalIconIndex;
+        
         return $this;
     }
     /**
      * Get DraftItemIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseItemIdsType|null
      */
-    public function getDraftItemIds()
+    public function getDraftItemIds(): ?\StructType\EwsNonEmptyArrayOfBaseItemIdsType
     {
         return $this->DraftItemIds;
     }
     /**
      * Set DraftItemIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds
-     * @return \Ews\StructType\EwsConversationType
+     * @param \StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds
+     * @return \StructType\EwsConversationType
      */
-    public function setDraftItemIds(\Ews\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null)
+    public function setDraftItemIds(?\StructType\EwsNonEmptyArrayOfBaseItemIdsType $draftItemIds = null): self
     {
         $this->DraftItemIds = $draftItemIds;
+        
         return $this;
     }
     /**
      * Get HasIrm value
      * @return bool|null
      */
-    public function getHasIrm()
+    public function getHasIrm(): ?bool
     {
         return $this->HasIrm;
     }
     /**
      * Set HasIrm value
      * @param bool $hasIrm
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setHasIrm($hasIrm = null)
+    public function setHasIrm(?bool $hasIrm = null): self
     {
         // validation for constraint: boolean
         if (!is_null($hasIrm) && !is_bool($hasIrm)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasIrm, true), gettype($hasIrm)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasIrm, true), gettype($hasIrm)), __LINE__);
         }
         $this->HasIrm = $hasIrm;
+        
         return $this;
     }
     /**
      * Get GlobalHasIrm value
      * @return bool|null
      */
-    public function getGlobalHasIrm()
+    public function getGlobalHasIrm(): ?bool
     {
         return $this->GlobalHasIrm;
     }
     /**
      * Set GlobalHasIrm value
      * @param bool $globalHasIrm
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalHasIrm($globalHasIrm = null)
+    public function setGlobalHasIrm(?bool $globalHasIrm = null): self
     {
         // validation for constraint: boolean
         if (!is_null($globalHasIrm) && !is_bool($globalHasIrm)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasIrm, true), gettype($globalHasIrm)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalHasIrm, true), gettype($globalHasIrm)), __LINE__);
         }
         $this->GlobalHasIrm = $globalHasIrm;
+        
         return $this;
     }
     /**
      * Get SortKey value
      * @return int|null
      */
-    public function getSortKey()
+    public function getSortKey(): ?int
     {
         return $this->SortKey;
     }
     /**
      * Set SortKey value
      * @param int $sortKey
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setSortKey($sortKey = null)
+    public function setSortKey(?int $sortKey = null): self
     {
         // validation for constraint: int
         if (!is_null($sortKey) && !(is_int($sortKey) || ctype_digit($sortKey))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
+        
         return $this;
     }
     /**
      * Get MentionedMe value
      * @return bool|null
      */
-    public function getMentionedMe()
+    public function getMentionedMe(): ?bool
     {
         return $this->MentionedMe;
     }
     /**
      * Set MentionedMe value
      * @param bool $mentionedMe
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setMentionedMe($mentionedMe = null)
+    public function setMentionedMe(?bool $mentionedMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($mentionedMe) && !is_bool($mentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
         }
         $this->MentionedMe = $mentionedMe;
+        
         return $this;
     }
     /**
      * Get GlobalMentionedMe value
      * @return bool|null
      */
-    public function getGlobalMentionedMe()
+    public function getGlobalMentionedMe(): ?bool
     {
         return $this->GlobalMentionedMe;
     }
     /**
      * Set GlobalMentionedMe value
      * @param bool $globalMentionedMe
-     * @return \Ews\StructType\EwsConversationType
+     * @return \StructType\EwsConversationType
      */
-    public function setGlobalMentionedMe($globalMentionedMe = null)
+    public function setGlobalMentionedMe(?bool $globalMentionedMe = null): self
     {
         // validation for constraint: boolean
         if (!is_null($globalMentionedMe) && !is_bool($globalMentionedMe)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalMentionedMe, true), gettype($globalMentionedMe)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($globalMentionedMe, true), gettype($globalMentionedMe)), __LINE__);
         }
         $this->GlobalMentionedMe = $globalMentionedMe;
+        
         return $this;
     }
 }

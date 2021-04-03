@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfMeetingSuggestionsType ArrayType
@@ -16,24 +19,24 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * The MeetingSuggestion
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsMeetingSuggestionType[]
+     * @var \StructType\EwsMeetingSuggestionType[]
      */
-    public $MeetingSuggestion;
+    protected array $MeetingSuggestion = [];
     /**
      * Constructor method for ArrayOfMeetingSuggestionsType
      * @uses EwsArrayOfMeetingSuggestionsType::setMeetingSuggestion()
-     * @param \Ews\StructType\EwsMeetingSuggestionType[] $meetingSuggestion
+     * @param \StructType\EwsMeetingSuggestionType[] $meetingSuggestion
      */
-    public function __construct(array $meetingSuggestion = array())
+    public function __construct(array $meetingSuggestion = [])
     {
         $this
             ->setMeetingSuggestion($meetingSuggestion);
     }
     /**
      * Get MeetingSuggestion value
-     * @return \Ews\StructType\EwsMeetingSuggestionType[]|null
+     * @return \StructType\EwsMeetingSuggestionType[]
      */
-    public function getMeetingSuggestion()
+    public function getMeetingSuggestion(): array
     {
         return $this->MeetingSuggestion;
     }
@@ -43,58 +46,45 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateMeetingSuggestionForArrayConstraintsFromSetMeetingSuggestion(array $values = array())
+    public static function validateMeetingSuggestionForArrayConstraintsFromSetMeetingSuggestion(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) {
             // validation for constraint: itemType
-            if (!$arrayOfMeetingSuggestionsTypeMeetingSuggestionItem instanceof \Ews\StructType\EwsMeetingSuggestionType) {
+            if (!$arrayOfMeetingSuggestionsTypeMeetingSuggestionItem instanceof \StructType\EwsMeetingSuggestionType) {
                 $invalidValues[] = is_object($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) ? get_class($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem) : sprintf('%s(%s)', gettype($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem), var_export($arrayOfMeetingSuggestionsTypeMeetingSuggestionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The MeetingSuggestion property can only contain items of type \Ews\StructType\EwsMeetingSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The MeetingSuggestion property can only contain items of type \StructType\EwsMeetingSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set MeetingSuggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingSuggestionType[] $meetingSuggestion
-     * @return \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingSuggestionType[] $meetingSuggestion
+     * @return \ArrayType\EwsArrayOfMeetingSuggestionsType
      */
-    public function setMeetingSuggestion(array $meetingSuggestion = array())
+    public function setMeetingSuggestion(array $meetingSuggestion = []): self
     {
         // validation for constraint: array
         if ('' !== ($meetingSuggestionArrayErrorMessage = self::validateMeetingSuggestionForArrayConstraintsFromSetMeetingSuggestion($meetingSuggestion))) {
-            throw new \InvalidArgumentException($meetingSuggestionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($meetingSuggestionArrayErrorMessage, __LINE__);
         }
         $this->MeetingSuggestion = $meetingSuggestion;
-        return $this;
-    }
-    /**
-     * Add item to MeetingSuggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMeetingSuggestionType $item
-     * @return \Ews\ArrayType\EwsArrayOfMeetingSuggestionsType
-     */
-    public function addToMeetingSuggestion(\Ews\StructType\EwsMeetingSuggestionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsMeetingSuggestionType) {
-            throw new \InvalidArgumentException(sprintf('The MeetingSuggestion property can only contain items of type \Ews\StructType\EwsMeetingSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->MeetingSuggestion[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsMeetingSuggestionType|null
+     * @return \StructType\EwsMeetingSuggestionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsMeetingSuggestionType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsMeetingSuggestionType|null
+     * @return \StructType\EwsMeetingSuggestionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsMeetingSuggestionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsMeetingSuggestionType|null
+     * @return \StructType\EwsMeetingSuggestionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsMeetingSuggestionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsMeetingSuggestionType|null
+     * @return \StructType\EwsMeetingSuggestionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsMeetingSuggestionType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsMeetingSuggestionType|null
+     * @return \StructType\EwsMeetingSuggestionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsMeetingSuggestionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMeetingSuggestionType $item
+     * @return \ArrayType\EwsArrayOfMeetingSuggestionsType
+     */
+    public function add(\StructType\EwsMeetingSuggestionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string MeetingSuggestion
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'MeetingSuggestion';
     }

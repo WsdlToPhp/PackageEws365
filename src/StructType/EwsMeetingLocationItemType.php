@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingLocationItemType StructType
@@ -19,15 +22,15 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayName;
+    protected string $DisplayName;
     /**
      * The PostalAddress
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPersonaPostalAddressType
+     * @var \StructType\EwsPersonaPostalAddressType
      */
-    public $PostalAddress;
+    protected \StructType\EwsPersonaPostalAddressType $PostalAddress;
     /**
      * The StartTimeInUTC
      * Meta information extracted from the WSDL
@@ -35,7 +38,7 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $StartTimeInUTC;
+    protected string $StartTimeInUTC;
     /**
      * The Source
      * Meta information extracted from the WSDL
@@ -43,23 +46,23 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Source;
+    protected string $Source;
     /**
      * The Capacity
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $Capacity;
+    protected ?int $Capacity = null;
     /**
      * The Score
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var float
+     * @var float|null
      */
-    public $Score;
+    protected ?float $Score = null;
     /**
      * Constructor method for MeetingLocationItemType
      * @uses EwsMeetingLocationItemType::setDisplayName()
@@ -69,13 +72,13 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * @uses EwsMeetingLocationItemType::setCapacity()
      * @uses EwsMeetingLocationItemType::setScore()
      * @param string $displayName
-     * @param \Ews\StructType\EwsPersonaPostalAddressType $postalAddress
+     * @param \StructType\EwsPersonaPostalAddressType $postalAddress
      * @param string $startTimeInUTC
      * @param string $source
      * @param int $capacity
      * @param float $score
      */
-    public function __construct($displayName = null, \Ews\StructType\EwsPersonaPostalAddressType $postalAddress = null, $startTimeInUTC = null, $source = null, $capacity = null, $score = null)
+    public function __construct(string $displayName, \StructType\EwsPersonaPostalAddressType $postalAddress, string $startTimeInUTC, string $source, ?int $capacity = null, ?float $score = null)
     {
         $this
             ->setDisplayName($displayName)
@@ -89,128 +92,134 @@ class EwsMeetingLocationItemType extends AbstractStructBase
      * Get DisplayName value
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(string $displayName): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get PostalAddress value
-     * @return \Ews\StructType\EwsPersonaPostalAddressType
+     * @return \StructType\EwsPersonaPostalAddressType
      */
-    public function getPostalAddress()
+    public function getPostalAddress(): \StructType\EwsPersonaPostalAddressType
     {
         return $this->PostalAddress;
     }
     /**
      * Set PostalAddress value
-     * @param \Ews\StructType\EwsPersonaPostalAddressType $postalAddress
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @param \StructType\EwsPersonaPostalAddressType $postalAddress
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setPostalAddress(\Ews\StructType\EwsPersonaPostalAddressType $postalAddress = null)
+    public function setPostalAddress(\StructType\EwsPersonaPostalAddressType $postalAddress): self
     {
         $this->PostalAddress = $postalAddress;
+        
         return $this;
     }
     /**
      * Get StartTimeInUTC value
      * @return string
      */
-    public function getStartTimeInUTC()
+    public function getStartTimeInUTC(): string
     {
         return $this->StartTimeInUTC;
     }
     /**
      * Set StartTimeInUTC value
      * @param string $startTimeInUTC
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setStartTimeInUTC($startTimeInUTC = null)
+    public function setStartTimeInUTC(string $startTimeInUTC): self
     {
         // validation for constraint: string
         if (!is_null($startTimeInUTC) && !is_string($startTimeInUTC)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeInUTC, true), gettype($startTimeInUTC)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeInUTC, true), gettype($startTimeInUTC)), __LINE__);
         }
         $this->StartTimeInUTC = $startTimeInUTC;
+        
         return $this;
     }
     /**
      * Get Source value
      * @return string
      */
-    public function getSource()
+    public function getSource(): string
     {
         return $this->Source;
     }
     /**
      * Set Source value
      * @param string $source
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setSource($source = null)
+    public function setSource(string $source): self
     {
         // validation for constraint: string
         if (!is_null($source) && !is_string($source)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($source, true), gettype($source)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($source, true), gettype($source)), __LINE__);
         }
         $this->Source = $source;
+        
         return $this;
     }
     /**
      * Get Capacity value
      * @return int|null
      */
-    public function getCapacity()
+    public function getCapacity(): ?int
     {
         return $this->Capacity;
     }
     /**
      * Set Capacity value
      * @param int $capacity
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setCapacity($capacity = null)
+    public function setCapacity(?int $capacity = null): self
     {
         // validation for constraint: int
         if (!is_null($capacity) && !(is_int($capacity) || ctype_digit($capacity))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($capacity, true), gettype($capacity)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($capacity, true), gettype($capacity)), __LINE__);
         }
         $this->Capacity = $capacity;
+        
         return $this;
     }
     /**
      * Get Score value
      * @return float|null
      */
-    public function getScore()
+    public function getScore(): ?float
     {
         return $this->Score;
     }
     /**
      * Set Score value
      * @param float $score
-     * @return \Ews\StructType\EwsMeetingLocationItemType
+     * @return \StructType\EwsMeetingLocationItemType
      */
-    public function setScore($score = null)
+    public function setScore(?float $score = null): self
     {
         // validation for constraint: float
         if (!is_null($score) && !(is_float($score) || is_numeric($score))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($score, true), gettype($score)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a float value, %s given', var_export($score, true), gettype($score)), __LINE__);
         }
         $this->Score = $score;
+        
         return $this;
     }
 }

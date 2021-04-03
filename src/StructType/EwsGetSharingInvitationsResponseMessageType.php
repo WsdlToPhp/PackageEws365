@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSharingInvitationsResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsGetSharingInvitationsResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfSharingInvitation
+     * @var \ArrayType\EwsArrayOfSharingInvitation
      */
-    public $SharingInvitations;
+    protected \ArrayType\EwsArrayOfSharingInvitation $SharingInvitations;
     /**
      * Constructor method for GetSharingInvitationsResponseMessageType
      * @uses EwsGetSharingInvitationsResponseMessageType::setSharingInvitations()
-     * @param \Ews\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations
+     * @param \ArrayType\EwsArrayOfSharingInvitation $sharingInvitations
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations = null)
+    public function __construct(\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations)
     {
         $this
             ->setSharingInvitations($sharingInvitations);
     }
     /**
      * Get SharingInvitations value
-     * @return \Ews\ArrayType\EwsArrayOfSharingInvitation
+     * @return \ArrayType\EwsArrayOfSharingInvitation
      */
-    public function getSharingInvitations()
+    public function getSharingInvitations(): \ArrayType\EwsArrayOfSharingInvitation
     {
         return $this->SharingInvitations;
     }
     /**
      * Set SharingInvitations value
-     * @param \Ews\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations
-     * @return \Ews\StructType\EwsGetSharingInvitationsResponseMessageType
+     * @param \ArrayType\EwsArrayOfSharingInvitation $sharingInvitations
+     * @return \StructType\EwsGetSharingInvitationsResponseMessageType
      */
-    public function setSharingInvitations(\Ews\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations = null)
+    public function setSharingInvitations(\ArrayType\EwsArrayOfSharingInvitation $sharingInvitations): self
     {
         $this->SharingInvitations = $sharingInvitations;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StaffAvailabilityCalendarViewType StructType
@@ -17,35 +20,36 @@ class EwsStaffAvailabilityCalendarViewType extends EwsBaseAvailabilityCalendarVi
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfBookingItemType
+     * @var \ArrayType\EwsArrayOfBookingItemType
      */
-    public $Items;
+    protected \ArrayType\EwsArrayOfBookingItemType $Items;
     /**
      * Constructor method for StaffAvailabilityCalendarViewType
      * @uses EwsStaffAvailabilityCalendarViewType::setItems()
-     * @param \Ews\ArrayType\EwsArrayOfBookingItemType $items
+     * @param \ArrayType\EwsArrayOfBookingItemType $items
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfBookingItemType $items = null)
+    public function __construct(\ArrayType\EwsArrayOfBookingItemType $items)
     {
         $this
             ->setItems($items);
     }
     /**
      * Get Items value
-     * @return \Ews\ArrayType\EwsArrayOfBookingItemType
+     * @return \ArrayType\EwsArrayOfBookingItemType
      */
-    public function getItems()
+    public function getItems(): \ArrayType\EwsArrayOfBookingItemType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\ArrayType\EwsArrayOfBookingItemType $items
-     * @return \Ews\StructType\EwsStaffAvailabilityCalendarViewType
+     * @param \ArrayType\EwsArrayOfBookingItemType $items
+     * @return \StructType\EwsStaffAvailabilityCalendarViewType
      */
-    public function setItems(\Ews\ArrayType\EwsArrayOfBookingItemType $items = null)
+    public function setItems(\ArrayType\EwsArrayOfBookingItemType $items): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

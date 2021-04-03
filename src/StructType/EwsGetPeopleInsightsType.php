@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetPeopleInsightsType StructType
@@ -17,41 +20,41 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonResponseShapeType
+     * @var \StructType\EwsPersonResponseShapeType|null
      */
-    public $PersonShape;
+    protected ?\StructType\EwsPersonResponseShapeType $PersonShape = null;
     /**
      * The EmailAddresses
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $EmailAddresses;
+    protected ?\ArrayType\EwsArrayOfStringsType $EmailAddresses = null;
     /**
      * The InsightFilters
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsInsightFiltersType
+     * @var \StructType\EwsInsightFiltersType|null
      */
-    public $InsightFilters;
+    protected ?\StructType\EwsInsightFiltersType $InsightFilters = null;
     /**
      * The AppId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AppId;
+    protected ?string $AppId = null;
     /**
      * The PeopleTokens
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
+     * @var \ArrayType\EwsNonEmptyArrayOfPeopleTokenType|null
      */
-    public $PeopleTokens;
+    protected ?\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $PeopleTokens = null;
     /**
      * Constructor method for GetPeopleInsightsType
      * @uses EwsGetPeopleInsightsType::setPersonShape()
@@ -59,13 +62,13 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
      * @uses EwsGetPeopleInsightsType::setInsightFilters()
      * @uses EwsGetPeopleInsightsType::setAppId()
      * @uses EwsGetPeopleInsightsType::setPeopleTokens()
-     * @param \Ews\StructType\EwsPersonResponseShapeType $personShape
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $emailAddresses
-     * @param \Ews\StructType\EwsInsightFiltersType $insightFilters
+     * @param \StructType\EwsPersonResponseShapeType $personShape
+     * @param \ArrayType\EwsArrayOfStringsType $emailAddresses
+     * @param \StructType\EwsInsightFiltersType $insightFilters
      * @param string $appId
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
      */
-    public function __construct(\Ews\StructType\EwsPersonResponseShapeType $personShape = null, \Ews\ArrayType\EwsArrayOfStringsType $emailAddresses = null, \Ews\StructType\EwsInsightFiltersType $insightFilters = null, $appId = null, \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function __construct(?\StructType\EwsPersonResponseShapeType $personShape = null, ?\ArrayType\EwsArrayOfStringsType $emailAddresses = null, ?\StructType\EwsInsightFiltersType $insightFilters = null, ?string $appId = null, ?\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
     {
         $this
             ->setPersonShape($personShape)
@@ -76,96 +79,101 @@ class EwsGetPeopleInsightsType extends EwsBaseRequestType
     }
     /**
      * Get PersonShape value
-     * @return \Ews\StructType\EwsPersonResponseShapeType|null
+     * @return \StructType\EwsPersonResponseShapeType|null
      */
-    public function getPersonShape()
+    public function getPersonShape(): ?\StructType\EwsPersonResponseShapeType
     {
         return $this->PersonShape;
     }
     /**
      * Set PersonShape value
-     * @param \Ews\StructType\EwsPersonResponseShapeType $personShape
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
+     * @param \StructType\EwsPersonResponseShapeType $personShape
+     * @return \StructType\EwsGetPeopleInsightsType
      */
-    public function setPersonShape(\Ews\StructType\EwsPersonResponseShapeType $personShape = null)
+    public function setPersonShape(?\StructType\EwsPersonResponseShapeType $personShape = null): self
     {
         $this->PersonShape = $personShape;
+        
         return $this;
     }
     /**
      * Get EmailAddresses value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getEmailAddresses()
+    public function getEmailAddresses(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->EmailAddresses;
     }
     /**
      * Set EmailAddresses value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $emailAddresses
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
+     * @param \ArrayType\EwsArrayOfStringsType $emailAddresses
+     * @return \StructType\EwsGetPeopleInsightsType
      */
-    public function setEmailAddresses(\Ews\ArrayType\EwsArrayOfStringsType $emailAddresses = null)
+    public function setEmailAddresses(?\ArrayType\EwsArrayOfStringsType $emailAddresses = null): self
     {
         $this->EmailAddresses = $emailAddresses;
+        
         return $this;
     }
     /**
      * Get InsightFilters value
-     * @return \Ews\StructType\EwsInsightFiltersType|null
+     * @return \StructType\EwsInsightFiltersType|null
      */
-    public function getInsightFilters()
+    public function getInsightFilters(): ?\StructType\EwsInsightFiltersType
     {
         return $this->InsightFilters;
     }
     /**
      * Set InsightFilters value
-     * @param \Ews\StructType\EwsInsightFiltersType $insightFilters
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
+     * @param \StructType\EwsInsightFiltersType $insightFilters
+     * @return \StructType\EwsGetPeopleInsightsType
      */
-    public function setInsightFilters(\Ews\StructType\EwsInsightFiltersType $insightFilters = null)
+    public function setInsightFilters(?\StructType\EwsInsightFiltersType $insightFilters = null): self
     {
         $this->InsightFilters = $insightFilters;
+        
         return $this;
     }
     /**
      * Get AppId value
      * @return string|null
      */
-    public function getAppId()
+    public function getAppId(): ?string
     {
         return $this->AppId;
     }
     /**
      * Set AppId value
      * @param string $appId
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
+     * @return \StructType\EwsGetPeopleInsightsType
      */
-    public function setAppId($appId = null)
+    public function setAppId(?string $appId = null): self
     {
         // validation for constraint: string
         if (!is_null($appId) && !is_string($appId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appId, true), gettype($appId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appId, true), gettype($appId)), __LINE__);
         }
         $this->AppId = $appId;
+        
         return $this;
     }
     /**
      * Get PeopleTokens value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType|null
      */
-    public function getPeopleTokens()
+    public function getPeopleTokens(): ?\ArrayType\EwsNonEmptyArrayOfPeopleTokenType
     {
         return $this->PeopleTokens;
     }
     /**
      * Set PeopleTokens value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
-     * @return \Ews\StructType\EwsGetPeopleInsightsType
+     * @param \ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens
+     * @return \StructType\EwsGetPeopleInsightsType
      */
-    public function setPeopleTokens(\Ews\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null)
+    public function setPeopleTokens(?\ArrayType\EwsNonEmptyArrayOfPeopleTokenType $peopleTokens = null): self
     {
         $this->PeopleTokens = $peopleTokens;
+        
         return $this;
     }
 }

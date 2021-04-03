@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for EntityFeedbackEntityAddSourceType EnumType
@@ -58,9 +60,9 @@ class EwsEntityFeedbackEntityAddSourceType extends AbstractStructEnumBase
      * @uses self::VALUE_OTHER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_ENTITY_RELEVANCE_API,
             self::VALUE_ACTIVE_DIRECTORY,
@@ -68,6 +70,6 @@ class EwsEntityFeedbackEntityAddSourceType extends AbstractStructEnumBase
             self::VALUE_PASTE,
             self::VALUE_RECIPIENT_CACHE,
             self::VALUE_OTHER,
-        );
+        ];
     }
 }

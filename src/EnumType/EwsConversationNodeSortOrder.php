@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ConversationNodeSortOrder EnumType
@@ -40,13 +42,13 @@ class EwsConversationNodeSortOrder extends AbstractStructEnumBase
      * @uses self::VALUE_DATE_ORDER_DESCENDING
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_TREE_ORDER_ASCENDING,
             self::VALUE_TREE_ORDER_DESCENDING,
             self::VALUE_DATE_ORDER_ASCENDING,
             self::VALUE_DATE_ORDER_DESCENDING,
-        );
+        ];
     }
 }

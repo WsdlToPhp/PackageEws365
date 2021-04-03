@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfRoleType ArrayType
@@ -18,22 +21,22 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * @var string[]
      */
-    public $Role;
+    protected array $Role = [];
     /**
      * Constructor method for NonEmptyArrayOfRoleType
      * @uses EwsNonEmptyArrayOfRoleType::setRole()
      * @param string[] $role
      */
-    public function __construct(array $role = array())
+    public function __construct(array $role = [])
     {
         $this
             ->setRole($role);
     }
     /**
      * Get Role value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getRole()
+    public function getRole(): array
     {
         return $this->Role;
     }
@@ -43,7 +46,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRoleForArrayConstraintsFromSetRole(array $values = array())
+    public static function validateRoleForArrayConstraintsFromSetRole(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -57,36 +60,23 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
             $message = sprintf('The Role property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Role value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $role
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
+     * @return \ArrayType\EwsNonEmptyArrayOfRoleType
      */
-    public function setRole(array $role = array())
+    public function setRole(array $role = []): self
     {
         // validation for constraint: array
         if ('' !== ($roleArrayErrorMessage = self::validateRoleForArrayConstraintsFromSetRole($role))) {
-            throw new \InvalidArgumentException($roleArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($roleArrayErrorMessage, __LINE__);
         }
         $this->Role = $role;
-        return $this;
-    }
-    /**
-     * Add item to Role value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRoleType
-     */
-    public function addToRole($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Role property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Role[] = $item;
+        
         return $this;
     }
     /**
@@ -94,7 +84,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -104,7 +94,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -113,7 +103,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -122,7 +112,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -132,7 +122,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -141,7 +131,7 @@ class EwsNonEmptyArrayOfRoleType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Role
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Role';
     }

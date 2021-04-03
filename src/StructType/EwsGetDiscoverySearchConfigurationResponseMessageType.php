@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDiscoverySearchConfigurationResponseMessageType
@@ -17,35 +20,36 @@ class EwsGetDiscoverySearchConfigurationResponseMessageType extends EwsResponseM
 {
     /**
      * The DiscoverySearchConfigurations
-     * @var \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
+     * @var \ArrayType\EwsArrayOfDiscoverySearchConfigurationType|null
      */
-    public $DiscoverySearchConfigurations;
+    protected ?\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $DiscoverySearchConfigurations = null;
     /**
      * Constructor method for GetDiscoverySearchConfigurationResponseMessageType
      * @uses EwsGetDiscoverySearchConfigurationResponseMessageType::setDiscoverySearchConfigurations()
-     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
+     * @param \ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null)
+    public function __construct(?\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null)
     {
         $this
             ->setDiscoverySearchConfigurations($discoverySearchConfigurations);
     }
     /**
      * Get DiscoverySearchConfigurations value
-     * @return \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType|null
+     * @return \ArrayType\EwsArrayOfDiscoverySearchConfigurationType|null
      */
-    public function getDiscoverySearchConfigurations()
+    public function getDiscoverySearchConfigurations(): ?\ArrayType\EwsArrayOfDiscoverySearchConfigurationType
     {
         return $this->DiscoverySearchConfigurations;
     }
     /**
      * Set DiscoverySearchConfigurations value
-     * @param \Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
-     * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
+     * @param \ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations
+     * @return \StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
      */
-    public function setDiscoverySearchConfigurations(\Ews\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null)
+    public function setDiscoverySearchConfigurations(?\ArrayType\EwsArrayOfDiscoverySearchConfigurationType $discoverySearchConfigurations = null): self
     {
         $this->DiscoverySearchConfigurations = $discoverySearchConfigurations;
+        
         return $this;
     }
 }

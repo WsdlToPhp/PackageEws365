@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for IndexedPageViewType StructType
@@ -18,14 +21,14 @@ class EwsIndexedPageViewType extends EwsBasePagingType
      * - use: required
      * @var int
      */
-    public $Offset;
+    protected int $Offset;
     /**
      * The BasePoint
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $BasePoint;
+    protected string $BasePoint;
     /**
      * Constructor method for IndexedPageViewType
      * @uses EwsIndexedPageViewType::setOffset()
@@ -33,7 +36,7 @@ class EwsIndexedPageViewType extends EwsBasePagingType
      * @param int $offset
      * @param string $basePoint
      */
-    public function __construct($offset = null, $basePoint = null)
+    public function __construct(int $offset, string $basePoint)
     {
         $this
             ->setOffset($offset)
@@ -43,47 +46,49 @@ class EwsIndexedPageViewType extends EwsBasePagingType
      * Get Offset value
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->Offset;
     }
     /**
      * Set Offset value
      * @param int $offset
-     * @return \Ews\StructType\EwsIndexedPageViewType
+     * @return \StructType\EwsIndexedPageViewType
      */
-    public function setOffset($offset = null)
+    public function setOffset(int $offset): self
     {
         // validation for constraint: int
         if (!is_null($offset) && !(is_int($offset) || ctype_digit($offset))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offset, true), gettype($offset)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($offset, true), gettype($offset)), __LINE__);
         }
         $this->Offset = $offset;
+        
         return $this;
     }
     /**
      * Get BasePoint value
      * @return string
      */
-    public function getBasePoint()
+    public function getBasePoint(): string
     {
         return $this->BasePoint;
     }
     /**
      * Set BasePoint value
-     * @uses \Ews\EnumType\EwsIndexBasePointType::valueIsValid()
-     * @uses \Ews\EnumType\EwsIndexBasePointType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsIndexBasePointType::valueIsValid()
+     * @uses \EnumType\EwsIndexBasePointType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $basePoint
-     * @return \Ews\StructType\EwsIndexedPageViewType
+     * @return \StructType\EwsIndexedPageViewType
      */
-    public function setBasePoint($basePoint = null)
+    public function setBasePoint(string $basePoint): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsIndexBasePointType', is_array($basePoint) ? implode(', ', $basePoint) : var_export($basePoint, true), implode(', ', \Ews\EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsIndexBasePointType::valueIsValid($basePoint)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIndexBasePointType', is_array($basePoint) ? implode(', ', $basePoint) : var_export($basePoint, true), implode(', ', \EnumType\EwsIndexBasePointType::getValidValues())), __LINE__);
         }
         $this->BasePoint = $basePoint;
+        
         return $this;
     }
 }

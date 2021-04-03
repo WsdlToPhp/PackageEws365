@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteBookingServiceType StructType
@@ -17,35 +20,36 @@ class EwsDeleteBookingServiceType extends EwsBaseBookingRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $BookingServiceItemId;
+    protected \StructType\EwsItemIdType $BookingServiceItemId;
     /**
      * Constructor method for DeleteBookingServiceType
      * @uses EwsDeleteBookingServiceType::setBookingServiceItemId()
-     * @param \Ews\StructType\EwsItemIdType $bookingServiceItemId
+     * @param \StructType\EwsItemIdType $bookingServiceItemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $bookingServiceItemId = null)
+    public function __construct(\StructType\EwsItemIdType $bookingServiceItemId)
     {
         $this
             ->setBookingServiceItemId($bookingServiceItemId);
     }
     /**
      * Get BookingServiceItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getBookingServiceItemId()
+    public function getBookingServiceItemId(): \StructType\EwsItemIdType
     {
         return $this->BookingServiceItemId;
     }
     /**
      * Set BookingServiceItemId value
-     * @param \Ews\StructType\EwsItemIdType $bookingServiceItemId
-     * @return \Ews\StructType\EwsDeleteBookingServiceType
+     * @param \StructType\EwsItemIdType $bookingServiceItemId
+     * @return \StructType\EwsDeleteBookingServiceType
      */
-    public function setBookingServiceItemId(\Ews\StructType\EwsItemIdType $bookingServiceItemId = null)
+    public function setBookingServiceItemId(\StructType\EwsItemIdType $bookingServiceItemId): self
     {
         $this->BookingServiceItemId = $bookingServiceItemId;
+        
         return $this;
     }
 }

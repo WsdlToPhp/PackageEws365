@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GroupSearchScopeType StructType
@@ -14,24 +17,24 @@ class EwsGroupSearchScopeType extends AbstractStructBase
 {
     /**
      * The GroupTypes
-     * @var string[]
+     * @var string
      */
-    public $GroupTypes;
+    protected ?string $GroupTypes = null;
     /**
      * Constructor method for GroupSearchScopeType
      * @uses EwsGroupSearchScopeType::setGroupTypes()
-     * @param string[] $groupTypes
+     * @param array|string $groupTypes
      */
-    public function __construct(array $groupTypes = array())
+    public function __construct($groupTypes = [])
     {
         $this
             ->setGroupTypes($groupTypes);
     }
     /**
      * Get GroupTypes value
-     * @return string[]|null
+     * @return string
      */
-    public function getGroupTypes()
+    public function getGroupTypes(): ?string
     {
         return $this->GroupTypes;
     }
@@ -41,37 +44,39 @@ class EwsGroupSearchScopeType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateGroupTypesForArrayConstraintsFromSetGroupTypes(array $values = array())
+    public static function validateGroupTypesForArrayConstraintsFromSetGroupTypes(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $groupSearchScopeTypeGroupTypesItem) {
             // validation for constraint: enumeration
-            if (!\Ews\EnumType\EwsSearchScopeGroupsType::valueIsValid($groupSearchScopeTypeGroupTypesItem)) {
+            if (!\EnumType\EwsSearchScopeGroupsType::valueIsValid($groupSearchScopeTypeGroupTypesItem)) {
                 $invalidValues[] = is_object($groupSearchScopeTypeGroupTypesItem) ? get_class($groupSearchScopeTypeGroupTypesItem) : sprintf('%s(%s)', gettype($groupSearchScopeTypeGroupTypesItem), var_export($groupSearchScopeTypeGroupTypesItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchScopeGroupsType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \Ews\EnumType\EwsSearchScopeGroupsType::getValidValues()));
+            $message = sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchScopeGroupsType', is_array($invalidValues) ? implode(', ', $invalidValues) : var_export($invalidValues, true), implode(', ', \EnumType\EwsSearchScopeGroupsType::getValidValues()));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set GroupTypes value
-     * @uses \Ews\EnumType\EwsSearchScopeGroupsType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchScopeGroupsType::getValidValues()
-     * @throws \InvalidArgumentException
-     * @param string[] $groupTypes
-     * @return \Ews\StructType\EwsGroupSearchScopeType
+     * @uses \EnumType\EwsSearchScopeGroupsType::valueIsValid()
+     * @uses \EnumType\EwsSearchScopeGroupsType::getValidValues()
+     * @throws InvalidArgumentException
+     * @param array|string $groupTypes
+     * @return \StructType\EwsGroupSearchScopeType
      */
-    public function setGroupTypes(array $groupTypes = array())
+    public function setGroupTypes($groupTypes = []): self
     {
         // validation for constraint: list
-        if ('' !== ($groupTypesArrayErrorMessage = self::validateGroupTypesForArrayConstraintsFromSetGroupTypes($groupTypes))) {
-            throw new \InvalidArgumentException($groupTypesArrayErrorMessage, __LINE__);
+        if ('' !== ($groupTypesArrayErrorMessage = self::validateGroupTypesForArrayConstraintsFromSetGroupTypes(is_string($groupTypes) ? explode(' ', $groupTypes) : $groupTypes))) {
+            throw new InvalidArgumentException($groupTypesArrayErrorMessage, __LINE__);
         }
-        $this->GroupTypes = is_array($groupTypes) ? implode(' ', $groupTypes) : null;
+        $this->GroupTypes = is_array($groupTypes) ? implode(' ', $groupTypes) : $groupTypes;
+        
         return $this;
     }
 }

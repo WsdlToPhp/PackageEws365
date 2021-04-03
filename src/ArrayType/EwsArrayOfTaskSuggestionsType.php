@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfTaskSuggestionsType ArrayType
@@ -16,24 +19,24 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
      * The TaskSuggestion
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsTaskSuggestionType[]
+     * @var \StructType\EwsTaskSuggestionType[]
      */
-    public $TaskSuggestion;
+    protected array $TaskSuggestion = [];
     /**
      * Constructor method for ArrayOfTaskSuggestionsType
      * @uses EwsArrayOfTaskSuggestionsType::setTaskSuggestion()
-     * @param \Ews\StructType\EwsTaskSuggestionType[] $taskSuggestion
+     * @param \StructType\EwsTaskSuggestionType[] $taskSuggestion
      */
-    public function __construct(array $taskSuggestion = array())
+    public function __construct(array $taskSuggestion = [])
     {
         $this
             ->setTaskSuggestion($taskSuggestion);
     }
     /**
      * Get TaskSuggestion value
-     * @return \Ews\StructType\EwsTaskSuggestionType[]|null
+     * @return \StructType\EwsTaskSuggestionType[]
      */
-    public function getTaskSuggestion()
+    public function getTaskSuggestion(): array
     {
         return $this->TaskSuggestion;
     }
@@ -43,58 +46,45 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTaskSuggestionForArrayConstraintsFromSetTaskSuggestion(array $values = array())
+    public static function validateTaskSuggestionForArrayConstraintsFromSetTaskSuggestion(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfTaskSuggestionsTypeTaskSuggestionItem) {
             // validation for constraint: itemType
-            if (!$arrayOfTaskSuggestionsTypeTaskSuggestionItem instanceof \Ews\StructType\EwsTaskSuggestionType) {
+            if (!$arrayOfTaskSuggestionsTypeTaskSuggestionItem instanceof \StructType\EwsTaskSuggestionType) {
                 $invalidValues[] = is_object($arrayOfTaskSuggestionsTypeTaskSuggestionItem) ? get_class($arrayOfTaskSuggestionsTypeTaskSuggestionItem) : sprintf('%s(%s)', gettype($arrayOfTaskSuggestionsTypeTaskSuggestionItem), var_export($arrayOfTaskSuggestionsTypeTaskSuggestionItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The TaskSuggestion property can only contain items of type \Ews\StructType\EwsTaskSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The TaskSuggestion property can only contain items of type \StructType\EwsTaskSuggestionType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set TaskSuggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTaskSuggestionType[] $taskSuggestion
-     * @return \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsTaskSuggestionType[] $taskSuggestion
+     * @return \ArrayType\EwsArrayOfTaskSuggestionsType
      */
-    public function setTaskSuggestion(array $taskSuggestion = array())
+    public function setTaskSuggestion(array $taskSuggestion = []): self
     {
         // validation for constraint: array
         if ('' !== ($taskSuggestionArrayErrorMessage = self::validateTaskSuggestionForArrayConstraintsFromSetTaskSuggestion($taskSuggestion))) {
-            throw new \InvalidArgumentException($taskSuggestionArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($taskSuggestionArrayErrorMessage, __LINE__);
         }
         $this->TaskSuggestion = $taskSuggestion;
-        return $this;
-    }
-    /**
-     * Add item to TaskSuggestion value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsTaskSuggestionType $item
-     * @return \Ews\ArrayType\EwsArrayOfTaskSuggestionsType
-     */
-    public function addToTaskSuggestion(\Ews\StructType\EwsTaskSuggestionType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsTaskSuggestionType) {
-            throw new \InvalidArgumentException(sprintf('The TaskSuggestion property can only contain items of type \Ews\StructType\EwsTaskSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->TaskSuggestion[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsTaskSuggestionType|null
+     * @return \StructType\EwsTaskSuggestionType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsTaskSuggestionType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsTaskSuggestionType|null
+     * @return \StructType\EwsTaskSuggestionType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsTaskSuggestionType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsTaskSuggestionType|null
+     * @return \StructType\EwsTaskSuggestionType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsTaskSuggestionType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsTaskSuggestionType|null
+     * @return \StructType\EwsTaskSuggestionType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsTaskSuggestionType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsArrayOfTaskSuggestionsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsTaskSuggestionType|null
+     * @return \StructType\EwsTaskSuggestionType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsTaskSuggestionType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsTaskSuggestionType $item
+     * @return \ArrayType\EwsArrayOfTaskSuggestionsType
+     */
+    public function add(\StructType\EwsTaskSuggestionType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string TaskSuggestion
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'TaskSuggestion';
     }

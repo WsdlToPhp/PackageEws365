@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateMeetingSpaceType StructType
@@ -17,25 +20,25 @@ class EwsUpdateMeetingSpaceType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $ItemId;
+    protected \StructType\EwsItemIdType $ItemId;
     /**
      * The MeetingSpace
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsMeetingSpaceType
+     * @var \StructType\EwsMeetingSpaceType
      */
-    public $MeetingSpace;
+    protected \StructType\EwsMeetingSpaceType $MeetingSpace;
     /**
      * Constructor method for UpdateMeetingSpaceType
      * @uses EwsUpdateMeetingSpaceType::setItemId()
      * @uses EwsUpdateMeetingSpaceType::setMeetingSpace()
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
+     * @param \StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null, \Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function __construct(\StructType\EwsItemIdType $itemId, \StructType\EwsMeetingSpaceType $meetingSpace)
     {
         $this
             ->setItemId($itemId)
@@ -43,38 +46,40 @@ class EwsUpdateMeetingSpaceType extends EwsBaseRequestType
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getItemId()
+    public function getItemId(): \StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsUpdateMeetingSpaceType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsUpdateMeetingSpaceType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(\StructType\EwsItemIdType $itemId): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
     /**
      * Get MeetingSpace value
-     * @return \Ews\StructType\EwsMeetingSpaceType
+     * @return \StructType\EwsMeetingSpaceType
      */
-    public function getMeetingSpace()
+    public function getMeetingSpace(): \StructType\EwsMeetingSpaceType
     {
         return $this->MeetingSpace;
     }
     /**
      * Set MeetingSpace value
-     * @param \Ews\StructType\EwsMeetingSpaceType $meetingSpace
-     * @return \Ews\StructType\EwsUpdateMeetingSpaceType
+     * @param \StructType\EwsMeetingSpaceType $meetingSpace
+     * @return \StructType\EwsUpdateMeetingSpaceType
      */
-    public function setMeetingSpace(\Ews\StructType\EwsMeetingSpaceType $meetingSpace = null)
+    public function setMeetingSpace(\StructType\EwsMeetingSpaceType $meetingSpace): self
     {
         $this->MeetingSpace = $meetingSpace;
+        
         return $this;
     }
 }

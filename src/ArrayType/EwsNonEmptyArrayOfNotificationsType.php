@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfNotificationsType ArrayType
@@ -17,24 +20,24 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNotificationType[]
+     * @var \StructType\EwsNotificationType[]
      */
-    public $Notification;
+    protected array $Notification = [];
     /**
      * Constructor method for NonEmptyArrayOfNotificationsType
      * @uses EwsNonEmptyArrayOfNotificationsType::setNotification()
-     * @param \Ews\StructType\EwsNotificationType[] $notification
+     * @param \StructType\EwsNotificationType[] $notification
      */
-    public function __construct(array $notification = array())
+    public function __construct(array $notification = [])
     {
         $this
             ->setNotification($notification);
     }
     /**
      * Get Notification value
-     * @return \Ews\StructType\EwsNotificationType[]|null
+     * @return \StructType\EwsNotificationType[]
      */
-    public function getNotification()
+    public function getNotification(): array
     {
         return $this->Notification;
     }
@@ -44,58 +47,45 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateNotificationForArrayConstraintsFromSetNotification(array $values = array())
+    public static function validateNotificationForArrayConstraintsFromSetNotification(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfNotificationsTypeNotificationItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfNotificationsTypeNotificationItem instanceof \Ews\StructType\EwsNotificationType) {
+            if (!$nonEmptyArrayOfNotificationsTypeNotificationItem instanceof \StructType\EwsNotificationType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfNotificationsTypeNotificationItem) ? get_class($nonEmptyArrayOfNotificationsTypeNotificationItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfNotificationsTypeNotificationItem), var_export($nonEmptyArrayOfNotificationsTypeNotificationItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Notification property can only contain items of type \Ews\StructType\EwsNotificationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Notification property can only contain items of type \StructType\EwsNotificationType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Notification value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNotificationType[] $notification
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsNotificationType[] $notification
+     * @return \ArrayType\EwsNonEmptyArrayOfNotificationsType
      */
-    public function setNotification(array $notification = array())
+    public function setNotification(array $notification = []): self
     {
         // validation for constraint: array
         if ('' !== ($notificationArrayErrorMessage = self::validateNotificationForArrayConstraintsFromSetNotification($notification))) {
-            throw new \InvalidArgumentException($notificationArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($notificationArrayErrorMessage, __LINE__);
         }
         $this->Notification = $notification;
-        return $this;
-    }
-    /**
-     * Add item to Notification value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsNotificationType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType
-     */
-    public function addToNotification(\Ews\StructType\EwsNotificationType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsNotificationType) {
-            throw new \InvalidArgumentException(sprintf('The Notification property can only contain items of type \Ews\StructType\EwsNotificationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Notification[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsNotificationType|null
+     * @return \StructType\EwsNotificationType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsNotificationType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsNotificationType|null
+     * @return \StructType\EwsNotificationType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsNotificationType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsNotificationType|null
+     * @return \StructType\EwsNotificationType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsNotificationType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsNotificationType|null
+     * @return \StructType\EwsNotificationType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsNotificationType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsNonEmptyArrayOfNotificationsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsNotificationType|null
+     * @return \StructType\EwsNotificationType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsNotificationType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsNotificationType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfNotificationsType
+     */
+    public function add(\StructType\EwsNotificationType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Notification
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Notification';
     }

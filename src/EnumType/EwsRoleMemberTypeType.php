@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for RoleMemberTypeType EnumType
@@ -100,9 +102,9 @@ class EwsRoleMemberTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_PARTNER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_PASSPORT,
             self::VALUE_EVERYONE,
@@ -117,6 +119,6 @@ class EwsRoleMemberTypeType extends AbstractStructEnumBase
             self::VALUE_CIRCLE,
             self::VALUE_DOMAIN,
             self::VALUE_PARTNER,
-        );
+        ];
     }
 }

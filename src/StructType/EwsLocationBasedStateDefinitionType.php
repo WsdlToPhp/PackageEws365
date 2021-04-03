@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for LocationBasedStateDefinitionType StructType
@@ -18,14 +21,14 @@ class EwsLocationBasedStateDefinitionType extends EwsBaseCalendarItemStateDefini
      * - minOccurs: 1
      * @var string
      */
-    public $OrganizerLocation;
+    protected string $OrganizerLocation;
     /**
      * The AttendeeLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 1
      * @var string
      */
-    public $AttendeeLocation;
+    protected string $AttendeeLocation;
     /**
      * Constructor method for LocationBasedStateDefinitionType
      * @uses EwsLocationBasedStateDefinitionType::setOrganizerLocation()
@@ -33,7 +36,7 @@ class EwsLocationBasedStateDefinitionType extends EwsBaseCalendarItemStateDefini
      * @param string $organizerLocation
      * @param string $attendeeLocation
      */
-    public function __construct($organizerLocation = null, $attendeeLocation = null)
+    public function __construct(string $organizerLocation, string $attendeeLocation)
     {
         $this
             ->setOrganizerLocation($organizerLocation)
@@ -43,44 +46,46 @@ class EwsLocationBasedStateDefinitionType extends EwsBaseCalendarItemStateDefini
      * Get OrganizerLocation value
      * @return string
      */
-    public function getOrganizerLocation()
+    public function getOrganizerLocation(): string
     {
         return $this->OrganizerLocation;
     }
     /**
      * Set OrganizerLocation value
      * @param string $organizerLocation
-     * @return \Ews\StructType\EwsLocationBasedStateDefinitionType
+     * @return \StructType\EwsLocationBasedStateDefinitionType
      */
-    public function setOrganizerLocation($organizerLocation = null)
+    public function setOrganizerLocation(string $organizerLocation): self
     {
         // validation for constraint: string
         if (!is_null($organizerLocation) && !is_string($organizerLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($organizerLocation, true), gettype($organizerLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($organizerLocation, true), gettype($organizerLocation)), __LINE__);
         }
         $this->OrganizerLocation = $organizerLocation;
+        
         return $this;
     }
     /**
      * Get AttendeeLocation value
      * @return string
      */
-    public function getAttendeeLocation()
+    public function getAttendeeLocation(): string
     {
         return $this->AttendeeLocation;
     }
     /**
      * Set AttendeeLocation value
      * @param string $attendeeLocation
-     * @return \Ews\StructType\EwsLocationBasedStateDefinitionType
+     * @return \StructType\EwsLocationBasedStateDefinitionType
      */
-    public function setAttendeeLocation($attendeeLocation = null)
+    public function setAttendeeLocation(string $attendeeLocation): self
     {
         // validation for constraint: string
         if (!is_null($attendeeLocation) && !is_string($attendeeLocation)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attendeeLocation, true), gettype($attendeeLocation)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($attendeeLocation, true), gettype($attendeeLocation)), __LINE__);
         }
         $this->AttendeeLocation = $attendeeLocation;
+        
         return $this;
     }
 }

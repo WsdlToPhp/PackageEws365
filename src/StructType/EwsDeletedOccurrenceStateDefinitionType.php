@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeletedOccurrenceStateDefinitionType StructType
@@ -18,14 +21,14 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
      * - minOccurs: 1
      * @var string
      */
-    public $OccurrenceDate;
+    protected string $OccurrenceDate;
     /**
      * The IsOccurrencePresent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsOccurrencePresent;
+    protected ?bool $IsOccurrencePresent = null;
     /**
      * Constructor method for DeletedOccurrenceStateDefinitionType
      * @uses EwsDeletedOccurrenceStateDefinitionType::setOccurrenceDate()
@@ -33,7 +36,7 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
      * @param string $occurrenceDate
      * @param bool $isOccurrencePresent
      */
-    public function __construct($occurrenceDate = null, $isOccurrencePresent = null)
+    public function __construct(string $occurrenceDate, ?bool $isOccurrencePresent = null)
     {
         $this
             ->setOccurrenceDate($occurrenceDate)
@@ -43,44 +46,46 @@ class EwsDeletedOccurrenceStateDefinitionType extends EwsBaseCalendarItemStateDe
      * Get OccurrenceDate value
      * @return string
      */
-    public function getOccurrenceDate()
+    public function getOccurrenceDate(): string
     {
         return $this->OccurrenceDate;
     }
     /**
      * Set OccurrenceDate value
      * @param string $occurrenceDate
-     * @return \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
+     * @return \StructType\EwsDeletedOccurrenceStateDefinitionType
      */
-    public function setOccurrenceDate($occurrenceDate = null)
+    public function setOccurrenceDate(string $occurrenceDate): self
     {
         // validation for constraint: string
         if (!is_null($occurrenceDate) && !is_string($occurrenceDate)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($occurrenceDate, true), gettype($occurrenceDate)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($occurrenceDate, true), gettype($occurrenceDate)), __LINE__);
         }
         $this->OccurrenceDate = $occurrenceDate;
+        
         return $this;
     }
     /**
      * Get IsOccurrencePresent value
      * @return bool|null
      */
-    public function getIsOccurrencePresent()
+    public function getIsOccurrencePresent(): ?bool
     {
         return $this->IsOccurrencePresent;
     }
     /**
      * Set IsOccurrencePresent value
      * @param bool $isOccurrencePresent
-     * @return \Ews\StructType\EwsDeletedOccurrenceStateDefinitionType
+     * @return \StructType\EwsDeletedOccurrenceStateDefinitionType
      */
-    public function setIsOccurrencePresent($isOccurrencePresent = null)
+    public function setIsOccurrencePresent(?bool $isOccurrencePresent = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isOccurrencePresent) && !is_bool($isOccurrencePresent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOccurrencePresent, true), gettype($isOccurrencePresent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOccurrencePresent, true), gettype($isOccurrencePresent)), __LINE__);
         }
         $this->IsOccurrencePresent = $isOccurrencePresent;
+        
         return $this;
     }
 }

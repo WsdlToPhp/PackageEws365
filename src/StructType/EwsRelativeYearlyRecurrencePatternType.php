@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RelativeYearlyRecurrencePatternType StructType
@@ -14,19 +17,19 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
 {
     /**
      * The DaysOfWeek
-     * @var string
+     * @var string|null
      */
-    public $DaysOfWeek;
+    protected ?string $DaysOfWeek = null;
     /**
      * The DayOfWeekIndex
-     * @var string
+     * @var string|null
      */
-    public $DayOfWeekIndex;
+    protected ?string $DayOfWeekIndex = null;
     /**
      * The Month
-     * @var string
+     * @var string|null
      */
-    public $Month;
+    protected ?string $Month = null;
     /**
      * Constructor method for RelativeYearlyRecurrencePatternType
      * @uses EwsRelativeYearlyRecurrencePatternType::setDaysOfWeek()
@@ -36,7 +39,7 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * @param string $dayOfWeekIndex
      * @param string $month
      */
-    public function __construct($daysOfWeek = null, $dayOfWeekIndex = null, $month = null)
+    public function __construct(?string $daysOfWeek = null, ?string $dayOfWeekIndex = null, ?string $month = null)
     {
         $this
             ->setDaysOfWeek($daysOfWeek)
@@ -47,75 +50,78 @@ class EwsRelativeYearlyRecurrencePatternType extends EwsRecurrencePatternBaseTyp
      * Get DaysOfWeek value
      * @return string|null
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): ?string
     {
         return $this->DaysOfWeek;
     }
     /**
      * Set DaysOfWeek value
-     * @uses \Ews\EnumType\EwsDayOfWeekType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDayOfWeekType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $daysOfWeek
-     * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
+     * @return \StructType\EwsRelativeYearlyRecurrencePatternType
      */
-    public function setDaysOfWeek($daysOfWeek = null)
+    public function setDaysOfWeek(?string $daysOfWeek = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDayOfWeekType::valueIsValid($daysOfWeek)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekType', is_array($daysOfWeek) ? implode(', ', $daysOfWeek) : var_export($daysOfWeek, true), implode(', ', \Ews\EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDayOfWeekType::valueIsValid($daysOfWeek)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekType', is_array($daysOfWeek) ? implode(', ', $daysOfWeek) : var_export($daysOfWeek, true), implode(', ', \EnumType\EwsDayOfWeekType::getValidValues())), __LINE__);
         }
         $this->DaysOfWeek = $daysOfWeek;
+        
         return $this;
     }
     /**
      * Get DayOfWeekIndex value
      * @return string|null
      */
-    public function getDayOfWeekIndex()
+    public function getDayOfWeekIndex(): ?string
     {
         return $this->DayOfWeekIndex;
     }
     /**
      * Set DayOfWeekIndex value
-     * @uses \Ews\EnumType\EwsDayOfWeekIndexType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDayOfWeekIndexType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDayOfWeekIndexType::valueIsValid()
+     * @uses \EnumType\EwsDayOfWeekIndexType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $dayOfWeekIndex
-     * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
+     * @return \StructType\EwsRelativeYearlyRecurrencePatternType
      */
-    public function setDayOfWeekIndex($dayOfWeekIndex = null)
+    public function setDayOfWeekIndex(?string $dayOfWeekIndex = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDayOfWeekIndexType::valueIsValid($dayOfWeekIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDayOfWeekIndexType', is_array($dayOfWeekIndex) ? implode(', ', $dayOfWeekIndex) : var_export($dayOfWeekIndex, true), implode(', ', \Ews\EnumType\EwsDayOfWeekIndexType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDayOfWeekIndexType::valueIsValid($dayOfWeekIndex)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDayOfWeekIndexType', is_array($dayOfWeekIndex) ? implode(', ', $dayOfWeekIndex) : var_export($dayOfWeekIndex, true), implode(', ', \EnumType\EwsDayOfWeekIndexType::getValidValues())), __LINE__);
         }
         $this->DayOfWeekIndex = $dayOfWeekIndex;
+        
         return $this;
     }
     /**
      * Get Month value
      * @return string|null
      */
-    public function getMonth()
+    public function getMonth(): ?string
     {
         return $this->Month;
     }
     /**
      * Set Month value
-     * @uses \Ews\EnumType\EwsMonthNamesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMonthNamesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMonthNamesType::valueIsValid()
+     * @uses \EnumType\EwsMonthNamesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $month
-     * @return \Ews\StructType\EwsRelativeYearlyRecurrencePatternType
+     * @return \StructType\EwsRelativeYearlyRecurrencePatternType
      */
-    public function setMonth($month = null)
+    public function setMonth(?string $month = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMonthNamesType::valueIsValid($month)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMonthNamesType', is_array($month) ? implode(', ', $month) : var_export($month, true), implode(', ', \Ews\EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMonthNamesType::valueIsValid($month)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMonthNamesType', is_array($month) ? implode(', ', $month) : var_export($month, true), implode(', ', \EnumType\EwsMonthNamesType::getValidValues())), __LINE__);
         }
         $this->Month = $month;
+        
         return $this;
     }
 }

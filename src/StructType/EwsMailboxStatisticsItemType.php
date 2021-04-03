@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxStatisticsItemType StructType
@@ -21,7 +24,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $MailboxId;
+    protected string $MailboxId;
     /**
      * The DisplayName
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $DisplayName;
+    protected string $DisplayName;
     /**
      * The ItemCount
      * Meta information extracted from the WSDL
@@ -37,7 +40,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $ItemCount;
+    protected int $ItemCount;
     /**
      * The Size
      * Meta information extracted from the WSDL
@@ -45,7 +48,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $Size;
+    protected int $Size;
     /**
      * Constructor method for MailboxStatisticsItemType
      * @uses EwsMailboxStatisticsItemType::setMailboxId()
@@ -57,7 +60,7 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * @param int $itemCount
      * @param int $size
      */
-    public function __construct($mailboxId = null, $displayName = null, $itemCount = null, $size = null)
+    public function __construct(string $mailboxId, string $displayName, int $itemCount, int $size)
     {
         $this
             ->setMailboxId($mailboxId)
@@ -69,88 +72,92 @@ class EwsMailboxStatisticsItemType extends AbstractStructBase
      * Get MailboxId value
      * @return string
      */
-    public function getMailboxId()
+    public function getMailboxId(): string
     {
         return $this->MailboxId;
     }
     /**
      * Set MailboxId value
      * @param string $mailboxId
-     * @return \Ews\StructType\EwsMailboxStatisticsItemType
+     * @return \StructType\EwsMailboxStatisticsItemType
      */
-    public function setMailboxId($mailboxId = null)
+    public function setMailboxId(string $mailboxId): self
     {
         // validation for constraint: string
         if (!is_null($mailboxId) && !is_string($mailboxId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxId, true), gettype($mailboxId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailboxId, true), gettype($mailboxId)), __LINE__);
         }
         $this->MailboxId = $mailboxId;
+        
         return $this;
     }
     /**
      * Get DisplayName value
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsMailboxStatisticsItemType
+     * @return \StructType\EwsMailboxStatisticsItemType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(string $displayName): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get ItemCount value
      * @return int
      */
-    public function getItemCount()
+    public function getItemCount(): int
     {
         return $this->ItemCount;
     }
     /**
      * Set ItemCount value
      * @param int $itemCount
-     * @return \Ews\StructType\EwsMailboxStatisticsItemType
+     * @return \StructType\EwsMailboxStatisticsItemType
      */
-    public function setItemCount($itemCount = null)
+    public function setItemCount(int $itemCount): self
     {
         // validation for constraint: int
         if (!is_null($itemCount) && !(is_int($itemCount) || ctype_digit($itemCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemCount, true), gettype($itemCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($itemCount, true), gettype($itemCount)), __LINE__);
         }
         $this->ItemCount = $itemCount;
+        
         return $this;
     }
     /**
      * Get Size value
      * @return int
      */
-    public function getSize()
+    public function getSize(): int
     {
         return $this->Size;
     }
     /**
      * Set Size value
      * @param int $size
-     * @return \Ews\StructType\EwsMailboxStatisticsItemType
+     * @return \StructType\EwsMailboxStatisticsItemType
      */
-    public function setSize($size = null)
+    public function setSize(int $size): self
     {
         // validation for constraint: int
         if (!is_null($size) && !(is_int($size) || ctype_digit($size))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
+        
         return $this;
     }
 }

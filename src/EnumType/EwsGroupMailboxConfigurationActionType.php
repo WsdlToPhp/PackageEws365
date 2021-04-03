@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for GroupMailboxConfigurationActionType EnumType
@@ -58,9 +60,9 @@ class EwsGroupMailboxConfigurationActionType extends AbstractStructEnumBase
      * @uses self::VALUE_GENERATE_GROUP_PHOTO
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_SET_REGIONAL_SETTINGS,
             self::VALUE_CREATE_DEFAULT_FOLDERS,
             self::VALUE_SET_INITIAL_FOLDER_PERMISSIONS,
@@ -68,6 +70,6 @@ class EwsGroupMailboxConfigurationActionType extends AbstractStructEnumBase
             self::VALUE_CONFIGURE_CALENDAR,
             self::VALUE_SEND_WELCOME_MESSAGE,
             self::VALUE_GENERATE_GROUP_PHOTO,
-        );
+        ];
     }
 }

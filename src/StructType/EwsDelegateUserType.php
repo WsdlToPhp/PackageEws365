@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DelegateUserType StructType
@@ -17,45 +20,45 @@ class EwsDelegateUserType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserIdType
+     * @var \StructType\EwsUserIdType
      */
-    public $UserId;
+    protected \StructType\EwsUserIdType $UserId;
     /**
      * The DelegatePermissions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsDelegatePermissionsType
+     * @var \StructType\EwsDelegatePermissionsType|null
      */
-    public $DelegatePermissions;
+    protected ?\StructType\EwsDelegatePermissionsType $DelegatePermissions = null;
     /**
      * The ReceiveCopiesOfMeetingMessages
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ReceiveCopiesOfMeetingMessages;
+    protected ?bool $ReceiveCopiesOfMeetingMessages = null;
     /**
      * The ViewPrivateItems
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ViewPrivateItems;
+    protected ?bool $ViewPrivateItems = null;
     /**
      * Constructor method for DelegateUserType
      * @uses EwsDelegateUserType::setUserId()
      * @uses EwsDelegateUserType::setDelegatePermissions()
      * @uses EwsDelegateUserType::setReceiveCopiesOfMeetingMessages()
      * @uses EwsDelegateUserType::setViewPrivateItems()
-     * @param \Ews\StructType\EwsUserIdType $userId
-     * @param \Ews\StructType\EwsDelegatePermissionsType $delegatePermissions
+     * @param \StructType\EwsUserIdType $userId
+     * @param \StructType\EwsDelegatePermissionsType $delegatePermissions
      * @param bool $receiveCopiesOfMeetingMessages
      * @param bool $viewPrivateItems
      */
-    public function __construct(\Ews\StructType\EwsUserIdType $userId = null, \Ews\StructType\EwsDelegatePermissionsType $delegatePermissions = null, $receiveCopiesOfMeetingMessages = null, $viewPrivateItems = null)
+    public function __construct(\StructType\EwsUserIdType $userId, ?\StructType\EwsDelegatePermissionsType $delegatePermissions = null, ?bool $receiveCopiesOfMeetingMessages = null, ?bool $viewPrivateItems = null)
     {
         $this
             ->setUserId($userId)
@@ -65,82 +68,86 @@ class EwsDelegateUserType extends AbstractStructBase
     }
     /**
      * Get UserId value
-     * @return \Ews\StructType\EwsUserIdType
+     * @return \StructType\EwsUserIdType
      */
-    public function getUserId()
+    public function getUserId(): \StructType\EwsUserIdType
     {
         return $this->UserId;
     }
     /**
      * Set UserId value
-     * @param \Ews\StructType\EwsUserIdType $userId
-     * @return \Ews\StructType\EwsDelegateUserType
+     * @param \StructType\EwsUserIdType $userId
+     * @return \StructType\EwsDelegateUserType
      */
-    public function setUserId(\Ews\StructType\EwsUserIdType $userId = null)
+    public function setUserId(\StructType\EwsUserIdType $userId): self
     {
         $this->UserId = $userId;
+        
         return $this;
     }
     /**
      * Get DelegatePermissions value
-     * @return \Ews\StructType\EwsDelegatePermissionsType|null
+     * @return \StructType\EwsDelegatePermissionsType|null
      */
-    public function getDelegatePermissions()
+    public function getDelegatePermissions(): ?\StructType\EwsDelegatePermissionsType
     {
         return $this->DelegatePermissions;
     }
     /**
      * Set DelegatePermissions value
-     * @param \Ews\StructType\EwsDelegatePermissionsType $delegatePermissions
-     * @return \Ews\StructType\EwsDelegateUserType
+     * @param \StructType\EwsDelegatePermissionsType $delegatePermissions
+     * @return \StructType\EwsDelegateUserType
      */
-    public function setDelegatePermissions(\Ews\StructType\EwsDelegatePermissionsType $delegatePermissions = null)
+    public function setDelegatePermissions(?\StructType\EwsDelegatePermissionsType $delegatePermissions = null): self
     {
         $this->DelegatePermissions = $delegatePermissions;
+        
         return $this;
     }
     /**
      * Get ReceiveCopiesOfMeetingMessages value
      * @return bool|null
      */
-    public function getReceiveCopiesOfMeetingMessages()
+    public function getReceiveCopiesOfMeetingMessages(): ?bool
     {
         return $this->ReceiveCopiesOfMeetingMessages;
     }
     /**
      * Set ReceiveCopiesOfMeetingMessages value
      * @param bool $receiveCopiesOfMeetingMessages
-     * @return \Ews\StructType\EwsDelegateUserType
+     * @return \StructType\EwsDelegateUserType
      */
-    public function setReceiveCopiesOfMeetingMessages($receiveCopiesOfMeetingMessages = null)
+    public function setReceiveCopiesOfMeetingMessages(?bool $receiveCopiesOfMeetingMessages = null): self
     {
         // validation for constraint: boolean
         if (!is_null($receiveCopiesOfMeetingMessages) && !is_bool($receiveCopiesOfMeetingMessages)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($receiveCopiesOfMeetingMessages, true), gettype($receiveCopiesOfMeetingMessages)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($receiveCopiesOfMeetingMessages, true), gettype($receiveCopiesOfMeetingMessages)), __LINE__);
         }
         $this->ReceiveCopiesOfMeetingMessages = $receiveCopiesOfMeetingMessages;
+        
         return $this;
     }
     /**
      * Get ViewPrivateItems value
      * @return bool|null
      */
-    public function getViewPrivateItems()
+    public function getViewPrivateItems(): ?bool
     {
         return $this->ViewPrivateItems;
     }
     /**
      * Set ViewPrivateItems value
      * @param bool $viewPrivateItems
-     * @return \Ews\StructType\EwsDelegateUserType
+     * @return \StructType\EwsDelegateUserType
      */
-    public function setViewPrivateItems($viewPrivateItems = null)
+    public function setViewPrivateItems(?bool $viewPrivateItems = null): self
     {
         // validation for constraint: boolean
         if (!is_null($viewPrivateItems) && !is_bool($viewPrivateItems)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($viewPrivateItems, true), gettype($viewPrivateItems)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($viewPrivateItems, true), gettype($viewPrivateItems)), __LINE__);
         }
         $this->ViewPrivateItems = $viewPrivateItems;
+        
         return $this;
     }
 }

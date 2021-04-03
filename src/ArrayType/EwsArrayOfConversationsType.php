@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfConversationsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * - choice: Conversation
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsConversationType
+     * @var \StructType\EwsConversationType|null
      */
-    public $Conversation;
+    protected ?\StructType\EwsConversationType $Conversation = null;
     /**
      * Constructor method for ArrayOfConversationsType
      * @uses EwsArrayOfConversationsType::setConversation()
-     * @param \Ews\StructType\EwsConversationType $conversation
+     * @param \StructType\EwsConversationType $conversation
      */
-    public function __construct(\Ews\StructType\EwsConversationType $conversation = null)
+    public function __construct(?\StructType\EwsConversationType $conversation = null)
     {
         $this
             ->setConversation($conversation);
     }
     /**
      * Get Conversation value
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function getConversation()
+    public function getConversation(): ?\StructType\EwsConversationType
     {
         return isset($this->Conversation) ? $this->Conversation : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateConversationForChoiceConstraintsFromSetConversation($value)
+    public function validateConversationForChoiceConstraintsFromSetConversation($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property Conversation can\'t be set as the property %s is already set. Only one property must be set among these properties: Conversation, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property Conversation can\'t be set as the property %s is already set. Only one property must be set among these properties: Conversation, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConversationType $conversation
-     * @return \Ews\ArrayType\EwsArrayOfConversationsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationType $conversation
+     * @return \ArrayType\EwsArrayOfConversationsType
      */
-    public function setConversation(\Ews\StructType\EwsConversationType $conversation = null)
+    public function setConversation(?\StructType\EwsConversationType $conversation = null): self
     {
         // validation for constraint: choice(Conversation)
         if ('' !== ($conversationChoiceErrorMessage = self::validateConversationForChoiceConstraintsFromSetConversation($conversation))) {
-            throw new \InvalidArgumentException($conversationChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($conversationChoiceErrorMessage, __LINE__);
         }
         if (is_null($conversation) || (is_array($conversation) && empty($conversation))) {
             unset($this->Conversation);
         } else {
             $this->Conversation = $conversation;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsConversationType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsConversationType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsConversationType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsConversationType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsConversationType|null
+     * @return \StructType\EwsConversationType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsConversationType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConversationType $item
+     * @return \ArrayType\EwsArrayOfConversationsType
+     */
+    public function add(\StructType\EwsConversationType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Conversation
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Conversation';
     }

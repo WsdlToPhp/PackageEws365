@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfPostalAddressAttributedValuesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPostalAddressAttributedValueType[]
+     * @var \StructType\EwsPostalAddressAttributedValueType[]
      */
-    public $PostalAddressAttributedValue;
+    protected array $PostalAddressAttributedValue = [];
     /**
      * Constructor method for ArrayOfPostalAddressAttributedValuesType
      * @uses EwsArrayOfPostalAddressAttributedValuesType::setPostalAddressAttributedValue()
-     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
+     * @param \StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
      */
-    public function __construct(array $postalAddressAttributedValue = array())
+    public function __construct(array $postalAddressAttributedValue = [])
     {
         $this
             ->setPostalAddressAttributedValue($postalAddressAttributedValue);
     }
     /**
      * Get PostalAddressAttributedValue value
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType[]|null
+     * @return \StructType\EwsPostalAddressAttributedValueType[]
      */
-    public function getPostalAddressAttributedValue()
+    public function getPostalAddressAttributedValue(): array
     {
         return $this->PostalAddressAttributedValue;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validatePostalAddressAttributedValueForArrayConstraintsFromSetPostalAddressAttributedValue(array $values = array())
+    public static function validatePostalAddressAttributedValueForArrayConstraintsFromSetPostalAddressAttributedValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) {
             // validation for constraint: itemType
-            if (!$arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem instanceof \Ews\StructType\EwsPostalAddressAttributedValueType) {
+            if (!$arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem instanceof \StructType\EwsPostalAddressAttributedValueType) {
                 $invalidValues[] = is_object($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) ? get_class($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem) : sprintf('%s(%s)', gettype($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem), var_export($arrayOfPostalAddressAttributedValuesTypePostalAddressAttributedValueItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The PostalAddressAttributedValue property can only contain items of type \Ews\StructType\EwsPostalAddressAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The PostalAddressAttributedValue property can only contain items of type \StructType\EwsPostalAddressAttributedValueType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set PostalAddressAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
-     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPostalAddressAttributedValueType[] $postalAddressAttributedValue
+     * @return \ArrayType\EwsArrayOfPostalAddressAttributedValuesType
      */
-    public function setPostalAddressAttributedValue(array $postalAddressAttributedValue = array())
+    public function setPostalAddressAttributedValue(array $postalAddressAttributedValue = []): self
     {
         // validation for constraint: array
         if ('' !== ($postalAddressAttributedValueArrayErrorMessage = self::validatePostalAddressAttributedValueForArrayConstraintsFromSetPostalAddressAttributedValue($postalAddressAttributedValue))) {
-            throw new \InvalidArgumentException($postalAddressAttributedValueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($postalAddressAttributedValueArrayErrorMessage, __LINE__);
         }
         $this->PostalAddressAttributedValue = $postalAddressAttributedValue;
-        return $this;
-    }
-    /**
-     * Add item to PostalAddressAttributedValue value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPostalAddressAttributedValueType $item
-     * @return \Ews\ArrayType\EwsArrayOfPostalAddressAttributedValuesType
-     */
-    public function addToPostalAddressAttributedValue(\Ews\StructType\EwsPostalAddressAttributedValueType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsPostalAddressAttributedValueType) {
-            throw new \InvalidArgumentException(sprintf('The PostalAddressAttributedValue property can only contain items of type \Ews\StructType\EwsPostalAddressAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->PostalAddressAttributedValue[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType|null
+     * @return \StructType\EwsPostalAddressAttributedValueType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsPostalAddressAttributedValueType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType|null
+     * @return \StructType\EwsPostalAddressAttributedValueType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsPostalAddressAttributedValueType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType|null
+     * @return \StructType\EwsPostalAddressAttributedValueType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsPostalAddressAttributedValueType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType|null
+     * @return \StructType\EwsPostalAddressAttributedValueType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsPostalAddressAttributedValueType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfPostalAddressAttributedValuesType extends AbstractStructArrayBas
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsPostalAddressAttributedValueType|null
+     * @return \StructType\EwsPostalAddressAttributedValueType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsPostalAddressAttributedValueType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPostalAddressAttributedValueType $item
+     * @return \ArrayType\EwsArrayOfPostalAddressAttributedValuesType
+     */
+    public function add(\StructType\EwsPostalAddressAttributedValueType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string PostalAddressAttributedValue
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'PostalAddressAttributedValue';
     }

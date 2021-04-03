@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfParcelDeliveryEntitiesType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsParcelDeliveryEntityType[]
+     * @var \StructType\EwsParcelDeliveryEntityType[]
      */
-    public $ParcelDelivery;
+    protected array $ParcelDelivery = [];
     /**
      * Constructor method for ArrayOfParcelDeliveryEntitiesType
      * @uses EwsArrayOfParcelDeliveryEntitiesType::setParcelDelivery()
-     * @param \Ews\StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
+     * @param \StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
      */
-    public function __construct(array $parcelDelivery = array())
+    public function __construct(array $parcelDelivery = [])
     {
         $this
             ->setParcelDelivery($parcelDelivery);
     }
     /**
      * Get ParcelDelivery value
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType[]|null
+     * @return \StructType\EwsParcelDeliveryEntityType[]
      */
-    public function getParcelDelivery()
+    public function getParcelDelivery(): array
     {
         return $this->ParcelDelivery;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateParcelDeliveryForArrayConstraintsFromSetParcelDelivery(array $values = array())
+    public static function validateParcelDeliveryForArrayConstraintsFromSetParcelDelivery(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) {
             // validation for constraint: itemType
-            if (!$arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
+            if (!$arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem instanceof \StructType\EwsParcelDeliveryEntityType) {
                 $invalidValues[] = is_object($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) ? get_class($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem) : sprintf('%s(%s)', gettype($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem), var_export($arrayOfParcelDeliveryEntitiesTypeParcelDeliveryItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The ParcelDelivery property can only contain items of type \Ews\StructType\EwsParcelDeliveryEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The ParcelDelivery property can only contain items of type \StructType\EwsParcelDeliveryEntityType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set ParcelDelivery value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
-     * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsParcelDeliveryEntityType[] $parcelDelivery
+     * @return \ArrayType\EwsArrayOfParcelDeliveryEntitiesType
      */
-    public function setParcelDelivery(array $parcelDelivery = array())
+    public function setParcelDelivery(array $parcelDelivery = []): self
     {
         // validation for constraint: array
         if ('' !== ($parcelDeliveryArrayErrorMessage = self::validateParcelDeliveryForArrayConstraintsFromSetParcelDelivery($parcelDelivery))) {
-            throw new \InvalidArgumentException($parcelDeliveryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($parcelDeliveryArrayErrorMessage, __LINE__);
         }
         $this->ParcelDelivery = $parcelDelivery;
-        return $this;
-    }
-    /**
-     * Add item to ParcelDelivery value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsParcelDeliveryEntityType $item
-     * @return \Ews\ArrayType\EwsArrayOfParcelDeliveryEntitiesType
-     */
-    public function addToParcelDelivery(\Ews\StructType\EwsParcelDeliveryEntityType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsParcelDeliveryEntityType) {
-            throw new \InvalidArgumentException(sprintf('The ParcelDelivery property can only contain items of type \Ews\StructType\EwsParcelDeliveryEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->ParcelDelivery[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType|null
+     * @return \StructType\EwsParcelDeliveryEntityType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsParcelDeliveryEntityType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType|null
+     * @return \StructType\EwsParcelDeliveryEntityType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsParcelDeliveryEntityType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType|null
+     * @return \StructType\EwsParcelDeliveryEntityType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsParcelDeliveryEntityType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType|null
+     * @return \StructType\EwsParcelDeliveryEntityType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsParcelDeliveryEntityType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfParcelDeliveryEntitiesType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsParcelDeliveryEntityType|null
+     * @return \StructType\EwsParcelDeliveryEntityType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsParcelDeliveryEntityType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsParcelDeliveryEntityType $item
+     * @return \ArrayType\EwsArrayOfParcelDeliveryEntitiesType
+     */
+    public function add(\StructType\EwsParcelDeliveryEntityType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ParcelDelivery
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ParcelDelivery';
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetClientAccessTokenType StructType
@@ -17,35 +20,36 @@ class EwsGetClientAccessTokenType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
+     * @var \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
      */
-    public $TokenRequests;
+    protected \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $TokenRequests;
     /**
      * Constructor method for GetClientAccessTokenType
      * @uses EwsGetClientAccessTokenType::setTokenRequests()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
+     * @param \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests)
     {
         $this
             ->setTokenRequests($tokenRequests);
     }
     /**
      * Get TokenRequests value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
+     * @return \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
      */
-    public function getTokenRequests()
+    public function getTokenRequests(): \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
     {
         return $this->TokenRequests;
     }
     /**
      * Set TokenRequests value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
-     * @return \Ews\StructType\EwsGetClientAccessTokenType
+     * @param \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests
+     * @return \StructType\EwsGetClientAccessTokenType
      */
-    public function setTokenRequests(\Ews\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests = null)
+    public function setTokenRequests(\ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType $tokenRequests): self
     {
         $this->TokenRequests = $tokenRequests;
+        
         return $this;
     }
 }

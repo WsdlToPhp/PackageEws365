@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfFreeBusyResponse ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFreeBusyResponseType[]
+     * @var \StructType\EwsFreeBusyResponseType[]
      */
-    public $FreeBusyResponse;
+    protected array $FreeBusyResponse = [];
     /**
      * Constructor method for ArrayOfFreeBusyResponse
      * @uses EwsArrayOfFreeBusyResponse::setFreeBusyResponse()
-     * @param \Ews\StructType\EwsFreeBusyResponseType[] $freeBusyResponse
+     * @param \StructType\EwsFreeBusyResponseType[] $freeBusyResponse
      */
-    public function __construct(array $freeBusyResponse = array())
+    public function __construct(array $freeBusyResponse = [])
     {
         $this
             ->setFreeBusyResponse($freeBusyResponse);
     }
     /**
      * Get FreeBusyResponse value
-     * @return \Ews\StructType\EwsFreeBusyResponseType[]|null
+     * @return \StructType\EwsFreeBusyResponseType[]
      */
-    public function getFreeBusyResponse()
+    public function getFreeBusyResponse(): array
     {
         return $this->FreeBusyResponse;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFreeBusyResponseForArrayConstraintsFromSetFreeBusyResponse(array $values = array())
+    public static function validateFreeBusyResponseForArrayConstraintsFromSetFreeBusyResponse(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfFreeBusyResponseFreeBusyResponseItem) {
             // validation for constraint: itemType
-            if (!$arrayOfFreeBusyResponseFreeBusyResponseItem instanceof \Ews\StructType\EwsFreeBusyResponseType) {
+            if (!$arrayOfFreeBusyResponseFreeBusyResponseItem instanceof \StructType\EwsFreeBusyResponseType) {
                 $invalidValues[] = is_object($arrayOfFreeBusyResponseFreeBusyResponseItem) ? get_class($arrayOfFreeBusyResponseFreeBusyResponseItem) : sprintf('%s(%s)', gettype($arrayOfFreeBusyResponseFreeBusyResponseItem), var_export($arrayOfFreeBusyResponseFreeBusyResponseItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The FreeBusyResponse property can only contain items of type \Ews\StructType\EwsFreeBusyResponseType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The FreeBusyResponse property can only contain items of type \StructType\EwsFreeBusyResponseType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FreeBusyResponse value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFreeBusyResponseType[] $freeBusyResponse
-     * @return \Ews\ArrayType\EwsArrayOfFreeBusyResponse
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFreeBusyResponseType[] $freeBusyResponse
+     * @return \ArrayType\EwsArrayOfFreeBusyResponse
      */
-    public function setFreeBusyResponse(array $freeBusyResponse = array())
+    public function setFreeBusyResponse(array $freeBusyResponse = []): self
     {
         // validation for constraint: array
         if ('' !== ($freeBusyResponseArrayErrorMessage = self::validateFreeBusyResponseForArrayConstraintsFromSetFreeBusyResponse($freeBusyResponse))) {
-            throw new \InvalidArgumentException($freeBusyResponseArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($freeBusyResponseArrayErrorMessage, __LINE__);
         }
         $this->FreeBusyResponse = $freeBusyResponse;
-        return $this;
-    }
-    /**
-     * Add item to FreeBusyResponse value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFreeBusyResponseType $item
-     * @return \Ews\ArrayType\EwsArrayOfFreeBusyResponse
-     */
-    public function addToFreeBusyResponse(\Ews\StructType\EwsFreeBusyResponseType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsFreeBusyResponseType) {
-            throw new \InvalidArgumentException(sprintf('The FreeBusyResponse property can only contain items of type \Ews\StructType\EwsFreeBusyResponseType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->FreeBusyResponse[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsFreeBusyResponseType|null
+     * @return \StructType\EwsFreeBusyResponseType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsFreeBusyResponseType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsFreeBusyResponseType|null
+     * @return \StructType\EwsFreeBusyResponseType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsFreeBusyResponseType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsFreeBusyResponseType|null
+     * @return \StructType\EwsFreeBusyResponseType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsFreeBusyResponseType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsFreeBusyResponseType|null
+     * @return \StructType\EwsFreeBusyResponseType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsFreeBusyResponseType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsFreeBusyResponseType|null
+     * @return \StructType\EwsFreeBusyResponseType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsFreeBusyResponseType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFreeBusyResponseType $item
+     * @return \ArrayType\EwsArrayOfFreeBusyResponse
+     */
+    public function add(\StructType\EwsFreeBusyResponseType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FreeBusyResponse
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FreeBusyResponse';
     }

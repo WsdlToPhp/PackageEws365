@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResolveNamesResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsResolveNamesResponseMessageType extends EwsResponseMessageType
      * The ResolutionSet
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsArrayOfResolutionType
+     * @var \StructType\EwsArrayOfResolutionType|null
      */
-    public $ResolutionSet;
+    protected ?\StructType\EwsArrayOfResolutionType $ResolutionSet = null;
     /**
      * Constructor method for ResolveNamesResponseMessageType
      * @uses EwsResolveNamesResponseMessageType::setResolutionSet()
-     * @param \Ews\StructType\EwsArrayOfResolutionType $resolutionSet
+     * @param \StructType\EwsArrayOfResolutionType $resolutionSet
      */
-    public function __construct(\Ews\StructType\EwsArrayOfResolutionType $resolutionSet = null)
+    public function __construct(?\StructType\EwsArrayOfResolutionType $resolutionSet = null)
     {
         $this
             ->setResolutionSet($resolutionSet);
     }
     /**
      * Get ResolutionSet value
-     * @return \Ews\StructType\EwsArrayOfResolutionType|null
+     * @return \StructType\EwsArrayOfResolutionType|null
      */
-    public function getResolutionSet()
+    public function getResolutionSet(): ?\StructType\EwsArrayOfResolutionType
     {
         return $this->ResolutionSet;
     }
     /**
      * Set ResolutionSet value
-     * @param \Ews\StructType\EwsArrayOfResolutionType $resolutionSet
-     * @return \Ews\StructType\EwsResolveNamesResponseMessageType
+     * @param \StructType\EwsArrayOfResolutionType $resolutionSet
+     * @return \StructType\EwsResolveNamesResponseMessageType
      */
-    public function setResolutionSet(\Ews\StructType\EwsArrayOfResolutionType $resolutionSet = null)
+    public function setResolutionSet(?\StructType\EwsArrayOfResolutionType $resolutionSet = null): self
     {
         $this->ResolutionSet = $resolutionSet;
+        
         return $this;
     }
 }

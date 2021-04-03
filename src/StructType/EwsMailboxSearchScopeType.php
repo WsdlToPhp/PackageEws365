@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxSearchScopeType StructType
@@ -21,7 +24,7 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Mailbox;
+    protected string $Mailbox;
     /**
      * The SearchScope
      * Meta information extracted from the WSDL
@@ -29,16 +32,16 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $SearchScope;
+    protected string $SearchScope;
     /**
      * The ExtendedAttributes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
      * - nillable: false
-     * @var \Ews\ArrayType\EwsArrayOfExtendedAttributesType
+     * @var \ArrayType\EwsArrayOfExtendedAttributesType|null
      */
-    public $ExtendedAttributes;
+    protected ?\ArrayType\EwsArrayOfExtendedAttributesType $ExtendedAttributes = null;
     /**
      * Constructor method for MailboxSearchScopeType
      * @uses EwsMailboxSearchScopeType::setMailbox()
@@ -46,9 +49,9 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * @uses EwsMailboxSearchScopeType::setExtendedAttributes()
      * @param string $mailbox
      * @param string $searchScope
-     * @param \Ews\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes
+     * @param \ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes
      */
-    public function __construct($mailbox = null, $searchScope = null, \Ews\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes = null)
+    public function __construct(string $mailbox, string $searchScope, ?\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes = null)
     {
         $this
             ->setMailbox($mailbox)
@@ -59,65 +62,68 @@ class EwsMailboxSearchScopeType extends AbstractStructBase
      * Get Mailbox value
      * @return string
      */
-    public function getMailbox()
+    public function getMailbox(): string
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
      * @param string $mailbox
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType
      */
-    public function setMailbox($mailbox = null)
+    public function setMailbox(string $mailbox): self
     {
         // validation for constraint: string
         if (!is_null($mailbox) && !is_string($mailbox)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($mailbox, true), gettype($mailbox)), __LINE__);
         }
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
     /**
      * Get SearchScope value
      * @return string
      */
-    public function getSearchScope()
+    public function getSearchScope(): string
     {
         return $this->SearchScope;
     }
     /**
      * Set SearchScope value
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMailboxSearchLocationType::valueIsValid()
+     * @uses \EnumType\EwsMailboxSearchLocationType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $searchScope
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @return \StructType\EwsMailboxSearchScopeType
      */
-    public function setSearchScope($searchScope = null)
+    public function setSearchScope(string $searchScope): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMailboxSearchLocationType::valueIsValid($searchScope)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMailboxSearchLocationType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \Ews\EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMailboxSearchLocationType::valueIsValid($searchScope)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMailboxSearchLocationType', is_array($searchScope) ? implode(', ', $searchScope) : var_export($searchScope, true), implode(', ', \EnumType\EwsMailboxSearchLocationType::getValidValues())), __LINE__);
         }
         $this->SearchScope = $searchScope;
+        
         return $this;
     }
     /**
      * Get ExtendedAttributes value
-     * @return \Ews\ArrayType\EwsArrayOfExtendedAttributesType|null
+     * @return \ArrayType\EwsArrayOfExtendedAttributesType|null
      */
-    public function getExtendedAttributes()
+    public function getExtendedAttributes(): ?\ArrayType\EwsArrayOfExtendedAttributesType
     {
         return $this->ExtendedAttributes;
     }
     /**
      * Set ExtendedAttributes value
-     * @param \Ews\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes
-     * @return \Ews\StructType\EwsMailboxSearchScopeType
+     * @param \ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes
+     * @return \StructType\EwsMailboxSearchScopeType
      */
-    public function setExtendedAttributes(\Ews\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes = null)
+    public function setExtendedAttributes(?\ArrayType\EwsArrayOfExtendedAttributesType $extendedAttributes = null): self
     {
         $this->ExtendedAttributes = $extendedAttributes;
+        
         return $this;
     }
 }

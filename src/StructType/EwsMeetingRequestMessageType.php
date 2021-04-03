@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MeetingRequestMessageType StructType
@@ -16,337 +19,337 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * The MeetingRequestType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MeetingRequestType;
+    protected ?string $MeetingRequestType = null;
     /**
      * The IntendedFreeBusyStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $IntendedFreeBusyStatus;
+    protected ?string $IntendedFreeBusyStatus = null;
     /**
      * The Start
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Start;
+    protected ?string $Start = null;
     /**
      * The End
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $End;
+    protected ?string $End = null;
     /**
      * The OriginalStart
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $OriginalStart;
+    protected ?string $OriginalStart = null;
     /**
      * The IsAllDayEvent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsAllDayEvent;
+    protected ?bool $IsAllDayEvent = null;
     /**
      * The LegacyFreeBusyStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $LegacyFreeBusyStatus;
+    protected ?string $LegacyFreeBusyStatus = null;
     /**
      * The Location
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Location;
+    protected ?string $Location = null;
     /**
      * The When
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $When;
+    protected ?string $When = null;
     /**
      * The IsMeeting
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsMeeting;
+    protected ?bool $IsMeeting = null;
     /**
      * The IsCancelled
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsCancelled;
+    protected ?bool $IsCancelled = null;
     /**
      * The IsRecurring
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsRecurring;
+    protected ?bool $IsRecurring = null;
     /**
      * The MeetingRequestWasSent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $MeetingRequestWasSent;
+    protected ?bool $MeetingRequestWasSent = null;
     /**
      * The CalendarItemType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $CalendarItemType;
+    protected ?string $CalendarItemType = null;
     /**
      * The MyResponseType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MyResponseType;
+    protected ?string $MyResponseType = null;
     /**
      * The Organizer
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSingleRecipientType
+     * @var \StructType\EwsSingleRecipientType|null
      */
-    public $Organizer;
+    protected ?\StructType\EwsSingleRecipientType $Organizer = null;
     /**
      * The RequiredAttendees
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
+     * @var \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public $RequiredAttendees;
+    protected ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $RequiredAttendees = null;
     /**
      * The OptionalAttendees
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
+     * @var \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public $OptionalAttendees;
+    protected ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $OptionalAttendees = null;
     /**
      * The Resources
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType
+     * @var \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public $Resources;
+    protected ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $Resources = null;
     /**
      * The ConflictingMeetingCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $ConflictingMeetingCount;
+    protected ?int $ConflictingMeetingCount = null;
     /**
      * The AdjacentMeetingCount
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $AdjacentMeetingCount;
+    protected ?int $AdjacentMeetingCount = null;
     /**
      * The ConflictingMeetings
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAllItemsType
+     * @var \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public $ConflictingMeetings;
+    protected ?\StructType\EwsNonEmptyArrayOfAllItemsType $ConflictingMeetings = null;
     /**
      * The AdjacentMeetings
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfAllItemsType
+     * @var \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public $AdjacentMeetings;
+    protected ?\StructType\EwsNonEmptyArrayOfAllItemsType $AdjacentMeetings = null;
     /**
      * The Duration
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Duration;
+    protected ?string $Duration = null;
     /**
      * The TimeZone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $TimeZone;
+    protected ?string $TimeZone = null;
     /**
      * The AppointmentReplyTime
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AppointmentReplyTime;
+    protected ?string $AppointmentReplyTime = null;
     /**
      * The AppointmentSequenceNumber
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $AppointmentSequenceNumber;
+    protected ?int $AppointmentSequenceNumber = null;
     /**
      * The AppointmentState
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $AppointmentState;
+    protected ?int $AppointmentState = null;
     /**
      * The Recurrence
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRecurrenceType
+     * @var \StructType\EwsRecurrenceType|null
      */
-    public $Recurrence;
+    protected ?\StructType\EwsRecurrenceType $Recurrence = null;
     /**
      * The FirstOccurrence
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsOccurrenceInfoType
+     * @var \StructType\EwsOccurrenceInfoType|null
      */
-    public $FirstOccurrence;
+    protected ?\StructType\EwsOccurrenceInfoType $FirstOccurrence = null;
     /**
      * The LastOccurrence
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsOccurrenceInfoType
+     * @var \StructType\EwsOccurrenceInfoType|null
      */
-    public $LastOccurrence;
+    protected ?\StructType\EwsOccurrenceInfoType $LastOccurrence = null;
     /**
      * The ModifiedOccurrences
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType
+     * @var \ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType|null
      */
-    public $ModifiedOccurrences;
+    protected ?\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $ModifiedOccurrences = null;
     /**
      * The DeletedOccurrences
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType
+     * @var \ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType|null
      */
-    public $DeletedOccurrences;
+    protected ?\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $DeletedOccurrences = null;
     /**
      * The MeetingTimeZone
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTimeZoneType
+     * @var \StructType\EwsTimeZoneType|null
      */
-    public $MeetingTimeZone;
+    protected ?\StructType\EwsTimeZoneType $MeetingTimeZone = null;
     /**
      * The StartTimeZone
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTimeZoneDefinitionType
+     * @var \StructType\EwsTimeZoneDefinitionType|null
      */
-    public $StartTimeZone;
+    protected ?\StructType\EwsTimeZoneDefinitionType $StartTimeZone = null;
     /**
      * The EndTimeZone
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTimeZoneDefinitionType
+     * @var \StructType\EwsTimeZoneDefinitionType|null
      */
-    public $EndTimeZone;
+    protected ?\StructType\EwsTimeZoneDefinitionType $EndTimeZone = null;
     /**
      * The ConferenceType
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $ConferenceType;
+    protected ?int $ConferenceType = null;
     /**
      * The AllowNewTimeProposal
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $AllowNewTimeProposal;
+    protected ?bool $AllowNewTimeProposal = null;
     /**
      * The IsOnlineMeeting
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsOnlineMeeting;
+    protected ?bool $IsOnlineMeeting = null;
     /**
      * The MeetingWorkspaceUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $MeetingWorkspaceUrl;
+    protected ?string $MeetingWorkspaceUrl = null;
     /**
      * The NetShowUrl
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $NetShowUrl;
+    protected ?string $NetShowUrl = null;
     /**
      * The EnhancedLocation
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEnhancedLocationType
+     * @var \StructType\EwsEnhancedLocationType|null
      */
-    public $EnhancedLocation;
+    protected ?\StructType\EwsEnhancedLocationType $EnhancedLocation = null;
     /**
      * The ChangeHighlights
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsChangeHighlightsType
+     * @var \StructType\EwsChangeHighlightsType|null
      */
-    public $ChangeHighlights;
+    protected ?\StructType\EwsChangeHighlightsType $ChangeHighlights = null;
     /**
      * The StartWallClock
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartWallClock;
+    protected ?string $StartWallClock = null;
     /**
      * The EndWallClock
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndWallClock;
+    protected ?string $EndWallClock = null;
     /**
      * The StartTimeZoneId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $StartTimeZoneId;
+    protected ?string $StartTimeZoneId = null;
     /**
      * The EndTimeZoneId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EndTimeZoneId;
+    protected ?string $EndTimeZoneId = null;
     /**
      * Constructor method for MeetingRequestMessageType
      * @uses EwsMeetingRequestMessageType::setMeetingRequestType()
@@ -411,40 +414,40 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * @param bool $meetingRequestWasSent
      * @param string $calendarItemType
      * @param string $myResponseType
-     * @param \Ews\StructType\EwsSingleRecipientType $organizer
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources
+     * @param \StructType\EwsSingleRecipientType $organizer
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $resources
      * @param int $conflictingMeetingCount
      * @param int $adjacentMeetingCount
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings
      * @param string $duration
      * @param string $timeZone
      * @param string $appointmentReplyTime
      * @param int $appointmentSequenceNumber
      * @param int $appointmentState
-     * @param \Ews\StructType\EwsRecurrenceType $recurrence
-     * @param \Ews\StructType\EwsOccurrenceInfoType $firstOccurrence
-     * @param \Ews\StructType\EwsOccurrenceInfoType $lastOccurrence
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
-     * @param \Ews\StructType\EwsTimeZoneType $meetingTimeZone
-     * @param \Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone
-     * @param \Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone
+     * @param \StructType\EwsRecurrenceType $recurrence
+     * @param \StructType\EwsOccurrenceInfoType $firstOccurrence
+     * @param \StructType\EwsOccurrenceInfoType $lastOccurrence
+     * @param \ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences
+     * @param \ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
+     * @param \StructType\EwsTimeZoneType $meetingTimeZone
+     * @param \StructType\EwsTimeZoneDefinitionType $startTimeZone
+     * @param \StructType\EwsTimeZoneDefinitionType $endTimeZone
      * @param int $conferenceType
      * @param bool $allowNewTimeProposal
      * @param bool $isOnlineMeeting
      * @param string $meetingWorkspaceUrl
      * @param string $netShowUrl
-     * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
-     * @param \Ews\StructType\EwsChangeHighlightsType $changeHighlights
+     * @param \StructType\EwsEnhancedLocationType $enhancedLocation
+     * @param \StructType\EwsChangeHighlightsType $changeHighlights
      * @param string $startWallClock
      * @param string $endWallClock
      * @param string $startTimeZoneId
      * @param string $endTimeZoneId
      */
-    public function __construct($meetingRequestType = null, $intendedFreeBusyStatus = null, $start = null, $end = null, $originalStart = null, $isAllDayEvent = null, $legacyFreeBusyStatus = null, $location = null, $when = null, $isMeeting = null, $isCancelled = null, $isRecurring = null, $meetingRequestWasSent = null, $calendarItemType = null, $myResponseType = null, \Ews\StructType\EwsSingleRecipientType $organizer = null, \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees = null, \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees = null, \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources = null, $conflictingMeetingCount = null, $adjacentMeetingCount = null, \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings = null, \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings = null, $duration = null, $timeZone = null, $appointmentReplyTime = null, $appointmentSequenceNumber = null, $appointmentState = null, \Ews\StructType\EwsRecurrenceType $recurrence = null, \Ews\StructType\EwsOccurrenceInfoType $firstOccurrence = null, \Ews\StructType\EwsOccurrenceInfoType $lastOccurrence = null, \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences = null, \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences = null, \Ews\StructType\EwsTimeZoneType $meetingTimeZone = null, \Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone = null, \Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone = null, $conferenceType = null, $allowNewTimeProposal = null, $isOnlineMeeting = null, $meetingWorkspaceUrl = null, $netShowUrl = null, \Ews\StructType\EwsEnhancedLocationType $enhancedLocation = null, \Ews\StructType\EwsChangeHighlightsType $changeHighlights = null, $startWallClock = null, $endWallClock = null, $startTimeZoneId = null, $endTimeZoneId = null)
+    public function __construct(?string $meetingRequestType = null, ?string $intendedFreeBusyStatus = null, ?string $start = null, ?string $end = null, ?string $originalStart = null, ?bool $isAllDayEvent = null, ?string $legacyFreeBusyStatus = null, ?string $location = null, ?string $when = null, ?bool $isMeeting = null, ?bool $isCancelled = null, ?bool $isRecurring = null, ?bool $meetingRequestWasSent = null, ?string $calendarItemType = null, ?string $myResponseType = null, ?\StructType\EwsSingleRecipientType $organizer = null, ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees = null, ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees = null, ?\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources = null, ?int $conflictingMeetingCount = null, ?int $adjacentMeetingCount = null, ?\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings = null, ?\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings = null, ?string $duration = null, ?string $timeZone = null, ?string $appointmentReplyTime = null, ?int $appointmentSequenceNumber = null, ?int $appointmentState = null, ?\StructType\EwsRecurrenceType $recurrence = null, ?\StructType\EwsOccurrenceInfoType $firstOccurrence = null, ?\StructType\EwsOccurrenceInfoType $lastOccurrence = null, ?\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences = null, ?\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences = null, ?\StructType\EwsTimeZoneType $meetingTimeZone = null, ?\StructType\EwsTimeZoneDefinitionType $startTimeZone = null, ?\StructType\EwsTimeZoneDefinitionType $endTimeZone = null, ?int $conferenceType = null, ?bool $allowNewTimeProposal = null, ?bool $isOnlineMeeting = null, ?string $meetingWorkspaceUrl = null, ?string $netShowUrl = null, ?\StructType\EwsEnhancedLocationType $enhancedLocation = null, ?\StructType\EwsChangeHighlightsType $changeHighlights = null, ?string $startWallClock = null, ?string $endWallClock = null, ?string $startTimeZoneId = null, ?string $endTimeZoneId = null)
     {
         $this
             ->setMeetingRequestType($meetingRequestType)
@@ -499,985 +502,1032 @@ class EwsMeetingRequestMessageType extends EwsMeetingMessageType
      * Get MeetingRequestType value
      * @return string|null
      */
-    public function getMeetingRequestType()
+    public function getMeetingRequestType(): ?string
     {
         return $this->MeetingRequestType;
     }
     /**
      * Set MeetingRequestType value
-     * @uses \Ews\EnumType\EwsMeetingRequestTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMeetingRequestTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMeetingRequestTypeType::valueIsValid()
+     * @uses \EnumType\EwsMeetingRequestTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $meetingRequestType
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setMeetingRequestType($meetingRequestType = null)
+    public function setMeetingRequestType(?string $meetingRequestType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMeetingRequestTypeType::valueIsValid($meetingRequestType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMeetingRequestTypeType', is_array($meetingRequestType) ? implode(', ', $meetingRequestType) : var_export($meetingRequestType, true), implode(', ', \Ews\EnumType\EwsMeetingRequestTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMeetingRequestTypeType::valueIsValid($meetingRequestType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMeetingRequestTypeType', is_array($meetingRequestType) ? implode(', ', $meetingRequestType) : var_export($meetingRequestType, true), implode(', ', \EnumType\EwsMeetingRequestTypeType::getValidValues())), __LINE__);
         }
         $this->MeetingRequestType = $meetingRequestType;
+        
         return $this;
     }
     /**
      * Get IntendedFreeBusyStatus value
      * @return string|null
      */
-    public function getIntendedFreeBusyStatus()
+    public function getIntendedFreeBusyStatus(): ?string
     {
         return $this->IntendedFreeBusyStatus;
     }
     /**
      * Set IntendedFreeBusyStatus value
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLegacyFreeBusyType::valueIsValid()
+     * @uses \EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $intendedFreeBusyStatus
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIntendedFreeBusyStatus($intendedFreeBusyStatus = null)
+    public function setIntendedFreeBusyStatus(?string $intendedFreeBusyStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($intendedFreeBusyStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLegacyFreeBusyType', is_array($intendedFreeBusyStatus) ? implode(', ', $intendedFreeBusyStatus) : var_export($intendedFreeBusyStatus, true), implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLegacyFreeBusyType::valueIsValid($intendedFreeBusyStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLegacyFreeBusyType', is_array($intendedFreeBusyStatus) ? implode(', ', $intendedFreeBusyStatus) : var_export($intendedFreeBusyStatus, true), implode(', ', \EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
         $this->IntendedFreeBusyStatus = $intendedFreeBusyStatus;
+        
         return $this;
     }
     /**
      * Get Start value
      * @return string|null
      */
-    public function getStart()
+    public function getStart(): ?string
     {
         return $this->Start;
     }
     /**
      * Set Start value
      * @param string $start
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setStart($start = null)
+    public function setStart(?string $start = null): self
     {
         // validation for constraint: string
         if (!is_null($start) && !is_string($start)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($start, true), gettype($start)), __LINE__);
         }
         $this->Start = $start;
+        
         return $this;
     }
     /**
      * Get End value
      * @return string|null
      */
-    public function getEnd()
+    public function getEnd(): ?string
     {
         return $this->End;
     }
     /**
      * Set End value
      * @param string $end
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setEnd($end = null)
+    public function setEnd(?string $end = null): self
     {
         // validation for constraint: string
         if (!is_null($end) && !is_string($end)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($end, true), gettype($end)), __LINE__);
         }
         $this->End = $end;
+        
         return $this;
     }
     /**
      * Get OriginalStart value
      * @return string|null
      */
-    public function getOriginalStart()
+    public function getOriginalStart(): ?string
     {
         return $this->OriginalStart;
     }
     /**
      * Set OriginalStart value
      * @param string $originalStart
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setOriginalStart($originalStart = null)
+    public function setOriginalStart(?string $originalStart = null): self
     {
         // validation for constraint: string
         if (!is_null($originalStart) && !is_string($originalStart)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalStart, true), gettype($originalStart)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($originalStart, true), gettype($originalStart)), __LINE__);
         }
         $this->OriginalStart = $originalStart;
+        
         return $this;
     }
     /**
      * Get IsAllDayEvent value
      * @return bool|null
      */
-    public function getIsAllDayEvent()
+    public function getIsAllDayEvent(): ?bool
     {
         return $this->IsAllDayEvent;
     }
     /**
      * Set IsAllDayEvent value
      * @param bool $isAllDayEvent
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIsAllDayEvent($isAllDayEvent = null)
+    public function setIsAllDayEvent(?bool $isAllDayEvent = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isAllDayEvent) && !is_bool($isAllDayEvent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAllDayEvent, true), gettype($isAllDayEvent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAllDayEvent, true), gettype($isAllDayEvent)), __LINE__);
         }
         $this->IsAllDayEvent = $isAllDayEvent;
+        
         return $this;
     }
     /**
      * Get LegacyFreeBusyStatus value
      * @return string|null
      */
-    public function getLegacyFreeBusyStatus()
+    public function getLegacyFreeBusyStatus(): ?string
     {
         return $this->LegacyFreeBusyStatus;
     }
     /**
      * Set LegacyFreeBusyStatus value
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLegacyFreeBusyType::valueIsValid()
+     * @uses \EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $legacyFreeBusyStatus
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setLegacyFreeBusyStatus($legacyFreeBusyStatus = null)
+    public function setLegacyFreeBusyStatus(?string $legacyFreeBusyStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($legacyFreeBusyStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLegacyFreeBusyType', is_array($legacyFreeBusyStatus) ? implode(', ', $legacyFreeBusyStatus) : var_export($legacyFreeBusyStatus, true), implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLegacyFreeBusyType::valueIsValid($legacyFreeBusyStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLegacyFreeBusyType', is_array($legacyFreeBusyStatus) ? implode(', ', $legacyFreeBusyStatus) : var_export($legacyFreeBusyStatus, true), implode(', ', \EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
         $this->LegacyFreeBusyStatus = $legacyFreeBusyStatus;
+        
         return $this;
     }
     /**
      * Get Location value
      * @return string|null
      */
-    public function getLocation()
+    public function getLocation(): ?string
     {
         return $this->Location;
     }
     /**
      * Set Location value
      * @param string $location
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setLocation($location = null)
+    public function setLocation(?string $location = null): self
     {
         // validation for constraint: string
         if (!is_null($location) && !is_string($location)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($location, true), gettype($location)), __LINE__);
         }
         $this->Location = $location;
+        
         return $this;
     }
     /**
      * Get When value
      * @return string|null
      */
-    public function getWhen()
+    public function getWhen(): ?string
     {
         return $this->When;
     }
     /**
      * Set When value
      * @param string $when
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setWhen($when = null)
+    public function setWhen(?string $when = null): self
     {
         // validation for constraint: string
         if (!is_null($when) && !is_string($when)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($when, true), gettype($when)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($when, true), gettype($when)), __LINE__);
         }
         $this->When = $when;
+        
         return $this;
     }
     /**
      * Get IsMeeting value
      * @return bool|null
      */
-    public function getIsMeeting()
+    public function getIsMeeting(): ?bool
     {
         return $this->IsMeeting;
     }
     /**
      * Set IsMeeting value
      * @param bool $isMeeting
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIsMeeting($isMeeting = null)
+    public function setIsMeeting(?bool $isMeeting = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isMeeting) && !is_bool($isMeeting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeeting, true), gettype($isMeeting)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isMeeting, true), gettype($isMeeting)), __LINE__);
         }
         $this->IsMeeting = $isMeeting;
+        
         return $this;
     }
     /**
      * Get IsCancelled value
      * @return bool|null
      */
-    public function getIsCancelled()
+    public function getIsCancelled(): ?bool
     {
         return $this->IsCancelled;
     }
     /**
      * Set IsCancelled value
      * @param bool $isCancelled
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIsCancelled($isCancelled = null)
+    public function setIsCancelled(?bool $isCancelled = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isCancelled) && !is_bool($isCancelled)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isCancelled, true), gettype($isCancelled)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isCancelled, true), gettype($isCancelled)), __LINE__);
         }
         $this->IsCancelled = $isCancelled;
+        
         return $this;
     }
     /**
      * Get IsRecurring value
      * @return bool|null
      */
-    public function getIsRecurring()
+    public function getIsRecurring(): ?bool
     {
         return $this->IsRecurring;
     }
     /**
      * Set IsRecurring value
      * @param bool $isRecurring
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIsRecurring($isRecurring = null)
+    public function setIsRecurring(?bool $isRecurring = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isRecurring) && !is_bool($isRecurring)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRecurring, true), gettype($isRecurring)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRecurring, true), gettype($isRecurring)), __LINE__);
         }
         $this->IsRecurring = $isRecurring;
+        
         return $this;
     }
     /**
      * Get MeetingRequestWasSent value
      * @return bool|null
      */
-    public function getMeetingRequestWasSent()
+    public function getMeetingRequestWasSent(): ?bool
     {
         return $this->MeetingRequestWasSent;
     }
     /**
      * Set MeetingRequestWasSent value
      * @param bool $meetingRequestWasSent
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setMeetingRequestWasSent($meetingRequestWasSent = null)
+    public function setMeetingRequestWasSent(?bool $meetingRequestWasSent = null): self
     {
         // validation for constraint: boolean
         if (!is_null($meetingRequestWasSent) && !is_bool($meetingRequestWasSent)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($meetingRequestWasSent, true), gettype($meetingRequestWasSent)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($meetingRequestWasSent, true), gettype($meetingRequestWasSent)), __LINE__);
         }
         $this->MeetingRequestWasSent = $meetingRequestWasSent;
+        
         return $this;
     }
     /**
      * Get CalendarItemType value
      * @return string|null
      */
-    public function getCalendarItemType()
+    public function getCalendarItemType(): ?string
     {
         return $this->CalendarItemType;
     }
     /**
      * Set CalendarItemType value
-     * @uses \Ews\EnumType\EwsCalendarItemTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsCalendarItemTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsCalendarItemTypeType::valueIsValid()
+     * @uses \EnumType\EwsCalendarItemTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $calendarItemType
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setCalendarItemType($calendarItemType = null)
+    public function setCalendarItemType(?string $calendarItemType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsCalendarItemTypeType::valueIsValid($calendarItemType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarItemTypeType', is_array($calendarItemType) ? implode(', ', $calendarItemType) : var_export($calendarItemType, true), implode(', ', \Ews\EnumType\EwsCalendarItemTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsCalendarItemTypeType::valueIsValid($calendarItemType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsCalendarItemTypeType', is_array($calendarItemType) ? implode(', ', $calendarItemType) : var_export($calendarItemType, true), implode(', ', \EnumType\EwsCalendarItemTypeType::getValidValues())), __LINE__);
         }
         $this->CalendarItemType = $calendarItemType;
+        
         return $this;
     }
     /**
      * Get MyResponseType value
      * @return string|null
      */
-    public function getMyResponseType()
+    public function getMyResponseType(): ?string
     {
         return $this->MyResponseType;
     }
     /**
      * Set MyResponseType value
-     * @uses \Ews\EnumType\EwsResponseTypeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsResponseTypeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsResponseTypeType::valueIsValid()
+     * @uses \EnumType\EwsResponseTypeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $myResponseType
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setMyResponseType($myResponseType = null)
+    public function setMyResponseType(?string $myResponseType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsResponseTypeType::valueIsValid($myResponseType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsResponseTypeType', is_array($myResponseType) ? implode(', ', $myResponseType) : var_export($myResponseType, true), implode(', ', \Ews\EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsResponseTypeType::valueIsValid($myResponseType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsResponseTypeType', is_array($myResponseType) ? implode(', ', $myResponseType) : var_export($myResponseType, true), implode(', ', \EnumType\EwsResponseTypeType::getValidValues())), __LINE__);
         }
         $this->MyResponseType = $myResponseType;
+        
         return $this;
     }
     /**
      * Get Organizer value
-     * @return \Ews\StructType\EwsSingleRecipientType|null
+     * @return \StructType\EwsSingleRecipientType|null
      */
-    public function getOrganizer()
+    public function getOrganizer(): ?\StructType\EwsSingleRecipientType
     {
         return $this->Organizer;
     }
     /**
      * Set Organizer value
-     * @param \Ews\StructType\EwsSingleRecipientType $organizer
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsSingleRecipientType $organizer
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setOrganizer(\Ews\StructType\EwsSingleRecipientType $organizer = null)
+    public function setOrganizer(?\StructType\EwsSingleRecipientType $organizer = null): self
     {
         $this->Organizer = $organizer;
+        
         return $this;
     }
     /**
      * Get RequiredAttendees value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public function getRequiredAttendees()
+    public function getRequiredAttendees(): ?\ArrayType\EwsNonEmptyArrayOfAttendeesType
     {
         return $this->RequiredAttendees;
     }
     /**
      * Set RequiredAttendees value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setRequiredAttendees(\Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees = null)
+    public function setRequiredAttendees(?\ArrayType\EwsNonEmptyArrayOfAttendeesType $requiredAttendees = null): self
     {
         $this->RequiredAttendees = $requiredAttendees;
+        
         return $this;
     }
     /**
      * Get OptionalAttendees value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public function getOptionalAttendees()
+    public function getOptionalAttendees(): ?\ArrayType\EwsNonEmptyArrayOfAttendeesType
     {
         return $this->OptionalAttendees;
     }
     /**
      * Set OptionalAttendees value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setOptionalAttendees(\Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees = null)
+    public function setOptionalAttendees(?\ArrayType\EwsNonEmptyArrayOfAttendeesType $optionalAttendees = null): self
     {
         $this->OptionalAttendees = $optionalAttendees;
+        
         return $this;
     }
     /**
      * Get Resources value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType|null
      */
-    public function getResources()
+    public function getResources(): ?\ArrayType\EwsNonEmptyArrayOfAttendeesType
     {
         return $this->Resources;
     }
     /**
      * Set Resources value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfAttendeesType $resources
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setResources(\Ews\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources = null)
+    public function setResources(?\ArrayType\EwsNonEmptyArrayOfAttendeesType $resources = null): self
     {
         $this->Resources = $resources;
+        
         return $this;
     }
     /**
      * Get ConflictingMeetingCount value
      * @return int|null
      */
-    public function getConflictingMeetingCount()
+    public function getConflictingMeetingCount(): ?int
     {
         return $this->ConflictingMeetingCount;
     }
     /**
      * Set ConflictingMeetingCount value
      * @param int $conflictingMeetingCount
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setConflictingMeetingCount($conflictingMeetingCount = null)
+    public function setConflictingMeetingCount(?int $conflictingMeetingCount = null): self
     {
         // validation for constraint: int
         if (!is_null($conflictingMeetingCount) && !(is_int($conflictingMeetingCount) || ctype_digit($conflictingMeetingCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($conflictingMeetingCount, true), gettype($conflictingMeetingCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($conflictingMeetingCount, true), gettype($conflictingMeetingCount)), __LINE__);
         }
         $this->ConflictingMeetingCount = $conflictingMeetingCount;
+        
         return $this;
     }
     /**
      * Get AdjacentMeetingCount value
      * @return int|null
      */
-    public function getAdjacentMeetingCount()
+    public function getAdjacentMeetingCount(): ?int
     {
         return $this->AdjacentMeetingCount;
     }
     /**
      * Set AdjacentMeetingCount value
      * @param int $adjacentMeetingCount
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAdjacentMeetingCount($adjacentMeetingCount = null)
+    public function setAdjacentMeetingCount(?int $adjacentMeetingCount = null): self
     {
         // validation for constraint: int
         if (!is_null($adjacentMeetingCount) && !(is_int($adjacentMeetingCount) || ctype_digit($adjacentMeetingCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($adjacentMeetingCount, true), gettype($adjacentMeetingCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($adjacentMeetingCount, true), gettype($adjacentMeetingCount)), __LINE__);
         }
         $this->AdjacentMeetingCount = $adjacentMeetingCount;
+        
         return $this;
     }
     /**
      * Get ConflictingMeetings value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAllItemsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public function getConflictingMeetings()
+    public function getConflictingMeetings(): ?\StructType\EwsNonEmptyArrayOfAllItemsType
     {
         return $this->ConflictingMeetings;
     }
     /**
      * Set ConflictingMeetings value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setConflictingMeetings(\Ews\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings = null)
+    public function setConflictingMeetings(?\StructType\EwsNonEmptyArrayOfAllItemsType $conflictingMeetings = null): self
     {
         $this->ConflictingMeetings = $conflictingMeetings;
+        
         return $this;
     }
     /**
      * Get AdjacentMeetings value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAllItemsType|null
+     * @return \StructType\EwsNonEmptyArrayOfAllItemsType|null
      */
-    public function getAdjacentMeetings()
+    public function getAdjacentMeetings(): ?\StructType\EwsNonEmptyArrayOfAllItemsType
     {
         return $this->AdjacentMeetings;
     }
     /**
      * Set AdjacentMeetings value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAdjacentMeetings(\Ews\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings = null)
+    public function setAdjacentMeetings(?\StructType\EwsNonEmptyArrayOfAllItemsType $adjacentMeetings = null): self
     {
         $this->AdjacentMeetings = $adjacentMeetings;
+        
         return $this;
     }
     /**
      * Get Duration value
      * @return string|null
      */
-    public function getDuration()
+    public function getDuration(): ?string
     {
         return $this->Duration;
     }
     /**
      * Set Duration value
      * @param string $duration
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setDuration($duration = null)
+    public function setDuration(?string $duration = null): self
     {
         // validation for constraint: string
         if (!is_null($duration) && !is_string($duration)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($duration, true), gettype($duration)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($duration, true), gettype($duration)), __LINE__);
         }
         $this->Duration = $duration;
+        
         return $this;
     }
     /**
      * Get TimeZone value
      * @return string|null
      */
-    public function getTimeZone()
+    public function getTimeZone(): ?string
     {
         return $this->TimeZone;
     }
     /**
      * Set TimeZone value
      * @param string $timeZone
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setTimeZone($timeZone = null)
+    public function setTimeZone(?string $timeZone = null): self
     {
         // validation for constraint: string
         if (!is_null($timeZone) && !is_string($timeZone)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZone, true), gettype($timeZone)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($timeZone, true), gettype($timeZone)), __LINE__);
         }
         $this->TimeZone = $timeZone;
+        
         return $this;
     }
     /**
      * Get AppointmentReplyTime value
      * @return string|null
      */
-    public function getAppointmentReplyTime()
+    public function getAppointmentReplyTime(): ?string
     {
         return $this->AppointmentReplyTime;
     }
     /**
      * Set AppointmentReplyTime value
      * @param string $appointmentReplyTime
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAppointmentReplyTime($appointmentReplyTime = null)
+    public function setAppointmentReplyTime(?string $appointmentReplyTime = null): self
     {
         // validation for constraint: string
         if (!is_null($appointmentReplyTime) && !is_string($appointmentReplyTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appointmentReplyTime, true), gettype($appointmentReplyTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($appointmentReplyTime, true), gettype($appointmentReplyTime)), __LINE__);
         }
         $this->AppointmentReplyTime = $appointmentReplyTime;
+        
         return $this;
     }
     /**
      * Get AppointmentSequenceNumber value
      * @return int|null
      */
-    public function getAppointmentSequenceNumber()
+    public function getAppointmentSequenceNumber(): ?int
     {
         return $this->AppointmentSequenceNumber;
     }
     /**
      * Set AppointmentSequenceNumber value
      * @param int $appointmentSequenceNumber
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAppointmentSequenceNumber($appointmentSequenceNumber = null)
+    public function setAppointmentSequenceNumber(?int $appointmentSequenceNumber = null): self
     {
         // validation for constraint: int
         if (!is_null($appointmentSequenceNumber) && !(is_int($appointmentSequenceNumber) || ctype_digit($appointmentSequenceNumber))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($appointmentSequenceNumber, true), gettype($appointmentSequenceNumber)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($appointmentSequenceNumber, true), gettype($appointmentSequenceNumber)), __LINE__);
         }
         $this->AppointmentSequenceNumber = $appointmentSequenceNumber;
+        
         return $this;
     }
     /**
      * Get AppointmentState value
      * @return int|null
      */
-    public function getAppointmentState()
+    public function getAppointmentState(): ?int
     {
         return $this->AppointmentState;
     }
     /**
      * Set AppointmentState value
      * @param int $appointmentState
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAppointmentState($appointmentState = null)
+    public function setAppointmentState(?int $appointmentState = null): self
     {
         // validation for constraint: int
         if (!is_null($appointmentState) && !(is_int($appointmentState) || ctype_digit($appointmentState))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($appointmentState, true), gettype($appointmentState)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($appointmentState, true), gettype($appointmentState)), __LINE__);
         }
         $this->AppointmentState = $appointmentState;
+        
         return $this;
     }
     /**
      * Get Recurrence value
-     * @return \Ews\StructType\EwsRecurrenceType|null
+     * @return \StructType\EwsRecurrenceType|null
      */
-    public function getRecurrence()
+    public function getRecurrence(): ?\StructType\EwsRecurrenceType
     {
         return $this->Recurrence;
     }
     /**
      * Set Recurrence value
-     * @param \Ews\StructType\EwsRecurrenceType $recurrence
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsRecurrenceType $recurrence
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setRecurrence(\Ews\StructType\EwsRecurrenceType $recurrence = null)
+    public function setRecurrence(?\StructType\EwsRecurrenceType $recurrence = null): self
     {
         $this->Recurrence = $recurrence;
+        
         return $this;
     }
     /**
      * Get FirstOccurrence value
-     * @return \Ews\StructType\EwsOccurrenceInfoType|null
+     * @return \StructType\EwsOccurrenceInfoType|null
      */
-    public function getFirstOccurrence()
+    public function getFirstOccurrence(): ?\StructType\EwsOccurrenceInfoType
     {
         return $this->FirstOccurrence;
     }
     /**
      * Set FirstOccurrence value
-     * @param \Ews\StructType\EwsOccurrenceInfoType $firstOccurrence
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsOccurrenceInfoType $firstOccurrence
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setFirstOccurrence(\Ews\StructType\EwsOccurrenceInfoType $firstOccurrence = null)
+    public function setFirstOccurrence(?\StructType\EwsOccurrenceInfoType $firstOccurrence = null): self
     {
         $this->FirstOccurrence = $firstOccurrence;
+        
         return $this;
     }
     /**
      * Get LastOccurrence value
-     * @return \Ews\StructType\EwsOccurrenceInfoType|null
+     * @return \StructType\EwsOccurrenceInfoType|null
      */
-    public function getLastOccurrence()
+    public function getLastOccurrence(): ?\StructType\EwsOccurrenceInfoType
     {
         return $this->LastOccurrence;
     }
     /**
      * Set LastOccurrence value
-     * @param \Ews\StructType\EwsOccurrenceInfoType $lastOccurrence
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsOccurrenceInfoType $lastOccurrence
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setLastOccurrence(\Ews\StructType\EwsOccurrenceInfoType $lastOccurrence = null)
+    public function setLastOccurrence(?\StructType\EwsOccurrenceInfoType $lastOccurrence = null): self
     {
         $this->LastOccurrence = $lastOccurrence;
+        
         return $this;
     }
     /**
      * Get ModifiedOccurrences value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType|null
      */
-    public function getModifiedOccurrences()
+    public function getModifiedOccurrences(): ?\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType
     {
         return $this->ModifiedOccurrences;
     }
     /**
      * Set ModifiedOccurrences value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setModifiedOccurrences(\Ews\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences = null)
+    public function setModifiedOccurrences(?\ArrayType\EwsNonEmptyArrayOfOccurrenceInfoType $modifiedOccurrences = null): self
     {
         $this->ModifiedOccurrences = $modifiedOccurrences;
+        
         return $this;
     }
     /**
      * Get DeletedOccurrences value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType|null
      */
-    public function getDeletedOccurrences()
+    public function getDeletedOccurrences(): ?\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType
     {
         return $this->DeletedOccurrences;
     }
     /**
      * Set DeletedOccurrences value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setDeletedOccurrences(\Ews\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences = null)
+    public function setDeletedOccurrences(?\ArrayType\EwsNonEmptyArrayOfDeletedOccurrencesType $deletedOccurrences = null): self
     {
         $this->DeletedOccurrences = $deletedOccurrences;
+        
         return $this;
     }
     /**
      * Get MeetingTimeZone value
-     * @return \Ews\StructType\EwsTimeZoneType|null
+     * @return \StructType\EwsTimeZoneType|null
      */
-    public function getMeetingTimeZone()
+    public function getMeetingTimeZone(): ?\StructType\EwsTimeZoneType
     {
         return $this->MeetingTimeZone;
     }
     /**
      * Set MeetingTimeZone value
-     * @param \Ews\StructType\EwsTimeZoneType $meetingTimeZone
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsTimeZoneType $meetingTimeZone
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setMeetingTimeZone(\Ews\StructType\EwsTimeZoneType $meetingTimeZone = null)
+    public function setMeetingTimeZone(?\StructType\EwsTimeZoneType $meetingTimeZone = null): self
     {
         $this->MeetingTimeZone = $meetingTimeZone;
+        
         return $this;
     }
     /**
      * Get StartTimeZone value
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType|null
+     * @return \StructType\EwsTimeZoneDefinitionType|null
      */
-    public function getStartTimeZone()
+    public function getStartTimeZone(): ?\StructType\EwsTimeZoneDefinitionType
     {
         return $this->StartTimeZone;
     }
     /**
      * Set StartTimeZone value
-     * @param \Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsTimeZoneDefinitionType $startTimeZone
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setStartTimeZone(\Ews\StructType\EwsTimeZoneDefinitionType $startTimeZone = null)
+    public function setStartTimeZone(?\StructType\EwsTimeZoneDefinitionType $startTimeZone = null): self
     {
         $this->StartTimeZone = $startTimeZone;
+        
         return $this;
     }
     /**
      * Get EndTimeZone value
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType|null
+     * @return \StructType\EwsTimeZoneDefinitionType|null
      */
-    public function getEndTimeZone()
+    public function getEndTimeZone(): ?\StructType\EwsTimeZoneDefinitionType
     {
         return $this->EndTimeZone;
     }
     /**
      * Set EndTimeZone value
-     * @param \Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsTimeZoneDefinitionType $endTimeZone
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setEndTimeZone(\Ews\StructType\EwsTimeZoneDefinitionType $endTimeZone = null)
+    public function setEndTimeZone(?\StructType\EwsTimeZoneDefinitionType $endTimeZone = null): self
     {
         $this->EndTimeZone = $endTimeZone;
+        
         return $this;
     }
     /**
      * Get ConferenceType value
      * @return int|null
      */
-    public function getConferenceType()
+    public function getConferenceType(): ?int
     {
         return $this->ConferenceType;
     }
     /**
      * Set ConferenceType value
      * @param int $conferenceType
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setConferenceType($conferenceType = null)
+    public function setConferenceType(?int $conferenceType = null): self
     {
         // validation for constraint: int
         if (!is_null($conferenceType) && !(is_int($conferenceType) || ctype_digit($conferenceType))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($conferenceType, true), gettype($conferenceType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($conferenceType, true), gettype($conferenceType)), __LINE__);
         }
         $this->ConferenceType = $conferenceType;
+        
         return $this;
     }
     /**
      * Get AllowNewTimeProposal value
      * @return bool|null
      */
-    public function getAllowNewTimeProposal()
+    public function getAllowNewTimeProposal(): ?bool
     {
         return $this->AllowNewTimeProposal;
     }
     /**
      * Set AllowNewTimeProposal value
      * @param bool $allowNewTimeProposal
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setAllowNewTimeProposal($allowNewTimeProposal = null)
+    public function setAllowNewTimeProposal(?bool $allowNewTimeProposal = null): self
     {
         // validation for constraint: boolean
         if (!is_null($allowNewTimeProposal) && !is_bool($allowNewTimeProposal)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowNewTimeProposal, true), gettype($allowNewTimeProposal)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($allowNewTimeProposal, true), gettype($allowNewTimeProposal)), __LINE__);
         }
         $this->AllowNewTimeProposal = $allowNewTimeProposal;
+        
         return $this;
     }
     /**
      * Get IsOnlineMeeting value
      * @return bool|null
      */
-    public function getIsOnlineMeeting()
+    public function getIsOnlineMeeting(): ?bool
     {
         return $this->IsOnlineMeeting;
     }
     /**
      * Set IsOnlineMeeting value
      * @param bool $isOnlineMeeting
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setIsOnlineMeeting($isOnlineMeeting = null)
+    public function setIsOnlineMeeting(?bool $isOnlineMeeting = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isOnlineMeeting) && !is_bool($isOnlineMeeting)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOnlineMeeting, true), gettype($isOnlineMeeting)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isOnlineMeeting, true), gettype($isOnlineMeeting)), __LINE__);
         }
         $this->IsOnlineMeeting = $isOnlineMeeting;
+        
         return $this;
     }
     /**
      * Get MeetingWorkspaceUrl value
      * @return string|null
      */
-    public function getMeetingWorkspaceUrl()
+    public function getMeetingWorkspaceUrl(): ?string
     {
         return $this->MeetingWorkspaceUrl;
     }
     /**
      * Set MeetingWorkspaceUrl value
      * @param string $meetingWorkspaceUrl
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setMeetingWorkspaceUrl($meetingWorkspaceUrl = null)
+    public function setMeetingWorkspaceUrl(?string $meetingWorkspaceUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($meetingWorkspaceUrl) && !is_string($meetingWorkspaceUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($meetingWorkspaceUrl, true), gettype($meetingWorkspaceUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($meetingWorkspaceUrl, true), gettype($meetingWorkspaceUrl)), __LINE__);
         }
         $this->MeetingWorkspaceUrl = $meetingWorkspaceUrl;
+        
         return $this;
     }
     /**
      * Get NetShowUrl value
      * @return string|null
      */
-    public function getNetShowUrl()
+    public function getNetShowUrl(): ?string
     {
         return $this->NetShowUrl;
     }
     /**
      * Set NetShowUrl value
      * @param string $netShowUrl
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setNetShowUrl($netShowUrl = null)
+    public function setNetShowUrl(?string $netShowUrl = null): self
     {
         // validation for constraint: string
         if (!is_null($netShowUrl) && !is_string($netShowUrl)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($netShowUrl, true), gettype($netShowUrl)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($netShowUrl, true), gettype($netShowUrl)), __LINE__);
         }
         $this->NetShowUrl = $netShowUrl;
+        
         return $this;
     }
     /**
      * Get EnhancedLocation value
-     * @return \Ews\StructType\EwsEnhancedLocationType|null
+     * @return \StructType\EwsEnhancedLocationType|null
      */
-    public function getEnhancedLocation()
+    public function getEnhancedLocation(): ?\StructType\EwsEnhancedLocationType
     {
         return $this->EnhancedLocation;
     }
     /**
      * Set EnhancedLocation value
-     * @param \Ews\StructType\EwsEnhancedLocationType $enhancedLocation
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsEnhancedLocationType $enhancedLocation
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setEnhancedLocation(\Ews\StructType\EwsEnhancedLocationType $enhancedLocation = null)
+    public function setEnhancedLocation(?\StructType\EwsEnhancedLocationType $enhancedLocation = null): self
     {
         $this->EnhancedLocation = $enhancedLocation;
+        
         return $this;
     }
     /**
      * Get ChangeHighlights value
-     * @return \Ews\StructType\EwsChangeHighlightsType|null
+     * @return \StructType\EwsChangeHighlightsType|null
      */
-    public function getChangeHighlights()
+    public function getChangeHighlights(): ?\StructType\EwsChangeHighlightsType
     {
         return $this->ChangeHighlights;
     }
     /**
      * Set ChangeHighlights value
-     * @param \Ews\StructType\EwsChangeHighlightsType $changeHighlights
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @param \StructType\EwsChangeHighlightsType $changeHighlights
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setChangeHighlights(\Ews\StructType\EwsChangeHighlightsType $changeHighlights = null)
+    public function setChangeHighlights(?\StructType\EwsChangeHighlightsType $changeHighlights = null): self
     {
         $this->ChangeHighlights = $changeHighlights;
+        
         return $this;
     }
     /**
      * Get StartWallClock value
      * @return string|null
      */
-    public function getStartWallClock()
+    public function getStartWallClock(): ?string
     {
         return $this->StartWallClock;
     }
     /**
      * Set StartWallClock value
      * @param string $startWallClock
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setStartWallClock($startWallClock = null)
+    public function setStartWallClock(?string $startWallClock = null): self
     {
         // validation for constraint: string
         if (!is_null($startWallClock) && !is_string($startWallClock)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startWallClock, true), gettype($startWallClock)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startWallClock, true), gettype($startWallClock)), __LINE__);
         }
         $this->StartWallClock = $startWallClock;
+        
         return $this;
     }
     /**
      * Get EndWallClock value
      * @return string|null
      */
-    public function getEndWallClock()
+    public function getEndWallClock(): ?string
     {
         return $this->EndWallClock;
     }
     /**
      * Set EndWallClock value
      * @param string $endWallClock
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setEndWallClock($endWallClock = null)
+    public function setEndWallClock(?string $endWallClock = null): self
     {
         // validation for constraint: string
         if (!is_null($endWallClock) && !is_string($endWallClock)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endWallClock, true), gettype($endWallClock)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endWallClock, true), gettype($endWallClock)), __LINE__);
         }
         $this->EndWallClock = $endWallClock;
+        
         return $this;
     }
     /**
      * Get StartTimeZoneId value
      * @return string|null
      */
-    public function getStartTimeZoneId()
+    public function getStartTimeZoneId(): ?string
     {
         return $this->StartTimeZoneId;
     }
     /**
      * Set StartTimeZoneId value
      * @param string $startTimeZoneId
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setStartTimeZoneId($startTimeZoneId = null)
+    public function setStartTimeZoneId(?string $startTimeZoneId = null): self
     {
         // validation for constraint: string
         if (!is_null($startTimeZoneId) && !is_string($startTimeZoneId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeZoneId, true), gettype($startTimeZoneId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($startTimeZoneId, true), gettype($startTimeZoneId)), __LINE__);
         }
         $this->StartTimeZoneId = $startTimeZoneId;
+        
         return $this;
     }
     /**
      * Get EndTimeZoneId value
      * @return string|null
      */
-    public function getEndTimeZoneId()
+    public function getEndTimeZoneId(): ?string
     {
         return $this->EndTimeZoneId;
     }
     /**
      * Set EndTimeZoneId value
      * @param string $endTimeZoneId
-     * @return \Ews\StructType\EwsMeetingRequestMessageType
+     * @return \StructType\EwsMeetingRequestMessageType
      */
-    public function setEndTimeZoneId($endTimeZoneId = null)
+    public function setEndTimeZoneId(?string $endTimeZoneId = null): self
     {
         // validation for constraint: string
         if (!is_null($endTimeZoneId) && !is_string($endTimeZoneId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTimeZoneId, true), gettype($endTimeZoneId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($endTimeZoneId, true), gettype($endTimeZoneId)), __LINE__);
         }
         $this->EndTimeZoneId = $endTimeZoneId;
+        
         return $this;
     }
 }

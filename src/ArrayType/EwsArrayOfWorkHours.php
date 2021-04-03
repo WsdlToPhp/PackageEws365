@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfWorkHours ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 7
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsWorkHoursType[]
+     * @var \StructType\EwsWorkHoursType[]
      */
-    public $WorkHours;
+    protected array $WorkHours = [];
     /**
      * Constructor method for ArrayOfWorkHours
      * @uses EwsArrayOfWorkHours::setWorkHours()
-     * @param \Ews\StructType\EwsWorkHoursType[] $workHours
+     * @param \StructType\EwsWorkHoursType[] $workHours
      */
-    public function __construct(array $workHours = array())
+    public function __construct(array $workHours = [])
     {
         $this
             ->setWorkHours($workHours);
     }
     /**
      * Get WorkHours value
-     * @return \Ews\StructType\EwsWorkHoursType[]|null
+     * @return \StructType\EwsWorkHoursType[]
      */
-    public function getWorkHours()
+    public function getWorkHours(): array
     {
         return $this->WorkHours;
     }
@@ -44,66 +47,49 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateWorkHoursForArrayConstraintsFromSetWorkHours(array $values = array())
+    public static function validateWorkHoursForArrayConstraintsFromSetWorkHours(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfWorkHoursWorkHoursItem) {
             // validation for constraint: itemType
-            if (!$arrayOfWorkHoursWorkHoursItem instanceof \Ews\StructType\EwsWorkHoursType) {
+            if (!$arrayOfWorkHoursWorkHoursItem instanceof \StructType\EwsWorkHoursType) {
                 $invalidValues[] = is_object($arrayOfWorkHoursWorkHoursItem) ? get_class($arrayOfWorkHoursWorkHoursItem) : sprintf('%s(%s)', gettype($arrayOfWorkHoursWorkHoursItem), var_export($arrayOfWorkHoursWorkHoursItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The WorkHours property can only contain items of type \Ews\StructType\EwsWorkHoursType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The WorkHours property can only contain items of type \StructType\EwsWorkHoursType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set WorkHours value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkHoursType[] $workHours
-     * @return \Ews\ArrayType\EwsArrayOfWorkHours
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkHoursType[] $workHours
+     * @return \ArrayType\EwsArrayOfWorkHours
      */
-    public function setWorkHours(array $workHours = array())
+    public function setWorkHours(array $workHours = []): self
     {
         // validation for constraint: array
         if ('' !== ($workHoursArrayErrorMessage = self::validateWorkHoursForArrayConstraintsFromSetWorkHours($workHours))) {
-            throw new \InvalidArgumentException($workHoursArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($workHoursArrayErrorMessage, __LINE__);
         }
         // validation for constraint: maxOccurs(7)
         if (is_array($workHours) && count($workHours) > 7) {
-            throw new \InvalidArgumentException(sprintf('Invalid count of %s, the number of elements contained by the property must be less than or equal to 7', count($workHours)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid count of %s, the number of elements contained by the property must be less than or equal to 7', count($workHours)), __LINE__);
         }
         $this->WorkHours = $workHours;
-        return $this;
-    }
-    /**
-     * Add item to WorkHours value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsWorkHoursType $item
-     * @return \Ews\ArrayType\EwsArrayOfWorkHours
-     */
-    public function addToWorkHours(\Ews\StructType\EwsWorkHoursType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsWorkHoursType) {
-            throw new \InvalidArgumentException(sprintf('The WorkHours property can only contain items of type \Ews\StructType\EwsWorkHoursType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        // validation for constraint: maxOccurs(7)
-        if (is_array($this->WorkHours) && count($this->WorkHours) >= 7) {
-            throw new \InvalidArgumentException(sprintf('You can\'t add anymore element to this property that already contains %s elements, the number of elements contained by the property must be less than or equal to 7', count($this->WorkHours)), __LINE__);
-        }
-        $this->WorkHours[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsWorkHoursType|null
+     * @return \StructType\EwsWorkHoursType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsWorkHoursType
     {
         return parent::current();
     }
@@ -111,27 +97,27 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsWorkHoursType|null
+     * @return \StructType\EwsWorkHoursType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsWorkHoursType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsWorkHoursType|null
+     * @return \StructType\EwsWorkHoursType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsWorkHoursType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsWorkHoursType|null
+     * @return \StructType\EwsWorkHoursType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsWorkHoursType
     {
         return parent::last();
     }
@@ -139,18 +125,29 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsWorkHoursType|null
+     * @return \StructType\EwsWorkHoursType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsWorkHoursType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsWorkHoursType $item
+     * @return \ArrayType\EwsArrayOfWorkHours
+     */
+    public function add(\StructType\EwsWorkHoursType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string WorkHours
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'WorkHours';
     }

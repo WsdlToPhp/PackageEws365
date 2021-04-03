@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetHoldOnMailboxesResponseMessageType StructType
@@ -18,35 +21,36 @@ class EwsSetHoldOnMailboxesResponseMessageType extends EwsResponseMessageType
      * The MailboxHoldResult
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsMailboxHoldResultType
+     * @var \StructType\EwsMailboxHoldResultType|null
      */
-    public $MailboxHoldResult;
+    protected ?\StructType\EwsMailboxHoldResultType $MailboxHoldResult = null;
     /**
      * Constructor method for SetHoldOnMailboxesResponseMessageType
      * @uses EwsSetHoldOnMailboxesResponseMessageType::setMailboxHoldResult()
-     * @param \Ews\StructType\EwsMailboxHoldResultType $mailboxHoldResult
+     * @param \StructType\EwsMailboxHoldResultType $mailboxHoldResult
      */
-    public function __construct(\Ews\StructType\EwsMailboxHoldResultType $mailboxHoldResult = null)
+    public function __construct(?\StructType\EwsMailboxHoldResultType $mailboxHoldResult = null)
     {
         $this
             ->setMailboxHoldResult($mailboxHoldResult);
     }
     /**
      * Get MailboxHoldResult value
-     * @return \Ews\StructType\EwsMailboxHoldResultType|null
+     * @return \StructType\EwsMailboxHoldResultType|null
      */
-    public function getMailboxHoldResult()
+    public function getMailboxHoldResult(): ?\StructType\EwsMailboxHoldResultType
     {
         return $this->MailboxHoldResult;
     }
     /**
      * Set MailboxHoldResult value
-     * @param \Ews\StructType\EwsMailboxHoldResultType $mailboxHoldResult
-     * @return \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType
+     * @param \StructType\EwsMailboxHoldResultType $mailboxHoldResult
+     * @return \StructType\EwsSetHoldOnMailboxesResponseMessageType
      */
-    public function setMailboxHoldResult(\Ews\StructType\EwsMailboxHoldResultType $mailboxHoldResult = null)
+    public function setMailboxHoldResult(?\StructType\EwsMailboxHoldResultType $mailboxHoldResult = null): self
     {
         $this->MailboxHoldResult = $mailboxHoldResult;
+        
         return $this;
     }
 }

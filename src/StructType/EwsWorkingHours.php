@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for WorkingHours StructType
@@ -17,25 +20,25 @@ class EwsWorkingHours extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSerializableTimeZone
+     * @var \StructType\EwsSerializableTimeZone
      */
-    public $TimeZone;
+    protected \StructType\EwsSerializableTimeZone $TimeZone;
     /**
      * The WorkingPeriodArray
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfWorkingPeriod
+     * @var \ArrayType\EwsArrayOfWorkingPeriod
      */
-    public $WorkingPeriodArray;
+    protected \ArrayType\EwsArrayOfWorkingPeriod $WorkingPeriodArray;
     /**
      * Constructor method for WorkingHours
      * @uses EwsWorkingHours::setTimeZone()
      * @uses EwsWorkingHours::setWorkingPeriodArray()
-     * @param \Ews\StructType\EwsSerializableTimeZone $timeZone
-     * @param \Ews\ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray
+     * @param \StructType\EwsSerializableTimeZone $timeZone
+     * @param \ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray
      */
-    public function __construct(\Ews\StructType\EwsSerializableTimeZone $timeZone = null, \Ews\ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray = null)
+    public function __construct(\StructType\EwsSerializableTimeZone $timeZone, \ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray)
     {
         $this
             ->setTimeZone($timeZone)
@@ -43,38 +46,40 @@ class EwsWorkingHours extends AbstractStructBase
     }
     /**
      * Get TimeZone value
-     * @return \Ews\StructType\EwsSerializableTimeZone
+     * @return \StructType\EwsSerializableTimeZone
      */
-    public function getTimeZone()
+    public function getTimeZone(): \StructType\EwsSerializableTimeZone
     {
         return $this->TimeZone;
     }
     /**
      * Set TimeZone value
-     * @param \Ews\StructType\EwsSerializableTimeZone $timeZone
-     * @return \Ews\StructType\EwsWorkingHours
+     * @param \StructType\EwsSerializableTimeZone $timeZone
+     * @return \StructType\EwsWorkingHours
      */
-    public function setTimeZone(\Ews\StructType\EwsSerializableTimeZone $timeZone = null)
+    public function setTimeZone(\StructType\EwsSerializableTimeZone $timeZone): self
     {
         $this->TimeZone = $timeZone;
+        
         return $this;
     }
     /**
      * Get WorkingPeriodArray value
-     * @return \Ews\ArrayType\EwsArrayOfWorkingPeriod
+     * @return \ArrayType\EwsArrayOfWorkingPeriod
      */
-    public function getWorkingPeriodArray()
+    public function getWorkingPeriodArray(): \ArrayType\EwsArrayOfWorkingPeriod
     {
         return $this->WorkingPeriodArray;
     }
     /**
      * Set WorkingPeriodArray value
-     * @param \Ews\ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray
-     * @return \Ews\StructType\EwsWorkingHours
+     * @param \ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray
+     * @return \StructType\EwsWorkingHours
      */
-    public function setWorkingPeriodArray(\Ews\ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray = null)
+    public function setWorkingPeriodArray(\ArrayType\EwsArrayOfWorkingPeriod $workingPeriodArray): self
     {
         $this->WorkingPeriodArray = $workingPeriodArray;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfRestrictedGroupIdentifiersType ArrayType
@@ -16,24 +19,24 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * The RestrictedGroupIdentifier
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
-     * @var \Ews\StructType\EwsSidAndAttributesType[]
+     * @var \StructType\EwsSidAndAttributesType[]
      */
-    public $RestrictedGroupIdentifier;
+    protected array $RestrictedGroupIdentifier = [];
     /**
      * Constructor method for NonEmptyArrayOfRestrictedGroupIdentifiersType
      * @uses EwsNonEmptyArrayOfRestrictedGroupIdentifiersType::setRestrictedGroupIdentifier()
-     * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
+     * @param \StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
      */
-    public function __construct(array $restrictedGroupIdentifier = array())
+    public function __construct(array $restrictedGroupIdentifier = [])
     {
         $this
             ->setRestrictedGroupIdentifier($restrictedGroupIdentifier);
     }
     /**
      * Get RestrictedGroupIdentifier value
-     * @return \Ews\StructType\EwsSidAndAttributesType[]|null
+     * @return \StructType\EwsSidAndAttributesType[]
      */
-    public function getRestrictedGroupIdentifier()
+    public function getRestrictedGroupIdentifier(): array
     {
         return $this->RestrictedGroupIdentifier;
     }
@@ -43,58 +46,45 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateRestrictedGroupIdentifierForArrayConstraintsFromSetRestrictedGroupIdentifier(array $values = array())
+    public static function validateRestrictedGroupIdentifierForArrayConstraintsFromSetRestrictedGroupIdentifier(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) {
             // validation for constraint: itemType
-            if (!$nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem instanceof \Ews\StructType\EwsSidAndAttributesType) {
+            if (!$nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem instanceof \StructType\EwsSidAndAttributesType) {
                 $invalidValues[] = is_object($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) ? get_class($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem) : sprintf('%s(%s)', gettype($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem), var_export($nonEmptyArrayOfRestrictedGroupIdentifiersTypeRestrictedGroupIdentifierItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The RestrictedGroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The RestrictedGroupIdentifier property can only contain items of type \StructType\EwsSidAndAttributesType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set RestrictedGroupIdentifier value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSidAndAttributesType[] $restrictedGroupIdentifier
+     * @return \ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
      */
-    public function setRestrictedGroupIdentifier(array $restrictedGroupIdentifier = array())
+    public function setRestrictedGroupIdentifier(array $restrictedGroupIdentifier = []): self
     {
         // validation for constraint: array
         if ('' !== ($restrictedGroupIdentifierArrayErrorMessage = self::validateRestrictedGroupIdentifierForArrayConstraintsFromSetRestrictedGroupIdentifier($restrictedGroupIdentifier))) {
-            throw new \InvalidArgumentException($restrictedGroupIdentifierArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($restrictedGroupIdentifierArrayErrorMessage, __LINE__);
         }
         $this->RestrictedGroupIdentifier = $restrictedGroupIdentifier;
-        return $this;
-    }
-    /**
-     * Add item to RestrictedGroupIdentifier value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSidAndAttributesType $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
-     */
-    public function addToRestrictedGroupIdentifier(\Ews\StructType\EwsSidAndAttributesType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsSidAndAttributesType) {
-            throw new \InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of type \Ews\StructType\EwsSidAndAttributesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->RestrictedGroupIdentifier[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::current();
     }
@@ -102,27 +92,27 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsSidAndAttributesType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsSidAndAttributesType
     {
         return parent::last();
     }
@@ -130,18 +120,29 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsSidAndAttributesType|null
+     * @return \StructType\EwsSidAndAttributesType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsSidAndAttributesType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSidAndAttributesType $item
+     * @return \ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
+     */
+    public function add(\StructType\EwsSidAndAttributesType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string RestrictedGroupIdentifier
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'RestrictedGroupIdentifier';
     }

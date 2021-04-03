@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetInboxRulesResponseType StructType
@@ -17,25 +20,25 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $OutlookRuleBlobExists;
+    protected ?bool $OutlookRuleBlobExists = null;
     /**
      * The InboxRules
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfRulesType
+     * @var \ArrayType\EwsArrayOfRulesType|null
      */
-    public $InboxRules;
+    protected ?\ArrayType\EwsArrayOfRulesType $InboxRules = null;
     /**
      * Constructor method for GetInboxRulesResponseType
      * @uses EwsGetInboxRulesResponseType::setOutlookRuleBlobExists()
      * @uses EwsGetInboxRulesResponseType::setInboxRules()
      * @param bool $outlookRuleBlobExists
-     * @param \Ews\ArrayType\EwsArrayOfRulesType $inboxRules
+     * @param \ArrayType\EwsArrayOfRulesType $inboxRules
      */
-    public function __construct($outlookRuleBlobExists = null, \Ews\ArrayType\EwsArrayOfRulesType $inboxRules = null)
+    public function __construct(?bool $outlookRuleBlobExists = null, ?\ArrayType\EwsArrayOfRulesType $inboxRules = null)
     {
         $this
             ->setOutlookRuleBlobExists($outlookRuleBlobExists)
@@ -45,40 +48,42 @@ class EwsGetInboxRulesResponseType extends EwsResponseMessageType
      * Get OutlookRuleBlobExists value
      * @return bool|null
      */
-    public function getOutlookRuleBlobExists()
+    public function getOutlookRuleBlobExists(): ?bool
     {
         return $this->OutlookRuleBlobExists;
     }
     /**
      * Set OutlookRuleBlobExists value
      * @param bool $outlookRuleBlobExists
-     * @return \Ews\StructType\EwsGetInboxRulesResponseType
+     * @return \StructType\EwsGetInboxRulesResponseType
      */
-    public function setOutlookRuleBlobExists($outlookRuleBlobExists = null)
+    public function setOutlookRuleBlobExists(?bool $outlookRuleBlobExists = null): self
     {
         // validation for constraint: boolean
         if (!is_null($outlookRuleBlobExists) && !is_bool($outlookRuleBlobExists)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($outlookRuleBlobExists, true), gettype($outlookRuleBlobExists)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($outlookRuleBlobExists, true), gettype($outlookRuleBlobExists)), __LINE__);
         }
         $this->OutlookRuleBlobExists = $outlookRuleBlobExists;
+        
         return $this;
     }
     /**
      * Get InboxRules value
-     * @return \Ews\ArrayType\EwsArrayOfRulesType|null
+     * @return \ArrayType\EwsArrayOfRulesType|null
      */
-    public function getInboxRules()
+    public function getInboxRules(): ?\ArrayType\EwsArrayOfRulesType
     {
         return $this->InboxRules;
     }
     /**
      * Set InboxRules value
-     * @param \Ews\ArrayType\EwsArrayOfRulesType $inboxRules
-     * @return \Ews\StructType\EwsGetInboxRulesResponseType
+     * @param \ArrayType\EwsArrayOfRulesType $inboxRules
+     * @return \StructType\EwsGetInboxRulesResponseType
      */
-    public function setInboxRules(\Ews\ArrayType\EwsArrayOfRulesType $inboxRules = null)
+    public function setInboxRules(?\ArrayType\EwsArrayOfRulesType $inboxRules = null): self
     {
         $this->InboxRules = $inboxRules;
+        
         return $this;
     }
 }

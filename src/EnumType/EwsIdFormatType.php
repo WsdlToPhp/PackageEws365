@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for IdFormatType EnumType
@@ -54,15 +56,15 @@ class EwsIdFormatType extends AbstractStructEnumBase
      * @uses self::VALUE_OWA_ID
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_EWS_LEGACY_ID,
             self::VALUE_EWS_ID,
             self::VALUE_ENTRY_ID,
             self::VALUE_HEX_ENTRY_ID,
             self::VALUE_STORE_ID,
             self::VALUE_OWA_ID,
-        );
+        ];
     }
 }

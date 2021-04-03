@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetMeetingParticipantAvailabilityResponseMessageType
@@ -18,35 +21,36 @@ class EwsGetMeetingParticipantAvailabilityResponseMessageType extends EwsRespons
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
+     * @var \ArrayType\EwsArrayOfMeetingParticipantAvailability
      */
-    public $MeetingParticipantAvailabilities;
+    protected \ArrayType\EwsArrayOfMeetingParticipantAvailability $MeetingParticipantAvailabilities;
     /**
      * Constructor method for GetMeetingParticipantAvailabilityResponseMessageType
      * @uses EwsGetMeetingParticipantAvailabilityResponseMessageType::setMeetingParticipantAvailabilities()
-     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
+     * @param \ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities = null)
+    public function __construct(\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities)
     {
         $this
             ->setMeetingParticipantAvailabilities($meetingParticipantAvailabilities);
     }
     /**
      * Get MeetingParticipantAvailabilities value
-     * @return \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability
+     * @return \ArrayType\EwsArrayOfMeetingParticipantAvailability
      */
-    public function getMeetingParticipantAvailabilities()
+    public function getMeetingParticipantAvailabilities(): \ArrayType\EwsArrayOfMeetingParticipantAvailability
     {
         return $this->MeetingParticipantAvailabilities;
     }
     /**
      * Set MeetingParticipantAvailabilities value
-     * @param \Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
-     * @return \Ews\StructType\EwsGetMeetingParticipantAvailabilityResponseMessageType
+     * @param \ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities
+     * @return \StructType\EwsGetMeetingParticipantAvailabilityResponseMessageType
      */
-    public function setMeetingParticipantAvailabilities(\Ews\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities = null)
+    public function setMeetingParticipantAvailabilities(\ArrayType\EwsArrayOfMeetingParticipantAvailability $meetingParticipantAvailabilities): self
     {
         $this->MeetingParticipantAvailabilities = $meetingParticipantAvailabilities;
+        
         return $this;
     }
 }

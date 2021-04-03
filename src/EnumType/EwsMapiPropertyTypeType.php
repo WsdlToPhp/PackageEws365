@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MapiPropertyTypeType EnumType
@@ -180,9 +182,9 @@ class EwsMapiPropertyTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_STRING_ARRAY
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_APPLICATION_TIME,
             self::VALUE_APPLICATION_TIME_ARRAY,
             self::VALUE_BINARY,
@@ -210,6 +212,6 @@ class EwsMapiPropertyTypeType extends AbstractStructEnumBase
             self::VALUE_SYSTEM_TIME_ARRAY,
             self::VALUE_STRING,
             self::VALUE_STRING_ARRAY,
-        );
+        ];
     }
 }

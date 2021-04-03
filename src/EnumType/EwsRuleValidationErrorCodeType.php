@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for RuleValidationErrorCodeType EnumType
@@ -162,9 +164,9 @@ class EwsRuleValidationErrorCodeType extends AbstractStructEnumBase
      * @uses self::VALUE_UNSUPPORTED_RULE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ADOPERATION_FAILURE,
             self::VALUE_CONNECTED_ACCOUNT_NOT_FOUND,
             self::VALUE_CREATE_WITH_RULE_ID,
@@ -189,6 +191,6 @@ class EwsRuleValidationErrorCodeType extends AbstractStructEnumBase
             self::VALUE_UNSUPPORTED_ADDRESS,
             self::VALUE_UNEXPECTED_ERROR,
             self::VALUE_UNSUPPORTED_RULE,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateXrmOrganizationType StructType
@@ -17,25 +20,25 @@ class EwsUpdateXrmOrganizationType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $EntityId;
+    protected \StructType\EwsItemIdType $EntityId;
     /**
      * The XrmOrganization
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsXrmOrganizationItemType
+     * @var \StructType\EwsXrmOrganizationItemType
      */
-    public $XrmOrganization;
+    protected \StructType\EwsXrmOrganizationItemType $XrmOrganization;
     /**
      * Constructor method for UpdateXrmOrganizationType
      * @uses EwsUpdateXrmOrganizationType::setEntityId()
      * @uses EwsUpdateXrmOrganizationType::setXrmOrganization()
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @param \Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization
+     * @param \StructType\EwsItemIdType $entityId
+     * @param \StructType\EwsXrmOrganizationItemType $xrmOrganization
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $entityId = null, \Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization = null)
+    public function __construct(\StructType\EwsItemIdType $entityId, \StructType\EwsXrmOrganizationItemType $xrmOrganization)
     {
         $this
             ->setEntityId($entityId)
@@ -43,38 +46,40 @@ class EwsUpdateXrmOrganizationType extends EwsBaseRequestType
     }
     /**
      * Get EntityId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getEntityId()
+    public function getEntityId(): \StructType\EwsItemIdType
     {
         return $this->EntityId;
     }
     /**
      * Set EntityId value
-     * @param \Ews\StructType\EwsItemIdType $entityId
-     * @return \Ews\StructType\EwsUpdateXrmOrganizationType
+     * @param \StructType\EwsItemIdType $entityId
+     * @return \StructType\EwsUpdateXrmOrganizationType
      */
-    public function setEntityId(\Ews\StructType\EwsItemIdType $entityId = null)
+    public function setEntityId(\StructType\EwsItemIdType $entityId): self
     {
         $this->EntityId = $entityId;
+        
         return $this;
     }
     /**
      * Get XrmOrganization value
-     * @return \Ews\StructType\EwsXrmOrganizationItemType
+     * @return \StructType\EwsXrmOrganizationItemType
      */
-    public function getXrmOrganization()
+    public function getXrmOrganization(): \StructType\EwsXrmOrganizationItemType
     {
         return $this->XrmOrganization;
     }
     /**
      * Set XrmOrganization value
-     * @param \Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization
-     * @return \Ews\StructType\EwsUpdateXrmOrganizationType
+     * @param \StructType\EwsXrmOrganizationItemType $xrmOrganization
+     * @return \StructType\EwsUpdateXrmOrganizationType
      */
-    public function setXrmOrganization(\Ews\StructType\EwsXrmOrganizationItemType $xrmOrganization = null)
+    public function setXrmOrganization(\StructType\EwsXrmOrganizationItemType $xrmOrganization): self
     {
         $this->XrmOrganization = $xrmOrganization;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for IndividualAttendeeConflictData StructType
@@ -19,13 +22,13 @@ class EwsIndividualAttendeeConflictData extends EwsAttendeeConflictData
      * - minOccurs: 1
      * @var string
      */
-    public $BusyType;
+    protected string $BusyType;
     /**
      * Constructor method for IndividualAttendeeConflictData
      * @uses EwsIndividualAttendeeConflictData::setBusyType()
      * @param string $busyType
      */
-    public function __construct($busyType = null)
+    public function __construct(string $busyType)
     {
         $this
             ->setBusyType($busyType);
@@ -34,25 +37,26 @@ class EwsIndividualAttendeeConflictData extends EwsAttendeeConflictData
      * Get BusyType value
      * @return string
      */
-    public function getBusyType()
+    public function getBusyType(): string
     {
         return $this->BusyType;
     }
     /**
      * Set BusyType value
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid()
-     * @uses \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsLegacyFreeBusyType::valueIsValid()
+     * @uses \EnumType\EwsLegacyFreeBusyType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $busyType
-     * @return \Ews\StructType\EwsIndividualAttendeeConflictData
+     * @return \StructType\EwsIndividualAttendeeConflictData
      */
-    public function setBusyType($busyType = null)
+    public function setBusyType(string $busyType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsLegacyFreeBusyType', is_array($busyType) ? implode(', ', $busyType) : var_export($busyType, true), implode(', ', \Ews\EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsLegacyFreeBusyType::valueIsValid($busyType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsLegacyFreeBusyType', is_array($busyType) ? implode(', ', $busyType) : var_export($busyType, true), implode(', ', \EnumType\EwsLegacyFreeBusyType::getValidValues())), __LINE__);
         }
         $this->BusyType = $busyType;
+        
         return $this;
     }
 }

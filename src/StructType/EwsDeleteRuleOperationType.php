@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteRuleOperationType StructType
@@ -19,13 +22,13 @@ class EwsDeleteRuleOperationType extends EwsRuleOperationType
      * - minOccurs: 1
      * @var string
      */
-    public $RuleId;
+    protected string $RuleId;
     /**
      * Constructor method for DeleteRuleOperationType
      * @uses EwsDeleteRuleOperationType::setRuleId()
      * @param string $ruleId
      */
-    public function __construct($ruleId = null)
+    public function __construct(string $ruleId)
     {
         $this
             ->setRuleId($ruleId);
@@ -34,22 +37,23 @@ class EwsDeleteRuleOperationType extends EwsRuleOperationType
      * Get RuleId value
      * @return string
      */
-    public function getRuleId()
+    public function getRuleId(): string
     {
         return $this->RuleId;
     }
     /**
      * Set RuleId value
      * @param string $ruleId
-     * @return \Ews\StructType\EwsDeleteRuleOperationType
+     * @return \StructType\EwsDeleteRuleOperationType
      */
-    public function setRuleId($ruleId = null)
+    public function setRuleId(string $ruleId): self
     {
         // validation for constraint: string
         if (!is_null($ruleId) && !is_string($ruleId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ruleId, true), gettype($ruleId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($ruleId, true), gettype($ruleId)), __LINE__);
         }
         $this->RuleId = $ruleId;
+        
         return $this;
     }
 }

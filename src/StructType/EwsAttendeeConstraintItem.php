@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AttendeeConstraintItem StructType
@@ -16,15 +19,15 @@ class EwsAttendeeConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      * The IsRequired
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsRequired;
+    protected ?bool $IsRequired = null;
     /**
      * Constructor method for AttendeeConstraintItem
      * @uses EwsAttendeeConstraintItem::setIsRequired()
      * @param bool $isRequired
      */
-    public function __construct($isRequired = null)
+    public function __construct(?bool $isRequired = null)
     {
         $this
             ->setIsRequired($isRequired);
@@ -33,22 +36,23 @@ class EwsAttendeeConstraintItem extends EwsMeetingTimeCandidatesConstraintItem
      * Get IsRequired value
      * @return bool|null
      */
-    public function getIsRequired()
+    public function getIsRequired(): ?bool
     {
         return $this->IsRequired;
     }
     /**
      * Set IsRequired value
      * @param bool $isRequired
-     * @return \Ews\StructType\EwsAttendeeConstraintItem
+     * @return \StructType\EwsAttendeeConstraintItem
      */
-    public function setIsRequired($isRequired = null)
+    public function setIsRequired(?bool $isRequired = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isRequired) && !is_bool($isRequired)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRequired, true), gettype($isRequired)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isRequired, true), gettype($isRequired)), __LINE__);
         }
         $this->IsRequired = $isRequired;
+        
         return $this;
     }
 }

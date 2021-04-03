@@ -22,7 +22,7 @@ class SoapClientBase extends AbstractSoapClientBase
      * @see \WsdlToPhp\PackageBase\AbstractSoapClientBase::getSoapClientClassName()
      * @return string
      */
-    public function getSoapClientClassName($soapClientClassName = null)
+    public function getSoapClientClassName(?string $soapClientClassName = null): string
     {
         return parent::getSoapClientClassName(static::DEFAULT_SOAP_CLIENT_CLASS);
     }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ResponseObjectType StructType
@@ -19,15 +22,15 @@ abstract class EwsResponseObjectType extends EwsResponseObjectCoreType
      * Meta information extracted from the WSDL
      * - documentation: The name of this reply object class as an English string. The client application is required to translate it if it's running in a different locale
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $ObjectName;
+    protected ?string $ObjectName = null;
     /**
      * Constructor method for ResponseObjectType
      * @uses EwsResponseObjectType::setObjectName()
      * @param string $objectName
      */
-    public function __construct($objectName = null)
+    public function __construct(?string $objectName = null)
     {
         $this
             ->setObjectName($objectName);
@@ -36,22 +39,23 @@ abstract class EwsResponseObjectType extends EwsResponseObjectCoreType
      * Get ObjectName value
      * @return string|null
      */
-    public function getObjectName()
+    public function getObjectName(): ?string
     {
         return $this->ObjectName;
     }
     /**
      * Set ObjectName value
      * @param string $objectName
-     * @return \Ews\StructType\EwsResponseObjectType
+     * @return \StructType\EwsResponseObjectType
      */
-    public function setObjectName($objectName = null)
+    public function setObjectName(?string $objectName = null): self
     {
         // validation for constraint: string
         if (!is_null($objectName) && !is_string($objectName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($objectName, true), gettype($objectName)), __LINE__);
         }
         $this->ObjectName = $objectName;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupSenderRestrictionsResponseMessageType
@@ -18,25 +21,25 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupIdentity
+     * @var \StructType\EwsUnifiedGroupIdentity
      */
-    public $GroupIdentity;
+    protected \StructType\EwsUnifiedGroupIdentity $GroupIdentity;
     /**
      * The SenderRestrictions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1 | 0
-     * @var \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @var \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public $SenderRestrictions;
+    protected \StructType\EwsUnifiedGroupSenderRestrictionsType $SenderRestrictions;
     /**
      * Constructor method for GetUnifiedGroupSenderRestrictionsResponseMessageType
      * @uses EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setGroupIdentity()
      * @uses EwsGetUnifiedGroupSenderRestrictionsResponseMessageType::setSenderRestrictions()
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
-     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @param \StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null, \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions = null)
+    public function __construct(\StructType\EwsUnifiedGroupIdentity $groupIdentity, \StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions)
     {
         $this
             ->setGroupIdentity($groupIdentity)
@@ -44,38 +47,40 @@ class EwsGetUnifiedGroupSenderRestrictionsResponseMessageType extends EwsRespons
     }
     /**
      * Get GroupIdentity value
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity
+     * @return \StructType\EwsUnifiedGroupIdentity
      */
-    public function getGroupIdentity()
+    public function getGroupIdentity(): \StructType\EwsUnifiedGroupIdentity
     {
         return $this->GroupIdentity;
     }
     /**
      * Set GroupIdentity value
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity
-     * @return \Ews\StructType\EwsGetUnifiedGroupSenderRestrictionsResponseMessageType
+     * @param \StructType\EwsUnifiedGroupIdentity $groupIdentity
+     * @return \StructType\EwsGetUnifiedGroupSenderRestrictionsResponseMessageType
      */
-    public function setGroupIdentity(\Ews\StructType\EwsUnifiedGroupIdentity $groupIdentity = null)
+    public function setGroupIdentity(\StructType\EwsUnifiedGroupIdentity $groupIdentity): self
     {
         $this->GroupIdentity = $groupIdentity;
+        
         return $this;
     }
     /**
      * Get SenderRestrictions value
-     * @return \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType
+     * @return \StructType\EwsUnifiedGroupSenderRestrictionsType
      */
-    public function getSenderRestrictions()
+    public function getSenderRestrictions(): \StructType\EwsUnifiedGroupSenderRestrictionsType
     {
         return $this->SenderRestrictions;
     }
     /**
      * Set SenderRestrictions value
-     * @param \Ews\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions
-     * @return \Ews\StructType\EwsGetUnifiedGroupSenderRestrictionsResponseMessageType
+     * @param \StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions
+     * @return \StructType\EwsGetUnifiedGroupSenderRestrictionsResponseMessageType
      */
-    public function setSenderRestrictions(\Ews\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions = null)
+    public function setSenderRestrictions(\StructType\EwsUnifiedGroupSenderRestrictionsType $senderRestrictions): self
     {
         $this->SenderRestrictions = $senderRestrictions;
+        
         return $this;
     }
 }

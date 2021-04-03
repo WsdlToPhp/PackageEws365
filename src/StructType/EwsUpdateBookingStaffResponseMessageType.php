@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateBookingStaffResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsUpdateBookingStaffResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType
      */
-    public $UpdatedItemId;
+    protected \StructType\EwsItemIdType $UpdatedItemId;
     /**
      * Constructor method for UpdateBookingStaffResponseMessageType
      * @uses EwsUpdateBookingStaffResponseMessageType::setUpdatedItemId()
-     * @param \Ews\StructType\EwsItemIdType $updatedItemId
+     * @param \StructType\EwsItemIdType $updatedItemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $updatedItemId = null)
+    public function __construct(\StructType\EwsItemIdType $updatedItemId)
     {
         $this
             ->setUpdatedItemId($updatedItemId);
     }
     /**
      * Get UpdatedItemId value
-     * @return \Ews\StructType\EwsItemIdType
+     * @return \StructType\EwsItemIdType
      */
-    public function getUpdatedItemId()
+    public function getUpdatedItemId(): \StructType\EwsItemIdType
     {
         return $this->UpdatedItemId;
     }
     /**
      * Set UpdatedItemId value
-     * @param \Ews\StructType\EwsItemIdType $updatedItemId
-     * @return \Ews\StructType\EwsUpdateBookingStaffResponseMessageType
+     * @param \StructType\EwsItemIdType $updatedItemId
+     * @return \StructType\EwsUpdateBookingStaffResponseMessageType
      */
-    public function setUpdatedItemId(\Ews\StructType\EwsItemIdType $updatedItemId = null)
+    public function setUpdatedItemId(\StructType\EwsItemIdType $updatedItemId): self
     {
         $this->UpdatedItemId = $updatedItemId;
+        
         return $this;
     }
 }

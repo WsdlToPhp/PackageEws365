@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ContentActivityType EnumType
@@ -58,9 +60,9 @@ class EwsContentActivityType extends AbstractStructEnumBase
      * @uses self::VALUE_SHARED_NOTES
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_POLL,
             self::VALUE_WHITE_BOARD,
             self::VALUE_QAND_A,
@@ -68,6 +70,6 @@ class EwsContentActivityType extends AbstractStructEnumBase
             self::VALUE_MEETING,
             self::VALUE_ANNOTATIONS,
             self::VALUE_SHARED_NOTES,
-        );
+        ];
     }
 }

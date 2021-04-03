@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfItemClassType ArrayType
@@ -19,15 +22,15 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * - choice: ItemClass
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ItemClass;
+    protected ?string $ItemClass = null;
     /**
      * Constructor method for ArrayOfItemClassType
      * @uses EwsArrayOfItemClassType::setItemClass()
      * @param string $itemClass
      */
-    public function __construct($itemClass = null)
+    public function __construct(?string $itemClass = null)
     {
         $this
             ->setItemClass($itemClass);
@@ -36,7 +39,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * Get ItemClass value
      * @return string|null
      */
-    public function getItemClass()
+    public function getItemClass(): ?string
     {
         return isset($this->ItemClass) ? $this->ItemClass : null;
     }
@@ -47,7 +50,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemClassForChoiceConstraintsFromSetItemClass($value)
+    public function validateItemClassForChoiceConstraintsFromSetItemClass($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -58,12 +61,13 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ItemClass can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemClass, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ItemClass can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemClass, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -71,25 +75,26 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $itemClass
-     * @return \Ews\ArrayType\EwsArrayOfItemClassType
+     * @return \ArrayType\EwsArrayOfItemClassType
      */
-    public function setItemClass($itemClass = null)
+    public function setItemClass(?string $itemClass = null): self
     {
         // validation for constraint: string
         if (!is_null($itemClass) && !is_string($itemClass)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         // validation for constraint: choice(ItemClass)
         if ('' !== ($itemClassChoiceErrorMessage = self::validateItemClassForChoiceConstraintsFromSetItemClass($itemClass))) {
-            throw new \InvalidArgumentException($itemClassChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemClassChoiceErrorMessage, __LINE__);
         }
         if (is_null($itemClass) || (is_array($itemClass) && empty($itemClass))) {
             unset($this->ItemClass);
         } else {
             $this->ItemClass = $itemClass;
         }
+        
         return $this;
     }
     /**
@@ -97,7 +102,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -107,7 +112,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -116,7 +121,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -125,7 +130,7 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -135,16 +140,27 @@ class EwsArrayOfItemClassType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param string $item
+     * @return \ArrayType\EwsArrayOfItemClassType
+     */
+    public function add(string $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ItemClass
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ItemClass';
     }

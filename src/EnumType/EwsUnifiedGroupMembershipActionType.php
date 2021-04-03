@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UnifiedGroupMembershipActionType EnumType
@@ -40,13 +42,13 @@ class EwsUnifiedGroupMembershipActionType extends AbstractStructEnumBase
      * @uses self::VALUE_DEMOTE
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ADD,
             self::VALUE_REMOVE,
             self::VALUE_PROMOTE,
             self::VALUE_DEMOTE,
-        );
+        ];
     }
 }

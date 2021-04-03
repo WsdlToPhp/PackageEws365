@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfBaseItemIdsType ArrayType
@@ -18,24 +21,24 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
      * - choice: ItemId
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * Constructor method for ArrayOfBaseItemIdsType
      * @uses EwsArrayOfBaseItemIdsType::setItemId()
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function __construct(?\StructType\EwsItemIdType $itemId = null)
     {
         $this
             ->setItemId($itemId);
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return isset($this->ItemId) ? $this->ItemId : null;
     }
@@ -46,7 +49,7 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateItemIdForChoiceConstraintsFromSetItemId($value)
+    public function validateItemIdForChoiceConstraintsFromSetItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -57,12 +60,13 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: ItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -70,29 +74,30 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\ArrayType\EwsArrayOfBaseItemIdsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \ArrayType\EwsArrayOfBaseItemIdsType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         // validation for constraint: choice(ItemId)
         if ('' !== ($itemIdChoiceErrorMessage = self::validateItemIdForChoiceConstraintsFromSetItemId($itemId))) {
-            throw new \InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($itemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($itemId) || (is_array($itemId) && empty($itemId))) {
             unset($this->ItemId);
         } else {
             $this->ItemId = $itemId;
         }
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsItemIdType
     {
         return parent::current();
     }
@@ -100,27 +105,27 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsItemIdType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsItemIdType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsItemIdType
     {
         return parent::last();
     }
@@ -128,18 +133,29 @@ class EwsArrayOfBaseItemIdsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsItemIdType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemIdType $item
+     * @return \ArrayType\EwsArrayOfBaseItemIdsType
+     */
+    public function add(\StructType\EwsItemIdType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string ItemId
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'ItemId';
     }

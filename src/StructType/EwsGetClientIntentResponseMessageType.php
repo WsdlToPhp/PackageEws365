@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetClientIntentResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetClientIntentResponseMessageType extends EwsResponseMessageType
      * The ClientIntent
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsClientIntentType
+     * @var \StructType\EwsClientIntentType|null
      */
-    public $ClientIntent;
+    protected ?\StructType\EwsClientIntentType $ClientIntent = null;
     /**
      * Constructor method for GetClientIntentResponseMessageType
      * @uses EwsGetClientIntentResponseMessageType::setClientIntent()
-     * @param \Ews\StructType\EwsClientIntentType $clientIntent
+     * @param \StructType\EwsClientIntentType $clientIntent
      */
-    public function __construct(\Ews\StructType\EwsClientIntentType $clientIntent = null)
+    public function __construct(?\StructType\EwsClientIntentType $clientIntent = null)
     {
         $this
             ->setClientIntent($clientIntent);
     }
     /**
      * Get ClientIntent value
-     * @return \Ews\StructType\EwsClientIntentType|null
+     * @return \StructType\EwsClientIntentType|null
      */
-    public function getClientIntent()
+    public function getClientIntent(): ?\StructType\EwsClientIntentType
     {
         return $this->ClientIntent;
     }
     /**
      * Set ClientIntent value
-     * @param \Ews\StructType\EwsClientIntentType $clientIntent
-     * @return \Ews\StructType\EwsGetClientIntentResponseMessageType
+     * @param \StructType\EwsClientIntentType $clientIntent
+     * @return \StructType\EwsGetClientIntentResponseMessageType
      */
-    public function setClientIntent(\Ews\StructType\EwsClientIntentType $clientIntent = null)
+    public function setClientIntent(?\StructType\EwsClientIntentType $clientIntent = null): self
     {
         $this->ClientIntent = $clientIntent;
+        
         return $this;
     }
 }

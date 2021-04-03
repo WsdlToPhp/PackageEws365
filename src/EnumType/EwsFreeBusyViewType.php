@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for FreeBusyViewType EnumType
@@ -52,15 +54,15 @@ class EwsFreeBusyViewType extends AbstractStructEnumBase
      * @uses self::VALUE_DETAILED_MERGED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_MERGED_ONLY,
             self::VALUE_FREE_BUSY,
             self::VALUE_FREE_BUSY_MERGED,
             self::VALUE_DETAILED,
             self::VALUE_DETAILED_MERGED,
-        );
+        ];
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfHighlightTermsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsHighlightTermType[]
+     * @var \StructType\EwsHighlightTermType[]
      */
-    public $Term;
+    protected array $Term = [];
     /**
      * Constructor method for ArrayOfHighlightTermsType
      * @uses EwsArrayOfHighlightTermsType::setTerm()
-     * @param \Ews\StructType\EwsHighlightTermType[] $term
+     * @param \StructType\EwsHighlightTermType[] $term
      */
-    public function __construct(array $term = array())
+    public function __construct(array $term = [])
     {
         $this
             ->setTerm($term);
     }
     /**
      * Get Term value
-     * @return \Ews\StructType\EwsHighlightTermType[]|null
+     * @return \StructType\EwsHighlightTermType[]
      */
-    public function getTerm()
+    public function getTerm(): array
     {
         return $this->Term;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateTermForArrayConstraintsFromSetTerm(array $values = array())
+    public static function validateTermForArrayConstraintsFromSetTerm(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfHighlightTermsTypeTermItem) {
             // validation for constraint: itemType
-            if (!$arrayOfHighlightTermsTypeTermItem instanceof \Ews\StructType\EwsHighlightTermType) {
+            if (!$arrayOfHighlightTermsTypeTermItem instanceof \StructType\EwsHighlightTermType) {
                 $invalidValues[] = is_object($arrayOfHighlightTermsTypeTermItem) ? get_class($arrayOfHighlightTermsTypeTermItem) : sprintf('%s(%s)', gettype($arrayOfHighlightTermsTypeTermItem), var_export($arrayOfHighlightTermsTypeTermItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Term property can only contain items of type \Ews\StructType\EwsHighlightTermType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Term property can only contain items of type \StructType\EwsHighlightTermType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Term value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsHighlightTermType[] $term
-     * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsHighlightTermType[] $term
+     * @return \ArrayType\EwsArrayOfHighlightTermsType
      */
-    public function setTerm(array $term = array())
+    public function setTerm(array $term = []): self
     {
         // validation for constraint: array
         if ('' !== ($termArrayErrorMessage = self::validateTermForArrayConstraintsFromSetTerm($term))) {
-            throw new \InvalidArgumentException($termArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($termArrayErrorMessage, __LINE__);
         }
         $this->Term = $term;
-        return $this;
-    }
-    /**
-     * Add item to Term value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsHighlightTermType $item
-     * @return \Ews\ArrayType\EwsArrayOfHighlightTermsType
-     */
-    public function addToTerm(\Ews\StructType\EwsHighlightTermType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsHighlightTermType) {
-            throw new \InvalidArgumentException(sprintf('The Term property can only contain items of type \Ews\StructType\EwsHighlightTermType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Term[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsHighlightTermType|null
+     * @return \StructType\EwsHighlightTermType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsHighlightTermType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsHighlightTermType|null
+     * @return \StructType\EwsHighlightTermType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsHighlightTermType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsHighlightTermType|null
+     * @return \StructType\EwsHighlightTermType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsHighlightTermType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsHighlightTermType|null
+     * @return \StructType\EwsHighlightTermType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsHighlightTermType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsHighlightTermType|null
+     * @return \StructType\EwsHighlightTermType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsHighlightTermType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsHighlightTermType $item
+     * @return \ArrayType\EwsArrayOfHighlightTermsType
+     */
+    public function add(\StructType\EwsHighlightTermType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Term
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Term';
     }

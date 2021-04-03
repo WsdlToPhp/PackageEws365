@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FileAttachmentType StructType
@@ -17,17 +20,17 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsContactPhoto;
+    protected ?bool $IsContactPhoto = null;
     /**
      * The Content
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Content;
+    protected ?string $Content = null;
     /**
      * Constructor method for FileAttachmentType
      * @uses EwsFileAttachmentType::setIsContactPhoto()
@@ -35,7 +38,7 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * @param bool $isContactPhoto
      * @param string $content
      */
-    public function __construct($isContactPhoto = null, $content = null)
+    public function __construct(?bool $isContactPhoto = null, ?string $content = null)
     {
         $this
             ->setIsContactPhoto($isContactPhoto)
@@ -45,44 +48,46 @@ class EwsFileAttachmentType extends EwsAttachmentType
      * Get IsContactPhoto value
      * @return bool|null
      */
-    public function getIsContactPhoto()
+    public function getIsContactPhoto(): ?bool
     {
         return $this->IsContactPhoto;
     }
     /**
      * Set IsContactPhoto value
      * @param bool $isContactPhoto
-     * @return \Ews\StructType\EwsFileAttachmentType
+     * @return \StructType\EwsFileAttachmentType
      */
-    public function setIsContactPhoto($isContactPhoto = null)
+    public function setIsContactPhoto(?bool $isContactPhoto = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isContactPhoto) && !is_bool($isContactPhoto)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isContactPhoto, true), gettype($isContactPhoto)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isContactPhoto, true), gettype($isContactPhoto)), __LINE__);
         }
         $this->IsContactPhoto = $isContactPhoto;
+        
         return $this;
     }
     /**
      * Get Content value
      * @return string|null
      */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->Content;
     }
     /**
      * Set Content value
      * @param string $content
-     * @return \Ews\StructType\EwsFileAttachmentType
+     * @return \StructType\EwsFileAttachmentType
      */
-    public function setContent($content = null)
+    public function setContent(?string $content = null): self
     {
         // validation for constraint: string
         if (!is_null($content) && !is_string($content)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($content, true), gettype($content)), __LINE__);
         }
         $this->Content = $content;
+        
         return $this;
     }
 }

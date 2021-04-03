@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSharingFolderResponseMessageType StructType
@@ -14,35 +17,36 @@ class EwsGetSharingFolderResponseMessageType extends EwsResponseMessageType
 {
     /**
      * The SharingFolderId
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $SharingFolderId;
+    protected ?\StructType\EwsFolderIdType $SharingFolderId = null;
     /**
      * Constructor method for GetSharingFolderResponseMessageType
      * @uses EwsGetSharingFolderResponseMessageType::setSharingFolderId()
-     * @param \Ews\StructType\EwsFolderIdType $sharingFolderId
+     * @param \StructType\EwsFolderIdType $sharingFolderId
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $sharingFolderId = null)
+    public function __construct(?\StructType\EwsFolderIdType $sharingFolderId = null)
     {
         $this
             ->setSharingFolderId($sharingFolderId);
     }
     /**
      * Get SharingFolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getSharingFolderId()
+    public function getSharingFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->SharingFolderId;
     }
     /**
      * Set SharingFolderId value
-     * @param \Ews\StructType\EwsFolderIdType $sharingFolderId
-     * @return \Ews\StructType\EwsGetSharingFolderResponseMessageType
+     * @param \StructType\EwsFolderIdType $sharingFolderId
+     * @return \StructType\EwsGetSharingFolderResponseMessageType
      */
-    public function setSharingFolderId(\Ews\StructType\EwsFolderIdType $sharingFolderId = null)
+    public function setSharingFolderId(?\StructType\EwsFolderIdType $sharingFolderId = null): self
     {
         $this->SharingFolderId = $sharingFolderId;
+        
         return $this;
     }
 }

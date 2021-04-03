@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetSearchableMailboxesType StructType
@@ -18,16 +21,16 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      * The SearchFilter
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SearchFilter;
+    protected ?string $SearchFilter = null;
     /**
      * The ExpandGroupMembership
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $ExpandGroupMembership;
+    protected ?bool $ExpandGroupMembership = null;
     /**
      * Constructor method for GetSearchableMailboxesType
      * @uses EwsGetSearchableMailboxesType::setSearchFilter()
@@ -35,7 +38,7 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      * @param string $searchFilter
      * @param bool $expandGroupMembership
      */
-    public function __construct($searchFilter = null, $expandGroupMembership = null)
+    public function __construct(?string $searchFilter = null, ?bool $expandGroupMembership = null)
     {
         $this
             ->setSearchFilter($searchFilter)
@@ -45,44 +48,46 @@ class EwsGetSearchableMailboxesType extends EwsBaseRequestType
      * Get SearchFilter value
      * @return string|null
      */
-    public function getSearchFilter()
+    public function getSearchFilter(): ?string
     {
         return $this->SearchFilter;
     }
     /**
      * Set SearchFilter value
      * @param string $searchFilter
-     * @return \Ews\StructType\EwsGetSearchableMailboxesType
+     * @return \StructType\EwsGetSearchableMailboxesType
      */
-    public function setSearchFilter($searchFilter = null)
+    public function setSearchFilter(?string $searchFilter = null): self
     {
         // validation for constraint: string
         if (!is_null($searchFilter) && !is_string($searchFilter)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchFilter, true), gettype($searchFilter)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchFilter, true), gettype($searchFilter)), __LINE__);
         }
         $this->SearchFilter = $searchFilter;
+        
         return $this;
     }
     /**
      * Get ExpandGroupMembership value
      * @return bool|null
      */
-    public function getExpandGroupMembership()
+    public function getExpandGroupMembership(): ?bool
     {
         return $this->ExpandGroupMembership;
     }
     /**
      * Set ExpandGroupMembership value
      * @param bool $expandGroupMembership
-     * @return \Ews\StructType\EwsGetSearchableMailboxesType
+     * @return \StructType\EwsGetSearchableMailboxesType
      */
-    public function setExpandGroupMembership($expandGroupMembership = null)
+    public function setExpandGroupMembership(?bool $expandGroupMembership = null): self
     {
         // validation for constraint: boolean
         if (!is_null($expandGroupMembership) && !is_bool($expandGroupMembership)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($expandGroupMembership, true), gettype($expandGroupMembership)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($expandGroupMembership, true), gettype($expandGroupMembership)), __LINE__);
         }
         $this->ExpandGroupMembership = $expandGroupMembership;
+        
         return $this;
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for GroupMemberIdentifierType EnumType
@@ -34,12 +36,12 @@ class EwsGroupMemberIdentifierType extends AbstractStructEnumBase
      * @uses self::VALUE_SMTP_ADDRESS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_EXTERNAL_DIRECTORY_OBJECT_ID,
             self::VALUE_LEGACY_EXCHANGE_DN,
             self::VALUE_SMTP_ADDRESS,
-        );
+        ];
     }
 }

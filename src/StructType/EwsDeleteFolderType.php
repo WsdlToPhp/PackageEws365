@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteFolderType StructType
@@ -18,20 +21,20 @@ class EwsDeleteFolderType extends EwsBaseRequestType
      * - use: required
      * @var string
      */
-    public $DeleteType;
+    protected string $DeleteType;
     /**
      * The FolderIds
-     * @var \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
+     * @var \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public $FolderIds;
+    protected ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $FolderIds = null;
     /**
      * Constructor method for DeleteFolderType
      * @uses EwsDeleteFolderType::setDeleteType()
      * @uses EwsDeleteFolderType::setFolderIds()
      * @param string $deleteType
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
      */
-    public function __construct($deleteType = null, \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function __construct(string $deleteType, ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
     {
         $this
             ->setDeleteType($deleteType)
@@ -41,43 +44,45 @@ class EwsDeleteFolderType extends EwsBaseRequestType
      * Get DeleteType value
      * @return string
      */
-    public function getDeleteType()
+    public function getDeleteType(): string
     {
         return $this->DeleteType;
     }
     /**
      * Set DeleteType value
-     * @uses \Ews\EnumType\EwsDisposalType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDisposalType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDisposalType::valueIsValid()
+     * @uses \EnumType\EwsDisposalType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $deleteType
-     * @return \Ews\StructType\EwsDeleteFolderType
+     * @return \StructType\EwsDeleteFolderType
      */
-    public function setDeleteType($deleteType = null)
+    public function setDeleteType(string $deleteType): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \Ews\EnumType\EwsDisposalType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDisposalType::valueIsValid($deleteType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDisposalType', is_array($deleteType) ? implode(', ', $deleteType) : var_export($deleteType, true), implode(', ', \EnumType\EwsDisposalType::getValidValues())), __LINE__);
         }
         $this->DeleteType = $deleteType;
+        
         return $this;
     }
     /**
      * Get FolderIds value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
+     * @return \StructType\EwsNonEmptyArrayOfBaseFolderIdsType|null
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType
     {
         return $this->FolderIds;
     }
     /**
      * Set FolderIds value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
-     * @return \Ews\StructType\EwsDeleteFolderType
+     * @param \StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds
+     * @return \StructType\EwsDeleteFolderType
      */
-    public function setFolderIds(\Ews\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null)
+    public function setFolderIds(?\StructType\EwsNonEmptyArrayOfBaseFolderIdsType $folderIds = null): self
     {
         $this->FolderIds = $folderIds;
+        
         return $this;
     }
 }

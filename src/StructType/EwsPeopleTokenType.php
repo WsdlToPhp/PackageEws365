@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PeopleTokenType StructType
@@ -19,23 +22,23 @@ class EwsPeopleTokenType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $TokenSource;
+    protected string $TokenSource;
     /**
      * The ExpirationDateTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ExpirationDateTime;
+    protected ?string $ExpirationDateTime = null;
     /**
      * The TokenValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $TokenValue;
+    protected ?string $TokenValue = null;
     /**
      * Constructor method for PeopleTokenType
      * @uses EwsPeopleTokenType::setTokenSource()
@@ -45,7 +48,7 @@ class EwsPeopleTokenType extends AbstractStructBase
      * @param string $expirationDateTime
      * @param string $tokenValue
      */
-    public function __construct($tokenSource = null, $expirationDateTime = null, $tokenValue = null)
+    public function __construct(string $tokenSource, ?string $expirationDateTime = null, ?string $tokenValue = null)
     {
         $this
             ->setTokenSource($tokenSource)
@@ -56,69 +59,72 @@ class EwsPeopleTokenType extends AbstractStructBase
      * Get TokenSource value
      * @return string
      */
-    public function getTokenSource()
+    public function getTokenSource(): string
     {
         return $this->TokenSource;
     }
     /**
      * Set TokenSource value
-     * @uses \Ews\EnumType\EwsTokenSourceType::valueIsValid()
-     * @uses \Ews\EnumType\EwsTokenSourceType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsTokenSourceType::valueIsValid()
+     * @uses \EnumType\EwsTokenSourceType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $tokenSource
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType
      */
-    public function setTokenSource($tokenSource = null)
+    public function setTokenSource(string $tokenSource): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsTokenSourceType::valueIsValid($tokenSource)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsTokenSourceType', is_array($tokenSource) ? implode(', ', $tokenSource) : var_export($tokenSource, true), implode(', ', \Ews\EnumType\EwsTokenSourceType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsTokenSourceType::valueIsValid($tokenSource)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsTokenSourceType', is_array($tokenSource) ? implode(', ', $tokenSource) : var_export($tokenSource, true), implode(', ', \EnumType\EwsTokenSourceType::getValidValues())), __LINE__);
         }
         $this->TokenSource = $tokenSource;
+        
         return $this;
     }
     /**
      * Get ExpirationDateTime value
      * @return string|null
      */
-    public function getExpirationDateTime()
+    public function getExpirationDateTime(): ?string
     {
         return $this->ExpirationDateTime;
     }
     /**
      * Set ExpirationDateTime value
      * @param string $expirationDateTime
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType
      */
-    public function setExpirationDateTime($expirationDateTime = null)
+    public function setExpirationDateTime(?string $expirationDateTime = null): self
     {
         // validation for constraint: string
         if (!is_null($expirationDateTime) && !is_string($expirationDateTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expirationDateTime, true), gettype($expirationDateTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($expirationDateTime, true), gettype($expirationDateTime)), __LINE__);
         }
         $this->ExpirationDateTime = $expirationDateTime;
+        
         return $this;
     }
     /**
      * Get TokenValue value
      * @return string|null
      */
-    public function getTokenValue()
+    public function getTokenValue(): ?string
     {
         return $this->TokenValue;
     }
     /**
      * Set TokenValue value
      * @param string $tokenValue
-     * @return \Ews\StructType\EwsPeopleTokenType
+     * @return \StructType\EwsPeopleTokenType
      */
-    public function setTokenValue($tokenValue = null)
+    public function setTokenValue(?string $tokenValue = null): self
     {
         // validation for constraint: string
         if (!is_null($tokenValue) && !is_string($tokenValue)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenValue, true), gettype($tokenValue)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($tokenValue, true), gettype($tokenValue)), __LINE__);
         }
         $this->TokenValue = $tokenValue;
+        
         return $this;
     }
 }

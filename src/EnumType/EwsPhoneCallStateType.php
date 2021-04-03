@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for PhoneCallStateType EnumType
@@ -64,9 +66,9 @@ class EwsPhoneCallStateType extends AbstractStructEnumBase
      * @uses self::VALUE_FORWARDING
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_IDLE,
             self::VALUE_CONNECTING,
             self::VALUE_ALERTED,
@@ -75,6 +77,6 @@ class EwsPhoneCallStateType extends AbstractStructEnumBase
             self::VALUE_INCOMING,
             self::VALUE_TRANSFERRING,
             self::VALUE_FORWARDING,
-        );
+        ];
     }
 }

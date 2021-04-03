@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetDlMembersForUnifiedGroupType StructType
@@ -17,25 +20,25 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUnifiedGroupIdentity
+     * @var \StructType\EwsUnifiedGroupIdentity
      */
-    public $DlIdentity;
+    protected \StructType\EwsUnifiedGroupIdentity $DlIdentity;
     /**
      * The MembersCountLimit
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MembersCountLimit;
+    protected ?int $MembersCountLimit = null;
     /**
      * Constructor method for GetDlMembersForUnifiedGroupType
      * @uses EwsGetDlMembersForUnifiedGroupType::setDlIdentity()
      * @uses EwsGetDlMembersForUnifiedGroupType::setMembersCountLimit()
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $dlIdentity
+     * @param \StructType\EwsUnifiedGroupIdentity $dlIdentity
      * @param int $membersCountLimit
      */
-    public function __construct(\Ews\StructType\EwsUnifiedGroupIdentity $dlIdentity = null, $membersCountLimit = null)
+    public function __construct(\StructType\EwsUnifiedGroupIdentity $dlIdentity, ?int $membersCountLimit = null)
     {
         $this
             ->setDlIdentity($dlIdentity)
@@ -43,42 +46,44 @@ class EwsGetDlMembersForUnifiedGroupType extends EwsBaseRequestType
     }
     /**
      * Get DlIdentity value
-     * @return \Ews\StructType\EwsUnifiedGroupIdentity
+     * @return \StructType\EwsUnifiedGroupIdentity
      */
-    public function getDlIdentity()
+    public function getDlIdentity(): \StructType\EwsUnifiedGroupIdentity
     {
         return $this->DlIdentity;
     }
     /**
      * Set DlIdentity value
-     * @param \Ews\StructType\EwsUnifiedGroupIdentity $dlIdentity
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupType
+     * @param \StructType\EwsUnifiedGroupIdentity $dlIdentity
+     * @return \StructType\EwsGetDlMembersForUnifiedGroupType
      */
-    public function setDlIdentity(\Ews\StructType\EwsUnifiedGroupIdentity $dlIdentity = null)
+    public function setDlIdentity(\StructType\EwsUnifiedGroupIdentity $dlIdentity): self
     {
         $this->DlIdentity = $dlIdentity;
+        
         return $this;
     }
     /**
      * Get MembersCountLimit value
      * @return int|null
      */
-    public function getMembersCountLimit()
+    public function getMembersCountLimit(): ?int
     {
         return $this->MembersCountLimit;
     }
     /**
      * Set MembersCountLimit value
      * @param int $membersCountLimit
-     * @return \Ews\StructType\EwsGetDlMembersForUnifiedGroupType
+     * @return \StructType\EwsGetDlMembersForUnifiedGroupType
      */
-    public function setMembersCountLimit($membersCountLimit = null)
+    public function setMembersCountLimit(?int $membersCountLimit = null): self
     {
         // validation for constraint: int
         if (!is_null($membersCountLimit) && !(is_int($membersCountLimit) || ctype_digit($membersCountLimit))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($membersCountLimit, true), gettype($membersCountLimit)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($membersCountLimit, true), gettype($membersCountLimit)), __LINE__);
         }
         $this->MembersCountLimit = $membersCountLimit;
+        
         return $this;
     }
 }

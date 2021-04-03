@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StaffAvailabilityResponseType StructType
@@ -17,9 +20,9 @@ class EwsStaffAvailabilityResponseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageInfoType
+     * @var \StructType\EwsResponseMessageInfoType
      */
-    public $ResponseMessage;
+    protected \StructType\EwsResponseMessageInfoType $ResponseMessage;
     /**
      * The StaffEmail
      * Meta information extracted from the WSDL
@@ -27,25 +30,25 @@ class EwsStaffAvailabilityResponseType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $StaffEmail;
+    protected string $StaffEmail;
     /**
      * The CalendarView
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsStaffAvailabilityCalendarViewType
+     * @var \StructType\EwsStaffAvailabilityCalendarViewType
      */
-    public $CalendarView;
+    protected \StructType\EwsStaffAvailabilityCalendarViewType $CalendarView;
     /**
      * Constructor method for StaffAvailabilityResponseType
      * @uses EwsStaffAvailabilityResponseType::setResponseMessage()
      * @uses EwsStaffAvailabilityResponseType::setStaffEmail()
      * @uses EwsStaffAvailabilityResponseType::setCalendarView()
-     * @param \Ews\StructType\EwsResponseMessageInfoType $responseMessage
+     * @param \StructType\EwsResponseMessageInfoType $responseMessage
      * @param string $staffEmail
-     * @param \Ews\StructType\EwsStaffAvailabilityCalendarViewType $calendarView
+     * @param \StructType\EwsStaffAvailabilityCalendarViewType $calendarView
      */
-    public function __construct(\Ews\StructType\EwsResponseMessageInfoType $responseMessage = null, $staffEmail = null, \Ews\StructType\EwsStaffAvailabilityCalendarViewType $calendarView = null)
+    public function __construct(\StructType\EwsResponseMessageInfoType $responseMessage, string $staffEmail, \StructType\EwsStaffAvailabilityCalendarViewType $calendarView)
     {
         $this
             ->setResponseMessage($responseMessage)
@@ -54,60 +57,63 @@ class EwsStaffAvailabilityResponseType extends AbstractStructBase
     }
     /**
      * Get ResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageInfoType
+     * @return \StructType\EwsResponseMessageInfoType
      */
-    public function getResponseMessage()
+    public function getResponseMessage(): \StructType\EwsResponseMessageInfoType
     {
         return $this->ResponseMessage;
     }
     /**
      * Set ResponseMessage value
-     * @param \Ews\StructType\EwsResponseMessageInfoType $responseMessage
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType
+     * @param \StructType\EwsResponseMessageInfoType $responseMessage
+     * @return \StructType\EwsStaffAvailabilityResponseType
      */
-    public function setResponseMessage(\Ews\StructType\EwsResponseMessageInfoType $responseMessage = null)
+    public function setResponseMessage(\StructType\EwsResponseMessageInfoType $responseMessage): self
     {
         $this->ResponseMessage = $responseMessage;
+        
         return $this;
     }
     /**
      * Get StaffEmail value
      * @return string
      */
-    public function getStaffEmail()
+    public function getStaffEmail(): string
     {
         return $this->StaffEmail;
     }
     /**
      * Set StaffEmail value
      * @param string $staffEmail
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType
+     * @return \StructType\EwsStaffAvailabilityResponseType
      */
-    public function setStaffEmail($staffEmail = null)
+    public function setStaffEmail(string $staffEmail): self
     {
         // validation for constraint: string
         if (!is_null($staffEmail) && !is_string($staffEmail)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($staffEmail, true), gettype($staffEmail)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($staffEmail, true), gettype($staffEmail)), __LINE__);
         }
         $this->StaffEmail = $staffEmail;
+        
         return $this;
     }
     /**
      * Get CalendarView value
-     * @return \Ews\StructType\EwsStaffAvailabilityCalendarViewType
+     * @return \StructType\EwsStaffAvailabilityCalendarViewType
      */
-    public function getCalendarView()
+    public function getCalendarView(): \StructType\EwsStaffAvailabilityCalendarViewType
     {
         return $this->CalendarView;
     }
     /**
      * Set CalendarView value
-     * @param \Ews\StructType\EwsStaffAvailabilityCalendarViewType $calendarView
-     * @return \Ews\StructType\EwsStaffAvailabilityResponseType
+     * @param \StructType\EwsStaffAvailabilityCalendarViewType $calendarView
+     * @return \StructType\EwsStaffAvailabilityResponseType
      */
-    public function setCalendarView(\Ews\StructType\EwsStaffAvailabilityCalendarViewType $calendarView = null)
+    public function setCalendarView(\StructType\EwsStaffAvailabilityCalendarViewType $calendarView): self
     {
         $this->CalendarView = $calendarView;
+        
         return $this;
     }
 }

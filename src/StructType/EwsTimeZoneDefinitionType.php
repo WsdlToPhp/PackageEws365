@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for TimeZoneDefinitionType StructType
@@ -14,33 +17,33 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
 {
     /**
      * The Periods
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType
+     * @var \ArrayType\EwsNonEmptyArrayOfPeriodsType|null
      */
-    public $Periods;
+    protected ?\ArrayType\EwsNonEmptyArrayOfPeriodsType $Periods = null;
     /**
      * The TransitionsGroups
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfTransitionsGroupsType
+     * @var \ArrayType\EwsArrayOfTransitionsGroupsType|null
      */
-    public $TransitionsGroups;
+    protected ?\ArrayType\EwsArrayOfTransitionsGroupsType $TransitionsGroups = null;
     /**
      * The Transitions
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsArrayOfTransitionsType
+     * @var \StructType\EwsArrayOfTransitionsType|null
      */
-    public $Transitions;
+    protected ?\StructType\EwsArrayOfTransitionsType $Transitions = null;
     /**
      * The Id
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * The Name
-     * @var string
+     * @var string|null
      */
-    public $Name;
+    protected ?string $Name = null;
     /**
      * Constructor method for TimeZoneDefinitionType
      * @uses EwsTimeZoneDefinitionType::setPeriods()
@@ -48,13 +51,13 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
      * @uses EwsTimeZoneDefinitionType::setTransitions()
      * @uses EwsTimeZoneDefinitionType::setId()
      * @uses EwsTimeZoneDefinitionType::setName()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods
-     * @param \Ews\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups
-     * @param \Ews\StructType\EwsArrayOfTransitionsType $transitions
+     * @param \ArrayType\EwsNonEmptyArrayOfPeriodsType $periods
+     * @param \ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups
+     * @param \StructType\EwsArrayOfTransitionsType $transitions
      * @param string $id
      * @param string $name
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods = null, \Ews\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups = null, \Ews\StructType\EwsArrayOfTransitionsType $transitions = null, $id = null, $name = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods = null, ?\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups = null, ?\StructType\EwsArrayOfTransitionsType $transitions = null, ?string $id = null, ?string $name = null)
     {
         $this
             ->setPeriods($periods)
@@ -65,100 +68,105 @@ class EwsTimeZoneDefinitionType extends AbstractStructBase
     }
     /**
      * Get Periods value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfPeriodsType|null
      */
-    public function getPeriods()
+    public function getPeriods(): ?\ArrayType\EwsNonEmptyArrayOfPeriodsType
     {
         return $this->Periods;
     }
     /**
      * Set Periods value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType
+     * @param \ArrayType\EwsNonEmptyArrayOfPeriodsType $periods
+     * @return \StructType\EwsTimeZoneDefinitionType
      */
-    public function setPeriods(\Ews\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods = null)
+    public function setPeriods(?\ArrayType\EwsNonEmptyArrayOfPeriodsType $periods = null): self
     {
         $this->Periods = $periods;
+        
         return $this;
     }
     /**
      * Get TransitionsGroups value
-     * @return \Ews\ArrayType\EwsArrayOfTransitionsGroupsType|null
+     * @return \ArrayType\EwsArrayOfTransitionsGroupsType|null
      */
-    public function getTransitionsGroups()
+    public function getTransitionsGroups(): ?\ArrayType\EwsArrayOfTransitionsGroupsType
     {
         return $this->TransitionsGroups;
     }
     /**
      * Set TransitionsGroups value
-     * @param \Ews\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType
+     * @param \ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups
+     * @return \StructType\EwsTimeZoneDefinitionType
      */
-    public function setTransitionsGroups(\Ews\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups = null)
+    public function setTransitionsGroups(?\ArrayType\EwsArrayOfTransitionsGroupsType $transitionsGroups = null): self
     {
         $this->TransitionsGroups = $transitionsGroups;
+        
         return $this;
     }
     /**
      * Get Transitions value
-     * @return \Ews\StructType\EwsArrayOfTransitionsType|null
+     * @return \StructType\EwsArrayOfTransitionsType|null
      */
-    public function getTransitions()
+    public function getTransitions(): ?\StructType\EwsArrayOfTransitionsType
     {
         return $this->Transitions;
     }
     /**
      * Set Transitions value
-     * @param \Ews\StructType\EwsArrayOfTransitionsType $transitions
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType
+     * @param \StructType\EwsArrayOfTransitionsType $transitions
+     * @return \StructType\EwsTimeZoneDefinitionType
      */
-    public function setTransitions(\Ews\StructType\EwsArrayOfTransitionsType $transitions = null)
+    public function setTransitions(?\StructType\EwsArrayOfTransitionsType $transitions = null): self
     {
         $this->Transitions = $transitions;
+        
         return $this;
     }
     /**
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType
+     * @return \StructType\EwsTimeZoneDefinitionType
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get Name value
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsTimeZoneDefinitionType
+     * @return \StructType\EwsTimeZoneDefinitionType
      */
-    public function setName($name = null)
+    public function setName(?string $name = null): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
 }

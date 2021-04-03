@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for PredictedActionReasonType EnumType
@@ -118,9 +120,9 @@ class EwsPredictedActionReasonType extends AbstractStructEnumBase
      * @uses self::VALUE_ACTION_BASED_ON_BASED_ON_BODY_WORDS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_CONVERSATION_STARTER_IS_YOU,
             self::VALUE_ONLY_RECIPIENT,
@@ -138,6 +140,6 @@ class EwsPredictedActionReasonType extends AbstractStructEnumBase
             self::VALUE_ACTION_BASED_ON_RECIPIENTS,
             self::VALUE_ACTION_BASED_ON_SUBJECT_WORDS,
             self::VALUE_ACTION_BASED_ON_BASED_ON_BODY_WORDS,
-        );
+        ];
     }
 }

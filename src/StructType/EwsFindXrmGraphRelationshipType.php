@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FindXrmGraphRelationshipType StructType
@@ -22,23 +25,23 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
      * - pattern: [0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}
      * @var string
      */
-    public $LinkedEntityId;
+    protected string $LinkedEntityId;
     /**
      * The GraphRelationshipTypes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
+     * @var \ArrayType\EwsArrayOfXrmGraphRelationshipType
      */
-    public $GraphRelationshipTypes;
+    protected \ArrayType\EwsArrayOfXrmGraphRelationshipType $GraphRelationshipTypes;
     /**
      * Constructor method for FindXrmGraphRelationshipType
      * @uses EwsFindXrmGraphRelationshipType::setLinkedEntityId()
      * @uses EwsFindXrmGraphRelationshipType::setGraphRelationshipTypes()
      * @param string $linkedEntityId
-     * @param \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes
+     * @param \ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes
      */
-    public function __construct($linkedEntityId = null, \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes = null)
+    public function __construct(string $linkedEntityId, \ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes)
     {
         $this
             ->setLinkedEntityId($linkedEntityId)
@@ -48,44 +51,46 @@ class EwsFindXrmGraphRelationshipType extends EwsBaseRequestType
      * Get LinkedEntityId value
      * @return string
      */
-    public function getLinkedEntityId()
+    public function getLinkedEntityId(): string
     {
         return $this->LinkedEntityId;
     }
     /**
      * Set LinkedEntityId value
      * @param string $linkedEntityId
-     * @return \Ews\StructType\EwsFindXrmGraphRelationshipType
+     * @return \StructType\EwsFindXrmGraphRelationshipType
      */
-    public function setLinkedEntityId($linkedEntityId = null)
+    public function setLinkedEntityId(string $linkedEntityId): self
     {
         // validation for constraint: string
         if (!is_null($linkedEntityId) && !is_string($linkedEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedEntityId, true), gettype($linkedEntityId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($linkedEntityId, true), gettype($linkedEntityId)), __LINE__);
         }
         // validation for constraint: pattern([0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})
         if (!is_null($linkedEntityId) && !preg_match('/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', $linkedEntityId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($linkedEntityId, true)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($linkedEntityId, true)), __LINE__);
         }
         $this->LinkedEntityId = $linkedEntityId;
+        
         return $this;
     }
     /**
      * Get GraphRelationshipTypes value
-     * @return \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType
+     * @return \ArrayType\EwsArrayOfXrmGraphRelationshipType
      */
-    public function getGraphRelationshipTypes()
+    public function getGraphRelationshipTypes(): \ArrayType\EwsArrayOfXrmGraphRelationshipType
     {
         return $this->GraphRelationshipTypes;
     }
     /**
      * Set GraphRelationshipTypes value
-     * @param \Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes
-     * @return \Ews\StructType\EwsFindXrmGraphRelationshipType
+     * @param \ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes
+     * @return \StructType\EwsFindXrmGraphRelationshipType
      */
-    public function setGraphRelationshipTypes(\Ews\ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes = null)
+    public function setGraphRelationshipTypes(\ArrayType\EwsArrayOfXrmGraphRelationshipType $graphRelationshipTypes): self
     {
         $this->GraphRelationshipTypes = $graphRelationshipTypes;
+        
         return $this;
     }
 }

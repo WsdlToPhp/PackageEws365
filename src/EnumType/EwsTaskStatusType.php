@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for TaskStatusType EnumType
@@ -46,14 +48,14 @@ class EwsTaskStatusType extends AbstractStructEnumBase
      * @uses self::VALUE_DEFERRED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NOT_STARTED,
             self::VALUE_IN_PROGRESS,
             self::VALUE_COMPLETED,
             self::VALUE_WAITING_ON_OTHERS,
             self::VALUE_DEFERRED,
-        );
+        ];
     }
 }

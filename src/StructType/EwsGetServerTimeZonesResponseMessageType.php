@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetServerTimeZonesResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsGetServerTimeZonesResponseMessageType extends EwsResponseMessageType
      * The TimeZoneDefinitions
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType
+     * @var \ArrayType\EwsArrayOfTimeZoneDefinitionType
      */
-    public $TimeZoneDefinitions;
+    protected \ArrayType\EwsArrayOfTimeZoneDefinitionType $TimeZoneDefinitions;
     /**
      * Constructor method for GetServerTimeZonesResponseMessageType
      * @uses EwsGetServerTimeZonesResponseMessageType::setTimeZoneDefinitions()
-     * @param \Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions
+     * @param \ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions = null)
+    public function __construct(\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions)
     {
         $this
             ->setTimeZoneDefinitions($timeZoneDefinitions);
     }
     /**
      * Get TimeZoneDefinitions value
-     * @return \Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType
+     * @return \ArrayType\EwsArrayOfTimeZoneDefinitionType
      */
-    public function getTimeZoneDefinitions()
+    public function getTimeZoneDefinitions(): \ArrayType\EwsArrayOfTimeZoneDefinitionType
     {
         return $this->TimeZoneDefinitions;
     }
     /**
      * Set TimeZoneDefinitions value
-     * @param \Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions
-     * @return \Ews\StructType\EwsGetServerTimeZonesResponseMessageType
+     * @param \ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions
+     * @return \StructType\EwsGetServerTimeZonesResponseMessageType
      */
-    public function setTimeZoneDefinitions(\Ews\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions = null)
+    public function setTimeZoneDefinitions(\ArrayType\EwsArrayOfTimeZoneDefinitionType $timeZoneDefinitions): self
     {
         $this->TimeZoneDefinitions = $timeZoneDefinitions;
+        
         return $this;
     }
 }

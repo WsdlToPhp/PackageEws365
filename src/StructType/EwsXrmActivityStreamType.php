@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for XrmActivityStreamType StructType
@@ -17,89 +20,89 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * The ClientSessionId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ClientSessionId;
+    protected ?string $ClientSessionId = null;
     /**
      * The EventTime
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $EventTime;
+    protected ?string $EventTime = null;
     /**
      * The SourceUser
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SourceUser;
+    protected ?string $SourceUser = null;
     /**
      * The ActionVerb
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ActionVerb;
+    protected ?string $ActionVerb = null;
     /**
      * The Subtype
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subtype;
+    protected ?string $Subtype = null;
     /**
      * The TargetEntities
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $TargetEntities;
+    protected ?\ArrayType\EwsArrayOfStringsType $TargetEntities = null;
     /**
      * The OtherRelatedEntities
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfStringsType
+     * @var \ArrayType\EwsArrayOfStringsType|null
      */
-    public $OtherRelatedEntities;
+    protected ?\ArrayType\EwsArrayOfStringsType $OtherRelatedEntities = null;
     /**
      * The Flags
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Flags;
+    protected ?string $Flags = null;
     /**
      * The ModifiedProperties
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ModifiedProperties;
+    protected ?string $ModifiedProperties = null;
     /**
      * The AdditionalActivityDetails
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $AdditionalActivityDetails;
+    protected ?string $AdditionalActivityDetails = null;
     /**
      * Constructor method for XrmActivityStreamType
      * @uses EwsXrmActivityStreamType::setId()
@@ -119,13 +122,13 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * @param string $sourceUser
      * @param string $actionVerb
      * @param string $subtype
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $targetEntities
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities
+     * @param \ArrayType\EwsArrayOfStringsType $targetEntities
+     * @param \ArrayType\EwsArrayOfStringsType $otherRelatedEntities
      * @param string $flags
      * @param string $modifiedProperties
      * @param string $additionalActivityDetails
      */
-    public function __construct($id = null, $clientSessionId = null, $eventTime = null, $sourceUser = null, $actionVerb = null, $subtype = null, \Ews\ArrayType\EwsArrayOfStringsType $targetEntities = null, \Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null, $flags = null, $modifiedProperties = null, $additionalActivityDetails = null)
+    public function __construct(?string $id = null, ?string $clientSessionId = null, ?string $eventTime = null, ?string $sourceUser = null, ?string $actionVerb = null, ?string $subtype = null, ?\ArrayType\EwsArrayOfStringsType $targetEntities = null, ?\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null, ?string $flags = null, ?string $modifiedProperties = null, ?string $additionalActivityDetails = null)
     {
         $this
             ->setId($id)
@@ -144,237 +147,248 @@ class EwsXrmActivityStreamType extends AbstractStructBase
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get ClientSessionId value
      * @return string|null
      */
-    public function getClientSessionId()
+    public function getClientSessionId(): ?string
     {
         return $this->ClientSessionId;
     }
     /**
      * Set ClientSessionId value
      * @param string $clientSessionId
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setClientSessionId($clientSessionId = null)
+    public function setClientSessionId(?string $clientSessionId = null): self
     {
         // validation for constraint: string
         if (!is_null($clientSessionId) && !is_string($clientSessionId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientSessionId, true), gettype($clientSessionId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($clientSessionId, true), gettype($clientSessionId)), __LINE__);
         }
         $this->ClientSessionId = $clientSessionId;
+        
         return $this;
     }
     /**
      * Get EventTime value
      * @return string|null
      */
-    public function getEventTime()
+    public function getEventTime(): ?string
     {
         return $this->EventTime;
     }
     /**
      * Set EventTime value
      * @param string $eventTime
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setEventTime($eventTime = null)
+    public function setEventTime(?string $eventTime = null): self
     {
         // validation for constraint: string
         if (!is_null($eventTime) && !is_string($eventTime)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventTime, true), gettype($eventTime)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($eventTime, true), gettype($eventTime)), __LINE__);
         }
         $this->EventTime = $eventTime;
+        
         return $this;
     }
     /**
      * Get SourceUser value
      * @return string|null
      */
-    public function getSourceUser()
+    public function getSourceUser(): ?string
     {
         return $this->SourceUser;
     }
     /**
      * Set SourceUser value
      * @param string $sourceUser
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setSourceUser($sourceUser = null)
+    public function setSourceUser(?string $sourceUser = null): self
     {
         // validation for constraint: string
         if (!is_null($sourceUser) && !is_string($sourceUser)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceUser, true), gettype($sourceUser)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($sourceUser, true), gettype($sourceUser)), __LINE__);
         }
         $this->SourceUser = $sourceUser;
+        
         return $this;
     }
     /**
      * Get ActionVerb value
      * @return string|null
      */
-    public function getActionVerb()
+    public function getActionVerb(): ?string
     {
         return $this->ActionVerb;
     }
     /**
      * Set ActionVerb value
      * @param string $actionVerb
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setActionVerb($actionVerb = null)
+    public function setActionVerb(?string $actionVerb = null): self
     {
         // validation for constraint: string
         if (!is_null($actionVerb) && !is_string($actionVerb)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($actionVerb, true), gettype($actionVerb)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($actionVerb, true), gettype($actionVerb)), __LINE__);
         }
         $this->ActionVerb = $actionVerb;
+        
         return $this;
     }
     /**
      * Get Subtype value
      * @return string|null
      */
-    public function getSubtype()
+    public function getSubtype(): ?string
     {
         return $this->Subtype;
     }
     /**
      * Set Subtype value
      * @param string $subtype
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setSubtype($subtype = null)
+    public function setSubtype(?string $subtype = null): self
     {
         // validation for constraint: string
         if (!is_null($subtype) && !is_string($subtype)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subtype, true), gettype($subtype)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subtype, true), gettype($subtype)), __LINE__);
         }
         $this->Subtype = $subtype;
+        
         return $this;
     }
     /**
      * Get TargetEntities value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getTargetEntities()
+    public function getTargetEntities(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->TargetEntities;
     }
     /**
      * Set TargetEntities value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $targetEntities
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @param \ArrayType\EwsArrayOfStringsType $targetEntities
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setTargetEntities(\Ews\ArrayType\EwsArrayOfStringsType $targetEntities = null)
+    public function setTargetEntities(?\ArrayType\EwsArrayOfStringsType $targetEntities = null): self
     {
         $this->TargetEntities = $targetEntities;
+        
         return $this;
     }
     /**
      * Get OtherRelatedEntities value
-     * @return \Ews\ArrayType\EwsArrayOfStringsType|null
+     * @return \ArrayType\EwsArrayOfStringsType|null
      */
-    public function getOtherRelatedEntities()
+    public function getOtherRelatedEntities(): ?\ArrayType\EwsArrayOfStringsType
     {
         return $this->OtherRelatedEntities;
     }
     /**
      * Set OtherRelatedEntities value
-     * @param \Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @param \ArrayType\EwsArrayOfStringsType $otherRelatedEntities
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setOtherRelatedEntities(\Ews\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null)
+    public function setOtherRelatedEntities(?\ArrayType\EwsArrayOfStringsType $otherRelatedEntities = null): self
     {
         $this->OtherRelatedEntities = $otherRelatedEntities;
+        
         return $this;
     }
     /**
      * Get Flags value
      * @return string|null
      */
-    public function getFlags()
+    public function getFlags(): ?string
     {
         return $this->Flags;
     }
     /**
      * Set Flags value
-     * @uses \Ews\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid()
-     * @uses \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsXrmActivityStreamFlagsType::valueIsValid()
+     * @uses \EnumType\EwsXrmActivityStreamFlagsType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $flags
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setFlags($flags = null)
+    public function setFlags(?string $flags = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid($flags)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsXrmActivityStreamFlagsType', is_array($flags) ? implode(', ', $flags) : var_export($flags, true), implode(', ', \Ews\EnumType\EwsXrmActivityStreamFlagsType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsXrmActivityStreamFlagsType::valueIsValid($flags)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsXrmActivityStreamFlagsType', is_array($flags) ? implode(', ', $flags) : var_export($flags, true), implode(', ', \EnumType\EwsXrmActivityStreamFlagsType::getValidValues())), __LINE__);
         }
         $this->Flags = $flags;
+        
         return $this;
     }
     /**
      * Get ModifiedProperties value
      * @return string|null
      */
-    public function getModifiedProperties()
+    public function getModifiedProperties(): ?string
     {
         return $this->ModifiedProperties;
     }
     /**
      * Set ModifiedProperties value
      * @param string $modifiedProperties
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setModifiedProperties($modifiedProperties = null)
+    public function setModifiedProperties(?string $modifiedProperties = null): self
     {
         // validation for constraint: string
         if (!is_null($modifiedProperties) && !is_string($modifiedProperties)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($modifiedProperties, true), gettype($modifiedProperties)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($modifiedProperties, true), gettype($modifiedProperties)), __LINE__);
         }
         $this->ModifiedProperties = $modifiedProperties;
+        
         return $this;
     }
     /**
      * Get AdditionalActivityDetails value
      * @return string|null
      */
-    public function getAdditionalActivityDetails()
+    public function getAdditionalActivityDetails(): ?string
     {
         return $this->AdditionalActivityDetails;
     }
     /**
      * Set AdditionalActivityDetails value
      * @param string $additionalActivityDetails
-     * @return \Ews\StructType\EwsXrmActivityStreamType
+     * @return \StructType\EwsXrmActivityStreamType
      */
-    public function setAdditionalActivityDetails($additionalActivityDetails = null)
+    public function setAdditionalActivityDetails(?string $additionalActivityDetails = null): self
     {
         // validation for constraint: string
         if (!is_null($additionalActivityDetails) && !is_string($additionalActivityDetails)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalActivityDetails, true), gettype($additionalActivityDetails)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($additionalActivityDetails, true), gettype($additionalActivityDetails)), __LINE__);
         }
         $this->AdditionalActivityDetails = $additionalActivityDetails;
+        
         return $this;
     }
 }

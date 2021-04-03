@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for HoldStatusType EnumType
@@ -46,14 +48,14 @@ class EwsHoldStatusType extends AbstractStructEnumBase
      * @uses self::VALUE_FAILED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NOT_ON_HOLD,
             self::VALUE_PENDING,
             self::VALUE_ON_HOLD,
             self::VALUE_PARTIAL_HOLD,
             self::VALUE_FAILED,
-        );
+        ];
     }
 }

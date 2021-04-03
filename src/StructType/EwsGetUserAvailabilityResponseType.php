@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserAvailabilityResponseType StructType
@@ -17,25 +20,25 @@ class EwsGetUserAvailabilityResponseType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfFreeBusyResponse
+     * @var \ArrayType\EwsArrayOfFreeBusyResponse|null
      */
-    public $FreeBusyResponseArray;
+    protected ?\ArrayType\EwsArrayOfFreeBusyResponse $FreeBusyResponseArray = null;
     /**
      * The SuggestionsResponse
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsSuggestionsResponseType
+     * @var \StructType\EwsSuggestionsResponseType|null
      */
-    public $SuggestionsResponse;
+    protected ?\StructType\EwsSuggestionsResponseType $SuggestionsResponse = null;
     /**
      * Constructor method for GetUserAvailabilityResponseType
      * @uses EwsGetUserAvailabilityResponseType::setFreeBusyResponseArray()
      * @uses EwsGetUserAvailabilityResponseType::setSuggestionsResponse()
-     * @param \Ews\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray
-     * @param \Ews\StructType\EwsSuggestionsResponseType $suggestionsResponse
+     * @param \ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray
+     * @param \StructType\EwsSuggestionsResponseType $suggestionsResponse
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray = null, \Ews\StructType\EwsSuggestionsResponseType $suggestionsResponse = null)
+    public function __construct(?\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray = null, ?\StructType\EwsSuggestionsResponseType $suggestionsResponse = null)
     {
         $this
             ->setFreeBusyResponseArray($freeBusyResponseArray)
@@ -43,38 +46,40 @@ class EwsGetUserAvailabilityResponseType extends AbstractStructBase
     }
     /**
      * Get FreeBusyResponseArray value
-     * @return \Ews\ArrayType\EwsArrayOfFreeBusyResponse|null
+     * @return \ArrayType\EwsArrayOfFreeBusyResponse|null
      */
-    public function getFreeBusyResponseArray()
+    public function getFreeBusyResponseArray(): ?\ArrayType\EwsArrayOfFreeBusyResponse
     {
         return $this->FreeBusyResponseArray;
     }
     /**
      * Set FreeBusyResponseArray value
-     * @param \Ews\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray
-     * @return \Ews\StructType\EwsGetUserAvailabilityResponseType
+     * @param \ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray
+     * @return \StructType\EwsGetUserAvailabilityResponseType
      */
-    public function setFreeBusyResponseArray(\Ews\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray = null)
+    public function setFreeBusyResponseArray(?\ArrayType\EwsArrayOfFreeBusyResponse $freeBusyResponseArray = null): self
     {
         $this->FreeBusyResponseArray = $freeBusyResponseArray;
+        
         return $this;
     }
     /**
      * Get SuggestionsResponse value
-     * @return \Ews\StructType\EwsSuggestionsResponseType|null
+     * @return \StructType\EwsSuggestionsResponseType|null
      */
-    public function getSuggestionsResponse()
+    public function getSuggestionsResponse(): ?\StructType\EwsSuggestionsResponseType
     {
         return $this->SuggestionsResponse;
     }
     /**
      * Set SuggestionsResponse value
-     * @param \Ews\StructType\EwsSuggestionsResponseType $suggestionsResponse
-     * @return \Ews\StructType\EwsGetUserAvailabilityResponseType
+     * @param \StructType\EwsSuggestionsResponseType $suggestionsResponse
+     * @return \StructType\EwsGetUserAvailabilityResponseType
      */
-    public function setSuggestionsResponse(\Ews\StructType\EwsSuggestionsResponseType $suggestionsResponse = null)
+    public function setSuggestionsResponse(?\StructType\EwsSuggestionsResponseType $suggestionsResponse = null): self
     {
         $this->SuggestionsResponse = $suggestionsResponse;
+        
         return $this;
     }
 }

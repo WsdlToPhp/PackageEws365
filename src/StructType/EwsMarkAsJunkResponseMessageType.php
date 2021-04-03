@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MarkAsJunkResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsMarkAsJunkResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $MovedItemId;
+    protected ?\StructType\EwsItemIdType $MovedItemId = null;
     /**
      * Constructor method for MarkAsJunkResponseMessageType
      * @uses EwsMarkAsJunkResponseMessageType::setMovedItemId()
-     * @param \Ews\StructType\EwsItemIdType $movedItemId
+     * @param \StructType\EwsItemIdType $movedItemId
      */
-    public function __construct(\Ews\StructType\EwsItemIdType $movedItemId = null)
+    public function __construct(?\StructType\EwsItemIdType $movedItemId = null)
     {
         $this
             ->setMovedItemId($movedItemId);
     }
     /**
      * Get MovedItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getMovedItemId()
+    public function getMovedItemId(): ?\StructType\EwsItemIdType
     {
         return $this->MovedItemId;
     }
     /**
      * Set MovedItemId value
-     * @param \Ews\StructType\EwsItemIdType $movedItemId
-     * @return \Ews\StructType\EwsMarkAsJunkResponseMessageType
+     * @param \StructType\EwsItemIdType $movedItemId
+     * @return \StructType\EwsMarkAsJunkResponseMessageType
      */
-    public function setMovedItemId(\Ews\StructType\EwsItemIdType $movedItemId = null)
+    public function setMovedItemId(?\StructType\EwsItemIdType $movedItemId = null): self
     {
         $this->MovedItemId = $movedItemId;
+        
         return $this;
     }
 }

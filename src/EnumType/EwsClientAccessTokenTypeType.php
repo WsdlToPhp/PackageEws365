@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ClientAccessTokenTypeType EnumType
@@ -34,12 +36,12 @@ class EwsClientAccessTokenTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_SCOPED_TOKEN
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_CALLER_IDENTITY,
             self::VALUE_EXTENSION_CALLBACK,
             self::VALUE_SCOPED_TOKEN,
-        );
+        ];
     }
 }

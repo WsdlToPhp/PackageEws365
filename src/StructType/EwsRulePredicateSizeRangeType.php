@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RulePredicateSizeRangeType StructType
@@ -19,17 +22,17 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MinimumSize;
+    protected ?int $MinimumSize = null;
     /**
      * The MaximumSize
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $MaximumSize;
+    protected ?int $MaximumSize = null;
     /**
      * Constructor method for RulePredicateSizeRangeType
      * @uses EwsRulePredicateSizeRangeType::setMinimumSize()
@@ -37,7 +40,7 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
      * @param int $minimumSize
      * @param int $maximumSize
      */
-    public function __construct($minimumSize = null, $maximumSize = null)
+    public function __construct(?int $minimumSize = null, ?int $maximumSize = null)
     {
         $this
             ->setMinimumSize($minimumSize)
@@ -47,44 +50,46 @@ class EwsRulePredicateSizeRangeType extends AbstractStructBase
      * Get MinimumSize value
      * @return int|null
      */
-    public function getMinimumSize()
+    public function getMinimumSize(): ?int
     {
         return $this->MinimumSize;
     }
     /**
      * Set MinimumSize value
      * @param int $minimumSize
-     * @return \Ews\StructType\EwsRulePredicateSizeRangeType
+     * @return \StructType\EwsRulePredicateSizeRangeType
      */
-    public function setMinimumSize($minimumSize = null)
+    public function setMinimumSize(?int $minimumSize = null): self
     {
         // validation for constraint: int
         if (!is_null($minimumSize) && !(is_int($minimumSize) || ctype_digit($minimumSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minimumSize, true), gettype($minimumSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($minimumSize, true), gettype($minimumSize)), __LINE__);
         }
         $this->MinimumSize = $minimumSize;
+        
         return $this;
     }
     /**
      * Get MaximumSize value
      * @return int|null
      */
-    public function getMaximumSize()
+    public function getMaximumSize(): ?int
     {
         return $this->MaximumSize;
     }
     /**
      * Set MaximumSize value
      * @param int $maximumSize
-     * @return \Ews\StructType\EwsRulePredicateSizeRangeType
+     * @return \StructType\EwsRulePredicateSizeRangeType
      */
-    public function setMaximumSize($maximumSize = null)
+    public function setMaximumSize(?int $maximumSize = null): self
     {
         // validation for constraint: int
         if (!is_null($maximumSize) && !(is_int($maximumSize) || ctype_digit($maximumSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maximumSize, true), gettype($maximumSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($maximumSize, true), gettype($maximumSize)), __LINE__);
         }
         $this->MaximumSize = $maximumSize;
+        
         return $this;
     }
 }

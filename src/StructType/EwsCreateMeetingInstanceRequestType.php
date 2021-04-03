@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateMeetingInstanceRequestType StructType
@@ -17,35 +20,36 @@ class EwsCreateMeetingInstanceRequestType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsMeetingInstanceType
+     * @var \StructType\EwsMeetingInstanceType
      */
-    public $MeetingInstance;
+    protected \StructType\EwsMeetingInstanceType $MeetingInstance;
     /**
      * Constructor method for CreateMeetingInstanceRequestType
      * @uses EwsCreateMeetingInstanceRequestType::setMeetingInstance()
-     * @param \Ews\StructType\EwsMeetingInstanceType $meetingInstance
+     * @param \StructType\EwsMeetingInstanceType $meetingInstance
      */
-    public function __construct(\Ews\StructType\EwsMeetingInstanceType $meetingInstance = null)
+    public function __construct(\StructType\EwsMeetingInstanceType $meetingInstance)
     {
         $this
             ->setMeetingInstance($meetingInstance);
     }
     /**
      * Get MeetingInstance value
-     * @return \Ews\StructType\EwsMeetingInstanceType
+     * @return \StructType\EwsMeetingInstanceType
      */
-    public function getMeetingInstance()
+    public function getMeetingInstance(): \StructType\EwsMeetingInstanceType
     {
         return $this->MeetingInstance;
     }
     /**
      * Set MeetingInstance value
-     * @param \Ews\StructType\EwsMeetingInstanceType $meetingInstance
-     * @return \Ews\StructType\EwsCreateMeetingInstanceRequestType
+     * @param \StructType\EwsMeetingInstanceType $meetingInstance
+     * @return \StructType\EwsCreateMeetingInstanceRequestType
      */
-    public function setMeetingInstance(\Ews\StructType\EwsMeetingInstanceType $meetingInstance = null)
+    public function setMeetingInstance(\StructType\EwsMeetingInstanceType $meetingInstance): self
     {
         $this->MeetingInstance = $meetingInstance;
+        
         return $this;
     }
 }

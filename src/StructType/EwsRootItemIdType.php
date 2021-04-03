@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RootItemIdType StructType
@@ -18,14 +21,14 @@ class EwsRootItemIdType extends EwsBaseItemIdType
      * - use: required
      * @var string
      */
-    public $RootItemId;
+    protected string $RootItemId;
     /**
      * The RootItemChangeKey
      * Meta information extracted from the WSDL
      * - use: required
      * @var string
      */
-    public $RootItemChangeKey;
+    protected string $RootItemChangeKey;
     /**
      * Constructor method for RootItemIdType
      * @uses EwsRootItemIdType::setRootItemId()
@@ -33,7 +36,7 @@ class EwsRootItemIdType extends EwsBaseItemIdType
      * @param string $rootItemId
      * @param string $rootItemChangeKey
      */
-    public function __construct($rootItemId = null, $rootItemChangeKey = null)
+    public function __construct(string $rootItemId, string $rootItemChangeKey)
     {
         $this
             ->setRootItemId($rootItemId)
@@ -43,44 +46,46 @@ class EwsRootItemIdType extends EwsBaseItemIdType
      * Get RootItemId value
      * @return string
      */
-    public function getRootItemId()
+    public function getRootItemId(): string
     {
         return $this->RootItemId;
     }
     /**
      * Set RootItemId value
      * @param string $rootItemId
-     * @return \Ews\StructType\EwsRootItemIdType
+     * @return \StructType\EwsRootItemIdType
      */
-    public function setRootItemId($rootItemId = null)
+    public function setRootItemId(string $rootItemId): self
     {
         // validation for constraint: string
         if (!is_null($rootItemId) && !is_string($rootItemId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemId, true), gettype($rootItemId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemId, true), gettype($rootItemId)), __LINE__);
         }
         $this->RootItemId = $rootItemId;
+        
         return $this;
     }
     /**
      * Get RootItemChangeKey value
      * @return string
      */
-    public function getRootItemChangeKey()
+    public function getRootItemChangeKey(): string
     {
         return $this->RootItemChangeKey;
     }
     /**
      * Set RootItemChangeKey value
      * @param string $rootItemChangeKey
-     * @return \Ews\StructType\EwsRootItemIdType
+     * @return \StructType\EwsRootItemIdType
      */
-    public function setRootItemChangeKey($rootItemChangeKey = null)
+    public function setRootItemChangeKey(string $rootItemChangeKey): self
     {
         // validation for constraint: string
         if (!is_null($rootItemChangeKey) && !is_string($rootItemChangeKey)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemChangeKey, true), gettype($rootItemChangeKey)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($rootItemChangeKey, true), gettype($rootItemChangeKey)), __LINE__);
         }
         $this->RootItemChangeKey = $rootItemChangeKey;
+        
         return $this;
     }
 }

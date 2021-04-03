@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for NonEmptyArrayOfFolderNamesType ArrayType
@@ -18,22 +21,22 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * - maxOccurs: unbounded
      * @var string[]
      */
-    public $FolderName;
+    protected array $FolderName = [];
     /**
      * Constructor method for NonEmptyArrayOfFolderNamesType
      * @uses EwsNonEmptyArrayOfFolderNamesType::setFolderName()
      * @param string[] $folderName
      */
-    public function __construct(array $folderName = array())
+    public function __construct(array $folderName = [])
     {
         $this
             ->setFolderName($folderName);
     }
     /**
      * Get FolderName value
-     * @return string[]|null
+     * @return string[]
      */
-    public function getFolderName()
+    public function getFolderName(): array
     {
         return $this->FolderName;
     }
@@ -43,7 +46,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateFolderNameForArrayConstraintsFromSetFolderName(array $values = array())
+    public static function validateFolderNameForArrayConstraintsFromSetFolderName(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -57,36 +60,23 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
             $message = sprintf('The FolderName property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set FolderName value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $folderName
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
+     * @return \ArrayType\EwsNonEmptyArrayOfFolderNamesType
      */
-    public function setFolderName(array $folderName = array())
+    public function setFolderName(array $folderName = []): self
     {
         // validation for constraint: array
         if ('' !== ($folderNameArrayErrorMessage = self::validateFolderNameForArrayConstraintsFromSetFolderName($folderName))) {
-            throw new \InvalidArgumentException($folderNameArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($folderNameArrayErrorMessage, __LINE__);
         }
         $this->FolderName = $folderName;
-        return $this;
-    }
-    /**
-     * Add item to FolderName value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
-     */
-    public function addToFolderName($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The FolderName property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->FolderName[] = $item;
+        
         return $this;
     }
     /**
@@ -94,7 +84,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -104,7 +94,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -113,7 +103,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -122,7 +112,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -132,7 +122,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -141,7 +131,7 @@ class EwsNonEmptyArrayOfFolderNamesType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string FolderName
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'FolderName';
     }

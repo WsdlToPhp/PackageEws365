@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DistinguishedGroupByType StructType
@@ -16,15 +19,15 @@ class EwsDistinguishedGroupByType extends EwsBaseGroupByType
 {
     /**
      * The StandardGroupBy
-     * @var string
+     * @var string|null
      */
-    public $StandardGroupBy;
+    protected ?string $StandardGroupBy = null;
     /**
      * Constructor method for DistinguishedGroupByType
      * @uses EwsDistinguishedGroupByType::setStandardGroupBy()
      * @param string $standardGroupBy
      */
-    public function __construct($standardGroupBy = null)
+    public function __construct(?string $standardGroupBy = null)
     {
         $this
             ->setStandardGroupBy($standardGroupBy);
@@ -33,25 +36,26 @@ class EwsDistinguishedGroupByType extends EwsBaseGroupByType
      * Get StandardGroupBy value
      * @return string|null
      */
-    public function getStandardGroupBy()
+    public function getStandardGroupBy(): ?string
     {
         return $this->StandardGroupBy;
     }
     /**
      * Set StandardGroupBy value
-     * @uses \Ews\EnumType\EwsStandardGroupByType::valueIsValid()
-     * @uses \Ews\EnumType\EwsStandardGroupByType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsStandardGroupByType::valueIsValid()
+     * @uses \EnumType\EwsStandardGroupByType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $standardGroupBy
-     * @return \Ews\StructType\EwsDistinguishedGroupByType
+     * @return \StructType\EwsDistinguishedGroupByType
      */
-    public function setStandardGroupBy($standardGroupBy = null)
+    public function setStandardGroupBy(?string $standardGroupBy = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsStandardGroupByType::valueIsValid($standardGroupBy)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsStandardGroupByType', is_array($standardGroupBy) ? implode(', ', $standardGroupBy) : var_export($standardGroupBy, true), implode(', ', \Ews\EnumType\EwsStandardGroupByType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsStandardGroupByType::valueIsValid($standardGroupBy)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsStandardGroupByType', is_array($standardGroupBy) ? implode(', ', $standardGroupBy) : var_export($standardGroupBy, true), implode(', ', \EnumType\EwsStandardGroupByType::getValidValues())), __LINE__);
         }
         $this->StandardGroupBy = $standardGroupBy;
+        
         return $this;
     }
 }

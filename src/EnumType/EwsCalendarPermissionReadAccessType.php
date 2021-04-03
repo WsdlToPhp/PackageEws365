@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for CalendarPermissionReadAccessType EnumType
@@ -40,13 +42,13 @@ class EwsCalendarPermissionReadAccessType extends AbstractStructEnumBase
      * @uses self::VALUE_FULL_DETAILS
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_TIME_ONLY,
             self::VALUE_TIME_AND_SUBJECT_AND_LOCATION,
             self::VALUE_FULL_DETAILS,
-        );
+        ];
     }
 }

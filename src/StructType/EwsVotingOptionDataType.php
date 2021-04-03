@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for VotingOptionDataType StructType
@@ -16,16 +19,16 @@ class EwsVotingOptionDataType extends AbstractStructBase
      * The DisplayName
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The SendPrompt
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $SendPrompt;
+    protected ?string $SendPrompt = null;
     /**
      * Constructor method for VotingOptionDataType
      * @uses EwsVotingOptionDataType::setDisplayName()
@@ -33,7 +36,7 @@ class EwsVotingOptionDataType extends AbstractStructBase
      * @param string $displayName
      * @param string $sendPrompt
      */
-    public function __construct($displayName = null, $sendPrompt = null)
+    public function __construct(?string $displayName = null, ?string $sendPrompt = null)
     {
         $this
             ->setDisplayName($displayName)
@@ -43,47 +46,49 @@ class EwsVotingOptionDataType extends AbstractStructBase
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsVotingOptionDataType
+     * @return \StructType\EwsVotingOptionDataType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get SendPrompt value
      * @return string|null
      */
-    public function getSendPrompt()
+    public function getSendPrompt(): ?string
     {
         return $this->SendPrompt;
     }
     /**
      * Set SendPrompt value
-     * @uses \Ews\EnumType\EwsSendPromptType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSendPromptType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSendPromptType::valueIsValid()
+     * @uses \EnumType\EwsSendPromptType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sendPrompt
-     * @return \Ews\StructType\EwsVotingOptionDataType
+     * @return \StructType\EwsVotingOptionDataType
      */
-    public function setSendPrompt($sendPrompt = null)
+    public function setSendPrompt(?string $sendPrompt = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSendPromptType::valueIsValid($sendPrompt)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSendPromptType', is_array($sendPrompt) ? implode(', ', $sendPrompt) : var_export($sendPrompt, true), implode(', ', \Ews\EnumType\EwsSendPromptType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSendPromptType::valueIsValid($sendPrompt)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSendPromptType', is_array($sendPrompt) ? implode(', ', $sendPrompt) : var_export($sendPrompt, true), implode(', ', \EnumType\EwsSendPromptType::getValidValues())), __LINE__);
         }
         $this->SendPrompt = $sendPrompt;
+        
         return $this;
     }
 }

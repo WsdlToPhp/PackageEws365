@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BookingServiceType StructType
@@ -17,97 +20,97 @@ class EwsBookingServiceType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DisplayName;
+    protected ?string $DisplayName = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * The DefaultLocation
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEnhancedLocationType
+     * @var \StructType\EwsEnhancedLocationType|null
      */
-    public $DefaultLocation;
+    protected ?\StructType\EwsEnhancedLocationType $DefaultLocation = null;
     /**
      * The InternalNotes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $InternalNotes;
+    protected ?string $InternalNotes = null;
     /**
      * The BookingServiceType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $BookingServiceType;
+    protected ?string $BookingServiceType = null;
     /**
      * The DefaultDurationMinutes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $DefaultDurationMinutes;
+    protected ?int $DefaultDurationMinutes = null;
     /**
      * The DefaultEmailReminderText
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $DefaultEmailReminderText;
+    protected ?string $DefaultEmailReminderText = null;
     /**
      * The DefaultEmailReminderMinutes
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $DefaultEmailReminderMinutes;
+    protected ?int $DefaultEmailReminderMinutes = null;
     /**
      * The IsDefaultEmailReminderSet
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $IsDefaultEmailReminderSet;
+    protected ?bool $IsDefaultEmailReminderSet = null;
     /**
      * The StaffPersonIds
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfItemIdsType
+     * @var \ArrayType\EwsArrayOfItemIdsType|null
      */
-    public $StaffPersonIds;
+    protected ?\ArrayType\EwsArrayOfItemIdsType $StaffPersonIds = null;
     /**
      * The ServiceId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ServiceId;
+    protected ?string $ServiceId = null;
     /**
      * The ItemId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsItemIdType
+     * @var \StructType\EwsItemIdType|null
      */
-    public $ItemId;
+    protected ?\StructType\EwsItemIdType $ItemId = null;
     /**
      * Constructor method for BookingServiceType
      * @uses EwsBookingServiceType::setDisplayName()
@@ -124,18 +127,18 @@ class EwsBookingServiceType extends AbstractStructBase
      * @uses EwsBookingServiceType::setItemId()
      * @param string $displayName
      * @param string $description
-     * @param \Ews\StructType\EwsEnhancedLocationType $defaultLocation
+     * @param \StructType\EwsEnhancedLocationType $defaultLocation
      * @param string $internalNotes
      * @param string $bookingServiceType
      * @param int $defaultDurationMinutes
      * @param string $defaultEmailReminderText
      * @param int $defaultEmailReminderMinutes
      * @param bool $isDefaultEmailReminderSet
-     * @param \Ews\ArrayType\EwsArrayOfItemIdsType $staffPersonIds
+     * @param \ArrayType\EwsArrayOfItemIdsType $staffPersonIds
      * @param string $serviceId
-     * @param \Ews\StructType\EwsItemIdType $itemId
+     * @param \StructType\EwsItemIdType $itemId
      */
-    public function __construct($displayName = null, $description = null, \Ews\StructType\EwsEnhancedLocationType $defaultLocation = null, $internalNotes = null, $bookingServiceType = null, $defaultDurationMinutes = null, $defaultEmailReminderText = null, $defaultEmailReminderMinutes = null, $isDefaultEmailReminderSet = null, \Ews\ArrayType\EwsArrayOfItemIdsType $staffPersonIds = null, $serviceId = null, \Ews\StructType\EwsItemIdType $itemId = null)
+    public function __construct(?string $displayName = null, ?string $description = null, ?\StructType\EwsEnhancedLocationType $defaultLocation = null, ?string $internalNotes = null, ?string $bookingServiceType = null, ?int $defaultDurationMinutes = null, ?string $defaultEmailReminderText = null, ?int $defaultEmailReminderMinutes = null, ?bool $isDefaultEmailReminderSet = null, ?\ArrayType\EwsArrayOfItemIdsType $staffPersonIds = null, ?string $serviceId = null, ?\StructType\EwsItemIdType $itemId = null)
     {
         $this
             ->setDisplayName($displayName)
@@ -155,255 +158,267 @@ class EwsBookingServiceType extends AbstractStructBase
      * Get DisplayName value
      * @return string|null
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->DisplayName;
     }
     /**
      * Set DisplayName value
      * @param string $displayName
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName = null): self
     {
         // validation for constraint: string
         if (!is_null($displayName) && !is_string($displayName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayName, true), gettype($displayName)), __LINE__);
         }
         $this->DisplayName = $displayName;
+        
         return $this;
     }
     /**
      * Get Description value
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->Description;
     }
     /**
      * Set Description value
      * @param string $description
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
+        
         return $this;
     }
     /**
      * Get DefaultLocation value
-     * @return \Ews\StructType\EwsEnhancedLocationType|null
+     * @return \StructType\EwsEnhancedLocationType|null
      */
-    public function getDefaultLocation()
+    public function getDefaultLocation(): ?\StructType\EwsEnhancedLocationType
     {
         return $this->DefaultLocation;
     }
     /**
      * Set DefaultLocation value
-     * @param \Ews\StructType\EwsEnhancedLocationType $defaultLocation
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @param \StructType\EwsEnhancedLocationType $defaultLocation
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDefaultLocation(\Ews\StructType\EwsEnhancedLocationType $defaultLocation = null)
+    public function setDefaultLocation(?\StructType\EwsEnhancedLocationType $defaultLocation = null): self
     {
         $this->DefaultLocation = $defaultLocation;
+        
         return $this;
     }
     /**
      * Get InternalNotes value
      * @return string|null
      */
-    public function getInternalNotes()
+    public function getInternalNotes(): ?string
     {
         return $this->InternalNotes;
     }
     /**
      * Set InternalNotes value
      * @param string $internalNotes
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setInternalNotes($internalNotes = null)
+    public function setInternalNotes(?string $internalNotes = null): self
     {
         // validation for constraint: string
         if (!is_null($internalNotes) && !is_string($internalNotes)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internalNotes, true), gettype($internalNotes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($internalNotes, true), gettype($internalNotes)), __LINE__);
         }
         $this->InternalNotes = $internalNotes;
+        
         return $this;
     }
     /**
      * Get BookingServiceType value
      * @return string|null
      */
-    public function getBookingServiceType()
+    public function getBookingServiceType(): ?string
     {
         return $this->BookingServiceType;
     }
     /**
      * Set BookingServiceType value
-     * @uses \Ews\EnumType\EwsBookingServiceTypeEnum::valueIsValid()
-     * @uses \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsBookingServiceTypeEnum::valueIsValid()
+     * @uses \EnumType\EwsBookingServiceTypeEnum::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $bookingServiceType
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setBookingServiceType($bookingServiceType = null)
+    public function setBookingServiceType(?string $bookingServiceType = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsBookingServiceTypeEnum::valueIsValid($bookingServiceType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsBookingServiceTypeEnum', is_array($bookingServiceType) ? implode(', ', $bookingServiceType) : var_export($bookingServiceType, true), implode(', ', \Ews\EnumType\EwsBookingServiceTypeEnum::getValidValues())), __LINE__);
+        if (!\EnumType\EwsBookingServiceTypeEnum::valueIsValid($bookingServiceType)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsBookingServiceTypeEnum', is_array($bookingServiceType) ? implode(', ', $bookingServiceType) : var_export($bookingServiceType, true), implode(', ', \EnumType\EwsBookingServiceTypeEnum::getValidValues())), __LINE__);
         }
         $this->BookingServiceType = $bookingServiceType;
+        
         return $this;
     }
     /**
      * Get DefaultDurationMinutes value
      * @return int|null
      */
-    public function getDefaultDurationMinutes()
+    public function getDefaultDurationMinutes(): ?int
     {
         return $this->DefaultDurationMinutes;
     }
     /**
      * Set DefaultDurationMinutes value
      * @param int $defaultDurationMinutes
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDefaultDurationMinutes($defaultDurationMinutes = null)
+    public function setDefaultDurationMinutes(?int $defaultDurationMinutes = null): self
     {
         // validation for constraint: int
         if (!is_null($defaultDurationMinutes) && !(is_int($defaultDurationMinutes) || ctype_digit($defaultDurationMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultDurationMinutes, true), gettype($defaultDurationMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultDurationMinutes, true), gettype($defaultDurationMinutes)), __LINE__);
         }
         $this->DefaultDurationMinutes = $defaultDurationMinutes;
+        
         return $this;
     }
     /**
      * Get DefaultEmailReminderText value
      * @return string|null
      */
-    public function getDefaultEmailReminderText()
+    public function getDefaultEmailReminderText(): ?string
     {
         return $this->DefaultEmailReminderText;
     }
     /**
      * Set DefaultEmailReminderText value
      * @param string $defaultEmailReminderText
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDefaultEmailReminderText($defaultEmailReminderText = null)
+    public function setDefaultEmailReminderText(?string $defaultEmailReminderText = null): self
     {
         // validation for constraint: string
         if (!is_null($defaultEmailReminderText) && !is_string($defaultEmailReminderText)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($defaultEmailReminderText, true), gettype($defaultEmailReminderText)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($defaultEmailReminderText, true), gettype($defaultEmailReminderText)), __LINE__);
         }
         $this->DefaultEmailReminderText = $defaultEmailReminderText;
+        
         return $this;
     }
     /**
      * Get DefaultEmailReminderMinutes value
      * @return int|null
      */
-    public function getDefaultEmailReminderMinutes()
+    public function getDefaultEmailReminderMinutes(): ?int
     {
         return $this->DefaultEmailReminderMinutes;
     }
     /**
      * Set DefaultEmailReminderMinutes value
      * @param int $defaultEmailReminderMinutes
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setDefaultEmailReminderMinutes($defaultEmailReminderMinutes = null)
+    public function setDefaultEmailReminderMinutes(?int $defaultEmailReminderMinutes = null): self
     {
         // validation for constraint: int
         if (!is_null($defaultEmailReminderMinutes) && !(is_int($defaultEmailReminderMinutes) || ctype_digit($defaultEmailReminderMinutes))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultEmailReminderMinutes, true), gettype($defaultEmailReminderMinutes)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($defaultEmailReminderMinutes, true), gettype($defaultEmailReminderMinutes)), __LINE__);
         }
         $this->DefaultEmailReminderMinutes = $defaultEmailReminderMinutes;
+        
         return $this;
     }
     /**
      * Get IsDefaultEmailReminderSet value
      * @return bool|null
      */
-    public function getIsDefaultEmailReminderSet()
+    public function getIsDefaultEmailReminderSet(): ?bool
     {
         return $this->IsDefaultEmailReminderSet;
     }
     /**
      * Set IsDefaultEmailReminderSet value
      * @param bool $isDefaultEmailReminderSet
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setIsDefaultEmailReminderSet($isDefaultEmailReminderSet = null)
+    public function setIsDefaultEmailReminderSet(?bool $isDefaultEmailReminderSet = null): self
     {
         // validation for constraint: boolean
         if (!is_null($isDefaultEmailReminderSet) && !is_bool($isDefaultEmailReminderSet)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDefaultEmailReminderSet, true), gettype($isDefaultEmailReminderSet)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDefaultEmailReminderSet, true), gettype($isDefaultEmailReminderSet)), __LINE__);
         }
         $this->IsDefaultEmailReminderSet = $isDefaultEmailReminderSet;
+        
         return $this;
     }
     /**
      * Get StaffPersonIds value
-     * @return \Ews\ArrayType\EwsArrayOfItemIdsType|null
+     * @return \ArrayType\EwsArrayOfItemIdsType|null
      */
-    public function getStaffPersonIds()
+    public function getStaffPersonIds(): ?\ArrayType\EwsArrayOfItemIdsType
     {
         return $this->StaffPersonIds;
     }
     /**
      * Set StaffPersonIds value
-     * @param \Ews\ArrayType\EwsArrayOfItemIdsType $staffPersonIds
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @param \ArrayType\EwsArrayOfItemIdsType $staffPersonIds
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setStaffPersonIds(\Ews\ArrayType\EwsArrayOfItemIdsType $staffPersonIds = null)
+    public function setStaffPersonIds(?\ArrayType\EwsArrayOfItemIdsType $staffPersonIds = null): self
     {
         $this->StaffPersonIds = $staffPersonIds;
+        
         return $this;
     }
     /**
      * Get ServiceId value
      * @return string|null
      */
-    public function getServiceId()
+    public function getServiceId(): ?string
     {
         return $this->ServiceId;
     }
     /**
      * Set ServiceId value
      * @param string $serviceId
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setServiceId($serviceId = null)
+    public function setServiceId(?string $serviceId = null): self
     {
         // validation for constraint: string
         if (!is_null($serviceId) && !is_string($serviceId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceId, true), gettype($serviceId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($serviceId, true), gettype($serviceId)), __LINE__);
         }
         $this->ServiceId = $serviceId;
+        
         return $this;
     }
     /**
      * Get ItemId value
-     * @return \Ews\StructType\EwsItemIdType|null
+     * @return \StructType\EwsItemIdType|null
      */
-    public function getItemId()
+    public function getItemId(): ?\StructType\EwsItemIdType
     {
         return $this->ItemId;
     }
     /**
      * Set ItemId value
-     * @param \Ews\StructType\EwsItemIdType $itemId
-     * @return \Ews\StructType\EwsBookingServiceType
+     * @param \StructType\EwsItemIdType $itemId
+     * @return \StructType\EwsBookingServiceType
      */
-    public function setItemId(\Ews\StructType\EwsItemIdType $itemId = null)
+    public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
+        
         return $this;
     }
 }

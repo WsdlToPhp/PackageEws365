@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfUMCallDataRecordsType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsCDRDataType[]
+     * @var \StructType\EwsCDRDataType[]
      */
-    public $CDRData;
+    protected array $CDRData = [];
     /**
      * Constructor method for ArrayOfUMCallDataRecordsType
      * @uses EwsArrayOfUMCallDataRecordsType::setCDRData()
-     * @param \Ews\StructType\EwsCDRDataType[] $cDRData
+     * @param \StructType\EwsCDRDataType[] $cDRData
      */
-    public function __construct(array $cDRData = array())
+    public function __construct(array $cDRData = [])
     {
         $this
             ->setCDRData($cDRData);
     }
     /**
      * Get CDRData value
-     * @return \Ews\StructType\EwsCDRDataType[]|null
+     * @return \StructType\EwsCDRDataType[]
      */
-    public function getCDRData()
+    public function getCDRData(): array
     {
         return $this->CDRData;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateCDRDataForArrayConstraintsFromSetCDRData(array $values = array())
+    public static function validateCDRDataForArrayConstraintsFromSetCDRData(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfUMCallDataRecordsTypeCDRDataItem) {
             // validation for constraint: itemType
-            if (!$arrayOfUMCallDataRecordsTypeCDRDataItem instanceof \Ews\StructType\EwsCDRDataType) {
+            if (!$arrayOfUMCallDataRecordsTypeCDRDataItem instanceof \StructType\EwsCDRDataType) {
                 $invalidValues[] = is_object($arrayOfUMCallDataRecordsTypeCDRDataItem) ? get_class($arrayOfUMCallDataRecordsTypeCDRDataItem) : sprintf('%s(%s)', gettype($arrayOfUMCallDataRecordsTypeCDRDataItem), var_export($arrayOfUMCallDataRecordsTypeCDRDataItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The CDRData property can only contain items of type \Ews\StructType\EwsCDRDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The CDRData property can only contain items of type \StructType\EwsCDRDataType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set CDRData value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCDRDataType[] $cDRData
-     * @return \Ews\ArrayType\EwsArrayOfUMCallDataRecordsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCDRDataType[] $cDRData
+     * @return \ArrayType\EwsArrayOfUMCallDataRecordsType
      */
-    public function setCDRData(array $cDRData = array())
+    public function setCDRData(array $cDRData = []): self
     {
         // validation for constraint: array
         if ('' !== ($cDRDataArrayErrorMessage = self::validateCDRDataForArrayConstraintsFromSetCDRData($cDRData))) {
-            throw new \InvalidArgumentException($cDRDataArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($cDRDataArrayErrorMessage, __LINE__);
         }
         $this->CDRData = $cDRData;
-        return $this;
-    }
-    /**
-     * Add item to CDRData value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsCDRDataType $item
-     * @return \Ews\ArrayType\EwsArrayOfUMCallDataRecordsType
-     */
-    public function addToCDRData(\Ews\StructType\EwsCDRDataType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsCDRDataType) {
-            throw new \InvalidArgumentException(sprintf('The CDRData property can only contain items of type \Ews\StructType\EwsCDRDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->CDRData[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsCDRDataType|null
+     * @return \StructType\EwsCDRDataType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsCDRDataType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsCDRDataType|null
+     * @return \StructType\EwsCDRDataType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsCDRDataType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsCDRDataType|null
+     * @return \StructType\EwsCDRDataType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsCDRDataType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsCDRDataType|null
+     * @return \StructType\EwsCDRDataType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsCDRDataType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfUMCallDataRecordsType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsCDRDataType|null
+     * @return \StructType\EwsCDRDataType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsCDRDataType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsCDRDataType $item
+     * @return \ArrayType\EwsArrayOfUMCallDataRecordsType
+     */
+    public function add(\StructType\EwsCDRDataType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string CDRData
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'CDRData';
     }

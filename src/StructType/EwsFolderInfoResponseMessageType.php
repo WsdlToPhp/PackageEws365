@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FolderInfoResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsFolderInfoResponseMessageType extends EwsResponseMessageType
      * The Folders
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsArrayOfFoldersType
+     * @var \StructType\EwsArrayOfFoldersType|null
      */
-    public $Folders;
+    protected ?\StructType\EwsArrayOfFoldersType $Folders = null;
     /**
      * Constructor method for FolderInfoResponseMessageType
      * @uses EwsFolderInfoResponseMessageType::setFolders()
-     * @param \Ews\StructType\EwsArrayOfFoldersType $folders
+     * @param \StructType\EwsArrayOfFoldersType $folders
      */
-    public function __construct(\Ews\StructType\EwsArrayOfFoldersType $folders = null)
+    public function __construct(?\StructType\EwsArrayOfFoldersType $folders = null)
     {
         $this
             ->setFolders($folders);
     }
     /**
      * Get Folders value
-     * @return \Ews\StructType\EwsArrayOfFoldersType|null
+     * @return \StructType\EwsArrayOfFoldersType|null
      */
-    public function getFolders()
+    public function getFolders(): ?\StructType\EwsArrayOfFoldersType
     {
         return $this->Folders;
     }
     /**
      * Set Folders value
-     * @param \Ews\StructType\EwsArrayOfFoldersType $folders
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @param \StructType\EwsArrayOfFoldersType $folders
+     * @return \StructType\EwsFolderInfoResponseMessageType
      */
-    public function setFolders(\Ews\StructType\EwsArrayOfFoldersType $folders = null)
+    public function setFolders(?\StructType\EwsArrayOfFoldersType $folders = null): self
     {
         $this->Folders = $folders;
+        
         return $this;
     }
 }

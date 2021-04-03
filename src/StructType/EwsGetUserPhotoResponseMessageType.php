@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUserPhotoResponseMessageType StructType
@@ -19,15 +22,15 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * - minOccurs: 1
      * @var bool
      */
-    public $HasChanged;
+    protected bool $HasChanged;
     /**
      * The PictureData
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PictureData;
+    protected ?string $PictureData = null;
     /**
      * Constructor method for GetUserPhotoResponseMessageType
      * @uses EwsGetUserPhotoResponseMessageType::setHasChanged()
@@ -35,7 +38,7 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * @param bool $hasChanged
      * @param string $pictureData
      */
-    public function __construct($hasChanged = null, $pictureData = null)
+    public function __construct(bool $hasChanged, ?string $pictureData = null)
     {
         $this
             ->setHasChanged($hasChanged)
@@ -45,44 +48,46 @@ class EwsGetUserPhotoResponseMessageType extends EwsResponseMessageType
      * Get HasChanged value
      * @return bool
      */
-    public function getHasChanged()
+    public function getHasChanged(): bool
     {
         return $this->HasChanged;
     }
     /**
      * Set HasChanged value
      * @param bool $hasChanged
-     * @return \Ews\StructType\EwsGetUserPhotoResponseMessageType
+     * @return \StructType\EwsGetUserPhotoResponseMessageType
      */
-    public function setHasChanged($hasChanged = null)
+    public function setHasChanged(bool $hasChanged): self
     {
         // validation for constraint: boolean
         if (!is_null($hasChanged) && !is_bool($hasChanged)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasChanged, true), gettype($hasChanged)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasChanged, true), gettype($hasChanged)), __LINE__);
         }
         $this->HasChanged = $hasChanged;
+        
         return $this;
     }
     /**
      * Get PictureData value
      * @return string|null
      */
-    public function getPictureData()
+    public function getPictureData(): ?string
     {
         return $this->PictureData;
     }
     /**
      * Set PictureData value
      * @param string $pictureData
-     * @return \Ews\StructType\EwsGetUserPhotoResponseMessageType
+     * @return \StructType\EwsGetUserPhotoResponseMessageType
      */
-    public function setPictureData($pictureData = null)
+    public function setPictureData(?string $pictureData = null): self
     {
         // validation for constraint: string
         if (!is_null($pictureData) && !is_string($pictureData)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pictureData, true), gettype($pictureData)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pictureData, true), gettype($pictureData)), __LINE__);
         }
         $this->PictureData = $pictureData;
+        
         return $this;
     }
 }

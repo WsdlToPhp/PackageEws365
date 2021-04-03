@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetStreamingEventsResponseMessageType StructType
@@ -16,33 +19,33 @@ class EwsGetStreamingEventsResponseMessageType extends EwsResponseMessageType
      * The Notifications
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType
+     * @var \ArrayType\EwsNonEmptyArrayOfNotificationsType|null
      */
-    public $Notifications;
+    protected ?\ArrayType\EwsNonEmptyArrayOfNotificationsType $Notifications = null;
     /**
      * The ErrorSubscriptionIds
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
      */
-    public $ErrorSubscriptionIds;
+    protected ?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $ErrorSubscriptionIds = null;
     /**
      * The ConnectionStatus
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ConnectionStatus;
+    protected ?string $ConnectionStatus = null;
     /**
      * Constructor method for GetStreamingEventsResponseMessageType
      * @uses EwsGetStreamingEventsResponseMessageType::setNotifications()
      * @uses EwsGetStreamingEventsResponseMessageType::setErrorSubscriptionIds()
      * @uses EwsGetStreamingEventsResponseMessageType::setConnectionStatus()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
+     * @param \ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications
+     * @param \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
      * @param string $connectionStatus
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications = null, \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null, $connectionStatus = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications = null, ?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null, ?string $connectionStatus = null)
     {
         $this
             ->setNotifications($notifications)
@@ -51,63 +54,66 @@ class EwsGetStreamingEventsResponseMessageType extends EwsResponseMessageType
     }
     /**
      * Get Notifications value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfNotificationsType|null
      */
-    public function getNotifications()
+    public function getNotifications(): ?\ArrayType\EwsNonEmptyArrayOfNotificationsType
     {
         return $this->Notifications;
     }
     /**
      * Set Notifications value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications
-     * @return \Ews\StructType\EwsGetStreamingEventsResponseMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications
+     * @return \StructType\EwsGetStreamingEventsResponseMessageType
      */
-    public function setNotifications(\Ews\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications = null)
+    public function setNotifications(?\ArrayType\EwsNonEmptyArrayOfNotificationsType $notifications = null): self
     {
         $this->Notifications = $notifications;
+        
         return $this;
     }
     /**
      * Get ErrorSubscriptionIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType|null
      */
-    public function getErrorSubscriptionIds()
+    public function getErrorSubscriptionIds(): ?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType
     {
         return $this->ErrorSubscriptionIds;
     }
     /**
      * Set ErrorSubscriptionIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
-     * @return \Ews\StructType\EwsGetStreamingEventsResponseMessageType
+     * @param \ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds
+     * @return \StructType\EwsGetStreamingEventsResponseMessageType
      */
-    public function setErrorSubscriptionIds(\Ews\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null)
+    public function setErrorSubscriptionIds(?\ArrayType\EwsNonEmptyArrayOfSubscriptionIdsType $errorSubscriptionIds = null): self
     {
         $this->ErrorSubscriptionIds = $errorSubscriptionIds;
+        
         return $this;
     }
     /**
      * Get ConnectionStatus value
      * @return string|null
      */
-    public function getConnectionStatus()
+    public function getConnectionStatus(): ?string
     {
         return $this->ConnectionStatus;
     }
     /**
      * Set ConnectionStatus value
-     * @uses \Ews\EnumType\EwsConnectionStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsConnectionStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsConnectionStatusType::valueIsValid()
+     * @uses \EnumType\EwsConnectionStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $connectionStatus
-     * @return \Ews\StructType\EwsGetStreamingEventsResponseMessageType
+     * @return \StructType\EwsGetStreamingEventsResponseMessageType
      */
-    public function setConnectionStatus($connectionStatus = null)
+    public function setConnectionStatus(?string $connectionStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsConnectionStatusType::valueIsValid($connectionStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConnectionStatusType', is_array($connectionStatus) ? implode(', ', $connectionStatus) : var_export($connectionStatus, true), implode(', ', \Ews\EnumType\EwsConnectionStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsConnectionStatusType::valueIsValid($connectionStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsConnectionStatusType', is_array($connectionStatus) ? implode(', ', $connectionStatus) : var_export($connectionStatus, true), implode(', ', \EnumType\EwsConnectionStatusType::getValidValues())), __LINE__);
         }
         $this->ConnectionStatus = $connectionStatus;
+        
         return $this;
     }
 }

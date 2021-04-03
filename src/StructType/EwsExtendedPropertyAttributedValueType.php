@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ExtendedPropertyAttributedValueType StructType
@@ -17,25 +20,25 @@ class EwsExtendedPropertyAttributedValueType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsExtendedPropertyType
+     * @var \StructType\EwsExtendedPropertyType
      */
-    public $Value;
+    protected \StructType\EwsExtendedPropertyType $Value;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @var \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public $Attributions;
+    protected \ArrayType\EwsArrayOfValueAttributionsType $Attributions;
     /**
      * Constructor method for ExtendedPropertyAttributedValueType
      * @uses EwsExtendedPropertyAttributedValueType::setValue()
      * @uses EwsExtendedPropertyAttributedValueType::setAttributions()
-     * @param \Ews\StructType\EwsExtendedPropertyType $value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @param \StructType\EwsExtendedPropertyType $value
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
      */
-    public function __construct(\Ews\StructType\EwsExtendedPropertyType $value = null, \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function __construct(\StructType\EwsExtendedPropertyType $value, \ArrayType\EwsArrayOfValueAttributionsType $attributions)
     {
         $this
             ->setValue($value)
@@ -43,38 +46,40 @@ class EwsExtendedPropertyAttributedValueType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return \Ews\StructType\EwsExtendedPropertyType
+     * @return \StructType\EwsExtendedPropertyType
      */
-    public function getValue()
+    public function getValue(): \StructType\EwsExtendedPropertyType
     {
         return $this->Value;
     }
     /**
      * Set Value value
-     * @param \Ews\StructType\EwsExtendedPropertyType $value
-     * @return \Ews\StructType\EwsExtendedPropertyAttributedValueType
+     * @param \StructType\EwsExtendedPropertyType $value
+     * @return \StructType\EwsExtendedPropertyAttributedValueType
      */
-    public function setValue(\Ews\StructType\EwsExtendedPropertyType $value = null)
+    public function setValue(\StructType\EwsExtendedPropertyType $value): self
     {
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function getAttributions()
+    public function getAttributions(): \ArrayType\EwsArrayOfValueAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
-     * @return \Ews\StructType\EwsExtendedPropertyAttributedValueType
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @return \StructType\EwsExtendedPropertyAttributedValueType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function setAttributions(\ArrayType\EwsArrayOfValueAttributionsType $attributions): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SendNotificationResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsSendNotificationResponseMessageType extends EwsResponseMessageType
      * The Notification
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsNotificationType
+     * @var \StructType\EwsNotificationType
      */
-    public $Notification;
+    protected \StructType\EwsNotificationType $Notification;
     /**
      * Constructor method for SendNotificationResponseMessageType
      * @uses EwsSendNotificationResponseMessageType::setNotification()
-     * @param \Ews\StructType\EwsNotificationType $notification
+     * @param \StructType\EwsNotificationType $notification
      */
-    public function __construct(\Ews\StructType\EwsNotificationType $notification = null)
+    public function __construct(\StructType\EwsNotificationType $notification)
     {
         $this
             ->setNotification($notification);
     }
     /**
      * Get Notification value
-     * @return \Ews\StructType\EwsNotificationType
+     * @return \StructType\EwsNotificationType
      */
-    public function getNotification()
+    public function getNotification(): \StructType\EwsNotificationType
     {
         return $this->Notification;
     }
     /**
      * Set Notification value
-     * @param \Ews\StructType\EwsNotificationType $notification
-     * @return \Ews\StructType\EwsSendNotificationResponseMessageType
+     * @param \StructType\EwsNotificationType $notification
+     * @return \StructType\EwsSendNotificationResponseMessageType
      */
-    public function setNotification(\Ews\StructType\EwsNotificationType $notification = null)
+    public function setNotification(\StructType\EwsNotificationType $notification): self
     {
         $this->Notification = $notification;
+        
         return $this;
     }
 }

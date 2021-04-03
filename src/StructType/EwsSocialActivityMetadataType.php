@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SocialActivityMetadataType StructType
@@ -14,14 +17,14 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
 {
     /**
      * The TargetGroupName
-     * @var string
+     * @var string|null
      */
-    public $TargetGroupName;
+    protected ?string $TargetGroupName = null;
     /**
      * The MessagePreview
-     * @var string
+     * @var string|null
      */
-    public $MessagePreview;
+    protected ?string $MessagePreview = null;
     /**
      * Constructor method for SocialActivityMetadataType
      * @uses EwsSocialActivityMetadataType::setTargetGroupName()
@@ -29,7 +32,7 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
      * @param string $targetGroupName
      * @param string $messagePreview
      */
-    public function __construct($targetGroupName = null, $messagePreview = null)
+    public function __construct(?string $targetGroupName = null, ?string $messagePreview = null)
     {
         $this
             ->setTargetGroupName($targetGroupName)
@@ -39,44 +42,46 @@ class EwsSocialActivityMetadataType extends AbstractStructBase
      * Get TargetGroupName value
      * @return string|null
      */
-    public function getTargetGroupName()
+    public function getTargetGroupName(): ?string
     {
         return $this->TargetGroupName;
     }
     /**
      * Set TargetGroupName value
      * @param string $targetGroupName
-     * @return \Ews\StructType\EwsSocialActivityMetadataType
+     * @return \StructType\EwsSocialActivityMetadataType
      */
-    public function setTargetGroupName($targetGroupName = null)
+    public function setTargetGroupName(?string $targetGroupName = null): self
     {
         // validation for constraint: string
         if (!is_null($targetGroupName) && !is_string($targetGroupName)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($targetGroupName, true), gettype($targetGroupName)), __LINE__);
         }
         $this->TargetGroupName = $targetGroupName;
+        
         return $this;
     }
     /**
      * Get MessagePreview value
      * @return string|null
      */
-    public function getMessagePreview()
+    public function getMessagePreview(): ?string
     {
         return $this->MessagePreview;
     }
     /**
      * Set MessagePreview value
      * @param string $messagePreview
-     * @return \Ews\StructType\EwsSocialActivityMetadataType
+     * @return \StructType\EwsSocialActivityMetadataType
      */
-    public function setMessagePreview($messagePreview = null)
+    public function setMessagePreview(?string $messagePreview = null): self
     {
         // validation for constraint: string
         if (!is_null($messagePreview) && !is_string($messagePreview)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messagePreview, true), gettype($messagePreview)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($messagePreview, true), gettype($messagePreview)), __LINE__);
         }
         $this->MessagePreview = $messagePreview;
+        
         return $this;
     }
 }

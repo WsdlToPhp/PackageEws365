@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for MailboxStatisticsSearchResultType StructType
@@ -19,25 +22,25 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsUserMailboxType
+     * @var \StructType\EwsUserMailboxType
      */
-    public $UserMailbox;
+    protected \StructType\EwsUserMailboxType $UserMailbox;
     /**
      * The KeywordStatisticsSearchResult
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsKeywordStatisticsSearchResultType
+     * @var \StructType\EwsKeywordStatisticsSearchResultType|null
      */
-    public $KeywordStatisticsSearchResult;
+    protected ?\StructType\EwsKeywordStatisticsSearchResultType $KeywordStatisticsSearchResult = null;
     /**
      * Constructor method for MailboxStatisticsSearchResultType
      * @uses EwsMailboxStatisticsSearchResultType::setUserMailbox()
      * @uses EwsMailboxStatisticsSearchResultType::setKeywordStatisticsSearchResult()
-     * @param \Ews\StructType\EwsUserMailboxType $userMailbox
-     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
+     * @param \StructType\EwsUserMailboxType $userMailbox
+     * @param \StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
      */
-    public function __construct(\Ews\StructType\EwsUserMailboxType $userMailbox = null, \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null)
+    public function __construct(\StructType\EwsUserMailboxType $userMailbox, ?\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null)
     {
         $this
             ->setUserMailbox($userMailbox)
@@ -45,38 +48,40 @@ class EwsMailboxStatisticsSearchResultType extends AbstractStructBase
     }
     /**
      * Get UserMailbox value
-     * @return \Ews\StructType\EwsUserMailboxType
+     * @return \StructType\EwsUserMailboxType
      */
-    public function getUserMailbox()
+    public function getUserMailbox(): \StructType\EwsUserMailboxType
     {
         return $this->UserMailbox;
     }
     /**
      * Set UserMailbox value
-     * @param \Ews\StructType\EwsUserMailboxType $userMailbox
-     * @return \Ews\StructType\EwsMailboxStatisticsSearchResultType
+     * @param \StructType\EwsUserMailboxType $userMailbox
+     * @return \StructType\EwsMailboxStatisticsSearchResultType
      */
-    public function setUserMailbox(\Ews\StructType\EwsUserMailboxType $userMailbox = null)
+    public function setUserMailbox(\StructType\EwsUserMailboxType $userMailbox): self
     {
         $this->UserMailbox = $userMailbox;
+        
         return $this;
     }
     /**
      * Get KeywordStatisticsSearchResult value
-     * @return \Ews\StructType\EwsKeywordStatisticsSearchResultType|null
+     * @return \StructType\EwsKeywordStatisticsSearchResultType|null
      */
-    public function getKeywordStatisticsSearchResult()
+    public function getKeywordStatisticsSearchResult(): ?\StructType\EwsKeywordStatisticsSearchResultType
     {
         return $this->KeywordStatisticsSearchResult;
     }
     /**
      * Set KeywordStatisticsSearchResult value
-     * @param \Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
-     * @return \Ews\StructType\EwsMailboxStatisticsSearchResultType
+     * @param \StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult
+     * @return \StructType\EwsMailboxStatisticsSearchResultType
      */
-    public function setKeywordStatisticsSearchResult(\Ews\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null)
+    public function setKeywordStatisticsSearchResult(?\StructType\EwsKeywordStatisticsSearchResultType $keywordStatisticsSearchResult = null): self
     {
         $this->KeywordStatisticsSearchResult = $keywordStatisticsSearchResult;
+        
         return $this;
     }
 }

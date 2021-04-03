@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfDelegateUserResponseMessageType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsDelegateUserResponseMessageType[]
+     * @var \StructType\EwsDelegateUserResponseMessageType[]
      */
-    public $DelegateUserResponseMessageType;
+    protected array $DelegateUserResponseMessageType = [];
     /**
      * Constructor method for ArrayOfDelegateUserResponseMessageType
      * @uses EwsArrayOfDelegateUserResponseMessageType::setDelegateUserResponseMessageType()
-     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
+     * @param \StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
      */
-    public function __construct(array $delegateUserResponseMessageType = array())
+    public function __construct(array $delegateUserResponseMessageType)
     {
         $this
             ->setDelegateUserResponseMessageType($delegateUserResponseMessageType);
     }
     /**
      * Get DelegateUserResponseMessageType value
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType[]
+     * @return \StructType\EwsDelegateUserResponseMessageType[]
      */
-    public function getDelegateUserResponseMessageType()
+    public function getDelegateUserResponseMessageType(): array
     {
         return $this->DelegateUserResponseMessageType;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDelegateUserResponseMessageTypeForArrayConstraintsFromSetDelegateUserResponseMessageType(array $values = array())
+    public static function validateDelegateUserResponseMessageTypeForArrayConstraintsFromSetDelegateUserResponseMessageType(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem) {
             // validation for constraint: itemType
-            if (!$arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem instanceof \Ews\StructType\EwsDelegateUserResponseMessageType) {
+            if (!$arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem instanceof \StructType\EwsDelegateUserResponseMessageType) {
                 $invalidValues[] = is_object($arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem) ? get_class($arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem) : sprintf('%s(%s)', gettype($arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem), var_export($arrayOfDelegateUserResponseMessageTypeDelegateUserResponseMessageTypeItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The DelegateUserResponseMessageType property can only contain items of type \Ews\StructType\EwsDelegateUserResponseMessageType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The DelegateUserResponseMessageType property can only contain items of type \StructType\EwsDelegateUserResponseMessageType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DelegateUserResponseMessageType value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
-     * @return \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDelegateUserResponseMessageType[] $delegateUserResponseMessageType
+     * @return \ArrayType\EwsArrayOfDelegateUserResponseMessageType
      */
-    public function setDelegateUserResponseMessageType(array $delegateUserResponseMessageType = array())
+    public function setDelegateUserResponseMessageType(array $delegateUserResponseMessageType): self
     {
         // validation for constraint: array
         if ('' !== ($delegateUserResponseMessageTypeArrayErrorMessage = self::validateDelegateUserResponseMessageTypeForArrayConstraintsFromSetDelegateUserResponseMessageType($delegateUserResponseMessageType))) {
-            throw new \InvalidArgumentException($delegateUserResponseMessageTypeArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($delegateUserResponseMessageTypeArrayErrorMessage, __LINE__);
         }
         $this->DelegateUserResponseMessageType = $delegateUserResponseMessageType;
-        return $this;
-    }
-    /**
-     * Add item to DelegateUserResponseMessageType value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDelegateUserResponseMessageType $item
-     * @return \Ews\ArrayType\EwsArrayOfDelegateUserResponseMessageType
-     */
-    public function addToDelegateUserResponseMessageType(\Ews\StructType\EwsDelegateUserResponseMessageType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsDelegateUserResponseMessageType) {
-            throw new \InvalidArgumentException(sprintf('The DelegateUserResponseMessageType property can only contain items of type \Ews\StructType\EwsDelegateUserResponseMessageType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->DelegateUserResponseMessageType[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @return \StructType\EwsDelegateUserResponseMessageType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsDelegateUserResponseMessageType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @return \StructType\EwsDelegateUserResponseMessageType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsDelegateUserResponseMessageType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @return \StructType\EwsDelegateUserResponseMessageType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsDelegateUserResponseMessageType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @return \StructType\EwsDelegateUserResponseMessageType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsDelegateUserResponseMessageType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @return \StructType\EwsDelegateUserResponseMessageType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsDelegateUserResponseMessageType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDelegateUserResponseMessageType $item
+     * @return \ArrayType\EwsArrayOfDelegateUserResponseMessageType
+     */
+    public function add(\StructType\EwsDelegateUserResponseMessageType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string DelegateUserResponseMessageType
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'DelegateUserResponseMessageType';
     }

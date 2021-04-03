@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for EmailInsightValue StructType
@@ -17,57 +20,57 @@ class EwsEmailInsightValue extends EwsInsightValue
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Id;
+    protected ?string $Id = null;
     /**
      * The ThreadId
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $ThreadId;
+    protected ?string $ThreadId = null;
     /**
      * The Subject
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Subject;
+    protected ?string $Subject = null;
     /**
      * The LastEmailDateUtcTicks
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $LastEmailDateUtcTicks;
+    protected ?int $LastEmailDateUtcTicks = null;
     /**
      * The Body
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $Body;
+    protected ?string $Body = null;
     /**
      * The LastEmailSender
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsProfileInsightValue
+     * @var \StructType\EwsProfileInsightValue|null
      */
-    public $LastEmailSender;
+    protected ?\StructType\EwsProfileInsightValue $LastEmailSender = null;
     /**
      * The EmailsCount
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $EmailsCount;
+    protected ?int $EmailsCount = null;
     /**
      * Constructor method for EmailInsightValue
      * @uses EwsEmailInsightValue::setId()
@@ -82,10 +85,10 @@ class EwsEmailInsightValue extends EwsInsightValue
      * @param string $subject
      * @param int $lastEmailDateUtcTicks
      * @param string $body
-     * @param \Ews\StructType\EwsProfileInsightValue $lastEmailSender
+     * @param \StructType\EwsProfileInsightValue $lastEmailSender
      * @param int $emailsCount
      */
-    public function __construct($id = null, $threadId = null, $subject = null, $lastEmailDateUtcTicks = null, $body = null, \Ews\StructType\EwsProfileInsightValue $lastEmailSender = null, $emailsCount = null)
+    public function __construct(?string $id = null, ?string $threadId = null, ?string $subject = null, ?int $lastEmailDateUtcTicks = null, ?string $body = null, ?\StructType\EwsProfileInsightValue $lastEmailSender = null, ?int $emailsCount = null)
     {
         $this
             ->setId($id)
@@ -100,150 +103,157 @@ class EwsEmailInsightValue extends EwsInsightValue
      * Get Id value
      * @return string|null
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->Id;
     }
     /**
      * Set Id value
      * @param string $id
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setId($id = null)
+    public function setId(?string $id = null): self
     {
         // validation for constraint: string
         if (!is_null($id) && !is_string($id)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($id, true), gettype($id)), __LINE__);
         }
         $this->Id = $id;
+        
         return $this;
     }
     /**
      * Get ThreadId value
      * @return string|null
      */
-    public function getThreadId()
+    public function getThreadId(): ?string
     {
         return $this->ThreadId;
     }
     /**
      * Set ThreadId value
      * @param string $threadId
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setThreadId($threadId = null)
+    public function setThreadId(?string $threadId = null): self
     {
         // validation for constraint: string
         if (!is_null($threadId) && !is_string($threadId)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($threadId, true), gettype($threadId)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($threadId, true), gettype($threadId)), __LINE__);
         }
         $this->ThreadId = $threadId;
+        
         return $this;
     }
     /**
      * Get Subject value
      * @return string|null
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->Subject;
     }
     /**
      * Set Subject value
      * @param string $subject
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject = null): self
     {
         // validation for constraint: string
         if (!is_null($subject) && !is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
+        
         return $this;
     }
     /**
      * Get LastEmailDateUtcTicks value
      * @return int|null
      */
-    public function getLastEmailDateUtcTicks()
+    public function getLastEmailDateUtcTicks(): ?int
     {
         return $this->LastEmailDateUtcTicks;
     }
     /**
      * Set LastEmailDateUtcTicks value
      * @param int $lastEmailDateUtcTicks
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setLastEmailDateUtcTicks($lastEmailDateUtcTicks = null)
+    public function setLastEmailDateUtcTicks(?int $lastEmailDateUtcTicks = null): self
     {
         // validation for constraint: int
         if (!is_null($lastEmailDateUtcTicks) && !(is_int($lastEmailDateUtcTicks) || ctype_digit($lastEmailDateUtcTicks))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($lastEmailDateUtcTicks, true), gettype($lastEmailDateUtcTicks)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($lastEmailDateUtcTicks, true), gettype($lastEmailDateUtcTicks)), __LINE__);
         }
         $this->LastEmailDateUtcTicks = $lastEmailDateUtcTicks;
+        
         return $this;
     }
     /**
      * Get Body value
      * @return string|null
      */
-    public function getBody()
+    public function getBody(): ?string
     {
         return $this->Body;
     }
     /**
      * Set Body value
      * @param string $body
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setBody($body = null)
+    public function setBody(?string $body = null): self
     {
         // validation for constraint: string
         if (!is_null($body) && !is_string($body)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($body, true), gettype($body)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($body, true), gettype($body)), __LINE__);
         }
         $this->Body = $body;
+        
         return $this;
     }
     /**
      * Get LastEmailSender value
-     * @return \Ews\StructType\EwsProfileInsightValue|null
+     * @return \StructType\EwsProfileInsightValue|null
      */
-    public function getLastEmailSender()
+    public function getLastEmailSender(): ?\StructType\EwsProfileInsightValue
     {
         return $this->LastEmailSender;
     }
     /**
      * Set LastEmailSender value
-     * @param \Ews\StructType\EwsProfileInsightValue $lastEmailSender
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @param \StructType\EwsProfileInsightValue $lastEmailSender
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setLastEmailSender(\Ews\StructType\EwsProfileInsightValue $lastEmailSender = null)
+    public function setLastEmailSender(?\StructType\EwsProfileInsightValue $lastEmailSender = null): self
     {
         $this->LastEmailSender = $lastEmailSender;
+        
         return $this;
     }
     /**
      * Get EmailsCount value
      * @return int|null
      */
-    public function getEmailsCount()
+    public function getEmailsCount(): ?int
     {
         return $this->EmailsCount;
     }
     /**
      * Set EmailsCount value
      * @param int $emailsCount
-     * @return \Ews\StructType\EwsEmailInsightValue
+     * @return \StructType\EwsEmailInsightValue
      */
-    public function setEmailsCount($emailsCount = null)
+    public function setEmailsCount(?int $emailsCount = null): self
     {
         // validation for constraint: int
         if (!is_null($emailsCount) && !(is_int($emailsCount) || ctype_digit($emailsCount))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($emailsCount, true), gettype($emailsCount)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($emailsCount, true), gettype($emailsCount)), __LINE__);
         }
         $this->EmailsCount = $emailsCount;
+        
         return $this;
     }
 }

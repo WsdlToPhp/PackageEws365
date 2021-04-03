@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfSmtpAddressType ArrayType
@@ -20,15 +23,15 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
      * - minLength: 1
-     * @var string
+     * @var string|null
      */
-    public $SmtpAddress;
+    protected ?string $SmtpAddress = null;
     /**
      * Constructor method for ArrayOfSmtpAddressType
      * @uses EwsArrayOfSmtpAddressType::setSmtpAddress()
      * @param string $smtpAddress
      */
-    public function __construct($smtpAddress = null)
+    public function __construct(?string $smtpAddress = null)
     {
         $this
             ->setSmtpAddress($smtpAddress);
@@ -37,7 +40,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * Get SmtpAddress value
      * @return string|null
      */
-    public function getSmtpAddress()
+    public function getSmtpAddress(): ?string
     {
         return isset($this->SmtpAddress) ? $this->SmtpAddress : null;
     }
@@ -48,7 +51,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($value)
+    public function validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -59,12 +62,13 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: SmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SmtpAddress can\'t be set as the property %s is already set. Only one property must be set among these properties: SmtpAddress, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -72,29 +76,30 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string $smtpAddress
-     * @return \Ews\ArrayType\EwsArrayOfSmtpAddressType
+     * @return \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public function setSmtpAddress($smtpAddress = null)
+    public function setSmtpAddress(?string $smtpAddress = null): self
     {
         // validation for constraint: string
         if (!is_null($smtpAddress) && !is_string($smtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($smtpAddress, true), gettype($smtpAddress)), __LINE__);
         }
         // validation for constraint: choice(SmtpAddress)
         if ('' !== ($smtpAddressChoiceErrorMessage = self::validateSmtpAddressForChoiceConstraintsFromSetSmtpAddress($smtpAddress))) {
-            throw new \InvalidArgumentException($smtpAddressChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($smtpAddressChoiceErrorMessage, __LINE__);
         }
         // validation for constraint: minLength(1)
-        if (!is_null($smtpAddress) && mb_strlen($smtpAddress) < 1) {
-            throw new \InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen($smtpAddress)), __LINE__);
+        if (!is_null($smtpAddress) && mb_strlen((string) $smtpAddress) < 1) {
+            throw new InvalidArgumentException(sprintf('Invalid length of %s, the number of characters/octets contained by the literal must be greater than or equal to 1', mb_strlen((string) $smtpAddress)), __LINE__);
         }
         if (is_null($smtpAddress) || (is_array($smtpAddress) && empty($smtpAddress))) {
             unset($this->SmtpAddress);
         } else {
             $this->SmtpAddress = $smtpAddress;
         }
+        
         return $this;
     }
     /**
@@ -102,7 +107,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::current()
      * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -112,7 +117,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @param int $index
      * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
@@ -121,7 +126,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::first()
      * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
@@ -130,7 +135,7 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::last()
      * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -140,16 +145,27 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @param int $offset
      * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param string $item
+     * @return \ArrayType\EwsArrayOfSmtpAddressType
+     */
+    public function add(string $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string SmtpAddress
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'SmtpAddress';
     }

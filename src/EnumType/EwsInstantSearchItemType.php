@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for InstantSearchItemType EnumType
@@ -46,14 +48,14 @@ class EwsInstantSearchItemType extends AbstractStructEnumBase
      * @uses self::VALUE_PERSONA
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_NONE,
             self::VALUE_MAIL_ITEM,
             self::VALUE_MAIL_CONVERSATION,
             self::VALUE_CALENDAR_ITEM,
             self::VALUE_PERSONA,
-        );
+        ];
     }
 }

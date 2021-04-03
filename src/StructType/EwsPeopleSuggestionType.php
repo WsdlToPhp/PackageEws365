@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PeopleSuggestionType StructType
@@ -19,15 +22,15 @@ class EwsPeopleSuggestionType extends EwsSuggestionType
      * - minOccurs: 1
      * @var string
      */
-    public $PrimarySmtpAddress;
+    protected string $PrimarySmtpAddress;
     /**
      * The PersonType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PersonType;
+    protected ?string $PersonType = null;
     /**
      * Constructor method for PeopleSuggestionType
      * @uses EwsPeopleSuggestionType::setPrimarySmtpAddress()
@@ -35,7 +38,7 @@ class EwsPeopleSuggestionType extends EwsSuggestionType
      * @param string $primarySmtpAddress
      * @param string $personType
      */
-    public function __construct($primarySmtpAddress = null, $personType = null)
+    public function __construct(string $primarySmtpAddress, ?string $personType = null)
     {
         $this
             ->setPrimarySmtpAddress($primarySmtpAddress)
@@ -45,44 +48,46 @@ class EwsPeopleSuggestionType extends EwsSuggestionType
      * Get PrimarySmtpAddress value
      * @return string
      */
-    public function getPrimarySmtpAddress()
+    public function getPrimarySmtpAddress(): string
     {
         return $this->PrimarySmtpAddress;
     }
     /**
      * Set PrimarySmtpAddress value
      * @param string $primarySmtpAddress
-     * @return \Ews\StructType\EwsPeopleSuggestionType
+     * @return \StructType\EwsPeopleSuggestionType
      */
-    public function setPrimarySmtpAddress($primarySmtpAddress = null)
+    public function setPrimarySmtpAddress(string $primarySmtpAddress): self
     {
         // validation for constraint: string
         if (!is_null($primarySmtpAddress) && !is_string($primarySmtpAddress)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($primarySmtpAddress, true), gettype($primarySmtpAddress)), __LINE__);
         }
         $this->PrimarySmtpAddress = $primarySmtpAddress;
+        
         return $this;
     }
     /**
      * Get PersonType value
      * @return string|null
      */
-    public function getPersonType()
+    public function getPersonType(): ?string
     {
         return $this->PersonType;
     }
     /**
      * Set PersonType value
      * @param string $personType
-     * @return \Ews\StructType\EwsPeopleSuggestionType
+     * @return \StructType\EwsPeopleSuggestionType
      */
-    public function setPersonType($personType = null)
+    public function setPersonType(?string $personType = null): self
     {
         // validation for constraint: string
         if (!is_null($personType) && !is_string($personType)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personType, true), gettype($personType)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($personType, true), gettype($personType)), __LINE__);
         }
         $this->PersonType = $personType;
+        
         return $this;
     }
 }

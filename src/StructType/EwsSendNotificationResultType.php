@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SendNotificationResultType StructType
@@ -14,15 +17,15 @@ class EwsSendNotificationResultType extends AbstractStructBase
 {
     /**
      * The SubscriptionStatus
-     * @var string
+     * @var string|null
      */
-    public $SubscriptionStatus;
+    protected ?string $SubscriptionStatus = null;
     /**
      * Constructor method for SendNotificationResultType
      * @uses EwsSendNotificationResultType::setSubscriptionStatus()
      * @param string $subscriptionStatus
      */
-    public function __construct($subscriptionStatus = null)
+    public function __construct(?string $subscriptionStatus = null)
     {
         $this
             ->setSubscriptionStatus($subscriptionStatus);
@@ -31,25 +34,26 @@ class EwsSendNotificationResultType extends AbstractStructBase
      * Get SubscriptionStatus value
      * @return string|null
      */
-    public function getSubscriptionStatus()
+    public function getSubscriptionStatus(): ?string
     {
         return $this->SubscriptionStatus;
     }
     /**
      * Set SubscriptionStatus value
-     * @uses \Ews\EnumType\EwsSubscriptionStatusType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSubscriptionStatusType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSubscriptionStatusType::valueIsValid()
+     * @uses \EnumType\EwsSubscriptionStatusType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $subscriptionStatus
-     * @return \Ews\StructType\EwsSendNotificationResultType
+     * @return \StructType\EwsSendNotificationResultType
      */
-    public function setSubscriptionStatus($subscriptionStatus = null)
+    public function setSubscriptionStatus(?string $subscriptionStatus = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSubscriptionStatusType::valueIsValid($subscriptionStatus)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSubscriptionStatusType', is_array($subscriptionStatus) ? implode(', ', $subscriptionStatus) : var_export($subscriptionStatus, true), implode(', ', \Ews\EnumType\EwsSubscriptionStatusType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSubscriptionStatusType::valueIsValid($subscriptionStatus)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSubscriptionStatusType', is_array($subscriptionStatus) ? implode(', ', $subscriptionStatus) : var_export($subscriptionStatus, true), implode(', ', \EnumType\EwsSubscriptionStatusType::getValidValues())), __LINE__);
         }
         $this->SubscriptionStatus = $subscriptionStatus;
+        
         return $this;
     }
 }

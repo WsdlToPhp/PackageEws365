@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SetClientExtensionType StructType
@@ -17,35 +20,36 @@ class EwsSetClientExtensionType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType
+     * @var \ArrayType\EwsArrayOfSetClientExtensionActionsType
      */
-    public $Actions;
+    protected \ArrayType\EwsArrayOfSetClientExtensionActionsType $Actions;
     /**
      * Constructor method for SetClientExtensionType
      * @uses EwsSetClientExtensionType::setActions()
-     * @param \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions
+     * @param \ArrayType\EwsArrayOfSetClientExtensionActionsType $actions
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions = null)
+    public function __construct(\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions)
     {
         $this
             ->setActions($actions);
     }
     /**
      * Get Actions value
-     * @return \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType
+     * @return \ArrayType\EwsArrayOfSetClientExtensionActionsType
      */
-    public function getActions()
+    public function getActions(): \ArrayType\EwsArrayOfSetClientExtensionActionsType
     {
         return $this->Actions;
     }
     /**
      * Set Actions value
-     * @param \Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions
-     * @return \Ews\StructType\EwsSetClientExtensionType
+     * @param \ArrayType\EwsArrayOfSetClientExtensionActionsType $actions
+     * @return \StructType\EwsSetClientExtensionType
      */
-    public function setActions(\Ews\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions = null)
+    public function setActions(\ArrayType\EwsArrayOfSetClientExtensionActionsType $actions): self
     {
         $this->Actions = $actions;
+        
         return $this;
     }
 }

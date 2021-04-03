@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ConsumerCalendarSharedInformation StructType
@@ -19,34 +22,34 @@ class EwsConsumerCalendarSharedInformation extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsFolderIdType
+     * @var \StructType\EwsFolderIdType|null
      */
-    public $FolderId;
+    protected ?\StructType\EwsFolderIdType $FolderId = null;
     /**
      * The PermissionLevel
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PermissionLevel;
+    protected ?string $PermissionLevel = null;
     /**
      * The Description
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $Description;
+    protected ?string $Description = null;
     /**
      * Constructor method for ConsumerCalendarSharedInformation
      * @uses EwsConsumerCalendarSharedInformation::setFolderId()
      * @uses EwsConsumerCalendarSharedInformation::setPermissionLevel()
      * @uses EwsConsumerCalendarSharedInformation::setDescription()
-     * @param \Ews\StructType\EwsFolderIdType $folderId
+     * @param \StructType\EwsFolderIdType $folderId
      * @param string $permissionLevel
      * @param string $description
      */
-    public function __construct(\Ews\StructType\EwsFolderIdType $folderId = null, $permissionLevel = null, $description = null)
+    public function __construct(?\StructType\EwsFolderIdType $folderId = null, ?string $permissionLevel = null, ?string $description = null)
     {
         $this
             ->setFolderId($folderId)
@@ -55,67 +58,70 @@ class EwsConsumerCalendarSharedInformation extends AbstractStructBase
     }
     /**
      * Get FolderId value
-     * @return \Ews\StructType\EwsFolderIdType|null
+     * @return \StructType\EwsFolderIdType|null
      */
-    public function getFolderId()
+    public function getFolderId(): ?\StructType\EwsFolderIdType
     {
         return $this->FolderId;
     }
     /**
      * Set FolderId value
-     * @param \Ews\StructType\EwsFolderIdType $folderId
-     * @return \Ews\StructType\EwsConsumerCalendarSharedInformation
+     * @param \StructType\EwsFolderIdType $folderId
+     * @return \StructType\EwsConsumerCalendarSharedInformation
      */
-    public function setFolderId(\Ews\StructType\EwsFolderIdType $folderId = null)
+    public function setFolderId(?\StructType\EwsFolderIdType $folderId = null): self
     {
         $this->FolderId = $folderId;
+        
         return $this;
     }
     /**
      * Get PermissionLevel value
      * @return string|null
      */
-    public function getPermissionLevel()
+    public function getPermissionLevel(): ?string
     {
         return $this->PermissionLevel;
     }
     /**
      * Set PermissionLevel value
-     * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid()
-     * @uses \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSharingInvitationPermissionLevel::valueIsValid()
+     * @uses \EnumType\EwsSharingInvitationPermissionLevel::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $permissionLevel
-     * @return \Ews\StructType\EwsConsumerCalendarSharedInformation
+     * @return \StructType\EwsConsumerCalendarSharedInformation
      */
-    public function setPermissionLevel($permissionLevel = null)
+    public function setPermissionLevel(?string $permissionLevel = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSharingInvitationPermissionLevel', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \Ews\EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSharingInvitationPermissionLevel::valueIsValid($permissionLevel)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSharingInvitationPermissionLevel', is_array($permissionLevel) ? implode(', ', $permissionLevel) : var_export($permissionLevel, true), implode(', ', \EnumType\EwsSharingInvitationPermissionLevel::getValidValues())), __LINE__);
         }
         $this->PermissionLevel = $permissionLevel;
+        
         return $this;
     }
     /**
      * Get Description value
      * @return string|null
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->Description;
     }
     /**
      * Set Description value
      * @param string $description
-     * @return \Ews\StructType\EwsConsumerCalendarSharedInformation
+     * @return \StructType\EwsConsumerCalendarSharedInformation
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description = null): self
     {
         // validation for constraint: string
         if (!is_null($description) && !is_string($description)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($description, true), gettype($description)), __LINE__);
         }
         $this->Description = $description;
+        
         return $this;
     }
 }

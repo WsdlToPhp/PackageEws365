@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for StartFindInGALSpeechRecognitionResponseMessageType
@@ -18,35 +21,36 @@ class EwsStartFindInGALSpeechRecognitionResponseMessageType extends EwsResponseM
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsRecognitionIdType
+     * @var \StructType\EwsRecognitionIdType|null
      */
-    public $RecognitionId;
+    protected ?\StructType\EwsRecognitionIdType $RecognitionId = null;
     /**
      * Constructor method for StartFindInGALSpeechRecognitionResponseMessageType
      * @uses EwsStartFindInGALSpeechRecognitionResponseMessageType::setRecognitionId()
-     * @param \Ews\StructType\EwsRecognitionIdType $recognitionId
+     * @param \StructType\EwsRecognitionIdType $recognitionId
      */
-    public function __construct(\Ews\StructType\EwsRecognitionIdType $recognitionId = null)
+    public function __construct(?\StructType\EwsRecognitionIdType $recognitionId = null)
     {
         $this
             ->setRecognitionId($recognitionId);
     }
     /**
      * Get RecognitionId value
-     * @return \Ews\StructType\EwsRecognitionIdType|null
+     * @return \StructType\EwsRecognitionIdType|null
      */
-    public function getRecognitionId()
+    public function getRecognitionId(): ?\StructType\EwsRecognitionIdType
     {
         return $this->RecognitionId;
     }
     /**
      * Set RecognitionId value
-     * @param \Ews\StructType\EwsRecognitionIdType $recognitionId
-     * @return \Ews\StructType\EwsStartFindInGALSpeechRecognitionResponseMessageType
+     * @param \StructType\EwsRecognitionIdType $recognitionId
+     * @return \StructType\EwsStartFindInGALSpeechRecognitionResponseMessageType
      */
-    public function setRecognitionId(\Ews\StructType\EwsRecognitionIdType $recognitionId = null)
+    public function setRecognitionId(?\StructType\EwsRecognitionIdType $recognitionId = null): self
     {
         $this->RecognitionId = $recognitionId;
+        
         return $this;
     }
 }

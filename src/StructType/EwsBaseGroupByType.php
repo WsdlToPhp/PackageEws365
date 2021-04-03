@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for BaseGroupByType StructType
@@ -18,13 +21,13 @@ abstract class EwsBaseGroupByType extends AbstractStructBase
      * - use: required
      * @var string
      */
-    public $Order;
+    protected string $Order;
     /**
      * Constructor method for BaseGroupByType
      * @uses EwsBaseGroupByType::setOrder()
      * @param string $order
      */
-    public function __construct($order = null)
+    public function __construct(string $order)
     {
         $this
             ->setOrder($order);
@@ -33,25 +36,26 @@ abstract class EwsBaseGroupByType extends AbstractStructBase
      * Get Order value
      * @return string
      */
-    public function getOrder()
+    public function getOrder(): string
     {
         return $this->Order;
     }
     /**
      * Set Order value
-     * @uses \Ews\EnumType\EwsSortDirectionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSortDirectionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSortDirectionType::valueIsValid()
+     * @uses \EnumType\EwsSortDirectionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $order
-     * @return \Ews\StructType\EwsBaseGroupByType
+     * @return \StructType\EwsBaseGroupByType
      */
-    public function setOrder($order = null)
+    public function setOrder(string $order): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSortDirectionType::valueIsValid($order)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSortDirectionType', is_array($order) ? implode(', ', $order) : var_export($order, true), implode(', ', \Ews\EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSortDirectionType::valueIsValid($order)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSortDirectionType', is_array($order) ? implode(', ', $order) : var_export($order, true), implode(', ', \EnumType\EwsSortDirectionType::getValidValues())), __LINE__);
         }
         $this->Order = $order;
+        
         return $this;
     }
 }

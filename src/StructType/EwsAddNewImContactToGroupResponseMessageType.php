@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for AddNewImContactToGroupResponseMessageType StructType
@@ -16,35 +19,36 @@ class EwsAddNewImContactToGroupResponseMessageType extends EwsResponseMessageTyp
      * The Persona
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsPersonaType
+     * @var \StructType\EwsPersonaType|null
      */
-    public $Persona;
+    protected ?\StructType\EwsPersonaType $Persona = null;
     /**
      * Constructor method for AddNewImContactToGroupResponseMessageType
      * @uses EwsAddNewImContactToGroupResponseMessageType::setPersona()
-     * @param \Ews\StructType\EwsPersonaType $persona
+     * @param \StructType\EwsPersonaType $persona
      */
-    public function __construct(\Ews\StructType\EwsPersonaType $persona = null)
+    public function __construct(?\StructType\EwsPersonaType $persona = null)
     {
         $this
             ->setPersona($persona);
     }
     /**
      * Get Persona value
-     * @return \Ews\StructType\EwsPersonaType|null
+     * @return \StructType\EwsPersonaType|null
      */
-    public function getPersona()
+    public function getPersona(): ?\StructType\EwsPersonaType
     {
         return $this->Persona;
     }
     /**
      * Set Persona value
-     * @param \Ews\StructType\EwsPersonaType $persona
-     * @return \Ews\StructType\EwsAddNewImContactToGroupResponseMessageType
+     * @param \StructType\EwsPersonaType $persona
+     * @return \StructType\EwsAddNewImContactToGroupResponseMessageType
      */
-    public function setPersona(\Ews\StructType\EwsPersonaType $persona = null)
+    public function setPersona(?\StructType\EwsPersonaType $persona = null): self
     {
         $this->Persona = $persona;
+        
         return $this;
     }
 }

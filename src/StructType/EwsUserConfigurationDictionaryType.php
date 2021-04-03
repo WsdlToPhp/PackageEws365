@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UserConfigurationDictionaryType StructType
@@ -17,24 +20,24 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]
+     * @var \StructType\EwsUserConfigurationDictionaryEntryType[]
      */
-    public $DictionaryEntry;
+    protected array $DictionaryEntry = [];
     /**
      * Constructor method for UserConfigurationDictionaryType
      * @uses EwsUserConfigurationDictionaryType::setDictionaryEntry()
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
+     * @param \StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
      */
-    public function __construct(array $dictionaryEntry = array())
+    public function __construct(array $dictionaryEntry = [])
     {
         $this
             ->setDictionaryEntry($dictionaryEntry);
     }
     /**
      * Get DictionaryEntry value
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryEntryType[]|null
+     * @return \StructType\EwsUserConfigurationDictionaryEntryType[]
      */
-    public function getDictionaryEntry()
+    public function getDictionaryEntry(): array
     {
         return $this->DictionaryEntry;
     }
@@ -44,50 +47,53 @@ class EwsUserConfigurationDictionaryType extends AbstractStructBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDictionaryEntryForArrayConstraintsFromSetDictionaryEntry(array $values = array())
+    public static function validateDictionaryEntryForArrayConstraintsFromSetDictionaryEntry(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $userConfigurationDictionaryTypeDictionaryEntryItem) {
             // validation for constraint: itemType
-            if (!$userConfigurationDictionaryTypeDictionaryEntryItem instanceof \Ews\StructType\EwsUserConfigurationDictionaryEntryType) {
+            if (!$userConfigurationDictionaryTypeDictionaryEntryItem instanceof \StructType\EwsUserConfigurationDictionaryEntryType) {
                 $invalidValues[] = is_object($userConfigurationDictionaryTypeDictionaryEntryItem) ? get_class($userConfigurationDictionaryTypeDictionaryEntryItem) : sprintf('%s(%s)', gettype($userConfigurationDictionaryTypeDictionaryEntryItem), var_export($userConfigurationDictionaryTypeDictionaryEntryItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The DictionaryEntry property can only contain items of type \Ews\StructType\EwsUserConfigurationDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The DictionaryEntry property can only contain items of type \StructType\EwsUserConfigurationDictionaryEntryType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set DictionaryEntry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserConfigurationDictionaryEntryType[] $dictionaryEntry
+     * @return \StructType\EwsUserConfigurationDictionaryType
      */
-    public function setDictionaryEntry(array $dictionaryEntry = array())
+    public function setDictionaryEntry(array $dictionaryEntry = []): self
     {
         // validation for constraint: array
         if ('' !== ($dictionaryEntryArrayErrorMessage = self::validateDictionaryEntryForArrayConstraintsFromSetDictionaryEntry($dictionaryEntry))) {
-            throw new \InvalidArgumentException($dictionaryEntryArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($dictionaryEntryArrayErrorMessage, __LINE__);
         }
         $this->DictionaryEntry = $dictionaryEntry;
+        
         return $this;
     }
     /**
      * Add item to DictionaryEntry value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUserConfigurationDictionaryEntryType $item
-     * @return \Ews\StructType\EwsUserConfigurationDictionaryType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUserConfigurationDictionaryEntryType $item
+     * @return \StructType\EwsUserConfigurationDictionaryType
      */
-    public function addToDictionaryEntry(\Ews\StructType\EwsUserConfigurationDictionaryEntryType $item)
+    public function addToDictionaryEntry(\StructType\EwsUserConfigurationDictionaryEntryType $item): self
     {
         // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsUserConfigurationDictionaryEntryType) {
-            throw new \InvalidArgumentException(sprintf('The DictionaryEntry property can only contain items of type \Ews\StructType\EwsUserConfigurationDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        if (!$item instanceof \StructType\EwsUserConfigurationDictionaryEntryType) {
+            throw new InvalidArgumentException(sprintf('The DictionaryEntry property can only contain items of type \StructType\EwsUserConfigurationDictionaryEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->DictionaryEntry[] = $item;
+        
         return $this;
     }
 }

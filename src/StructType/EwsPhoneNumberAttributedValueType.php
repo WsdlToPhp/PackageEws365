@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for PhoneNumberAttributedValueType StructType
@@ -17,25 +20,25 @@ class EwsPhoneNumberAttributedValueType extends AbstractStructBase
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsPersonaPhoneNumberType
+     * @var \StructType\EwsPersonaPhoneNumberType
      */
-    public $Value;
+    protected \StructType\EwsPersonaPhoneNumberType $Value;
     /**
      * The Attributions
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @var \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public $Attributions;
+    protected \ArrayType\EwsArrayOfValueAttributionsType $Attributions;
     /**
      * Constructor method for PhoneNumberAttributedValueType
      * @uses EwsPhoneNumberAttributedValueType::setValue()
      * @uses EwsPhoneNumberAttributedValueType::setAttributions()
-     * @param \Ews\StructType\EwsPersonaPhoneNumberType $value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @param \StructType\EwsPersonaPhoneNumberType $value
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
      */
-    public function __construct(\Ews\StructType\EwsPersonaPhoneNumberType $value = null, \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function __construct(\StructType\EwsPersonaPhoneNumberType $value, \ArrayType\EwsArrayOfValueAttributionsType $attributions)
     {
         $this
             ->setValue($value)
@@ -43,38 +46,40 @@ class EwsPhoneNumberAttributedValueType extends AbstractStructBase
     }
     /**
      * Get Value value
-     * @return \Ews\StructType\EwsPersonaPhoneNumberType
+     * @return \StructType\EwsPersonaPhoneNumberType
      */
-    public function getValue()
+    public function getValue(): \StructType\EwsPersonaPhoneNumberType
     {
         return $this->Value;
     }
     /**
      * Set Value value
-     * @param \Ews\StructType\EwsPersonaPhoneNumberType $value
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType
+     * @param \StructType\EwsPersonaPhoneNumberType $value
+     * @return \StructType\EwsPhoneNumberAttributedValueType
      */
-    public function setValue(\Ews\StructType\EwsPersonaPhoneNumberType $value = null)
+    public function setValue(\StructType\EwsPersonaPhoneNumberType $value): self
     {
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Attributions value
-     * @return \Ews\ArrayType\EwsArrayOfValueAttributionsType
+     * @return \ArrayType\EwsArrayOfValueAttributionsType
      */
-    public function getAttributions()
+    public function getAttributions(): \ArrayType\EwsArrayOfValueAttributionsType
     {
         return $this->Attributions;
     }
     /**
      * Set Attributions value
-     * @param \Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions
-     * @return \Ews\StructType\EwsPhoneNumberAttributedValueType
+     * @param \ArrayType\EwsArrayOfValueAttributionsType $attributions
+     * @return \StructType\EwsPhoneNumberAttributedValueType
      */
-    public function setAttributions(\Ews\ArrayType\EwsArrayOfValueAttributionsType $attributions = null)
+    public function setAttributions(\ArrayType\EwsArrayOfValueAttributionsType $attributions): self
     {
         $this->Attributions = $attributions;
+        
         return $this;
     }
 }

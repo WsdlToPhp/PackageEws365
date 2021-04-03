@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateUMCallDataRecordType StructType
@@ -17,35 +20,36 @@ class EwsCreateUMCallDataRecordType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsCDRDataType
+     * @var \StructType\EwsCDRDataType
      */
-    public $CDRData;
+    protected \StructType\EwsCDRDataType $CDRData;
     /**
      * Constructor method for CreateUMCallDataRecordType
      * @uses EwsCreateUMCallDataRecordType::setCDRData()
-     * @param \Ews\StructType\EwsCDRDataType $cDRData
+     * @param \StructType\EwsCDRDataType $cDRData
      */
-    public function __construct(\Ews\StructType\EwsCDRDataType $cDRData = null)
+    public function __construct(\StructType\EwsCDRDataType $cDRData)
     {
         $this
             ->setCDRData($cDRData);
     }
     /**
      * Get CDRData value
-     * @return \Ews\StructType\EwsCDRDataType
+     * @return \StructType\EwsCDRDataType
      */
-    public function getCDRData()
+    public function getCDRData(): \StructType\EwsCDRDataType
     {
         return $this->CDRData;
     }
     /**
      * Set CDRData value
-     * @param \Ews\StructType\EwsCDRDataType $cDRData
-     * @return \Ews\StructType\EwsCreateUMCallDataRecordType
+     * @param \StructType\EwsCDRDataType $cDRData
+     * @return \StructType\EwsCreateUMCallDataRecordType
      */
-    public function setCDRData(\Ews\StructType\EwsCDRDataType $cDRData = null)
+    public function setCDRData(\StructType\EwsCDRDataType $cDRData): self
     {
         $this->CDRData = $cDRData;
+        
         return $this;
     }
 }

@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DeleteAttachmentType StructType
@@ -14,35 +17,36 @@ class EwsDeleteAttachmentType extends EwsBaseRequestType
 {
     /**
      * The AttachmentIds
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType
+     * @var \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
      */
-    public $AttachmentIds;
+    protected ?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $AttachmentIds = null;
     /**
      * Constructor method for DeleteAttachmentType
      * @uses EwsDeleteAttachmentType::setAttachmentIds()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
+     * @param \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
     {
         $this
             ->setAttachmentIds($attachmentIds);
     }
     /**
      * Get AttachmentIds value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType|null
      */
-    public function getAttachmentIds()
+    public function getAttachmentIds(): ?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType
     {
         return $this->AttachmentIds;
     }
     /**
      * Set AttachmentIds value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
-     * @return \Ews\StructType\EwsDeleteAttachmentType
+     * @param \ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds
+     * @return \StructType\EwsDeleteAttachmentType
      */
-    public function setAttachmentIds(\Ews\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null)
+    public function setAttachmentIds(?\ArrayType\EwsNonEmptyArrayOfRequestAttachmentIdsType $attachmentIds = null): self
     {
         $this->AttachmentIds = $attachmentIds;
+        
         return $this;
     }
 }

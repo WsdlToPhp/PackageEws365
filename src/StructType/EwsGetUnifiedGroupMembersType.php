@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetUnifiedGroupMembersType StructType
@@ -16,33 +19,33 @@ class EwsGetUnifiedGroupMembersType extends EwsUnifiedGroupBaseRequestType
      * The GroupMembersResponseShape
      * Meta information extracted from the WSDL
      * - ref: t:GroupMembersResponseShape
-     * @var string
+     * @var string|null
      */
-    public $GroupMembersResponseShape;
+    protected ?string $GroupMembersResponseShape = null;
     /**
      * The MembersPaging
      * Meta information extracted from the WSDL
      * - ref: t:MembersPaging
-     * @var \Ews\StructType\EwsBasePagingType
+     * @var \StructType\EwsBasePagingType|null
      */
-    public $MembersPaging;
+    protected ?\StructType\EwsBasePagingType $MembersPaging = null;
     /**
      * The MembersSortOrder
      * Meta information extracted from the WSDL
      * - ref: t:MembersSortOrder
-     * @var string
+     * @var string|null
      */
-    public $MembersSortOrder;
+    protected ?string $MembersSortOrder = null;
     /**
      * Constructor method for GetUnifiedGroupMembersType
      * @uses EwsGetUnifiedGroupMembersType::setGroupMembersResponseShape()
      * @uses EwsGetUnifiedGroupMembersType::setMembersPaging()
      * @uses EwsGetUnifiedGroupMembersType::setMembersSortOrder()
      * @param string $groupMembersResponseShape
-     * @param \Ews\StructType\EwsBasePagingType $membersPaging
+     * @param \StructType\EwsBasePagingType $membersPaging
      * @param string $membersSortOrder
      */
-    public function __construct($groupMembersResponseShape = null, \Ews\StructType\EwsBasePagingType $membersPaging = null, $membersSortOrder = null)
+    public function __construct(?string $groupMembersResponseShape = null, ?\StructType\EwsBasePagingType $membersPaging = null, ?string $membersSortOrder = null)
     {
         $this
             ->setGroupMembersResponseShape($groupMembersResponseShape)
@@ -53,68 +56,71 @@ class EwsGetUnifiedGroupMembersType extends EwsUnifiedGroupBaseRequestType
      * Get GroupMembersResponseShape value
      * @return string|null
      */
-    public function getGroupMembersResponseShape()
+    public function getGroupMembersResponseShape(): ?string
     {
         return $this->GroupMembersResponseShape;
     }
     /**
      * Set GroupMembersResponseShape value
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $groupMembersResponseShape
-     * @return \Ews\StructType\EwsGetUnifiedGroupMembersType
+     * @return \StructType\EwsGetUnifiedGroupMembersType
      */
-    public function setGroupMembersResponseShape($groupMembersResponseShape = null)
+    public function setGroupMembersResponseShape(?string $groupMembersResponseShape = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid($groupMembersResponseShape)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType', is_array($groupMembersResponseShape) ? implode(', ', $groupMembersResponseShape) : var_export($groupMembersResponseShape, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupMembersResponseShapeType::valueIsValid($groupMembersResponseShape)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupMembersResponseShapeType', is_array($groupMembersResponseShape) ? implode(', ', $groupMembersResponseShape) : var_export($groupMembersResponseShape, true), implode(', ', \EnumType\EwsUnifiedGroupMembersResponseShapeType::getValidValues())), __LINE__);
         }
         $this->GroupMembersResponseShape = $groupMembersResponseShape;
+        
         return $this;
     }
     /**
      * Get MembersPaging value
-     * @return \Ews\StructType\EwsBasePagingType|null
+     * @return \StructType\EwsBasePagingType|null
      */
-    public function getMembersPaging()
+    public function getMembersPaging(): ?\StructType\EwsBasePagingType
     {
         return $this->MembersPaging;
     }
     /**
      * Set MembersPaging value
-     * @param \Ews\StructType\EwsBasePagingType $membersPaging
-     * @return \Ews\StructType\EwsGetUnifiedGroupMembersType
+     * @param \StructType\EwsBasePagingType $membersPaging
+     * @return \StructType\EwsGetUnifiedGroupMembersType
      */
-    public function setMembersPaging(\Ews\StructType\EwsBasePagingType $membersPaging = null)
+    public function setMembersPaging(?\StructType\EwsBasePagingType $membersPaging = null): self
     {
         $this->MembersPaging = $membersPaging;
+        
         return $this;
     }
     /**
      * Get MembersSortOrder value
      * @return string|null
      */
-    public function getMembersSortOrder()
+    public function getMembersSortOrder(): ?string
     {
         return $this->MembersSortOrder;
     }
     /**
      * Set MembersSortOrder value
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembersSortType::valueIsValid()
-     * @uses \Ews\EnumType\EwsUnifiedGroupMembersSortType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsUnifiedGroupMembersSortType::valueIsValid()
+     * @uses \EnumType\EwsUnifiedGroupMembersSortType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $membersSortOrder
-     * @return \Ews\StructType\EwsGetUnifiedGroupMembersType
+     * @return \StructType\EwsGetUnifiedGroupMembersType
      */
-    public function setMembersSortOrder($membersSortOrder = null)
+    public function setMembersSortOrder(?string $membersSortOrder = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsUnifiedGroupMembersSortType::valueIsValid($membersSortOrder)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsUnifiedGroupMembersSortType', is_array($membersSortOrder) ? implode(', ', $membersSortOrder) : var_export($membersSortOrder, true), implode(', ', \Ews\EnumType\EwsUnifiedGroupMembersSortType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsUnifiedGroupMembersSortType::valueIsValid($membersSortOrder)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsUnifiedGroupMembersSortType', is_array($membersSortOrder) ? implode(', ', $membersSortOrder) : var_export($membersSortOrder, true), implode(', ', \EnumType\EwsUnifiedGroupMembersSortType::getValidValues())), __LINE__);
         }
         $this->MembersSortOrder = $membersSortOrder;
+        
         return $this;
     }
 }

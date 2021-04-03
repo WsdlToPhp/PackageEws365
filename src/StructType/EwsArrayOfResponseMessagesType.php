@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for ArrayOfResponseMessagesType StructType
@@ -29,9 +32,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemInfoResponseMessageType
+     * @var \StructType\EwsItemInfoResponseMessageType|null
      */
-    public $CreateItemResponseMessage;
+    protected ?\StructType\EwsItemInfoResponseMessageType $CreateItemResponseMessage = null;
     /**
      * The DeleteItemResponseMessage
      * Meta information extracted from the WSDL
@@ -49,9 +52,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDeleteItemResponseMessageType
+     * @var \StructType\EwsDeleteItemResponseMessageType|null
      */
-    public $DeleteItemResponseMessage;
+    protected ?\StructType\EwsDeleteItemResponseMessageType $DeleteItemResponseMessage = null;
     /**
      * The GetItemResponseMessage
      * Meta information extracted from the WSDL
@@ -69,9 +72,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemInfoResponseMessageType
+     * @var \StructType\EwsItemInfoResponseMessageType|null
      */
-    public $GetItemResponseMessage;
+    protected ?\StructType\EwsItemInfoResponseMessageType $GetItemResponseMessage = null;
     /**
      * The UpdateItemResponseMessage
      * Meta information extracted from the WSDL
@@ -89,9 +92,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUpdateItemResponseMessageType
+     * @var \StructType\EwsUpdateItemResponseMessageType|null
      */
-    public $UpdateItemResponseMessage;
+    protected ?\StructType\EwsUpdateItemResponseMessageType $UpdateItemResponseMessage = null;
     /**
      * The UpdateItemInRecoverableItemsResponseMessage
      * Meta information extracted from the WSDL
@@ -109,9 +112,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
+     * @var \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType|null
      */
-    public $UpdateItemInRecoverableItemsResponseMessage;
+    protected ?\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $UpdateItemInRecoverableItemsResponseMessage = null;
     /**
      * The SendItemResponseMessage
      * Meta information extracted from the WSDL
@@ -129,9 +132,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $SendItemResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $SendItemResponseMessage = null;
     /**
      * The DeleteFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -149,9 +152,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $DeleteFolderResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $DeleteFolderResponseMessage = null;
     /**
      * The EmptyFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -169,9 +172,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $EmptyFolderResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $EmptyFolderResponseMessage = null;
     /**
      * The CreateFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -189,9 +192,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $CreateFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $CreateFolderResponseMessage = null;
     /**
      * The GetFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -209,9 +212,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $GetFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $GetFolderResponseMessage = null;
     /**
      * The FindFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -229,9 +232,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFindFolderResponseMessageType
+     * @var \StructType\EwsFindFolderResponseMessageType|null
      */
-    public $FindFolderResponseMessage;
+    protected ?\StructType\EwsFindFolderResponseMessageType $FindFolderResponseMessage = null;
     /**
      * The UpdateFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -249,9 +252,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $UpdateFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $UpdateFolderResponseMessage = null;
     /**
      * The MoveFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -269,9 +272,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $MoveFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $MoveFolderResponseMessage = null;
     /**
      * The CopyFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -289,9 +292,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $CopyFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $CopyFolderResponseMessage = null;
     /**
      * The CreateFolderPathResponseMessage
      * Meta information extracted from the WSDL
@@ -309,9 +312,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $CreateFolderPathResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $CreateFolderPathResponseMessage = null;
     /**
      * The CreateAttachmentResponseMessage
      * Meta information extracted from the WSDL
@@ -329,9 +332,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAttachmentInfoResponseMessageType
+     * @var \StructType\EwsAttachmentInfoResponseMessageType|null
      */
-    public $CreateAttachmentResponseMessage;
+    protected ?\StructType\EwsAttachmentInfoResponseMessageType $CreateAttachmentResponseMessage = null;
     /**
      * The DeleteAttachmentResponseMessage
      * Meta information extracted from the WSDL
@@ -349,9 +352,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsDeleteAttachmentResponseMessageType
+     * @var \StructType\EwsDeleteAttachmentResponseMessageType|null
      */
-    public $DeleteAttachmentResponseMessage;
+    protected ?\StructType\EwsDeleteAttachmentResponseMessageType $DeleteAttachmentResponseMessage = null;
     /**
      * The GetAttachmentResponseMessage
      * Meta information extracted from the WSDL
@@ -369,9 +372,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAttachmentInfoResponseMessageType
+     * @var \StructType\EwsAttachmentInfoResponseMessageType|null
      */
-    public $GetAttachmentResponseMessage;
+    protected ?\StructType\EwsAttachmentInfoResponseMessageType $GetAttachmentResponseMessage = null;
     /**
      * The UploadItemsResponseMessage
      * Meta information extracted from the WSDL
@@ -389,9 +392,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsUploadItemsResponseMessageType
+     * @var \StructType\EwsUploadItemsResponseMessageType|null
      */
-    public $UploadItemsResponseMessage;
+    protected ?\StructType\EwsUploadItemsResponseMessageType $UploadItemsResponseMessage = null;
     /**
      * The ExportItemsResponseMessage
      * Meta information extracted from the WSDL
@@ -409,9 +412,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsExportItemsResponseMessageType
+     * @var \StructType\EwsExportItemsResponseMessageType|null
      */
-    public $ExportItemsResponseMessage;
+    protected ?\StructType\EwsExportItemsResponseMessageType $ExportItemsResponseMessage = null;
     /**
      * The MarkAllItemsAsReadResponseMessage
      * Meta information extracted from the WSDL
@@ -429,9 +432,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $MarkAllItemsAsReadResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $MarkAllItemsAsReadResponseMessage = null;
     /**
      * The GetClientAccessTokenResponseMessage
      * Meta information extracted from the WSDL
@@ -449,9 +452,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetClientAccessTokenResponseMessageType
+     * @var \StructType\EwsGetClientAccessTokenResponseMessageType|null
      */
-    public $GetClientAccessTokenResponseMessage;
+    protected ?\StructType\EwsGetClientAccessTokenResponseMessageType $GetClientAccessTokenResponseMessage = null;
     /**
      * The GetAppManifestsResponseMessage
      * Meta information extracted from the WSDL
@@ -469,9 +472,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $GetAppManifestsResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $GetAppManifestsResponseMessage = null;
     /**
      * The GetClientExtensionResponseMessage
      * Meta information extracted from the WSDL
@@ -489,9 +492,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $GetClientExtensionResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $GetClientExtensionResponseMessage = null;
     /**
      * The SetClientExtensionResponseMessage
      * Meta information extracted from the WSDL
@@ -509,9 +512,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $SetClientExtensionResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $SetClientExtensionResponseMessage = null;
     /**
      * The GetEncryptionConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -529,9 +532,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $GetEncryptionConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $GetEncryptionConfigurationResponseMessage = null;
     /**
      * The SetEncryptionConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -549,9 +552,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $SetEncryptionConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $SetEncryptionConfigurationResponseMessage = null;
     /**
      * The GetOMEConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -569,9 +572,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $GetOMEConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $GetOMEConfigurationResponseMessage = null;
     /**
      * The SetOMEConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -589,9 +592,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $SetOMEConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $SetOMEConfigurationResponseMessage = null;
     /**
      * The FindItemResponseMessage
      * Meta information extracted from the WSDL
@@ -609,9 +612,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFindItemResponseMessageType
+     * @var \StructType\EwsFindItemResponseMessageType|null
      */
-    public $FindItemResponseMessage;
+    protected ?\StructType\EwsFindItemResponseMessageType $FindItemResponseMessage = null;
     /**
      * The MoveItemResponseMessage
      * Meta information extracted from the WSDL
@@ -629,9 +632,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemInfoResponseMessageType
+     * @var \StructType\EwsItemInfoResponseMessageType|null
      */
-    public $MoveItemResponseMessage;
+    protected ?\StructType\EwsItemInfoResponseMessageType $MoveItemResponseMessage = null;
     /**
      * The ArchiveItemResponseMessage
      * Meta information extracted from the WSDL
@@ -649,9 +652,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemInfoResponseMessageType
+     * @var \StructType\EwsItemInfoResponseMessageType|null
      */
-    public $ArchiveItemResponseMessage;
+    protected ?\StructType\EwsItemInfoResponseMessageType $ArchiveItemResponseMessage = null;
     /**
      * The CopyItemResponseMessage
      * Meta information extracted from the WSDL
@@ -669,9 +672,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsItemInfoResponseMessageType
+     * @var \StructType\EwsItemInfoResponseMessageType|null
      */
-    public $CopyItemResponseMessage;
+    protected ?\StructType\EwsItemInfoResponseMessageType $CopyItemResponseMessage = null;
     /**
      * The ResolveNamesResponseMessage
      * Meta information extracted from the WSDL
@@ -689,9 +692,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResolveNamesResponseMessageType
+     * @var \StructType\EwsResolveNamesResponseMessageType|null
      */
-    public $ResolveNamesResponseMessage;
+    protected ?\StructType\EwsResolveNamesResponseMessageType $ResolveNamesResponseMessage = null;
     /**
      * The ExpandDLResponseMessage
      * Meta information extracted from the WSDL
@@ -709,9 +712,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsExpandDLResponseMessageType
+     * @var \StructType\EwsExpandDLResponseMessageType|null
      */
-    public $ExpandDLResponseMessage;
+    protected ?\StructType\EwsExpandDLResponseMessageType $ExpandDLResponseMessage = null;
     /**
      * The GetServerTimeZonesResponseMessage
      * Meta information extracted from the WSDL
@@ -729,9 +732,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetServerTimeZonesResponseMessageType
+     * @var \StructType\EwsGetServerTimeZonesResponseMessageType|null
      */
-    public $GetServerTimeZonesResponseMessage;
+    protected ?\StructType\EwsGetServerTimeZonesResponseMessageType $GetServerTimeZonesResponseMessage = null;
     /**
      * The GetEventsResponseMessage
      * Meta information extracted from the WSDL
@@ -749,9 +752,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetEventsResponseMessageType
+     * @var \StructType\EwsGetEventsResponseMessageType|null
      */
-    public $GetEventsResponseMessage;
+    protected ?\StructType\EwsGetEventsResponseMessageType $GetEventsResponseMessage = null;
     /**
      * The GetStreamingEventsResponseMessage
      * Meta information extracted from the WSDL
@@ -769,9 +772,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetStreamingEventsResponseMessageType
+     * @var \StructType\EwsGetStreamingEventsResponseMessageType|null
      */
-    public $GetStreamingEventsResponseMessage;
+    protected ?\StructType\EwsGetStreamingEventsResponseMessageType $GetStreamingEventsResponseMessage = null;
     /**
      * The SubscribeResponseMessage
      * Meta information extracted from the WSDL
@@ -789,9 +792,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSubscribeResponseMessageType
+     * @var \StructType\EwsSubscribeResponseMessageType|null
      */
-    public $SubscribeResponseMessage;
+    protected ?\StructType\EwsSubscribeResponseMessageType $SubscribeResponseMessage = null;
     /**
      * The UnsubscribeResponseMessage
      * Meta information extracted from the WSDL
@@ -809,9 +812,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $UnsubscribeResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $UnsubscribeResponseMessage = null;
     /**
      * The GetChannelEventsResponseMessage
      * Meta information extracted from the WSDL
@@ -829,9 +832,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetChannelEventsResponseMessageType
+     * @var \StructType\EwsGetChannelEventsResponseMessageType|null
      */
-    public $GetChannelEventsResponseMessage;
+    protected ?\StructType\EwsGetChannelEventsResponseMessageType $GetChannelEventsResponseMessage = null;
     /**
      * The ChannelSubscribeResponseMessage
      * Meta information extracted from the WSDL
@@ -849,9 +852,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsChannelSubscribeResponseMessageType
+     * @var \StructType\EwsChannelSubscribeResponseMessageType|null
      */
-    public $ChannelSubscribeResponseMessage;
+    protected ?\StructType\EwsChannelSubscribeResponseMessageType $ChannelSubscribeResponseMessage = null;
     /**
      * The ChannelUnsubscribeResponseMessage
      * Meta information extracted from the WSDL
@@ -869,9 +872,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $ChannelUnsubscribeResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $ChannelUnsubscribeResponseMessage = null;
     /**
      * The SendNotificationResponseMessage
      * Meta information extracted from the WSDL
@@ -889,9 +892,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSendNotificationResponseMessageType
+     * @var \StructType\EwsSendNotificationResponseMessageType|null
      */
-    public $SendNotificationResponseMessage;
+    protected ?\StructType\EwsSendNotificationResponseMessageType $SendNotificationResponseMessage = null;
     /**
      * The SyncFolderHierarchyResponseMessage
      * Meta information extracted from the WSDL
@@ -909,9 +912,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType
+     * @var \StructType\EwsSyncFolderHierarchyResponseMessageType|null
      */
-    public $SyncFolderHierarchyResponseMessage;
+    protected ?\StructType\EwsSyncFolderHierarchyResponseMessageType $SyncFolderHierarchyResponseMessage = null;
     /**
      * The SyncFolderItemsResponseMessage
      * Meta information extracted from the WSDL
@@ -929,9 +932,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSyncFolderItemsResponseMessageType
+     * @var \StructType\EwsSyncFolderItemsResponseMessageType|null
      */
-    public $SyncFolderItemsResponseMessage;
+    protected ?\StructType\EwsSyncFolderItemsResponseMessageType $SyncFolderItemsResponseMessage = null;
     /**
      * The CreateManagedFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -949,9 +952,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFolderInfoResponseMessageType
+     * @var \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public $CreateManagedFolderResponseMessage;
+    protected ?\StructType\EwsFolderInfoResponseMessageType $CreateManagedFolderResponseMessage = null;
     /**
      * The ConvertIdResponseMessage
      * Meta information extracted from the WSDL
@@ -969,9 +972,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsConvertIdResponseMessageType
+     * @var \StructType\EwsConvertIdResponseMessageType|null
      */
-    public $ConvertIdResponseMessage;
+    protected ?\StructType\EwsConvertIdResponseMessageType $ConvertIdResponseMessage = null;
     /**
      * The GetSharingMetadataResponseMessage
      * Meta information extracted from the WSDL
@@ -989,9 +992,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetSharingMetadataResponseMessageType
+     * @var \StructType\EwsGetSharingMetadataResponseMessageType|null
      */
-    public $GetSharingMetadataResponseMessage;
+    protected ?\StructType\EwsGetSharingMetadataResponseMessageType $GetSharingMetadataResponseMessage = null;
     /**
      * The RefreshSharingFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -1009,9 +1012,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsRefreshSharingFolderResponseMessageType
+     * @var \StructType\EwsRefreshSharingFolderResponseMessageType|null
      */
-    public $RefreshSharingFolderResponseMessage;
+    protected ?\StructType\EwsRefreshSharingFolderResponseMessageType $RefreshSharingFolderResponseMessage = null;
     /**
      * The GetSharingFolderResponseMessage
      * Meta information extracted from the WSDL
@@ -1029,9 +1032,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetSharingFolderResponseMessageType
+     * @var \StructType\EwsGetSharingFolderResponseMessageType|null
      */
-    public $GetSharingFolderResponseMessage;
+    protected ?\StructType\EwsGetSharingFolderResponseMessageType $GetSharingFolderResponseMessage = null;
     /**
      * The CreateUserConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -1049,9 +1052,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $CreateUserConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $CreateUserConfigurationResponseMessage = null;
     /**
      * The DeleteUserConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -1069,9 +1072,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $DeleteUserConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $DeleteUserConfigurationResponseMessage = null;
     /**
      * The GetUserConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -1089,9 +1092,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetUserConfigurationResponseMessageType
+     * @var \StructType\EwsGetUserConfigurationResponseMessageType|null
      */
-    public $GetUserConfigurationResponseMessage;
+    protected ?\StructType\EwsGetUserConfigurationResponseMessageType $GetUserConfigurationResponseMessage = null;
     /**
      * The UpdateUserConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -1109,9 +1112,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $UpdateUserConfigurationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $UpdateUserConfigurationResponseMessage = null;
     /**
      * The GetRoomListsResponse
      * Meta information extracted from the WSDL
@@ -1129,9 +1132,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetRoomListsResponseMessageType
+     * @var \StructType\EwsGetRoomListsResponseMessageType|null
      */
-    public $GetRoomListsResponse;
+    protected ?\StructType\EwsGetRoomListsResponseMessageType $GetRoomListsResponse = null;
     /**
      * The GetRoomsResponse
      * Meta information extracted from the WSDL
@@ -1149,9 +1152,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetRoomsResponseMessageType
+     * @var \StructType\EwsGetRoomsResponseMessageType|null
      */
-    public $GetRoomsResponse;
+    protected ?\StructType\EwsGetRoomsResponseMessageType $GetRoomsResponse = null;
     /**
      * The GetRemindersResponse
      * Meta information extracted from the WSDL
@@ -1169,9 +1172,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetRemindersResponseMessageType
+     * @var \StructType\EwsGetRemindersResponseMessageType|null
      */
-    public $GetRemindersResponse;
+    protected ?\StructType\EwsGetRemindersResponseMessageType $GetRemindersResponse = null;
     /**
      * The PerformReminderActionResponse
      * Meta information extracted from the WSDL
@@ -1189,9 +1192,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsPerformReminderActionResponseMessageType
+     * @var \StructType\EwsPerformReminderActionResponseMessageType|null
      */
-    public $PerformReminderActionResponse;
+    protected ?\StructType\EwsPerformReminderActionResponseMessageType $PerformReminderActionResponse = null;
     /**
      * The ApplyConversationActionResponseMessage
      * Meta information extracted from the WSDL
@@ -1209,9 +1212,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsApplyConversationActionResponseMessageType
+     * @var \StructType\EwsApplyConversationActionResponseMessageType|null
      */
-    public $ApplyConversationActionResponseMessage;
+    protected ?\StructType\EwsApplyConversationActionResponseMessageType $ApplyConversationActionResponseMessage = null;
     /**
      * The FindMailboxStatisticsByKeywordsResponseMessage
      * Meta information extracted from the WSDL
@@ -1229,9 +1232,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
+     * @var \StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType|null
      */
-    public $FindMailboxStatisticsByKeywordsResponseMessage;
+    protected ?\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $FindMailboxStatisticsByKeywordsResponseMessage = null;
     /**
      * The GetSearchableMailboxesResponseMessage
      * Meta information extracted from the WSDL
@@ -1249,9 +1252,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType
+     * @var \StructType\EwsGetSearchableMailboxesResponseMessageType|null
      */
-    public $GetSearchableMailboxesResponseMessage;
+    protected ?\StructType\EwsGetSearchableMailboxesResponseMessageType $GetSearchableMailboxesResponseMessage = null;
     /**
      * The SearchMailboxesResponseMessage
      * Meta information extracted from the WSDL
@@ -1269,9 +1272,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSearchMailboxesResponseMessageType
+     * @var \StructType\EwsSearchMailboxesResponseMessageType|null
      */
-    public $SearchMailboxesResponseMessage;
+    protected ?\StructType\EwsSearchMailboxesResponseMessageType $SearchMailboxesResponseMessage = null;
     /**
      * The GetDiscoverySearchConfigurationResponseMessage
      * Meta information extracted from the WSDL
@@ -1289,9 +1292,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
+     * @var \StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|null
      */
-    public $GetDiscoverySearchConfigurationResponseMessage;
+    protected ?\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $GetDiscoverySearchConfigurationResponseMessage = null;
     /**
      * The GetHoldOnMailboxesResponseMessage
      * Meta information extracted from the WSDL
@@ -1309,9 +1312,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType
+     * @var \StructType\EwsGetHoldOnMailboxesResponseMessageType|null
      */
-    public $GetHoldOnMailboxesResponseMessage;
+    protected ?\StructType\EwsGetHoldOnMailboxesResponseMessageType $GetHoldOnMailboxesResponseMessage = null;
     /**
      * The SetHoldOnMailboxesResponseMessage
      * Meta information extracted from the WSDL
@@ -1329,9 +1332,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType
+     * @var \StructType\EwsSetHoldOnMailboxesResponseMessageType|null
      */
-    public $SetHoldOnMailboxesResponseMessage;
+    protected ?\StructType\EwsSetHoldOnMailboxesResponseMessageType $SetHoldOnMailboxesResponseMessage = null;
     /**
      * The GetNonIndexableItemStatisticsResponseMessage
      * Meta information extracted from the WSDL
@@ -1349,9 +1352,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
+     * @var \StructType\EwsGetNonIndexableItemStatisticsResponseMessageType|null
      */
-    public $GetNonIndexableItemStatisticsResponseMessage;
+    protected ?\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $GetNonIndexableItemStatisticsResponseMessage = null;
     /**
      * The GetNonIndexableItemDetailsResponseMessage
      * Meta information extracted from the WSDL
@@ -1369,9 +1372,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
+     * @var \StructType\EwsGetNonIndexableItemDetailsResponseMessageType|null
      */
-    public $GetNonIndexableItemDetailsResponseMessage;
+    protected ?\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $GetNonIndexableItemDetailsResponseMessage = null;
     /**
      * The FindPeopleResponseMessage
      * Meta information extracted from the WSDL
@@ -1389,9 +1392,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsFindPeopleResponseMessageType
+     * @var \StructType\EwsFindPeopleResponseMessageType|null
      */
-    public $FindPeopleResponseMessage;
+    protected ?\StructType\EwsFindPeopleResponseMessageType $FindPeopleResponseMessage = null;
     /**
      * The GetPasswordExpirationDateResponse
      * Meta information extracted from the WSDL
@@ -1409,9 +1412,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType
+     * @var \StructType\EwsGetPasswordExpirationDateResponseMessageType|null
      */
-    public $GetPasswordExpirationDateResponse;
+    protected ?\StructType\EwsGetPasswordExpirationDateResponseMessageType $GetPasswordExpirationDateResponse = null;
     /**
      * The GetPersonaResponseMessage
      * Meta information extracted from the WSDL
@@ -1429,9 +1432,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetPersonaResponseMessageType
+     * @var \StructType\EwsGetPersonaResponseMessageType|null
      */
-    public $GetPersonaResponseMessage;
+    protected ?\StructType\EwsGetPersonaResponseMessageType $GetPersonaResponseMessage = null;
     /**
      * The GetConversationItemsResponseMessage
      * Meta information extracted from the WSDL
@@ -1449,9 +1452,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetConversationItemsResponseMessageType
+     * @var \StructType\EwsGetConversationItemsResponseMessageType|null
      */
-    public $GetConversationItemsResponseMessage;
+    protected ?\StructType\EwsGetConversationItemsResponseMessageType $GetConversationItemsResponseMessage = null;
     /**
      * The GetUserRetentionPolicyTagsResponseMessage
      * Meta information extracted from the WSDL
@@ -1469,9 +1472,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
+     * @var \StructType\EwsGetUserRetentionPolicyTagsResponseMessageType|null
      */
-    public $GetUserRetentionPolicyTagsResponseMessage;
+    protected ?\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $GetUserRetentionPolicyTagsResponseMessage = null;
     /**
      * The GetUserPhotoResponseMessage
      * Meta information extracted from the WSDL
@@ -1489,9 +1492,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetUserPhotoResponseMessageType
+     * @var \StructType\EwsGetUserPhotoResponseMessageType|null
      */
-    public $GetUserPhotoResponseMessage;
+    protected ?\StructType\EwsGetUserPhotoResponseMessageType $GetUserPhotoResponseMessage = null;
     /**
      * The MarkAsJunkResponseMessage
      * Meta information extracted from the WSDL
@@ -1509,9 +1512,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsMarkAsJunkResponseMessageType
+     * @var \StructType\EwsMarkAsJunkResponseMessageType|null
      */
-    public $MarkAsJunkResponseMessage;
+    protected ?\StructType\EwsMarkAsJunkResponseMessageType $MarkAsJunkResponseMessage = null;
     /**
      * The UpdateMailboxAssociationResponseMessage
      * Meta information extracted from the WSDL
@@ -1529,9 +1532,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $UpdateMailboxAssociationResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $UpdateMailboxAssociationResponseMessage = null;
     /**
      * The UpdateGroupMailboxResponseMessage
      * Meta information extracted from the WSDL
@@ -1549,9 +1552,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $UpdateGroupMailboxResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $UpdateGroupMailboxResponseMessage = null;
     /**
      * The PostModernGroupItemResponseMessage
      * Meta information extracted from the WSDL
@@ -1569,9 +1572,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsResponseMessageType
+     * @var \StructType\EwsResponseMessageType|null
      */
-    public $PostModernGroupItemResponseMessage;
+    protected ?\StructType\EwsResponseMessageType $PostModernGroupItemResponseMessage = null;
     /**
      * The GetUnifiedGroupUnseenDataResponseMessage
      * Meta information extracted from the WSDL
@@ -1589,9 +1592,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * PostModernGroupItemResponseMessage | GetUnifiedGroupUnseenDataResponseMessage
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
+     * @var \StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType|null
      */
-    public $GetUnifiedGroupUnseenDataResponseMessage;
+    protected ?\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $GetUnifiedGroupUnseenDataResponseMessage = null;
     /**
      * Constructor method for ArrayOfResponseMessagesType
      * @uses EwsArrayOfResponseMessagesType::setCreateItemResponseMessage()
@@ -1673,87 +1676,87 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @uses EwsArrayOfResponseMessagesType::setUpdateGroupMailboxResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setPostModernGroupItemResponseMessage()
      * @uses EwsArrayOfResponseMessagesType::setGetUnifiedGroupUnseenDataResponseMessage()
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage
-     * @param \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage
-     * @param \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
-     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $sendItemResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
-     * @param \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
-     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
-     * @param \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
-     * @param \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage
-     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
-     * @param \Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage
-     * @param \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
-     * @param \Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage
-     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
-     * @param \Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage
-     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
-     * @param \Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage
-     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
-     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage
-     * @param \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
-     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
-     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
-     * @param \Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage
-     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
-     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
-     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
-     * @param \Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse
-     * @param \Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse
-     * @param \Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse
-     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
-     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
-     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
-     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
-     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
-     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
-     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
-     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
-     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
-     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
-     * @param \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
-     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
-     * @param \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
-     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
-     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
-     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
-     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage
-     * @param \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
-     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
+     * @param \StructType\EwsItemInfoResponseMessageType $createItemResponseMessage
+     * @param \StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
+     * @param \StructType\EwsItemInfoResponseMessageType $getItemResponseMessage
+     * @param \StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
+     * @param \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
+     * @param \StructType\EwsResponseMessageType $sendItemResponseMessage
+     * @param \StructType\EwsResponseMessageType $deleteFolderResponseMessage
+     * @param \StructType\EwsResponseMessageType $emptyFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
+     * @param \StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
+     * @param \StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
+     * @param \StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
+     * @param \StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
+     * @param \StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
+     * @param \StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
+     * @param \StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage
+     * @param \StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
+     * @param \StructType\EwsResponseMessageType $getAppManifestsResponseMessage
+     * @param \StructType\EwsResponseMessageType $getClientExtensionResponseMessage
+     * @param \StructType\EwsResponseMessageType $setClientExtensionResponseMessage
+     * @param \StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
+     * @param \StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
+     * @param \StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
+     * @param \StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
+     * @param \StructType\EwsFindItemResponseMessageType $findItemResponseMessage
+     * @param \StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage
+     * @param \StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
+     * @param \StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage
+     * @param \StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
+     * @param \StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage
+     * @param \StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
+     * @param \StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage
+     * @param \StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
+     * @param \StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage
+     * @param \StructType\EwsResponseMessageType $unsubscribeResponseMessage
+     * @param \StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
+     * @param \StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
+     * @param \StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage
+     * @param \StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
+     * @param \StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
+     * @param \StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
+     * @param \StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
+     * @param \StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage
+     * @param \StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
+     * @param \StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
+     * @param \StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
+     * @param \StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
+     * @param \StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
+     * @param \StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
+     * @param \StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
+     * @param \StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse
+     * @param \StructType\EwsGetRoomsResponseMessageType $getRoomsResponse
+     * @param \StructType\EwsGetRemindersResponseMessageType $getRemindersResponse
+     * @param \StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
+     * @param \StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
+     * @param \StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
+     * @param \StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
+     * @param \StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
+     * @param \StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
+     * @param \StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
+     * @param \StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
+     * @param \StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
+     * @param \StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
+     * @param \StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
+     * @param \StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
+     * @param \StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
+     * @param \StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
+     * @param \StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
+     * @param \StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
+     * @param \StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
+     * @param \StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
+     * @param \StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage
+     * @param \StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
+     * @param \StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
      */
-    public function __construct(\Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage = null, \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage = null, \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null, \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $sendItemResponseMessage = null, \Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage = null, \Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null, \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null, \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null, \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null, \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null, \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null, \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage = null, \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null, \Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null, \Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage = null, \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null, \Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage = null, \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null, \Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage = null, \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null, \Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage = null, \Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage = null, \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null, \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null, \Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage = null, \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null, \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null, \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null, \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null, \Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage = null, \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null, \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null, \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null, \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null, \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null, \Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse = null, \Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse = null, \Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse = null, \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null, \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null, \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null, \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null, \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null, \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null, \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null, \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null, \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null, \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null, \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null, \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null, \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null, \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null, \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null, \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null, \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null, \Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage = null, \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null, \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null)
+    public function __construct(?\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage = null, ?\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null, ?\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage = null, ?\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null, ?\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null, ?\StructType\EwsResponseMessageType $sendItemResponseMessage = null, ?\StructType\EwsResponseMessageType $deleteFolderResponseMessage = null, ?\StructType\EwsResponseMessageType $emptyFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null, ?\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null, ?\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null, ?\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null, ?\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null, ?\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null, ?\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null, ?\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage = null, ?\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null, ?\StructType\EwsResponseMessageType $getAppManifestsResponseMessage = null, ?\StructType\EwsResponseMessageType $getClientExtensionResponseMessage = null, ?\StructType\EwsResponseMessageType $setClientExtensionResponseMessage = null, ?\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null, ?\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null, ?\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null, ?\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null, ?\StructType\EwsFindItemResponseMessageType $findItemResponseMessage = null, ?\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage = null, ?\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null, ?\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage = null, ?\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null, ?\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage = null, ?\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null, ?\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage = null, ?\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null, ?\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage = null, ?\StructType\EwsResponseMessageType $unsubscribeResponseMessage = null, ?\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null, ?\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null, ?\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage = null, ?\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null, ?\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null, ?\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null, ?\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null, ?\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage = null, ?\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null, ?\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null, ?\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null, ?\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null, ?\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null, ?\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null, ?\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null, ?\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse = null, ?\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse = null, ?\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse = null, ?\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null, ?\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null, ?\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null, ?\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null, ?\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null, ?\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null, ?\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null, ?\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null, ?\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null, ?\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null, ?\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null, ?\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null, ?\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null, ?\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null, ?\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null, ?\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null, ?\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null, ?\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null, ?\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage = null, ?\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null, ?\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null)
     {
         $this
             ->setCreateItemResponseMessage($createItemResponseMessage)
@@ -1838,9 +1841,9 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
     }
     /**
      * Get CreateItemResponseMessage value
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType|null
+     * @return \StructType\EwsItemInfoResponseMessageType|null
      */
-    public function getCreateItemResponseMessage()
+    public function getCreateItemResponseMessage(): ?\StructType\EwsItemInfoResponseMessageType
     {
         return isset($this->CreateItemResponseMessage) ? $this->CreateItemResponseMessage : null;
     }
@@ -1851,7 +1854,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateItemResponseMessageForChoiceConstraintsFromSetCreateItemResponseMessage($value)
+    public function validateCreateItemResponseMessageForChoiceConstraintsFromSetCreateItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -1940,12 +1943,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -1953,28 +1957,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemInfoResponseMessageType $createItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage = null)
+    public function setCreateItemResponseMessage(?\StructType\EwsItemInfoResponseMessageType $createItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createItemResponseMessageChoiceErrorMessage = self::validateCreateItemResponseMessageForChoiceConstraintsFromSetCreateItemResponseMessage($createItemResponseMessage))) {
-            throw new \InvalidArgumentException($createItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createItemResponseMessage) || (is_array($createItemResponseMessage) && empty($createItemResponseMessage))) {
             unset($this->CreateItemResponseMessage);
         } else {
             $this->CreateItemResponseMessage = $createItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get DeleteItemResponseMessage value
-     * @return \Ews\StructType\EwsDeleteItemResponseMessageType|null
+     * @return \StructType\EwsDeleteItemResponseMessageType|null
      */
-    public function getDeleteItemResponseMessage()
+    public function getDeleteItemResponseMessage(): ?\StructType\EwsDeleteItemResponseMessageType
     {
         return isset($this->DeleteItemResponseMessage) ? $this->DeleteItemResponseMessage : null;
     }
@@ -1985,7 +1990,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteItemResponseMessageForChoiceConstraintsFromSetDeleteItemResponseMessage($value)
+    public function validateDeleteItemResponseMessageForChoiceConstraintsFromSetDeleteItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2074,12 +2079,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2087,28 +2093,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setDeleteItemResponseMessage(\Ews\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null)
+    public function setDeleteItemResponseMessage(?\StructType\EwsDeleteItemResponseMessageType $deleteItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($deleteItemResponseMessageChoiceErrorMessage = self::validateDeleteItemResponseMessageForChoiceConstraintsFromSetDeleteItemResponseMessage($deleteItemResponseMessage))) {
-            throw new \InvalidArgumentException($deleteItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteItemResponseMessage) || (is_array($deleteItemResponseMessage) && empty($deleteItemResponseMessage))) {
             unset($this->DeleteItemResponseMessage);
         } else {
             $this->DeleteItemResponseMessage = $deleteItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetItemResponseMessage value
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType|null
+     * @return \StructType\EwsItemInfoResponseMessageType|null
      */
-    public function getGetItemResponseMessage()
+    public function getGetItemResponseMessage(): ?\StructType\EwsItemInfoResponseMessageType
     {
         return isset($this->GetItemResponseMessage) ? $this->GetItemResponseMessage : null;
     }
@@ -2119,7 +2126,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetItemResponseMessageForChoiceConstraintsFromSetGetItemResponseMessage($value)
+    public function validateGetItemResponseMessageForChoiceConstraintsFromSetGetItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2208,12 +2215,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2221,28 +2229,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemInfoResponseMessageType $getItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage = null)
+    public function setGetItemResponseMessage(?\StructType\EwsItemInfoResponseMessageType $getItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getItemResponseMessageChoiceErrorMessage = self::validateGetItemResponseMessageForChoiceConstraintsFromSetGetItemResponseMessage($getItemResponseMessage))) {
-            throw new \InvalidArgumentException($getItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getItemResponseMessage) || (is_array($getItemResponseMessage) && empty($getItemResponseMessage))) {
             unset($this->GetItemResponseMessage);
         } else {
             $this->GetItemResponseMessage = $getItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateItemResponseMessage value
-     * @return \Ews\StructType\EwsUpdateItemResponseMessageType|null
+     * @return \StructType\EwsUpdateItemResponseMessageType|null
      */
-    public function getUpdateItemResponseMessage()
+    public function getUpdateItemResponseMessage(): ?\StructType\EwsUpdateItemResponseMessageType
     {
         return isset($this->UpdateItemResponseMessage) ? $this->UpdateItemResponseMessage : null;
     }
@@ -2253,7 +2262,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateItemResponseMessageForChoiceConstraintsFromSetUpdateItemResponseMessage($value)
+    public function validateUpdateItemResponseMessageForChoiceConstraintsFromSetUpdateItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2342,12 +2351,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2355,28 +2365,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateItemResponseMessage(\Ews\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null)
+    public function setUpdateItemResponseMessage(?\StructType\EwsUpdateItemResponseMessageType $updateItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateItemResponseMessageChoiceErrorMessage = self::validateUpdateItemResponseMessageForChoiceConstraintsFromSetUpdateItemResponseMessage($updateItemResponseMessage))) {
-            throw new \InvalidArgumentException($updateItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateItemResponseMessage) || (is_array($updateItemResponseMessage) && empty($updateItemResponseMessage))) {
             unset($this->UpdateItemResponseMessage);
         } else {
             $this->UpdateItemResponseMessage = $updateItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateItemInRecoverableItemsResponseMessage value
-     * @return \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType|null
+     * @return \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType|null
      */
-    public function getUpdateItemInRecoverableItemsResponseMessage()
+    public function getUpdateItemInRecoverableItemsResponseMessage(): ?\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType
     {
         return isset($this->UpdateItemInRecoverableItemsResponseMessage) ? $this->UpdateItemInRecoverableItemsResponseMessage : null;
     }
@@ -2387,7 +2398,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateItemInRecoverableItemsResponseMessageForChoiceConstraintsFromSetUpdateItemInRecoverableItemsResponseMessage($value)
+    public function validateUpdateItemInRecoverableItemsResponseMessageForChoiceConstraintsFromSetUpdateItemInRecoverableItemsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2476,12 +2487,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateItemInRecoverableItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateItemInRecoverableItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateItemInRecoverableItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateItemInRecoverableItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2489,28 +2501,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateItemInRecoverableItemsResponseMessage(\Ews\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null)
+    public function setUpdateItemInRecoverableItemsResponseMessage(?\StructType\EwsUpdateItemInRecoverableItemsResponseMessageType $updateItemInRecoverableItemsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateItemInRecoverableItemsResponseMessageChoiceErrorMessage = self::validateUpdateItemInRecoverableItemsResponseMessageForChoiceConstraintsFromSetUpdateItemInRecoverableItemsResponseMessage($updateItemInRecoverableItemsResponseMessage))) {
-            throw new \InvalidArgumentException($updateItemInRecoverableItemsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateItemInRecoverableItemsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateItemInRecoverableItemsResponseMessage) || (is_array($updateItemInRecoverableItemsResponseMessage) && empty($updateItemInRecoverableItemsResponseMessage))) {
             unset($this->UpdateItemInRecoverableItemsResponseMessage);
         } else {
             $this->UpdateItemInRecoverableItemsResponseMessage = $updateItemInRecoverableItemsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SendItemResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getSendItemResponseMessage()
+    public function getSendItemResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->SendItemResponseMessage) ? $this->SendItemResponseMessage : null;
     }
@@ -2521,7 +2534,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSendItemResponseMessageForChoiceConstraintsFromSetSendItemResponseMessage($value)
+    public function validateSendItemResponseMessageForChoiceConstraintsFromSetSendItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2610,12 +2623,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SendItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SendItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SendItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SendItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2623,28 +2637,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $sendItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $sendItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSendItemResponseMessage(\Ews\StructType\EwsResponseMessageType $sendItemResponseMessage = null)
+    public function setSendItemResponseMessage(?\StructType\EwsResponseMessageType $sendItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($sendItemResponseMessageChoiceErrorMessage = self::validateSendItemResponseMessageForChoiceConstraintsFromSetSendItemResponseMessage($sendItemResponseMessage))) {
-            throw new \InvalidArgumentException($sendItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($sendItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($sendItemResponseMessage) || (is_array($sendItemResponseMessage) && empty($sendItemResponseMessage))) {
             unset($this->SendItemResponseMessage);
         } else {
             $this->SendItemResponseMessage = $sendItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get DeleteFolderResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getDeleteFolderResponseMessage()
+    public function getDeleteFolderResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->DeleteFolderResponseMessage) ? $this->DeleteFolderResponseMessage : null;
     }
@@ -2655,7 +2670,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteFolderResponseMessageForChoiceConstraintsFromSetDeleteFolderResponseMessage($value)
+    public function validateDeleteFolderResponseMessageForChoiceConstraintsFromSetDeleteFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2744,12 +2759,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2757,28 +2773,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $deleteFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setDeleteFolderResponseMessage(\Ews\StructType\EwsResponseMessageType $deleteFolderResponseMessage = null)
+    public function setDeleteFolderResponseMessage(?\StructType\EwsResponseMessageType $deleteFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($deleteFolderResponseMessageChoiceErrorMessage = self::validateDeleteFolderResponseMessageForChoiceConstraintsFromSetDeleteFolderResponseMessage($deleteFolderResponseMessage))) {
-            throw new \InvalidArgumentException($deleteFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteFolderResponseMessage) || (is_array($deleteFolderResponseMessage) && empty($deleteFolderResponseMessage))) {
             unset($this->DeleteFolderResponseMessage);
         } else {
             $this->DeleteFolderResponseMessage = $deleteFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get EmptyFolderResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getEmptyFolderResponseMessage()
+    public function getEmptyFolderResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->EmptyFolderResponseMessage) ? $this->EmptyFolderResponseMessage : null;
     }
@@ -2789,7 +2806,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateEmptyFolderResponseMessageForChoiceConstraintsFromSetEmptyFolderResponseMessage($value)
+    public function validateEmptyFolderResponseMessageForChoiceConstraintsFromSetEmptyFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -2878,12 +2895,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property EmptyFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: EmptyFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property EmptyFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: EmptyFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -2891,28 +2909,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $emptyFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setEmptyFolderResponseMessage(\Ews\StructType\EwsResponseMessageType $emptyFolderResponseMessage = null)
+    public function setEmptyFolderResponseMessage(?\StructType\EwsResponseMessageType $emptyFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($emptyFolderResponseMessageChoiceErrorMessage = self::validateEmptyFolderResponseMessageForChoiceConstraintsFromSetEmptyFolderResponseMessage($emptyFolderResponseMessage))) {
-            throw new \InvalidArgumentException($emptyFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($emptyFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($emptyFolderResponseMessage) || (is_array($emptyFolderResponseMessage) && empty($emptyFolderResponseMessage))) {
             unset($this->EmptyFolderResponseMessage);
         } else {
             $this->EmptyFolderResponseMessage = $emptyFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CreateFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getCreateFolderResponseMessage()
+    public function getCreateFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->CreateFolderResponseMessage) ? $this->CreateFolderResponseMessage : null;
     }
@@ -2923,7 +2942,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateFolderResponseMessageForChoiceConstraintsFromSetCreateFolderResponseMessage($value)
+    public function validateCreateFolderResponseMessageForChoiceConstraintsFromSetCreateFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3012,12 +3031,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3025,28 +3045,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null)
+    public function setCreateFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $createFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createFolderResponseMessageChoiceErrorMessage = self::validateCreateFolderResponseMessageForChoiceConstraintsFromSetCreateFolderResponseMessage($createFolderResponseMessage))) {
-            throw new \InvalidArgumentException($createFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createFolderResponseMessage) || (is_array($createFolderResponseMessage) && empty($createFolderResponseMessage))) {
             unset($this->CreateFolderResponseMessage);
         } else {
             $this->CreateFolderResponseMessage = $createFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getGetFolderResponseMessage()
+    public function getGetFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->GetFolderResponseMessage) ? $this->GetFolderResponseMessage : null;
     }
@@ -3057,7 +3078,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetFolderResponseMessageForChoiceConstraintsFromSetGetFolderResponseMessage($value)
+    public function validateGetFolderResponseMessageForChoiceConstraintsFromSetGetFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3146,12 +3167,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3159,28 +3181,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null)
+    public function setGetFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $getFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getFolderResponseMessageChoiceErrorMessage = self::validateGetFolderResponseMessageForChoiceConstraintsFromSetGetFolderResponseMessage($getFolderResponseMessage))) {
-            throw new \InvalidArgumentException($getFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getFolderResponseMessage) || (is_array($getFolderResponseMessage) && empty($getFolderResponseMessage))) {
             unset($this->GetFolderResponseMessage);
         } else {
             $this->GetFolderResponseMessage = $getFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get FindFolderResponseMessage value
-     * @return \Ews\StructType\EwsFindFolderResponseMessageType|null
+     * @return \StructType\EwsFindFolderResponseMessageType|null
      */
-    public function getFindFolderResponseMessage()
+    public function getFindFolderResponseMessage(): ?\StructType\EwsFindFolderResponseMessageType
     {
         return isset($this->FindFolderResponseMessage) ? $this->FindFolderResponseMessage : null;
     }
@@ -3191,7 +3214,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFindFolderResponseMessageForChoiceConstraintsFromSetFindFolderResponseMessage($value)
+    public function validateFindFolderResponseMessageForChoiceConstraintsFromSetFindFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3280,12 +3303,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FindFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FindFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3293,28 +3317,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setFindFolderResponseMessage(\Ews\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null)
+    public function setFindFolderResponseMessage(?\StructType\EwsFindFolderResponseMessageType $findFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($findFolderResponseMessageChoiceErrorMessage = self::validateFindFolderResponseMessageForChoiceConstraintsFromSetFindFolderResponseMessage($findFolderResponseMessage))) {
-            throw new \InvalidArgumentException($findFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($findFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($findFolderResponseMessage) || (is_array($findFolderResponseMessage) && empty($findFolderResponseMessage))) {
             unset($this->FindFolderResponseMessage);
         } else {
             $this->FindFolderResponseMessage = $findFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getUpdateFolderResponseMessage()
+    public function getUpdateFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->UpdateFolderResponseMessage) ? $this->UpdateFolderResponseMessage : null;
     }
@@ -3325,7 +3350,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateFolderResponseMessageForChoiceConstraintsFromSetUpdateFolderResponseMessage($value)
+    public function validateUpdateFolderResponseMessageForChoiceConstraintsFromSetUpdateFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3414,12 +3439,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3427,28 +3453,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null)
+    public function setUpdateFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $updateFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateFolderResponseMessageChoiceErrorMessage = self::validateUpdateFolderResponseMessageForChoiceConstraintsFromSetUpdateFolderResponseMessage($updateFolderResponseMessage))) {
-            throw new \InvalidArgumentException($updateFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateFolderResponseMessage) || (is_array($updateFolderResponseMessage) && empty($updateFolderResponseMessage))) {
             unset($this->UpdateFolderResponseMessage);
         } else {
             $this->UpdateFolderResponseMessage = $updateFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get MoveFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getMoveFolderResponseMessage()
+    public function getMoveFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->MoveFolderResponseMessage) ? $this->MoveFolderResponseMessage : null;
     }
@@ -3459,7 +3486,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMoveFolderResponseMessageForChoiceConstraintsFromSetMoveFolderResponseMessage($value)
+    public function validateMoveFolderResponseMessageForChoiceConstraintsFromSetMoveFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3548,12 +3575,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MoveFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MoveFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MoveFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MoveFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3561,28 +3589,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setMoveFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null)
+    public function setMoveFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $moveFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($moveFolderResponseMessageChoiceErrorMessage = self::validateMoveFolderResponseMessageForChoiceConstraintsFromSetMoveFolderResponseMessage($moveFolderResponseMessage))) {
-            throw new \InvalidArgumentException($moveFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($moveFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($moveFolderResponseMessage) || (is_array($moveFolderResponseMessage) && empty($moveFolderResponseMessage))) {
             unset($this->MoveFolderResponseMessage);
         } else {
             $this->MoveFolderResponseMessage = $moveFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CopyFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getCopyFolderResponseMessage()
+    public function getCopyFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->CopyFolderResponseMessage) ? $this->CopyFolderResponseMessage : null;
     }
@@ -3593,7 +3622,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCopyFolderResponseMessageForChoiceConstraintsFromSetCopyFolderResponseMessage($value)
+    public function validateCopyFolderResponseMessageForChoiceConstraintsFromSetCopyFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3682,12 +3711,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CopyFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CopyFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CopyFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CopyFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3695,28 +3725,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCopyFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null)
+    public function setCopyFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $copyFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($copyFolderResponseMessageChoiceErrorMessage = self::validateCopyFolderResponseMessageForChoiceConstraintsFromSetCopyFolderResponseMessage($copyFolderResponseMessage))) {
-            throw new \InvalidArgumentException($copyFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($copyFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($copyFolderResponseMessage) || (is_array($copyFolderResponseMessage) && empty($copyFolderResponseMessage))) {
             unset($this->CopyFolderResponseMessage);
         } else {
             $this->CopyFolderResponseMessage = $copyFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CreateFolderPathResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getCreateFolderPathResponseMessage()
+    public function getCreateFolderPathResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->CreateFolderPathResponseMessage) ? $this->CreateFolderPathResponseMessage : null;
     }
@@ -3727,7 +3758,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateFolderPathResponseMessageForChoiceConstraintsFromSetCreateFolderPathResponseMessage($value)
+    public function validateCreateFolderPathResponseMessageForChoiceConstraintsFromSetCreateFolderPathResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3816,12 +3847,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateFolderPathResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateFolderPathResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateFolderPathResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateFolderPathResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3829,28 +3861,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateFolderPathResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null)
+    public function setCreateFolderPathResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $createFolderPathResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createFolderPathResponseMessageChoiceErrorMessage = self::validateCreateFolderPathResponseMessageForChoiceConstraintsFromSetCreateFolderPathResponseMessage($createFolderPathResponseMessage))) {
-            throw new \InvalidArgumentException($createFolderPathResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createFolderPathResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createFolderPathResponseMessage) || (is_array($createFolderPathResponseMessage) && empty($createFolderPathResponseMessage))) {
             unset($this->CreateFolderPathResponseMessage);
         } else {
             $this->CreateFolderPathResponseMessage = $createFolderPathResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CreateAttachmentResponseMessage value
-     * @return \Ews\StructType\EwsAttachmentInfoResponseMessageType|null
+     * @return \StructType\EwsAttachmentInfoResponseMessageType|null
      */
-    public function getCreateAttachmentResponseMessage()
+    public function getCreateAttachmentResponseMessage(): ?\StructType\EwsAttachmentInfoResponseMessageType
     {
         return isset($this->CreateAttachmentResponseMessage) ? $this->CreateAttachmentResponseMessage : null;
     }
@@ -3861,7 +3894,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateAttachmentResponseMessageForChoiceConstraintsFromSetCreateAttachmentResponseMessage($value)
+    public function validateCreateAttachmentResponseMessageForChoiceConstraintsFromSetCreateAttachmentResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -3950,12 +3983,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -3963,28 +3997,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateAttachmentResponseMessage(\Ews\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null)
+    public function setCreateAttachmentResponseMessage(?\StructType\EwsAttachmentInfoResponseMessageType $createAttachmentResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createAttachmentResponseMessageChoiceErrorMessage = self::validateCreateAttachmentResponseMessageForChoiceConstraintsFromSetCreateAttachmentResponseMessage($createAttachmentResponseMessage))) {
-            throw new \InvalidArgumentException($createAttachmentResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createAttachmentResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createAttachmentResponseMessage) || (is_array($createAttachmentResponseMessage) && empty($createAttachmentResponseMessage))) {
             unset($this->CreateAttachmentResponseMessage);
         } else {
             $this->CreateAttachmentResponseMessage = $createAttachmentResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get DeleteAttachmentResponseMessage value
-     * @return \Ews\StructType\EwsDeleteAttachmentResponseMessageType|null
+     * @return \StructType\EwsDeleteAttachmentResponseMessageType|null
      */
-    public function getDeleteAttachmentResponseMessage()
+    public function getDeleteAttachmentResponseMessage(): ?\StructType\EwsDeleteAttachmentResponseMessageType
     {
         return isset($this->DeleteAttachmentResponseMessage) ? $this->DeleteAttachmentResponseMessage : null;
     }
@@ -3995,7 +4030,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteAttachmentResponseMessageForChoiceConstraintsFromSetDeleteAttachmentResponseMessage($value)
+    public function validateDeleteAttachmentResponseMessageForChoiceConstraintsFromSetDeleteAttachmentResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4084,12 +4119,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4097,28 +4133,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setDeleteAttachmentResponseMessage(\Ews\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null)
+    public function setDeleteAttachmentResponseMessage(?\StructType\EwsDeleteAttachmentResponseMessageType $deleteAttachmentResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($deleteAttachmentResponseMessageChoiceErrorMessage = self::validateDeleteAttachmentResponseMessageForChoiceConstraintsFromSetDeleteAttachmentResponseMessage($deleteAttachmentResponseMessage))) {
-            throw new \InvalidArgumentException($deleteAttachmentResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteAttachmentResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteAttachmentResponseMessage) || (is_array($deleteAttachmentResponseMessage) && empty($deleteAttachmentResponseMessage))) {
             unset($this->DeleteAttachmentResponseMessage);
         } else {
             $this->DeleteAttachmentResponseMessage = $deleteAttachmentResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetAttachmentResponseMessage value
-     * @return \Ews\StructType\EwsAttachmentInfoResponseMessageType|null
+     * @return \StructType\EwsAttachmentInfoResponseMessageType|null
      */
-    public function getGetAttachmentResponseMessage()
+    public function getGetAttachmentResponseMessage(): ?\StructType\EwsAttachmentInfoResponseMessageType
     {
         return isset($this->GetAttachmentResponseMessage) ? $this->GetAttachmentResponseMessage : null;
     }
@@ -4129,7 +4166,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetAttachmentResponseMessageForChoiceConstraintsFromSetGetAttachmentResponseMessage($value)
+    public function validateGetAttachmentResponseMessageForChoiceConstraintsFromSetGetAttachmentResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4218,12 +4255,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetAttachmentResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetAttachmentResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4231,28 +4269,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetAttachmentResponseMessage(\Ews\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null)
+    public function setGetAttachmentResponseMessage(?\StructType\EwsAttachmentInfoResponseMessageType $getAttachmentResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getAttachmentResponseMessageChoiceErrorMessage = self::validateGetAttachmentResponseMessageForChoiceConstraintsFromSetGetAttachmentResponseMessage($getAttachmentResponseMessage))) {
-            throw new \InvalidArgumentException($getAttachmentResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getAttachmentResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getAttachmentResponseMessage) || (is_array($getAttachmentResponseMessage) && empty($getAttachmentResponseMessage))) {
             unset($this->GetAttachmentResponseMessage);
         } else {
             $this->GetAttachmentResponseMessage = $getAttachmentResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UploadItemsResponseMessage value
-     * @return \Ews\StructType\EwsUploadItemsResponseMessageType|null
+     * @return \StructType\EwsUploadItemsResponseMessageType|null
      */
-    public function getUploadItemsResponseMessage()
+    public function getUploadItemsResponseMessage(): ?\StructType\EwsUploadItemsResponseMessageType
     {
         return isset($this->UploadItemsResponseMessage) ? $this->UploadItemsResponseMessage : null;
     }
@@ -4263,7 +4302,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUploadItemsResponseMessageForChoiceConstraintsFromSetUploadItemsResponseMessage($value)
+    public function validateUploadItemsResponseMessageForChoiceConstraintsFromSetUploadItemsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4352,12 +4391,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UploadItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UploadItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UploadItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UploadItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4365,28 +4405,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUploadItemsResponseMessage(\Ews\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null)
+    public function setUploadItemsResponseMessage(?\StructType\EwsUploadItemsResponseMessageType $uploadItemsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($uploadItemsResponseMessageChoiceErrorMessage = self::validateUploadItemsResponseMessageForChoiceConstraintsFromSetUploadItemsResponseMessage($uploadItemsResponseMessage))) {
-            throw new \InvalidArgumentException($uploadItemsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($uploadItemsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($uploadItemsResponseMessage) || (is_array($uploadItemsResponseMessage) && empty($uploadItemsResponseMessage))) {
             unset($this->UploadItemsResponseMessage);
         } else {
             $this->UploadItemsResponseMessage = $uploadItemsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ExportItemsResponseMessage value
-     * @return \Ews\StructType\EwsExportItemsResponseMessageType|null
+     * @return \StructType\EwsExportItemsResponseMessageType|null
      */
-    public function getExportItemsResponseMessage()
+    public function getExportItemsResponseMessage(): ?\StructType\EwsExportItemsResponseMessageType
     {
         return isset($this->ExportItemsResponseMessage) ? $this->ExportItemsResponseMessage : null;
     }
@@ -4397,7 +4438,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateExportItemsResponseMessageForChoiceConstraintsFromSetExportItemsResponseMessage($value)
+    public function validateExportItemsResponseMessageForChoiceConstraintsFromSetExportItemsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4486,12 +4527,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ExportItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ExportItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ExportItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ExportItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4499,28 +4541,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setExportItemsResponseMessage(\Ews\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null)
+    public function setExportItemsResponseMessage(?\StructType\EwsExportItemsResponseMessageType $exportItemsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($exportItemsResponseMessageChoiceErrorMessage = self::validateExportItemsResponseMessageForChoiceConstraintsFromSetExportItemsResponseMessage($exportItemsResponseMessage))) {
-            throw new \InvalidArgumentException($exportItemsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($exportItemsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($exportItemsResponseMessage) || (is_array($exportItemsResponseMessage) && empty($exportItemsResponseMessage))) {
             unset($this->ExportItemsResponseMessage);
         } else {
             $this->ExportItemsResponseMessage = $exportItemsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get MarkAllItemsAsReadResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getMarkAllItemsAsReadResponseMessage()
+    public function getMarkAllItemsAsReadResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->MarkAllItemsAsReadResponseMessage) ? $this->MarkAllItemsAsReadResponseMessage : null;
     }
@@ -4531,7 +4574,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMarkAllItemsAsReadResponseMessageForChoiceConstraintsFromSetMarkAllItemsAsReadResponseMessage($value)
+    public function validateMarkAllItemsAsReadResponseMessageForChoiceConstraintsFromSetMarkAllItemsAsReadResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4620,12 +4663,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MarkAllItemsAsReadResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MarkAllItemsAsReadResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MarkAllItemsAsReadResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MarkAllItemsAsReadResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4633,28 +4677,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setMarkAllItemsAsReadResponseMessage(\Ews\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage = null)
+    public function setMarkAllItemsAsReadResponseMessage(?\StructType\EwsResponseMessageType $markAllItemsAsReadResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($markAllItemsAsReadResponseMessageChoiceErrorMessage = self::validateMarkAllItemsAsReadResponseMessageForChoiceConstraintsFromSetMarkAllItemsAsReadResponseMessage($markAllItemsAsReadResponseMessage))) {
-            throw new \InvalidArgumentException($markAllItemsAsReadResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($markAllItemsAsReadResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($markAllItemsAsReadResponseMessage) || (is_array($markAllItemsAsReadResponseMessage) && empty($markAllItemsAsReadResponseMessage))) {
             unset($this->MarkAllItemsAsReadResponseMessage);
         } else {
             $this->MarkAllItemsAsReadResponseMessage = $markAllItemsAsReadResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetClientAccessTokenResponseMessage value
-     * @return \Ews\StructType\EwsGetClientAccessTokenResponseMessageType|null
+     * @return \StructType\EwsGetClientAccessTokenResponseMessageType|null
      */
-    public function getGetClientAccessTokenResponseMessage()
+    public function getGetClientAccessTokenResponseMessage(): ?\StructType\EwsGetClientAccessTokenResponseMessageType
     {
         return isset($this->GetClientAccessTokenResponseMessage) ? $this->GetClientAccessTokenResponseMessage : null;
     }
@@ -4665,7 +4710,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetClientAccessTokenResponseMessageForChoiceConstraintsFromSetGetClientAccessTokenResponseMessage($value)
+    public function validateGetClientAccessTokenResponseMessageForChoiceConstraintsFromSetGetClientAccessTokenResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4754,12 +4799,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetClientAccessTokenResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetClientAccessTokenResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetClientAccessTokenResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetClientAccessTokenResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4767,28 +4813,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetClientAccessTokenResponseMessage(\Ews\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null)
+    public function setGetClientAccessTokenResponseMessage(?\StructType\EwsGetClientAccessTokenResponseMessageType $getClientAccessTokenResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getClientAccessTokenResponseMessageChoiceErrorMessage = self::validateGetClientAccessTokenResponseMessageForChoiceConstraintsFromSetGetClientAccessTokenResponseMessage($getClientAccessTokenResponseMessage))) {
-            throw new \InvalidArgumentException($getClientAccessTokenResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getClientAccessTokenResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getClientAccessTokenResponseMessage) || (is_array($getClientAccessTokenResponseMessage) && empty($getClientAccessTokenResponseMessage))) {
             unset($this->GetClientAccessTokenResponseMessage);
         } else {
             $this->GetClientAccessTokenResponseMessage = $getClientAccessTokenResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetAppManifestsResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getGetAppManifestsResponseMessage()
+    public function getGetAppManifestsResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->GetAppManifestsResponseMessage) ? $this->GetAppManifestsResponseMessage : null;
     }
@@ -4799,7 +4846,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetAppManifestsResponseMessageForChoiceConstraintsFromSetGetAppManifestsResponseMessage($value)
+    public function validateGetAppManifestsResponseMessageForChoiceConstraintsFromSetGetAppManifestsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -4888,12 +4935,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetAppManifestsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetAppManifestsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetAppManifestsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetAppManifestsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -4901,28 +4949,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $getAppManifestsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetAppManifestsResponseMessage(\Ews\StructType\EwsResponseMessageType $getAppManifestsResponseMessage = null)
+    public function setGetAppManifestsResponseMessage(?\StructType\EwsResponseMessageType $getAppManifestsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getAppManifestsResponseMessageChoiceErrorMessage = self::validateGetAppManifestsResponseMessageForChoiceConstraintsFromSetGetAppManifestsResponseMessage($getAppManifestsResponseMessage))) {
-            throw new \InvalidArgumentException($getAppManifestsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getAppManifestsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getAppManifestsResponseMessage) || (is_array($getAppManifestsResponseMessage) && empty($getAppManifestsResponseMessage))) {
             unset($this->GetAppManifestsResponseMessage);
         } else {
             $this->GetAppManifestsResponseMessage = $getAppManifestsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetClientExtensionResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getGetClientExtensionResponseMessage()
+    public function getGetClientExtensionResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->GetClientExtensionResponseMessage) ? $this->GetClientExtensionResponseMessage : null;
     }
@@ -4933,7 +4982,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetClientExtensionResponseMessageForChoiceConstraintsFromSetGetClientExtensionResponseMessage($value)
+    public function validateGetClientExtensionResponseMessageForChoiceConstraintsFromSetGetClientExtensionResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5022,12 +5071,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetClientExtensionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetClientExtensionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetClientExtensionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetClientExtensionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5035,28 +5085,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $getClientExtensionResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetClientExtensionResponseMessage(\Ews\StructType\EwsResponseMessageType $getClientExtensionResponseMessage = null)
+    public function setGetClientExtensionResponseMessage(?\StructType\EwsResponseMessageType $getClientExtensionResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getClientExtensionResponseMessageChoiceErrorMessage = self::validateGetClientExtensionResponseMessageForChoiceConstraintsFromSetGetClientExtensionResponseMessage($getClientExtensionResponseMessage))) {
-            throw new \InvalidArgumentException($getClientExtensionResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getClientExtensionResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getClientExtensionResponseMessage) || (is_array($getClientExtensionResponseMessage) && empty($getClientExtensionResponseMessage))) {
             unset($this->GetClientExtensionResponseMessage);
         } else {
             $this->GetClientExtensionResponseMessage = $getClientExtensionResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SetClientExtensionResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getSetClientExtensionResponseMessage()
+    public function getSetClientExtensionResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->SetClientExtensionResponseMessage) ? $this->SetClientExtensionResponseMessage : null;
     }
@@ -5067,7 +5118,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetClientExtensionResponseMessageForChoiceConstraintsFromSetSetClientExtensionResponseMessage($value)
+    public function validateSetClientExtensionResponseMessageForChoiceConstraintsFromSetSetClientExtensionResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5156,12 +5207,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetClientExtensionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetClientExtensionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetClientExtensionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetClientExtensionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5169,28 +5221,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $setClientExtensionResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSetClientExtensionResponseMessage(\Ews\StructType\EwsResponseMessageType $setClientExtensionResponseMessage = null)
+    public function setSetClientExtensionResponseMessage(?\StructType\EwsResponseMessageType $setClientExtensionResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($setClientExtensionResponseMessageChoiceErrorMessage = self::validateSetClientExtensionResponseMessageForChoiceConstraintsFromSetSetClientExtensionResponseMessage($setClientExtensionResponseMessage))) {
-            throw new \InvalidArgumentException($setClientExtensionResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setClientExtensionResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($setClientExtensionResponseMessage) || (is_array($setClientExtensionResponseMessage) && empty($setClientExtensionResponseMessage))) {
             unset($this->SetClientExtensionResponseMessage);
         } else {
             $this->SetClientExtensionResponseMessage = $setClientExtensionResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetEncryptionConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getGetEncryptionConfigurationResponseMessage()
+    public function getGetEncryptionConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->GetEncryptionConfigurationResponseMessage) ? $this->GetEncryptionConfigurationResponseMessage : null;
     }
@@ -5201,7 +5254,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetGetEncryptionConfigurationResponseMessage($value)
+    public function validateGetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetGetEncryptionConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5290,12 +5343,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetEncryptionConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetEncryptionConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetEncryptionConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetEncryptionConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5303,28 +5357,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetEncryptionConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null)
+    public function setGetEncryptionConfigurationResponseMessage(?\StructType\EwsResponseMessageType $getEncryptionConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getEncryptionConfigurationResponseMessageChoiceErrorMessage = self::validateGetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetGetEncryptionConfigurationResponseMessage($getEncryptionConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($getEncryptionConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getEncryptionConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getEncryptionConfigurationResponseMessage) || (is_array($getEncryptionConfigurationResponseMessage) && empty($getEncryptionConfigurationResponseMessage))) {
             unset($this->GetEncryptionConfigurationResponseMessage);
         } else {
             $this->GetEncryptionConfigurationResponseMessage = $getEncryptionConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SetEncryptionConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getSetEncryptionConfigurationResponseMessage()
+    public function getSetEncryptionConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->SetEncryptionConfigurationResponseMessage) ? $this->SetEncryptionConfigurationResponseMessage : null;
     }
@@ -5335,7 +5390,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetSetEncryptionConfigurationResponseMessage($value)
+    public function validateSetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetSetEncryptionConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5424,12 +5479,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetEncryptionConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetEncryptionConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetEncryptionConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetEncryptionConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5437,28 +5493,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSetEncryptionConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null)
+    public function setSetEncryptionConfigurationResponseMessage(?\StructType\EwsResponseMessageType $setEncryptionConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($setEncryptionConfigurationResponseMessageChoiceErrorMessage = self::validateSetEncryptionConfigurationResponseMessageForChoiceConstraintsFromSetSetEncryptionConfigurationResponseMessage($setEncryptionConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($setEncryptionConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setEncryptionConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($setEncryptionConfigurationResponseMessage) || (is_array($setEncryptionConfigurationResponseMessage) && empty($setEncryptionConfigurationResponseMessage))) {
             unset($this->SetEncryptionConfigurationResponseMessage);
         } else {
             $this->SetEncryptionConfigurationResponseMessage = $setEncryptionConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetOMEConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getGetOMEConfigurationResponseMessage()
+    public function getGetOMEConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->GetOMEConfigurationResponseMessage) ? $this->GetOMEConfigurationResponseMessage : null;
     }
@@ -5469,7 +5526,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetOMEConfigurationResponseMessageForChoiceConstraintsFromSetGetOMEConfigurationResponseMessage($value)
+    public function validateGetOMEConfigurationResponseMessageForChoiceConstraintsFromSetGetOMEConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5558,12 +5615,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetOMEConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetOMEConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetOMEConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetOMEConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5571,28 +5629,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetOMEConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null)
+    public function setGetOMEConfigurationResponseMessage(?\StructType\EwsResponseMessageType $getOMEConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getOMEConfigurationResponseMessageChoiceErrorMessage = self::validateGetOMEConfigurationResponseMessageForChoiceConstraintsFromSetGetOMEConfigurationResponseMessage($getOMEConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($getOMEConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getOMEConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getOMEConfigurationResponseMessage) || (is_array($getOMEConfigurationResponseMessage) && empty($getOMEConfigurationResponseMessage))) {
             unset($this->GetOMEConfigurationResponseMessage);
         } else {
             $this->GetOMEConfigurationResponseMessage = $getOMEConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SetOMEConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getSetOMEConfigurationResponseMessage()
+    public function getSetOMEConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->SetOMEConfigurationResponseMessage) ? $this->SetOMEConfigurationResponseMessage : null;
     }
@@ -5603,7 +5662,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetOMEConfigurationResponseMessageForChoiceConstraintsFromSetSetOMEConfigurationResponseMessage($value)
+    public function validateSetOMEConfigurationResponseMessageForChoiceConstraintsFromSetSetOMEConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5692,12 +5751,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetOMEConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetOMEConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetOMEConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetOMEConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5705,28 +5765,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSetOMEConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null)
+    public function setSetOMEConfigurationResponseMessage(?\StructType\EwsResponseMessageType $setOMEConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($setOMEConfigurationResponseMessageChoiceErrorMessage = self::validateSetOMEConfigurationResponseMessageForChoiceConstraintsFromSetSetOMEConfigurationResponseMessage($setOMEConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($setOMEConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setOMEConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($setOMEConfigurationResponseMessage) || (is_array($setOMEConfigurationResponseMessage) && empty($setOMEConfigurationResponseMessage))) {
             unset($this->SetOMEConfigurationResponseMessage);
         } else {
             $this->SetOMEConfigurationResponseMessage = $setOMEConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get FindItemResponseMessage value
-     * @return \Ews\StructType\EwsFindItemResponseMessageType|null
+     * @return \StructType\EwsFindItemResponseMessageType|null
      */
-    public function getFindItemResponseMessage()
+    public function getFindItemResponseMessage(): ?\StructType\EwsFindItemResponseMessageType
     {
         return isset($this->FindItemResponseMessage) ? $this->FindItemResponseMessage : null;
     }
@@ -5737,7 +5798,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFindItemResponseMessageForChoiceConstraintsFromSetFindItemResponseMessage($value)
+    public function validateFindItemResponseMessageForChoiceConstraintsFromSetFindItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5826,12 +5887,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FindItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FindItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5839,28 +5901,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindItemResponseMessageType $findItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setFindItemResponseMessage(\Ews\StructType\EwsFindItemResponseMessageType $findItemResponseMessage = null)
+    public function setFindItemResponseMessage(?\StructType\EwsFindItemResponseMessageType $findItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($findItemResponseMessageChoiceErrorMessage = self::validateFindItemResponseMessageForChoiceConstraintsFromSetFindItemResponseMessage($findItemResponseMessage))) {
-            throw new \InvalidArgumentException($findItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($findItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($findItemResponseMessage) || (is_array($findItemResponseMessage) && empty($findItemResponseMessage))) {
             unset($this->FindItemResponseMessage);
         } else {
             $this->FindItemResponseMessage = $findItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get MoveItemResponseMessage value
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType|null
+     * @return \StructType\EwsItemInfoResponseMessageType|null
      */
-    public function getMoveItemResponseMessage()
+    public function getMoveItemResponseMessage(): ?\StructType\EwsItemInfoResponseMessageType
     {
         return isset($this->MoveItemResponseMessage) ? $this->MoveItemResponseMessage : null;
     }
@@ -5871,7 +5934,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMoveItemResponseMessageForChoiceConstraintsFromSetMoveItemResponseMessage($value)
+    public function validateMoveItemResponseMessageForChoiceConstraintsFromSetMoveItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -5960,12 +6023,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MoveItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MoveItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MoveItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MoveItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -5973,28 +6037,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setMoveItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage = null)
+    public function setMoveItemResponseMessage(?\StructType\EwsItemInfoResponseMessageType $moveItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($moveItemResponseMessageChoiceErrorMessage = self::validateMoveItemResponseMessageForChoiceConstraintsFromSetMoveItemResponseMessage($moveItemResponseMessage))) {
-            throw new \InvalidArgumentException($moveItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($moveItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($moveItemResponseMessage) || (is_array($moveItemResponseMessage) && empty($moveItemResponseMessage))) {
             unset($this->MoveItemResponseMessage);
         } else {
             $this->MoveItemResponseMessage = $moveItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ArchiveItemResponseMessage value
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType|null
+     * @return \StructType\EwsItemInfoResponseMessageType|null
      */
-    public function getArchiveItemResponseMessage()
+    public function getArchiveItemResponseMessage(): ?\StructType\EwsItemInfoResponseMessageType
     {
         return isset($this->ArchiveItemResponseMessage) ? $this->ArchiveItemResponseMessage : null;
     }
@@ -6005,7 +6070,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateArchiveItemResponseMessageForChoiceConstraintsFromSetArchiveItemResponseMessage($value)
+    public function validateArchiveItemResponseMessageForChoiceConstraintsFromSetArchiveItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6094,12 +6159,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ArchiveItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ArchiveItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ArchiveItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ArchiveItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6107,28 +6173,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setArchiveItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null)
+    public function setArchiveItemResponseMessage(?\StructType\EwsItemInfoResponseMessageType $archiveItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($archiveItemResponseMessageChoiceErrorMessage = self::validateArchiveItemResponseMessageForChoiceConstraintsFromSetArchiveItemResponseMessage($archiveItemResponseMessage))) {
-            throw new \InvalidArgumentException($archiveItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($archiveItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($archiveItemResponseMessage) || (is_array($archiveItemResponseMessage) && empty($archiveItemResponseMessage))) {
             unset($this->ArchiveItemResponseMessage);
         } else {
             $this->ArchiveItemResponseMessage = $archiveItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CopyItemResponseMessage value
-     * @return \Ews\StructType\EwsItemInfoResponseMessageType|null
+     * @return \StructType\EwsItemInfoResponseMessageType|null
      */
-    public function getCopyItemResponseMessage()
+    public function getCopyItemResponseMessage(): ?\StructType\EwsItemInfoResponseMessageType
     {
         return isset($this->CopyItemResponseMessage) ? $this->CopyItemResponseMessage : null;
     }
@@ -6139,7 +6206,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCopyItemResponseMessageForChoiceConstraintsFromSetCopyItemResponseMessage($value)
+    public function validateCopyItemResponseMessageForChoiceConstraintsFromSetCopyItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6228,12 +6295,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CopyItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CopyItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CopyItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CopyItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6241,28 +6309,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCopyItemResponseMessage(\Ews\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage = null)
+    public function setCopyItemResponseMessage(?\StructType\EwsItemInfoResponseMessageType $copyItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($copyItemResponseMessageChoiceErrorMessage = self::validateCopyItemResponseMessageForChoiceConstraintsFromSetCopyItemResponseMessage($copyItemResponseMessage))) {
-            throw new \InvalidArgumentException($copyItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($copyItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($copyItemResponseMessage) || (is_array($copyItemResponseMessage) && empty($copyItemResponseMessage))) {
             unset($this->CopyItemResponseMessage);
         } else {
             $this->CopyItemResponseMessage = $copyItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ResolveNamesResponseMessage value
-     * @return \Ews\StructType\EwsResolveNamesResponseMessageType|null
+     * @return \StructType\EwsResolveNamesResponseMessageType|null
      */
-    public function getResolveNamesResponseMessage()
+    public function getResolveNamesResponseMessage(): ?\StructType\EwsResolveNamesResponseMessageType
     {
         return isset($this->ResolveNamesResponseMessage) ? $this->ResolveNamesResponseMessage : null;
     }
@@ -6273,7 +6342,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateResolveNamesResponseMessageForChoiceConstraintsFromSetResolveNamesResponseMessage($value)
+    public function validateResolveNamesResponseMessageForChoiceConstraintsFromSetResolveNamesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6362,12 +6431,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ResolveNamesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ResolveNamesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ResolveNamesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ResolveNamesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6375,28 +6445,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setResolveNamesResponseMessage(\Ews\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null)
+    public function setResolveNamesResponseMessage(?\StructType\EwsResolveNamesResponseMessageType $resolveNamesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($resolveNamesResponseMessageChoiceErrorMessage = self::validateResolveNamesResponseMessageForChoiceConstraintsFromSetResolveNamesResponseMessage($resolveNamesResponseMessage))) {
-            throw new \InvalidArgumentException($resolveNamesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($resolveNamesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($resolveNamesResponseMessage) || (is_array($resolveNamesResponseMessage) && empty($resolveNamesResponseMessage))) {
             unset($this->ResolveNamesResponseMessage);
         } else {
             $this->ResolveNamesResponseMessage = $resolveNamesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ExpandDLResponseMessage value
-     * @return \Ews\StructType\EwsExpandDLResponseMessageType|null
+     * @return \StructType\EwsExpandDLResponseMessageType|null
      */
-    public function getExpandDLResponseMessage()
+    public function getExpandDLResponseMessage(): ?\StructType\EwsExpandDLResponseMessageType
     {
         return isset($this->ExpandDLResponseMessage) ? $this->ExpandDLResponseMessage : null;
     }
@@ -6407,7 +6478,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateExpandDLResponseMessageForChoiceConstraintsFromSetExpandDLResponseMessage($value)
+    public function validateExpandDLResponseMessageForChoiceConstraintsFromSetExpandDLResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6496,12 +6567,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ExpandDLResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ExpandDLResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ExpandDLResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ExpandDLResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6509,28 +6581,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setExpandDLResponseMessage(\Ews\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage = null)
+    public function setExpandDLResponseMessage(?\StructType\EwsExpandDLResponseMessageType $expandDLResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($expandDLResponseMessageChoiceErrorMessage = self::validateExpandDLResponseMessageForChoiceConstraintsFromSetExpandDLResponseMessage($expandDLResponseMessage))) {
-            throw new \InvalidArgumentException($expandDLResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($expandDLResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($expandDLResponseMessage) || (is_array($expandDLResponseMessage) && empty($expandDLResponseMessage))) {
             unset($this->ExpandDLResponseMessage);
         } else {
             $this->ExpandDLResponseMessage = $expandDLResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetServerTimeZonesResponseMessage value
-     * @return \Ews\StructType\EwsGetServerTimeZonesResponseMessageType|null
+     * @return \StructType\EwsGetServerTimeZonesResponseMessageType|null
      */
-    public function getGetServerTimeZonesResponseMessage()
+    public function getGetServerTimeZonesResponseMessage(): ?\StructType\EwsGetServerTimeZonesResponseMessageType
     {
         return isset($this->GetServerTimeZonesResponseMessage) ? $this->GetServerTimeZonesResponseMessage : null;
     }
@@ -6541,7 +6614,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetServerTimeZonesResponseMessageForChoiceConstraintsFromSetGetServerTimeZonesResponseMessage($value)
+    public function validateGetServerTimeZonesResponseMessageForChoiceConstraintsFromSetGetServerTimeZonesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6630,12 +6703,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetServerTimeZonesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetServerTimeZonesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetServerTimeZonesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetServerTimeZonesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6643,28 +6717,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetServerTimeZonesResponseMessage(\Ews\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null)
+    public function setGetServerTimeZonesResponseMessage(?\StructType\EwsGetServerTimeZonesResponseMessageType $getServerTimeZonesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getServerTimeZonesResponseMessageChoiceErrorMessage = self::validateGetServerTimeZonesResponseMessageForChoiceConstraintsFromSetGetServerTimeZonesResponseMessage($getServerTimeZonesResponseMessage))) {
-            throw new \InvalidArgumentException($getServerTimeZonesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getServerTimeZonesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getServerTimeZonesResponseMessage) || (is_array($getServerTimeZonesResponseMessage) && empty($getServerTimeZonesResponseMessage))) {
             unset($this->GetServerTimeZonesResponseMessage);
         } else {
             $this->GetServerTimeZonesResponseMessage = $getServerTimeZonesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetEventsResponseMessage value
-     * @return \Ews\StructType\EwsGetEventsResponseMessageType|null
+     * @return \StructType\EwsGetEventsResponseMessageType|null
      */
-    public function getGetEventsResponseMessage()
+    public function getGetEventsResponseMessage(): ?\StructType\EwsGetEventsResponseMessageType
     {
         return isset($this->GetEventsResponseMessage) ? $this->GetEventsResponseMessage : null;
     }
@@ -6675,7 +6750,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetEventsResponseMessageForChoiceConstraintsFromSetGetEventsResponseMessage($value)
+    public function validateGetEventsResponseMessageForChoiceConstraintsFromSetGetEventsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6764,12 +6839,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6777,28 +6853,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetEventsResponseMessage(\Ews\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage = null)
+    public function setGetEventsResponseMessage(?\StructType\EwsGetEventsResponseMessageType $getEventsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getEventsResponseMessageChoiceErrorMessage = self::validateGetEventsResponseMessageForChoiceConstraintsFromSetGetEventsResponseMessage($getEventsResponseMessage))) {
-            throw new \InvalidArgumentException($getEventsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getEventsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getEventsResponseMessage) || (is_array($getEventsResponseMessage) && empty($getEventsResponseMessage))) {
             unset($this->GetEventsResponseMessage);
         } else {
             $this->GetEventsResponseMessage = $getEventsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetStreamingEventsResponseMessage value
-     * @return \Ews\StructType\EwsGetStreamingEventsResponseMessageType|null
+     * @return \StructType\EwsGetStreamingEventsResponseMessageType|null
      */
-    public function getGetStreamingEventsResponseMessage()
+    public function getGetStreamingEventsResponseMessage(): ?\StructType\EwsGetStreamingEventsResponseMessageType
     {
         return isset($this->GetStreamingEventsResponseMessage) ? $this->GetStreamingEventsResponseMessage : null;
     }
@@ -6809,7 +6886,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetStreamingEventsResponseMessageForChoiceConstraintsFromSetGetStreamingEventsResponseMessage($value)
+    public function validateGetStreamingEventsResponseMessageForChoiceConstraintsFromSetGetStreamingEventsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -6898,12 +6975,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetStreamingEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetStreamingEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetStreamingEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetStreamingEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -6911,28 +6989,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetStreamingEventsResponseMessage(\Ews\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null)
+    public function setGetStreamingEventsResponseMessage(?\StructType\EwsGetStreamingEventsResponseMessageType $getStreamingEventsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getStreamingEventsResponseMessageChoiceErrorMessage = self::validateGetStreamingEventsResponseMessageForChoiceConstraintsFromSetGetStreamingEventsResponseMessage($getStreamingEventsResponseMessage))) {
-            throw new \InvalidArgumentException($getStreamingEventsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getStreamingEventsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getStreamingEventsResponseMessage) || (is_array($getStreamingEventsResponseMessage) && empty($getStreamingEventsResponseMessage))) {
             unset($this->GetStreamingEventsResponseMessage);
         } else {
             $this->GetStreamingEventsResponseMessage = $getStreamingEventsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SubscribeResponseMessage value
-     * @return \Ews\StructType\EwsSubscribeResponseMessageType|null
+     * @return \StructType\EwsSubscribeResponseMessageType|null
      */
-    public function getSubscribeResponseMessage()
+    public function getSubscribeResponseMessage(): ?\StructType\EwsSubscribeResponseMessageType
     {
         return isset($this->SubscribeResponseMessage) ? $this->SubscribeResponseMessage : null;
     }
@@ -6943,7 +7022,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSubscribeResponseMessageForChoiceConstraintsFromSetSubscribeResponseMessage($value)
+    public function validateSubscribeResponseMessageForChoiceConstraintsFromSetSubscribeResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7032,12 +7111,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7045,28 +7125,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSubscribeResponseMessage(\Ews\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage = null)
+    public function setSubscribeResponseMessage(?\StructType\EwsSubscribeResponseMessageType $subscribeResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($subscribeResponseMessageChoiceErrorMessage = self::validateSubscribeResponseMessageForChoiceConstraintsFromSetSubscribeResponseMessage($subscribeResponseMessage))) {
-            throw new \InvalidArgumentException($subscribeResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($subscribeResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($subscribeResponseMessage) || (is_array($subscribeResponseMessage) && empty($subscribeResponseMessage))) {
             unset($this->SubscribeResponseMessage);
         } else {
             $this->SubscribeResponseMessage = $subscribeResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UnsubscribeResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getUnsubscribeResponseMessage()
+    public function getUnsubscribeResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->UnsubscribeResponseMessage) ? $this->UnsubscribeResponseMessage : null;
     }
@@ -7077,7 +7158,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUnsubscribeResponseMessageForChoiceConstraintsFromSetUnsubscribeResponseMessage($value)
+    public function validateUnsubscribeResponseMessageForChoiceConstraintsFromSetUnsubscribeResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7166,12 +7247,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UnsubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UnsubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UnsubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UnsubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7179,28 +7261,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $unsubscribeResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUnsubscribeResponseMessage(\Ews\StructType\EwsResponseMessageType $unsubscribeResponseMessage = null)
+    public function setUnsubscribeResponseMessage(?\StructType\EwsResponseMessageType $unsubscribeResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($unsubscribeResponseMessageChoiceErrorMessage = self::validateUnsubscribeResponseMessageForChoiceConstraintsFromSetUnsubscribeResponseMessage($unsubscribeResponseMessage))) {
-            throw new \InvalidArgumentException($unsubscribeResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($unsubscribeResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($unsubscribeResponseMessage) || (is_array($unsubscribeResponseMessage) && empty($unsubscribeResponseMessage))) {
             unset($this->UnsubscribeResponseMessage);
         } else {
             $this->UnsubscribeResponseMessage = $unsubscribeResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetChannelEventsResponseMessage value
-     * @return \Ews\StructType\EwsGetChannelEventsResponseMessageType|null
+     * @return \StructType\EwsGetChannelEventsResponseMessageType|null
      */
-    public function getGetChannelEventsResponseMessage()
+    public function getGetChannelEventsResponseMessage(): ?\StructType\EwsGetChannelEventsResponseMessageType
     {
         return isset($this->GetChannelEventsResponseMessage) ? $this->GetChannelEventsResponseMessage : null;
     }
@@ -7211,7 +7294,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetChannelEventsResponseMessageForChoiceConstraintsFromSetGetChannelEventsResponseMessage($value)
+    public function validateGetChannelEventsResponseMessageForChoiceConstraintsFromSetGetChannelEventsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7300,12 +7383,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetChannelEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetChannelEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetChannelEventsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetChannelEventsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7313,28 +7397,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetChannelEventsResponseMessage(\Ews\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null)
+    public function setGetChannelEventsResponseMessage(?\StructType\EwsGetChannelEventsResponseMessageType $getChannelEventsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getChannelEventsResponseMessageChoiceErrorMessage = self::validateGetChannelEventsResponseMessageForChoiceConstraintsFromSetGetChannelEventsResponseMessage($getChannelEventsResponseMessage))) {
-            throw new \InvalidArgumentException($getChannelEventsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getChannelEventsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getChannelEventsResponseMessage) || (is_array($getChannelEventsResponseMessage) && empty($getChannelEventsResponseMessage))) {
             unset($this->GetChannelEventsResponseMessage);
         } else {
             $this->GetChannelEventsResponseMessage = $getChannelEventsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ChannelSubscribeResponseMessage value
-     * @return \Ews\StructType\EwsChannelSubscribeResponseMessageType|null
+     * @return \StructType\EwsChannelSubscribeResponseMessageType|null
      */
-    public function getChannelSubscribeResponseMessage()
+    public function getChannelSubscribeResponseMessage(): ?\StructType\EwsChannelSubscribeResponseMessageType
     {
         return isset($this->ChannelSubscribeResponseMessage) ? $this->ChannelSubscribeResponseMessage : null;
     }
@@ -7345,7 +7430,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateChannelSubscribeResponseMessageForChoiceConstraintsFromSetChannelSubscribeResponseMessage($value)
+    public function validateChannelSubscribeResponseMessageForChoiceConstraintsFromSetChannelSubscribeResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7434,12 +7519,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ChannelSubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelSubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ChannelSubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelSubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7447,28 +7533,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setChannelSubscribeResponseMessage(\Ews\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null)
+    public function setChannelSubscribeResponseMessage(?\StructType\EwsChannelSubscribeResponseMessageType $channelSubscribeResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($channelSubscribeResponseMessageChoiceErrorMessage = self::validateChannelSubscribeResponseMessageForChoiceConstraintsFromSetChannelSubscribeResponseMessage($channelSubscribeResponseMessage))) {
-            throw new \InvalidArgumentException($channelSubscribeResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($channelSubscribeResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($channelSubscribeResponseMessage) || (is_array($channelSubscribeResponseMessage) && empty($channelSubscribeResponseMessage))) {
             unset($this->ChannelSubscribeResponseMessage);
         } else {
             $this->ChannelSubscribeResponseMessage = $channelSubscribeResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ChannelUnsubscribeResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getChannelUnsubscribeResponseMessage()
+    public function getChannelUnsubscribeResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->ChannelUnsubscribeResponseMessage) ? $this->ChannelUnsubscribeResponseMessage : null;
     }
@@ -7479,7 +7566,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateChannelUnsubscribeResponseMessageForChoiceConstraintsFromSetChannelUnsubscribeResponseMessage($value)
+    public function validateChannelUnsubscribeResponseMessageForChoiceConstraintsFromSetChannelUnsubscribeResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7568,12 +7655,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ChannelUnsubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelUnsubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ChannelUnsubscribeResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ChannelUnsubscribeResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7581,28 +7669,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setChannelUnsubscribeResponseMessage(\Ews\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage = null)
+    public function setChannelUnsubscribeResponseMessage(?\StructType\EwsResponseMessageType $channelUnsubscribeResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($channelUnsubscribeResponseMessageChoiceErrorMessage = self::validateChannelUnsubscribeResponseMessageForChoiceConstraintsFromSetChannelUnsubscribeResponseMessage($channelUnsubscribeResponseMessage))) {
-            throw new \InvalidArgumentException($channelUnsubscribeResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($channelUnsubscribeResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($channelUnsubscribeResponseMessage) || (is_array($channelUnsubscribeResponseMessage) && empty($channelUnsubscribeResponseMessage))) {
             unset($this->ChannelUnsubscribeResponseMessage);
         } else {
             $this->ChannelUnsubscribeResponseMessage = $channelUnsubscribeResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SendNotificationResponseMessage value
-     * @return \Ews\StructType\EwsSendNotificationResponseMessageType|null
+     * @return \StructType\EwsSendNotificationResponseMessageType|null
      */
-    public function getSendNotificationResponseMessage()
+    public function getSendNotificationResponseMessage(): ?\StructType\EwsSendNotificationResponseMessageType
     {
         return isset($this->SendNotificationResponseMessage) ? $this->SendNotificationResponseMessage : null;
     }
@@ -7613,7 +7702,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSendNotificationResponseMessageForChoiceConstraintsFromSetSendNotificationResponseMessage($value)
+    public function validateSendNotificationResponseMessageForChoiceConstraintsFromSetSendNotificationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7702,12 +7791,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SendNotificationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SendNotificationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SendNotificationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SendNotificationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7715,28 +7805,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSendNotificationResponseMessage(\Ews\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null)
+    public function setSendNotificationResponseMessage(?\StructType\EwsSendNotificationResponseMessageType $sendNotificationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($sendNotificationResponseMessageChoiceErrorMessage = self::validateSendNotificationResponseMessageForChoiceConstraintsFromSetSendNotificationResponseMessage($sendNotificationResponseMessage))) {
-            throw new \InvalidArgumentException($sendNotificationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($sendNotificationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($sendNotificationResponseMessage) || (is_array($sendNotificationResponseMessage) && empty($sendNotificationResponseMessage))) {
             unset($this->SendNotificationResponseMessage);
         } else {
             $this->SendNotificationResponseMessage = $sendNotificationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SyncFolderHierarchyResponseMessage value
-     * @return \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType|null
+     * @return \StructType\EwsSyncFolderHierarchyResponseMessageType|null
      */
-    public function getSyncFolderHierarchyResponseMessage()
+    public function getSyncFolderHierarchyResponseMessage(): ?\StructType\EwsSyncFolderHierarchyResponseMessageType
     {
         return isset($this->SyncFolderHierarchyResponseMessage) ? $this->SyncFolderHierarchyResponseMessage : null;
     }
@@ -7747,7 +7838,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSyncFolderHierarchyResponseMessageForChoiceConstraintsFromSetSyncFolderHierarchyResponseMessage($value)
+    public function validateSyncFolderHierarchyResponseMessageForChoiceConstraintsFromSetSyncFolderHierarchyResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7836,12 +7927,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SyncFolderHierarchyResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SyncFolderHierarchyResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SyncFolderHierarchyResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SyncFolderHierarchyResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7849,28 +7941,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSyncFolderHierarchyResponseMessage(\Ews\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null)
+    public function setSyncFolderHierarchyResponseMessage(?\StructType\EwsSyncFolderHierarchyResponseMessageType $syncFolderHierarchyResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($syncFolderHierarchyResponseMessageChoiceErrorMessage = self::validateSyncFolderHierarchyResponseMessageForChoiceConstraintsFromSetSyncFolderHierarchyResponseMessage($syncFolderHierarchyResponseMessage))) {
-            throw new \InvalidArgumentException($syncFolderHierarchyResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($syncFolderHierarchyResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($syncFolderHierarchyResponseMessage) || (is_array($syncFolderHierarchyResponseMessage) && empty($syncFolderHierarchyResponseMessage))) {
             unset($this->SyncFolderHierarchyResponseMessage);
         } else {
             $this->SyncFolderHierarchyResponseMessage = $syncFolderHierarchyResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SyncFolderItemsResponseMessage value
-     * @return \Ews\StructType\EwsSyncFolderItemsResponseMessageType|null
+     * @return \StructType\EwsSyncFolderItemsResponseMessageType|null
      */
-    public function getSyncFolderItemsResponseMessage()
+    public function getSyncFolderItemsResponseMessage(): ?\StructType\EwsSyncFolderItemsResponseMessageType
     {
         return isset($this->SyncFolderItemsResponseMessage) ? $this->SyncFolderItemsResponseMessage : null;
     }
@@ -7881,7 +7974,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSyncFolderItemsResponseMessageForChoiceConstraintsFromSetSyncFolderItemsResponseMessage($value)
+    public function validateSyncFolderItemsResponseMessageForChoiceConstraintsFromSetSyncFolderItemsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -7970,12 +8063,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SyncFolderItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SyncFolderItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SyncFolderItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SyncFolderItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -7983,28 +8077,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSyncFolderItemsResponseMessage(\Ews\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null)
+    public function setSyncFolderItemsResponseMessage(?\StructType\EwsSyncFolderItemsResponseMessageType $syncFolderItemsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($syncFolderItemsResponseMessageChoiceErrorMessage = self::validateSyncFolderItemsResponseMessageForChoiceConstraintsFromSetSyncFolderItemsResponseMessage($syncFolderItemsResponseMessage))) {
-            throw new \InvalidArgumentException($syncFolderItemsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($syncFolderItemsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($syncFolderItemsResponseMessage) || (is_array($syncFolderItemsResponseMessage) && empty($syncFolderItemsResponseMessage))) {
             unset($this->SyncFolderItemsResponseMessage);
         } else {
             $this->SyncFolderItemsResponseMessage = $syncFolderItemsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CreateManagedFolderResponseMessage value
-     * @return \Ews\StructType\EwsFolderInfoResponseMessageType|null
+     * @return \StructType\EwsFolderInfoResponseMessageType|null
      */
-    public function getCreateManagedFolderResponseMessage()
+    public function getCreateManagedFolderResponseMessage(): ?\StructType\EwsFolderInfoResponseMessageType
     {
         return isset($this->CreateManagedFolderResponseMessage) ? $this->CreateManagedFolderResponseMessage : null;
     }
@@ -8015,7 +8110,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateManagedFolderResponseMessageForChoiceConstraintsFromSetCreateManagedFolderResponseMessage($value)
+    public function validateCreateManagedFolderResponseMessageForChoiceConstraintsFromSetCreateManagedFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8104,12 +8199,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateManagedFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateManagedFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateManagedFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateManagedFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8117,28 +8213,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateManagedFolderResponseMessage(\Ews\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null)
+    public function setCreateManagedFolderResponseMessage(?\StructType\EwsFolderInfoResponseMessageType $createManagedFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createManagedFolderResponseMessageChoiceErrorMessage = self::validateCreateManagedFolderResponseMessageForChoiceConstraintsFromSetCreateManagedFolderResponseMessage($createManagedFolderResponseMessage))) {
-            throw new \InvalidArgumentException($createManagedFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createManagedFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createManagedFolderResponseMessage) || (is_array($createManagedFolderResponseMessage) && empty($createManagedFolderResponseMessage))) {
             unset($this->CreateManagedFolderResponseMessage);
         } else {
             $this->CreateManagedFolderResponseMessage = $createManagedFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get ConvertIdResponseMessage value
-     * @return \Ews\StructType\EwsConvertIdResponseMessageType|null
+     * @return \StructType\EwsConvertIdResponseMessageType|null
      */
-    public function getConvertIdResponseMessage()
+    public function getConvertIdResponseMessage(): ?\StructType\EwsConvertIdResponseMessageType
     {
         return isset($this->ConvertIdResponseMessage) ? $this->ConvertIdResponseMessage : null;
     }
@@ -8149,7 +8246,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateConvertIdResponseMessageForChoiceConstraintsFromSetConvertIdResponseMessage($value)
+    public function validateConvertIdResponseMessageForChoiceConstraintsFromSetConvertIdResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8238,12 +8335,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ConvertIdResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ConvertIdResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ConvertIdResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ConvertIdResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8251,28 +8349,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setConvertIdResponseMessage(\Ews\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage = null)
+    public function setConvertIdResponseMessage(?\StructType\EwsConvertIdResponseMessageType $convertIdResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($convertIdResponseMessageChoiceErrorMessage = self::validateConvertIdResponseMessageForChoiceConstraintsFromSetConvertIdResponseMessage($convertIdResponseMessage))) {
-            throw new \InvalidArgumentException($convertIdResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($convertIdResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($convertIdResponseMessage) || (is_array($convertIdResponseMessage) && empty($convertIdResponseMessage))) {
             unset($this->ConvertIdResponseMessage);
         } else {
             $this->ConvertIdResponseMessage = $convertIdResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetSharingMetadataResponseMessage value
-     * @return \Ews\StructType\EwsGetSharingMetadataResponseMessageType|null
+     * @return \StructType\EwsGetSharingMetadataResponseMessageType|null
      */
-    public function getGetSharingMetadataResponseMessage()
+    public function getGetSharingMetadataResponseMessage(): ?\StructType\EwsGetSharingMetadataResponseMessageType
     {
         return isset($this->GetSharingMetadataResponseMessage) ? $this->GetSharingMetadataResponseMessage : null;
     }
@@ -8283,7 +8382,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetSharingMetadataResponseMessageForChoiceConstraintsFromSetGetSharingMetadataResponseMessage($value)
+    public function validateGetSharingMetadataResponseMessageForChoiceConstraintsFromSetGetSharingMetadataResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8372,12 +8471,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetSharingMetadataResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSharingMetadataResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetSharingMetadataResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSharingMetadataResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8385,28 +8485,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetSharingMetadataResponseMessage(\Ews\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null)
+    public function setGetSharingMetadataResponseMessage(?\StructType\EwsGetSharingMetadataResponseMessageType $getSharingMetadataResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getSharingMetadataResponseMessageChoiceErrorMessage = self::validateGetSharingMetadataResponseMessageForChoiceConstraintsFromSetGetSharingMetadataResponseMessage($getSharingMetadataResponseMessage))) {
-            throw new \InvalidArgumentException($getSharingMetadataResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getSharingMetadataResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getSharingMetadataResponseMessage) || (is_array($getSharingMetadataResponseMessage) && empty($getSharingMetadataResponseMessage))) {
             unset($this->GetSharingMetadataResponseMessage);
         } else {
             $this->GetSharingMetadataResponseMessage = $getSharingMetadataResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get RefreshSharingFolderResponseMessage value
-     * @return \Ews\StructType\EwsRefreshSharingFolderResponseMessageType|null
+     * @return \StructType\EwsRefreshSharingFolderResponseMessageType|null
      */
-    public function getRefreshSharingFolderResponseMessage()
+    public function getRefreshSharingFolderResponseMessage(): ?\StructType\EwsRefreshSharingFolderResponseMessageType
     {
         return isset($this->RefreshSharingFolderResponseMessage) ? $this->RefreshSharingFolderResponseMessage : null;
     }
@@ -8417,7 +8518,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateRefreshSharingFolderResponseMessageForChoiceConstraintsFromSetRefreshSharingFolderResponseMessage($value)
+    public function validateRefreshSharingFolderResponseMessageForChoiceConstraintsFromSetRefreshSharingFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8506,12 +8607,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property RefreshSharingFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: RefreshSharingFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property RefreshSharingFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: RefreshSharingFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8519,28 +8621,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setRefreshSharingFolderResponseMessage(\Ews\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null)
+    public function setRefreshSharingFolderResponseMessage(?\StructType\EwsRefreshSharingFolderResponseMessageType $refreshSharingFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($refreshSharingFolderResponseMessageChoiceErrorMessage = self::validateRefreshSharingFolderResponseMessageForChoiceConstraintsFromSetRefreshSharingFolderResponseMessage($refreshSharingFolderResponseMessage))) {
-            throw new \InvalidArgumentException($refreshSharingFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($refreshSharingFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($refreshSharingFolderResponseMessage) || (is_array($refreshSharingFolderResponseMessage) && empty($refreshSharingFolderResponseMessage))) {
             unset($this->RefreshSharingFolderResponseMessage);
         } else {
             $this->RefreshSharingFolderResponseMessage = $refreshSharingFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetSharingFolderResponseMessage value
-     * @return \Ews\StructType\EwsGetSharingFolderResponseMessageType|null
+     * @return \StructType\EwsGetSharingFolderResponseMessageType|null
      */
-    public function getGetSharingFolderResponseMessage()
+    public function getGetSharingFolderResponseMessage(): ?\StructType\EwsGetSharingFolderResponseMessageType
     {
         return isset($this->GetSharingFolderResponseMessage) ? $this->GetSharingFolderResponseMessage : null;
     }
@@ -8551,7 +8654,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetSharingFolderResponseMessageForChoiceConstraintsFromSetGetSharingFolderResponseMessage($value)
+    public function validateGetSharingFolderResponseMessageForChoiceConstraintsFromSetGetSharingFolderResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8640,12 +8743,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetSharingFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSharingFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetSharingFolderResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSharingFolderResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8653,28 +8757,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetSharingFolderResponseMessage(\Ews\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null)
+    public function setGetSharingFolderResponseMessage(?\StructType\EwsGetSharingFolderResponseMessageType $getSharingFolderResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getSharingFolderResponseMessageChoiceErrorMessage = self::validateGetSharingFolderResponseMessageForChoiceConstraintsFromSetGetSharingFolderResponseMessage($getSharingFolderResponseMessage))) {
-            throw new \InvalidArgumentException($getSharingFolderResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getSharingFolderResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getSharingFolderResponseMessage) || (is_array($getSharingFolderResponseMessage) && empty($getSharingFolderResponseMessage))) {
             unset($this->GetSharingFolderResponseMessage);
         } else {
             $this->GetSharingFolderResponseMessage = $getSharingFolderResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get CreateUserConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getCreateUserConfigurationResponseMessage()
+    public function getCreateUserConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->CreateUserConfigurationResponseMessage) ? $this->CreateUserConfigurationResponseMessage : null;
     }
@@ -8685,7 +8790,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateCreateUserConfigurationResponseMessageForChoiceConstraintsFromSetCreateUserConfigurationResponseMessage($value)
+    public function validateCreateUserConfigurationResponseMessageForChoiceConstraintsFromSetCreateUserConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8774,12 +8879,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property CreateUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property CreateUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: CreateUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8787,28 +8893,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $createUserConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setCreateUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null)
+    public function setCreateUserConfigurationResponseMessage(?\StructType\EwsResponseMessageType $createUserConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($createUserConfigurationResponseMessageChoiceErrorMessage = self::validateCreateUserConfigurationResponseMessageForChoiceConstraintsFromSetCreateUserConfigurationResponseMessage($createUserConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($createUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($createUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($createUserConfigurationResponseMessage) || (is_array($createUserConfigurationResponseMessage) && empty($createUserConfigurationResponseMessage))) {
             unset($this->CreateUserConfigurationResponseMessage);
         } else {
             $this->CreateUserConfigurationResponseMessage = $createUserConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get DeleteUserConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getDeleteUserConfigurationResponseMessage()
+    public function getDeleteUserConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->DeleteUserConfigurationResponseMessage) ? $this->DeleteUserConfigurationResponseMessage : null;
     }
@@ -8819,7 +8926,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateDeleteUserConfigurationResponseMessageForChoiceConstraintsFromSetDeleteUserConfigurationResponseMessage($value)
+    public function validateDeleteUserConfigurationResponseMessageForChoiceConstraintsFromSetDeleteUserConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -8908,12 +9015,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property DeleteUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property DeleteUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: DeleteUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -8921,28 +9029,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setDeleteUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null)
+    public function setDeleteUserConfigurationResponseMessage(?\StructType\EwsResponseMessageType $deleteUserConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($deleteUserConfigurationResponseMessageChoiceErrorMessage = self::validateDeleteUserConfigurationResponseMessageForChoiceConstraintsFromSetDeleteUserConfigurationResponseMessage($deleteUserConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($deleteUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($deleteUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($deleteUserConfigurationResponseMessage) || (is_array($deleteUserConfigurationResponseMessage) && empty($deleteUserConfigurationResponseMessage))) {
             unset($this->DeleteUserConfigurationResponseMessage);
         } else {
             $this->DeleteUserConfigurationResponseMessage = $deleteUserConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetUserConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsGetUserConfigurationResponseMessageType|null
+     * @return \StructType\EwsGetUserConfigurationResponseMessageType|null
      */
-    public function getGetUserConfigurationResponseMessage()
+    public function getGetUserConfigurationResponseMessage(): ?\StructType\EwsGetUserConfigurationResponseMessageType
     {
         return isset($this->GetUserConfigurationResponseMessage) ? $this->GetUserConfigurationResponseMessage : null;
     }
@@ -8953,7 +9062,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetUserConfigurationResponseMessageForChoiceConstraintsFromSetGetUserConfigurationResponseMessage($value)
+    public function validateGetUserConfigurationResponseMessageForChoiceConstraintsFromSetGetUserConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9042,12 +9151,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9055,28 +9165,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetUserConfigurationResponseMessage(\Ews\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null)
+    public function setGetUserConfigurationResponseMessage(?\StructType\EwsGetUserConfigurationResponseMessageType $getUserConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getUserConfigurationResponseMessageChoiceErrorMessage = self::validateGetUserConfigurationResponseMessageForChoiceConstraintsFromSetGetUserConfigurationResponseMessage($getUserConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($getUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getUserConfigurationResponseMessage) || (is_array($getUserConfigurationResponseMessage) && empty($getUserConfigurationResponseMessage))) {
             unset($this->GetUserConfigurationResponseMessage);
         } else {
             $this->GetUserConfigurationResponseMessage = $getUserConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateUserConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getUpdateUserConfigurationResponseMessage()
+    public function getUpdateUserConfigurationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->UpdateUserConfigurationResponseMessage) ? $this->UpdateUserConfigurationResponseMessage : null;
     }
@@ -9087,7 +9198,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateUserConfigurationResponseMessageForChoiceConstraintsFromSetUpdateUserConfigurationResponseMessage($value)
+    public function validateUpdateUserConfigurationResponseMessageForChoiceConstraintsFromSetUpdateUserConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9176,12 +9287,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateUserConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateUserConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9189,28 +9301,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateUserConfigurationResponseMessage(\Ews\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null)
+    public function setUpdateUserConfigurationResponseMessage(?\StructType\EwsResponseMessageType $updateUserConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateUserConfigurationResponseMessageChoiceErrorMessage = self::validateUpdateUserConfigurationResponseMessageForChoiceConstraintsFromSetUpdateUserConfigurationResponseMessage($updateUserConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($updateUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateUserConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateUserConfigurationResponseMessage) || (is_array($updateUserConfigurationResponseMessage) && empty($updateUserConfigurationResponseMessage))) {
             unset($this->UpdateUserConfigurationResponseMessage);
         } else {
             $this->UpdateUserConfigurationResponseMessage = $updateUserConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetRoomListsResponse value
-     * @return \Ews\StructType\EwsGetRoomListsResponseMessageType|null
+     * @return \StructType\EwsGetRoomListsResponseMessageType|null
      */
-    public function getGetRoomListsResponse()
+    public function getGetRoomListsResponse(): ?\StructType\EwsGetRoomListsResponseMessageType
     {
         return isset($this->GetRoomListsResponse) ? $this->GetRoomListsResponse : null;
     }
@@ -9221,7 +9334,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetRoomListsResponseForChoiceConstraintsFromSetGetRoomListsResponse($value)
+    public function validateGetRoomListsResponseForChoiceConstraintsFromSetGetRoomListsResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9310,12 +9423,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetRoomListsResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRoomListsResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetRoomListsResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRoomListsResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9323,28 +9437,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetRoomListsResponse(\Ews\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse = null)
+    public function setGetRoomListsResponse(?\StructType\EwsGetRoomListsResponseMessageType $getRoomListsResponse = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getRoomListsResponseChoiceErrorMessage = self::validateGetRoomListsResponseForChoiceConstraintsFromSetGetRoomListsResponse($getRoomListsResponse))) {
-            throw new \InvalidArgumentException($getRoomListsResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getRoomListsResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($getRoomListsResponse) || (is_array($getRoomListsResponse) && empty($getRoomListsResponse))) {
             unset($this->GetRoomListsResponse);
         } else {
             $this->GetRoomListsResponse = $getRoomListsResponse;
         }
+        
         return $this;
     }
     /**
      * Get GetRoomsResponse value
-     * @return \Ews\StructType\EwsGetRoomsResponseMessageType|null
+     * @return \StructType\EwsGetRoomsResponseMessageType|null
      */
-    public function getGetRoomsResponse()
+    public function getGetRoomsResponse(): ?\StructType\EwsGetRoomsResponseMessageType
     {
         return isset($this->GetRoomsResponse) ? $this->GetRoomsResponse : null;
     }
@@ -9355,7 +9470,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetRoomsResponseForChoiceConstraintsFromSetGetRoomsResponse($value)
+    public function validateGetRoomsResponseForChoiceConstraintsFromSetGetRoomsResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9444,12 +9559,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetRoomsResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRoomsResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetRoomsResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRoomsResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9457,28 +9573,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetRoomsResponseMessageType $getRoomsResponse
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetRoomsResponse(\Ews\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse = null)
+    public function setGetRoomsResponse(?\StructType\EwsGetRoomsResponseMessageType $getRoomsResponse = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getRoomsResponseChoiceErrorMessage = self::validateGetRoomsResponseForChoiceConstraintsFromSetGetRoomsResponse($getRoomsResponse))) {
-            throw new \InvalidArgumentException($getRoomsResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getRoomsResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($getRoomsResponse) || (is_array($getRoomsResponse) && empty($getRoomsResponse))) {
             unset($this->GetRoomsResponse);
         } else {
             $this->GetRoomsResponse = $getRoomsResponse;
         }
+        
         return $this;
     }
     /**
      * Get GetRemindersResponse value
-     * @return \Ews\StructType\EwsGetRemindersResponseMessageType|null
+     * @return \StructType\EwsGetRemindersResponseMessageType|null
      */
-    public function getGetRemindersResponse()
+    public function getGetRemindersResponse(): ?\StructType\EwsGetRemindersResponseMessageType
     {
         return isset($this->GetRemindersResponse) ? $this->GetRemindersResponse : null;
     }
@@ -9489,7 +9606,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetRemindersResponseForChoiceConstraintsFromSetGetRemindersResponse($value)
+    public function validateGetRemindersResponseForChoiceConstraintsFromSetGetRemindersResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9578,12 +9695,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetRemindersResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRemindersResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetRemindersResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetRemindersResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9591,28 +9709,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetRemindersResponseMessageType $getRemindersResponse
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetRemindersResponse(\Ews\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse = null)
+    public function setGetRemindersResponse(?\StructType\EwsGetRemindersResponseMessageType $getRemindersResponse = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getRemindersResponseChoiceErrorMessage = self::validateGetRemindersResponseForChoiceConstraintsFromSetGetRemindersResponse($getRemindersResponse))) {
-            throw new \InvalidArgumentException($getRemindersResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getRemindersResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($getRemindersResponse) || (is_array($getRemindersResponse) && empty($getRemindersResponse))) {
             unset($this->GetRemindersResponse);
         } else {
             $this->GetRemindersResponse = $getRemindersResponse;
         }
+        
         return $this;
     }
     /**
      * Get PerformReminderActionResponse value
-     * @return \Ews\StructType\EwsPerformReminderActionResponseMessageType|null
+     * @return \StructType\EwsPerformReminderActionResponseMessageType|null
      */
-    public function getPerformReminderActionResponse()
+    public function getPerformReminderActionResponse(): ?\StructType\EwsPerformReminderActionResponseMessageType
     {
         return isset($this->PerformReminderActionResponse) ? $this->PerformReminderActionResponse : null;
     }
@@ -9623,7 +9742,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePerformReminderActionResponseForChoiceConstraintsFromSetPerformReminderActionResponse($value)
+    public function validatePerformReminderActionResponseForChoiceConstraintsFromSetPerformReminderActionResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9712,12 +9831,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PerformReminderActionResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: PerformReminderActionResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PerformReminderActionResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: PerformReminderActionResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9725,28 +9845,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setPerformReminderActionResponse(\Ews\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null)
+    public function setPerformReminderActionResponse(?\StructType\EwsPerformReminderActionResponseMessageType $performReminderActionResponse = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($performReminderActionResponseChoiceErrorMessage = self::validatePerformReminderActionResponseForChoiceConstraintsFromSetPerformReminderActionResponse($performReminderActionResponse))) {
-            throw new \InvalidArgumentException($performReminderActionResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($performReminderActionResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($performReminderActionResponse) || (is_array($performReminderActionResponse) && empty($performReminderActionResponse))) {
             unset($this->PerformReminderActionResponse);
         } else {
             $this->PerformReminderActionResponse = $performReminderActionResponse;
         }
+        
         return $this;
     }
     /**
      * Get ApplyConversationActionResponseMessage value
-     * @return \Ews\StructType\EwsApplyConversationActionResponseMessageType|null
+     * @return \StructType\EwsApplyConversationActionResponseMessageType|null
      */
-    public function getApplyConversationActionResponseMessage()
+    public function getApplyConversationActionResponseMessage(): ?\StructType\EwsApplyConversationActionResponseMessageType
     {
         return isset($this->ApplyConversationActionResponseMessage) ? $this->ApplyConversationActionResponseMessage : null;
     }
@@ -9757,7 +9878,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateApplyConversationActionResponseMessageForChoiceConstraintsFromSetApplyConversationActionResponseMessage($value)
+    public function validateApplyConversationActionResponseMessageForChoiceConstraintsFromSetApplyConversationActionResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9846,12 +9967,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property ApplyConversationActionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ApplyConversationActionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property ApplyConversationActionResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: ApplyConversationActionResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9859,28 +9981,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setApplyConversationActionResponseMessage(\Ews\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null)
+    public function setApplyConversationActionResponseMessage(?\StructType\EwsApplyConversationActionResponseMessageType $applyConversationActionResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($applyConversationActionResponseMessageChoiceErrorMessage = self::validateApplyConversationActionResponseMessageForChoiceConstraintsFromSetApplyConversationActionResponseMessage($applyConversationActionResponseMessage))) {
-            throw new \InvalidArgumentException($applyConversationActionResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($applyConversationActionResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($applyConversationActionResponseMessage) || (is_array($applyConversationActionResponseMessage) && empty($applyConversationActionResponseMessage))) {
             unset($this->ApplyConversationActionResponseMessage);
         } else {
             $this->ApplyConversationActionResponseMessage = $applyConversationActionResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get FindMailboxStatisticsByKeywordsResponseMessage value
-     * @return \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType|null
+     * @return \StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType|null
      */
-    public function getFindMailboxStatisticsByKeywordsResponseMessage()
+    public function getFindMailboxStatisticsByKeywordsResponseMessage(): ?\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType
     {
         return isset($this->FindMailboxStatisticsByKeywordsResponseMessage) ? $this->FindMailboxStatisticsByKeywordsResponseMessage : null;
     }
@@ -9891,7 +10014,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFindMailboxStatisticsByKeywordsResponseMessageForChoiceConstraintsFromSetFindMailboxStatisticsByKeywordsResponseMessage($value)
+    public function validateFindMailboxStatisticsByKeywordsResponseMessageForChoiceConstraintsFromSetFindMailboxStatisticsByKeywordsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -9980,12 +10103,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FindMailboxStatisticsByKeywordsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindMailboxStatisticsByKeywordsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FindMailboxStatisticsByKeywordsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindMailboxStatisticsByKeywordsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -9993,28 +10117,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setFindMailboxStatisticsByKeywordsResponseMessage(\Ews\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null)
+    public function setFindMailboxStatisticsByKeywordsResponseMessage(?\StructType\EwsFindMailboxStatisticsByKeywordsResponseMessageType $findMailboxStatisticsByKeywordsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($findMailboxStatisticsByKeywordsResponseMessageChoiceErrorMessage = self::validateFindMailboxStatisticsByKeywordsResponseMessageForChoiceConstraintsFromSetFindMailboxStatisticsByKeywordsResponseMessage($findMailboxStatisticsByKeywordsResponseMessage))) {
-            throw new \InvalidArgumentException($findMailboxStatisticsByKeywordsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($findMailboxStatisticsByKeywordsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($findMailboxStatisticsByKeywordsResponseMessage) || (is_array($findMailboxStatisticsByKeywordsResponseMessage) && empty($findMailboxStatisticsByKeywordsResponseMessage))) {
             unset($this->FindMailboxStatisticsByKeywordsResponseMessage);
         } else {
             $this->FindMailboxStatisticsByKeywordsResponseMessage = $findMailboxStatisticsByKeywordsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetSearchableMailboxesResponseMessage value
-     * @return \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType|null
+     * @return \StructType\EwsGetSearchableMailboxesResponseMessageType|null
      */
-    public function getGetSearchableMailboxesResponseMessage()
+    public function getGetSearchableMailboxesResponseMessage(): ?\StructType\EwsGetSearchableMailboxesResponseMessageType
     {
         return isset($this->GetSearchableMailboxesResponseMessage) ? $this->GetSearchableMailboxesResponseMessage : null;
     }
@@ -10025,7 +10150,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetSearchableMailboxesResponseMessageForChoiceConstraintsFromSetGetSearchableMailboxesResponseMessage($value)
+    public function validateGetSearchableMailboxesResponseMessageForChoiceConstraintsFromSetGetSearchableMailboxesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10114,12 +10239,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetSearchableMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSearchableMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetSearchableMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetSearchableMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10127,28 +10253,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetSearchableMailboxesResponseMessage(\Ews\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null)
+    public function setGetSearchableMailboxesResponseMessage(?\StructType\EwsGetSearchableMailboxesResponseMessageType $getSearchableMailboxesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getSearchableMailboxesResponseMessageChoiceErrorMessage = self::validateGetSearchableMailboxesResponseMessageForChoiceConstraintsFromSetGetSearchableMailboxesResponseMessage($getSearchableMailboxesResponseMessage))) {
-            throw new \InvalidArgumentException($getSearchableMailboxesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getSearchableMailboxesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getSearchableMailboxesResponseMessage) || (is_array($getSearchableMailboxesResponseMessage) && empty($getSearchableMailboxesResponseMessage))) {
             unset($this->GetSearchableMailboxesResponseMessage);
         } else {
             $this->GetSearchableMailboxesResponseMessage = $getSearchableMailboxesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SearchMailboxesResponseMessage value
-     * @return \Ews\StructType\EwsSearchMailboxesResponseMessageType|null
+     * @return \StructType\EwsSearchMailboxesResponseMessageType|null
      */
-    public function getSearchMailboxesResponseMessage()
+    public function getSearchMailboxesResponseMessage(): ?\StructType\EwsSearchMailboxesResponseMessageType
     {
         return isset($this->SearchMailboxesResponseMessage) ? $this->SearchMailboxesResponseMessage : null;
     }
@@ -10159,7 +10286,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSearchMailboxesResponseMessageForChoiceConstraintsFromSetSearchMailboxesResponseMessage($value)
+    public function validateSearchMailboxesResponseMessageForChoiceConstraintsFromSetSearchMailboxesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10248,12 +10375,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SearchMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SearchMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SearchMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SearchMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10261,28 +10389,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSearchMailboxesResponseMessage(\Ews\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null)
+    public function setSearchMailboxesResponseMessage(?\StructType\EwsSearchMailboxesResponseMessageType $searchMailboxesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($searchMailboxesResponseMessageChoiceErrorMessage = self::validateSearchMailboxesResponseMessageForChoiceConstraintsFromSetSearchMailboxesResponseMessage($searchMailboxesResponseMessage))) {
-            throw new \InvalidArgumentException($searchMailboxesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($searchMailboxesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($searchMailboxesResponseMessage) || (is_array($searchMailboxesResponseMessage) && empty($searchMailboxesResponseMessage))) {
             unset($this->SearchMailboxesResponseMessage);
         } else {
             $this->SearchMailboxesResponseMessage = $searchMailboxesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetDiscoverySearchConfigurationResponseMessage value
-     * @return \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|null
+     * @return \StructType\EwsGetDiscoverySearchConfigurationResponseMessageType|null
      */
-    public function getGetDiscoverySearchConfigurationResponseMessage()
+    public function getGetDiscoverySearchConfigurationResponseMessage(): ?\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType
     {
         return isset($this->GetDiscoverySearchConfigurationResponseMessage) ? $this->GetDiscoverySearchConfigurationResponseMessage : null;
     }
@@ -10293,7 +10422,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetDiscoverySearchConfigurationResponseMessageForChoiceConstraintsFromSetGetDiscoverySearchConfigurationResponseMessage($value)
+    public function validateGetDiscoverySearchConfigurationResponseMessageForChoiceConstraintsFromSetGetDiscoverySearchConfigurationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10382,12 +10511,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetDiscoverySearchConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetDiscoverySearchConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetDiscoverySearchConfigurationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetDiscoverySearchConfigurationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10395,28 +10525,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetDiscoverySearchConfigurationResponseMessage(\Ews\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null)
+    public function setGetDiscoverySearchConfigurationResponseMessage(?\StructType\EwsGetDiscoverySearchConfigurationResponseMessageType $getDiscoverySearchConfigurationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getDiscoverySearchConfigurationResponseMessageChoiceErrorMessage = self::validateGetDiscoverySearchConfigurationResponseMessageForChoiceConstraintsFromSetGetDiscoverySearchConfigurationResponseMessage($getDiscoverySearchConfigurationResponseMessage))) {
-            throw new \InvalidArgumentException($getDiscoverySearchConfigurationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getDiscoverySearchConfigurationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getDiscoverySearchConfigurationResponseMessage) || (is_array($getDiscoverySearchConfigurationResponseMessage) && empty($getDiscoverySearchConfigurationResponseMessage))) {
             unset($this->GetDiscoverySearchConfigurationResponseMessage);
         } else {
             $this->GetDiscoverySearchConfigurationResponseMessage = $getDiscoverySearchConfigurationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetHoldOnMailboxesResponseMessage value
-     * @return \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType|null
+     * @return \StructType\EwsGetHoldOnMailboxesResponseMessageType|null
      */
-    public function getGetHoldOnMailboxesResponseMessage()
+    public function getGetHoldOnMailboxesResponseMessage(): ?\StructType\EwsGetHoldOnMailboxesResponseMessageType
     {
         return isset($this->GetHoldOnMailboxesResponseMessage) ? $this->GetHoldOnMailboxesResponseMessage : null;
     }
@@ -10427,7 +10558,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetGetHoldOnMailboxesResponseMessage($value)
+    public function validateGetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetGetHoldOnMailboxesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10516,12 +10647,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetHoldOnMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetHoldOnMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetHoldOnMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetHoldOnMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10529,28 +10661,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetHoldOnMailboxesResponseMessage(\Ews\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null)
+    public function setGetHoldOnMailboxesResponseMessage(?\StructType\EwsGetHoldOnMailboxesResponseMessageType $getHoldOnMailboxesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getHoldOnMailboxesResponseMessageChoiceErrorMessage = self::validateGetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetGetHoldOnMailboxesResponseMessage($getHoldOnMailboxesResponseMessage))) {
-            throw new \InvalidArgumentException($getHoldOnMailboxesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getHoldOnMailboxesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getHoldOnMailboxesResponseMessage) || (is_array($getHoldOnMailboxesResponseMessage) && empty($getHoldOnMailboxesResponseMessage))) {
             unset($this->GetHoldOnMailboxesResponseMessage);
         } else {
             $this->GetHoldOnMailboxesResponseMessage = $getHoldOnMailboxesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get SetHoldOnMailboxesResponseMessage value
-     * @return \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType|null
+     * @return \StructType\EwsSetHoldOnMailboxesResponseMessageType|null
      */
-    public function getSetHoldOnMailboxesResponseMessage()
+    public function getSetHoldOnMailboxesResponseMessage(): ?\StructType\EwsSetHoldOnMailboxesResponseMessageType
     {
         return isset($this->SetHoldOnMailboxesResponseMessage) ? $this->SetHoldOnMailboxesResponseMessage : null;
     }
@@ -10561,7 +10694,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateSetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetSetHoldOnMailboxesResponseMessage($value)
+    public function validateSetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetSetHoldOnMailboxesResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10650,12 +10783,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property SetHoldOnMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetHoldOnMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property SetHoldOnMailboxesResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: SetHoldOnMailboxesResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10663,28 +10797,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setSetHoldOnMailboxesResponseMessage(\Ews\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null)
+    public function setSetHoldOnMailboxesResponseMessage(?\StructType\EwsSetHoldOnMailboxesResponseMessageType $setHoldOnMailboxesResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($setHoldOnMailboxesResponseMessageChoiceErrorMessage = self::validateSetHoldOnMailboxesResponseMessageForChoiceConstraintsFromSetSetHoldOnMailboxesResponseMessage($setHoldOnMailboxesResponseMessage))) {
-            throw new \InvalidArgumentException($setHoldOnMailboxesResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($setHoldOnMailboxesResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($setHoldOnMailboxesResponseMessage) || (is_array($setHoldOnMailboxesResponseMessage) && empty($setHoldOnMailboxesResponseMessage))) {
             unset($this->SetHoldOnMailboxesResponseMessage);
         } else {
             $this->SetHoldOnMailboxesResponseMessage = $setHoldOnMailboxesResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetNonIndexableItemStatisticsResponseMessage value
-     * @return \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType|null
+     * @return \StructType\EwsGetNonIndexableItemStatisticsResponseMessageType|null
      */
-    public function getGetNonIndexableItemStatisticsResponseMessage()
+    public function getGetNonIndexableItemStatisticsResponseMessage(): ?\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType
     {
         return isset($this->GetNonIndexableItemStatisticsResponseMessage) ? $this->GetNonIndexableItemStatisticsResponseMessage : null;
     }
@@ -10695,7 +10830,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetNonIndexableItemStatisticsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemStatisticsResponseMessage($value)
+    public function validateGetNonIndexableItemStatisticsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemStatisticsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10784,12 +10919,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetNonIndexableItemStatisticsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetNonIndexableItemStatisticsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetNonIndexableItemStatisticsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetNonIndexableItemStatisticsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10797,28 +10933,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetNonIndexableItemStatisticsResponseMessage(\Ews\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null)
+    public function setGetNonIndexableItemStatisticsResponseMessage(?\StructType\EwsGetNonIndexableItemStatisticsResponseMessageType $getNonIndexableItemStatisticsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getNonIndexableItemStatisticsResponseMessageChoiceErrorMessage = self::validateGetNonIndexableItemStatisticsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemStatisticsResponseMessage($getNonIndexableItemStatisticsResponseMessage))) {
-            throw new \InvalidArgumentException($getNonIndexableItemStatisticsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getNonIndexableItemStatisticsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getNonIndexableItemStatisticsResponseMessage) || (is_array($getNonIndexableItemStatisticsResponseMessage) && empty($getNonIndexableItemStatisticsResponseMessage))) {
             unset($this->GetNonIndexableItemStatisticsResponseMessage);
         } else {
             $this->GetNonIndexableItemStatisticsResponseMessage = $getNonIndexableItemStatisticsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetNonIndexableItemDetailsResponseMessage value
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType|null
+     * @return \StructType\EwsGetNonIndexableItemDetailsResponseMessageType|null
      */
-    public function getGetNonIndexableItemDetailsResponseMessage()
+    public function getGetNonIndexableItemDetailsResponseMessage(): ?\StructType\EwsGetNonIndexableItemDetailsResponseMessageType
     {
         return isset($this->GetNonIndexableItemDetailsResponseMessage) ? $this->GetNonIndexableItemDetailsResponseMessage : null;
     }
@@ -10829,7 +10966,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetNonIndexableItemDetailsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemDetailsResponseMessage($value)
+    public function validateGetNonIndexableItemDetailsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemDetailsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -10918,12 +11055,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetNonIndexableItemDetailsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetNonIndexableItemDetailsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetNonIndexableItemDetailsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetNonIndexableItemDetailsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -10931,28 +11069,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetNonIndexableItemDetailsResponseMessage(\Ews\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null)
+    public function setGetNonIndexableItemDetailsResponseMessage(?\StructType\EwsGetNonIndexableItemDetailsResponseMessageType $getNonIndexableItemDetailsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getNonIndexableItemDetailsResponseMessageChoiceErrorMessage = self::validateGetNonIndexableItemDetailsResponseMessageForChoiceConstraintsFromSetGetNonIndexableItemDetailsResponseMessage($getNonIndexableItemDetailsResponseMessage))) {
-            throw new \InvalidArgumentException($getNonIndexableItemDetailsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getNonIndexableItemDetailsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getNonIndexableItemDetailsResponseMessage) || (is_array($getNonIndexableItemDetailsResponseMessage) && empty($getNonIndexableItemDetailsResponseMessage))) {
             unset($this->GetNonIndexableItemDetailsResponseMessage);
         } else {
             $this->GetNonIndexableItemDetailsResponseMessage = $getNonIndexableItemDetailsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get FindPeopleResponseMessage value
-     * @return \Ews\StructType\EwsFindPeopleResponseMessageType|null
+     * @return \StructType\EwsFindPeopleResponseMessageType|null
      */
-    public function getFindPeopleResponseMessage()
+    public function getFindPeopleResponseMessage(): ?\StructType\EwsFindPeopleResponseMessageType
     {
         return isset($this->FindPeopleResponseMessage) ? $this->FindPeopleResponseMessage : null;
     }
@@ -10963,7 +11102,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateFindPeopleResponseMessageForChoiceConstraintsFromSetFindPeopleResponseMessage($value)
+    public function validateFindPeopleResponseMessageForChoiceConstraintsFromSetFindPeopleResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11052,12 +11191,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property FindPeopleResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindPeopleResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property FindPeopleResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: FindPeopleResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11065,28 +11205,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setFindPeopleResponseMessage(\Ews\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null)
+    public function setFindPeopleResponseMessage(?\StructType\EwsFindPeopleResponseMessageType $findPeopleResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($findPeopleResponseMessageChoiceErrorMessage = self::validateFindPeopleResponseMessageForChoiceConstraintsFromSetFindPeopleResponseMessage($findPeopleResponseMessage))) {
-            throw new \InvalidArgumentException($findPeopleResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($findPeopleResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($findPeopleResponseMessage) || (is_array($findPeopleResponseMessage) && empty($findPeopleResponseMessage))) {
             unset($this->FindPeopleResponseMessage);
         } else {
             $this->FindPeopleResponseMessage = $findPeopleResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetPasswordExpirationDateResponse value
-     * @return \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType|null
+     * @return \StructType\EwsGetPasswordExpirationDateResponseMessageType|null
      */
-    public function getGetPasswordExpirationDateResponse()
+    public function getGetPasswordExpirationDateResponse(): ?\StructType\EwsGetPasswordExpirationDateResponseMessageType
     {
         return isset($this->GetPasswordExpirationDateResponse) ? $this->GetPasswordExpirationDateResponse : null;
     }
@@ -11097,7 +11238,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetPasswordExpirationDateResponseForChoiceConstraintsFromSetGetPasswordExpirationDateResponse($value)
+    public function validateGetPasswordExpirationDateResponseForChoiceConstraintsFromSetGetPasswordExpirationDateResponse($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11186,12 +11327,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetPasswordExpirationDateResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetPasswordExpirationDateResponse, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetPasswordExpirationDateResponse can\'t be set as the property %s is already set. Only one property must be set among these properties: GetPasswordExpirationDateResponse, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11199,28 +11341,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetPasswordExpirationDateResponse(\Ews\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null)
+    public function setGetPasswordExpirationDateResponse(?\StructType\EwsGetPasswordExpirationDateResponseMessageType $getPasswordExpirationDateResponse = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getPasswordExpirationDateResponseChoiceErrorMessage = self::validateGetPasswordExpirationDateResponseForChoiceConstraintsFromSetGetPasswordExpirationDateResponse($getPasswordExpirationDateResponse))) {
-            throw new \InvalidArgumentException($getPasswordExpirationDateResponseChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getPasswordExpirationDateResponseChoiceErrorMessage, __LINE__);
         }
         if (is_null($getPasswordExpirationDateResponse) || (is_array($getPasswordExpirationDateResponse) && empty($getPasswordExpirationDateResponse))) {
             unset($this->GetPasswordExpirationDateResponse);
         } else {
             $this->GetPasswordExpirationDateResponse = $getPasswordExpirationDateResponse;
         }
+        
         return $this;
     }
     /**
      * Get GetPersonaResponseMessage value
-     * @return \Ews\StructType\EwsGetPersonaResponseMessageType|null
+     * @return \StructType\EwsGetPersonaResponseMessageType|null
      */
-    public function getGetPersonaResponseMessage()
+    public function getGetPersonaResponseMessage(): ?\StructType\EwsGetPersonaResponseMessageType
     {
         return isset($this->GetPersonaResponseMessage) ? $this->GetPersonaResponseMessage : null;
     }
@@ -11231,7 +11374,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetPersonaResponseMessageForChoiceConstraintsFromSetGetPersonaResponseMessage($value)
+    public function validateGetPersonaResponseMessageForChoiceConstraintsFromSetGetPersonaResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11320,12 +11463,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetPersonaResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetPersonaResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetPersonaResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetPersonaResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11333,28 +11477,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetPersonaResponseMessage(\Ews\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null)
+    public function setGetPersonaResponseMessage(?\StructType\EwsGetPersonaResponseMessageType $getPersonaResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getPersonaResponseMessageChoiceErrorMessage = self::validateGetPersonaResponseMessageForChoiceConstraintsFromSetGetPersonaResponseMessage($getPersonaResponseMessage))) {
-            throw new \InvalidArgumentException($getPersonaResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getPersonaResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getPersonaResponseMessage) || (is_array($getPersonaResponseMessage) && empty($getPersonaResponseMessage))) {
             unset($this->GetPersonaResponseMessage);
         } else {
             $this->GetPersonaResponseMessage = $getPersonaResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetConversationItemsResponseMessage value
-     * @return \Ews\StructType\EwsGetConversationItemsResponseMessageType|null
+     * @return \StructType\EwsGetConversationItemsResponseMessageType|null
      */
-    public function getGetConversationItemsResponseMessage()
+    public function getGetConversationItemsResponseMessage(): ?\StructType\EwsGetConversationItemsResponseMessageType
     {
         return isset($this->GetConversationItemsResponseMessage) ? $this->GetConversationItemsResponseMessage : null;
     }
@@ -11365,7 +11510,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetConversationItemsResponseMessageForChoiceConstraintsFromSetGetConversationItemsResponseMessage($value)
+    public function validateGetConversationItemsResponseMessageForChoiceConstraintsFromSetGetConversationItemsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11454,12 +11599,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetConversationItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetConversationItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetConversationItemsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetConversationItemsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11467,28 +11613,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetConversationItemsResponseMessage(\Ews\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null)
+    public function setGetConversationItemsResponseMessage(?\StructType\EwsGetConversationItemsResponseMessageType $getConversationItemsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getConversationItemsResponseMessageChoiceErrorMessage = self::validateGetConversationItemsResponseMessageForChoiceConstraintsFromSetGetConversationItemsResponseMessage($getConversationItemsResponseMessage))) {
-            throw new \InvalidArgumentException($getConversationItemsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getConversationItemsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getConversationItemsResponseMessage) || (is_array($getConversationItemsResponseMessage) && empty($getConversationItemsResponseMessage))) {
             unset($this->GetConversationItemsResponseMessage);
         } else {
             $this->GetConversationItemsResponseMessage = $getConversationItemsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetUserRetentionPolicyTagsResponseMessage value
-     * @return \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType|null
+     * @return \StructType\EwsGetUserRetentionPolicyTagsResponseMessageType|null
      */
-    public function getGetUserRetentionPolicyTagsResponseMessage()
+    public function getGetUserRetentionPolicyTagsResponseMessage(): ?\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType
     {
         return isset($this->GetUserRetentionPolicyTagsResponseMessage) ? $this->GetUserRetentionPolicyTagsResponseMessage : null;
     }
@@ -11499,7 +11646,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetUserRetentionPolicyTagsResponseMessageForChoiceConstraintsFromSetGetUserRetentionPolicyTagsResponseMessage($value)
+    public function validateGetUserRetentionPolicyTagsResponseMessageForChoiceConstraintsFromSetGetUserRetentionPolicyTagsResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11588,12 +11735,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetUserRetentionPolicyTagsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserRetentionPolicyTagsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetUserRetentionPolicyTagsResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserRetentionPolicyTagsResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11601,28 +11749,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetUserRetentionPolicyTagsResponseMessage(\Ews\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null)
+    public function setGetUserRetentionPolicyTagsResponseMessage(?\StructType\EwsGetUserRetentionPolicyTagsResponseMessageType $getUserRetentionPolicyTagsResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getUserRetentionPolicyTagsResponseMessageChoiceErrorMessage = self::validateGetUserRetentionPolicyTagsResponseMessageForChoiceConstraintsFromSetGetUserRetentionPolicyTagsResponseMessage($getUserRetentionPolicyTagsResponseMessage))) {
-            throw new \InvalidArgumentException($getUserRetentionPolicyTagsResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getUserRetentionPolicyTagsResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getUserRetentionPolicyTagsResponseMessage) || (is_array($getUserRetentionPolicyTagsResponseMessage) && empty($getUserRetentionPolicyTagsResponseMessage))) {
             unset($this->GetUserRetentionPolicyTagsResponseMessage);
         } else {
             $this->GetUserRetentionPolicyTagsResponseMessage = $getUserRetentionPolicyTagsResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetUserPhotoResponseMessage value
-     * @return \Ews\StructType\EwsGetUserPhotoResponseMessageType|null
+     * @return \StructType\EwsGetUserPhotoResponseMessageType|null
      */
-    public function getGetUserPhotoResponseMessage()
+    public function getGetUserPhotoResponseMessage(): ?\StructType\EwsGetUserPhotoResponseMessageType
     {
         return isset($this->GetUserPhotoResponseMessage) ? $this->GetUserPhotoResponseMessage : null;
     }
@@ -11633,7 +11782,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetUserPhotoResponseMessageForChoiceConstraintsFromSetGetUserPhotoResponseMessage($value)
+    public function validateGetUserPhotoResponseMessageForChoiceConstraintsFromSetGetUserPhotoResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11722,12 +11871,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetUserPhotoResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserPhotoResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetUserPhotoResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUserPhotoResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11735,28 +11885,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetUserPhotoResponseMessage(\Ews\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null)
+    public function setGetUserPhotoResponseMessage(?\StructType\EwsGetUserPhotoResponseMessageType $getUserPhotoResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getUserPhotoResponseMessageChoiceErrorMessage = self::validateGetUserPhotoResponseMessageForChoiceConstraintsFromSetGetUserPhotoResponseMessage($getUserPhotoResponseMessage))) {
-            throw new \InvalidArgumentException($getUserPhotoResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getUserPhotoResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getUserPhotoResponseMessage) || (is_array($getUserPhotoResponseMessage) && empty($getUserPhotoResponseMessage))) {
             unset($this->GetUserPhotoResponseMessage);
         } else {
             $this->GetUserPhotoResponseMessage = $getUserPhotoResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get MarkAsJunkResponseMessage value
-     * @return \Ews\StructType\EwsMarkAsJunkResponseMessageType|null
+     * @return \StructType\EwsMarkAsJunkResponseMessageType|null
      */
-    public function getMarkAsJunkResponseMessage()
+    public function getMarkAsJunkResponseMessage(): ?\StructType\EwsMarkAsJunkResponseMessageType
     {
         return isset($this->MarkAsJunkResponseMessage) ? $this->MarkAsJunkResponseMessage : null;
     }
@@ -11767,7 +11918,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateMarkAsJunkResponseMessageForChoiceConstraintsFromSetMarkAsJunkResponseMessage($value)
+    public function validateMarkAsJunkResponseMessageForChoiceConstraintsFromSetMarkAsJunkResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11856,12 +12007,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property MarkAsJunkResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MarkAsJunkResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property MarkAsJunkResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: MarkAsJunkResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -11869,28 +12021,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setMarkAsJunkResponseMessage(\Ews\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null)
+    public function setMarkAsJunkResponseMessage(?\StructType\EwsMarkAsJunkResponseMessageType $markAsJunkResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($markAsJunkResponseMessageChoiceErrorMessage = self::validateMarkAsJunkResponseMessageForChoiceConstraintsFromSetMarkAsJunkResponseMessage($markAsJunkResponseMessage))) {
-            throw new \InvalidArgumentException($markAsJunkResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($markAsJunkResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($markAsJunkResponseMessage) || (is_array($markAsJunkResponseMessage) && empty($markAsJunkResponseMessage))) {
             unset($this->MarkAsJunkResponseMessage);
         } else {
             $this->MarkAsJunkResponseMessage = $markAsJunkResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateMailboxAssociationResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getUpdateMailboxAssociationResponseMessage()
+    public function getUpdateMailboxAssociationResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->UpdateMailboxAssociationResponseMessage) ? $this->UpdateMailboxAssociationResponseMessage : null;
     }
@@ -11901,7 +12054,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateMailboxAssociationResponseMessageForChoiceConstraintsFromSetUpdateMailboxAssociationResponseMessage($value)
+    public function validateUpdateMailboxAssociationResponseMessageForChoiceConstraintsFromSetUpdateMailboxAssociationResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -11990,12 +12143,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateMailboxAssociationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateMailboxAssociationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateMailboxAssociationResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateMailboxAssociationResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -12003,28 +12157,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateMailboxAssociationResponseMessage(\Ews\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null)
+    public function setUpdateMailboxAssociationResponseMessage(?\StructType\EwsResponseMessageType $updateMailboxAssociationResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateMailboxAssociationResponseMessageChoiceErrorMessage = self::validateUpdateMailboxAssociationResponseMessageForChoiceConstraintsFromSetUpdateMailboxAssociationResponseMessage($updateMailboxAssociationResponseMessage))) {
-            throw new \InvalidArgumentException($updateMailboxAssociationResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateMailboxAssociationResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateMailboxAssociationResponseMessage) || (is_array($updateMailboxAssociationResponseMessage) && empty($updateMailboxAssociationResponseMessage))) {
             unset($this->UpdateMailboxAssociationResponseMessage);
         } else {
             $this->UpdateMailboxAssociationResponseMessage = $updateMailboxAssociationResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get UpdateGroupMailboxResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getUpdateGroupMailboxResponseMessage()
+    public function getUpdateGroupMailboxResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->UpdateGroupMailboxResponseMessage) ? $this->UpdateGroupMailboxResponseMessage : null;
     }
@@ -12035,7 +12190,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateUpdateGroupMailboxResponseMessageForChoiceConstraintsFromSetUpdateGroupMailboxResponseMessage($value)
+    public function validateUpdateGroupMailboxResponseMessageForChoiceConstraintsFromSetUpdateGroupMailboxResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -12124,12 +12279,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property UpdateGroupMailboxResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateGroupMailboxResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property UpdateGroupMailboxResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: UpdateGroupMailboxResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -12137,28 +12293,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setUpdateGroupMailboxResponseMessage(\Ews\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage = null)
+    public function setUpdateGroupMailboxResponseMessage(?\StructType\EwsResponseMessageType $updateGroupMailboxResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($updateGroupMailboxResponseMessageChoiceErrorMessage = self::validateUpdateGroupMailboxResponseMessageForChoiceConstraintsFromSetUpdateGroupMailboxResponseMessage($updateGroupMailboxResponseMessage))) {
-            throw new \InvalidArgumentException($updateGroupMailboxResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($updateGroupMailboxResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($updateGroupMailboxResponseMessage) || (is_array($updateGroupMailboxResponseMessage) && empty($updateGroupMailboxResponseMessage))) {
             unset($this->UpdateGroupMailboxResponseMessage);
         } else {
             $this->UpdateGroupMailboxResponseMessage = $updateGroupMailboxResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get PostModernGroupItemResponseMessage value
-     * @return \Ews\StructType\EwsResponseMessageType|null
+     * @return \StructType\EwsResponseMessageType|null
      */
-    public function getPostModernGroupItemResponseMessage()
+    public function getPostModernGroupItemResponseMessage(): ?\StructType\EwsResponseMessageType
     {
         return isset($this->PostModernGroupItemResponseMessage) ? $this->PostModernGroupItemResponseMessage : null;
     }
@@ -12169,7 +12326,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validatePostModernGroupItemResponseMessageForChoiceConstraintsFromSetPostModernGroupItemResponseMessage($value)
+    public function validatePostModernGroupItemResponseMessageForChoiceConstraintsFromSetPostModernGroupItemResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -12258,12 +12415,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property PostModernGroupItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: PostModernGroupItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property PostModernGroupItemResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: PostModernGroupItemResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -12271,28 +12429,29 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsResponseMessageType $postModernGroupItemResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setPostModernGroupItemResponseMessage(\Ews\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null)
+    public function setPostModernGroupItemResponseMessage(?\StructType\EwsResponseMessageType $postModernGroupItemResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($postModernGroupItemResponseMessageChoiceErrorMessage = self::validatePostModernGroupItemResponseMessageForChoiceConstraintsFromSetPostModernGroupItemResponseMessage($postModernGroupItemResponseMessage))) {
-            throw new \InvalidArgumentException($postModernGroupItemResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($postModernGroupItemResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($postModernGroupItemResponseMessage) || (is_array($postModernGroupItemResponseMessage) && empty($postModernGroupItemResponseMessage))) {
             unset($this->PostModernGroupItemResponseMessage);
         } else {
             $this->PostModernGroupItemResponseMessage = $postModernGroupItemResponseMessage;
         }
+        
         return $this;
     }
     /**
      * Get GetUnifiedGroupUnseenDataResponseMessage value
-     * @return \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType|null
+     * @return \StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType|null
      */
-    public function getGetUnifiedGroupUnseenDataResponseMessage()
+    public function getGetUnifiedGroupUnseenDataResponseMessage(): ?\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType
     {
         return isset($this->GetUnifiedGroupUnseenDataResponseMessage) ? $this->GetUnifiedGroupUnseenDataResponseMessage : null;
     }
@@ -12303,7 +12462,7 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateGetUnifiedGroupUnseenDataResponseMessageForChoiceConstraintsFromSetGetUnifiedGroupUnseenDataResponseMessage($value)
+    public function validateGetUnifiedGroupUnseenDataResponseMessageForChoiceConstraintsFromSetGetUnifiedGroupUnseenDataResponseMessage($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -12392,12 +12551,13 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property GetUnifiedGroupUnseenDataResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUnifiedGroupUnseenDataResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property GetUnifiedGroupUnseenDataResponseMessage can\'t be set as the property %s is already set. Only one property must be set among these properties: GetUnifiedGroupUnseenDataResponseMessage, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -12405,21 +12565,22 @@ class EwsArrayOfResponseMessagesType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
-     * @return \Ews\StructType\EwsArrayOfResponseMessagesType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage
+     * @return \StructType\EwsArrayOfResponseMessagesType
      */
-    public function setGetUnifiedGroupUnseenDataResponseMessage(\Ews\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null)
+    public function setGetUnifiedGroupUnseenDataResponseMessage(?\StructType\EwsGetUnifiedGroupUnseenDataResponseMessageType $getUnifiedGroupUnseenDataResponseMessage = null): self
     {
         // validation for constraint: choice(CreateItemResponseMessage, DeleteItemResponseMessage, GetItemResponseMessage, UpdateItemResponseMessage, UpdateItemInRecoverableItemsResponseMessage, SendItemResponseMessage, DeleteFolderResponseMessage, EmptyFolderResponseMessage, CreateFolderResponseMessage, GetFolderResponseMessage, FindFolderResponseMessage, UpdateFolderResponseMessage, MoveFolderResponseMessage, CopyFolderResponseMessage, CreateFolderPathResponseMessage, CreateAttachmentResponseMessage, DeleteAttachmentResponseMessage, GetAttachmentResponseMessage, UploadItemsResponseMessage, ExportItemsResponseMessage, MarkAllItemsAsReadResponseMessage, GetClientAccessTokenResponseMessage, GetAppManifestsResponseMessage, GetClientExtensionResponseMessage, SetClientExtensionResponseMessage, GetEncryptionConfigurationResponseMessage, SetEncryptionConfigurationResponseMessage, GetOMEConfigurationResponseMessage, SetOMEConfigurationResponseMessage, FindItemResponseMessage, MoveItemResponseMessage, ArchiveItemResponseMessage, CopyItemResponseMessage, ResolveNamesResponseMessage, ExpandDLResponseMessage, GetServerTimeZonesResponseMessage, GetEventsResponseMessage, GetStreamingEventsResponseMessage, SubscribeResponseMessage, UnsubscribeResponseMessage, GetChannelEventsResponseMessage, ChannelSubscribeResponseMessage, ChannelUnsubscribeResponseMessage, SendNotificationResponseMessage, SyncFolderHierarchyResponseMessage, SyncFolderItemsResponseMessage, CreateManagedFolderResponseMessage, ConvertIdResponseMessage, GetSharingMetadataResponseMessage, RefreshSharingFolderResponseMessage, GetSharingFolderResponseMessage, CreateUserConfigurationResponseMessage, DeleteUserConfigurationResponseMessage, GetUserConfigurationResponseMessage, UpdateUserConfigurationResponseMessage, GetRoomListsResponse, GetRoomsResponse, GetRemindersResponse, PerformReminderActionResponse, ApplyConversationActionResponseMessage, FindMailboxStatisticsByKeywordsResponseMessage, GetSearchableMailboxesResponseMessage, SearchMailboxesResponseMessage, GetDiscoverySearchConfigurationResponseMessage, GetHoldOnMailboxesResponseMessage, SetHoldOnMailboxesResponseMessage, GetNonIndexableItemStatisticsResponseMessage, GetNonIndexableItemDetailsResponseMessage, FindPeopleResponseMessage, GetPasswordExpirationDateResponse, GetPersonaResponseMessage, GetConversationItemsResponseMessage, GetUserRetentionPolicyTagsResponseMessage, GetUserPhotoResponseMessage, MarkAsJunkResponseMessage, UpdateMailboxAssociationResponseMessage, UpdateGroupMailboxResponseMessage, PostModernGroupItemResponseMessage, GetUnifiedGroupUnseenDataResponseMessage)
         if ('' !== ($getUnifiedGroupUnseenDataResponseMessageChoiceErrorMessage = self::validateGetUnifiedGroupUnseenDataResponseMessageForChoiceConstraintsFromSetGetUnifiedGroupUnseenDataResponseMessage($getUnifiedGroupUnseenDataResponseMessage))) {
-            throw new \InvalidArgumentException($getUnifiedGroupUnseenDataResponseMessageChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($getUnifiedGroupUnseenDataResponseMessageChoiceErrorMessage, __LINE__);
         }
         if (is_null($getUnifiedGroupUnseenDataResponseMessage) || (is_array($getUnifiedGroupUnseenDataResponseMessage) && empty($getUnifiedGroupUnseenDataResponseMessage))) {
             unset($this->GetUnifiedGroupUnseenDataResponseMessage);
         } else {
             $this->GetUnifiedGroupUnseenDataResponseMessage = $getUnifiedGroupUnseenDataResponseMessage;
         }
+        
         return $this;
     }
 }

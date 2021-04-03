@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateManagedFolderRequestType StructType
@@ -14,24 +17,24 @@ class EwsCreateManagedFolderRequestType extends EwsBaseRequestType
 {
     /**
      * The FolderNames
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType
+     * @var \ArrayType\EwsNonEmptyArrayOfFolderNamesType|null
      */
-    public $FolderNames;
+    protected ?\ArrayType\EwsNonEmptyArrayOfFolderNamesType $FolderNames = null;
     /**
      * The Mailbox
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $Mailbox;
+    protected ?\StructType\EwsEmailAddressType $Mailbox = null;
     /**
      * Constructor method for CreateManagedFolderRequestType
      * @uses EwsCreateManagedFolderRequestType::setFolderNames()
      * @uses EwsCreateManagedFolderRequestType::setMailbox()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
+     * @param \ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames
+     * @param \StructType\EwsEmailAddressType $mailbox
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames = null, \Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function __construct(?\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames = null, ?\StructType\EwsEmailAddressType $mailbox = null)
     {
         $this
             ->setFolderNames($folderNames)
@@ -39,38 +42,40 @@ class EwsCreateManagedFolderRequestType extends EwsBaseRequestType
     }
     /**
      * Get FolderNames value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfFolderNamesType|null
      */
-    public function getFolderNames()
+    public function getFolderNames(): ?\ArrayType\EwsNonEmptyArrayOfFolderNamesType
     {
         return $this->FolderNames;
     }
     /**
      * Set FolderNames value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames
-     * @return \Ews\StructType\EwsCreateManagedFolderRequestType
+     * @param \ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames
+     * @return \StructType\EwsCreateManagedFolderRequestType
      */
-    public function setFolderNames(\Ews\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames = null)
+    public function setFolderNames(?\ArrayType\EwsNonEmptyArrayOfFolderNamesType $folderNames = null): self
     {
         $this->FolderNames = $folderNames;
+        
         return $this;
     }
     /**
      * Get Mailbox value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getMailbox()
+    public function getMailbox(): ?\StructType\EwsEmailAddressType
     {
         return $this->Mailbox;
     }
     /**
      * Set Mailbox value
-     * @param \Ews\StructType\EwsEmailAddressType $mailbox
-     * @return \Ews\StructType\EwsCreateManagedFolderRequestType
+     * @param \StructType\EwsEmailAddressType $mailbox
+     * @return \StructType\EwsCreateManagedFolderRequestType
      */
-    public function setMailbox(\Ews\StructType\EwsEmailAddressType $mailbox = null)
+    public function setMailbox(?\StructType\EwsEmailAddressType $mailbox = null): self
     {
         $this->Mailbox = $mailbox;
+        
         return $this;
     }
 }

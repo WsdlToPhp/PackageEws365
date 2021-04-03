@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfStringValueType ArrayType
@@ -19,13 +22,13 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * - minOccurs: 1
      * @var string[]
      */
-    public $Value;
+    protected array $Value = [];
     /**
      * Constructor method for ArrayOfStringValueType
      * @uses EwsArrayOfStringValueType::setValue()
      * @param string[] $value
      */
-    public function __construct(array $value = array())
+    public function __construct(array $value)
     {
         $this
             ->setValue($value);
@@ -34,7 +37,7 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * Get Value value
      * @return string[]
      */
-    public function getValue()
+    public function getValue(): array
     {
         return $this->Value;
     }
@@ -44,7 +47,7 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateValueForArrayConstraintsFromSetValue(array $values = array())
+    public static function validateValueForArrayConstraintsFromSetValue(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
@@ -58,44 +61,31 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
             $message = sprintf('The Value property can only contain items of type string, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Value value
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      * @param string[] $value
-     * @return \Ews\ArrayType\EwsArrayOfStringValueType
+     * @return \ArrayType\EwsArrayOfStringValueType
      */
-    public function setValue(array $value = array())
+    public function setValue(array $value): self
     {
         // validation for constraint: array
         if ('' !== ($valueArrayErrorMessage = self::validateValueForArrayConstraintsFromSetValue($value))) {
-            throw new \InvalidArgumentException($valueArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($valueArrayErrorMessage, __LINE__);
         }
         $this->Value = $value;
-        return $this;
-    }
-    /**
-     * Add item to Value value
-     * @throws \InvalidArgumentException
-     * @param string $item
-     * @return \Ews\ArrayType\EwsArrayOfStringValueType
-     */
-    public function addToValue($item)
-    {
-        // validation for constraint: itemType
-        if (!is_string($item)) {
-            throw new \InvalidArgumentException(sprintf('The Value property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Value[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return string
+     * @return string|null
      */
-    public function current()
+    public function current(): ?string
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return string
+     * @return string|null
      */
-    public function item($index)
+    public function item($index): ?string
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return string
+     * @return string|null
      */
-    public function first()
+    public function first(): ?string
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return string
+     * @return string|null
      */
-    public function last()
+    public function last(): ?string
     {
         return parent::last();
     }
@@ -131,9 +121,9 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return string
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?string
     {
         return parent::offsetGet($offset);
     }
@@ -142,7 +132,7 @@ class EwsArrayOfStringValueType extends AbstractStructArrayBase
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Value
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Value';
     }

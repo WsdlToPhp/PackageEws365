@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetNonIndexableItemDetailsType StructType
@@ -18,37 +21,37 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      * The Mailboxes
      * Meta information extracted from the WSDL
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     * @var \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
-    public $Mailboxes;
+    protected \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $Mailboxes;
     /**
      * The PageSize
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var int
+     * @var int|null
      */
-    public $PageSize;
+    protected ?int $PageSize = null;
     /**
      * The PageItemReference
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PageItemReference;
+    protected ?string $PageItemReference = null;
     /**
      * The PageDirection
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var string
+     * @var string|null
      */
-    public $PageDirection;
+    protected ?string $PageDirection = null;
     /**
      * The SearchArchiveOnly
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var bool
+     * @var bool|null
      */
-    public $SearchArchiveOnly;
+    protected ?bool $SearchArchiveOnly = null;
     /**
      * Constructor method for GetNonIndexableItemDetailsType
      * @uses EwsGetNonIndexableItemDetailsType::setMailboxes()
@@ -56,13 +59,13 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
      * @uses EwsGetNonIndexableItemDetailsType::setPageItemReference()
      * @uses EwsGetNonIndexableItemDetailsType::setPageDirection()
      * @uses EwsGetNonIndexableItemDetailsType::setSearchArchiveOnly()
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
+     * @param \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
      * @param int $pageSize
      * @param string $pageItemReference
      * @param string $pageDirection
      * @param bool $searchArchiveOnly
      */
-    public function __construct(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null, $pageSize = null, $pageItemReference = null, $pageDirection = null, $searchArchiveOnly = null)
+    public function __construct(\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes, ?int $pageSize = null, ?string $pageItemReference = null, ?string $pageDirection = null, ?bool $searchArchiveOnly = null)
     {
         $this
             ->setMailboxes($mailboxes)
@@ -73,111 +76,116 @@ class EwsGetNonIndexableItemDetailsType extends EwsBaseRequestType
     }
     /**
      * Get Mailboxes value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType
+     * @return \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
      */
-    public function getMailboxes()
+    public function getMailboxes(): \ArrayType\EwsNonEmptyArrayOfLegacyDNsType
     {
         return $this->Mailboxes;
     }
     /**
      * Set Mailboxes value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
+     * @param \ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes
+     * @return \StructType\EwsGetNonIndexableItemDetailsType
      */
-    public function setMailboxes(\Ews\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes = null)
+    public function setMailboxes(\ArrayType\EwsNonEmptyArrayOfLegacyDNsType $mailboxes): self
     {
         $this->Mailboxes = $mailboxes;
+        
         return $this;
     }
     /**
      * Get PageSize value
      * @return int|null
      */
-    public function getPageSize()
+    public function getPageSize(): ?int
     {
         return $this->PageSize;
     }
     /**
      * Set PageSize value
      * @param int $pageSize
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
+     * @return \StructType\EwsGetNonIndexableItemDetailsType
      */
-    public function setPageSize($pageSize = null)
+    public function setPageSize(?int $pageSize = null): self
     {
         // validation for constraint: int
         if (!is_null($pageSize) && !(is_int($pageSize) || ctype_digit($pageSize))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($pageSize, true), gettype($pageSize)), __LINE__);
         }
         $this->PageSize = $pageSize;
+        
         return $this;
     }
     /**
      * Get PageItemReference value
      * @return string|null
      */
-    public function getPageItemReference()
+    public function getPageItemReference(): ?string
     {
         return $this->PageItemReference;
     }
     /**
      * Set PageItemReference value
      * @param string $pageItemReference
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
+     * @return \StructType\EwsGetNonIndexableItemDetailsType
      */
-    public function setPageItemReference($pageItemReference = null)
+    public function setPageItemReference(?string $pageItemReference = null): self
     {
         // validation for constraint: string
         if (!is_null($pageItemReference) && !is_string($pageItemReference)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pageItemReference, true), gettype($pageItemReference)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($pageItemReference, true), gettype($pageItemReference)), __LINE__);
         }
         $this->PageItemReference = $pageItemReference;
+        
         return $this;
     }
     /**
      * Get PageDirection value
      * @return string|null
      */
-    public function getPageDirection()
+    public function getPageDirection(): ?string
     {
         return $this->PageDirection;
     }
     /**
      * Set PageDirection value
-     * @uses \Ews\EnumType\EwsSearchPageDirectionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsSearchPageDirectionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsSearchPageDirectionType::valueIsValid()
+     * @uses \EnumType\EwsSearchPageDirectionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $pageDirection
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
+     * @return \StructType\EwsGetNonIndexableItemDetailsType
      */
-    public function setPageDirection($pageDirection = null)
+    public function setPageDirection(?string $pageDirection = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsSearchPageDirectionType', is_array($pageDirection) ? implode(', ', $pageDirection) : var_export($pageDirection, true), implode(', ', \Ews\EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsSearchPageDirectionType::valueIsValid($pageDirection)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSearchPageDirectionType', is_array($pageDirection) ? implode(', ', $pageDirection) : var_export($pageDirection, true), implode(', ', \EnumType\EwsSearchPageDirectionType::getValidValues())), __LINE__);
         }
         $this->PageDirection = $pageDirection;
+        
         return $this;
     }
     /**
      * Get SearchArchiveOnly value
      * @return bool|null
      */
-    public function getSearchArchiveOnly()
+    public function getSearchArchiveOnly(): ?bool
     {
         return $this->SearchArchiveOnly;
     }
     /**
      * Set SearchArchiveOnly value
      * @param bool $searchArchiveOnly
-     * @return \Ews\StructType\EwsGetNonIndexableItemDetailsType
+     * @return \StructType\EwsGetNonIndexableItemDetailsType
      */
-    public function setSearchArchiveOnly($searchArchiveOnly = null)
+    public function setSearchArchiveOnly(?bool $searchArchiveOnly = null): self
     {
         // validation for constraint: boolean
         if (!is_null($searchArchiveOnly) && !is_bool($searchArchiveOnly)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchArchiveOnly, true), gettype($searchArchiveOnly)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($searchArchiveOnly, true), gettype($searchArchiveOnly)), __LINE__);
         }
         $this->SearchArchiveOnly = $searchArchiveOnly;
+        
         return $this;
     }
 }

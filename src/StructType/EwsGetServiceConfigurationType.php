@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetServiceConfigurationType StructType
@@ -17,35 +20,35 @@ class EwsGetServiceConfigurationType extends EwsBaseRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\ArrayType\EwsArrayOfServiceConfigurationType
+     * @var \ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public $RequestedConfiguration;
+    protected \ArrayType\EwsArrayOfServiceConfigurationType $RequestedConfiguration;
     /**
      * The ActingAs
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsEmailAddressType
+     * @var \StructType\EwsEmailAddressType|null
      */
-    public $ActingAs;
+    protected ?\StructType\EwsEmailAddressType $ActingAs = null;
     /**
      * The ConfigurationRequestDetails
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsConfigurationRequestDetailsType
+     * @var \StructType\EwsConfigurationRequestDetailsType|null
      */
-    public $ConfigurationRequestDetails;
+    protected ?\StructType\EwsConfigurationRequestDetailsType $ConfigurationRequestDetails = null;
     /**
      * Constructor method for GetServiceConfigurationType
      * @uses EwsGetServiceConfigurationType::setRequestedConfiguration()
      * @uses EwsGetServiceConfigurationType::setActingAs()
      * @uses EwsGetServiceConfigurationType::setConfigurationRequestDetails()
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration
-     * @param \Ews\StructType\EwsEmailAddressType $actingAs
-     * @param \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
+     * @param \ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration
+     * @param \StructType\EwsEmailAddressType $actingAs
+     * @param \StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration = null, \Ews\StructType\EwsEmailAddressType $actingAs = null, \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null)
+    public function __construct(\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration, ?\StructType\EwsEmailAddressType $actingAs = null, ?\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null)
     {
         $this
             ->setRequestedConfiguration($requestedConfiguration)
@@ -54,56 +57,59 @@ class EwsGetServiceConfigurationType extends EwsBaseRequestType
     }
     /**
      * Get RequestedConfiguration value
-     * @return \Ews\ArrayType\EwsArrayOfServiceConfigurationType
+     * @return \ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public function getRequestedConfiguration()
+    public function getRequestedConfiguration(): \ArrayType\EwsArrayOfServiceConfigurationType
     {
         return $this->RequestedConfiguration;
     }
     /**
      * Set RequestedConfiguration value
-     * @param \Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration
-     * @return \Ews\StructType\EwsGetServiceConfigurationType
+     * @param \ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration
+     * @return \StructType\EwsGetServiceConfigurationType
      */
-    public function setRequestedConfiguration(\Ews\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration = null)
+    public function setRequestedConfiguration(\ArrayType\EwsArrayOfServiceConfigurationType $requestedConfiguration): self
     {
         $this->RequestedConfiguration = $requestedConfiguration;
+        
         return $this;
     }
     /**
      * Get ActingAs value
-     * @return \Ews\StructType\EwsEmailAddressType|null
+     * @return \StructType\EwsEmailAddressType|null
      */
-    public function getActingAs()
+    public function getActingAs(): ?\StructType\EwsEmailAddressType
     {
         return $this->ActingAs;
     }
     /**
      * Set ActingAs value
-     * @param \Ews\StructType\EwsEmailAddressType $actingAs
-     * @return \Ews\StructType\EwsGetServiceConfigurationType
+     * @param \StructType\EwsEmailAddressType $actingAs
+     * @return \StructType\EwsGetServiceConfigurationType
      */
-    public function setActingAs(\Ews\StructType\EwsEmailAddressType $actingAs = null)
+    public function setActingAs(?\StructType\EwsEmailAddressType $actingAs = null): self
     {
         $this->ActingAs = $actingAs;
+        
         return $this;
     }
     /**
      * Get ConfigurationRequestDetails value
-     * @return \Ews\StructType\EwsConfigurationRequestDetailsType|null
+     * @return \StructType\EwsConfigurationRequestDetailsType|null
      */
-    public function getConfigurationRequestDetails()
+    public function getConfigurationRequestDetails(): ?\StructType\EwsConfigurationRequestDetailsType
     {
         return $this->ConfigurationRequestDetails;
     }
     /**
      * Set ConfigurationRequestDetails value
-     * @param \Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
-     * @return \Ews\StructType\EwsGetServiceConfigurationType
+     * @param \StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails
+     * @return \StructType\EwsGetServiceConfigurationType
      */
-    public function setConfigurationRequestDetails(\Ews\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null)
+    public function setConfigurationRequestDetails(?\StructType\EwsConfigurationRequestDetailsType $configurationRequestDetails = null): self
     {
         $this->ConfigurationRequestDetails = $configurationRequestDetails;
+        
         return $this;
     }
 }

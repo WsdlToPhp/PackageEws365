@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for SearchRefinerItemType StructType
@@ -21,7 +24,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Name;
+    protected string $Name;
     /**
      * The Value
      * Meta information extracted from the WSDL
@@ -29,7 +32,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Value;
+    protected string $Value;
     /**
      * The Count
      * Meta information extracted from the WSDL
@@ -37,7 +40,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var int
      */
-    public $Count;
+    protected int $Count;
     /**
      * The Token
      * Meta information extracted from the WSDL
@@ -45,7 +48,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * - minOccurs: 1
      * @var string
      */
-    public $Token;
+    protected string $Token;
     /**
      * Constructor method for SearchRefinerItemType
      * @uses EwsSearchRefinerItemType::setName()
@@ -57,7 +60,7 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * @param int $count
      * @param string $token
      */
-    public function __construct($name = null, $value = null, $count = null, $token = null)
+    public function __construct(string $name, string $value, int $count, string $token)
     {
         $this
             ->setName($name)
@@ -69,88 +72,92 @@ class EwsSearchRefinerItemType extends AbstractStructBase
      * Get Name value
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->Name;
     }
     /**
      * Set Name value
      * @param string $name
-     * @return \Ews\StructType\EwsSearchRefinerItemType
+     * @return \StructType\EwsSearchRefinerItemType
      */
-    public function setName($name = null)
+    public function setName(string $name): self
     {
         // validation for constraint: string
         if (!is_null($name) && !is_string($name)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($name, true), gettype($name)), __LINE__);
         }
         $this->Name = $name;
+        
         return $this;
     }
     /**
      * Get Value value
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->Value;
     }
     /**
      * Set Value value
      * @param string $value
-     * @return \Ews\StructType\EwsSearchRefinerItemType
+     * @return \StructType\EwsSearchRefinerItemType
      */
-    public function setValue($value = null)
+    public function setValue(string $value): self
     {
         // validation for constraint: string
         if (!is_null($value) && !is_string($value)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         $this->Value = $value;
+        
         return $this;
     }
     /**
      * Get Count value
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->Count;
     }
     /**
      * Set Count value
      * @param int $count
-     * @return \Ews\StructType\EwsSearchRefinerItemType
+     * @return \StructType\EwsSearchRefinerItemType
      */
-    public function setCount($count = null)
+    public function setCount(int $count): self
     {
         // validation for constraint: int
         if (!is_null($count) && !(is_int($count) || ctype_digit($count))) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($count, true), gettype($count)), __LINE__);
         }
         $this->Count = $count;
+        
         return $this;
     }
     /**
      * Get Token value
      * @return string
      */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->Token;
     }
     /**
      * Set Token value
      * @param string $token
-     * @return \Ews\StructType\EwsSearchRefinerItemType
+     * @return \StructType\EwsSearchRefinerItemType
      */
-    public function setToken($token = null)
+    public function setToken(string $token): self
     {
         // validation for constraint: string
         if (!is_null($token) && !is_string($token)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($token, true), gettype($token)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($token, true), gettype($token)), __LINE__);
         }
         $this->Token = $token;
+        
         return $this;
     }
 }

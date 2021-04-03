@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for CreateSharingInvitationType StructType
@@ -17,35 +20,36 @@ class EwsCreateSharingInvitationType extends EwsBaseCalendarRequestType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 1
-     * @var \Ews\StructType\EwsSharingInvitation
+     * @var \StructType\EwsSharingInvitation
      */
-    public $SharingInvitation;
+    protected \StructType\EwsSharingInvitation $SharingInvitation;
     /**
      * Constructor method for CreateSharingInvitationType
      * @uses EwsCreateSharingInvitationType::setSharingInvitation()
-     * @param \Ews\StructType\EwsSharingInvitation $sharingInvitation
+     * @param \StructType\EwsSharingInvitation $sharingInvitation
      */
-    public function __construct(\Ews\StructType\EwsSharingInvitation $sharingInvitation = null)
+    public function __construct(\StructType\EwsSharingInvitation $sharingInvitation)
     {
         $this
             ->setSharingInvitation($sharingInvitation);
     }
     /**
      * Get SharingInvitation value
-     * @return \Ews\StructType\EwsSharingInvitation
+     * @return \StructType\EwsSharingInvitation
      */
-    public function getSharingInvitation()
+    public function getSharingInvitation(): \StructType\EwsSharingInvitation
     {
         return $this->SharingInvitation;
     }
     /**
      * Set SharingInvitation value
-     * @param \Ews\StructType\EwsSharingInvitation $sharingInvitation
-     * @return \Ews\StructType\EwsCreateSharingInvitationType
+     * @param \StructType\EwsSharingInvitation $sharingInvitation
+     * @return \StructType\EwsCreateSharingInvitationType
      */
-    public function setSharingInvitation(\Ews\StructType\EwsSharingInvitation $sharingInvitation = null)
+    public function setSharingInvitation(\StructType\EwsSharingInvitation $sharingInvitation): self
     {
         $this->SharingInvitation = $sharingInvitation;
+        
         return $this;
     }
 }

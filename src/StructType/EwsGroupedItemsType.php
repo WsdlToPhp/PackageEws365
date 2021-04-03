@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GroupedItemsType StructType
@@ -14,22 +17,22 @@ class EwsGroupedItemsType extends AbstractStructBase
 {
     /**
      * The GroupIndex
-     * @var string
+     * @var string|null
      */
-    public $GroupIndex;
+    protected ?string $GroupIndex = null;
     /**
      * The Items
-     * @var \Ews\StructType\EwsArrayOfRealItemsType
+     * @var \StructType\EwsArrayOfRealItemsType|null
      */
-    public $Items;
+    protected ?\StructType\EwsArrayOfRealItemsType $Items = null;
     /**
      * Constructor method for GroupedItemsType
      * @uses EwsGroupedItemsType::setGroupIndex()
      * @uses EwsGroupedItemsType::setItems()
      * @param string $groupIndex
-     * @param \Ews\StructType\EwsArrayOfRealItemsType $items
+     * @param \StructType\EwsArrayOfRealItemsType $items
      */
-    public function __construct($groupIndex = null, \Ews\StructType\EwsArrayOfRealItemsType $items = null)
+    public function __construct(?string $groupIndex = null, ?\StructType\EwsArrayOfRealItemsType $items = null)
     {
         $this
             ->setGroupIndex($groupIndex)
@@ -39,40 +42,42 @@ class EwsGroupedItemsType extends AbstractStructBase
      * Get GroupIndex value
      * @return string|null
      */
-    public function getGroupIndex()
+    public function getGroupIndex(): ?string
     {
         return $this->GroupIndex;
     }
     /**
      * Set GroupIndex value
      * @param string $groupIndex
-     * @return \Ews\StructType\EwsGroupedItemsType
+     * @return \StructType\EwsGroupedItemsType
      */
-    public function setGroupIndex($groupIndex = null)
+    public function setGroupIndex(?string $groupIndex = null): self
     {
         // validation for constraint: string
         if (!is_null($groupIndex) && !is_string($groupIndex)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupIndex, true), gettype($groupIndex)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($groupIndex, true), gettype($groupIndex)), __LINE__);
         }
         $this->GroupIndex = $groupIndex;
+        
         return $this;
     }
     /**
      * Get Items value
-     * @return \Ews\StructType\EwsArrayOfRealItemsType|null
+     * @return \StructType\EwsArrayOfRealItemsType|null
      */
-    public function getItems()
+    public function getItems(): ?\StructType\EwsArrayOfRealItemsType
     {
         return $this->Items;
     }
     /**
      * Set Items value
-     * @param \Ews\StructType\EwsArrayOfRealItemsType $items
-     * @return \Ews\StructType\EwsGroupedItemsType
+     * @param \StructType\EwsArrayOfRealItemsType $items
+     * @return \StructType\EwsGroupedItemsType
      */
-    public function setItems(\Ews\StructType\EwsArrayOfRealItemsType $items = null)
+    public function setItems(?\StructType\EwsArrayOfRealItemsType $items = null): self
     {
         $this->Items = $items;
+        
         return $this;
     }
 }

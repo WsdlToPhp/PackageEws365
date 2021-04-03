@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for UserPhotoSizeType EnumType
@@ -70,9 +72,9 @@ class EwsUserPhotoSizeType extends AbstractStructEnumBase
      * @uses self::VALUE_HR_648_X_648
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_HR_48_X_48,
             self::VALUE_HR_64_X_64,
             self::VALUE_HR_96_X_96,
@@ -82,6 +84,6 @@ class EwsUserPhotoSizeType extends AbstractStructEnumBase
             self::VALUE_HR_432_X_432,
             self::VALUE_HR_504_X_504,
             self::VALUE_HR_648_X_648,
-        );
+        ];
     }
 }

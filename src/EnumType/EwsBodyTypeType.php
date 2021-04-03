@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for BodyTypeType EnumType
@@ -28,11 +30,11 @@ class EwsBodyTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_TEXT
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_HTML,
             self::VALUE_TEXT,
-        );
+        ];
     }
 }

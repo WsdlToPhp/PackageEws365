@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ExceptionPropertyURIType EnumType
@@ -76,9 +78,9 @@ class EwsExceptionPropertyURIType extends AbstractStructEnumBase
      * @uses self::VALUE_TIMEZONE_OFFSET
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_ATTACHMENT_NAME,
             self::VALUE_ATTACHMENT_CONTENT_TYPE,
             self::VALUE_ATTACHMENT_CONTENT,
@@ -89,6 +91,6 @@ class EwsExceptionPropertyURIType extends AbstractStructEnumBase
             self::VALUE_RECURRENCE_INTERVAL,
             self::VALUE_RECURRENCE_NUMBER_OF_OCCURRENCES,
             self::VALUE_TIMEZONE_OFFSET,
-        );
+        ];
     }
 }

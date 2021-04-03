@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for PeopleSuggestionPersonType EnumType
@@ -52,15 +54,15 @@ class EwsPeopleSuggestionPersonType extends AbstractStructEnumBase
      * @uses self::VALUE_MODERN_GROUP
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_UNKNOWN,
             self::VALUE_PERSON,
             self::VALUE_DISTRIBUTION_LIST,
             self::VALUE_ROOM,
             self::VALUE_PLACE,
             self::VALUE_MODERN_GROUP,
-        );
+        ];
     }
 }

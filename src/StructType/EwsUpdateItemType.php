@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for UpdateItemType StructType
@@ -18,40 +21,40 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * - use: required
      * @var string
      */
-    public $ConflictResolution;
+    protected string $ConflictResolution;
     /**
      * The SavedItemFolderId
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsTargetFolderIdType
+     * @var \StructType\EwsTargetFolderIdType|null
      */
-    public $SavedItemFolderId;
+    protected ?\StructType\EwsTargetFolderIdType $SavedItemFolderId = null;
     /**
      * The ItemChanges
-     * @var \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType
+     * @var \ArrayType\EwsNonEmptyArrayOfItemChangesType|null
      */
-    public $ItemChanges;
+    protected ?\ArrayType\EwsNonEmptyArrayOfItemChangesType $ItemChanges = null;
     /**
      * The MessageDisposition
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $MessageDisposition;
+    protected ?string $MessageDisposition = null;
     /**
      * The SendMeetingInvitationsOrCancellations
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var string
+     * @var string|null
      */
-    public $SendMeetingInvitationsOrCancellations;
+    protected ?string $SendMeetingInvitationsOrCancellations = null;
     /**
      * The SuppressReadReceipts
      * Meta information extracted from the WSDL
      * - use: optional
-     * @var bool
+     * @var bool|null
      */
-    public $SuppressReadReceipts;
+    protected ?bool $SuppressReadReceipts = null;
     /**
      * Constructor method for UpdateItemType
      * @uses EwsUpdateItemType::setConflictResolution()
@@ -61,13 +64,13 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * @uses EwsUpdateItemType::setSendMeetingInvitationsOrCancellations()
      * @uses EwsUpdateItemType::setSuppressReadReceipts()
      * @param string $conflictResolution
-     * @param \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges
+     * @param \StructType\EwsTargetFolderIdType $savedItemFolderId
+     * @param \ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges
      * @param string $messageDisposition
      * @param string $sendMeetingInvitationsOrCancellations
      * @param bool $suppressReadReceipts
      */
-    public function __construct($conflictResolution = null, \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId = null, \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges = null, $messageDisposition = null, $sendMeetingInvitationsOrCancellations = null, $suppressReadReceipts = null)
+    public function __construct(string $conflictResolution, ?\StructType\EwsTargetFolderIdType $savedItemFolderId = null, ?\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges = null, ?string $messageDisposition = null, ?string $sendMeetingInvitationsOrCancellations = null, ?bool $suppressReadReceipts = null)
     {
         $this
             ->setConflictResolution($conflictResolution)
@@ -81,133 +84,139 @@ class EwsUpdateItemType extends EwsBaseRequestType
      * Get ConflictResolution value
      * @return string
      */
-    public function getConflictResolution()
+    public function getConflictResolution(): string
     {
         return $this->ConflictResolution;
     }
     /**
      * Set ConflictResolution value
-     * @uses \Ews\EnumType\EwsConflictResolutionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsConflictResolutionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsConflictResolutionType::valueIsValid()
+     * @uses \EnumType\EwsConflictResolutionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $conflictResolution
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setConflictResolution($conflictResolution = null)
+    public function setConflictResolution(string $conflictResolution): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsConflictResolutionType::valueIsValid($conflictResolution)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsConflictResolutionType', is_array($conflictResolution) ? implode(', ', $conflictResolution) : var_export($conflictResolution, true), implode(', ', \Ews\EnumType\EwsConflictResolutionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsConflictResolutionType::valueIsValid($conflictResolution)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsConflictResolutionType', is_array($conflictResolution) ? implode(', ', $conflictResolution) : var_export($conflictResolution, true), implode(', ', \EnumType\EwsConflictResolutionType::getValidValues())), __LINE__);
         }
         $this->ConflictResolution = $conflictResolution;
+        
         return $this;
     }
     /**
      * Get SavedItemFolderId value
-     * @return \Ews\StructType\EwsTargetFolderIdType|null
+     * @return \StructType\EwsTargetFolderIdType|null
      */
-    public function getSavedItemFolderId()
+    public function getSavedItemFolderId(): ?\StructType\EwsTargetFolderIdType
     {
         return $this->SavedItemFolderId;
     }
     /**
      * Set SavedItemFolderId value
-     * @param \Ews\StructType\EwsTargetFolderIdType $savedItemFolderId
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @param \StructType\EwsTargetFolderIdType $savedItemFolderId
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setSavedItemFolderId(\Ews\StructType\EwsTargetFolderIdType $savedItemFolderId = null)
+    public function setSavedItemFolderId(?\StructType\EwsTargetFolderIdType $savedItemFolderId = null): self
     {
         $this->SavedItemFolderId = $savedItemFolderId;
+        
         return $this;
     }
     /**
      * Get ItemChanges value
-     * @return \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType|null
+     * @return \ArrayType\EwsNonEmptyArrayOfItemChangesType|null
      */
-    public function getItemChanges()
+    public function getItemChanges(): ?\ArrayType\EwsNonEmptyArrayOfItemChangesType
     {
         return $this->ItemChanges;
     }
     /**
      * Set ItemChanges value
-     * @param \Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @param \ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setItemChanges(\Ews\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges = null)
+    public function setItemChanges(?\ArrayType\EwsNonEmptyArrayOfItemChangesType $itemChanges = null): self
     {
         $this->ItemChanges = $itemChanges;
+        
         return $this;
     }
     /**
      * Get MessageDisposition value
      * @return string|null
      */
-    public function getMessageDisposition()
+    public function getMessageDisposition(): ?string
     {
         return $this->MessageDisposition;
     }
     /**
      * Set MessageDisposition value
-     * @uses \Ews\EnumType\EwsMessageDispositionType::valueIsValid()
-     * @uses \Ews\EnumType\EwsMessageDispositionType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsMessageDispositionType::valueIsValid()
+     * @uses \EnumType\EwsMessageDispositionType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $messageDisposition
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setMessageDisposition($messageDisposition = null)
+    public function setMessageDisposition(?string $messageDisposition = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsMessageDispositionType', is_array($messageDisposition) ? implode(', ', $messageDisposition) : var_export($messageDisposition, true), implode(', ', \Ews\EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsMessageDispositionType::valueIsValid($messageDisposition)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMessageDispositionType', is_array($messageDisposition) ? implode(', ', $messageDisposition) : var_export($messageDisposition, true), implode(', ', \EnumType\EwsMessageDispositionType::getValidValues())), __LINE__);
         }
         $this->MessageDisposition = $messageDisposition;
+        
         return $this;
     }
     /**
      * Get SendMeetingInvitationsOrCancellations value
      * @return string|null
      */
-    public function getSendMeetingInvitationsOrCancellations()
+    public function getSendMeetingInvitationsOrCancellations(): ?string
     {
         return $this->SendMeetingInvitationsOrCancellations;
     }
     /**
      * Set SendMeetingInvitationsOrCancellations value
-     * @uses \Ews\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid()
-     * @uses \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsCalendarItemUpdateOperationType::valueIsValid()
+     * @uses \EnumType\EwsCalendarItemUpdateOperationType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $sendMeetingInvitationsOrCancellations
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setSendMeetingInvitationsOrCancellations($sendMeetingInvitationsOrCancellations = null)
+    public function setSendMeetingInvitationsOrCancellations(?string $sendMeetingInvitationsOrCancellations = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid($sendMeetingInvitationsOrCancellations)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsCalendarItemUpdateOperationType', is_array($sendMeetingInvitationsOrCancellations) ? implode(', ', $sendMeetingInvitationsOrCancellations) : var_export($sendMeetingInvitationsOrCancellations, true), implode(', ', \Ews\EnumType\EwsCalendarItemUpdateOperationType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsCalendarItemUpdateOperationType::valueIsValid($sendMeetingInvitationsOrCancellations)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsCalendarItemUpdateOperationType', is_array($sendMeetingInvitationsOrCancellations) ? implode(', ', $sendMeetingInvitationsOrCancellations) : var_export($sendMeetingInvitationsOrCancellations, true), implode(', ', \EnumType\EwsCalendarItemUpdateOperationType::getValidValues())), __LINE__);
         }
         $this->SendMeetingInvitationsOrCancellations = $sendMeetingInvitationsOrCancellations;
+        
         return $this;
     }
     /**
      * Get SuppressReadReceipts value
      * @return bool|null
      */
-    public function getSuppressReadReceipts()
+    public function getSuppressReadReceipts(): ?bool
     {
         return $this->SuppressReadReceipts;
     }
     /**
      * Set SuppressReadReceipts value
      * @param bool $suppressReadReceipts
-     * @return \Ews\StructType\EwsUpdateItemType
+     * @return \StructType\EwsUpdateItemType
      */
-    public function setSuppressReadReceipts($suppressReadReceipts = null)
+    public function setSuppressReadReceipts(?bool $suppressReadReceipts = null): self
     {
         // validation for constraint: boolean
         if (!is_null($suppressReadReceipts) && !is_bool($suppressReadReceipts)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($suppressReadReceipts, true), gettype($suppressReadReceipts)), __LINE__);
         }
         $this->SuppressReadReceipts = $suppressReadReceipts;
+        
         return $this;
     }
 }

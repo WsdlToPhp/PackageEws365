@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for DelegateUserResponseMessageType StructType
@@ -17,35 +20,36 @@ class EwsDelegateUserResponseMessageType extends EwsResponseMessageType
      * Meta information extracted from the WSDL
      * - maxOccurs: 1
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsDelegateUserType
+     * @var \StructType\EwsDelegateUserType|null
      */
-    public $DelegateUser;
+    protected ?\StructType\EwsDelegateUserType $DelegateUser = null;
     /**
      * Constructor method for DelegateUserResponseMessageType
      * @uses EwsDelegateUserResponseMessageType::setDelegateUser()
-     * @param \Ews\StructType\EwsDelegateUserType $delegateUser
+     * @param \StructType\EwsDelegateUserType $delegateUser
      */
-    public function __construct(\Ews\StructType\EwsDelegateUserType $delegateUser = null)
+    public function __construct(?\StructType\EwsDelegateUserType $delegateUser = null)
     {
         $this
             ->setDelegateUser($delegateUser);
     }
     /**
      * Get DelegateUser value
-     * @return \Ews\StructType\EwsDelegateUserType|null
+     * @return \StructType\EwsDelegateUserType|null
      */
-    public function getDelegateUser()
+    public function getDelegateUser(): ?\StructType\EwsDelegateUserType
     {
         return $this->DelegateUser;
     }
     /**
      * Set DelegateUser value
-     * @param \Ews\StructType\EwsDelegateUserType $delegateUser
-     * @return \Ews\StructType\EwsDelegateUserResponseMessageType
+     * @param \StructType\EwsDelegateUserType $delegateUser
+     * @return \StructType\EwsDelegateUserResponseMessageType
      */
-    public function setDelegateUser(\Ews\StructType\EwsDelegateUserType $delegateUser = null)
+    public function setDelegateUser(?\StructType\EwsDelegateUserType $delegateUser = null): self
     {
         $this->DelegateUser = $delegateUser;
+        
         return $this;
     }
 }

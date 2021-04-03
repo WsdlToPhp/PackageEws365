@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for GetBookingStaffType StructType
@@ -19,13 +22,13 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
      * - minOccurs: 1
      * @var bool
      */
-    public $RefreshStaffList;
+    protected bool $RefreshStaffList;
     /**
      * Constructor method for GetBookingStaffType
      * @uses EwsGetBookingStaffType::setRefreshStaffList()
      * @param bool $refreshStaffList
      */
-    public function __construct($refreshStaffList = null)
+    public function __construct(bool $refreshStaffList)
     {
         $this
             ->setRefreshStaffList($refreshStaffList);
@@ -34,22 +37,23 @@ class EwsGetBookingStaffType extends EwsBaseBookingRequestType
      * Get RefreshStaffList value
      * @return bool
      */
-    public function getRefreshStaffList()
+    public function getRefreshStaffList(): bool
     {
         return $this->RefreshStaffList;
     }
     /**
      * Set RefreshStaffList value
      * @param bool $refreshStaffList
-     * @return \Ews\StructType\EwsGetBookingStaffType
+     * @return \StructType\EwsGetBookingStaffType
      */
-    public function setRefreshStaffList($refreshStaffList = null)
+    public function setRefreshStaffList(bool $refreshStaffList): self
     {
         // validation for constraint: boolean
         if (!is_null($refreshStaffList) && !is_bool($refreshStaffList)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($refreshStaffList, true), gettype($refreshStaffList)), __LINE__);
+            throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($refreshStaffList, true), gettype($refreshStaffList)), __LINE__);
         }
         $this->RefreshStaffList = $refreshStaffList;
+        
         return $this;
     }
 }

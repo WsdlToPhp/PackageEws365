@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MonthNamesType EnumType
@@ -88,9 +90,9 @@ class EwsMonthNamesType extends AbstractStructEnumBase
      * @uses self::VALUE_DECEMBER
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_JANUARY,
             self::VALUE_FEBRUARY,
             self::VALUE_MARCH,
@@ -103,6 +105,6 @@ class EwsMonthNamesType extends AbstractStructEnumBase
             self::VALUE_OCTOBER,
             self::VALUE_NOVEMBER,
             self::VALUE_DECEMBER,
-        );
+        ];
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for MailboxTypeType EnumType
@@ -64,9 +66,9 @@ class EwsMailboxTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_GROUP_MAILBOX
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_UNKNOWN,
             self::VALUE_ONE_OFF,
             self::VALUE_MAILBOX,
@@ -75,6 +77,6 @@ class EwsMailboxTypeType extends AbstractStructEnumBase
             self::VALUE_CONTACT,
             self::VALUE_PUBLIC_FOLDER,
             self::VALUE_GROUP_MAILBOX,
-        );
+        ];
     }
 }

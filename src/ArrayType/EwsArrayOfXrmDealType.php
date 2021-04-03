@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\ArrayType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructArrayBase;
+namespace ArrayType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructArrayBase;
 
 /**
  * This class stands for ArrayOfXrmDealType ArrayType
@@ -17,24 +20,24 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
      * Meta information extracted from the WSDL
      * - maxOccurs: unbounded
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsXrmDealType[]
+     * @var \StructType\EwsXrmDealType[]
      */
-    public $Deal;
+    protected array $Deal = [];
     /**
      * Constructor method for ArrayOfXrmDealType
      * @uses EwsArrayOfXrmDealType::setDeal()
-     * @param \Ews\StructType\EwsXrmDealType[] $deal
+     * @param \StructType\EwsXrmDealType[] $deal
      */
-    public function __construct(array $deal = array())
+    public function __construct(array $deal = [])
     {
         $this
             ->setDeal($deal);
     }
     /**
      * Get Deal value
-     * @return \Ews\StructType\EwsXrmDealType[]|null
+     * @return \StructType\EwsXrmDealType[]
      */
-    public function getDeal()
+    public function getDeal(): array
     {
         return $this->Deal;
     }
@@ -44,58 +47,45 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
      * @param array $values
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public static function validateDealForArrayConstraintsFromSetDeal(array $values = array())
+    public static function validateDealForArrayConstraintsFromSetDeal(array $values = []): string
     {
         $message = '';
         $invalidValues = [];
         foreach ($values as $arrayOfXrmDealTypeDealItem) {
             // validation for constraint: itemType
-            if (!$arrayOfXrmDealTypeDealItem instanceof \Ews\StructType\EwsXrmDealType) {
+            if (!$arrayOfXrmDealTypeDealItem instanceof \StructType\EwsXrmDealType) {
                 $invalidValues[] = is_object($arrayOfXrmDealTypeDealItem) ? get_class($arrayOfXrmDealTypeDealItem) : sprintf('%s(%s)', gettype($arrayOfXrmDealTypeDealItem), var_export($arrayOfXrmDealTypeDealItem, true));
             }
         }
         if (!empty($invalidValues)) {
-            $message = sprintf('The Deal property can only contain items of type \Ews\StructType\EwsXrmDealType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
+            $message = sprintf('The Deal property can only contain items of type \StructType\EwsXrmDealType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
+        
         return $message;
     }
     /**
      * Set Deal value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsXrmDealType[] $deal
-     * @return \Ews\ArrayType\EwsArrayOfXrmDealType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsXrmDealType[] $deal
+     * @return \ArrayType\EwsArrayOfXrmDealType
      */
-    public function setDeal(array $deal = array())
+    public function setDeal(array $deal = []): self
     {
         // validation for constraint: array
         if ('' !== ($dealArrayErrorMessage = self::validateDealForArrayConstraintsFromSetDeal($deal))) {
-            throw new \InvalidArgumentException($dealArrayErrorMessage, __LINE__);
+            throw new InvalidArgumentException($dealArrayErrorMessage, __LINE__);
         }
         $this->Deal = $deal;
-        return $this;
-    }
-    /**
-     * Add item to Deal value
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsXrmDealType $item
-     * @return \Ews\ArrayType\EwsArrayOfXrmDealType
-     */
-    public function addToDeal(\Ews\StructType\EwsXrmDealType $item)
-    {
-        // validation for constraint: itemType
-        if (!$item instanceof \Ews\StructType\EwsXrmDealType) {
-            throw new \InvalidArgumentException(sprintf('The Deal property can only contain items of type \Ews\StructType\EwsXrmDealType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
-        }
-        $this->Deal[] = $item;
+        
         return $this;
     }
     /**
      * Returns the current element
      * @see AbstractStructArrayBase::current()
-     * @return \Ews\StructType\EwsXrmDealType|null
+     * @return \StructType\EwsXrmDealType|null
      */
-    public function current()
+    public function current(): ?\StructType\EwsXrmDealType
     {
         return parent::current();
     }
@@ -103,27 +93,27 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
      * Returns the indexed element
      * @see AbstractStructArrayBase::item()
      * @param int $index
-     * @return \Ews\StructType\EwsXrmDealType|null
+     * @return \StructType\EwsXrmDealType|null
      */
-    public function item($index)
+    public function item($index): ?\StructType\EwsXrmDealType
     {
         return parent::item($index);
     }
     /**
      * Returns the first element
      * @see AbstractStructArrayBase::first()
-     * @return \Ews\StructType\EwsXrmDealType|null
+     * @return \StructType\EwsXrmDealType|null
      */
-    public function first()
+    public function first(): ?\StructType\EwsXrmDealType
     {
         return parent::first();
     }
     /**
      * Returns the last element
      * @see AbstractStructArrayBase::last()
-     * @return \Ews\StructType\EwsXrmDealType|null
+     * @return \StructType\EwsXrmDealType|null
      */
-    public function last()
+    public function last(): ?\StructType\EwsXrmDealType
     {
         return parent::last();
     }
@@ -131,18 +121,29 @@ class EwsArrayOfXrmDealType extends AbstractStructArrayBase
      * Returns the element at the offset
      * @see AbstractStructArrayBase::offsetGet()
      * @param int $offset
-     * @return \Ews\StructType\EwsXrmDealType|null
+     * @return \StructType\EwsXrmDealType|null
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): ?\StructType\EwsXrmDealType
     {
         return parent::offsetGet($offset);
+    }
+    /**
+     * Add element to array
+     * @see AbstractStructArrayBase::add()
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsXrmDealType $item
+     * @return \ArrayType\EwsArrayOfXrmDealType
+     */
+    public function add(\StructType\EwsXrmDealType $item): self
+    {
+        return parent::add($item);
     }
     /**
      * Returns the attribute name
      * @see AbstractStructArrayBase::getAttributeName()
      * @return string Deal
      */
-    public function getAttributeName()
+    public function getAttributeName(): string
     {
         return 'Deal';
     }

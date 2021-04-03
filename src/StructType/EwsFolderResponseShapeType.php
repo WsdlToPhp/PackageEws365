@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for FolderResponseShapeType StructType
@@ -14,24 +17,24 @@ class EwsFolderResponseShapeType extends AbstractStructBase
 {
     /**
      * The BaseShape
-     * @var string
+     * @var string|null
      */
-    public $BaseShape;
+    protected ?string $BaseShape = null;
     /**
      * The AdditionalProperties
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType
+     * @var \StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
-    public $AdditionalProperties;
+    protected ?\StructType\EwsNonEmptyArrayOfPathsToElementType $AdditionalProperties = null;
     /**
      * Constructor method for FolderResponseShapeType
      * @uses EwsFolderResponseShapeType::setBaseShape()
      * @uses EwsFolderResponseShapeType::setAdditionalProperties()
      * @param string $baseShape
-     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @param \StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
      */
-    public function __construct($baseShape = null, \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function __construct(?string $baseShape = null, ?\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
     {
         $this
             ->setBaseShape($baseShape)
@@ -41,43 +44,45 @@ class EwsFolderResponseShapeType extends AbstractStructBase
      * Get BaseShape value
      * @return string|null
      */
-    public function getBaseShape()
+    public function getBaseShape(): ?string
     {
         return $this->BaseShape;
     }
     /**
      * Set BaseShape value
-     * @uses \Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid()
-     * @uses \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues()
-     * @throws \InvalidArgumentException
+     * @uses \EnumType\EwsDefaultShapeNamesType::valueIsValid()
+     * @uses \EnumType\EwsDefaultShapeNamesType::getValidValues()
+     * @throws InvalidArgumentException
      * @param string $baseShape
-     * @return \Ews\StructType\EwsFolderResponseShapeType
+     * @return \StructType\EwsFolderResponseShapeType
      */
-    public function setBaseShape($baseShape = null)
+    public function setBaseShape(?string $baseShape = null): self
     {
         // validation for constraint: enumeration
-        if (!\Ews\EnumType\EwsDefaultShapeNamesType::valueIsValid($baseShape)) {
-            throw new \InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \Ews\EnumType\EwsDefaultShapeNamesType', is_array($baseShape) ? implode(', ', $baseShape) : var_export($baseShape, true), implode(', ', \Ews\EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
+        if (!\EnumType\EwsDefaultShapeNamesType::valueIsValid($baseShape)) {
+            throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDefaultShapeNamesType', is_array($baseShape) ? implode(', ', $baseShape) : var_export($baseShape, true), implode(', ', \EnumType\EwsDefaultShapeNamesType::getValidValues())), __LINE__);
         }
         $this->BaseShape = $baseShape;
+        
         return $this;
     }
     /**
      * Get AdditionalProperties value
-     * @return \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType|null
+     * @return \StructType\EwsNonEmptyArrayOfPathsToElementType|null
      */
-    public function getAdditionalProperties()
+    public function getAdditionalProperties(): ?\StructType\EwsNonEmptyArrayOfPathsToElementType
     {
         return $this->AdditionalProperties;
     }
     /**
      * Set AdditionalProperties value
-     * @param \Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
-     * @return \Ews\StructType\EwsFolderResponseShapeType
+     * @param \StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties
+     * @return \StructType\EwsFolderResponseShapeType
      */
-    public function setAdditionalProperties(\Ews\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null)
+    public function setAdditionalProperties(?\StructType\EwsNonEmptyArrayOfPathsToElementType $additionalProperties = null): self
     {
         $this->AdditionalProperties = $additionalProperties;
+        
         return $this;
     }
 }

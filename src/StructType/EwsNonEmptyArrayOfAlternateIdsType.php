@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for NonEmptyArrayOfAlternateIdsType StructType
@@ -20,37 +23,37 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * - choice: AlternateId | AlternatePublicFolderId | AlternatePublicFolderItemId
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAlternateIdType
+     * @var \StructType\EwsAlternateIdType|null
      */
-    public $AlternateId;
+    protected ?\StructType\EwsAlternateIdType $AlternateId = null;
     /**
      * The AlternatePublicFolderId
      * Meta information extracted from the WSDL
      * - choice: AlternateId | AlternatePublicFolderId | AlternatePublicFolderItemId
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAlternatePublicFolderIdType
+     * @var \StructType\EwsAlternatePublicFolderIdType|null
      */
-    public $AlternatePublicFolderId;
+    protected ?\StructType\EwsAlternatePublicFolderIdType $AlternatePublicFolderId = null;
     /**
      * The AlternatePublicFolderItemId
      * Meta information extracted from the WSDL
      * - choice: AlternateId | AlternatePublicFolderId | AlternatePublicFolderItemId
      * - choiceMaxOccurs: unbounded
      * - choiceMinOccurs: 1
-     * @var \Ews\StructType\EwsAlternatePublicFolderItemIdType
+     * @var \StructType\EwsAlternatePublicFolderItemIdType|null
      */
-    public $AlternatePublicFolderItemId;
+    protected ?\StructType\EwsAlternatePublicFolderItemIdType $AlternatePublicFolderItemId = null;
     /**
      * Constructor method for NonEmptyArrayOfAlternateIdsType
      * @uses EwsNonEmptyArrayOfAlternateIdsType::setAlternateId()
      * @uses EwsNonEmptyArrayOfAlternateIdsType::setAlternatePublicFolderId()
      * @uses EwsNonEmptyArrayOfAlternateIdsType::setAlternatePublicFolderItemId()
-     * @param \Ews\StructType\EwsAlternateIdType $alternateId
-     * @param \Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId
-     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
+     * @param \StructType\EwsAlternateIdType $alternateId
+     * @param \StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId
+     * @param \StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
      */
-    public function __construct(\Ews\StructType\EwsAlternateIdType $alternateId = null, \Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId = null, \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null)
+    public function __construct(?\StructType\EwsAlternateIdType $alternateId = null, ?\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId = null, ?\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null)
     {
         $this
             ->setAlternateId($alternateId)
@@ -59,9 +62,9 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
     }
     /**
      * Get AlternateId value
-     * @return \Ews\StructType\EwsAlternateIdType|null
+     * @return \StructType\EwsAlternateIdType|null
      */
-    public function getAlternateId()
+    public function getAlternateId(): ?\StructType\EwsAlternateIdType
     {
         return isset($this->AlternateId) ? $this->AlternateId : null;
     }
@@ -72,7 +75,7 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAlternateIdForChoiceConstraintsFromSetAlternateId($value)
+    public function validateAlternateIdForChoiceConstraintsFromSetAlternateId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -85,12 +88,13 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AlternateId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternateId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AlternateId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternateId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -98,28 +102,29 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAlternateIdType $alternateId
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAlternateIdType $alternateId
+     * @return \StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
-    public function setAlternateId(\Ews\StructType\EwsAlternateIdType $alternateId = null)
+    public function setAlternateId(?\StructType\EwsAlternateIdType $alternateId = null): self
     {
         // validation for constraint: choice(AlternateId, AlternatePublicFolderId, AlternatePublicFolderItemId)
         if ('' !== ($alternateIdChoiceErrorMessage = self::validateAlternateIdForChoiceConstraintsFromSetAlternateId($alternateId))) {
-            throw new \InvalidArgumentException($alternateIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($alternateIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($alternateId) || (is_array($alternateId) && empty($alternateId))) {
             unset($this->AlternateId);
         } else {
             $this->AlternateId = $alternateId;
         }
+        
         return $this;
     }
     /**
      * Get AlternatePublicFolderId value
-     * @return \Ews\StructType\EwsAlternatePublicFolderIdType|null
+     * @return \StructType\EwsAlternatePublicFolderIdType|null
      */
-    public function getAlternatePublicFolderId()
+    public function getAlternatePublicFolderId(): ?\StructType\EwsAlternatePublicFolderIdType
     {
         return isset($this->AlternatePublicFolderId) ? $this->AlternatePublicFolderId : null;
     }
@@ -130,7 +135,7 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAlternatePublicFolderIdForChoiceConstraintsFromSetAlternatePublicFolderId($value)
+    public function validateAlternatePublicFolderIdForChoiceConstraintsFromSetAlternatePublicFolderId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -143,12 +148,13 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AlternatePublicFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternatePublicFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AlternatePublicFolderId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternatePublicFolderId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -156,28 +162,29 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId
+     * @return \StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
-    public function setAlternatePublicFolderId(\Ews\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId = null)
+    public function setAlternatePublicFolderId(?\StructType\EwsAlternatePublicFolderIdType $alternatePublicFolderId = null): self
     {
         // validation for constraint: choice(AlternateId, AlternatePublicFolderId, AlternatePublicFolderItemId)
         if ('' !== ($alternatePublicFolderIdChoiceErrorMessage = self::validateAlternatePublicFolderIdForChoiceConstraintsFromSetAlternatePublicFolderId($alternatePublicFolderId))) {
-            throw new \InvalidArgumentException($alternatePublicFolderIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($alternatePublicFolderIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($alternatePublicFolderId) || (is_array($alternatePublicFolderId) && empty($alternatePublicFolderId))) {
             unset($this->AlternatePublicFolderId);
         } else {
             $this->AlternatePublicFolderId = $alternatePublicFolderId;
         }
+        
         return $this;
     }
     /**
      * Get AlternatePublicFolderItemId value
-     * @return \Ews\StructType\EwsAlternatePublicFolderItemIdType|null
+     * @return \StructType\EwsAlternatePublicFolderItemIdType|null
      */
-    public function getAlternatePublicFolderItemId()
+    public function getAlternatePublicFolderItemId(): ?\StructType\EwsAlternatePublicFolderItemIdType
     {
         return isset($this->AlternatePublicFolderItemId) ? $this->AlternatePublicFolderItemId : null;
     }
@@ -188,7 +195,7 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * @param mixed $value
      * @return string A non-empty message if the values does not match the validation rules
      */
-    public function validateAlternatePublicFolderItemIdForChoiceConstraintsFromSetAlternatePublicFolderItemId($value)
+    public function validateAlternatePublicFolderItemIdForChoiceConstraintsFromSetAlternatePublicFolderItemId($value): string
     {
         $message = '';
         if (is_null($value)) {
@@ -201,12 +208,13 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
         try {
             foreach ($properties as $property) {
                 if (isset($this->{$property})) {
-                    throw new \InvalidArgumentException(sprintf('The property AlternatePublicFolderItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternatePublicFolderItemId, %s.', $property, implode(', ', $properties)), __LINE__);
+                    throw new InvalidArgumentException(sprintf('The property AlternatePublicFolderItemId can\'t be set as the property %s is already set. Only one property must be set among these properties: AlternatePublicFolderItemId, %s.', $property, implode(', ', $properties)), __LINE__);
                 }
             }
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             $message = $e->getMessage();
         }
+        
         return $message;
     }
     /**
@@ -214,21 +222,22 @@ class EwsNonEmptyArrayOfAlternateIdsType extends AbstractStructBase
      * This property belongs to a choice that allows only one property to exist. It is
      * therefore removable from the request, consequently if the value assigned to this
      * property is null, the property is removed from this object
-     * @throws \InvalidArgumentException
-     * @param \Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
-     * @return \Ews\StructType\EwsNonEmptyArrayOfAlternateIdsType
+     * @throws InvalidArgumentException
+     * @param \StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId
+     * @return \StructType\EwsNonEmptyArrayOfAlternateIdsType
      */
-    public function setAlternatePublicFolderItemId(\Ews\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null)
+    public function setAlternatePublicFolderItemId(?\StructType\EwsAlternatePublicFolderItemIdType $alternatePublicFolderItemId = null): self
     {
         // validation for constraint: choice(AlternateId, AlternatePublicFolderId, AlternatePublicFolderItemId)
         if ('' !== ($alternatePublicFolderItemIdChoiceErrorMessage = self::validateAlternatePublicFolderItemIdForChoiceConstraintsFromSetAlternatePublicFolderItemId($alternatePublicFolderItemId))) {
-            throw new \InvalidArgumentException($alternatePublicFolderItemIdChoiceErrorMessage, __LINE__);
+            throw new InvalidArgumentException($alternatePublicFolderItemIdChoiceErrorMessage, __LINE__);
         }
         if (is_null($alternatePublicFolderItemId) || (is_array($alternatePublicFolderItemId) && empty($alternatePublicFolderItemId))) {
             unset($this->AlternatePublicFolderItemId);
         } else {
             $this->AlternatePublicFolderItemId = $alternatePublicFolderItemId;
         }
+        
         return $this;
     }
 }

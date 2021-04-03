@@ -1,8 +1,10 @@
 <?php
 
-namespace Ews\EnumType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructEnumBase;
+namespace EnumType;
+
+use WsdlToPhp\PackageBase\AbstractStructEnumBase;
 
 /**
  * This class stands for ResponseTypeType EnumType
@@ -52,15 +54,15 @@ class EwsResponseTypeType extends AbstractStructEnumBase
      * @uses self::VALUE_NO_RESPONSE_RECEIVED
      * @return string[]
      */
-    public static function getValidValues()
+    public static function getValidValues(): array
     {
-        return array(
+        return [
             self::VALUE_UNKNOWN,
             self::VALUE_ORGANIZER,
             self::VALUE_TENTATIVE,
             self::VALUE_ACCEPT,
             self::VALUE_DECLINE,
             self::VALUE_NO_RESPONSE_RECEIVED,
-        );
+        ];
     }
 }

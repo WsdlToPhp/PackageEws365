@@ -1,8 +1,11 @@
 <?php
 
-namespace Ews\StructType;
+declare(strict_types=1);
 
-use \WsdlToPhp\PackageBase\AbstractStructBase;
+namespace StructType;
+
+use InvalidArgumentException;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 /**
  * This class stands for RecurringMasterItemIdRangesType StructType
@@ -16,35 +19,36 @@ class EwsRecurringMasterItemIdRangesType extends EwsItemIdType
      * The Ranges
      * Meta information extracted from the WSDL
      * - minOccurs: 0
-     * @var \Ews\ArrayType\EwsArrayOfOccurrenceRangesType
+     * @var \ArrayType\EwsArrayOfOccurrenceRangesType|null
      */
-    public $Ranges;
+    protected ?\ArrayType\EwsArrayOfOccurrenceRangesType $Ranges = null;
     /**
      * Constructor method for RecurringMasterItemIdRangesType
      * @uses EwsRecurringMasterItemIdRangesType::setRanges()
-     * @param \Ews\ArrayType\EwsArrayOfOccurrenceRangesType $ranges
+     * @param \ArrayType\EwsArrayOfOccurrenceRangesType $ranges
      */
-    public function __construct(\Ews\ArrayType\EwsArrayOfOccurrenceRangesType $ranges = null)
+    public function __construct(?\ArrayType\EwsArrayOfOccurrenceRangesType $ranges = null)
     {
         $this
             ->setRanges($ranges);
     }
     /**
      * Get Ranges value
-     * @return \Ews\ArrayType\EwsArrayOfOccurrenceRangesType|null
+     * @return \ArrayType\EwsArrayOfOccurrenceRangesType|null
      */
-    public function getRanges()
+    public function getRanges(): ?\ArrayType\EwsArrayOfOccurrenceRangesType
     {
         return $this->Ranges;
     }
     /**
      * Set Ranges value
-     * @param \Ews\ArrayType\EwsArrayOfOccurrenceRangesType $ranges
-     * @return \Ews\StructType\EwsRecurringMasterItemIdRangesType
+     * @param \ArrayType\EwsArrayOfOccurrenceRangesType $ranges
+     * @return \StructType\EwsRecurringMasterItemIdRangesType
      */
-    public function setRanges(\Ews\ArrayType\EwsArrayOfOccurrenceRangesType $ranges = null)
+    public function setRanges(?\ArrayType\EwsArrayOfOccurrenceRangesType $ranges = null): self
     {
         $this->Ranges = $ranges;
+        
         return $this;
     }
 }
