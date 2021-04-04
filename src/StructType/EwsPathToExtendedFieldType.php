@@ -192,7 +192,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             $exception0 = new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (isset($exception0)) {
-            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(InvalidArgumentException $e) {
+            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function (InvalidArgumentException $e) {
                 return sprintf(' - %s', $e->getMessage());
             }, [$exception0])));
         }
