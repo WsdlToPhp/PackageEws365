@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfUploadItemsType extends AbstractStructArrayBase
      * @param \StructType\EwsUploadItemType $item
      * @return \ArrayType\EwsNonEmptyArrayOfUploadItemsType
      */
-    public function add(\StructType\EwsUploadItemType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUploadItemType) {
+            throw new InvalidArgumentException(sprintf('The Item property can only contain items of type \StructType\EwsUploadItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

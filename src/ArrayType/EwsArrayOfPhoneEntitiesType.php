@@ -134,8 +134,12 @@ class EwsArrayOfPhoneEntitiesType extends AbstractStructArrayBase
      * @param \StructType\EwsPhoneEntityType $item
      * @return \ArrayType\EwsArrayOfPhoneEntitiesType
      */
-    public function add(\StructType\EwsPhoneEntityType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsPhoneEntityType) {
+            throw new InvalidArgumentException(sprintf('The Phone property can only contain items of type \StructType\EwsPhoneEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

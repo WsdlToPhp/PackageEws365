@@ -133,8 +133,12 @@ class EwsArrayOfMeetingTimeCandidate extends AbstractStructArrayBase
      * @param \StructType\EwsMeetingTimeCandidate $item
      * @return \ArrayType\EwsArrayOfMeetingTimeCandidate
      */
-    public function add(\StructType\EwsMeetingTimeCandidate $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMeetingTimeCandidate) {
+            throw new InvalidArgumentException(sprintf('The MeetingTimeCandidate property can only contain items of type \StructType\EwsMeetingTimeCandidate, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

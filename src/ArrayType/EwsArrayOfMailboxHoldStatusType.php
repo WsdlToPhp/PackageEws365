@@ -136,8 +136,12 @@ class EwsArrayOfMailboxHoldStatusType extends AbstractStructArrayBase
      * @param \StructType\EwsMailboxHoldStatusType $item
      * @return \ArrayType\EwsArrayOfMailboxHoldStatusType
      */
-    public function add(\StructType\EwsMailboxHoldStatusType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMailboxHoldStatusType) {
+            throw new InvalidArgumentException(sprintf('The MailboxHoldStatus property can only contain items of type \StructType\EwsMailboxHoldStatusType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

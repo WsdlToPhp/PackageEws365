@@ -176,7 +176,7 @@ class EwsArrayOfServiceConfigurationType extends AbstractStructArrayBase
      * @param string $item
      * @return \ArrayType\EwsArrayOfServiceConfigurationType
      */
-    public function add(string $item): self
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\EnumType\EwsServiceConfigurationType::valueIsValid($item)) {

@@ -134,8 +134,12 @@ class EwsArrayOfInsight extends AbstractStructArrayBase
      * @param \StructType\EwsInsight $item
      * @return \ArrayType\EwsArrayOfInsight
      */
-    public function add(\StructType\EwsInsight $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsInsight) {
+            throw new InvalidArgumentException(sprintf('The Insight property can only contain items of type \StructType\EwsInsight, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

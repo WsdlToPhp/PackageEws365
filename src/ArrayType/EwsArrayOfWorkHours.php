@@ -138,8 +138,12 @@ class EwsArrayOfWorkHours extends AbstractStructArrayBase
      * @param \StructType\EwsWorkHoursType $item
      * @return \ArrayType\EwsArrayOfWorkHours
      */
-    public function add(\StructType\EwsWorkHoursType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsWorkHoursType) {
+            throw new InvalidArgumentException(sprintf('The WorkHours property can only contain items of type \StructType\EwsWorkHoursType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

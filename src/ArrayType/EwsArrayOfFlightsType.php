@@ -134,8 +134,12 @@ class EwsArrayOfFlightsType extends AbstractStructArrayBase
      * @param \StructType\EwsFlightEntityType $item
      * @return \ArrayType\EwsArrayOfFlightsType
      */
-    public function add(\StructType\EwsFlightEntityType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFlightEntityType) {
+            throw new InvalidArgumentException(sprintf('The Flight property can only contain items of type \StructType\EwsFlightEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

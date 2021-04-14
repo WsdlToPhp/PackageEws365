@@ -137,8 +137,12 @@ class EwsArrayOfExtendedAttributesType extends AbstractStructArrayBase
      * @param \StructType\EwsExtendedAttributeType $item
      * @return \ArrayType\EwsArrayOfExtendedAttributesType
      */
-    public function add(\StructType\EwsExtendedAttributeType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsExtendedAttributeType) {
+            throw new InvalidArgumentException(sprintf('The ExtendedAttribute property can only contain items of type \StructType\EwsExtendedAttributeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

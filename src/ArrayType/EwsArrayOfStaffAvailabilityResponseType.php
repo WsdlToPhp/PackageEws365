@@ -134,8 +134,12 @@ class EwsArrayOfStaffAvailabilityResponseType extends AbstractStructArrayBase
      * @param \StructType\EwsStaffAvailabilityResponseType $item
      * @return \ArrayType\EwsArrayOfStaffAvailabilityResponseType
      */
-    public function add(\StructType\EwsStaffAvailabilityResponseType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsStaffAvailabilityResponseType) {
+            throw new InvalidArgumentException(sprintf('The Response property can only contain items of type \StructType\EwsStaffAvailabilityResponseType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

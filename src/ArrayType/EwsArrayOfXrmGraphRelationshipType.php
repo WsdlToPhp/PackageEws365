@@ -136,7 +136,7 @@ class EwsArrayOfXrmGraphRelationshipType extends AbstractStructArrayBase
      * @param string $item
      * @return \ArrayType\EwsArrayOfXrmGraphRelationshipType
      */
-    public function add(string $item): self
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\EnumType\EwsXrmGraphRelationshipType::valueIsValid($item)) {

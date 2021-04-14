@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfInternetHeadersType extends AbstractStructArrayBase
      * @param \StructType\EwsInternetHeaderType $item
      * @return \ArrayType\EwsNonEmptyArrayOfInternetHeadersType
      */
-    public function add(\StructType\EwsInternetHeaderType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsInternetHeaderType) {
+            throw new InvalidArgumentException(sprintf('The InternetMessageHeader property can only contain items of type \StructType\EwsInternetHeaderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

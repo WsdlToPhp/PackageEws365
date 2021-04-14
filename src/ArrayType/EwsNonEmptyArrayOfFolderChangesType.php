@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfFolderChangesType extends AbstractStructArrayBase
      * @param \StructType\EwsFolderChangeType $item
      * @return \ArrayType\EwsNonEmptyArrayOfFolderChangesType
      */
-    public function add(\StructType\EwsFolderChangeType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFolderChangeType) {
+            throw new InvalidArgumentException(sprintf('The FolderChange property can only contain items of type \StructType\EwsFolderChangeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

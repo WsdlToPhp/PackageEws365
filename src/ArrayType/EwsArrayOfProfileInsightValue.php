@@ -134,8 +134,12 @@ class EwsArrayOfProfileInsightValue extends AbstractStructArrayBase
      * @param \StructType\EwsProfileInsightValue $item
      * @return \ArrayType\EwsArrayOfProfileInsightValue
      */
-    public function add(\StructType\EwsProfileInsightValue $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsProfileInsightValue) {
+            throw new InvalidArgumentException(sprintf('The Item property can only contain items of type \StructType\EwsProfileInsightValue, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

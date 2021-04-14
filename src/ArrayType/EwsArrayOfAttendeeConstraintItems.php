@@ -134,8 +134,12 @@ class EwsArrayOfAttendeeConstraintItems extends AbstractStructArrayBase
      * @param \StructType\EwsAttendeeConstraintItem $item
      * @return \ArrayType\EwsArrayOfAttendeeConstraintItems
      */
-    public function add(\StructType\EwsAttendeeConstraintItem $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsAttendeeConstraintItem) {
+            throw new InvalidArgumentException(sprintf('The AttendeeItem property can only contain items of type \StructType\EwsAttendeeConstraintItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

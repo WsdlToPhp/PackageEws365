@@ -134,8 +134,12 @@ class EwsArrayOfUnifiedGroupResourcesType extends AbstractStructArrayBase
      * @param \StructType\EwsUnifiedGroupResourceType $item
      * @return \ArrayType\EwsArrayOfUnifiedGroupResourcesType
      */
-    public function add(\StructType\EwsUnifiedGroupResourceType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnifiedGroupResourceType) {
+            throw new InvalidArgumentException(sprintf('The Resource property can only contain items of type \StructType\EwsUnifiedGroupResourceType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

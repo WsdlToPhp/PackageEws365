@@ -134,8 +134,12 @@ class EwsArrayOfBookingMailbox extends AbstractStructArrayBase
      * @param \StructType\EwsBookingMailboxType $item
      * @return \ArrayType\EwsArrayOfBookingMailbox
      */
-    public function add(\StructType\EwsBookingMailboxType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsBookingMailboxType) {
+            throw new InvalidArgumentException(sprintf('The Mailbox property can only contain items of type \StructType\EwsBookingMailboxType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

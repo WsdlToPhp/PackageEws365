@@ -175,8 +175,12 @@ class EwsNonEmptyArrayOfExtendedPropertyType extends AbstractStructArrayBase
      * @param \StructType\EwsExtendedPropertyType $item
      * @return \ArrayType\EwsNonEmptyArrayOfExtendedPropertyType
      */
-    public function add(\StructType\EwsExtendedPropertyType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsExtendedPropertyType) {
+            throw new InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

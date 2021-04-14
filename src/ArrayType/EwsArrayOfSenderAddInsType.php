@@ -134,8 +134,12 @@ class EwsArrayOfSenderAddInsType extends AbstractStructArrayBase
      * @param \StructType\EwsSenderAddInEntityType $item
      * @return \ArrayType\EwsArrayOfSenderAddInsType
      */
-    public function add(\StructType\EwsSenderAddInEntityType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsSenderAddInEntityType) {
+            throw new InvalidArgumentException(sprintf('The Microsoft_OutlookServices_SenderApp property can only contain items of type \StructType\EwsSenderAddInEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

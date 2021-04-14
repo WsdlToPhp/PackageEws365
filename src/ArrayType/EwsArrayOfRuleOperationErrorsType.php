@@ -134,8 +134,12 @@ class EwsArrayOfRuleOperationErrorsType extends AbstractStructArrayBase
      * @param \StructType\EwsRuleOperationErrorType $item
      * @return \ArrayType\EwsArrayOfRuleOperationErrorsType
      */
-    public function add(\StructType\EwsRuleOperationErrorType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsRuleOperationErrorType) {
+            throw new InvalidArgumentException(sprintf('The RuleOperationError property can only contain items of type \StructType\EwsRuleOperationErrorType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

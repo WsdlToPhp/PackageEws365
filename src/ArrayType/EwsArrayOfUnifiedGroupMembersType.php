@@ -134,8 +134,12 @@ class EwsArrayOfUnifiedGroupMembersType extends AbstractStructArrayBase
      * @param \StructType\EwsUnifiedGroupMemberType $item
      * @return \ArrayType\EwsArrayOfUnifiedGroupMembersType
      */
-    public function add(\StructType\EwsUnifiedGroupMemberType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnifiedGroupMemberType) {
+            throw new InvalidArgumentException(sprintf('The Member property can only contain items of type \StructType\EwsUnifiedGroupMemberType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

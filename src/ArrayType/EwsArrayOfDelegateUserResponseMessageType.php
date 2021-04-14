@@ -134,8 +134,12 @@ class EwsArrayOfDelegateUserResponseMessageType extends AbstractStructArrayBase
      * @param \StructType\EwsDelegateUserResponseMessageType $item
      * @return \ArrayType\EwsArrayOfDelegateUserResponseMessageType
      */
-    public function add(\StructType\EwsDelegateUserResponseMessageType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsDelegateUserResponseMessageType) {
+            throw new InvalidArgumentException(sprintf('The DelegateUserResponseMessageType property can only contain items of type \StructType\EwsDelegateUserResponseMessageType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -134,8 +134,12 @@ class EwsArrayOfStringAttributedValuesType extends AbstractStructArrayBase
      * @param \StructType\EwsStringAttributedValueType $item
      * @return \ArrayType\EwsArrayOfStringAttributedValuesType
      */
-    public function add(\StructType\EwsStringAttributedValueType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsStringAttributedValueType) {
+            throw new InvalidArgumentException(sprintf('The StringAttributedValue property can only contain items of type \StructType\EwsStringAttributedValueType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

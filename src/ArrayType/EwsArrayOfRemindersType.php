@@ -134,8 +134,12 @@ class EwsArrayOfRemindersType extends AbstractStructArrayBase
      * @param \StructType\EwsReminderType $item
      * @return \ArrayType\EwsArrayOfRemindersType
      */
-    public function add(\StructType\EwsReminderType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsReminderType) {
+            throw new InvalidArgumentException(sprintf('The Reminder property can only contain items of type \StructType\EwsReminderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

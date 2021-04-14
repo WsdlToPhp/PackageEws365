@@ -146,8 +146,12 @@ class EwsArrayOfEncryptedSharedFolderDataType extends AbstractStructArrayBase
      * @param \StructType\EwsEncryptedSharedFolderDataType $item
      * @return \ArrayType\EwsArrayOfEncryptedSharedFolderDataType
      */
-    public function add(\StructType\EwsEncryptedSharedFolderDataType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsEncryptedSharedFolderDataType) {
+            throw new InvalidArgumentException(sprintf('The EncryptedSharedFolderData property can only contain items of type \StructType\EwsEncryptedSharedFolderDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

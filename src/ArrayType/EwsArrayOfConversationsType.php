@@ -146,8 +146,12 @@ class EwsArrayOfConversationsType extends AbstractStructArrayBase
      * @param \StructType\EwsConversationType $item
      * @return \ArrayType\EwsArrayOfConversationsType
      */
-    public function add(\StructType\EwsConversationType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsConversationType) {
+            throw new InvalidArgumentException(sprintf('The Conversation property can only contain items of type \StructType\EwsConversationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

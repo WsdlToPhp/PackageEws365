@@ -146,8 +146,12 @@ class EwsArrayOfTrackingPropertiesType extends AbstractStructArrayBase
      * @param \StructType\EwsTrackingPropertyType $item
      * @return \ArrayType\EwsArrayOfTrackingPropertiesType
      */
-    public function add(\StructType\EwsTrackingPropertyType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsTrackingPropertyType) {
+            throw new InvalidArgumentException(sprintf('The TrackingPropertyType property can only contain items of type \StructType\EwsTrackingPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

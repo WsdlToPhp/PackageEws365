@@ -134,8 +134,12 @@ class EwsArrayOfEmailAddressEntitiesType extends AbstractStructArrayBase
      * @param \StructType\EwsEmailAddressEntityType $item
      * @return \ArrayType\EwsArrayOfEmailAddressEntitiesType
      */
-    public function add(\StructType\EwsEmailAddressEntityType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsEmailAddressEntityType) {
+            throw new InvalidArgumentException(sprintf('The EmailAddressEntity property can only contain items of type \StructType\EwsEmailAddressEntityType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

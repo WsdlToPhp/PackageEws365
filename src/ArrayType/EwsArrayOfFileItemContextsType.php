@@ -134,8 +134,12 @@ class EwsArrayOfFileItemContextsType extends AbstractStructArrayBase
      * @param \StructType\EwsFileItemContext $item
      * @return \ArrayType\EwsArrayOfFileItemContextsType
      */
-    public function add(\StructType\EwsFileItemContext $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFileItemContext) {
+            throw new InvalidArgumentException(sprintf('The FileContext property can only contain items of type \StructType\EwsFileItemContext, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

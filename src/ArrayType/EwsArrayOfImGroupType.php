@@ -146,8 +146,12 @@ class EwsArrayOfImGroupType extends AbstractStructArrayBase
      * @param \StructType\EwsImGroupType $item
      * @return \ArrayType\EwsArrayOfImGroupType
      */
-    public function add(\StructType\EwsImGroupType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsImGroupType) {
+            throw new InvalidArgumentException(sprintf('The ImGroup property can only contain items of type \StructType\EwsImGroupType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -136,8 +136,12 @@ class EwsArrayOfNonIndexableItemStatisticsType extends AbstractStructArrayBase
      * @param \StructType\EwsNonIndexableItemStatisticType $item
      * @return \ArrayType\EwsArrayOfNonIndexableItemStatisticsType
      */
-    public function add(\StructType\EwsNonIndexableItemStatisticType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsNonIndexableItemStatisticType) {
+            throw new InvalidArgumentException(sprintf('The NonIndexableItemStatistic property can only contain items of type \StructType\EwsNonIndexableItemStatisticType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

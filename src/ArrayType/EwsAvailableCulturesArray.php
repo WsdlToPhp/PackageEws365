@@ -146,8 +146,12 @@ class EwsAvailableCulturesArray extends AbstractStructArrayBase
      * @param \StructType\EwsCultureInfoDataType $item
      * @return \ArrayType\EwsAvailableCulturesArray
      */
-    public function add(\StructType\EwsCultureInfoDataType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsCultureInfoDataType) {
+            throw new InvalidArgumentException(sprintf('The AvailableCulture property can only contain items of type \StructType\EwsCultureInfoDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

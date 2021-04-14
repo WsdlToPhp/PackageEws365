@@ -134,8 +134,12 @@ class EwsArrayOfServiceConfigurationResponseMessageType extends AbstractStructAr
      * @param \StructType\EwsServiceConfigurationResponseMessageType $item
      * @return \ArrayType\EwsArrayOfServiceConfigurationResponseMessageType
      */
-    public function add(\StructType\EwsServiceConfigurationResponseMessageType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsServiceConfigurationResponseMessageType) {
+            throw new InvalidArgumentException(sprintf('The ServiceConfigurationResponseMessageType property can only contain items of type \StructType\EwsServiceConfigurationResponseMessageType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

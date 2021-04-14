@@ -134,8 +134,12 @@ class EwsArrayOfUnifiedGroupSenderRestrictionSettingType extends AbstractStructA
      * @param \StructType\EwsUnifiedGroupSenderRestrictionSetting $item
      * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionSettingType
      */
-    public function add(\StructType\EwsUnifiedGroupSenderRestrictionSetting $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnifiedGroupSenderRestrictionSetting) {
+            throw new InvalidArgumentException(sprintf('The Setting property can only contain items of type \StructType\EwsUnifiedGroupSenderRestrictionSetting, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

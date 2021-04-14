@@ -134,8 +134,12 @@ class EwsArrayOfUMReportRawCountersType extends AbstractStructArrayBase
      * @param \StructType\EwsUMReportRawCountersType $item
      * @return \ArrayType\EwsArrayOfUMReportRawCountersType
      */
-    public function add(\StructType\EwsUMReportRawCountersType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUMReportRawCountersType) {
+            throw new InvalidArgumentException(sprintf('The UMReportRawCounters property can only contain items of type \StructType\EwsUMReportRawCountersType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfPeriodsType extends AbstractStructArrayBase
      * @param \StructType\EwsPeriodType $item
      * @return \ArrayType\EwsNonEmptyArrayOfPeriodsType
      */
-    public function add(\StructType\EwsPeriodType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsPeriodType) {
+            throw new InvalidArgumentException(sprintf('The Period property can only contain items of type \StructType\EwsPeriodType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

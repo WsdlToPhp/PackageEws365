@@ -146,8 +146,12 @@ class EwsArrayOfRecipientTrackingEventType extends AbstractStructArrayBase
      * @param \StructType\EwsRecipientTrackingEventType $item
      * @return \ArrayType\EwsArrayOfRecipientTrackingEventType
      */
-    public function add(\StructType\EwsRecipientTrackingEventType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsRecipientTrackingEventType) {
+            throw new InvalidArgumentException(sprintf('The RecipientTrackingEvent property can only contain items of type \StructType\EwsRecipientTrackingEventType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -153,7 +153,7 @@ class EwsNonEmptyArrayOfNotificationEventTypesType extends AbstractStructArrayBa
      * @param string $item
      * @return \ArrayType\EwsNonEmptyArrayOfNotificationEventTypesType
      */
-    public function add(string $item): self
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\EnumType\EwsNotificationEventTypeType::valueIsValid($item)) {

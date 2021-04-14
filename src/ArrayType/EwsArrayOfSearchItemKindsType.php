@@ -138,7 +138,7 @@ class EwsArrayOfSearchItemKindsType extends AbstractStructArrayBase
      * @param string $item
      * @return \ArrayType\EwsArrayOfSearchItemKindsType
      */
-    public function add(string $item): self
+    public function add($item): self
     {
         // validation for constraint: enumeration
         if (!\EnumType\EwsSearchItemKindType::valueIsValid($item)) {

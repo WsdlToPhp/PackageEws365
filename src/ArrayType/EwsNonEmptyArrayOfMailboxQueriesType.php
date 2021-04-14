@@ -136,8 +136,12 @@ class EwsNonEmptyArrayOfMailboxQueriesType extends AbstractStructArrayBase
      * @param \StructType\EwsMailboxQueryType $item
      * @return \ArrayType\EwsNonEmptyArrayOfMailboxQueriesType
      */
-    public function add(\StructType\EwsMailboxQueryType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMailboxQueryType) {
+            throw new InvalidArgumentException(sprintf('The MailboxQuery property can only contain items of type \StructType\EwsMailboxQueryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

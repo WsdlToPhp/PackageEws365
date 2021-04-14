@@ -133,8 +133,12 @@ class EwsArrayOfMeetingSuggestionsType extends AbstractStructArrayBase
      * @param \StructType\EwsMeetingSuggestionType $item
      * @return \ArrayType\EwsArrayOfMeetingSuggestionsType
      */
-    public function add(\StructType\EwsMeetingSuggestionType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMeetingSuggestionType) {
+            throw new InvalidArgumentException(sprintf('The MeetingSuggestion property can only contain items of type \StructType\EwsMeetingSuggestionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

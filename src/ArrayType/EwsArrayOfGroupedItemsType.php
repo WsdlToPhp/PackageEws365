@@ -176,8 +176,12 @@ class EwsArrayOfGroupedItemsType extends AbstractStructArrayBase
      * @param \StructType\EwsGroupedItemsType $item
      * @return \ArrayType\EwsArrayOfGroupedItemsType
      */
-    public function add(\StructType\EwsGroupedItemsType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsGroupedItemsType) {
+            throw new InvalidArgumentException(sprintf('The GroupedItems property can only contain items of type \StructType\EwsGroupedItemsType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

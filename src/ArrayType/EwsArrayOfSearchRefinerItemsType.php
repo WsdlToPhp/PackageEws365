@@ -136,8 +136,12 @@ class EwsArrayOfSearchRefinerItemsType extends AbstractStructArrayBase
      * @param \StructType\EwsSearchRefinerItemType $item
      * @return \ArrayType\EwsArrayOfSearchRefinerItemsType
      */
-    public function add(\StructType\EwsSearchRefinerItemType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsSearchRefinerItemType) {
+            throw new InvalidArgumentException(sprintf('The Refiner property can only contain items of type \StructType\EwsSearchRefinerItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfAttendeesType extends AbstractStructArrayBase
      * @param \StructType\EwsAttendeeType $item
      * @return \ArrayType\EwsNonEmptyArrayOfAttendeesType
      */
-    public function add(\StructType\EwsAttendeeType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsAttendeeType) {
+            throw new InvalidArgumentException(sprintf('The Attendee property can only contain items of type \StructType\EwsAttendeeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

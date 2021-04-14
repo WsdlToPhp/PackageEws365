@@ -134,8 +134,12 @@ class EwsArrayOfUnifiedGroupSenderRestrictionsDataType extends AbstractStructArr
      * @param \StructType\EwsUnifiedGroupSenderRestrictionsDataType $item
      * @return \ArrayType\EwsArrayOfUnifiedGroupSenderRestrictionsDataType
      */
-    public function add(\StructType\EwsUnifiedGroupSenderRestrictionsDataType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnifiedGroupSenderRestrictionsDataType) {
+            throw new InvalidArgumentException(sprintf('The Sender property can only contain items of type \StructType\EwsUnifiedGroupSenderRestrictionsDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

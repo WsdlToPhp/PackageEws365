@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfRestrictedGroupIdentifiersType extends AbstractStructArr
      * @param \StructType\EwsSidAndAttributesType $item
      * @return \ArrayType\EwsNonEmptyArrayOfRestrictedGroupIdentifiersType
      */
-    public function add(\StructType\EwsSidAndAttributesType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsSidAndAttributesType) {
+            throw new InvalidArgumentException(sprintf('The RestrictedGroupIdentifier property can only contain items of type \StructType\EwsSidAndAttributesType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -134,8 +134,12 @@ class EwsArrayOfCompanyInsightValue extends AbstractStructArrayBase
      * @param \StructType\EwsCompanyInsightValue $item
      * @return \ArrayType\EwsArrayOfCompanyInsightValue
      */
-    public function add(\StructType\EwsCompanyInsightValue $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsCompanyInsightValue) {
+            throw new InvalidArgumentException(sprintf('The Item property can only contain items of type \StructType\EwsCompanyInsightValue, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

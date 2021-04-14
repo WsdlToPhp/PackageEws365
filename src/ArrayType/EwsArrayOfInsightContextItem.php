@@ -134,8 +134,12 @@ class EwsArrayOfInsightContextItem extends AbstractStructArrayBase
      * @param \StructType\EwsInsightContextItem $item
      * @return \ArrayType\EwsArrayOfInsightContextItem
      */
-    public function add(\StructType\EwsInsightContextItem $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsInsightContextItem) {
+            throw new InvalidArgumentException(sprintf('The Context property can only contain items of type \StructType\EwsInsightContextItem, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

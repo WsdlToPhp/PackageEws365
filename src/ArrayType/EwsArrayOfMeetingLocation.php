@@ -134,8 +134,12 @@ class EwsArrayOfMeetingLocation extends AbstractStructArrayBase
      * @param \StructType\EwsMeetingLocation $item
      * @return \ArrayType\EwsArrayOfMeetingLocation
      */
-    public function add(\StructType\EwsMeetingLocation $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMeetingLocation) {
+            throw new InvalidArgumentException(sprintf('The MeetingLocation property can only contain items of type \StructType\EwsMeetingLocation, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

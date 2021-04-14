@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfReminderItemActionType extends AbstractStructArrayBase
      * @param \StructType\EwsReminderItemActionType $item
      * @return \ArrayType\EwsNonEmptyArrayOfReminderItemActionType
      */
-    public function add(\StructType\EwsReminderItemActionType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsReminderItemActionType) {
+            throw new InvalidArgumentException(sprintf('The ReminderItemAction property can only contain items of type \StructType\EwsReminderItemActionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

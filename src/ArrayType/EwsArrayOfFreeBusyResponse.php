@@ -134,8 +134,12 @@ class EwsArrayOfFreeBusyResponse extends AbstractStructArrayBase
      * @param \StructType\EwsFreeBusyResponseType $item
      * @return \ArrayType\EwsArrayOfFreeBusyResponse
      */
-    public function add(\StructType\EwsFreeBusyResponseType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFreeBusyResponseType) {
+            throw new InvalidArgumentException(sprintf('The FreeBusyResponse property can only contain items of type \StructType\EwsFreeBusyResponseType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

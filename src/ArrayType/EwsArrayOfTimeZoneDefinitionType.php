@@ -103,8 +103,12 @@ class EwsArrayOfTimeZoneDefinitionType extends AbstractStructArrayBase
      * @param \StructType\EwsTimeZoneDefinitionType $item
      * @return \ArrayType\EwsArrayOfTimeZoneDefinitionType
      */
-    public function add(\StructType\EwsTimeZoneDefinitionType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsTimeZoneDefinitionType) {
+            throw new InvalidArgumentException(sprintf('The TimeZoneDefinition property can only contain items of type \StructType\EwsTimeZoneDefinitionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

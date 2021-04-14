@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfClientAccessTokenRequestsType extends AbstractStructArra
      * @param \StructType\EwsClientAccessTokenRequestType $item
      * @return \ArrayType\EwsNonEmptyArrayOfClientAccessTokenRequestsType
      */
-    public function add(\StructType\EwsClientAccessTokenRequestType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsClientAccessTokenRequestType) {
+            throw new InvalidArgumentException(sprintf('The TokenRequest property can only contain items of type \StructType\EwsClientAccessTokenRequestType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

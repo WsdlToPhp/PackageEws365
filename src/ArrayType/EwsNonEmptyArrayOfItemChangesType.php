@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfItemChangesType extends AbstractStructArrayBase
      * @param \StructType\EwsItemChangeType $item
      * @return \ArrayType\EwsNonEmptyArrayOfItemChangesType
      */
-    public function add(\StructType\EwsItemChangeType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsItemChangeType) {
+            throw new InvalidArgumentException(sprintf('The ItemChange property can only contain items of type \StructType\EwsItemChangeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

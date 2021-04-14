@@ -134,8 +134,12 @@ class EwsArrayOfEntityFeedbackEntry extends AbstractStructArrayBase
      * @param \StructType\EwsEntityFeedbackEntryType $item
      * @return \ArrayType\EwsArrayOfEntityFeedbackEntry
      */
-    public function add(\StructType\EwsEntityFeedbackEntryType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsEntityFeedbackEntryType) {
+            throw new InvalidArgumentException(sprintf('The EntityFeedbackEntry property can only contain items of type \StructType\EwsEntityFeedbackEntryType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

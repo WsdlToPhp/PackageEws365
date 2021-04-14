@@ -136,8 +136,12 @@ class EwsArrayOfRuleValidationErrorsType extends AbstractStructArrayBase
      * @param \StructType\EwsRuleValidationErrorType $item
      * @return \ArrayType\EwsArrayOfRuleValidationErrorsType
      */
-    public function add(\StructType\EwsRuleValidationErrorType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsRuleValidationErrorType) {
+            throw new InvalidArgumentException(sprintf('The Error property can only contain items of type \StructType\EwsRuleValidationErrorType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

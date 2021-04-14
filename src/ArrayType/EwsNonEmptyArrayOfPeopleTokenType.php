@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfPeopleTokenType extends AbstractStructArrayBase
      * @param \StructType\EwsPeopleTokenType $item
      * @return \ArrayType\EwsNonEmptyArrayOfPeopleTokenType
      */
-    public function add(\StructType\EwsPeopleTokenType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsPeopleTokenType) {
+            throw new InvalidArgumentException(sprintf('The PeopleToken property can only contain items of type \StructType\EwsPeopleTokenType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

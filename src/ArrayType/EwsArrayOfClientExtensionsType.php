@@ -134,8 +134,12 @@ class EwsArrayOfClientExtensionsType extends AbstractStructArrayBase
      * @param \StructType\EwsClientExtensionType $item
      * @return \ArrayType\EwsArrayOfClientExtensionsType
      */
-    public function add(\StructType\EwsClientExtensionType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsClientExtensionType) {
+            throw new InvalidArgumentException(sprintf('The ClientExtension property can only contain items of type \StructType\EwsClientExtensionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

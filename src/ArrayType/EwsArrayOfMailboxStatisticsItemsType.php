@@ -136,8 +136,12 @@ class EwsArrayOfMailboxStatisticsItemsType extends AbstractStructArrayBase
      * @param \StructType\EwsMailboxStatisticsItemType $item
      * @return \ArrayType\EwsArrayOfMailboxStatisticsItemsType
      */
-    public function add(\StructType\EwsMailboxStatisticsItemType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMailboxStatisticsItemType) {
+            throw new InvalidArgumentException(sprintf('The MailboxStat property can only contain items of type \StructType\EwsMailboxStatisticsItemType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

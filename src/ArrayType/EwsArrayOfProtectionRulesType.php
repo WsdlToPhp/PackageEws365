@@ -134,8 +134,12 @@ class EwsArrayOfProtectionRulesType extends AbstractStructArrayBase
      * @param \StructType\EwsProtectionRuleType $item
      * @return \ArrayType\EwsArrayOfProtectionRulesType
      */
-    public function add(\StructType\EwsProtectionRuleType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsProtectionRuleType) {
+            throw new InvalidArgumentException(sprintf('The Rule property can only contain items of type \StructType\EwsProtectionRuleType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

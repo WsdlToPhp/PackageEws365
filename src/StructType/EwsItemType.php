@@ -651,7 +651,7 @@ class EwsItemType extends AbstractStructBase
     public function setMimeContent(?\StructType\EwsMimeContentType $mimeContent = null): self
     {
         $this->MimeContent = $mimeContent;
-
+        
         return $this;
     }
     /**
@@ -670,7 +670,7 @@ class EwsItemType extends AbstractStructBase
     public function setItemId(?\StructType\EwsItemIdType $itemId = null): self
     {
         $this->ItemId = $itemId;
-
+        
         return $this;
     }
     /**
@@ -689,7 +689,7 @@ class EwsItemType extends AbstractStructBase
     public function setParentFolderId(?\StructType\EwsFolderIdType $parentFolderId = null): self
     {
         $this->ParentFolderId = $parentFolderId;
-
+        
         return $this;
     }
     /**
@@ -712,7 +712,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($itemClass, true), gettype($itemClass)), __LINE__);
         }
         $this->ItemClass = $itemClass;
-
+        
         return $this;
     }
     /**
@@ -735,7 +735,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($subject, true), gettype($subject)), __LINE__);
         }
         $this->Subject = $subject;
-
+        
         return $this;
     }
     /**
@@ -761,7 +761,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsSensitivityChoicesType', is_array($sensitivity) ? implode(', ', $sensitivity) : var_export($sensitivity, true), implode(', ', \EnumType\EwsSensitivityChoicesType::getValidValues())), __LINE__);
         }
         $this->Sensitivity = $sensitivity;
-
+        
         return $this;
     }
     /**
@@ -780,7 +780,7 @@ class EwsItemType extends AbstractStructBase
     public function setBody(?\StructType\EwsBodyType $body = null): self
     {
         $this->Body = $body;
-
+        
         return $this;
     }
     /**
@@ -799,7 +799,7 @@ class EwsItemType extends AbstractStructBase
     public function setAttachments(?\StructType\EwsNonEmptyArrayOfAttachmentsType $attachments = null): self
     {
         $this->Attachments = $attachments;
-
+        
         return $this;
     }
     /**
@@ -822,7 +822,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeReceived, true), gettype($dateTimeReceived)), __LINE__);
         }
         $this->DateTimeReceived = $dateTimeReceived;
-
+        
         return $this;
     }
     /**
@@ -845,7 +845,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($size, true), gettype($size)), __LINE__);
         }
         $this->Size = $size;
-
+        
         return $this;
     }
     /**
@@ -864,7 +864,7 @@ class EwsItemType extends AbstractStructBase
     public function setCategories(?\ArrayType\EwsArrayOfStringsType $categories = null): self
     {
         $this->Categories = $categories;
-
+        
         return $this;
     }
     /**
@@ -890,7 +890,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsImportanceChoicesType', is_array($importance) ? implode(', ', $importance) : var_export($importance, true), implode(', ', \EnumType\EwsImportanceChoicesType::getValidValues())), __LINE__);
         }
         $this->Importance = $importance;
-
+        
         return $this;
     }
     /**
@@ -913,7 +913,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($inReplyTo, true), gettype($inReplyTo)), __LINE__);
         }
         $this->InReplyTo = $inReplyTo;
-
+        
         return $this;
     }
     /**
@@ -936,7 +936,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isSubmitted, true), gettype($isSubmitted)), __LINE__);
         }
         $this->IsSubmitted = $isSubmitted;
-
+        
         return $this;
     }
     /**
@@ -959,7 +959,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isDraft, true), gettype($isDraft)), __LINE__);
         }
         $this->IsDraft = $isDraft;
-
+        
         return $this;
     }
     /**
@@ -982,7 +982,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isFromMe, true), gettype($isFromMe)), __LINE__);
         }
         $this->IsFromMe = $isFromMe;
-
+        
         return $this;
     }
     /**
@@ -1005,7 +1005,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isResend, true), gettype($isResend)), __LINE__);
         }
         $this->IsResend = $isResend;
-
+        
         return $this;
     }
     /**
@@ -1028,7 +1028,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isUnmodified, true), gettype($isUnmodified)), __LINE__);
         }
         $this->IsUnmodified = $isUnmodified;
-
+        
         return $this;
     }
     /**
@@ -1047,7 +1047,7 @@ class EwsItemType extends AbstractStructBase
     public function setInternetMessageHeaders(?\ArrayType\EwsNonEmptyArrayOfInternetHeadersType $internetMessageHeaders = null): self
     {
         $this->InternetMessageHeaders = $internetMessageHeaders;
-
+        
         return $this;
     }
     /**
@@ -1070,7 +1070,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeSent, true), gettype($dateTimeSent)), __LINE__);
         }
         $this->DateTimeSent = $dateTimeSent;
-
+        
         return $this;
     }
     /**
@@ -1093,7 +1093,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($dateTimeCreated, true), gettype($dateTimeCreated)), __LINE__);
         }
         $this->DateTimeCreated = $dateTimeCreated;
-
+        
         return $this;
     }
     /**
@@ -1112,7 +1112,7 @@ class EwsItemType extends AbstractStructBase
     public function setResponseObjects(?\StructType\EwsNonEmptyArrayOfResponseObjectsType $responseObjects = null): self
     {
         $this->ResponseObjects = $responseObjects;
-
+        
         return $this;
     }
     /**
@@ -1135,7 +1135,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderDueBy, true), gettype($reminderDueBy)), __LINE__);
         }
         $this->ReminderDueBy = $reminderDueBy;
-
+        
         return $this;
     }
     /**
@@ -1158,7 +1158,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($reminderIsSet, true), gettype($reminderIsSet)), __LINE__);
         }
         $this->ReminderIsSet = $reminderIsSet;
-
+        
         return $this;
     }
     /**
@@ -1181,7 +1181,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($reminderNextTime, true), gettype($reminderNextTime)), __LINE__);
         }
         $this->ReminderNextTime = $reminderNextTime;
-
+        
         return $this;
     }
     /**
@@ -1207,12 +1207,10 @@ class EwsItemType extends AbstractStructBase
             $exception0 = new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (isset($exception0)) {
-            $message = sprintf("The value %s does not match any of the union rules: int. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function (InvalidArgumentException $e) {
-                return sprintf(' - %s', $e->getMessage());
-            }, [$exception0])));
+            $message = sprintf("The value %s does not match any of the union rules: int. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
         }
         unset($exception0);
-
+        
         return $message;
     }
     /**
@@ -1231,7 +1229,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException($reminderMinutesBeforeStartUnionErrorMessage, __LINE__);
         }
         $this->ReminderMinutesBeforeStart = $reminderMinutesBeforeStart;
-
+        
         return $this;
     }
     /**
@@ -1254,7 +1252,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayCc, true), gettype($displayCc)), __LINE__);
         }
         $this->DisplayCc = $displayCc;
-
+        
         return $this;
     }
     /**
@@ -1277,7 +1275,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($displayTo, true), gettype($displayTo)), __LINE__);
         }
         $this->DisplayTo = $displayTo;
-
+        
         return $this;
     }
     /**
@@ -1300,7 +1298,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasAttachments, true), gettype($hasAttachments)), __LINE__);
         }
         $this->HasAttachments = $hasAttachments;
-
+        
         return $this;
     }
     /**
@@ -1331,7 +1329,7 @@ class EwsItemType extends AbstractStructBase
             $message = sprintf('The ExtendedProperty property can only contain items of type \StructType\EwsExtendedPropertyType, %s given', is_object($invalidValues) ? get_class($invalidValues) : (is_array($invalidValues) ? implode(', ', $invalidValues) : gettype($invalidValues)));
         }
         unset($invalidValues);
-
+        
         return $message;
     }
     /**
@@ -1347,7 +1345,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException($extendedPropertyArrayErrorMessage, __LINE__);
         }
         $this->ExtendedProperty = $extendedProperty;
-
+        
         return $this;
     }
     /**
@@ -1363,7 +1361,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('The ExtendedProperty property can only contain items of type \StructType\EwsExtendedPropertyType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
         }
         $this->ExtendedProperty[] = $item;
-
+        
         return $this;
     }
     /**
@@ -1386,7 +1384,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($culture, true), gettype($culture)), __LINE__);
         }
         $this->Culture = $culture;
-
+        
         return $this;
     }
     /**
@@ -1405,7 +1403,7 @@ class EwsItemType extends AbstractStructBase
     public function setEffectiveRights(?\StructType\EwsEffectiveRightsType $effectiveRights = null): self
     {
         $this->EffectiveRights = $effectiveRights;
-
+        
         return $this;
     }
     /**
@@ -1428,7 +1426,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedName, true), gettype($lastModifiedName)), __LINE__);
         }
         $this->LastModifiedName = $lastModifiedName;
-
+        
         return $this;
     }
     /**
@@ -1451,7 +1449,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($lastModifiedTime, true), gettype($lastModifiedTime)), __LINE__);
         }
         $this->LastModifiedTime = $lastModifiedTime;
-
+        
         return $this;
     }
     /**
@@ -1474,7 +1472,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isAssociated, true), gettype($isAssociated)), __LINE__);
         }
         $this->IsAssociated = $isAssociated;
-
+        
         return $this;
     }
     /**
@@ -1497,7 +1495,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientReadFormQueryString, true), gettype($webClientReadFormQueryString)), __LINE__);
         }
         $this->WebClientReadFormQueryString = $webClientReadFormQueryString;
-
+        
         return $this;
     }
     /**
@@ -1520,7 +1518,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($webClientEditFormQueryString, true), gettype($webClientEditFormQueryString)), __LINE__);
         }
         $this->WebClientEditFormQueryString = $webClientEditFormQueryString;
-
+        
         return $this;
     }
     /**
@@ -1539,7 +1537,7 @@ class EwsItemType extends AbstractStructBase
     public function setConversationId(?\StructType\EwsItemIdType $conversationId = null): self
     {
         $this->ConversationId = $conversationId;
-
+        
         return $this;
     }
     /**
@@ -1558,7 +1556,7 @@ class EwsItemType extends AbstractStructBase
     public function setUniqueBody(?\StructType\EwsBodyType $uniqueBody = null): self
     {
         $this->UniqueBody = $uniqueBody;
-
+        
         return $this;
     }
     /**
@@ -1577,7 +1575,7 @@ class EwsItemType extends AbstractStructBase
     public function setFlag(?\StructType\EwsFlagType $flag = null): self
     {
         $this->Flag = $flag;
-
+        
         return $this;
     }
     /**
@@ -1600,7 +1598,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($storeEntryId, true), gettype($storeEntryId)), __LINE__);
         }
         $this->StoreEntryId = $storeEntryId;
-
+        
         return $this;
     }
     /**
@@ -1623,7 +1621,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($instanceKey, true), gettype($instanceKey)), __LINE__);
         }
         $this->InstanceKey = $instanceKey;
-
+        
         return $this;
     }
     /**
@@ -1642,7 +1640,7 @@ class EwsItemType extends AbstractStructBase
     public function setNormalizedBody(?\StructType\EwsBodyType $normalizedBody = null): self
     {
         $this->NormalizedBody = $normalizedBody;
-
+        
         return $this;
     }
     /**
@@ -1661,7 +1659,7 @@ class EwsItemType extends AbstractStructBase
     public function setEntityExtractionResult(?\StructType\EwsEntityExtractionResultType $entityExtractionResult = null): self
     {
         $this->EntityExtractionResult = $entityExtractionResult;
-
+        
         return $this;
     }
     /**
@@ -1680,7 +1678,7 @@ class EwsItemType extends AbstractStructBase
     public function setPolicyTag(?\StructType\EwsRetentionTagType $policyTag = null): self
     {
         $this->PolicyTag = $policyTag;
-
+        
         return $this;
     }
     /**
@@ -1699,7 +1697,7 @@ class EwsItemType extends AbstractStructBase
     public function setArchiveTag(?\StructType\EwsRetentionTagType $archiveTag = null): self
     {
         $this->ArchiveTag = $archiveTag;
-
+        
         return $this;
     }
     /**
@@ -1722,7 +1720,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($retentionDate, true), gettype($retentionDate)), __LINE__);
         }
         $this->RetentionDate = $retentionDate;
-
+        
         return $this;
     }
     /**
@@ -1745,7 +1743,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($preview, true), gettype($preview)), __LINE__);
         }
         $this->Preview = $preview;
-
+        
         return $this;
     }
     /**
@@ -1764,7 +1762,7 @@ class EwsItemType extends AbstractStructBase
     public function setRightsManagementLicenseData(?\StructType\EwsRightsManagementLicenseDataType $rightsManagementLicenseData = null): self
     {
         $this->RightsManagementLicenseData = $rightsManagementLicenseData;
-
+        
         return $this;
     }
     /**
@@ -1783,7 +1781,7 @@ class EwsItemType extends AbstractStructBase
     public function setPredictedActionReasons(?\ArrayType\EwsNonEmptyArrayOfPredictedActionReasonType $predictedActionReasons = null): self
     {
         $this->PredictedActionReasons = $predictedActionReasons;
-
+        
         return $this;
     }
     /**
@@ -1806,7 +1804,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($isClutter, true), gettype($isClutter)), __LINE__);
         }
         $this->IsClutter = $isClutter;
-
+        
         return $this;
     }
     /**
@@ -1829,7 +1827,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($blockStatus, true), gettype($blockStatus)), __LINE__);
         }
         $this->BlockStatus = $blockStatus;
-
+        
         return $this;
     }
     /**
@@ -1852,7 +1850,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($hasBlockedImages, true), gettype($hasBlockedImages)), __LINE__);
         }
         $this->HasBlockedImages = $hasBlockedImages;
-
+        
         return $this;
     }
     /**
@@ -1871,7 +1869,7 @@ class EwsItemType extends AbstractStructBase
     public function setTextBody(?\StructType\EwsBodyType $textBody = null): self
     {
         $this->TextBody = $textBody;
-
+        
         return $this;
     }
     /**
@@ -1897,7 +1895,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsIconIndexType', is_array($iconIndex) ? implode(', ', $iconIndex) : var_export($iconIndex, true), implode(', ', \EnumType\EwsIconIndexType::getValidValues())), __LINE__);
         }
         $this->IconIndex = $iconIndex;
-
+        
         return $this;
     }
     /**
@@ -1920,7 +1918,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($searchKey, true), gettype($searchKey)), __LINE__);
         }
         $this->SearchKey = $searchKey;
-
+        
         return $this;
     }
     /**
@@ -1943,7 +1941,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($sortKey, true), gettype($sortKey)), __LINE__);
         }
         $this->SortKey = $sortKey;
-
+        
         return $this;
     }
     /**
@@ -1962,7 +1960,7 @@ class EwsItemType extends AbstractStructBase
     public function setHashtags(?\ArrayType\EwsArrayOfStringsType $hashtags = null): self
     {
         $this->Hashtags = $hashtags;
-
+        
         return $this;
     }
     /**
@@ -1981,7 +1979,7 @@ class EwsItemType extends AbstractStructBase
     public function setMentions(?\ArrayType\EwsArrayOfRecipientsType $mentions = null): self
     {
         $this->Mentions = $mentions;
-
+        
         return $this;
     }
     /**
@@ -2004,7 +2002,7 @@ class EwsItemType extends AbstractStructBase
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a bool, %s given', var_export($mentionedMe, true), gettype($mentionedMe)), __LINE__);
         }
         $this->MentionedMe = $mentionedMe;
-
+        
         return $this;
     }
     /**
@@ -2023,7 +2021,7 @@ class EwsItemType extends AbstractStructBase
     public function setPendingSocialActivityTagIds(?\ArrayType\EwsArrayOfStringsType $pendingSocialActivityTagIds = null): self
     {
         $this->PendingSocialActivityTagIds = $pendingSocialActivityTagIds;
-
+        
         return $this;
     }
 }

@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfUseenDataType extends AbstractStructArrayBase
      * @param \StructType\EwsUnseenDataType $item
      * @return \ArrayType\EwsNonEmptyArrayOfUseenDataType
      */
-    public function add(\StructType\EwsUnseenDataType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnseenDataType) {
+            throw new InvalidArgumentException(sprintf('The Unseen property can only contain items of type \StructType\EwsUnseenDataType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

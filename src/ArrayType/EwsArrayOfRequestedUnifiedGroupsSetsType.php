@@ -136,8 +136,12 @@ class EwsArrayOfRequestedUnifiedGroupsSetsType extends AbstractStructArrayBase
      * @param \StructType\EwsRequestedUnifiedGroupsSetType $item
      * @return \ArrayType\EwsArrayOfRequestedUnifiedGroupsSetsType
      */
-    public function add(\StructType\EwsRequestedUnifiedGroupsSetType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsRequestedUnifiedGroupsSetType) {
+            throw new InvalidArgumentException(sprintf('The RequestedUnifiedGroupsSet property can only contain items of type \StructType\EwsRequestedUnifiedGroupsSetType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

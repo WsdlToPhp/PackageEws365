@@ -146,8 +146,12 @@ class EwsArrayOfPersonType extends AbstractStructArrayBase
      * @param \StructType\EwsPersonType $item
      * @return \ArrayType\EwsArrayOfPersonType
      */
-    public function add(\StructType\EwsPersonType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsPersonType) {
+            throw new InvalidArgumentException(sprintf('The Person property can only contain items of type \StructType\EwsPersonType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

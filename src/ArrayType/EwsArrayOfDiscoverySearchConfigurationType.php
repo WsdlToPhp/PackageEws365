@@ -136,8 +136,12 @@ class EwsArrayOfDiscoverySearchConfigurationType extends AbstractStructArrayBase
      * @param \StructType\EwsDiscoverySearchConfigurationType $item
      * @return \ArrayType\EwsArrayOfDiscoverySearchConfigurationType
      */
-    public function add(\StructType\EwsDiscoverySearchConfigurationType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsDiscoverySearchConfigurationType) {
+            throw new InvalidArgumentException(sprintf('The DiscoverySearchConfiguration property can only contain items of type \StructType\EwsDiscoverySearchConfigurationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

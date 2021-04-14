@@ -134,8 +134,12 @@ class EwsArrayOfAggregatedSocialNotifications extends AbstractStructArrayBase
      * @param \StructType\EwsSocialActivityAggregatedNotificationType $item
      * @return \ArrayType\EwsArrayOfAggregatedSocialNotifications
      */
-    public function add(\StructType\EwsSocialActivityAggregatedNotificationType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsSocialActivityAggregatedNotificationType) {
+            throw new InvalidArgumentException(sprintf('The AggregatedNotification property can only contain items of type \StructType\EwsSocialActivityAggregatedNotificationType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

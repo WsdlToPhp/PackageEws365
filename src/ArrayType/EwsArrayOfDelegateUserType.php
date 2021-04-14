@@ -134,8 +134,12 @@ class EwsArrayOfDelegateUserType extends AbstractStructArrayBase
      * @param \StructType\EwsDelegateUserType $item
      * @return \ArrayType\EwsArrayOfDelegateUserType
      */
-    public function add(\StructType\EwsDelegateUserType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsDelegateUserType) {
+            throw new InvalidArgumentException(sprintf('The DelegateUser property can only contain items of type \StructType\EwsDelegateUserType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

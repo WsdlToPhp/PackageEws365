@@ -134,8 +134,12 @@ class EwsArrayOfContactsType extends AbstractStructArrayBase
      * @param \StructType\EwsContactType $item
      * @return \ArrayType\EwsArrayOfContactsType
      */
-    public function add(\StructType\EwsContactType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsContactType) {
+            throw new InvalidArgumentException(sprintf('The Contact property can only contain items of type \StructType\EwsContactType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

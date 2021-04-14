@@ -146,8 +146,12 @@ class EwsArrayOfCalendarPermissionsType extends AbstractStructArrayBase
      * @param \StructType\EwsCalendarPermissionType $item
      * @return \ArrayType\EwsArrayOfCalendarPermissionsType
      */
-    public function add(\StructType\EwsCalendarPermissionType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsCalendarPermissionType) {
+            throw new InvalidArgumentException(sprintf('The CalendarPermission property can only contain items of type \StructType\EwsCalendarPermissionType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

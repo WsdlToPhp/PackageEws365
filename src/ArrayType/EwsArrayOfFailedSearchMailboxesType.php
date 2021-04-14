@@ -136,8 +136,12 @@ class EwsArrayOfFailedSearchMailboxesType extends AbstractStructArrayBase
      * @param \StructType\EwsFailedSearchMailboxType $item
      * @return \ArrayType\EwsArrayOfFailedSearchMailboxesType
      */
-    public function add(\StructType\EwsFailedSearchMailboxType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFailedSearchMailboxType) {
+            throw new InvalidArgumentException(sprintf('The FailedMailbox property can only contain items of type \StructType\EwsFailedSearchMailboxType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

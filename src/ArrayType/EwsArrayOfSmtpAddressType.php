@@ -156,8 +156,12 @@ class EwsArrayOfSmtpAddressType extends AbstractStructArrayBase
      * @param string $item
      * @return \ArrayType\EwsArrayOfSmtpAddressType
      */
-    public function add(string $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!is_string($item)) {
+            throw new InvalidArgumentException(sprintf('The SmtpAddress property can only contain items of type string, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

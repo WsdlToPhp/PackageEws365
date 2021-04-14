@@ -146,8 +146,12 @@ class EwsArrayOfFolderIdType extends AbstractStructArrayBase
      * @param \StructType\EwsFolderIdType $item
      * @return \ArrayType\EwsArrayOfFolderIdType
      */
-    public function add(\StructType\EwsFolderIdType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFolderIdType) {
+            throw new InvalidArgumentException(sprintf('The FolderId property can only contain items of type \StructType\EwsFolderIdType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

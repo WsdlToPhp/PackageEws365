@@ -134,8 +134,12 @@ class EwsNonEmptyArrayOfUnifiedGroupIdentityType extends AbstractStructArrayBase
      * @param \StructType\EwsUnifiedGroupIdentity $item
      * @return \ArrayType\EwsNonEmptyArrayOfUnifiedGroupIdentityType
      */
-    public function add(\StructType\EwsUnifiedGroupIdentity $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsUnifiedGroupIdentity) {
+            throw new InvalidArgumentException(sprintf('The GroupIdentity property can only contain items of type \StructType\EwsUnifiedGroupIdentity, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

@@ -134,8 +134,12 @@ class EwsArrayOfHighlightTermsType extends AbstractStructArrayBase
      * @param \StructType\EwsHighlightTermType $item
      * @return \ArrayType\EwsArrayOfHighlightTermsType
      */
-    public function add(\StructType\EwsHighlightTermType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsHighlightTermType) {
+            throw new InvalidArgumentException(sprintf('The Term property can only contain items of type \StructType\EwsHighlightTermType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

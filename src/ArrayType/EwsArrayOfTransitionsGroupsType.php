@@ -133,8 +133,12 @@ class EwsArrayOfTransitionsGroupsType extends AbstractStructArrayBase
      * @param \StructType\EwsArrayOfTransitionsType $item
      * @return \ArrayType\EwsArrayOfTransitionsGroupsType
      */
-    public function add(\StructType\EwsArrayOfTransitionsType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsArrayOfTransitionsType) {
+            throw new InvalidArgumentException(sprintf('The TransitionsGroup property can only contain items of type \StructType\EwsArrayOfTransitionsType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

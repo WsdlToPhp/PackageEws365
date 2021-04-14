@@ -134,8 +134,12 @@ class EwsArrayOfMailTipsResponseMessageType extends AbstractStructArrayBase
      * @param \StructType\EwsMailTipsResponseMessageType $item
      * @return \ArrayType\EwsArrayOfMailTipsResponseMessageType
      */
-    public function add(\StructType\EwsMailTipsResponseMessageType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMailTipsResponseMessageType) {
+            throw new InvalidArgumentException(sprintf('The MailTipsResponseMessageType property can only contain items of type \StructType\EwsMailTipsResponseMessageType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

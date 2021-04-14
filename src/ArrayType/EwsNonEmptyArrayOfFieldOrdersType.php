@@ -133,8 +133,12 @@ class EwsNonEmptyArrayOfFieldOrdersType extends AbstractStructArrayBase
      * @param \StructType\EwsFieldOrderType $item
      * @return \ArrayType\EwsNonEmptyArrayOfFieldOrdersType
      */
-    public function add(\StructType\EwsFieldOrderType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsFieldOrderType) {
+            throw new InvalidArgumentException(sprintf('The FieldOrder property can only contain items of type \StructType\EwsFieldOrderType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**

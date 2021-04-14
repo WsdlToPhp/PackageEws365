@@ -113,7 +113,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsMapiPropertyTypeType', is_array($propertyType) ? implode(', ', $propertyType) : var_export($propertyType, true), implode(', ', \EnumType\EwsMapiPropertyTypeType::getValidValues())), __LINE__);
         }
         $this->PropertyType = $propertyType;
-
+        
         return $this;
     }
     /**
@@ -139,7 +139,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException(sprintf('Invalid value(s) %s, please use one of: %s from enumeration class \EnumType\EwsDistinguishedPropertySetType', is_array($distinguishedPropertySetId) ? implode(', ', $distinguishedPropertySetId) : var_export($distinguishedPropertySetId, true), implode(', ', \EnumType\EwsDistinguishedPropertySetType::getValidValues())), __LINE__);
         }
         $this->DistinguishedPropertySetId = $distinguishedPropertySetId;
-
+        
         return $this;
     }
     /**
@@ -166,7 +166,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a literal that is among the set of character sequences denoted by the regular expression /[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/', var_export($propertySetId, true)), __LINE__);
         }
         $this->PropertySetId = $propertySetId;
-
+        
         return $this;
     }
     /**
@@ -192,12 +192,10 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             $exception0 = new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($value, true), gettype($value)), __LINE__);
         }
         if (isset($exception0)) {
-            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function (InvalidArgumentException $e) {
-                return sprintf(' - %s', $e->getMessage());
-            }, [$exception0])));
+            $message = sprintf("The value %s does not match any of the union rules: unsignedShort, string. See following errors:\n%s", var_export($value, true), implode("\n", array_map(function(InvalidArgumentException $e) { return sprintf(' - %s', $e->getMessage()); }, [$exception0])));
         }
         unset($exception0);
-
+        
         return $message;
     }
     /**
@@ -216,7 +214,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException($propertyTagUnionErrorMessage, __LINE__);
         }
         $this->PropertyTag = $propertyTag;
-
+        
         return $this;
     }
     /**
@@ -239,7 +237,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide a string, %s given', var_export($propertyName, true), gettype($propertyName)), __LINE__);
         }
         $this->PropertyName = $propertyName;
-
+        
         return $this;
     }
     /**
@@ -262,7 +260,7 @@ class EwsPathToExtendedFieldType extends EwsBasePathToElementType
             throw new InvalidArgumentException(sprintf('Invalid value %s, please provide an integer value, %s given', var_export($propertyId, true), gettype($propertyId)), __LINE__);
         }
         $this->PropertyId = $propertyId;
-
+        
         return $this;
     }
 }

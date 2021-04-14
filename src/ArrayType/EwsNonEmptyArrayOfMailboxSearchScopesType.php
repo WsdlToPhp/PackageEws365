@@ -136,8 +136,12 @@ class EwsNonEmptyArrayOfMailboxSearchScopesType extends AbstractStructArrayBase
      * @param \StructType\EwsMailboxSearchScopeType $item
      * @return \ArrayType\EwsNonEmptyArrayOfMailboxSearchScopesType
      */
-    public function add(\StructType\EwsMailboxSearchScopeType $item): self
+    public function add($item): self
     {
+        // validation for constraint: itemType
+        if (!$item instanceof \StructType\EwsMailboxSearchScopeType) {
+            throw new InvalidArgumentException(sprintf('The MailboxSearchScope property can only contain items of type \StructType\EwsMailboxSearchScopeType, %s given', is_object($item) ? get_class($item) : (is_array($item) ? implode(', ', $item) : gettype($item))), __LINE__);
+        }
         return parent::add($item);
     }
     /**
